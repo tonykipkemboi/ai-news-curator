@@ -6,6 +6,8 @@ use rusqlite::{params, Connection};
 use serde::{Deserialize, Serialize};
 use std::env;
 use std::path::Path;
+use indicatif::{ProgressBar, ProgressStyle};
+use colored::*;
 
 const DB_PATH: &str = "seen_items.db";
 const ARXIV_URL: &str = "http://export.arxiv.org/api/query?search_query=cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.CL+OR+cat:cs.MA&sortBy=submittedDate&sortOrder=descending&max_results=30";
@@ -133,8 +135,8 @@ fn clean_html(html: &str) -> String {
     clean_text.chars().take(10000).collect()
 }
 
-async fn fetch_arxiv() -> Result<Vec<Item>, GenericError> {
-    println!("Fetching arXiv papers...");
+async fn fetch_arxiv(spinner: &ProgressBar) -> Result<Vec<Item>, GenericError> {
+    spinner.set_message("Fetching arXiv papers...");
     let client = reqwest::Client::new();
     let resp = client.get(ARXIV_URL).send().await?.bytes().await?;
     let feed = parser::parse(&resp[..])?;
@@ -150,7 +152,7 @@ async fn fetch_arxiv() -> Result<Vec<Item>, GenericError> {
         );
 
         let full_text = if should_deep_dive {
-            println!("🔍 Deep Dive Triggered for: {}", title);
+            spinner.set_message(format!("🔍 Deep Dive: {}", title.chars().take(30).collect::<String>()));
             fetch_arxiv_full_text(&client, &url).await
         } else {
             None
@@ -211,8 +213,8 @@ async fn fetch_hn_item(client: &reqwest::Client, id: i64) -> Option<Item> {
     None
 }
 
-async fn fetch_hn() -> Result<Vec<Item>, GenericError> {
-    println!("Fetching Hacker News posts...");
+async fn fetch_hn(spinner: &ProgressBar) -> Result<Vec<Item>, GenericError> {
+    spinner.set_message("Fetching Hacker News posts...");
     let client = reqwest::Client::new();
     let ids: Vec<i64> = client.get(HN_TOP_STORIES).send().await?.json().await?;
     
@@ -265,13 +267,7 @@ async fn scout_arxiv(items: Vec<Item>) -> Result<ScoutReport, GenericError> {
     }
 
     let prompt = format!(
-        "You are an expert Technical Scout and AI Researcher. Your role is to analyze these arXiv papers for breakthrough architectural changes and engineering significance.\n\n\
-        For papers where 'FULL TEXT SNIPPET' is provided, you MUST perform a deep-dive. Do not just summarize the abstract. Instead:\n\
-        - Identify the specific novel components of the architecture.\n\
-        - Look for benchmark details, training hardware, or optimization 'tricks' mentioned in the body.\n\
-        - Explain WHY this is significant for a Senior AI Engineer building production systems.\n\n\
-        For papers with only an 'Abstract', provide a concise summary of the core value proposition.\n\n\
-        Papers to analyze:\n{}",
+        "You are an expert Technical Scout and AI Researcher. Your role is to analyze these arXiv papers for breakthrough architectural changes and engineering significance.\n\n        For papers where 'FULL TEXT SNIPPET' is provided, you MUST perform a deep-dive. Do not just summarize the abstract. Instead:\n        - Identify the specific novel components of the architecture.\n        - Look for benchmark details, training hardware, or optimization 'tricks' mentioned in the body.\n        - Explain WHY this is significant for a Senior AI Engineer building production systems.\n\n        For papers with only an 'Abstract', provide a concise summary of the core value proposition.\n\n        Papers to analyze:\n{}",
         content
     );
 
@@ -294,14 +290,7 @@ async fn scout_hn(items: Vec<Item>) -> Result<ScoutReport, GenericError> {
     }
 
     let prompt = format!(
-        "You are a Technical Community Scout. Your role is to analyze these Hacker News discussions and their corresponding top comments for community sentiment, technical roadblocks, and potential tool-building opportunities.\n\n\
-        The comments contain 'juicy details' from developers working on the coal-face. Focus on:\n\
-        - **Pain Points**: What are people struggling with? (e.g., 'this library is too slow', 'I hate setting up X', 'there's no good tool for Y').\n\
-        - **Market Gaps**: Are people asking for features that don't exist yet?\n\
-        - **Technical Skepticism**: Hidden 'gotchas' mentioned by developers.\n\
-        - **Better Alternatives**: Mentions of competing libraries or ways to improve existing ones.\n\n\
-        Your goal is to find 'signal' for a developer looking to build the next big AI tool.\n\n\
-        Discussions & Comments:\n{}",
+        "You are a Technical Community Scout. Your role is to analyze these Hacker News discussions and their corresponding top comments for community sentiment, technical roadblocks, and potential tool-building opportunities.\n\n        The comments contain 'juicy details' from developers working on the coal-face. Focus on:\n        - **Pain Points**: What are people struggling with? (e.g., 'this library is too slow', 'I hate setting up X', 'there's no good tool for Y').\n        - **Market Gaps**: Are people asking for features that don't exist yet?\n        - **Technical Skepticism**: Hidden 'gotchas' mentioned by developers.\n        - **Better Alternatives**: Mentions of competing libraries or ways to improve existing ones.\n\n        Your goal is to find 'signal' for a developer looking to build the next big AI tool.\n\n        Discussions & Comments:\n{}",
         content
     );
 
@@ -316,20 +305,7 @@ async fn concierge_summarize(scout_reports: Vec<ScoutReport>, metadata: String) 
     }
 
     let prompt = format!(
-        "You are the Lead Technical Concierge for a Senior AI Engineer and Founder. Your goal is to synthesize the following scout reports into a standard, high-signal daily digest.\n\n\
-        You MUST follow this Markdown structure EXACTLY. Do not add extra sections or remove these headers.\n\n\
-        # AI Research & Engineering Digest\n\n\
-        ## 1. Executive Summary (The Pulse)\n\
-        [A 2-3 sentence overview of today's technical atmosphere.]\n\n\
-        ## 2. 🔥 The 1% Signal (Must-Read)\n\
-        [Select the single most important item. Provide a deeply technical 3-4 sentence explanation of its architectural impact.]\n\n\
-        ## 3. 💡 Founder's Corner (Opportunities)\n\
-        [Highlight 2-3 specific technical gaps or builder opportunities. Frame them as 'Problem' and 'Opportunity'.]\n\n\
-        ## 4. 🛠️ Technical Intelligence (Deep Dives)\n\
-        [Thematic groupings of the remaining items. Group by technology stack or architectural layer.]\n\n\
-        ## 5. 📊 System Metadata\n\
-        {}\n\n\
-        Scout Reports for Synthesis:\n{}",
+        "You are the Lead Technical Concierge for a Senior AI Engineer and Founder. Your goal is to synthesize the following scout reports into a standard, high-signal daily digest.\n\n        You MUST follow this Markdown structure EXACTLY. Do not add extra sections or remove these headers.\n\n        # AI Research & Engineering Digest\n\n        ## 1. Executive Summary (The Pulse)\n        [A 2-3 sentence overview of today's technical atmosphere.]\n\n        ## 2. 🔥 The 1% Signal (Must-Read)\n        [Select the single most important item. Provide a deeply technical 3-4 sentence explanation of its architectural impact.]\n\n        ## 3. 💡 Founder's Corner (Opportunities)\n        [Highlight 2-3 specific technical gaps or builder opportunities. Frame them as 'Problem' and 'Opportunity'.]\n\n        ## 4. 🛠️ Technical Intelligence (Deep Dives)\n        [Thematic groupings of the remaining items. Group by technology stack or architectural layer.]\n\n        ## 5. 📊 System Metadata\n        {}\n\n        Scout Reports for Synthesis:\n{}",
         metadata,
         combined_reports
     );
@@ -337,26 +313,26 @@ async fn concierge_summarize(scout_reports: Vec<ScoutReport>, metadata: String) 
     call_gemini(&prompt).await
 }
 
-async fn send_digest_email(digest: &str, date_str: &str) -> Result<(), GenericError> {
+async fn send_digest_email(digest: &str, date_str: &str, spinner: &ProgressBar) -> Result<(), GenericError> {
     let api_key = match env::var("RESEND_API_KEY") {
         Ok(key) => key,
         Err(_) => {
-            println!("⚠️ RESEND_API_KEY not set. Skipping email delivery.");
+            spinner.println(format!("{} RESEND_API_KEY not set. Skipping email delivery.", "⚠️".yellow()));
             return Ok(());
         }
     };
     let to_email = match env::var("DESTINATION_EMAIL") {
         Ok(email) => email,
         Err(_) => {
-            println!("⚠️ DESTINATION_EMAIL not set. Skipping email delivery.");
+            spinner.println(format!("{} DESTINATION_EMAIL not set. Skipping email delivery.", "⚠️".yellow()));
             return Ok(());
         }
     };
 
-    println!("📧 Rendering premium HTML digest...");
+    spinner.set_message("Rendering premium HTML digest...");
     let html_content = render_premium_email(digest);
     
-    println!("📧 Sending digest email via Resend...");
+    spinner.set_message("Sending digest email via Resend...");
     
     let url = "https://api.resend.com/emails";
     let body = serde_json::json!({
@@ -375,10 +351,10 @@ async fn send_digest_email(digest: &str, date_str: &str) -> Result<(), GenericEr
         .await?;
 
     if resp.status().is_success() {
-        println!("✅ Email sent successfully via Resend!");
+        spinner.println(format!("{} Email sent successfully via Resend!", "✅".green()));
     } else {
         let err_body = resp.text().await?;
-        println!("❌ Failed to send email: {}", err_body);
+        spinner.println(format!("{} Failed to send email: {}", "❌".red(), err_body));
     }
 
     Ok(())
@@ -461,11 +437,25 @@ fn save_raw_data(source: &str, items: &[Item]) -> Result<(), GenericError> {
 #[tokio::main]
 async fn main() -> Result<(), GenericError> {
     dotenv().ok();
+    
+    // Setup Spinner
+    let pb = ProgressBar::new_spinner();
+    pb.set_style(ProgressStyle::default_spinner()
+        .tick_chars("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏")
+        .template("{spinner:.green} {msg}")
+        .unwrap());
+    
+    pb.enable_steady_tick(std::time::Duration::from_millis(100));
+    pb.set_message("Initializing AI Research Agent...");
+
     let store = SeenStore::new(Path::new(DB_PATH))?;
     
-    let arxiv_items = fetch_arxiv().await?;
-    let hn_items = fetch_hn().await?;
+    // Fetch Phase
+    pb.set_message("Fetching AI News feeds...");
+    let arxiv_items = fetch_arxiv(&pb).await?;
+    let hn_items = fetch_hn(&pb).await?;
     
+    // Filtering Phase
     let new_arxiv: Vec<Item> = arxiv_items.into_iter()
         .filter(|i| !store.is_seen(&i.id()))
         .collect();
@@ -473,19 +463,25 @@ async fn main() -> Result<(), GenericError> {
         .filter(|i| !store.is_seen(&i.id()))
         .collect();
         
-    println!("Filtered to {} new arXiv items and {} new HN items", new_arxiv.len(), new_hn.len());
+    pb.println(format!(
+        "{} Filtered to {} new arXiv items and {} new HN items",
+        "🔎".blue(),
+        new_arxiv.len().to_string().cyan(),
+        new_hn.len().to_string().cyan()
+    ));
     
     if new_arxiv.is_empty() && new_hn.is_empty() {
-        println!("No new items today.");
+        pb.finish_with_message(format!("{} No new items today. Exiting.", "💤".yellow()));
         return Ok(());
     }
 
-    // Save Raw Data (Scalable Retention)
+    // Archiving Phase
     save_raw_data("arxiv", &new_arxiv)?;
     save_raw_data("hn", &new_hn)?;
-    println!("📦 Raw data archived to data/raw/");
+    pb.println(format!("{} Raw data archived to data/raw/", "📦".magenta()));
 
-    // Parallel Scouting
+    // Parallel Scouting Phase
+    pb.set_message("🚀 Launching Multi-Agent Scouts...");
     let arxiv_items_to_scout = new_arxiv.clone();
     let hn_items_to_scout = new_hn.clone();
     
@@ -498,7 +494,8 @@ async fn main() -> Result<(), GenericError> {
         .filter_map(|r| r.ok())
         .collect();
 
-    // Collect Metadata
+    // Synthesis Phase
+    pb.set_message("🧠 Synthesizing Daily Digest (Concierge Agent)...");
     let metadata = format!(
         "- **Date**: {}\n- **arXiv Scout**: Processed {} papers\n- **HN Scout**: Scanned 200 stories, Extracted {} AI discussions with Top 10 comments",
         Local::now().format("%Y-%m-%d %H:%M:%S"),
@@ -506,19 +503,17 @@ async fn main() -> Result<(), GenericError> {
         new_hn.len()
     );
 
-    // Synthesis
     let digest = concierge_summarize(scout_reports, metadata).await?;
-    println!("\n🗞️  AI MULTI-AGENT DIGEST\n=========================\n\n{}", digest);
     
     // File Saving
     let date_str = Local::now().format("%Y-%m-%d").to_string();
     let filename = format!("reports/AI_Digest_{}.md", date_str);
     std::fs::create_dir_all("reports")?;
     std::fs::write(&filename, &digest)?;
-    println!("\n💾 Report saved to: {}", filename);
+    pb.println(format!("{} Report saved to: {}", "💾".green(), filename.bold()));
     
     // Email Delivery
-    send_digest_email(&digest, &date_str).await?;
+    send_digest_email(&digest, &date_str, &pb).await?;
     
     // Mark as seen
     for item in new_arxiv {
@@ -527,6 +522,8 @@ async fn main() -> Result<(), GenericError> {
     for item in new_hn {
         store.mark_seen(&item.id(), &item.url)?;
     }
+    
+    pb.finish_with_message(format!("{} All systems offline. Mission Accomplished.", "✨".bold().green()));
     
     Ok(())
 }
@@ -580,7 +577,6 @@ mod tests {
 
         Ok(())
     }
-}
 
     #[test]
     fn test_item_serialization_optimization() {
@@ -606,3 +602,4 @@ mod tests {
         let json_with_comments = serde_json::to_string(&item_with_comments).unwrap();
         assert!(json_with_comments.contains("comments"), "JSON should contain comments field when populated");
     }
+}
