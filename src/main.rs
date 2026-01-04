@@ -10,7 +10,11 @@ use std::path::Path;
 const DB_PATH: &str = "seen_items.db";
 const ARXIV_URL: &str = "http://export.arxiv.org/api/query?search_query=cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.CL+OR+cat:cs.MA&sortBy=submittedDate&sortOrder=descending&max_results=30";
 const HN_TOP_STORIES: &str = "https://hacker-news.firebaseio.com/v0/topstories.json";
-const HN_KEYWORDS: &[&str] = &["ai", "llm", "gpt", "claude", "agent", "ml", "transformer", "rag", "anthropic", "openai", "reasoning"];
+const HN_KEYWORDS: &[&str] = &[
+    "ai", "llm", "gpt", "claude", "agent", "ml", "transformer", "rag", 
+    "anthropic", "openai", "reasoning", "model", "neural", "deep learning",
+    "inference", "cuda", "gpu", "mcp", "token"
+];
 const DEEP_DIVE_KEYWORDS: &[&str] = &["agent", "mcp", "memory", "context", "tool", "reasoning", "multi-agent"];
 
 type GenericError = Box<dyn std::error::Error + Send + Sync>;
@@ -41,6 +45,7 @@ impl Item {
 struct HnStory {
     title: Option<String>,
     url: Option<String>,
+    #[serde(rename = "id")]
     _id: i64,
     kids: Option<Vec<i64>>,
 }
