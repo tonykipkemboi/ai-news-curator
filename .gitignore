@@ -3,3 +3,4 @@ seen_items.db
 .env
 output.txt
 data/raw/
+__pycache__/
