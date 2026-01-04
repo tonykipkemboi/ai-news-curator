@@ -1,4 +1,4 @@
-# HABARI: The AI Intelligence Scout 🇰🇪
+# HABARI: The AI Intelligence Scout
 
 ![HABARI CLI Demo](assets/habari_cli_demo.png)
 
