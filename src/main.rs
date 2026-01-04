@@ -31,6 +31,7 @@ struct Item {
     url: String,
     source: String,
     summary: String,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
     comments: Vec<String>,
     full_text: Option<String>,
 }
@@ -580,3 +581,28 @@ mod tests {
         Ok(())
     }
 }
+
+    #[test]
+    fn test_item_serialization_optimization() {
+        let item_no_comments = Item {
+            title: "ArXiv Paper".to_string(),
+            url: "https://arxiv.org/abs/2101.00000".to_string(),
+            source: "arxiv".to_string(),
+            summary: "Abstract".to_string(),
+            comments: vec![],
+            full_text: None,
+        };
+        let json_no_comments = serde_json::to_string(&item_no_comments).unwrap();
+        assert!(!json_no_comments.contains("comments"), "JSON should not contain comments field when empty");
+
+        let item_with_comments = Item {
+            title: "HN Story".to_string(),
+            url: "https://news.ycombinator.com/item?id=123".to_string(),
+            source: "hn".to_string(),
+            summary: "".to_string(),
+            comments: vec!["Great insight!".to_string()],
+            full_text: None,
+        };
+        let json_with_comments = serde_json::to_string(&item_with_comments).unwrap();
+        assert!(json_with_comments.contains("comments"), "JSON should contain comments field when populated");
+    }
