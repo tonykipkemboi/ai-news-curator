@@ -1,4 +1,4 @@
-# AI News Digest
+# HABARI: The AI Intelligence Scout 🇰🇪
 
 Daily AI/ML news digest for developers. Pulls from arXiv and Hacker News, filters for relevance, dedupes, and summarizes with Gemini.
 

@@ -336,9 +336,9 @@ async fn send_digest_email(digest: &str, date_str: &str, spinner: &ProgressBar) 
     
     let url = "https://api.resend.com/emails";
     let body = serde_json::json!({
-        "from": "AI Digest <onboarding@resend.dev>",
+        "from": "Habari AI <onboarding@resend.dev>",
         "to": [to_email],
-        "subject": format!("Daily AI News Digest - {}", date_str),
+        "subject": format!("Habari AI Digest - {}", date_str),
         "html": html_content,
         "text": digest,
     });
@@ -446,7 +446,20 @@ async fn main() -> Result<(), GenericError> {
         .unwrap());
     
     pb.enable_steady_tick(std::time::Duration::from_millis(100));
-    pb.set_message("Initializing AI Research Agent...");
+    
+    // HABARI Banner
+    println!("{}", r#"
+  _    _          ____          _____  _____ 
+ | |  | |   /\   |  _ \   /\   |  __ \|_   _|
+ | |__| |  /  \  | |_) | /  \  | |__) | | |  
+ |  __  | / /\ \ |  _ < / /\ \ |  _  /  | |  
+ | |  | |/ ____ \| |_) / ____ \| | \ \ _| |_ 
+ |_|  |_/_/    \_\____/_/    \_\_|  \_\_____|
+    "#.green().bold());
+    println!("{}", ">> INTELLIGENCE SCOUT ONLINE <<".black().on_green());
+    println!();
+
+    pb.set_message("Initializing HABARI Agent...");
 
     let store = SeenStore::new(Path::new(DB_PATH))?;
     
