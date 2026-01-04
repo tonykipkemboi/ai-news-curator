@@ -4,3 +4,5 @@ seen_items.db
 output.txt
 data/raw/
 __pycache__/
+debug_run.txt
+verification_run.txt
