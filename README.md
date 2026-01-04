@@ -1,5 +1,7 @@
 # HABARI: The AI Intelligence Scout 🇰🇪
 
+![HABARI CLI Demo](assets/habari_cli_demo.png)
+
 Daily AI/ML news digest for developers. Pulls from arXiv and Hacker News, filters for relevance, dedupes, and summarizes with Gemini.
 
 ## Setup
