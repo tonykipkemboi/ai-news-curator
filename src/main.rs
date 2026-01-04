@@ -529,3 +529,54 @@ async fn main() -> Result<(), GenericError> {
     
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_item_id_generation() {
+        let item = Item {
+            title: "Test Title".to_string(),
+            url: "https://example.com/test".to_string(),
+            source: "arxiv".to_string(),
+            summary: "Summary".to_string(),
+            comments: vec![],
+            full_text: None,
+        };
+        let id1 = item.id();
+        let id2 = item.id();
+        assert_eq!(id1, id2, "ID should be deterministic");
+        assert!(!id1.is_empty(), "ID should not be empty");
+    }
+
+    #[test]
+    fn test_render_premium_email() {
+        let markdown = "# Title\n* List item";
+        let html = render_premium_email(markdown);
+        assert!(html.contains("<!DOCTYPE html>"), "Should contain DOCTYPE");
+        assert!(html.contains("<h1>Title</h1>"), "Should contain rendered header");
+        assert!(html.contains("<li>List item</li>"), "Should contain rendered list");
+        assert!(html.contains(".container"), "Should contain CSS styles");
+    }
+
+    #[test]
+    fn test_seen_store_memory() -> Result<(), GenericError> {
+        // Use in-memory DB for testing
+        let store = SeenStore::new(Path::new(":memory:"))?;
+        
+        // Test 1: Initially not seen
+        let id = "test_id_123";
+        assert!(!store.is_seen(id), "Should not be seen initially");
+
+        // Test 2: Mark as seen
+        store.mark_seen(id, "http://example.com")?;
+        assert!(store.is_seen(id), "Should be seen after marking");
+
+        // Test 3: Double mark (should not error due to INSERT OR IGNORE)
+        store.mark_seen(id, "http://example.com")?;
+        assert!(store.is_seen(id), "Should still be seen");
+
+        Ok(())
+    }
+}
