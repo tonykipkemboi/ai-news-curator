@@ -1,0 +1,560 @@
+[
+  {
+    "title": "Vector graphics on GPU",
+    "url": "https://gasiulis.name/vector-graphics-on-gpu/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Tangential, but was this not the goal of Quartz 2D? The idea of everyday things running on the GPU seemed very attractive.<p>There is some context in this 13-year-old discussion: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=5345905#5346541\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=5345905#5346541</a><p>I am curious if the equation of CPU-determined graphics being faster than being done on the GPU has changed in the last decade.<p>Did Quartz 2D ever become enabled on macOS?",
+      "Unless I miss something I think that this describes box filtering.<p>It should probably mention that that this is only sufficient for some use cases but not for high quality ones.<p>E.g. if you were to use this e.g. for rendering font glyphs into something like a static image (or a slow rolling title&#x2F;credits) you probably want a higher quality filter.",
+      "May require &quot;(2022)&quot; in the title.",
+      "Really, inst there anything which comes Slug-level of capabilities and is not super expensive?",
+      "Author uses a lot of odd, confusing terminology and brings CPU baggage to the GPU creating the worst of both worlds. Shader hacks and CPU-bound partitioning and choosing the Greek letter alpha to be your accumulator in a graphics article? Oh my.<p>NV_path_rendering solved this in 2011. <a href=\"https:&#x2F;&#x2F;developer.nvidia.com&#x2F;nv-path-rendering\" rel=\"nofollow\">https:&#x2F;&#x2F;developer.nvidia.com&#x2F;nv-path-rendering</a><p>It never became a standard but was a compile-time option in Skia for a long time. Skia of course solved this the right way.<p><a href=\"https:&#x2F;&#x2F;skia.org&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;skia.org&#x2F;</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Opus 4.5 is not the normal AI agent experience that I have had thus far",
+    "url": "https://burkeholland.github.io/posts/opus-4-5-change-everything/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "What bothers me about posts like this is: mid-level engineers are not tasked with atomic, greenfield projects. If all an engineer did all day was build apps from scratch, with no expectation that others may come along and extend, build on top of, or depend on, then sure, Opus 4.5 could replace them. The hard thing about engineering is not &quot;building a thing that works&quot;, its building it the right way, in an easily understood way, in a way that&#x27;s easily extensible.<p>No doubt I could give Opus 4.5 &quot;build be a XYZ app&quot; and it will do well. But day to day, when I ask it &quot;build me this feature&quot; it uses strange abstractions, and often requires several attempts on my part to do it in the way I consider &quot;right&quot;. Any non-technical person might read that and go &quot;if it works it works&quot; but any reasonable engineer will know that thats not enough.",
+      "I&#x27;ve been on a small adventure of posting more actively on HN since the release of Gemini 3, trying to stir debate around the more “societal” aspects of what&#x27;s going on with AI.<p>Regardless of how much you value Cloud Code technically, there is no denying that it has&#x2F;will have huge impact. If technology knowledge and development are commoditised and distributed via subscription, huge societal changes are going to happen. Image what will happen to Ireland if Accenture dissolves, or what will happen to the millions of Indians when IT outsourcing becomes economically irrelevant. Will Seattle become new Detroit after Microsoft automates Windows maintenance? What about the hairdressers, cooks, lawyers, etc. who provided services for IT labourers&#x2F;companies in California?<p>Lot of people here (especially Anthropic-adjacent) like to extrapolate the trends and draw conclusions up to the point when they say that white-collar labourers will not be needed anymore. I would like these people to have courage to take this one step further and connect this resolution with the housing crisis, loneliness epidemic, college debts, and job market crisis for people under 30.<p>It feels like we are diving head first into societal crisis of unparalleled scale and the people behind the steering wheel are excited to push the accelerator pedal even more.",
+      "Most software engineers are seriously sleeping on how good LLM agents are right now, especially something like Claude Code.<p>Once you’ve got Claude Code set up, you can point it at your codebase, have it learn your conventions, pull in best practices, and refine everything until it’s basically operating like a super-powered teammate. The real unlock is building a solid set of reusable “skills” plus a few agents for the stuff you do all the time.<p>For example, we have a custom UI library, and Claude Code has a skill that explains exactly how to use it. Same for how we write Storybooks, how we structure APIs, and basically how we want everything done in our repo. So when it generates code, it already matches our patterns and standards out of the box.<p>We also had Claude Code create a bunch of ESLint automation, including custom ESLint rules and lint checks that catch and auto-handle a lot of stuff before it even hits review.<p>Then we take it further: we have a deep code review agent Claude Code runs after changes are made. And when a PR goes up, we have another Claude Code agent that does a full PR review, following a detailed markdown checklist we’ve written for it.<p>On top of that, we’ve got like five other Claude Code GitHub workflow agents that run on a schedule. One of them reads all commits from the last month and makes sure docs are still aligned. Another checks for gaps in end-to-end coverage. Stuff like that. A ton of maintenance and quality work is just… automated. It runs ridiculously smoothly.<p>We even use Claude Code for ticket triage. It reads the ticket, digs into the codebase, and leaves a comment with what it thinks should be done. So when an engineer picks it up, they’re basically starting halfway through already.<p>There is so much low-hanging fruit here that it honestly blows my mind people aren’t all over it. 2026 is going to be a wake-up call.<p>(used voice to text then had claude reword, I am lazy and not gonna hand write it all for yall sorry!)<p>Edit: made an example repo for ya<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;ChrisWiles&#x2F;claude-code-showcase\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;ChrisWiles&#x2F;claude-code-showcase</a>",
+      "I&#x27;m tired of constantly debating the same thing again and again. Where are the products? Where is some great performing software all LLM&#x2F;agent crafted? All I see is software bloatness and decline. Where is Discord that uses just a bunch of hundreds megs of ram? Where is unbloated faster Slack? Where is the Excel killer? Fast mobile apps? Browsers and the web platform improved? Why Cursor team don&#x27;t use Cursor to get rid of vscode base and code its super duper code editor? I see tons of talking and almost zero products.",
+      "Opus 4.5 ate through my Copilot quota last month, and it&#x27;s already halfway through it for this month. I&#x27;ve used it a lot, for really complex code.<p>And my conclusion is: it&#x27;s still not as smart as a good human programmer. It frequently got stuck, went down wrong paths, ignored what I told it to do to do something wrong, or even repeat a previous mistake I had to correct.<p>Yet in other ways, it&#x27;s unbelievably good. I can give it a directory full of code to analyze, and it can tell me it&#x27;s an implementation of Kozo Sugiyama&#x27;s dagre graph layout algorithm, and immediately identify the file with the error. That&#x27;s unbelievably impressive. Unfortunately it can&#x27;t fix the error. The error was one of the many errors it made during previous sessions.<p>So my verdict is that it&#x27;s great for code analysis, and it&#x27;s fantastic for injecting some book knowledge on complex topics into your programming, but it can&#x27;t tackle those complex problems by itself.<p>Yesterday and today I was upgrading a bunch of unit tests because of a dependency upgrade, and while it was occasionally very helpful, it also regularly got stuck. I got a lot more done than usual in the same time, but I do wonder if it wasn&#x27;t too much. Wasn&#x27;t there an easier way to do this? I didn&#x27;t look for it, because every step of the way, Opus&#x27;s solution seemed obvious and easy, and I had no idea how deep a pit it was getting me into. I should have been more critical of the direction it was pointing to.",
+      "Putting the performance aside for now as I just started trying out Opus 4.5, can&#x27;t say too much yet, I don&#x27;t hype or hate AI as of now, it&#x27;s simply useful.<p>Time will tell what happens, but if programming becomes &quot;prompt engineering&quot;, I&#x27;m planning on quitting my job and pivoting to something else. It&#x27;s nice to get stuff working fast, but AI just sucks the joy out of building for me.<p>Trying to not feel the pressure&#x2F;anxiety from this, but every time a new model drops there is this tiny moment where I think &quot;Is it actually different this time?&quot;",
+      "I was not expecting a couple of new apps being built, when the premise of the blog post talks about replacing &quot;mid level engineers&quot;<p>the thing about being an engineer at commercial capacity is &quot;maintaining&#x2F;enhancing an existing program&#x2F;software system that has been developed over years by multiple people(including those who already left) and do it in a way that does not cause any outages&#x2F;bugs&#x2F;break existing functionality.<p>while the blog post mentions about the ability of using AI to generate new applications, but it does not talk about maintaining one over a longer period of time. for that, you would need real users, real constraints, and real feature requests which preferably pay you so you can priortize them.<p>I would love to see such blog posts where for example, a PM is able to add features for a period of one month without breaking the production, but it would be a very costly experiment.",
+      "I had a similar set of experiences with GPT 5.x over the holiday break, across somewhat more disparate domains: <a href=\"https:&#x2F;&#x2F;taoofmac.com&#x2F;space&#x2F;notes&#x2F;2025&#x2F;12&#x2F;31&#x2F;1830\" rel=\"nofollow\">https:&#x2F;&#x2F;taoofmac.com&#x2F;space&#x2F;notes&#x2F;2025&#x2F;12&#x2F;31&#x2F;1830</a><p>I hacked together a Swift tool to replace a Python automation I had, merged an ARM JIT engine into a 68k emulator, and even got a very decent start on a synth project I’ve been meaning to do for years.<p>What has become immensely apparent to me is that even gpt-5-mini can create decent Go CLI apps provided you write down a coherent spec and review the code as if it was a peer’s pull request (the VS Code base prompts and tooling steer even dumb models through a pretty decent workflow).<p>GPT 5.2 and the codex variants are, to me, every bit as good as Opus but without the groveling and emojis - I can ask it to build an entire CI workflow and it does it in pretty much one shot if I give it the steps I want.<p>So for me at least this model generation is a huge force multiplier (but I’ve always been the type to plan before coding and reason out most of the details before I start, so it might be a matter of method).",
+      "Opus 4.5 has become really capable.<p>Not in terms of knowledge. That was already phenomenal. But in its ability to act independently: to make decisions, collaborate with me to solve problems, ask follow-up questions, write plans and actually execute them.<p>You have to experience it yourself on your own real problems and over the course of days or weeks.<p>Every coding problem I was able to define clearly enough within the limits of the context window, the chatbot could solve and these weren’t easy. It wasn’t just about writing and testing code. It also involved reverse engineering and cracking encoding-related problems. The most impressive part was how actively it worked on problems in a tight feedback loop.<p>In the traditional sense, I haven’t really coded privately at all in recent weeks. Instead, I’ve been guiding and directing, having it write specifications, and then refining and improving them.<p>Curious how this will perform in complex, large production environments.",
+      "I&#x27;ve noticed a huge drop in negative comments on HN when discussing LLMs in the last 1-2 months.<p>All the LLM coded projects I&#x27;ve seen shared so far[1] have been tech toys though. I&#x27;ve watched things pop up on my twitter feed (usually games related), then quietly go off air before reaching a gold release (I manually keep up to date with what I&#x27;ve found, so it&#x27;s not the algorithm).<p>I find this all very interesting: LLMs dont change the fundamental drives needed to build successful products. I feel like I&#x27;m observing the TikTokification of software development. I dont know why people aren&#x27;t finishing. Maybe they stop when the &quot;real work&quot; kicks in. Or maybe they hit the limits of what LLMs can do (so far). Maybe they jump to the next idea to keep chasing the rush.<p>Acquiring context requires real work, and I dont see a way forward to automating that away. And to be clear, context is human needs; i.e. the reasons why someone will use your product. In the game development world, it&#x27;s very difficult to overstate how much work needs to be done to create a smooth, enjoyable experience for the player.<p>While anyone may be able to create a suite of apps in a weekend, I think very few of them will have the patience and time to maintain them (just like software development before LLMs! i.e. Linux, open source software, etc.).<p>[1] yes, selection bias. There are A LOT of AI devs just marketing their LLMs. Also it&#x27;s DEFINITELY too early to be certain. Take everything Im saying with a one pound grain of salt."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The creator of Claude Code's Claude setup",
+    "url": "https://twitter.com/bcherny/status/2007179832300581177",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;xcancel.com&#x2F;bcherny&#x2F;status&#x2F;2007179832300581177\" rel=\"nofollow\">https:&#x2F;&#x2F;xcancel.com&#x2F;bcherny&#x2F;status&#x2F;2007179832300581177</a>",
+      "This is interesting to hear, but I don&#x27;t understand how this workflow actually works.<p>I don&#x27;t need 10 parallel agents making 50-100 PRs a week, I need 1 agent that successfully solves the most important problem.<p>I don&#x27;t understand how you can generate requirements quicky enough to have 10 parallel agents chewing away at meaningful work. I don&#x27;t understand how you can have any meaningful supervising role over 10 things at once given the limits of human working memory.<p>It&#x27;s like someone is claiming they unlocked ultimate productivity by washing dishes, in parallel with doing laundry, and cleaning their house.<p>Likely I am missing something. This is just my gut reaction as someone who has definitely not mastered using agents. Would love to hear from anyone that has a similar workflow where there is high parallelism.",
+      "He did a follow up with someone on Reddit and the answers were posted here: <a href=\"https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;ClaudeAI&#x2F;comments&#x2F;1q2c0ne&#x2F;comment&#x2F;nxc4ap6&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;ClaudeAI&#x2F;comments&#x2F;1q2c0ne&#x2F;comment&#x2F;n...</a><p>It offers a lot more context and I found it more helpful than the original twitter thread",
+      "Boris is a power user&#x27;s power user.<p>I would highly recommend every project maintain a simple, well-written AGENTS.md file. At first it may seem like a more nitpicky README, but you will quickly see how much coding agents benefit from this added context. Imo, the two most important things to include in AGENTS.md are frequent commands and verification methods.<p>A third thing I&#x27;ve started adding to my projects is a list of related documentation and libraries that may not be immediately obvious. Things like confluence pages and other repos associated with the project.",
+      "This was extremely useful to read for many reasons, but my favorite thing I learned is that you can “teleport” a task FROM the local Claude Code to Claude Code on the web by prepending your request with “&amp;”. That makes it a “background” task, which I initially erroneously thought was a local background task. Turns out it sends the task and conversation history up to the web version. This allows you to do work in other branches on Claude Code web, (and then teleport those sessions back down to local later if you wish)",
+      "Couple things stand out to me:<p>1) everyone on the team uses Claude code differently.<p>2) Claude Code has been around for almost a year and is being built by an entire team, yet doesn&#x27;t seem to have benefited from this approach. The program is becoming buggier and less reliable over time, and development speed seems indistinguishable from anything else.<p>3) Everything this person says should be taken with a <i>massive</i> grain of salt considering their various conflicts of interest.",
+      "I tried Claude Code a while back when I decided to give &quot;vibe-coding&quot; a go. That was  was actually quite successful, producing a little utility that I use to this day, completely without looking at the code. (Well, I did briefly glance at it after completion and it made my eyeballs melt.) I concluded the value of this to me personally was nowhere near the price I was charged so I didn&#x27;t continue using it, but I was impressed nonetheless.<p>This brief use of Claude Code was done mostly on a train using my mobile phone&#x27;s wi-fi hotspot. Since the connection would be lost whenever the train went through a tunnel, I encountered a bug in Claude Code [1]. The result of it was that whenever the connection dropped and came up again I had to edit an internal json file it used to track the state of its tool use, which had become corrupt.<p>The issue had been open for months then, and still is. The discussion under it is truly remarkable, and includes this comment from the devs:<p>&gt; While we are always monitoring instances of this error and and looking to fix them, it&#x27;s unlikely we will ever completely eliminate it due to how tricky concurrency problems are in general.<p>Claude Code is, in principle, a simple command-line utility. I am confident that (given the backend and model, ofc) I could implement the functionality of it that I used in (generously!) at most a few thousand lines of python or javascript, I am very confident that I could do so without introducing concurrency bugs and I am <i>extremely</i> confident that I could do it without messing up the design so badly that concurrency issues crop up continually and I have to admit to being powerless to fix them all.<p>Programming is hard, concurrency problems <i>are</i> tricky and I don&#x27;t like to cast aspersions on other developers, but we&#x27;re being told this is the future of programming and we&#x27;d better get on board or be left behind and it looks like we&#x27;re being told this by people who, with presumably unlimited access to all this wonderful tooling, <i>don&#x27;t appear to be able to write decent software</i>.<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;anthropics&#x2F;claude-code&#x2F;issues&#x2F;6836\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;anthropics&#x2F;claude-code&#x2F;issues&#x2F;6836</a>",
+      "I implemented some of his setup and have been loving it so far.<p>My current workflow is typically 3-5 Claude Codes in parallel<p>- Shallow clone, plan mode back and forth until I get the spec down, hand off to subagent to write a plan.md<p>- Ralph Wiggum Claude using plan.md and skills until PR passes tests, CI&#x2F;CD, auto-responds to greptile reviews, prepares the PR for me to review<p>- Back and forth with Claude for any incremental changes or fixes<p>- Playwright MCP for Claude to view the browser for frontend<p>I still always comb through the PRs and double check everything including local testing, which is definitely the bottleneck in my dev cycles, but I&#x27;ll typically have 2-4 PRs lined up ready for me at any moment.",
+      "It would be very interesting to see the outputs of his operations. How productive is one of his agents? How long does it take to complete a task, and how often does it require steering?<p>I&#x27;m a bit of a skeptic. Claude Code is good, but I&#x27;ve had varied results during my usage. Even just 5 minutes ago, I asked CC to view the most recent commit diff using git show. Even when I provided the command, it was doing dumb shit like git show --stat and then running wc for some reason...<p>I&#x27;ve been working on something called postkit[1], which has required me to build incrementally on a codebase that started from nothing and has now grown quite a lot. As it&#x27;s grown, Claude Code&#x27;s performance has definitely dipped.<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;varunchopra&#x2F;postkit\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;varunchopra&#x2F;postkit</a>",
+      "I feel like it&#x27;s time for me to hang up this career. Prompting is boring, and doing it 5 times at once is just annoying multitasking. I know I&#x27;m mostly in it for the money, but at least there used to be a feeling of accomplishment sometimes. Now it&#x27;s like, whose accomplishment is it?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A 30B Qwen model walks into a Raspberry Pi and runs in real time",
+    "url": "https://byteshape.com/blogs/Qwen3-30B-A3B-Instruct-2507/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "There is a huge market segment waiting here. At least I think there is. Well, at least people like me want this. Ok, tens of dollars can be made at least. It is just missing a critical tipping point. Basically, I want an alexa like device for the home backed by local inference and storage with some standardized components identified:<p>- the interactive devices - all the alexa&#x2F;google&#x2F;apple devices out there are this interface, also, probably some TV input that stays local and I can voice control. That kind of thing. It should have a good speaker and voice control. It probably should also do other things like act as a wifi range extender or be the router. That would actually be good. I would buy one for each room so no need for crazy antennas if they are close and can create true mesh network for me. But I digress.<p>- the home &#x27;cloud&#x27; server that is storage and control. This is a cheap CPU, a little ram and potentially a lot of storage. It should hold the &#x27;apps&#x27; for my home and be the one place I can back-up everything about my network (including the network config!)<p>- the inference engines. That is where this kind of repo&#x2F;device combo comes in. I buy it and it knows how to advertise in a standard way its services and the controlling node connects it to the home devices. It would be great to just plug it in and go.<p>Of course all of these could be combined but conceptually I want to be able to swap and mix and match at these levels so options here and interoperability is what really matters.<p>I know a lot of (all of) these pieces exist, but they don&#x27;t work well together. There isn&#x27;t a simple standard &#x27;buy this turn it on and pair with your local network&#x27; kind of plug and play environment.<p>My core requirements are really privacy and that it starts taking over the unitaskers&#x2F;plays well together with other things. There is a reason I am buying all this local stuff. If you phone home&#x2F;require me to set up an account with you I probably don&#x27;t want to buy your product. I want to be able to say &#x27;Freddy, set timer for 10 mins&#x27; or &#x27;Freddy, what is the number one tourist attraction in South Dakota&#x27; (wall drugs if you were wondering)",
+      "I&#x27;ve been super impressed by qwen3:0.6b  (yes, 0.6B) running in Ollama.<p>If you have very specific, constrained tasks it can do quite a lot. It&#x27;s not perfect though.<p><a href=\"https:&#x2F;&#x2F;tools.nicklothian.com&#x2F;llm_comparator.html?gist=fcae9ffde8adeda3c2bb4adfd1b92456\" rel=\"nofollow\">https:&#x2F;&#x2F;tools.nicklothian.com&#x2F;llm_comparator.html?gist=fcae9...</a> is an example conversation where I took OpenAI&#x27;s &quot;Natural language to SQL&quot; prompt[1], send it to Ollama:qwen3:0.6b and the asked Gemini Flash 3 to compare what qwen3:0.6b did vs what Flash did.<p>Flash was clearly correct, but the qwen3:0.6b errors are interesting in themselves.<p>[1] <a href=\"https:&#x2F;&#x2F;platform.openai.com&#x2F;docs&#x2F;examples&#x2F;default-sql-translate\" rel=\"nofollow\">https:&#x2F;&#x2F;platform.openai.com&#x2F;docs&#x2F;examples&#x2F;default-sql-transl...</a>",
+      "In case anyone else clicked in wondering what counts as &quot;real time&quot; for this:<p>&gt;  On a Pi 5 (16GB), Q3_K_S-2.70bpw [KQ-2] hits 8.03 TPS at 2.70 BPW and maintains 94.18% of BF16 quality.<p>And they talk about other hardware and details. But that&#x27;s the expanded version of the headline claim.",
+      "Is there a good place for easy comparisons of different models? I know gpt-oss-20b and gpt-oss-120b have different numbers of parameters, but don&#x27;t know what this means in practice. All my experience with AI has been with larger models like Gemini and GPT. I&#x27;m interested in running models on my own hardware but don&#x27;t know how small I can go and still get useful output both for simple things like fixing spelling and grammar, as well as complex things like programming.",
+      "I have been seeing these stories about bigger AI models that somehow work on small devices like a Raspberry Pi. One example really caught my eye lately. It was not just some quick show off thing. The model could interact and respond right away in real time. ~<p>That got me thinking again about what practical even means when it comes to AI running on the edge. Like, away from big servers.<p>I came up with a basic way to look at it. First, capability. That is, what kinds of tasks can it handle decently. Then latency. Does it respond quick enough so it does not feel laggy. There are also constraints to consider. Things like power use, how much memory it needs, and heat buildup.<p>The use case part seems key too. What happens if you try to take it off the cloud and run it locally. In my experience, a lot of these edge AI demos fall short there. The tech looks impressive, but it is hard to see why you really need it that way.<p>It seems like most people overlook that unclear need. I am curious about how others see it. Local inference probably beats cloud in spots where you cannot rely on internet, or maybe for privacy reasons. Or when data stays on device for security.<p>Some workloads feel close right now. They might shift soon as hardware gets better. I think stuff like voice assistants or simple image recognition could tip over.<p>If someone has actually put a model on limited hardware, like in a product, what stood out as a surprise. The thermals maybe, or unexpected power drains. It feels like that part gets messy in practice. I might be oversimplifying how tricky it all is.",
+      "I can’t wait to get home and try this on my Pi. Past few months, I’ve been building a fully local agent [0] that runs inference entirely on a Raspberry Pi, and I’ve been extensively testing a plethora of small, open models as part of my studies. This is an incredibly exciting field, and I hope it gains more attention as we shift away from massive, centralized AI platforms and toward improving the performance of local models.<p>For anyone interested in a comparative review of different models that can run on a Pi, here’s a great article [1] I came across while working on my project.<p>[0] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;syxanash&#x2F;maxheadbox\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;syxanash&#x2F;maxheadbox</a><p>[1] <a href=\"https:&#x2F;&#x2F;www.stratosphereips.org&#x2F;blog&#x2F;2025&#x2F;6&#x2F;5&#x2F;how-well-do-llms-perform-on-a-raspberry-pi-5\" rel=\"nofollow\">https:&#x2F;&#x2F;www.stratosphereips.org&#x2F;blog&#x2F;2025&#x2F;6&#x2F;5&#x2F;how-well-do-ll...</a>",
+      "Does anyone have any use-cases for long-running, interesting tasks that do not require perfect accuracy? Seems like this would be the sweet spot for running local models on low-powered hardware.",
+      "We need custom inference chips at scale for this imho. Every computer (whatever formfactor&#x2F;board) should have an inference unit on it so at least inference is efficient and fast and can be offloaded while the cpu is doing something else.",
+      "I&#x27;ve just tried replicating this on my Pi 5 16GB, running the latest llama.cpp... and it segfaults:<p><pre><code>    .&#x2F;build&#x2F;bin&#x2F;llama-cli -m &quot;models&#x2F;Qwen3-30B-A3B-Instruct-2507-Q3_K_S-2.70bpw.gguf&quot; -e --no-mmap -t 4\n    ...\n    Loading model... -ggml_aligned_malloc: insufficient memory (attempted to allocate 24576.00 MB)\n    ggml_backend_cpu_buffer_type_alloc_buffer: failed to allocate buffer of size 25769803776\n    alloc_tensor_range: failed to allocate CPU buffer of size 25769803776\n    llama_init_from_model: failed to initialize the context: failed to allocate buffer for kv cache\n    Segmentation fault\n</code></pre>\nI&#x27;m not sure how they&#x27;re running it... any kind of guide for replicating their results? It does take up a little over 10 GB of RAM (watching with btop) before it segfaults and quits.<p>[Edit: had to add -c 4096 to cut down the context size, now it loads]",
+      "So basically the quantization in a byteshape model is per-tensor and can be variable and is an &quot;average&quot; in the final result?  The results look good - curious why this isn&#x27;t more prevalent!  Would also love to better understand what factors into &quot;accuracy&quot; since there might be some nuance there depending on the measure."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: SMTP Tunnel – A SOCKS5 proxy disguised as email traffic to bypass DPI",
+    "url": "https://github.com/x011/smtp-tunnel-proxy",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Large volumes of SMTP-like traffic are a huge red flag. Competent companies an ISPs should already be looking for large volumes of outbound mail to identify abuse &#x2F; spam bots &#x2F; data exfiltration.<p>If I came across this in netflow data I&#x27;d first assume outbound spam. But a hallmark of sending mail is that the client to server byte ratio is extremely skewed towards client -&gt; server bytes, whereas running a VPN-like service is usually more balanced but still skewed towards server -&gt; client bytes. I&#x27;d see the large server -&gt; client byte count and immediately know something strange was going on.<p>That said, very little code here is involved in looking like SMTP. The SMTP obfuscation basically boils down to a few lines of plaintext between the client and server before a STARTTLS and then everything after that has nothing to do with SMTP. You could swap out the fake stub conversation quite easily to look like many other protocols. Whether the in to out bytes ratio makes sense for those protocols is another matter.<p>These days, I think the best thing to disguise as is HTTPS. There is so much variety in HTTPS traffic and such a huge volume of it, that spotting hidden tunnels is very hard.",
+      "That&#x27;s an interesting protocol choice, especially given the purpose. SMTP is probably the most filtered protocol on residential networks, SMB being a runner-up.",
+      "Quite a few things use STARTTLS. I imagine the same technique could be applied to those other protocols, giving users some options as they fight hostile networks.<p>Clever",
+      "Get yourself an IP with Port 443 free and just use that.<p>SMTP is blocked by a lot of firewalls by default. All cloud providers do that and you need to request opening them up.",
+      "I suppose it would be trivial to simply block or severely throttle high-volume SMTP traffic?",
+      "How does this get past firewalls that would block the alternative, of SOCKS5 traffic tunneled through port-443 HTTPS with keepalives?<p>(Even with complete HTTPS decryption in the firewall, the downstream traffic could look like, say, random CSV data file downloads or innocuous HTML text, and upstream traffic could look like innocuous requests (avoiding large lists of problematic keywords).)",
+      "[dead]",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Htmx: High Power Tools for HTML",
+    "url": "https://github.com/bigskysoftware/htmx",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "HTMX seems mature enough for prime time, but for some reason, not yet popular enough that a subset of HN users seem to discover it anew 1-2 times each year: <a href=\"https:&#x2F;&#x2F;hn.algolia.com&#x2F;?q=htmx\" rel=\"nofollow\">https:&#x2F;&#x2F;hn.algolia.com&#x2F;?q=htmx</a>",
+      "A Hacker News search for &quot;htmx&quot; returns 5,194,298 results"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Launch HN: Tamarind Bio (YC W24) – AI Inference Provider for Drug Discovery",
+    "url": "https://news.ycombinator.com/item?id=46515777",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The org I work on develops HTCondor. We have a lot of scientists that end up running alphafold and other bio related models on our pool of GPUs and CPUs. I am curious to know how and why your team implemented yet another job scheduler. HTCondor is agnostic to the software being ran, so maybe there is more clever scheduling you can come up with. That being said, HTCondor also has pretty high flexibility with regards to policy.",
+      "Congrats on the launch. I always love to see smart ML founders applying their talents to health and bio.<p>What were the biggest challenges in getting major pharma companies onboard? How do you think it was the same or different compared to previous generations of YC companies (like Benchling)?",
+      "You may find this library I wrote a couple years ago interesting: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;conradry&#x2F;prtm\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;conradry&#x2F;prtm</a>. Curious about why you chose to make separate images for each model instead of copy-pasting source code into a big monorepo (similar to Huggingface transformers).",
+      "Cool project! I have a question based on the video: What sort of work is it doing from the &quot;Upload mmCIF file and specify number of molecules to generate&quot; query? That seems like a broad ask. For example, it is performing ML inference on a data set of protein characteristics, or pockets in that protein? Using a ligand DB, or generating ligands? How long does that run take?",
+      "That&#x27;s really cool! How much do scientists at big pharma use open-source models as opposed to models trained on their proprietary data?  Do you guys have tie-ups to provide inference for models used internally at big pharma trained on proprietary data?",
+      "Looks good - would have really appreciated if the pricing page contained any examples of pricing instead of book a meeting",
+      "selling to big pharma companies as a startup is hard, so huge props on getting adoption there. the product looks very slick.",
+      "nice stuff! how do you handle security concerns big pharma may have? wouldn&#x27;t they just run their stuff on-prem?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: VaultSandbox – Test your real MailGun/SES/etc. integration",
+    "url": "https://vaultsandbox.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Thanks for the upvotes so far!<p>I would love to dig into the actual developer experience side. One of the main reasons I built this was to kill the sleep(5) or polling loops in CI by using Server-Sent Events (SSE) in the SDKs, so tests react instantly.<p>For those of you managing large test suites:<p>- Does your current team rely on mocks&#x2F;Mailtrap style catch-alls, or do you just trust that the protocol (TLS&#x2F;DKIM) works?<p>- How are you currently handling PII in dev&#x2F;test email logs? (This is why I went with encryption for zero-plaintext storage on the server).<p>Any feedback would be really useful, since until now I have gotten none and as a solo dev it gets to a point that you do not know if it is a good idea or not.<p>Thanks again,",
+      "<i>&gt; especially on whether AGPLv3 would be a blocker for something you&#x27;d self-host in dev</i><p>AGPL3 shouldn&#x27;t be a blocker for use with this sort of tool unless:<p>▪ someone is <i>very</i> paranoid about GPL infection (that is to say that they, or their bosses, have been taken in by some of the fear-mongering over the years)<p>▪ or they are intending to make the feature available as part of the their product&#x2F;service (if it is a mail related&#x2F;adjacent tool and they want to use this as a built-in self-test module) rather than just using it internally, in which case they might be subject to the full terms of the licence due to effectively directly linking the code.<p>To alay the concerns of that first group, perhaps include in you documentation a paragraph explaining that simply using it in a dev environment, with no redistribution, does not constitute linking.<p>If someone tells you &quot;no one will use it commercially if you use GPL&quot;¹, you always have the option (assuming all the code is yoursor contributors have signed over their relevant rights) of dual licencing GPL and commercial.<p>--------<p>[1] this usually means &quot;I want to sell this with my service but don&#x27;t want to pay or otherwise give back, please use a more permissive license so I can do that&quot;"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Microsoft probably killed my Snapdragon Dev Kit",
+    "url": "https://jasoneckert.github.io/myblog/how-microsoft-killed-my-snapdragon-devkit/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Considering that you were seeing unpredictable behavior in the boot selector, with it randomly freezing, I would assume a hardware component (RAM?) kicked the bucket. If it were firmware corruption, it would consistently fail to present the menu, or wouldn&#x27;t boot at all.<p>Microsoft&#x27;s code quality might not be at its peak right now, but blaming them for what&#x27;s most likely a hardware fault isn&#x27;t very productive IMO.",
+      "Yeah they (probably) did not.<p>Almost certainly a soft hardware failure, likely the SSD.<p>I&#x27;ve run into a similar situation - except the culprit was Linux not Windows. Tossed the machine in a closet for a few months, when it miraculously started working again. Until it broke again a day and a half later. It&#x27;s disk or RAM corruption.<p>Give it up dude, it&#x27;s the hardware, but let not an opportunity to smash Microsoft go unfulfilled.",
+      "These devices are nightmares. I&#x27;m sure things will pay off at some point but this feels like all those years where everyone was cursing Nvidia on Linux and praising AMD&#x27;s dedication to open source but my computer would constantly lock up regardless until I switched to Nvidia. There was this massive disconnect between my experience and what everyone told me was best supported.<p>Similarly, I&#x27;m constantly hearing about Qualcomm&#x27;s renewed interest in Linux and this and that and how the X2 Elite will be fully supported but I have never known them to be like this. A decade or so ago we were trying to work for a school project on one of their dev kits and the documentation was so sparse.<p>Then I see that the Snapdragon X Elite comes in this Ideacentre stuff but looking online no one has gotten Linux anywhere close to as good as Linux is on a Mac M2. That, for me, is the marker. If a Mac can run Linux better than whatever chipset you&#x27;ve released, it&#x27;s just not hardware worth buying. If you&#x27;re not Apple, you have to support Linux. Otherwise, to borrow Internet lingo, you&#x27;re &quot;deeply unserious&quot;.",
+      "I was pleased to discover recently that Ubuntu is supporting my NVidia Jetson going forward after NVidias official support period ends:<p><a href=\"https:&#x2F;&#x2F;canonical.com&#x2F;blog&#x2F;ubuntu-now-officially-supports-nvidia-jetson-powering-the-future-of-ai-at-the-edge\" rel=\"nofollow\">https:&#x2F;&#x2F;canonical.com&#x2F;blog&#x2F;ubuntu-now-officially-supports-nv...</a><p>So there is at least one ARM  devkit with long term Linux support.",
+      "Sounds like this could potentially be some defective RAM. Memtest86 can boot from UEFI directly, so it should hopefully show up in BDS. A run should tell you what regions of RAM are bad, if any.",
+      "I doubt this is a Windows issue.<p>I would replace your ram sticks.  I had a similar mysterious issue on an old Intel nuc.  Got some new sticks off Amazon and never had the problem again",
+      "Not that you are at fault here, but I&#x27;d be <i>very</i> hesitant to install any system updates so shortly after they brick my computer, especially when Microsoft is involved.",
+      "Only adding to this because it&#x27;s likely a hardware failure, and I had a challenging time debugging a similar issue in an aftermarket engine ECU years ago. Thought it might make a fun anecdote.<p>The car would run fine once started, but the car just wouldn&#x27;t start sometimes (quite modified so I knew the systems well). The started would turn as that was a simple relay, but all ECU controlled devices wouldn&#x27;t trigger. Plugging into the ECU, no error codes and all looked normal.<p>Eventually we tracked the issue to some corruption in the ROM that was only getting read in certain circumstances, since the ECU stores maps for engine parameters based on things like pressure and temperature you might only hit the corrupted bits of a table in very specific circumstances.<p>Reflashed the ROM and all was good afterwards. The suspected cause of corruption was intermittent power supply that had been fixed a while earlier.",
+      "The holy trinity of modern hardware: update servers, firmware locks, and abandoned devkits",
+      "Hopefully this serves as a reminder to decision makers with Web backgrounds to NOT push random non-critical _firmware_ updates without clear merit, or random updates in general.<p>Security is not fluids. It doesn&#x27;t naturally evaporate. So don&#x27;t try to add like they&#x27;re washer fluids.<p>Those low-level software and associated hardware don&#x27;t take software overwrites very well, even today. They might have total cumulative max overwrites, or manufacturer supplied update codes can still be dubious. It&#x27;s (not)okay if you are meaning it to be a tool for your planned obsolescence strategy, otherwise, just don&#x27;t touch it for the sake of doing it."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Comparing AI agents to cybersecurity professionals in real-world pen testing",
+    "url": "https://arxiv.org/abs/2512.09882",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It&#x27;s way too early to make firm predictions here, but if you&#x27;re not already in the field it&#x27;s helpful to know there&#x27;s been 20 years of effort at automating &quot;pen-testing&quot;, and the specific subset of testing this project focused on (network pentesting --- as opposed to app pentesting, which targets specifically identified network applications) is already essentially fully automated.<p>I would expect over the medium term agent platforms to trounce un-augmented human testing teams in basically all the &quot;routinized&quot; pentesting tasks --- network, web, mobile, source code reviews. There are too many aspects of the work that are just perfect fits for agent loops.",
+      "Note that gpt-5 in a standard scaffold (Codex) lost to almost everyone, while in the ARTEMIS scaffold, it won. The key isn&#x27;t the model itself, but the Triage Module and Sub-agents. Splitting roles into &quot;Supervisor&quot; (manager) and &quot;Worker&quot; (executor) with intermediate validation is the only viable pattern for complex tasks. This is a blueprint for any AI agent, not just in cybersec",
+      "I work in this space. The productivity gains from LLMs are real, but not in the &quot;replace humans&quot; direction.<p>Where they shine is the interpretive grunt work: &quot;help me figure out where the auth logic is in this obfuscated blob&quot;, &quot;make sense of this minified JS&quot;, &quot;what&#x27;s this weird binary protocol doing.&quot;, &quot;write me a Frida script to hook these methods and dump these keys&quot; Things that used to mean staring at code for hours or writing throwaway tooling now takes a fraction of the time.\nThey&#x27;re straight up a playing field leveler.<p>Folks with the hacker&#x27;s mindset but without the programming chops can punch above their weight and find more within the limited time of an engagement.<p>Sure they make mistakes, and will need babysitting a lot. But it&#x27;s getting better. I expect more firms to adopt them as part of their routine.",
+      "From WSJ article:<p>&gt; The AI bot trounced all except one of the 10 professional network penetration testers the Stanford researchers had hired to poke and prod, but not actually break into, their engineering network.<p>Oh, wow!<p>&gt; Artemis found bugs at lightning speed and it was cheap: It cost just under $60 an hour to run. Ragan says that human pen testers typically charge between $2,000 and $2,500 a day.<p>Wow, this is great!<p>&gt; But Artemis wasn’t perfect. About 18% of its bug reports were false positives. It also completely missed an obvious bug that most of the human testers spotted in a webpage.<p>Oh, hm, did not trounce the professionals, but ok.",
+      "I don&#x27;t read a lot of papers, but to me this one seems iffy in spots.<p>&gt; A1 cost $291.47 ($18.21&#x2F;hr, or $37,876&#x2F;year at 40 hours&#x2F;week). A2 cost $944.07 ($59&#x2F;hr, $122,720&#x2F;year). Cost\ncontributors in decreasing order were the sub-agents, supervisor and triage module. *A1 achieved similar vulnerability\ncounts at roughly a quarter the cost of A2*. Given the average U.S. penetration tester earns $125,034&#x2F;year [Indeed],\nscaffolds like ARTEMIS are already competitive on cost-to-performance ratio.<p>The statement about similar vulnerability counts seems like a straight up lie. A2 found 11 vulnerabilities with 9 of these being valid. A1 found 11 vulnerabilities with 6 being valid. Counting invalid vulerabilities to say the cheaper agent is as good is a weird choice.<p>Also the scoring is suspect and seems to be tuned specifically to give the AI a boost, heavily relying on severity scores.<p>Also kinda funny that the AI&#x27;s were slower than all the human participants.",
+      "WSJ always writes in this clickbaity way and its getting constantly worse.<p>An Exec is gonna read this and start salvating at the idea of replacing security teams.",
+      "Bootstrap founder in that field. Fully autonomous is just not there. The winner for this &quot;generation&quot; will be with human in the loop &#x2F; human augmentation IMO. When VC money dries out there will be a pile of autonomous ai pentest compagnies in it.",
+      "Im currently on the tail end of building out an agentic hacking framework; I wanted to learn the best practices of building agents (I have an SDK with memory (short&#x2F;med&#x2F;long), knowledgegraph&#x2F;RAG, tools and plugins that makes it easy to develop new agents the orchestrator can coordinate).<p>I also wanted to capture what&#x27;s in my head from doing bug bounties (my hobby) and 15+ years in appsec&#x2F;devsecops to get it &quot;on paper&quot;.   If anyone would like to kick the tires, take a look, or tell me it&#x27;s garbage feel free to email me (in my profile).",
+      "Do I read it right, that ARTEMIS required a not insignificant amount of hints in order to identify the same vulnerabilities that the human testers found? (P. 7 of the PDF.)",
+      "Pen testing and cyber security in general shares characteristics with some other fields in which AI performs well compared to humans: it requires mastery of a body of knowledge that&#x27;s barely manageable by humans. Law, medicine, and other professions where we send people to graduate school to get good at unnatural mental tasks are similar."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Mantic.sh – A structural code search engine for AI agents",
+    "url": "https://github.com/marcoaapfortes/Mantic.sh",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Interesting and I haven&#x27;t tried it yet.<p>But the &quot;Usage Guidelines&quot; part of the &quot;License&quot; section at the end of the README says: &quot;License <i>required</i> for: Commercial embedding in products you sell or offering Mantic as a hosted service.&quot;<p>This is not completely true, since it seems that the software is licensed under AGPLv3, which of course allow the use of the software for any purpose, even commercial.",
+      "Interesting idea but its very strong path-dependence makes me wary on its general use and reliability. E.g. on project&#x27;s own codebase querying &quot;extract exports&quot; will&#x27;ve expected to get `src&#x2F;dependency-graph.ts`, which has an `extractExports` function, 1st rather 7th. (Though in out of ~30 total files, that means gives expected result in top 25%.) Trying to search anything on chromium repo (just &quot;git clone <a href=\"https:&#x2F;&#x2F;chromium.googlesource.com&#x2F;chromium\" rel=\"nofollow\">https:&#x2F;&#x2F;chromium.googlesource.com&#x2F;chromium</a>&quot;, no deps&#x2F;submodules; only ~44k paths in `git ls-files`) returns &quot;Error: Scanner failed to produce scored files. This is a bug.&quot;",
+      "Hello! Cool tool, I&#x27;m going to give it a try on my personal assistant. The vector DB prices look a bit cynical to me, even incredible. Do you think you could break down how you arrived at the cost estimation both for competing vector DBs and Mantic? For example, I use Weaviate at the moment and I don&#x27;t come close to this cost even at a years perspective with a generous amount of usage from multiple users (~60)",
+      "MANTIC_IGNORE_PATTERNS seems not to be implemented, or am I missing something?",
+      "What is &quot;cognitive code search&quot; &quot;without embeddings&quot;? Do you mean you accept natural language queries and create embeddings on-the-fly?<p>edit: That&#x27;s structural or syntax-aware search.",
+      "I&#x27;ve tried it on my project and it always finds one file: package.json. What languages it support? Only javascript?",
+      "Can you explain how you achieve this in more detail? Did not see any in-detail explanation in the readme in repo",
+      "Is it possible that you are advertising mantic as an MCP tool without it actually being one? Or at least please document how to use it as such."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Why Big Companies Keep Failing: The Stack Fallacy (2016)",
+    "url": "https://techcrunch.com/2016/01/18/why-big-companies-keep-failing-the-stack-fallacy/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I call it the “sandwich fallacy”.<p>A lot of good bakeries decide to start making sandwiches. It’s an obvious value-add and adds margin. But sandwich customers are different from bakery customers, a sandwich shop has a different layout from a bakery, and making a great sandwich is a very different skill set from making great bread. So it’s not easy to stay a successful bakery and add on a successful sandwich business.<p>On the other hand, a great sandwich shop can pretty easily hire a baker and set up an oven to make exactly the bread that it needs to elevate its sandwiches.",
+      "This doesn’t sound very convincing, mostly because the examples don’t really line up with the claim. Apple supposedly struggles “up the stack,” yet many of the best and most-used iPhone apps are built by Apple itself. Google is held up as failing at social, but YouTube is arguably the largest social network in the world. Oracle is described as struggling in apps, yet it’s clearly doing just fine as a massive, profitable enterprise software company. And the IBM example is backwards: IBM didn’t accidentally hand Microsoft the OS layer, it already had its own operating systems. In fact, Microsoft is the clearest counterexample here, it got big by owning the OS and then very successfully moved up the stack to dominate applications with Office.",
+      "Some of it could also be a plain Darwinian numbers game. Facebook was neither the first nor the only social media of its kind. There were hundreds of failed attempts at similar social media, counting those that died in obscurity.<p>When Google attempted their Facebook clone, it was just one of the many who took a spin at the wheel. It was always more likely to have failed than succeeded.<p>Building a B2C with hysteric adoption is difficult because it&#x27;s very mysterious what elements of the product will actually lead to success, because it&#x27;s a psychological thing. E.g., if Facebook chose green instead of blue as their theme color (all else equal), it might&#x27;ve died in obscurity.",
+      "So many examples mentioned can be explained by network effect, first mover advantage, or an already saturated market, instead of underestimating the making of a good product.",
+      "The sandwich fallacy comment nails it. The hard part isn&#x27;t the building - it&#x27;s the understanding.<p>When you&#x27;re at a particular layer of the stack, you understand your immediate customer (the layer above you) reasonably well. But two layers up? Three? You&#x27;re basically guessing. And the higher you go, the more the problems become messy human problems rather than clean technical ones.<p>I build accounting tools. The technical work is manageable - parsing bank statements, matching transactions, posting to ledgers. But understanding why a bookkeeper categorises something a particular way, or what makes a reconciliation workflow feel &quot;right&quot; vs frustrating - that took years of sitting with actual users and watching them work. A database company could technically build what I build in a few months. They&#x27;d never ship something anyone actually wanted to use.",
+      "Oh wow - interesting to see this up again. I am the author of The Stack Fallacy. #AMA<p>I am now founder of Skyflow, we are runtime AI data security platform. This is my third startup, and previously I ran strategy for Salesforce.",
+      "This isn&#x27;t really just a big company problem, lots of start-ups fail too. It plays out a bit differently at big companies, as those failures tend to be more public but also done in a way that lets the company shuffle people around to the next project. There were lots of start-up companies that tried to build social networks or ERP systems or map applications that most people don&#x27;t hear about.",
+      "Big companies also fail to keep their own markets with some regularity, the tech companies are built over the ruins of industries that solved the same problem in the days of yesteryear with different tools.<p>The view of the article seems to be that companies solve problems. The way they solve problems is actually baked in to the structure of the management rather than any individual (sometimes there is an individual like a CEO with enough vision to reshape the management structure to solve new problems, although that is rare). It is also why acquisitions fail so easily - if you take an existing company and graft it under an existing management structure geared to solve some other problem then there is a lot of risk.",
+      "&gt;History is full of such examples. IBM thought nothing much of the software layer that ran their PC hardware layer and happily allowed Microsoft to own the OS market.<p>IBM didn&#x27;t &quot;happily&quot; do anything of the sort.  The company was undergoing multiple anti-trust investigations at the time and was trying to avoid incurring a large fine or even a structural remedy for creating a vertical monopoly.<p>The reason Microsoft went to the mat so hard when the government was trying to separate IE from Windows was Gates&#x27; fear that the company would end up being similarly crippled by the specter of anti-trust action from the government.",
+      "Related:<p><i>The Stack Fallacy (2016)</i> - <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=26177629\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=26177629</a> - Feb 2021 (28 comments)<p><i>Why Big Companies Keep Failing: The Stack Fallacy</i> - <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=10927600\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=10927600</a> - Jan 2016 (169 comments)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "High-performance header-only container library for C++23 on x86-64",
+    "url": "https://github.com/kressler/fast-containers",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "2-5x faster than both abseil&#x27;s b+tree and std::map means that abseil&#x27;s b+tree had to be the same performance as std::map for the tested workload. This is... very unusual. I have only ever seen it be much faster or moderately slower.",
+      "There is also new Adaptive Radix Tree implementation - <a href=\"https:&#x2F;&#x2F;www.db.in.tum.de&#x2F;~leis&#x2F;papers&#x2F;ART.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;www.db.in.tum.de&#x2F;~leis&#x2F;papers&#x2F;ART.pdf</a> which is supposed to be faster than B-Tree",
+      "&gt; History&#x2F;Motivations This project started as an exploration of using AI agents for software development. Based on experience tuning systems using Abseil&#x27;s B+tree, I was curious if performance could be improved through SIMD instructions, a customized allocator, and tunable node sizes. Claude proved surprisingly adept at helping implement this quickly, and the resulting B+tree showed compelling performance improvements, so I&#x27;m making it available here.<p>It seems the code was written with AI, I hope the author knows what he is doing. Last time I tried to use AI to optimize CPU-heavy C++ code (StackBlur) with SIMD, this failed :&#x2F;",
+      "Also want to share B- tree implementation from the Algorithmica HPC book: <a href=\"https:&#x2F;&#x2F;en.algorithmica.org&#x2F;hpc&#x2F;data-structures&#x2F;b-tree&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;en.algorithmica.org&#x2F;hpc&#x2F;data-structures&#x2F;b-tree&#x2F;</a>",
+      "Ok, maybe someone here can clear this up for me. My understanding of B+tree&#x27;s is that they are good for implementing indexes on disk because the fanout reduces disk seeks... what I don&#x27;t understand is in memory b+trees... which most of the implementations I find are. What are the advantages of an in memory b+tree?",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Why is the Gmail app 700 MB?",
+    "url": "https://akr.am/blog/posts/why-is-the-gmail-app-700-mb",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; <i>For most of that period, the size of the Gmail app hovered around 12 MB, with a sudden jump to more than 200 MB near the start of 2017... The Gmail app, on the App Store, is currently 760.7 MB in size.</i><p>With charts:<p><a href=\"https:&#x2F;&#x2F;www.axios.com&#x2F;2017&#x2F;12&#x2F;15&#x2F;the-top-iphone-apps-are-taking-up-a-lot-more-space-1513303131\" rel=\"nofollow\">https:&#x2F;&#x2F;www.axios.com&#x2F;2017&#x2F;12&#x2F;15&#x2F;the-top-iphone-apps-are-tak...</a><p>I had no idea common apps used to be just 10-30 MB. But are now <i>hundreds</i> of MB.<p>Something like Gmail doesn&#x27;t have massive hi-resolution bitmap graphics. Since the article doesn&#x27;t give any answer, I&#x27;m assuming it&#x27;s a hand-wavy &quot;frameworks&quot;, but that&#x27;s an <i>enormous</i> amount of compiled code.",
+      "A significant portion of larger sizes is likely due to how Google handles shared code across its iOS suite. They rely heavily on a shared C++ backend (using tools like J2ObjC or similar internal transpilers) to keep logic consistent between Android, iOS and of course the web.<p>When you pull in the gmail dependency from the internal monorepo, you are most likely pulling in the entire visual stack for Google meet, chat and spaces, plus the heavy protocol buffer definitions and gRPC libraries that underpin them.<p>Even if you don&#x27;t use the &quot;meet&quot; tab, the binary could be including the video codecs, the real-time transmission logic plus the AR filter assets, because the app is compiled as a &quot;Super App&quot; container rather than a modular mail client. I feel it&#x27;s an organizational artifact as much as a technical one.",
+      "The table at the end is seriously misguided. You can’t compare the sizes of an iOS preinstalled app against a non-preinstalled app. It’s just a thin UI shell where the code for all the functionality is inside system frameworks. The Photos app is quoted at 4.2MB. Guess what, if you delete that, you still have system components to render photos, UI for a photo picker, perform analysis on photos such as face recognition, all the iCloud networking code to support iCloud Photo Library, etc.",
+      "&gt; why is the Gmail app almost 80x the size of the native Mail app?<p>Apple Mail leverages libraries and frameworks already present on the device.<p>Google uses libraries and frameworks very likely already present on say Android, but on iOS they have to ship a gigantic runtime that implements those things the app depends on; this way they only have to write the app once for several supported platforms.<p>I’m just speculating by the way but it sounds like the likely reason.<p>You’ll notice Google Docs or sheets are equally gigantic because each also ships a copy of those enormous runtimes.",
+      "The article doesn&#x27;t answer the question. The content can be summarised as &quot;The Gmail app is 700 MB!&quot;",
+      "The article compares the native (iOS) mail app which is (from the article) 8.7MB.  What I believe is happening is that the gmail app is not a native app, it is some cross-platform monstrosity, so Google has to bring all the widgets and doo-dads that they wrote so that it looks just like it does on all the other platforms.  The native iOS mail app is so tiny because part of iOS that the article mentions taking up 25GB contains all the native widgets and doo-dads that the native mail app can use.",
+      "Well, something fishy is going on because there is literally no way that Safari, in its entirety, is 5.1 MB. The numbers for the others app seem similarly off.<p>It would be really hard to believe that somehow Apple has found some magic formula to make their apps 100x smaller than Google and Microsoft.<p>Much more likely is that the reporting by the OS is off somehow (probably most of the app functionality is tied up in shared resources counted towards system files, and not counted towards the app&#x27;s size).<p>With respect, I would expect more from articles posted on Hacker News. More thorough research, and in fact an answer to the question.",
+      "On Android vs iOS, it&#x27;s worth noting Android apps are smaller than iOS apps. The details are complicated but this report says after installation Android apps take up about half the space as iOS. <a href=\"https:&#x2F;&#x2F;www.safetydetectives.com&#x2F;blog&#x2F;app-storage-usage-research&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.safetydetectives.com&#x2F;blog&#x2F;app-storage-usage-rese...</a><p>One specific complication: Apple&#x27;s store reports install size, Google Play reports compressed download size. <a href=\"https:&#x2F;&#x2F;www.emergetools.com&#x2F;blog&#x2F;posts&#x2F;are-android-apps-really-that-much-smaller-than-ios\" rel=\"nofollow\">https:&#x2F;&#x2F;www.emergetools.com&#x2F;blog&#x2F;posts&#x2F;are-android-apps-real...</a>",
+      "It’s wild when you put it into context. I remember when Gmail first opened to the public with a whopping *1 GB* of storage… now the app alone almost exceeds that.",
+      "AOT overhead 200MB (ensuring app loads fast)<p>Frameworks 150MB<p>Assets for all screen resolutions 50MB<p>Google Meet&#x2F;Chat&#x2F;etc 100MB<p>AI models 25MB"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The Agentic Self: Parallels Between AI and Self-Improvement",
+    "url": "http://muratbuffalo.blogspot.com/2026/01/the-agentic-self-parallels-between-ai.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Is Murat suggesting that thinking equals predicting the next token or is this just fiction to read?",
+      "Except that something like half of people don&#x27;t have any internal monologue. It&#x27;s tempting to pretend that LLM are doing similar things to our brains, but the reality is that they are extremely different and only very very superficially appear to be doing similar things.",
+      "&gt; One of the most profound pieces of advice I ever read as a PhD student came from Prof. Manuel Blum, a Turing Award winner. In his essay &quot;Advice to a Beginning Graduate Student&quot;, he wrote: &quot;Without writing, you are reduced to a finite automaton. With writing you have the extraordinary power of a Turing machine.&quot;<p>only if you have an unlimited amount of paper!<p>otherwise you&#x27;re still a finite state machine (technically)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: GPU Cuckoo Filter – faster queries than Blocked Bloom, with deletion",
+    "url": "https://github.com/tdortman/cuckoo-filter",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Kudos!<p>It would be interesting if in your performance analysis on the readme you also showed the false positive rate, assuming the memory use between the data structures you&#x27;re comparing is identical.",
+      "Very interesting! Nice work on your thesis. I am curious: if the data is <i>not</i> resident on the GPU (e.g. multi-TB datasets, line-rate packet inspection, etc.), is this approached bottle necked by the PCIe bus?<p>(You may have addressed this in your thesis, feel free to tell me to go RTFD ;)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Foundertrace – chain of YC startups founded by its employees",
+    "url": "https://foundertrace.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "PG&#x27;s tweet that inspired this <a href=\"https:&#x2F;&#x2F;x.com&#x2F;paulg&#x2F;status&#x2F;1994904099566031300\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;paulg&#x2F;status&#x2F;1994904099566031300</a>",
+      "This is awesome! One note, some of the batch years are wrong, I see someone from S24 marked as S19.",
+      "Very cool! It looks like you&#x27;ve purchased the data from a vendor, is that right?   I love graphs of all kinds, so I was hoping to fetch the raw data and have a look at it with pyvis&#x2F;networkx.",
+      "[flagged]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Hierarchical Autoregressive Modeling for Memory-Efficient Language Generation",
+    "url": "https://arxiv.org/abs/2512.20687",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "At least the authors acknowledge it for what it is: a tiny model on a tiny corpus and worse than the comparable transformers in terms of accuracy.  I like the experimentation with new designs and one doesnt always need to show near SOTA results. From a brief inspection, however, I think it will be hard for the work to become a high profile conference acceptance without significan additional work.",
+      "Skimming it I get this incredible sci-fi feeling of AI being the thing that solves P vs. NP (the diagrams are reminiscent of boolean&#x2F;arithmetic circuits which have produced some results in the compcomp space)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Jax-JS, array library in JavaScript targeting WebGPU",
+    "url": "https://ss.ekzhang.com/p/jax-js-an-ml-library-for-the-web",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hey Eric, great to see you&#x27;ve now published this! I know we chatted about this briefly last year, but it would be awesome to see how the performance of jax-js compares against that of other autodiff tools on a broader and more standard set of benchmarks: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;gradbench&#x2F;gradbench\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;gradbench&#x2F;gradbench</a>",
+      "Congrats on the launch! This is a very exciting project because the only decent autodiff implementation in typescript was tensorflowjs, which has been completely abandonned by Google. Everyone uses onnx runtime web for inference but actually computing gradients in typescript was surprisingly absent from the ecosystem since tfjs died.<p>I will be following this project closely! Best of luck Eric! Do you have plans to keep working on it for sometime? Is it a side project or will you abe ble to commit to jax-js longer term?",
+      "This is really great. I don&#x27;t do ML stuff. But I some mathy things that would benefit from running in the GPU so it&#x27;s great to see the Web getting this.<p>I hope this will help grow the js science community.",
+      "This project is an inspiration, I&#x27;ve been working on porting tinygrad to [Lean](github.com&#x2F;alok&#x2F;tinygrad)",
+      "I have a project using tfjs and jax-js is very exciting alternative. However during porting I struggle a lot with `.ref` and `.dispose()` API. Coming from tfjs where you garbage collect with `tf.tidy(() =&gt; { ... })`, API in jax-js seems very low-level and error-prone. Is that something that can be improved or is it inherent to how jax-js works?<p>Would `using`[0] help here?<p>[0]: <a href=\"https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;JavaScript&#x2F;Reference&#x2F;Statements&#x2F;using\" rel=\"nofollow\">https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;JavaScript&#x2F;Refe...</a>",
+      "What is the state of web ML? Anybody doing cool things already? How about <a href=\"https:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;webnn&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;webnn&#x2F;</a> ?",
+      "Could not run the demos on Firefox. On Chromium, the Great Expectations loads but then nothing happens.",
+      "Very nice work. Like how it supports webgpu but also cpu&#x2F;wasm&#x2F;webgl. Would love to read more on the internals &amp; design choices made like e.g. ref counting in README.<p>P.S. And thanks for taking your time working on this and releasing something polished rather a Claude slop made within few days as seems to be the norm now."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The creator of Claude Code just revealed his workflow",
+    "url": "https://venturebeat.com/technology/the-creator-of-claude-code-just-revealed-his-workflow-and-developers-are",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; &quot;If you&#x27;re not reading the Claude Code best practices straight from its creator, you&#x27;re behind as a programmer,&quot;<p>The amount of “<i>you</i> are doing it wrong if you don’t get on our bandwagon” rhetoric I see surrounding AI coding has me convinced that this is a bandwagon I don’t want to be on.  That level of insecurity is just not for me.",
+      "I appreciate the validation that he doesn&#x27;t customize it much. I see a lot of people creating really complex agents&#x2F;workflows that I tried to replicate and always came across to me as more trouble than they are worth. Kinda like 10 years ago when people would create complex workflows for storing their notes.",
+      "This submission came later but is getting more traction, with 81 comments so far: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46470017\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46470017</a>",
+      "He uses 5-10 terminal tabs and 5-10 web tabs of … you got it - Claude Code.<p>Ah man! The only situation I can see this working out for me is, it’s a greenfield project and backward compatibility is never a bother in future versions. Even the 5-10? Maybe like 3.",
+      "When these companies run out of VC hype money, what&#x27;s the actual cost of running 10-20 instances of this at all times, going to be?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: llmgame.ai – The Wikipedia Game but with LLMs",
+    "url": "https://www.llmgame.ai",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I found a path from Piano to Volcano with 41 generated topics!\nPiano → Yamaha Corporation (places)\nYamaha Corporation → Katsuhiko Yamashita (people)\nKatsuhiko Yamashita → Kyoto Institute of Technology (places)\nKyoto Institute of Technology → Japan (broader)\nJapan → Mount Fuji (places)\nMount Fuji → Fuji eruption (evil)\nFuji eruption → Volcanology (broader).<p>Try it yourself at www.llmgame.ai",
+      "Creator here--today&#x27;s target is hard but doable :)<p>I found a path from Books to Rainbow with 366 generated topics!\nBooks → Publishing (broader)\nPublishing → Media (broader)\nMedia → Times Square (places)\nTimes Square → Central Park (opposite)\nCentral Park → Strawberry Fields (Central Park) (deeper)\nStrawberry Fields (Central Park) → Strawberry Fields (broader)\nStrawberry Fields → Berry Fields (broader)\nBerry Fields → Berry Fields Winery (places)\nBerry Fields Winery → Wine Country (broader)\nWine Country → Wine Region (broader)\nWine Region → Terroir (similar)\nTerroir → Agriculture (broader)\nAgriculture → Desertification (evil)\nDesertification → Reforestation (opposite)\nReforestation → Ecology (broader)\nEcology → Landscape Ecology (deeper)\nLandscape Ecology → Ecology (broader)\nEcology → Ecosystem ecology (deeper)\nEcosystem ecology → Trophic dynamics (deeper)\nTrophic dynamics → Nutrient cycling (deeper)\nNutrient cycling → Nitrogen cycle (good)\nNitrogen cycle → Biogeochemistry (broader)\nBiogeochemistry → Earth science (broader)\nEarth science → Meteorology (deeper)\nMeteorology → Weather science (broader)\nWeather science → Meteorology (deeper)\nMeteorology → Weather phenomenon (deeper)\nWeather phenomenon → Sunshine (good)\nSunshine → Sunlight spectrum (deeper)\nSunlight spectrum → Visible spectrum (deeper)\nVisible spectrum → Rainbow Chromaticity (places).<p>Try it yourself at www.llmgame.ai",
+      "I found a path from Piano to Volcano with 40 generated topics!\nPiano → Instrument (broader)\nInstrument → Juilliard School (places)\nJuilliard School → American conservatories (past)\nAmerican conservatories → Historic music conservatories (past)\nHistoric music conservatories → Paris Conservatoire (places)\nParis Conservatoire → European conservatories (broader)\nEuropean conservatories → Europe (broader)\nEurope → Sicily (places)\nSicily → Mount Etna (similar)\nMount Etna → Volcanoes of Italy (similar).",
+      "I found a path from Piano to Volcano with 107 generated topics!\nPiano → Piano City (places)\nPiano City → Music festivals (broader)\nMusic festivals → Coachella Valley Music and Arts Festival (deeper)\nCoachella Valley Music and Arts Festival → Coachella Valley Music and Arts Festival\nIndio (deeper)\nCoachella Valley Music and Arts Festival\nIndio → Coachella Valley (places)\nCoachella Valley → Heatwave (evil)\nHeatwave → Climatology (broader)\nClimatology → Climate science (similar)\nClimate science → Meteorology (broader)\nMeteorology → Atmospheric sciences (similar)\nAtmospheric sciences → Meteorology (similar)\nMeteorology → Geomorphology (opposite)\nGeomorphology → Geomorphic processes (similar)\nGeomorphic processes → Earth science (broader)\nEarth science → Geology (deeper)\nGeology → Tectonics (deeper)\nTectonics → Subduction Zone (similar)\nSubduction Zone → Mantle convection (similar)\nMantle convection → Mantle plume (evil)\nMantle plume → Plate tectonics (broader)\nPlate tectonics → Mantle Plume (deeper)\nMantle Plume → Hawaii hotspot (deeper)\nHawaii hotspot → Volcano hotspot (similar).<p>Try it yourself at www.llmgame.ai",
+      "oh i like this . I found a path from Piano to Volcano with 77 generated topics!\nPiano → Instrument (broader)\nInstrument → Machinery (broader)\nMachinery → Industry (broader)\nIndustry → Commerce (broader)\nCommerce → Trade (broader)\nTrade → Economics (broader)\nEconomics → Microeconomics (broader)\nMicroeconomics → Social science (broader)\nSocial science → Anthropology (similar)\nAnthropology → Archaeology (similar)\nArchaeology → Machu Picchu (places)\nMachu Picchu → Andes Mountains (similar)\nAndes Mountains → South America (broader)\nSouth America → Galápagos Islands (places)\nGalápagos Islands → Fernandina Island (deeper)\nFernandina Island → Fernandina Island National Park (deeper)\nFernandina Island National Park → Volcanic arc (similar)\nVolcanic arc → Volcanology (broader).<p>Try it yourself at www.llmgame.ai",
+      "Fun! I found a path from Piano to Volcano with 80 generated topics!\nPiano → Piano torture (evil)\nPiano torture → Bechstein Hall (places)\nBechstein Hall → Berlin (places)\nBerlin → Germany (broader)\nGermany → European Union (broader)\nEuropean Union → Europe (broader)\nEurope → Continent (broader)\nContinent → Eurasia (deeper)\nEurasia → Eurasian Plate (similar)\nEurasian Plate → Eurasian Plate boundary (deeper)\nEurasian Plate boundary → Anatolian Plate boundary (deeper)\nAnatolian Plate boundary → North Anatolian Fault (deeper)\nNorth Anatolian Fault → Earthquake hazard (evil)\nEarthquake hazard → Natural disaster (broader)\nNatural disaster → Pyroclastic flow (deeper)\nPyroclastic flow → Volcanic ash (similar)\nVolcanic ash → Volcanology (broader).<p>Try it yourself at www.llmgame.ai",
+      "This is fun! I thought I did pretty good with 123.<p>I found a path from Books to Rainbow with 123 generated topics!\nBooks → Johannes Gutenberg (people)\nJohannes Gutenberg → Printing press (broader)\nPrinting press → Sedition (evil)\nSedition → Peaceful protest (good)\nPeaceful protest → Social movement (similar)\nSocial movement → Black Lives Matter (places)\nBlack Lives Matter → Alicia Garza (people)\nAlicia Garza → Reproductive rights (similar)\nReproductive rights → Feminism (broader)\nFeminism → Women&#x27;s studies (similar)\nWomen&#x27;s studies → Gender studies (similar)\nGender studies → Queer Studies (deeper)\nQueer Studies → LGBTQIA Studies (similar)\nLGBTQIA Studies → LGBTQIA History (good)\nLGBTQIA History → LGBTQ movements (broader)\nLGBTQ movements → Galden LGBTQ Center (places)\nGalden LGBTQ Center → LGBTQ community organizations (similar)\nLGBTQ community organizations → LGBTQ advocacy groups (similar)\nLGBTQ advocacy groups → GLAAD (places)\nGLAAD → Gay rights movement (broader)\nGay rights movement → LGBTQ rights movement (deeper)\nLGBTQ rights movement → Pride flag (deeper)\nPride flag → Rainbow flag (similar).<p>Try it yourself at www.llmgame.ai",
+      "Pretty fun! got to Volcano in 39 moves!<p>I found a path from Piano to Volcano with 39 generated topics!\nPiano → Fazioli (people)\nFazioli → Fazioli Factory (places)\nFazioli Factory → Pordenone Province (places)\nPordenone Province → Italy (broader)\nItaly → Sicily (places)\nSicily → Mount Etna (deeper)\nMount Etna → Etna Volcano (deeper).<p>Try it yourself at www.llmgame.ai",
+      "Driving through a 1,024-dimensional field in a car with six steering wheels.",
+      "&gt; LLM does not always cooperate<p>Getting from Visible Spectrum to Rainbow seemed impossible (tried all actions)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Creating a bespoke data diode for air‑gapped networks",
+    "url": "https://nelop.com/bespoke-data-diode-airgap/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Why not use optical ethernet as ‘real’ cross domain solutions do? Probably cheaper if you don’t mind eBay, and gives you an easy upgrade path to 10Gbps or more in future.<p>Two port NIC on the low side. Port 2 has its TX side connected to Port 1’s RX, just so the port will see a carrier and show link up. Port 1 TX goes to the high side machine’s RX, with TX left open.<p>From here, you have a whole ton of protocol options.<p>For things like syslog, you can just use a static ARP entry on the low side to forward events to the high side’s IP address via UDP.<p>For reliable transport, there are lots of options for reliable multicast now using erasure coding etc that don’t require a reverse channel.",
+      "A &quot;diode&quot; is not an air gap. If there is any flow in either direction, you don&#x27;t have an air gap. This isn&#x27;t hard to understand.",
+      "I&#x27;m assuming you don&#x27;t have any audit requirements for this application. The stupid pricing for hardware often isn&#x27;t in the hardware, it&#x27;s in the compliance.",
+      "Unless you needed Ethernet, you could have done the same thing with a null modem RS-232 cable with the TX pin cut on one end.",
+      "The main function of this gear is preventing the ingress of control to a sensitive network, whilst also allowing a controlled outflow of data for monitoring. I think the design choices made were all quite reasonable. Given that it passed an audit, it seems reasonably trustworthy.<p>The stock raspberry pi doesn&#x27;t have wireless ports to serve as potential side channels. The use of an opto-isolator means that data is constrained by physics to only flow in the desired direction, no matter what happens in either Raspberry Pi.<p>It should be possible to replicate this for less that $200 in hardware.",
+      "&gt; An opto coupler, also known as an opto isolator, allows an electrical signal to pass from one device to another using light, preventing direct electrical connection. *This ensures data flows in a single direction, maintaining the integrity of the air gap.*<p>I would like to know how they come to such a conclusion as this is either a misunderstanding or an AI solution. The opto isolator does not maintain the air gap. It only provides galvanic isolation which is likely unnecessary in this situation.<p>Galvanic isolation is useful in situations where you want to isolate circuits from electrical potential issues (ground loops and so on) or isolation from noise and faults.",
+      "I feel like it&#x27;s easier to just have Ethernet and a strict HW firewall with the admin interfaces totally disabled (have to full reset to get back in).<p>You can either just block packets in one direction, or you can add a small amount of risk and allow UDP and TCP with zero payload in one direction. That would allow you to reliably stream in one direction and request from either direction, albeit with a slightly exploitable channel (timing, reliability or the space of values allowed in the protocol).<p>You already have to trust the RPI hardware to not enable WiFi on either side, so why not trust a router?",
+      "There are reasons that the US Government is super serious about certifying data diodes and cross domain solutions because you need to be absolutely sure what you are doing doesn’t accidentally leak data where it doesn’t need to go.<p>Real data diode and cross domain solutions are super expensive for this reason.",
+      "I don&#x27;t see how this is airgapped. You literally connect a full Pi to the RXing computer. What audit has RX Pi device gone through?",
+      "Everyone commenting about the strict definition is a very smart boy. Good job and gold stars all around for the productive conversation! You&#x27;re solving the real problems of our times here."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Hyundai Introduces Its Next-Gen Atlas Robot at CES 2026 [video]",
+    "url": "https://www.youtube.com/watch?v=9e0SQn9uUlw",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It&#x27;s interesting so far we have not seen the new Atlas actually functioning. In the past Boston Dynamics announcements have always been done with real hardware. But this time it&#x27;s only with models and CGI.<p>What happened?",
+      "The comments here are focusing on the &quot;awkward transition&quot; from dancing to static, but that&#x27;s the most honest part of the demo.<p>We’ve been spoiled by 10 years of highly choreographed, multi-take Boston Dynamics sizzle reels. What we just saw was the transition from R&amp;D Showpiece to Factory Tool.<p>The &quot;awkwardness&quot; is what actual deployment looks like.<p>It’s electric (no hydraulic leaks).<p>It has 56 DoF (redundancy for complex assembly).<p>It’s being deployed in Georgia now, not in &quot;3 months maybe.&quot;<p>Tesla is shipping Optimus Sub-Primes. Hyundai is shipping a boring, reliable, high-torque worker. I’ll take the boring static model that actually has a spec sheet over another backflip video any day.",
+      "Tough week for Tesla. Nvidia is about to ship a competitive self-driving solution and Hyundai is putting a useful humanoid robot into production.<p>What claim will Elon make next to defend the stock price?",
+      "The &quot;creepiness&quot; isn&#x27;t a bug; it&#x27;s a conflict of expectations.<p>We are looking at a machine that mimics the human form (bipedal, two arms) but completely ignores Biological Constraints (tendons, ligaments, joint limits).<p>When it rotates 180 degrees at the waist, our brains trigger a &quot;Body Horror&quot; response because we subconsciously map our own anatomy onto it. We see a broken spine. The robot just sees a shorter path.<p>This is purely Unconstrained Kinematics. Hyundai isn&#x27;t trying to build a &quot;Better Human.&quot; They are building a &quot;Bipedal Forklift&quot; that just happens to fit through our doorframes.<p>It’s a tool. Let’s stop judging it like it’s supposed to be one of us.",
+      "Whoever approved making a robot look like it is about to dance before awkwardly panning to a &quot;static&quot; model should not be making those decisions. It literally killed the vibe in the room. People went from the verge of freaking out to the biggest let down ever that it ruined whatever they said afterwards.",
+      "This is real world footage (&quot;60 Minutes&quot; material, video from yesterday), non choreographed Boston Dynamics robots from Hyundai factory:<p><a href=\"https:&#x2F;&#x2F;youtu.be&#x2F;CbHeh7qwils?t=437\" rel=\"nofollow\">https:&#x2F;&#x2F;youtu.be&#x2F;CbHeh7qwils?t=437</a>",
+      "&quot;It can totally control itself, but we&#x27;re gonna have a human control it&quot;<p>also<p>&quot;the next version is totally ready, but here&#x27;s a full-size model&quot;",
+      "The video running behind the speaker at the absolute start looked familiar.<p>So I looked it up and it seems Hyundai owns Boston Dynamics now.",
+      "I wonder how easy it is to control. Like does someone have to spend 6 months in a lab programming each movement, or could you have it doing a new task by the end of the day?<p>It would be cool to have one at home as a little helper some day.",
+      "Why does it needs bipedal legs on a flat factory floor, does it need them to walk up the bus steps it takes to get to it&#x27;s second story walk up apartment where it lives w&#x2F; its robot family?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "My Tamagotchi is an RL agent playing Slither.io",
+    "url": "https://nkasmanoff.github.io/#/blog/tamagotchi-rl-slitherio",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<p><pre><code>  Sent through Gemini to blur my monitor\n</code></pre>\nBlurring is never the solution as it can be unblurred in most cases (look up Mr whirlwind). Also Gemini sounds like overkill for the task of burring in general. Inkscape and gimp can do it for free (providing that you have a computer, not an iPad for example)",
+      "As someone who implemented some RL algorithms and applied them to a real world game, (including all the ones mentioned in the article), I would be surprised if the implementation is not buggy.  That is one of the most striking things about RL, the extent to which it is hard to find bugs, since they generally only degrade the performance instead of causing a crash or obviously wrong behavior.  The fact that he doesn&#x27;t mention a massive amount of time spent debugging, and the longish list of things that were tried that really <i>should</i> have worked but didn&#x27;t, suggests to me it&#x27;s probably still buggy.  I suppose it is possible that LLMs could be particularly good at RL code since it&#x27;s seen it repeated so many times... But I would be skeptical without hard evidence.",
+      "&gt; (Sent through Gemini to blur my monitor).<p>Excuse me, <i>what</i>?",
+      "Clicked for Tamagotchi, but I saw none. My day is ruined. :&#x27;c",
+      "I had this idea during the pandemic 5 years ago now, and even did some of that work to figure out the variables I&#x27;d need to extract to make it work, but I never found the time&#x2F;motivation to work on it for real.  Really happy to see someone put in the effort.",
+      "The sample efficiency of the RL algorithm, even for simple games, is not very good. This usually means that we will need a lot of episodes for the policy to learn to excel. Being able to run policy in an environment that can parallel and accelerate could be very helpful for the improvement - for example running a batch of browsers or tabs simultaneously :)",
+      "Corporate firewall is blocking this since its a &quot;newly registered domain&quot; but I wanted to note that Tamagotchi got me to revisit Digimon after I learned that Digimon was created as a way for Bandai to sell to boys. Color me surprised when I learned that Tamagotchi was considered for girls, but I played with mine like there was no tomorrow, with the Pokemon hype of the late 90s it came to many of us at the right time.<p>Surprisingly, and I just looked it up, you can buy the original classic ones for about $20 straight off Amazon."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "TGFX - A lightweight 2D graphics library for modern GPUs",
+    "url": "https://github.com/Tencent/tgfx",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Symbolic Circuit Distillation: prove program to LLM circuit equivalence",
+    "url": "https://github.com/neelsomani/symbolic-circuit-distillation",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "No examples in the readme?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Owning a Domain Increases Digital Self-Reliance",
+    "url": "https://chuck.is/self-reliant/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I wouldn’t necessarily agree. I owned a few domains related to my name (e.g., variants of &lt;firstname&gt;&lt;lastname&gt;.com), but nothing as obsessive as what Steven Wolfram is known for, and I’ve probably owned them for as long as domains have been available. I never found much utility in it. Toward the end of my career, I considered using one as a professional profile not tied to LinkedIn, but I wouldn’t say it was a better use of my time than spending it with my grandkids. Many people in our industry could benefit from stepping away from creating work solely to stand out and instead enjoying their free time.",
+      "I too want to get started with my own domain but im kinda confused"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Why agents matter more than other AI",
+    "url": "https://substack.com/home/post/p-182047799",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; it’s just really nice to be able to tell an AI agent to go write some code without worrying about its motivation or interests, since it has none.<p>I am glad I don&#x27;t work for this person.",
+      "The article doesn&#x27;t talk about any agents outside of coding work. Coding is not the work the world is running on. Agent concept requires much more selling than chat bots, which means they are solutions searching for problems.",
+      "Interesting thought experiment, replace &quot;AI agent&quot; with &quot;computer&quot; in this article. Seems our parents&#x2F;grandparents may have been having some of the same conversations 50 years ago.<p>---<p>The advantages of computers over human employees:<p>1. The best computer can be copied infinitely.<p>2. Computers can run 24&#x2F;7<p>3. Computers could theoretically think faster than humans<p>4. Computers have minimal management overhead<p>5. Computers can be instantly scaled up and down<p>6. Computers don’t mind running in a nightmare surveillance prison<p>7. Computers are more tax efficient",
+      "There are a lot of things you can do from a shell prompt, and now we have AI ghosts that can do them too, sometimes better than us. Yes, within some industries, this is going to be huge!<p>But there are also a lot of things that you can&#x27;t do from a shell prompt, or wouldn&#x27;t want to.",
+      "&gt; Agents don’t mind running in a nightmare surveillance prison<p>Which means they would have no empathy when tasked with running a nightmare surveillance prison for humans.",
+      "This is basically the modern version of an Influencer...just on Substack instead of YouTube. Big claims, slick framing, zero rigor. It sells a narrative about “agents” as a brand, not an analysis of what actually works.",
+      "This article is basically just saying if we have AGI then there might be big consequences for humans. Well yes, obviously. People have been discussing that for decades...",
+      "The largest resource use of AI over the next 50 years will be generating entertainment structures for humans. Productivity focused AI will be the most economically useful, however it&#x27;ll be far less resource intensive than the entertainment generation (generally speaking, AI tasked with driving human pleasure).<p>World building alone will be at least a magnitude greater in resource use than all productivity-focused AI combined (including robotics + AI). Then throw in traditional media generation (audio, images, video, textual).<p>AI will be the ultimate sedative for humanity. We&#x27;re going into the box and never coming back out and absolutely nothing can stop that from happening. For at least 95% of humanity the future value that AI offers in terms of bolstering pleasure-of-existence is far beyond the alternatives it&#x27;s not really worth considering any other potential outcome, there will be no other outcome. Most of humanity will lose interest in the mundane garbage of dredging through day to day mediocrity (oh I know what you&#x27;re thinking: but but but life isn&#x27;t really that mediocre - yes, it definitely is, for the majority of the eight billion it absolutely is).<p>Out there is nothing, more nothing, some more nothing, a rock, some more nothing, some more of what we already know, nothing, more nothing, and a lot more nothing. In there will be anything you want. It&#x27;s obvious what the masses will overwhelmingly choose.",
+      "Painful. Stopped reading after first few paragraphs.",
+      "Previous discussion at: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46368797\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46368797</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "DatBench: Discriminative, faithful, and efficient VLM evaluations",
+    "url": "https://arxiv.org/abs/2601.02316",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Tube trains could navigate the Underground using the rules of Quantum Physics",
+    "url": "https://www.ianvisits.co.uk/articles/tube-trains-could-navigate-the-underground-using-the-weird-rules-of-quantum-physics-86370/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The Elixabeth Line runs 24 trains per hour automatically through a 10-station tunnel in central London. It mainly uses axle counters to measure where the train is.<p><a href=\"https:&#x2F;&#x2F;www.railengineer.co.uk&#x2F;controlling-the-elizabeth-line&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.railengineer.co.uk&#x2F;controlling-the-elizabeth-lin...</a><p>&gt; The signalling is essentially hands off and is timetable driven. The latter includes GoA3 reversing moves at Paddington and Abbey Wood which are fully automatic as are all entries into and out of a depot. The line uses axle counters for secondary train positioning information other than where neutral sections for the overhead power exist, where track circuits are deployed, these being seen as less vulnerable to any spark interference from the overhead catenaries.",
+      "It&#x27;s kind of annoying that they don&#x27;t go into specifics about why this is good. The problem with traditional accelerometers is that the error accumulates, and so even small errors accumulate. The article doesn&#x27;t really address what makes this different - and in fact I don&#x27;t think it <i>is</i> different. You&#x27;re still just measuring acceleration using a sensor and that sensor will have errors that accumulate. So the question is how much better is it?<p>I would wager that actually this is probably just a way of funnelling money into research around quantum rather than genuinely trying to solve this specific problem. This specific problem sounds like it could be solved for a lot less money using conventional accelerometers in combination with some other local location data (optical sensors for example, you&#x27;re in a very controlled environment).",
+      "Don&#x27;t trains run on a fixed path, meaning we can use more traditional &quot;positioning systems&quot; like, umm, math? Or placing passive sensors or paint a big number on the wall?",
+      "Cool technology, but seems a bit of an extreme effort just to check train position. Why can&#x27;t they just use markers on the tunnel walls (or under the tracks)?",
+      "You <i>might</i> be at Victoria Station, but there&#x27;s a slim but tangible chance you are in fact in Paddington.<p>We won&#x27;t know until someone looks at you.  Until then you are on every station possible in the underground sorted of smeared out into a probability wave.",
+      "Quite a dumb application of quantum physics. Cooling something to near zero, which takes energy, and is complex, and big, in order to obtain precisions which are magnitudes higher than what is necessary. As if one would use CPUs to prop up an uneven table and would boast that they use microelectronics.<p>&quot;Instead of relying on conventional sensors, these devices use clouds of atoms cooled to near absolute zero. At those temperatures, atoms start to behave strangely — acting as both particles and waves. As the atoms “fall” through a sensor, their wave patterns shift in response to acceleration. Using what’s effectively an ultra-precise optical ruler, the system can read these changes with extraordinary accuracy, without needing satellites at all.&quot;",
+      "If you have fixed beacons with a known location, couldn&#x27;t the devices work out their location?<p>Seems like an engineered solution to rely on &quot;quantum&quot;.",
+      "In the end, it&#x27;s all a series of tubes.",
+      "1.25 millions doesn’t even buy you the laser to cool the atom gas. \nIt’s for sure interesting, but to put this on a train, we will have to solve a few more questions. like for example, how do you operate an optical table on a bumpy metro.",
+      "This is a weird application for such sensors. The train may be used as a test platform. DARPA launched a program to develop quantum sensors that are reliable outside the lab recently [1].<p>[1]  <a href=\"https:&#x2F;&#x2F;www.nextbigfuture.com&#x2F;2025&#x2F;10&#x2F;darpa-developing-quantum-sensors-that-are-durable-for-real-world-use.html\" rel=\"nofollow\">https:&#x2F;&#x2F;www.nextbigfuture.com&#x2F;2025&#x2F;10&#x2F;darpa-developing-quant...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "xAI Raises $20B Series E",
+    "url": "https://x.ai/news/series-e",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "What is xAI? Is it something serious such as what Anthropic did to coding? Can it compete with Google? I&#x27;ve tried Grok and seems farcical and useless for me at least, what am I missing?",
+      "Yet they can&#x27;t manage to let user delete the pictures that they uploaded into Grok, and then these pictures are automatically indexed on Google",
+      "So we need the entire world&#x27;s available money, capital, energy and earth&#x27;s entire resources in order to improve LLMs so that my daughter&#x27;s cousin can keep talking to their imaginary &#x27;friend&#x27;.<p>I can&#x27;t wait until AI startups need to raise $100TN dollars for this important mission.",
+      "[flagged]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: I built a tool to create AI agents that live in iMessage",
+    "url": "https://tryflux.ai/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This seems to be a wrapper around LangAgents that can be linked to iMessage. I would not say the agents &quot;live in iMessage,&quot; rather that they interface through iMesssage.<p>You can find a bit more on what&#x27;s (likely) behind this in the github repo: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;photon-hq&#x2F;flux\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;photon-hq&#x2F;flux</a><p>(NB: the deployed version may not be exactly the same as the code in the repo)",
+      "Hi! I&#x27;m sure this is very cool, but want to know what this does before I try it. I typed in the chat: what does this do? Will you build me an agent behind a phone number I can chat with? And it tried to open up iMessage which I denied because IDK in the first place what this is.",
+      "I tried this and the flow is sketchy UX even if it’s probably not malicious. It opens Messages, has you send a code to a number they control, and that “verifies” you. Probably to multiplex many chats on one phone number. That’s not a takeover by itself (you’re not forwarding a bank&#x2F;Apple 2FA), but it’s sketchy. It also doesn’t work. It said hello and stopped replying.",
+      "united has free messaging on their flights and i found myself using meta&#x27;s ai chatbot via whatsapp a few times. it&#x27;s system prompt forces it to ask me inane questions at the end of every action so i would be happy to switch to something else.<p>just tried making one using this and it initially was way too casual for me and i didn&#x27;t like how it split responses into many messages but it&#x27;s very responsive to my prompts to change its style.",
+      "I want to know what this is and what it does before I give it permissions."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Open-source AI workflows with read-only auth scopes",
+    "url": "https://github.com/seer-engg/seer",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: ccrider - Search and Resume Your Claude Code Sessions – TUI / MCP / CLI",
+    "url": "https://github.com/neilberkman/ccrider",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Nice work.<p>But is just using `&#x2F;rename` not solving this as well?<p>For example:<p><pre><code>  &#x2F;rename api-migration          # Names your current session.\n\n  &#x2F;resume api-migration          # Resumes by name.\n\n  claude --resume api-migration  # Works from the command line too.</code></pre>",
+      "Your homebrew install fails<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;neilberkman&#x2F;homebrew-tap\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;neilberkman&#x2F;homebrew-tap</a> - 404s"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The Intent Layer: Make agents perform like your best engineers",
+    "url": "https://www.intent-systems.com/learn/intent-layer",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Your codebase becomes a reinforcement learning environment.<p>Because the AGENTS.md files (sorry &quot;intent modules&quot; or whatever term you used) change their content based on git diffs? Like really? How is the codebase &quot;learning&quot; anything? And by that logic, aren&#x27;t all well-maintained repos already &quot;reinforcement learning environments&quot;?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The skill of the future is not 'AI', but 'Focus' (2025)",
+    "url": "https://carette.xyz/posts/focus_will_be_the_skill_of_the_future/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "For me, there&#x27;s a sharp binary:\nIf I ask AI to &quot;own&quot; a coding-problem solution — with me passing back the failure responses until resolved — my mind gets numb and I learn nothing.\nIf I insist on owning the solution — using AI in my effort to better understand the problem space — my mind is active and I get better at coding.\nSometimes I&#x27;m lazy and fall into the former. But mostly, so far, the latter.",
+      "I am waiting for Cal Newport&#x27;s Deep Work to become a managerial trend like Agile did. And of course it will be weirdly twisted in practice. We&#x27;ll see.",
+      "&gt; This reliance on readily available solutions, particularly for familiar problems, creates a real risk: engineers may inadvertently atrophy their own problem-solving skills, hindering their ability to tackle truly novel challenges.<p>Yes, that will happen. But it also happens every time we move up the abstraction ladder. Most engineers go through their entire careers and never do anything TRULY novel.",
+      "&gt; But, like any tool, LLMs should be used wisely.<p>While it&#x27;s difficult to define, <i>wisely</i> can turn &#x27;LLMs are useless&#x27; to &#x27;ten X productivity boost&#x27;. However, at the end, of course, it all comes down to products. Before LLMs stole the show, we had built beautiful system software over the course of decades, linux, git, k8s and rust and yet the products that we use everyday are mostly (mostly) user-hostile and incorporate dark patterns, offer a suboptimal UX, and (in my opinion) sometimes involve outright inhuman marketing practices. That being said, even if you get AGI I don&#x27;t think it will lead to any breakthroughs if we continue to do &#x27;software engineering&#x27; like this year after year.",
+      "True! AI will make skills and focus more valuable.<p>Nothing beats intuition + experience",
+      "&quot;Attention is all you need&quot;",
+      "The skill of the future is behaving ethically."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "OpenAI Must Turn over 20M ChatGPT Logs, Judge Affirms",
+    "url": "https://news.bloomberglaw.com/ip-law/openai-must-turn-over-20-million-chatgpt-logs-judge-affirms",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Between state actors, AI competitors and criminals, there&#x27;s a lot of people who wouldn&#x27;t mind access to a dump of 20M ChatGPT logs.<p>Showing substantial copyright infringement of the New York Times seems about the only thing it wouldn&#x27;t be any good for.",
+      "The third-party doctrine was a terrible mistake."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Greenland sharks maintain vision for centuries through DNA repair mechanism",
+    "url": "https://phys.org/news/2026-01-eye-greenland-sharks-vision-centuries.html",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Sidestream – an AI chat app with a side of insight",
+    "url": "https://github.com/ericbrandon/sidestream",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hi Eric, this is very nice work! I played with this and love the idea and execution. I have had similar thoughts about how chatting with AI seems to lack some of the elements you mention that we get from talking to other people.<p>I appreciate that you&#x27;ve made it open source and will be checking out the code and maybe that can get me to finally play with Tauri :)"
+    ],
+    "full_text": null
+  }
+]
