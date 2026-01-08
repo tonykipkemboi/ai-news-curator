@@ -1,0 +1,475 @@
+[
+  {
+    "title": "Kernel bugs hide for 2 years on average. Some hide for 20",
+    "url": "https://pebblebed.com/blog/kernel-bugs",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Before the &quot;rewrite it in Rust&quot; comments take over the thread:<p>It is worth noting that the class of bugs described here (logic errors in highly concurrent state machines, incorrect hardware assumptions) wouldn&#x27;t necessarily be caught by the borrow checker. Rust is fantastic for memory safety, but it will not stop you from misunderstanding the spec of a network card or writing a race condition in unsafe logic that interacts with DMA.<p>That said, if we eliminated the 70% of bugs that are memory safety issues, the SNR ratio for finding these deep logic bugs would improve dramatically. We spend so much time tracing segfaults that we miss the subtle corruption bugs.",
+      "Is the intention of the author to use the number of years bugs stay &quot;hidden&quot; as a metric of the quality of the kernel codebase or of the performance of the maintainers?  I am asking because at some point the articles says &quot;We&#x27;re getting faster&quot;.<p>IMHO a fact that a bug hides for years can also be indication that such bug had low severity&#x2F;low priority and therefore that the overall quality is very good. Unless the time represents how long it takes to reproduce and resolve a known bug, but in such case I would not say that &quot;bug hides&quot; in the kernel.",
+      "Deep bugs, particularly in kernels, can go unnoticed for years, according to analyses I keep seeing. Decades at times. ~<p>That seems frightening at first. However, the more I consider it, the more it seems... predictable.<p>The mental model that I find useful:<p>Users discover surface bugs.<p>Deep bugs only appear in infrequent combinations.<p>For some bugs to show up, new context is required.<p>I&#x27;ve observed a few patterns:<p>Undefined behavior-related bugs are permanently hidden.<p>Logic errors are less important than uncommon hardware or timing conditions.<p>Long before they can be exploited, security flaws frequently exist.<p>I&#x27;m curious what other people think of this:<p>Do persistent bugs indicate stability or failure?<p>What typically leads to their discovery?<p>To what extent do you trust &quot;well-tested&quot; code?",
+      "The state machine race pattern resonates beyond kernel work. I&#x27;ve seen similar bugs hide for years in application code - transaction state edge cases that only trigger under specific sequences of user actions that nobody tests for.<p>The median lifetimes are fascinating. Race conditions at 5.1 years vs null-deref at 2.2 years makes intuitive sense - the former needs specific timing to manifest, while the latter will crash obviously once you hit the code path. The ones that need rare conditions to trigger are the ones that survive longest.",
+      "It may be just my system, but the times look like hyperlinks but aren&#x27;t for some reason. It is especially disappointing that the commit hashes don&#x27;t link to the actual commit in the kernel repo.",
+      "Their section on &quot;Dataset limitations&quot; says that the study &quot;Only captures bugs with Fixes: tags (~28% of fix commits).&quot;<p>Just worth noting that it is a significant extrapolation from only &quot;28%&quot; of fix commits to assume that the average is 2 years.",
+      "grsecurity project has fixed many security bugs but did not contribute back, as they&#x27;re profiting from selling the patchset.<p>It&#x27;s not uncommon for the bugs they found to be rediscovered 6-7 years later.<p><a href=\"https:&#x2F;&#x2F;xcancel.com&#x2F;spendergrsec\" rel=\"nofollow\">https:&#x2F;&#x2F;xcancel.com&#x2F;spendergrsec</a>",
+      "Only tangentially related but maybe someone here can help me.<p>I have a server which has many peripherals and multiple GPUs. Now, I can use vfio and vfio-pcio to memory map and access their registers in user space. My question is, how could I start with kernel driver development? And I specifically mean the dev setup.<p>Would it be a good idea to use vfio with or without a vm to write and test drivers? How to best debug, reload and test changing some code of an existing driver?",
+      "Firefox bugs stay in the open for that long.",
+      "Might be obviously, but there is definitely a lot of biases in the data here. It&#x27;s unavoidable. E.g. many bugs will not be detected, but they will be removed when the code is rewritten. So code that is refactored more often will have lower age of fixed bugs. Components&#x2F;subsystems that are heavily used will detect bugs faster. Some subsystems by their very nature can tolerate bugs more, while some by necessity will need to be more correct (like bpf)."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Tailscale state file encryption no longer enabled by default",
+    "url": "https://tailscale.com/changelog",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m one of the Tailscale engineers who built node state encryption initially (@awly on Github), and who made the call to turn it off by default in 1.92.5.<p>Another comment in this thread guessed right - this feature is too support intensive.\nOur original thinking was that a TPM being reset or replaced is always sign of tampering and should result in the client refusing to start or connect. But turns out there are many situations where TPMs are not reliable for non-malicious reasons. Some examples:\n* <a href=\"https:&#x2F;&#x2F;github.com&#x2F;tailscale&#x2F;tailscale&#x2F;issues&#x2F;17654\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;tailscale&#x2F;tailscale&#x2F;issues&#x2F;17654</a>\n* <a href=\"https:&#x2F;&#x2F;github.com&#x2F;tailscale&#x2F;tailscale&#x2F;issues&#x2F;18288\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;tailscale&#x2F;tailscale&#x2F;issues&#x2F;18288</a>\n* <a href=\"https:&#x2F;&#x2F;github.com&#x2F;tailscale&#x2F;tailscale&#x2F;issues&#x2F;18302\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;tailscale&#x2F;tailscale&#x2F;issues&#x2F;18302</a>\n* plus a number of support tickets<p>TPMs are a great tool for organizations that have good control of their devices. But the very heterogeneous fleet of devices that Tailscale users have is very difficult to support out of the box. So for now we leave it to security-conscious users and admins to enable, while avoiding unexpected breakage for the broader user base.<p>We should&#x27;ve provided more of this context in the changelog, apologies!",
+      "This never should have been on by default. The end user (read: administrator) needs to know they want to use the TPM.<p>This is a huge foot gun for many devices.<p>The accompanying changelog note hints at why:<p>&gt; Failure to load hardware attestation keys no longer prevents the client from starting. This could happen when the TPM device is reset or replaced.<p>This is unfortunate as for many, many deployments, you absolutely want this on. But because it&#x27;s a time bomb for certain device&#x2F;OS combinations that Tailscale can&#x27;t control or predict, and folks install Tailscale on pretty much <i>everything</i>, then the incidence of borked installs can only rise.",
+      "Here’s the PR explaining why they disabled this function<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;tailscale&#x2F;tailscale&#x2F;pull&#x2F;18336\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;tailscale&#x2F;tailscale&#x2F;pull&#x2F;18336</a><p>Seems like it caused tons of problems due to the variability of TPM quality among other things",
+      "From the changelog, it seems like this may have been due to issues caused by the on-by-default setting, although I don’t work for Tailscale and am speculating here with no inside info.<p>I wonder, would Tailscale be willing to confirm that they plan to fix whatever the issues are and re-enable this default within a short-ish timeframe? I currently have plenty of trust in the good intentions of the people running Tailscale, but with geopolitics as it currently is, I’d love to have a concrete reason even beyond that positive track record to believe that this change isn’t attempting to satisfy ease-of-surveillance concerns expressed by government agencies in whichever country.",
+      "My Tailscale was broken for the past month and I only just fixed it yesterday, and today this patch is released that would have made it a non-issue.<p>Updating my BIOS caused the issue. The main problem was that Tailscale&#x27;s behaviour was very poor in this case. It simply got stuck &quot;Starting&quot; and never provided any error information.",
+      "Thank god, I was running Tailscale on a nixos machine on some really old hardware and I couldn’t figure out why it kept crashing. It was because of this but it just failed silently.",
+      "Guessing it was too support intensive? Caused too many issues for people who then reached out to support?",
+      "Oh, I got bitten by that! I have my work Linux installation on an USB stick so I can boot it on either my desktop or laptop and one day tailscale stopped working. I thought that might be a rare situation, but it looks like TPM based encryption failed for other reasons too.",
+      "So in linux it looks like we just update &#x2F;etc&#x2F;default&#x2F;tailscaled with:<p>FLAGS=&quot;--encrypt-state&quot;<p>...and hope for the best?<p>edit: I see this in my logs, I guess it is working:<p>migrated &quot;&#x2F;var&#x2F;lib&#x2F;tailscale&#x2F;tailscaled.state&quot; from plaintext to TPM-sealed format",
+      "And this is why in computing we can&#x27;t have nice things. Any mass market profit can&#x27;t, in a business realistic evaluation, ship something that breaks even 1% of users.<p>Consequently, we&#x27;re stuck with lowest common denominator <i>everything</i> and have a hard time delaying software fixes for what ails us. Instead of fixing things, we are best encapsulate the damage.<p>If I were running Tailscale, I&#x27;d say &quot;Fuck the people with broken TPMs. Fix your computers. We&#x27;re going to be secure by default.&quot;<p>I guess there&#x27;s a reason Avery and not I call the shots there"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "ChatGPT Health",
+    "url": "https://openai.com/index/introducing-chatgpt-health/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "My uncle had an issue with his balance and slurred speech. Doctors claimed dementia and sent him home. It kept becoming worse and worse. Then one day I entered the symptoms in ChatGPT (or was it Gemini?) and asked it for the top 3 hypotheses. The first one was related to dementia. The second was something else (I forget the long name). I took all 3 to his primary care doc who had kept ignoring the problem, and asked her to try the other 2 hypotheses. She hesitantly agreed to explore the second one, and referred him to a specialist in that area. And guess what? It was the second one! They did some surgery and now he&#x27;s fine as a fiddle.",
+      "I always check my blood test and mrı results with ChatGPT before showing to Doctor. Doctor says same thing what ChatGPT says and it&#x27;s giving more clear and detailed information. However we shouldn&#x27;t trust chatgpt result 100%. It&#x27;s just good to take an idea. Also we shouldn&#x27;t trust any doctor 100%",
+      "Here’s something: my chatGPT quietly assumed I had ADHD for around 9 months, up until October 2025. I don’t suffer from ADHD. I only found out through an answer that began “As you have ADHD..”<p>I had it stop right there, and asked it to tell me exactly where it got this information; the date, the title of the chat, the exact moment it took this data on as an attribute of mine. It was unable to specify any of it, aside from nine months previous. It continued to insist I had ADHD, and that I told it I did, but was unable to reference exactly when&#x2F;where.<p>I asked “do you think it’s dangerous that you have assumed I have a medical &#x2F; neurological condition for this long? What if you gave me incorrect advice based on this assumption?” to which it answered a paraphrased mea culpa, offered to forget the attribute, and moved the conversation on.<p>This is a class action waiting to happen.",
+      "I help take care of my 80-ish year old mother. ChatGPT figured out in 5 minutes the reason behind a pretty serious chronic problem that her very good doctors hadn&#x27;t been able to figure out in 3 years. Her doctors came around to the possibility, tested out the hypothesis, and it was 100% right. She&#x27;s doing great now (at least with that one thing).<p>That&#x27;s not to say that it&#x27;s better than doctors or even that it&#x27;s a good way to address every condition. But there are definitely situations where these models can take in more information than any one doctor has the time to absorb in a 12-minute appointment and consider possibilities across silos and specialties in a way that is difficult to find otherwise.",
+      "maybe the openai moat is the data we shared along the way.<p>no seriously, openai seemingly lost interest in being the &#x27;best&#x27; model - instead optimizing for other traits such as speech and general human likeness? there&#x27;s obviously codex but from my experience it&#x27;s slower and worse than the other big 2 in every single way: cost, speed and accuracy. codex does seem to be loved by vibe coders the most that don&#x27;t really know how to code at all so maybe it is also what they&#x27;re optimizing for and why it doesn&#x27;t personally suit me.<p>others might have better models, but openai has the users emotionally attached to the models at this point even if they know it or don&#x27;t. there were several times I recommended switching and the response I got is that &quot;chatgpt knows me better&quot;.",
+      "I personally don’t care who has access to my health data, but I understand those who might.<p>Either way, I’m excited for some actual innovation in the personal health field. Apple Health is more about aggregating data than actually producing actionable insights. 23andme was mostly useless.<p>Today I have a ChatGPT project with my health history as a system prompt and it’s been very helpful. Recently I snapped a photo of an obscure instrument screen after taking a test and was able to get more useful information than what my doctor eventually provided (“nothing to worry about”, etc.) ChatGPT was able to reference papers and do data analysis which was pretty amazing, right from my phone (e.g fitting my data to a model from a paper and spitting out a plot).",
+      "There’s a lot of negativity here. I’ll just say I’m extremely glad I had ChatGPT when I was going through some health issues last year.",
+      "I understand all the chatter about LLMs hallucinating, or making assumptions, or not being able to understand or provide the more human&#x2F;emotional element of health care.<p>But the question I ask myself is: is this better than the alternative? if I wasn&#x27;t asking ChatGPT, where would I go to get help?<p>The answers I can anticipate are: questionably trustworthy web content; an overconfident friend who may have read questionably trustworthy web content; my mom who is referencing health recommendations from 1972. And as best I can imagine, LLMs are going to likely to provide health advice that&#x27;s as good but likely better than any of those alternatives.<p>With that said, I acknowledge that people are likely more inclined to trust ChatGPT more like a licensed medical provider, at which point the comparison may become somewhat more murky, especially with higher severity health concerns.",
+      "I’m kind of torn on this. From one side, I can’t seem to trust doctors any more. I recently had a tooth removed (by the advice of two different doctors), in a claim that it will resolve my pain, which it did not, and now 3 different doctors don’t know what’s causing my pain.<p>Most doctor advice boil down to drink some water and take a painkiller, while glancing for 15 seconds at my medical history before they dedicate me 7 minutes, after which they move to yet another patient.<p>So compared to this, AI that can analyze all my medical history, and has access to the entirety of medical researches that are publicly available, could be a very good tool to have.<p>But at the same time technofeudalism, dystopia, etc.",
+      "Gemini helped diagnoze me with eosinophilic esophagitis. I have had problems with swallowing all my life and doctors kept dismissing it as a psychological problem. I think there is a great space with ai medical help."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "LaTeX Coffee Stains (2021) [pdf]",
+    "url": "https://ctan.math.illinois.edu/graphics/pgf/contrib/coffeestains/coffeestains-en.pdf",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m surprised nobody has yet mentioned how pleasant it is to create coffee stains using Typst, and if only LaTeX wasn&#x27;t the de-facto standard in academia and stain-related journals, they would have already switched to it.<p>Of course, you can create coffee stains in HTML as well, but it&#x27;s not something you can do in Markdown.",
+      "Feature request: even&#x2F;odd page stains that line up exactly as a single thru-stain.",
+      "Everybody knows that coffee stains are the only surefire way to tell whether a paper has been read or just printed out and ignored. A colleague in uni (way back in early 00s) would add these to her documents every once in a while to give them the &quot;has been read&quot; stamp of approval.",
+      "Possibly related:<p><a href=\"https:&#x2F;&#x2F;badspot.us&#x2F;Brown-Ring-of-Quality.html\" rel=\"nofollow\">https:&#x2F;&#x2F;badspot.us&#x2F;Brown-Ring-of-Quality.html</a>",
+      "This looks nice, but it is just placing some pre-defined vector files. I wonder if it could be possible to procedurally generate realistic coffee stains.",
+      "Half done job or just a starting point! We need also:<p>* tea strains<p>* bread crumbles (squashed among paper leaves)<p>* tomato sauce drops<p>* hair<p>&gt; A lot of time can be saved by printing [extra stuff] directly on the page rather than adding them manually!",
+      "Originally from 2009: <a href=\"https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20201101013903&#x2F;http:&#x2F;&#x2F;legacy.hanno-rein.de&#x2F;hanno-rein.de&#x2F;archives&#x2F;349\" rel=\"nofollow\">https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20201101013903&#x2F;http:&#x2F;&#x2F;legacy.han...</a><p>Previously: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;from?site=hanno-rein.de\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;from?site=hanno-rein.de</a> and <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=39316193\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=39316193</a><p>This also reminds me of <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=30024165\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=30024165</a>",
+      "Love this. My resume has been in LaTeX for over 20 years now.<p>Underappreciated IMHO. You can version control it, no dealing with wild Word shenanigans. Totally deterministic. Just find a style, insert your bullets and you have a nice sharable PDF.<p>Nowadays you can even have your preferred LLM do the conversion for you. LaTeX is finicky and I&#x27;ve had it fix warnings in mine that I couldn&#x27;t be bothered to.<p>Good stuff, highly recommend a LaTeX resume, whether or not you drink coffee.",
+      "Not drinking coffee is the only reason I’ve ever felt truly excluded at a software company. Everyone loves their coffee!",
+      "This is wonderful to see.  I was a student and then entered into the tech industry in the mid 90&#x27;s and at that time the Internet had fun whimsical things like this almost weekly."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "NPM to implement staged publishing after turbulent shift off classic tokens",
+    "url": "https://socket.dev/blog/npm-to-implement-staged-publishing",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "In all of this, people forget that NPM packages are largely maintained by volunteers. If you are going to put up hurdles and give us extra jobs, you need to start paying us. Open source licenses explicitly state some variation of &quot;use at your own risk&quot;. A big motivation for most maintainers is that we can create without being told what to do.<p>I had 25 million downloads on NPM last year. Not a huge amount compared to the big libs, but OTOH, people actually use my stuff. For this I have received exactly $0 (if they were Spotify or YouTube streams I would realistically be looking at ~$100,000).<p>I propose that we have two NPMs. A non-commercial NPM that is 100% use at your own risk, and a commerical NPM that has various guarantees that authors and maintainers are paid to uphold.",
+      "&gt; In its current form, however, trusted publishing applies to a limited set of use cases. Support is restricted to a small number of CI providers, it cannot be used for the first publish of a new package, and it does not yet offer enforcement mechanisms such as mandatory 2FA at publish time. Those constraints have led maintainer groups to caution against treating trusted publishing as a universal upgrade, particularly for high-impact or critical packages.<p>This isn&#x27;t strictly accurate: when we designed Trusted Publishing for PyPI, we designed it to be generic across OIDC IdPs (typically CI providers), and explicitly included an accommodation for creating new projects via Trusted Publishing (we called it &quot;pending&quot; publishers[1]). The latter is something that not all subsequent adopters of the Trusted Publishing technique have adopted, which is IMO both unfortunate and understandable (since it&#x27;s a complication over the data model&#x2F;assumptions around package existence).<p>I think a lot of the pains here are self-inflicted on GitHub&#x27;s part here: deciding to remove normal API credentials entirely strikes me as extremely aggressive, and is completely unrelated to implementing Trusted Publishing. Combining the two together in the same campaign has made things unnecessarily confusing for users and integrators, it seems.<p>[1]: <a href=\"https:&#x2F;&#x2F;docs.pypi.org&#x2F;trusted-publishers&#x2F;creating-a-project-through-oidc&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;docs.pypi.org&#x2F;trusted-publishers&#x2F;creating-a-project-...</a>",
+      "I really don&#x27;t think this should be a registry-level issue. As in, the friction shouldn&#x27;t be introduced into _publishing_ workflows, it should be introduced into _subscription_ workflows where there is an easy fix. Just stop supporting auto-update (through wildcard patch or minor versions) by default... Make the default behaviour to install whatever version you load at install time (like `npm ci` does)",
+      "I maintain some very highly used npm package and this situation just has me on edge. In our last release of dozens of packages, I was manually reading though our package-lock and package.json changes and reviewing every dependency change. Luckily our core libraries have no external dependencies, but our tooling has a ton.<p>We were left with a tough choice of moving to Trusted Publishers or allowing a few team members to publish locally with 2FA. We decided on Trusted Publishers because we&#x27;ve had an automated process with review steps for years, but we understand there&#x27;s still a chance of a hack, so we&#x27;re just extremely cautious with any PRs right now. Turning on Trusted Publishers was a huge pain with so many package.<p>The real thing we want for publishing is for us is to be able to continue to use our CI-based publishing setup, with Trusted Publishers, but with a human-in-the-loop 2FA step.<p>But that&#x27;s only part of a complete solution. HITL is only guaranteed to slow down malicious code propagating. It doesn&#x27;t actually protect our project against compromised dependencies, and doesn&#x27;t really help prevent us from spreading it. All of that is still a manual responsibility of the humans. We need tools to lock down and analyze our dependencies better, and tools to analyze our our packages before publishing. I also want better tools for analyzing and sandboxing 3rd party PRs before running CI. Right now we have HITL there, but we have to manually investigate each PR before running tests.",
+      "I really think that the main issue is that NPM itself will execute any script that is in the &quot;postinstall&quot; section of a package, without asking the user for permission. This is a solved problem in other package managers, e.g. PNPM will only run scripts if the user allows them to, and store the allowlist in the package.json file for future reference.<p>In this scenario, if a dependency were to add a &quot;postinstall&quot; script because it was compromised, it would not execute, and the user can review whether it should, greatly reducing the attack surface.",
+      "The shift wouldn&#x27;t have been so turbulent if npm had simply updated their CLI in tandem. I still can&#x27;t use 2FA to publish because their CLI simply cannot handle it.",
+      "Just to be clear, &quot;trusted publishing&quot; means a type of reverse vendor lock in? Only some CI systems are allowed to be used for it.",
+      "Seems like requiring 2FA to publish or trusted publishing should prevent the vast majority of this issue.<p>The only tricky bit would be to disallow approval own pull request when using trusted publishing. That should fall back to requiring 2FA",
+      "I think this turbulent shift is going to push a lot of node devs elsewhere.<p>I understand things need to be safe, but this is a recklessly fast transition.",
+      "I&#x27;ve been thinking, Java doesn&#x27;t have many supply chain issues, their model is based of namespacing with the DNS system. If I want a library from vendor.com, the library to import is somewhere under com.vendor.*<p>Simple enough, things like npm and pip reinvent a naming authority, have no cost associated (so it&#x27;s weak to sybil attacks), all for not much, what do you get in exchange? You create equality by letting everyone contribute their wonderful packages, even those that don&#x27;t have 15$&#x2F;yr? I&#x27;m sorry was the previous leading internet mechanism not good and decentralized enough for you?<p>Java&#x27;s package naming system is great in design, the biggest vuln in dependencies that I can think of on java was not a supply chain specific vuln, but rather a general weakness of a library (log4j). But maybe someone with more java experience can point to some disadvantage of the java system that explains why we are not all copying that"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "How Google got its groove back and edged ahead of OpenAI",
+    "url": "https://www.wsj.com/tech/ai/google-ai-openai-gemini-chatgpt-b766e160",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;TyJ8q\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;TyJ8q</a>",
+      "I don&#x27;t get the Gemini 3 hype... yes it&#x27;s their first usable model, but its not even close to what Opus 4.5 and GPT 5.2 can do.<p>Maybe on Benchmarks... but I&#x27;m forced to use Gemini at work everyday, while I use Opus 4.5 &#x2F; GPT 5.2 privately every day... and Gemini is just lacking so much wit, creativity and multi-step problem solving skills compared to Opus.<p>Not to mention that Gemini CLI is a pain to use - after getting used to the smoothness of Claude\nCode.<p>Am I alone with this?",
+      "&gt; Naina Raisinghani, 00 needed a name for the new tool to complete the upload. It was 2:30 a.m., though, and nobody was around. So she just made one up, a mashup of two nicknames friends had given her: Nano Banana.<p>Ah, that explains the silly name for such an impressive tool. I guess it&#x27;s more a more Googley name than what would have otherwise been chosen: Google Gemini Image Pro Red for Workspace.",
+      "A bit of PR puffery, but it is fair to say that between Gemini and others it’s now been clearly demonstrated that OpenAI doesn’t have any clear moat.",
+      "It did? Just 1 minute ago Gemini told me it can&#x27;t use my google workspace AGAIN. The query had nothing to do with any google workspace feature. It just randomly tells me what in the middle of any &quot;conversation&quot;.",
+      "Man, this looks like a press release written by Pinchai himself.<p>Doesn&#x27;t WSJ even blush when publishing these kind of things?",
+      "my guess is the following:<p>Google can afford to run Gemini for a looong time without any ads, while OpenAI needs necessarily to bring in some revenue: So OpenAI will have to do something (or they believe they can raise money infinitely)<p>Google can easily give Gemini without Ads to the users for the next 3 - 4 years, forcing OpenAI to cripple their product earlier with Ads because of the need for any revenue<p>I think Google &amp; Antropic will be one of the two winners; not sure about OpenAI,  Perplexity &amp; Co - maybe OpenAI will somehow merge with Microsoft?",
+      "Hi gemini, i’ve booked some tickets for théater. Please look into mail mailbox, schedule it in my calendar and confirm me the planning for next week.<p>Beeing able to use natural processing my mail and calendar make me switch to gemini (app), there’s no way to achieve that with chatgpt (app)<p>Gemini is now good enough, even if i prefer chatgpt.<p>I only care about what i can do in the app as paying customer, even if, aside from that, i am working in IT with the SDK openrouter &amp; MCP intégration &amp; whatever RAG &amp; stuff for work",
+      "It&#x27;s funny how companies have a stable DNA: Google comes from university research and continues to be good at research-y things, OTOH customer service...",
+      "I use Claude for Code, Gemini for research and planning and GPT for motivation."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Notion AI: Unpatched data exfiltration",
+    "url": "https://www.promptarmor.com/resources/notion-ai-unpatched-data-exfiltration",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Securing LLMs is just structurally different. The attack space is &quot;the entirety of the human written language&quot; which is effectively infinite. Wrapping your head around this is something we&#x27;re only now starting to appreciate.<p>In general, treating LLM outputs (no matter where) as untrusted, and ensuring classic cybersecurity guardrails (sandboxing, data permissioning, logging) is the current SOTA on mitigation. It&#x27;ll be interesting to see how approaches evolve as we figure out more.",
+      "This is @simonw’s Lethal Trifecta [1] again - access to private data and untrusted input are arguably the purpose of enterprise agents, so <i>any</i> external communication is unsafe. Markdown images are just the ones people usually forget about<p>[1] <a href=\"https:&#x2F;&#x2F;simonwillison.net&#x2F;2025&#x2F;Jun&#x2F;16&#x2F;the-lethal-trifecta&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;simonwillison.net&#x2F;2025&#x2F;Jun&#x2F;16&#x2F;the-lethal-trifecta&#x2F;</a>",
+      "People have learnt a little while back that you need to use the white hidden text in a resume to make the AI recommend you, There are also resume collecting services which let you buy a set of resumes belonging to your general competition era and you can compare your ai results with them. Its an arms race to get called up for a job interview at the moment.",
+      "&gt; We responsibly disclosed this vulnerability to Notion via HackerOne. Unfortunately, they said “we&#x27;re closing this finding as `Not Applicable`”.",
+      "Wow what a coincidence. I just migrated from notion to obsidian today. Looks like I timed it perfectly (or maybe slightly too late?)",
+      "IMHO the problem really comes from the browser accessing the URL without explicit user permission.<p>Bring back desktop software.",
+      "One more reason not to use Notion.<p>I wonder when there will be awakening to not use SaaS for everything you do. And the sad thing is that this is the behavior of supposedly tech-savvy people in places like the bay area.<p>I think the next wave is going to be native apps, with a single purchase model - the way things used to be. AI is going to enable devs, even indie devs, to make such products.",
+      "Sloppy coding to know a link could be a problem and render it anyway. But even worse to ignore the person who tells you you did that.",
+      "Unfortunate that Notion does not seem to be taking AI security more seriously, even after they got flak for other data exfil vulns in the 3.0 agents release in September",
+      "Public disclosure date is Jan 2025, but should be Jan 2026."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Creators of Tailwind laid off 75% of their engineering team",
+    "url": "https://github.com/tailwindlabs/tailwindcss.com/pull/2388",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Very sad to hear, I bought Tailwind UI years ago and although it was a lot more expensive than I wanted, I&#x27;ve appreciated the care and precision and highly recommend buying it (It&#x27;s now called Tailwind Plus) even still (maybe even especially now).<p>Mad props to Adam for his honesty and transparency.  Adam if you&#x27;re reading, just know that the voices criticizing you are not the only voices out there.  Thanks for all you&#x27;ve done to improve web development and I sincerely hope you can figure out a way to navigate the AI world, and all the best wishes.<p>Btw the Tailwind newsletter&#x2F;email that goes out is genuinely useful as well, so I recommend signing up for that if you use Tailwind CSS at all.",
+      "&gt; But the reality is that 75% of the people on our engineering team lost their jobs here yesterday because of the brutal impact AI has had on our business.<p>Adam is simply trying to navigate this new reality, and he&#x27;s being honest, so there&#x27;s no need to criticize him.",
+      "The paid products Adam mentions are the pre-made components and templates, right? It seems like the bigger issue isn&#x27;t reduced traffic but just that AI largely eliminates the need for such things.<p>While I understand that this has been difficult for him and his company... hasn&#x27;t it been obvious that this would be a major issue for years?<p>I do worry about what this means for the future of open source software. We&#x27;ve long relied on value adds in the form of managed hosting, high-quality collections, and educational content. I think the unfortunate truth is that LLMs are making all of that far less valuable. I think the even more unfortunate truth is that value adds were never a good solution to begin with. The reality is that we need everyone to agree that open source software is valuable and worth supporting monetarily without any value beyond the continued maintenance of the code.",
+      "Key comment is this one: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;tailwindlabs&#x2F;tailwindcss.com&#x2F;pull&#x2F;2388#issuecomment-3717222957\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;tailwindlabs&#x2F;tailwindcss.com&#x2F;pull&#x2F;2388#is...</a><p>&gt; [...] the reality is that 75% of the people on our engineering team lost their jobs here yesterday because of the brutal impact AI has had on our business. And every second I spend trying to do fun free things for the community like this is a second I&#x27;m not spending trying to turn the business around and make sure the people who are still here are getting their paychecks every month. [...]<p>&gt; Traffic to our docs is down about 40% from early 2023 despite Tailwind being more popular than ever. The docs are the only way people find out about our commercial products, and without customers we can&#x27;t afford to maintain the framework.",
+      "Sadly, selling pre-made components and templates was never a sound business model, especially in the wake of AI. One thing I learned being on HN for so long and launching my own products is that a <i>product</i> is not a <i>business</i>. Don&#x27;t conflate the two, at your peril.<p>Lots of people make great products but actually turning that into a business is fundamentally a different skill. It seems like Tailwind grew too fast, having 2 million ARR a few years ago and almost 10 employees (200k each is probably the all-in cost anyway for an employee if they&#x27;re full time with benefits, so I suppose there was barely any profit), whereas they&#x27;d probably have been fine with running a Patreon like Evan You did for Vue, and cutting down the number of devs drastically, which I suppose is what they&#x27;re doing now.",
+      "While I&#x27;m sure AI is partially to blame, I feel like the real problem is that (1) they don&#x27;t have a sensible business model and (2) they have saturated their market.<p>There are relatively few individuals and organizations out there with products that are worth spending vendor money on, especially for something like a CSS library. Companies that do have this need are ready to spend BIG.<p>Tailwind charges a one-time fee in the hundreds of dollars range and pledges lifetime support.<p>When they say revenue is down 80%, it&#x27;s because <i>everyone already bought their library</i> in its first few years of existence. And looking at their site there is nothing else to spend money on. So how are they planning to sustain their revenue?",
+      "More details:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;tailwindlabs&#x2F;tailwindcss&#x2F;discussions&#x2F;14677#discussioncomment-15435530\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;tailwindlabs&#x2F;tailwindcss&#x2F;discussions&#x2F;1467...</a><p><a href=\"https:&#x2F;&#x2F;x.com&#x2F;adamwathan&#x2F;status&#x2F;2008909129591443925\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;adamwathan&#x2F;status&#x2F;2008909129591443925</a><p><a href=\"https:&#x2F;&#x2F;adams-morning-walk.transistor.fm&#x2F;episodes&#x2F;we-had-six-months-left\" rel=\"nofollow\">https:&#x2F;&#x2F;adams-morning-walk.transistor.fm&#x2F;episodes&#x2F;we-had-six...</a>",
+      "Today, I wanted to add tailwind to a new project and realized I had purchased it back in 2022. So I went to the website and realized it had moved to tailwind plus. That’s how distracted I’ve been. To my surprise my access worked and I could still download the full UI kit.<p>I know they promised lifetime, but I did not expect updates forever. This looks like the first issue to fix. I would have no issues paying 20% of purchase price for an updated version, that gave me access to 12 months of free updates.<p>Also, what about paid access to skills or MCP server for design systems and components?<p>I know these may be things he already considered, so don’t want to presume I have an answer. But as a customer, totally willing to support a good product that has supported me.",
+      "As a fellow business owner, I’ll always feel bad when business owners need to make these types of decisions.<p>I bought Tailwind UI - I always thought it was a critically bad business decision from their end to keep giving me additional new stuff for free. It seemed to me that it should have been a subscription.<p>However, knowing nothing about the inside of their business, I have no idea how that would have affected their viability.",
+      "I can&#x27;t get over the Author of the CR addi g his responses on TikTok..  What have we come to?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Code CLI was broken",
+    "url": "https://github.com/anthropics/claude-code/issues/16673",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "At least this breakage is clear &amp; obvious.<p>I did some testing of configuring Claude CLI sometime ago via .claude json config files - in particular I tested:<p>- defining MCP servers manually in config (instead of having the CLI auto add them)<p>- playing with various combinations of ’permissions` arrays<p>What I discovered was that Claude is not only vibe coded, but basic local logic around config reading seems to also work on the basis of &quot;vibes&quot;.<p>- it seemed like different parts of the CLI codebase did or didn&#x27;t adhere to the permissions arrays.<p>- at one point it told me it didn&#x27;t have permission to read the .claude directory &amp; as a result ran bash commands to search my entire filesystem looking for MCP server URLs for it to provide me with a list of available MCP servers<p>- when restricted to only be able to read from a working directory, at various points it told me I had denied it read permissions to that same working directory &amp; also freely read from other directories on my system without prompting<p>- restricting webfetch permissions is extremely hit &amp; miss (tested with Little Snitch in alert mode)<p>---<p>I have not reported any of the above as Github issues, nor do I intend to. I had a think about why I won&#x27;t &amp; it struck me that there&#x27;s a funny dichotomy with AI tools:<p>1. all of the above are things the typical vibe coder stereotypes I&#x27;ve encountered simply do not really care deeply about<p>2. people that care about the above things are less likely to care enough about AI tools to commit their personal time to reporting &amp; debugging these issues<p>There&#x27;s bound to be exceptions to these stereotypes out there but I doubt there&#x27;s sufficient numbers to make AI tooling good.",
+      "I have to chuckle that a bug like this happens after reading that other thread about the Claude Code creator running like 5 terminal agents and another 5-10 in the web UI.<p>We vibing out here.",
+      "It&#x27;s fixed as of nine minutes ago: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;anthropics&#x2F;claude-code&#x2F;pull&#x2F;16686\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;anthropics&#x2F;claude-code&#x2F;pull&#x2F;16686</a>",
+      "I&#x27;m surprised that they don&#x27;t do an integration test in CI where they actually start the app. (Since that&#x27;s all you need to catch it)",
+      "What&#x27;s funny to me is that the amount of &quot;same here&quot;, &quot;+1&quot; comments are still prominent even if GitHub introduced an emoji system. It&#x27;s like most people intentionally don&#x27;t want to use that.",
+      "workaround from the issue discussion:<p>```<p><pre><code>  Problem: Claude Code 2.1.0 crashes with Invalid Version: 2.1.0 (2026-01-07) because the CHANGELOG.md format changed to include dates in version headers (e.g., ## 2.1.0 (2026-01-07)). The code parses these headers as object keys and tries to sort them using semver&#x27;s .gt() function, which can&#x27;t parse version strings with date suffixes.\n\n  Affected functions: W37, gw0, and an unnamed function around line 3091 that fetches recent release notes.\n\n  Fix: Wrap version strings with semver.coerce() before comparison. Run these 4 sed commands on cli.js:\n\n  CLI_JS=&quot;$HOME&#x2F;.nvm&#x2F;versions&#x2F;node&#x2F;$(node -v)&#x2F;lib&#x2F;node_modules&#x2F;@anthropic-ai&#x2F;claude-code&#x2F;cli.js&quot;\n\n  # Backup first\n  cp &quot;$CLI_JS&quot; &quot;$CLI_JS.backup&quot;\n\n  # Patch 1: Fix ve2.gt sort (recent release notes)\n  sed -i &#x27;s&#x2F;Object\\.keys(B)\\.sort((Y,J)=&gt;ve2\\.gt(Y,J,{loose:!0})?-1:1)&#x2F;Object.keys(B).sort((Y,J)=&gt;ve2.gt(ve2.coerce(Y),ve2.coerce(J),{loose:!0})?-1:1)&#x2F;g&#x27; &quot;$CLI_JS&quot;\n\n  # Patch 2: Fix gw0 sort\n  sed -i &#x27;s&#x2F;sort((G,Z)=&gt;Wt\\.gt(G,Z,{loose:!0})?1:-1)&#x2F;sort((G,Z)=&gt;Wt.gt(Wt.coerce(G),Wt.coerce(Z),{loose:!0})?1:-1)&#x2F;g&#x27; &quot;$CLI_JS&quot;\n\n  # Patch 3: Fix W37 filter\n  sed -i &#x27;s&#x2F;filter((\\[J\\])=&gt;!Y||Wt\\.gt(J,Y,{loose:!0}))&#x2F;filter(([J])=&gt;!Y||Wt.gt(Wt.coerce(J),Y,{loose:!0}))&#x2F;g&#x27; &quot;$CLI_JS&quot;\n\n  # Patch 4: Fix W37 sort\n  sed -i &#x27;s&#x2F;sort((\\[J\\],\\[X\\])=&gt;Wt\\.gt(J,X,{loose:!0})?-1:1)&#x2F;sort(([J],[X])=&gt;Wt.gt(Wt.coerce(J),Wt.coerce(X),{loose:!0})?-1:1)&#x2F;g&#x27; &quot;$CLI_JS&quot;\n\n  Note: If installed via different method, adjust CLI_JS path accordingly (e.g., &#x2F;usr&#x2F;lib&#x2F;node_modules&#x2F;@anthropic-ai&#x2F;claude-code&#x2F;cli.js).</code></pre>\n```",
+      "this is funny in context of their main dev advocate constantly bragging about how claude writes all of his code for claude code cli....",
+      "The good news is that they broke their usage tracking as well, so you can use Opus without any rate limit!",
+      "Not surprised (#5): <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46395714#46425529\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46395714#46425529</a>",
+      "same<p>@jayeshk29 is our hero<p>Finally i can finish my fizzbuzz for the interview"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI misses nearly one-third of breast cancers, study finds",
+    "url": "https://www.emjreviews.com/radiology/news/ai-misses-nearly-one-third-of-breast-cancers-study-finds/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The point of this study is that it suggests that fully AI-automated mammography can currently deliver 70% sensitivity in detecting breast cancer using this model. It does not enable us to compare AI to unaided human performance. As this study did not include healthy controls, there is no false positive rate. The false positive rate is a crucial missing metric, since the vast majority of women do not have breast cancer.<p>In nearly half the false negatives from both the mammogram and DWI datasets, the cancer was categorized as occult by two breast radiologists, meaning the cancer was invisible to a trained eye. The AI model&#x27;s non-occult false negative rate on the mammography data is 19.3%.<p>For that 19.3% figure, see Table 2: 68 non-occult in AI-missed cancer, 285 non-occult in AI-detected cancer.<p>This study did not compare the AI to a radiologist on a mixed set of healthy and cancer images.",
+      "The original study: <a href=\"https:&#x2F;&#x2F;link.springer.com&#x2F;article&#x2F;10.1007&#x2F;s11547-025-02161-1\" rel=\"nofollow\">https:&#x2F;&#x2F;link.springer.com&#x2F;article&#x2F;10.1007&#x2F;s11547-025-02161-1</a><p>It was retrospective-only, i.e. a case series on women who were known to have breast cancer, so there were zero false negatives and zero true negatives, because all patients in the study truly had cancer.<p>The AI system used was a ConvNet used commercially circa 2021, which is when the data for this case series were collected.",
+      "This seems a bit like a needlessly publicized finding. Surely our baseline assumption is that there are <i>lots</i> of systems that aren&#x27;t very good at finding cancer. We&#x27;re interested in findings that <i>are</i> good. You only need 1 good system to adopt. Yes, it&#x27;s good scientific  hygiene to do the study and publish it going &quot;Well, this particular thing isn&#x27;t good let&#x27;s move on&quot;. But my expectation is you just going until you design a system that does do well and then adopt that system.<p>If I pluck a guy off the street, get him to analyze a load of MRI scans and he doesn&#x27;t correctly identify cancer from them I&#x27;m not going to publish an article saying &quot;Humans miss X% of breast cancers&quot; am I.",
+      "The title bothers me. It suggests to me that &quot;AI&quot; is a single thing. If two guys are tested and turn out to be not that great at reading MRI images, should the headline be &quot;Male radiologists miss nearly one-third of breast cancers&quot;?<p>If it said &quot;AI <i>something</i>&quot;, I&#x27;d be fine with it. It&#x27;s a statement about that something, not about AI in general. Use it as an adjective (short for &quot;AI-using&quot; I guess?), not a noun.",
+      "The description from the summaries sound very flawed.<p>1. They only tested 2 Radiologists. And they compared it to one model. Thus the results don’t say anything about how Radiologists in general perform against AI in general. The most generous thing the study can say is that 2 Radiologists outperformed a particular model.<p>2. The Radiologists were only given one type of image, and then only for those patients that were missed by the AI. The summaries don’t say if the test was blind. The study has 3 authors, all of which appear to be Radiologists, and it mentions 2 Radiologists looked at the ai-missed scans. This raises questions about whether the test was blind or not.<p>Giving humans data they know are true positives and saying “find the evidence the AI missed” is very different from giving an AI model also trained to reduce false positives a classification task.<p>Humans are very capable at finding patterns (even if they don’t exist) when they want to find a pattern.<p>Even if the study was blind initially, trained humans doctors would likely quickly notice that the data they are analyzing is skewed.<p>Even if they didn’t notice, humans are highly susceptible to anchoring bias.<p>Anchoring bias is a cognitive bias where individuals rely too heavily on the first piece of information they receive (the &quot;anchor&quot;) when making subsequent judgments or decisions.<p>They skewed nature or the data has a high potential to amplify any anchoring bias.<p>If the experiment had controls, any measurement error resulting from human estimation errors could potentially cancel out (a large random sample of either images or doctors should be expected to have the same estimation errors in each group). But there were no controls at all in the experiment, and the sample size was very small. So the influence of estimation biases on the result could be huge.<p>From what I can read in the summary, these results don’t seem reliable.<p>Am I missing something?",
+      "Shouldn&#x27;t A.I. not be used in a way that it only tries to assist? E.g. a doctor takes a look first and if (s)he can&#x27;t find anything then A.I. is checking as well (or in parallel).",
+      "In the human follow-up, there was an improvement but there was still a gap:<p>&gt; Their findings offered reassurance: DWI alone identified the majority of cancers the AI had overlooked, detecting 83.5% of missed lesions for one radiologist and 79.5% for the other.<p>The combination of AI and this DWI methodology seems to identify most of the cancer, but there’s still about 20% of 1&#x2F;3 that gets missed. I assume that as these were confirmed diagnoses, they were caught with another method beyond DWI.",
+      "Please always present the confusion matrix. One number is (almost) useless.<p>I can detect 100% by<p><pre><code>    def detect(x):\n        Return True</code></pre>",
+      "As someone else has pointed out, I would like to know how this compares to humans.<p>I hope something good comes out of this, as I have known women whose lives were deeply affected by this.",
+      "Useful to show the failure rate for humans, and humans assisted by systems."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Building voice agents with Nvidia open models",
+    "url": "https://www.daily.co/blog/building-voice-agents-with-nvidia-open-models/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;ve been using festival under Linux.<p><a href=\"https:&#x2F;&#x2F;manpages.ubuntu.com&#x2F;manpages&#x2F;trusty&#x2F;man1&#x2F;festival.1.html\" rel=\"nofollow\">https:&#x2F;&#x2F;manpages.ubuntu.com&#x2F;manpages&#x2F;trusty&#x2F;man1&#x2F;festival.1....</a><p>But it is quite old now and pre-dates the DL&#x2F;AI era.<p>Does anybody know of a good modern replacement that I can &quot;apt install&quot;?",
+      "This is perfect for me. I just started working on the voice related stuff for my agent framework and this will be of real use. Thanks.",
+      "These have gotten good enough to really make command-by-voice interactions pleasant. I&#x27;d love to try this with Cursor - just use it fully with voice.",
+      "It supports Turing T4, but not Ampere…",
+      "There&#x27;s also the excellent also open source unmute.sh. which alas is also Nvidia only at this point. <a href=\"https:&#x2F;&#x2F;unmute.sh&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;unmute.sh&#x2F;</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Fighting back against biometric surveillance at Wegmans",
+    "url": "https://blog.adafruit.com/2026/01/07/dont-let-the-grocery-store-scan-your-face-a-guide-to-fighting-back-against-biometric-surveillance-at-wegmans/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; <i>Switch to stores with stronger privacy policies: Trader Joe’s, Whole Foods, and Food Bazaar have not announced biometric scanning.</i><p>Just because they haven&#x27;t announced it doesn&#x27;t mean they&#x27;re not using it.<p>Honestly, I would just assume <i>every</i> grocery store has security cameras doing facial recognition to cross-reference and catch repeat shoplifters.<p>All those security cameras are there for a reason.",
+      "It&#x27;s not only at groceries stores, it&#x27;s everywhere. For example at TSA security line and (sometimes) when boarding flights at the gate. You can (and should) exercise your right to opt-out every single time, before that right is taken away.\nOmg I sound like Richard Stallman... anyway, he was right all along.",
+      "&gt; <i>Ask Wegmans directly to exclude you from facial recognition - Send an email to their privacy team</i><p>The only way in which I can see this going is by Wegmans answering &quot;please send a high-res copy of your face so we can add it to the list of faces for which we won&#x27;t keep records&quot;, at which point I&#x27;m not sure who&#x27;s the winner anymore.",
+      "Kinda funny.<p>Back in 2000 I was at Wegmans and was offended when the head security guard followed my freaky hippie friend around so after that I started to mess with him.  Like I noticed he had a spot where he liked to stand and surveil people going in and out of the store and I would stand in his spot so he couldn&#x27;t have it,  or I would conspicuously follow him around the store.<p>I signed up for an enumerator job at the US Census and a bunch of us turned up at the workforce development office where we were administered something like an IQ test.  I disagreed but I remembered someone saying &quot;the questions are so hard!&quot;<p>They called me up and offered me a supervisor position which I didn&#x27;t take because it seemed like a tiny amount of extra money for a lot more trouble.  I got called back maybe a week later with an offer of a regular position which I took.<p>I show up for work and my supervisor was...  the head security guard from Wegmans!  He turned out to be a pretty nice guy and liked working for him!<p>The job had plenty of other misadventures like the way we had a plan for counting homeless people that you thought would have worked but we actually found zero homeless people (funny I would see them everywhere if I wasn&#x27;t wearing my enumerator badge)  Or how a woman who was working with us figured out we could save many hours of work by buying $20 worth of stickers,  something there was no budget for but we decided there was nothing wrong with her just billing another 2 hours.  Or how the students at the black living center mostly didn&#x27;t fill out their census forms but instead of pestering them to fill them out we got a printout of all the students from the bursar&#x27;s office that didn&#x27;t have race on it and sent it on to the processing center -- so blacks got undercounted.",
+      "Good write up. Still I gotta say: a N95 mask will do the trick for cheap, with side bonus of also blocking flu &amp; covid!",
+      "I don&#x27;t see how you can enforce no face scanning if you allow security cameras.",
+      "Business Reform on YouTube has some tests and reviews of this kind of gear.<p><a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;@businessreform&#x2F;videos\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;@businessreform&#x2F;videos</a>",
+      "&quot;Enable JavaScript and cookies to continue&quot;<p>The irony of being fingerprinted to read a blog about fingerprinting is apparently lost on Adafruit.",
+      "I think we&#x27;re far past the point where you can avoid being tracked anywhere in the world, and that&#x27;s even if you wear sunglasses, a hat, and you use no technology (no phone, etc).<p>Israeli cyber security companies have long trained models capable of recognising anybody (mostly used at checkpoints to catch terrorists), even by lower resolution cameras and when the person tries camouflaging. Police in wales even openly admitted to using it to conduct mass surveillance &quot;to find criminals&quot;.<p>If you&#x27;ve taken an international flight, your face has been scanned, and you will be recognised and spotted wherever you go and there&#x27;s a camera.",
+      "I saw Adafruit and was anticipating a clever gadget announcement. Suppose some problems still need to solved the old fashioned way."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "'Stop sending butt plugs to Bahrain'",
+    "url": "https://www.ctvnews.ca/toronto/article/stop-sending-butt-plugs-to-bahrain-toronto-sex-store-receives-letters-from-us-department-of-war/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It&#x27;s interesting that the US navy apparently uses a regular gmail address for the vet clinic on the base in Bahrain according to the linked country instructions[1]. One would imagine that would be prohibited by some policy.<p>[1]: <a href=\"https:&#x2F;&#x2F;www.navsup.navy.mil&#x2F;Portals&#x2F;65&#x2F;HHG&#x2F;Documents&#x2F;Overseas&#x2F;Country%20Instructions%20Bahrain.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;www.navsup.navy.mil&#x2F;Portals&#x2F;65&#x2F;HHG&#x2F;Documents&#x2F;Oversea...</a>",
+      "Strange story. Firstly, they don&#x27;t seem to be shipping directly to Bahrain. Secondly, there seems to be concern about the Bahrain government. Does this mean it has already intercepted mail to US bases?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "LMArena is a cancer on AI",
+    "url": "https://surgehq.ai/blog/lmarena-is-a-plague-on-ai",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The general conceit of this article, which is something that many frontier labs seem to be beginning to realize, is that the average human is no longer smart enough to provide sufficient signal to improve AI models.",
+      "&gt; It&#x27;s past time for LMArena people to sit down and have some thorough reflection on whether it is still worth running at all<p>They&#x27;ve raised about $250 million, so I don&#x27;t see that happening anytime soon.",
+      "There&#x27;s something deeply ironic about this being written by AI. Baitception, even.",
+      "&gt;Would you trust a medical system measured by: which doctor would the average Internet user vote for?<p>Yes, the system desperately needs this. Many doctors malpractice for DECADES.<p>I would absolutely seek to, damn, even pay good money to, be able to talk with a doctor&#x27;s previous patients, particularly if they&#x27;re going to perform a life-changing procedure on me.",
+      "&gt; They&#x27;re not reading carefully. They&#x27;re not fact-checking, or even trying.<p>It’s not how I do, and I suppose how many people do. I specifically ask questions related to niche subjects that I know perfectly well and that is very easy for me to spot mistakes.<p>The first time I used it, that’s what came naturally to my mind. I believe it’s the same for others.",
+      "When they released GPT-4.5, it was miles ahead of others when it comes to its linguistic skills and insight. Yet, it was never at top of the arena - it felt that not everone was able to appreciate the edge.",
+      "Seems like they just raised 150m at 1.7B valuation. Crazy.",
+      "True and what you can realize&#x2F;read between the lines is something deeper.<p>LLMs are fallible.\nHumans are fallible.\nLLMs improve (and improve fast).\nHumans do not (overall, ie. &quot;group of N experts in X&quot;, &quot;N random internet people&quot;).<p>All those &quot;turing tests&quot; will start flipping.<p>Today it&#x27;s &quot;N random internet humans&quot; score too low on those benchmarks, tomorrow it&#x27;ll be &quot;group of N expert humans in X&quot; score too low.",
+      "Any metric that can be targeted can be gamed",
+      "this argument is also broadly true about the quality and correctness of posts on any vote-based discussion board<p>&gt; Why is LMArena so easy to game? The answer is structural.\n&gt; The system is fully open to the Internet. LMArena is built on unpaid labor from uncontrolled volunteers.<p>also all user&#x27;s votes count equally, bu not all users have equal knowledge."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Everything You Need to Know About Email Encryption in 2026",
+    "url": "https://soatok.blog/2026/01/04/everything-you-need-to-know-about-email-encryption-in-2026/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; SMTP, the protocol for sending email, rarely enforces TLS (if it’s even supported at all)<p>FWIW that&#x27;s being less and less true. Major players like apple now automatically trash mail (I don&#x27;t remember if it was marked as spam or bounced) if you try to send them a mail without TLS. I recall gmail published something similar for workspace? And I&#x27;m sure others will follow&#x2F;already have, so you can probably also turn that knob for your own servers too and refuse plain mails -- with a bit of luck that&#x27;ll bounce off some spam..<p>(This doesn&#x27;t change the fact that any admin over there can probably read anything you send to someone there, I don&#x27;t know.)<p>EDIT: oh, according to this ( <a href=\"https:&#x2F;&#x2F;old.reddit.com&#x2F;r&#x2F;crypto&#x2F;comments&#x2F;1q4arv5&#x2F;everything_you_need_to_know_about_email&#x2F;nxrlwzs&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;old.reddit.com&#x2F;r&#x2F;crypto&#x2F;comments&#x2F;1q4arv5&#x2F;everything_...</a> ) enabling TLS doesn&#x27;t check the host name matches anything sane? So TLS doesn&#x27;t actually bring in anything, wow...",
+      "I remember old XMPP clients had an interface to send different kinds of messages. One was for chats and one was like a message with subject eland so on. When OMEMO arrived I always wondered if that could be used to make a mail-like system, with chats and mail-like conversations with subjects.",
+      "Discussion 3 days ago (8 comments):<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46492810\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46492810</a>",
+      "If you are really concerned about someone making a mistake and send mail out unencrypted, just send out an attachment with an encrypted pdf.   There are many ways to create one.<p>On Linux&#x2F;*BSD you can use qpdf to encrypt any pdf.  Maybe libroffice has an option to create a encrypted pdf.",
+      "&gt; One of the main reasons I recommend Signal is because there is no plaintext mode to accidentally use.<p>We were talking about _email_."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: How I generate animated pixel art with AI and Python",
+    "url": "https://sarthakmishra.com/blog/building-animated-sprite-hero",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Nice job! I also did some pixel art experiments several weeks ago with grid-based constraints via Img2Img with Gemini 3.0 Pro that might be of some interest:<p><a href=\"https:&#x2F;&#x2F;mordenstar.com&#x2F;other&#x2F;nb-sprites\" rel=\"nofollow\">https:&#x2F;&#x2F;mordenstar.com&#x2F;other&#x2F;nb-sprites</a><p>FYI there are several nice tools for quantizing to a grid as well as reducing to a smaller discrete color palette that I recommend using as well (unfake [1] and pixel-snapper [2]).<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;jenissimo&#x2F;unfake.js\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;jenissimo&#x2F;unfake.js</a><p>[2] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;Hugo-Dz&#x2F;spritefusion-pixel-snapper\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;Hugo-Dz&#x2F;spritefusion-pixel-snapper</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Everything You Need to Know About Email Encryption in 2026",
+    "url": "https://soatok.blog/2026/01/04/everything-you-need-to-know-about-email-encryption-in-2026/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Was going to submit this but it was already submitted and then flagged.<p>It’s true, email is probably unfixable. It’s ok as a digital postcard though, and sometimes that’s all you need. If we could finally get rid of either SMS or email I’d have to pick SMS. But we’re probably stuck with both due to politics and network effects.<p>I didn’t see any mention of Delta Chat as an attempt to secure email. I do like Delta Chat on chatmail servers (see <a href=\"https:&#x2F;&#x2F;chatmail.at&#x2F;doc&#x2F;relay&#x2F;faq.html#what-is-the-difference-between-chatmail-relays-and-classic-email-servers\" rel=\"nofollow\">https:&#x2F;&#x2F;chatmail.at&#x2F;doc&#x2F;relay&#x2F;faq.html#what-is-the-differenc...</a>). Signal is better security-wise but I am very much oriented towards federation or full decentralization. For myself, I worry more about a service being blocked than I do targeted attacks, although I understand that others have different threat models.",
+      "If a topic is sensitive enough I might use email to ping someone and tell them a word that means get on my private server.  I have taught a handful of lawyers how to PGP encrypt using Thunderbird, so simple a child could do it.  It does leak some meta-data but that is sufficient to say &quot;get on my private or semi-private server&quot; or to have lawyers SFTP files to me.  I tell them the passphrase over the phone.  It also helps to have many aliases <i>canaries</i> on many domains to break some aspects of tracking.  There is no single solution to privacy.  It takes some facets of OpSec and embracing some friction.  I am happy many people hate the friction as it moves them lower on the totem pole.<p>I might some day regret teaching lawyers how to PGP encrypt files and messages.",
+      "There&#x27;s a sneaky jab at ProtonMail at the end, so I feel the need to defend them a bit:<p>&gt; How are secret keys managed?<p>Stored on proton&#x27;s server, encrypted with a passphrase known only to the account holder.  I believe they allow you to upload keys as well.<p>&gt; How are public keys managed? (Trust on first use, web of trust, etc.?)<p>ProtonMail supports WKD: Email clients can automatically query a proton account&#x27;s public key using HTTPS.  You can also send your public key to people using all the old ways.<p>&gt; Where does the encryption take place, and where does that code come from?<p>Proton distributes a FOSS application which integrates with a standard email client.  Yes, I imagine most people use the webmail client.  Not offering a webmail client was not an option.<p>&gt; What doesn’t get encrypted? (Subject lines, etc.)<p>Yes, I believe Proton only does the message body and attachments.<p>&gt; How does this work for people not using the same service? Does everything silently downgrade to plaintext?<p>Yes.  This behavior is important to increase adoption, and is a similar compromise to the one that allowed the HTTP =&gt; HTTPS transition.  Once encrypted email is normalized we can tighten the screws.<p>&gt; I know that sounds rude or dismissive, but the situation is completely terrible and there’s no real political will to fix it. And you *need* political will to fix it.<p>You point out that email encryption is a political problem.  The folks at Proton are aware of that and are actively working to solve that problem.  Part of the solution requires having a simple thing you can point people to that they can use to encrypt their emails with no fuss, even if that thing isn&#x27;t perfect.",
+      "question: if php doesn’t encrypt email subjects, why don’t people just put conversations in age-encrypted attachments exclusively? This sidesteps the “quoting in plaintext” user error unless one goes out of their way to copy-paste the attachment conversation into the body while composing.",
+      "[flagged]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Free and local browser tool for designing gear models for 3D printing",
+    "url": "https://gears.dmtrkovalenko.dev",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is great! Any chance you could add STEP export also? It would facilitate importing into CAD software to customize the gear, eg to add a custom hub.",
+      "This is so cool! I&#x27;ll be using this when I need to generate gears. How is the fitment of the interfacing of the gears after printing? What libraries did you use to build this, too?",
+      "This looks awesome - my son loves gears, and my wife and I have been talking about buying him a 3D printer soon. Thank you!",
+      "It would be nice to have a way to output a corresponding gear. I can make a gear with small teeth with a wide gap between them, but the same gear wouldn&#x27;t really work to engage with that gear, on the other gear the teeth would need to fill the wide gap of the first gear.",
+      "Oh nice! I might use this.<p>I&#x27;m using Free Cad&#x27;s Gear Workbench plugin at the moment. It&#x27;s okay, but Free Cad kinda sucks.<p>You thinking about adding other gear types like bevel gears and gear racks?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Logitech fails to renew macOS certificate for G Hub, chaos ensues",
+    "url": "https://www.reddit.com/r/logitech/s/0nfQIqRuQd",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Apart from the certificate issue, it seems to me completely bonkers that you&#x27;d need a remote connection for your own local device to keep its settings.",
+      "This was reported earlier via an Ask:<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46523885\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46523885</a>",
+      "There is a fix available here: <a href=\"https:&#x2F;&#x2F;support.logi.com&#x2F;hc&#x2F;en-us&#x2F;articles&#x2F;37493733117847-Options-and-G-HUB-macOS-Certificate-Issue\" rel=\"nofollow\">https:&#x2F;&#x2F;support.logi.com&#x2F;hc&#x2F;en-us&#x2F;articles&#x2F;37493733117847-Op...</a>",
+      "<i>Options+ and G HUB macOS Certificate Issue</i><p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46526572\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46526572</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: KeelTest – AI-driven VS Code unit test generator with bug discovery",
+    "url": "https://keelcode.dev/keeltest",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I notice one of the things you don&#x27;t really talk about in the blog post (or if you did, I missed it) is unnecessary tests, which is one of the key problems LLMs have with test writing.<p>In my experience, if you just ask an LLM to write tests, it&#x27;ll write you a ton of boilerplate happy path tests that aren&#x27;t wrong, per se, they&#x27;re just pointless (one fun one in react is &#x27;the component renders&#x27;).<p>How do you plan to handle this?",
+      "Weird. Copilot knows what tests are and only &quot;fixes&quot; them after we&#x27;ve refactored the relevant code.<p>I really wonder if Claude Code and other agents keep track of these dependencies at all (I know that VS Code exposes its internal testing tools to agents, and use Anthropic and OpenAI tools with them).",
+      "I&#x27;d be curious to hear more about how it determines when a failure is a source code bug. In my experience it&#x27;s very hard to encapsulate the &quot;why&quot; of a particular behavior in a way the agents will understand. How does this tool know that the test it wrote indicates an issue in the source vs an issue in the test?",
+      "How exactly do credits work? Your pricing mentions files and functions but doesn&#x27;t appear to give a true unit of measure."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Dell's CES 2026 chat was the most pleasingly un-AI briefing I've had in 5 years",
+    "url": "https://www.pcgamer.com/hardware/dells-ces-2026-chat-was-the-most-pleasingly-un-ai-briefing-ive-had-in-maybe-5-years/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; It&#x27;s not that Dell doesn&#x27;t care about AI or AI PCs anymore, it&#x27;s just that over the past year or so it&#x27;s come to realise that the consumer doesn&#x27;t.<p>I wish every consumer product leader would figure this out.",
+      "They nailed it. Consumers don&#x27;t care about AI, they care about functionality they can use, and care less if it uses AI or not. It&#x27;s on the OS and apps to figure out the AI part. This is why even though people think Apple is far behind in AI, they are doing it at their own pace. The immediate hardware sales for them did not get impacted by lack of flashy AI announcements. They will slowly get there but they have time. The current froth is all about AI infrastructure not consumer devices.",
+      "Consumers are not idiots. We know all this AI PC crap is it&#x27;s mostly a useless gimmick.<p>One day it will be very cool to run something like ChatGPT, Claude, or Gemini locally in our phones but we&#x27;re still very, very far away from that.",
+      "Fundamentally when you think about it, what people know today as AI are things like ChatGPT and <i>all</i> of those products run on cloud infrastructure mainly via the browser or an app. So it makes perfect sense that customers just get confused when you say &quot;This is an AI PC&quot;. Like, what a weird thing to say - my smartphone can do ChatGPT why would I buy a PC to do that. It&#x27;s just a totally confusing selling point. So you ask the question why is it an AI PC and then you have to talk about NPUs, which apart from anything else are confusing (Neural what?) but bring you back to this conversation:<p>What is an NPU? Oh it&#x27;s a special bit of hardware to do AI. Oh ok, does it run ChatGPT? Well no, that still happens in the cloud. Ok, so why would I buy this?",
+      "Protip, if you are considering a dell xps laptop, consider the dell precision laptop workstation instead which is the business version of the consumer level xps.<p>It also looks like names are being changed, and the business laptops are going with a dell pro (essential&#x2F;premium&#x2F;plus&#x2F;max) naming convention.",
+      "Finally companies understand that consumers do not want AI products, but just better, stronger, and cheaper products.<p>Unfortunately investors are not ready to hear that yet...",
+      "Dell is cooked this year for reasons entirely outside their control. DRAM and storage&#x2F;drive shortages are causing costs of those to go to the moon. And Dell&#x27;s &#x27;inventory&#x27; light supply chain and narrow margins puts them in a perfect storm of trouble.",
+      "<i>&gt; What we&#x27;ve learned over the course of this year, especially from a consumer perspective, is they&#x27;re not buying based on AI .. In fact I think AI probably confuses them more than it helps them understand a specific outcome.</i><p>Do consumers understand that OEM device price increases are due to AI-induced memory price spike over 100%?",
+      "On the same note, whats going on with Dell&#x27;s marketing lately?<p>Dell, Dell Pro, Dell Premium, Dell _Pro_ Premium Dell Max, Dell _Pro_ max...\nThey went and added capacitive keys on the XPS? Why would you do this...<p>A lot of decisions that do not make sense to me.",
+      "They’ve just realised that AI won’t be in the PC, but on a server.  Where Dell are heavily selling into - “AI datacenter” counted for about 40% of there infrastructure revenue"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Code Emergent Behavior: When Skills Combine",
+    "url": "https://vibeandscribe.xyz/posts/2025-01-07-emergent-behavior.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I didn&#x27;t see any emergent behavior, just combining of skills (which I&#x27;ll admit looks useful). Calling this emergent is click bait.",
+      "A skill that creates other skills can be very useful as well.<p>E.g. you could have:<p>- a set of skills to use design patterns of a library<p>- a skill to add to this skill-set -- either when prompted by user or autonomously via a stop-hook<p>E.g. I set up this combination for design patterns for the Langroid[1] LLM-Agent framework:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;pchalasani&#x2F;claude-code-tools&#x2F;tree&#x2F;main&#x2F;plugins&#x2F;langroid&#x2F;skills\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;pchalasani&#x2F;claude-code-tools&#x2F;tree&#x2F;main&#x2F;pl...</a><p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;langroid&#x2F;langroid\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;langroid&#x2F;langroid</a>",
+      "The activation reliability issue kingkongjaffa mentions is the real challenge here. It&#x27;s the same problem you hit building any pattern-based system - getting it to recognise when a pattern applies vs when it should improvise.<p>I&#x27;ve been building transaction categorisation tools and the parallel is striking. You can have perfect pattern logic, but the model still needs to correctly identify &quot;this situation matches pattern X&quot; first. Sometimes it just... doesn&#x27;t, even when it clearly should.<p>The router skill idea is interesting. Feels like pushing the meta-matching problem up a level though - now you need the router to activate reliably. Turtles all the way down.",
+      "Post has moved to <a href=\"https:&#x2F;&#x2F;vibeandscribe.xyz&#x2F;posts&#x2F;2026-01-07-emergent-behavior.html\" rel=\"nofollow\">https:&#x2F;&#x2F;vibeandscribe.xyz&#x2F;posts&#x2F;2026-01-07-emergent-behavior...</a>",
+      "Regardless of title, it’s a good little reminder that I hadn’t thought of - skills can use skills. This makes sense - a skill is just a pre-loaded context Claude instance, so why not? But I also tend to think of one skill at a time. Thanks for the write up.",
+      "I wonder how complex we can make skills if claude code was able to read them dynamically. I am envisioning one session generates the skill.md while other session works on it and then I envision they both editing each other&#x27;s skill.md. just a little dream I have, sorry for yapping.",
+      "Getting a 404 Not Found for this post - is the blog down?<p>I was really curious to read it given the comments + full disclosure my co-founder recently wrote about a similar topic (&quot;To Tool or Not to Tool&quot;)  <a href=\"https:&#x2F;&#x2F;blog.codeyam.com&#x2F;p&#x2F;to-tool-or-not-to-tool\" rel=\"nofollow\">https:&#x2F;&#x2F;blog.codeyam.com&#x2F;p&#x2F;to-tool-or-not-to-tool</a> .<p>I wanted to see how this is similar or different with the focus on Claude Code + Skills in a more literal sense vs. tools in a more abstract sense.",
+      "Year is wrong in the article by the way. It says 2025.",
+      "No AI could code a better seahorse emoji xD",
+      "Kiss of death? I&#x27;m seeing &quot;404 Not Found nginx&#x2F;1.18.0 (Ubuntu)&quot;"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: An LLM response cache that's aware of dynamic data",
+    "url": "https://blog.butter.dev/on-automatic-template-induction-for-response-caching",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Interesting! Definitely gonna give it a shot",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI Psychosis, AI Apotheosis",
+    "url": "https://www.oblomovka.com/wp/2026/01/07/ai-psychosis-ai-apotheosis/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Comet MCP – Give Claude Code a browser that can click",
+    "url": "https://github.com/hanzili/comet-mcp",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Claude Code now does this natively without need for a 3rd party browser like Comet: <a href=\"https:&#x2F;&#x2F;support.claude.com&#x2F;en&#x2F;articles&#x2F;12012173-getting-started-with-claude-in-chrome\" rel=\"nofollow\">https:&#x2F;&#x2F;support.claude.com&#x2F;en&#x2F;articles&#x2F;12012173-getting-star...</a>",
+      "I didn’t realize AI could interact with browsers like this already (guess I’m naive).  Isn’t this setting up for the scenario where the AI is duped into logging into your bank account and transferring your money away?   Not sure I have enough trust to allow an AI to touch a browser.",
+      "&quot;claude --chrome&quot; does this out of the box and works pretty well.",
+      "I&#x27;ve used chrome devtools mcp successfully to do all kinds of advanced in browser tasks, agents like claude code can write js and inject it into the context in a live browser and do all kinds of neat tricks. I&#x27;ve used this extensively in gemini-cli.",
+      "I was going to ask what makes this better than just using Playwright and this largely answers that question. I will have to try it out and see how it compares.<p>I haven&#x27;t really had luck with MCP in general for quite a while though. I have just been using Google Antigravity for most of my vibe coding needs.",
+      "Did you try that one ?<p><a href=\"https:&#x2F;&#x2F;chromewebstore.google.com&#x2F;detail&#x2F;blueprint-mcp-for-chrome&#x2F;kpfkpbkijebomacngfgljaendniocdfp\" rel=\"nofollow\">https:&#x2F;&#x2F;chromewebstore.google.com&#x2F;detail&#x2F;blueprint-mcp-for-c...</a>",
+      "a brittle MCP that connects a brittle (unless using Opus 4.5) CLI to a brittle browser? (see: Scamlexity, an actual vulnerability name)<p>I trust Claude in Chrome a lot more, and I trust my own hands and eyes most.",
+      "There is Browser MCP that works reasonably well: <a href=\"https:&#x2F;&#x2F;browsermcp.io&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;browsermcp.io&#x2F;</a><p>What&#x27;s the difference?",
+      "I was just thinking to myself this morning, I wonder if I can make Claude Code and Comet work together... Now I have my answer!",
+      "Anyone know of any good articles around having claude code build playwright test suites for a given website and parameters?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Residues: Time, Change and Uncertainty in Software Architecture [video]",
+    "url": "https://www.youtube.com/watch?v=D8qQUHrksrE",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I have no idea how to write software like this, or why residuality is stated to be in a class with OOP or SOA. Feels like fake mathy precision.<p>&gt; Residuality theory provides an alternative to the vague methods by which OOP, SOA, and microservice approaches arrive at system designs<p>but then<p>&gt; The Process of Residual Analysis\nProduce a naïve architecture. A functional solution on any platform using current methods from OOP&#x2F;SOA, etc<p><a href=\"https:&#x2F;&#x2F;www.sciencedirect.com&#x2F;science&#x2F;article&#x2F;pii&#x2F;S1877050920305585\" rel=\"nofollow\">https:&#x2F;&#x2F;www.sciencedirect.com&#x2F;science&#x2F;article&#x2F;pii&#x2F;S187705092...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Why we're taking legal action against SerpApi's unlawful scraping",
+    "url": "https://blog.google/innovation-and-ai/technology/safety-security/serpapi-lawsuit/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Google really doesn&#x27;t have a leg to stand on here. They scrape the Internet. They replace content against the wishes of users multiple different times, such as with AMP. Their entire business model recently has been to provide you answers they learned from scraping your website and now they want to sue other people who are doing the same.<p>Data wants to be free. They knew that once.<p>EDIT: Also to be clear I am not saying they can&#x27;t win legally. I&#x27;m sure they can do legal games and could shop around until they were successful. They are in the wrong conceptually.",
+      "I bet SerpApi is getting more business than ever due to the Streisand effect. I hadn&#x27;t heard about them, but if I want an API for Google results I&#x27;m definitely going to choose the one that was so hard for Google to block that they had to sue them instead. I see on their website they even advertise a &quot;legal shield&quot; where they assume scraping liability for their customers.",
+      "&quot;Google follows industry-standard crawling protocols, and honors websites’ directives over crawling of their content.&quot;<p>Is that true with how they trained Gemini? Doesn&#x27;t everyone with a foundational model scrape the web relentlessly without regard for robots.txt?",
+      "Reminds me of (the ironic AI summary)\n<a href=\"https:&#x2F;&#x2F;www.google.com&#x2F;search?channel=entpr&amp;q=celebritynetworth+google\" rel=\"nofollow\">https:&#x2F;&#x2F;www.google.com&#x2F;search?channel=entpr&amp;q=celebritynetwo...</a><p>Testimony\n<a href=\"https:&#x2F;&#x2F;medium.com&#x2F;@brianwarner&#x2F;celebritynetworths-statement-submitted-to-the-house-subcommittee-on-antitrust-788fff88723f\" rel=\"nofollow\">https:&#x2F;&#x2F;medium.com&#x2F;@brianwarner&#x2F;celebritynetworths-statement...</a><p>CNW ended up putting up content for fake celebrity&#x27;s after declining Google&#x27;s request for API usage to prove that Google was scraping them.",
+      "I had an idea - take SerpAPI and save top-10 or 20 links for many queries (millions), and put that in a RAG database. Then it can power a local LLM do web search without ever touching Google.<p>The index would just point a local crawler towards hubs of resources, links, feeds, and specialized search engines. Then fresh information would come from the crawler itself. My thinking is that reputable sites don&#x27;t appear every day, if you update your local index once every few months it is sufficient.<p>The index could host 1..10 or even 100M stubs, each one touching on a different topic, and concentrating the best entry points on the web for that topic. A local LLM can RAG-search it, and use an agent to crawl from there on. If you solve search this way, without Google, and you also have local code execution sandbox, and local model, you can cut the cord. Search was the missing ingredient.<p>You can still call regular search engines for discovery. You can build your personalized cache of search stubs using regular LLMs that have search integration, like ChatGPT and Gemini, you only need to do it once per topic.",
+      "Pre the AI era at least morally they would have a stronger case, but now this is kind of hypocritical.<p>They also started caring about this, probably because they don&#x27;t want their competitors to get the same data as they have.",
+      "google will lose, and I&#x27;m surprised they are even trying. hiQ v. LinkedIn already settled this: scraping public web pages isn’t “unauthorized access,” even if the site says no via robots.txt or ToS. Those aren’t locks.",
+      "Isn&#x27;t search engine results a product that Google offers? [1]\nI find the argument quite strange that website owners agreed to Google being able to do anything with that data beyond displaying them in their search results when they wrote that robots.txt maybe ten years ago, but others shall not access those results programatically.<p>I certainly did not and find using the content google scraped from my website for money or AI (which they also sell on a token basis) more questionable than some third party offering API access to it.<p>[1] <a href=\"https:&#x2F;&#x2F;docs.cloud.google.com&#x2F;generative-ai-app-builder&#x2F;docs&#x2F;preview-search-results?hl=de\" rel=\"nofollow\">https:&#x2F;&#x2F;docs.cloud.google.com&#x2F;generative-ai-app-builder&#x2F;docs...</a>",
+      "this was discussed here\n<a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46329109\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46329109</a>",
+      "I bet the core of the problem for Google is that more folks use programmatic access to search which is not great on their side. Naturally you end up using Serp or other similar search APIs as they are great for the job. I believe this is also an issue especially in cases where search is performed on behalf of the user (scripts, ai tools). Google is just losing ground here, why would they bother otherwise, think what will happen to their stock if the search usage will drop? Another thing is that this builds pressure to whoever is integrating such a search tool in their products, clearly Google wants to grab that market as well."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Poison Fountain",
+    "url": "https://rnsaffn.com/poison3/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Silicon Valley Plots Against Ro Khanna After His Support for a Wealth Tax",
+    "url": "https://www.nytimes.com/2026/01/07/us/politics/ro-khanna-california-wealth-tax.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;2026.01.07-234742&#x2F;https:&#x2F;&#x2F;www.nytimes.com&#x2F;2026&#x2F;01&#x2F;07&#x2F;us&#x2F;politics&#x2F;ro-khanna-california-wealth-tax.html\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;2026.01.07-234742&#x2F;https:&#x2F;&#x2F;www.nytimes.com...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Code 2.1.0 Released",
+    "url": "https://github.com/anthropics/claude-code/blob/f34e2535b4fcf5fcc6cb0b566111c588b04873ee/CHANGELOG.md",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Fixed Esc key with queued prompts to only move them to input without canceling the running task<p>Yes, lot&#x27;s of trouble with Esc, esp if you use vi mode.<p>But vi mode got lots of love.<p>Incredible velocity on this project."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "I got paid minimum wage to solve an impossible problem",
+    "url": "https://tiespetersen.substack.com/p/i-got-paid-minimum-wage-to-solve",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Huh, this seems like a cool optimization problem that I gotta dig in later.\nAs sweeping was mentioned, there&#x27;s an argument to be made that we could&#x2F;should optimize for:  \n- longest possible strides, you can pick up speed and minimize used time\n- allowing overlapping strides on &quot;intersections&quot;, as intersections have more traffic and thus should have more grime and wear. \n- back-and-forth sweeping along a stride. Like with grass or mopping a floor, if there&#x27;s any &quot;evidence&quot; left of the sweeping, it&#x27;ll be more aesthetically more pleasing. \n- finally minimizing extra turning, as turning is slow<p>If someone has any extra suggestions on what restrictions&#x2F;optimization targets there should be and the rationale for that, I&#x27;d be more than happy to receive them!",
+      "Ironically this appears to have been written by AI.  I stopped reading when I noticed."
+    ],
+    "full_text": null
+  }
+]
