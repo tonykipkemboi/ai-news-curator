@@ -1,0 +1,565 @@
+[
+  {
+    "title": "\"Food JPEGs\" in Super Smash Bros. & Kirby Air Riders",
+    "url": "https://sethmlarson.dev/food-jpegs-in-super-smash-bros-and-kirby-air-riders",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "As someone who has never played these games I would be interested in screenshots of how these assets look in context in-game.",
+      "Wow TIL about Mont Blanc <i>and</i> about Tempura Soba. Both are delicious prospects.<p>Also I’m very entertained by the ‘big bonus foods’ - that hamburger is ridiculous."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Vojtux – Unofficial Linux Distribution Aimed at Visually Impaired Users",
+    "url": "https://github.com/vojtapolasek/vojtux",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The tricky thing with these &quot;unofficial&quot; distros is that they are generally maintained by either a single individual or a small group of people.<p>This is true for many accessibility projects actually (game mods, third-party UIs for inaccessible services&#x2F;platforms, etc.).\nThese are generally really meant as short-term patches while the problem gets fixed, except ... the problem often doesn&#x27;t get fixed because the platforms in question figure it&#x27;s been solved now and they don&#x27;t need to care about it anymore.<p>Accessibility really only works when it&#x27;s an ongoing, first-class process within an app&#x2F;platform&#x27;s design, and we can absolutely do that; the standards and guidelines have existed for decades. People working in cybersecurity, localization, general UX should recognize this song and dance, which is amusing because a lot of the tools of those trades have atrocious accessibility and require all sorts of workarounds, ask me how I know.<p>People just ... aren&#x27;t including it in this way, which means people like myself (screen reader user and accessibility professional)  essentially have to keep reminding people that we exist and that it&#x27;s kinda shitty to keep forgetting about that fact or to decide the least amount of effort possible (LLM, unpaid volunteer, send in a PR LMAO) is enough to cater to people who have very real, very annoying and very constant UX issues we either crash into or crash through on literally an hourly basis.",
+      "Are there &quot;official&quot; Linux distributions?",
+      "Here&#x27;s an interview (in Czech) with Vojta, the main (only) developer. There might be follow up articles discussing specific issues he&#x27;s facing as user and as a developer.<p><a href=\"https:&#x2F;&#x2F;www.root.cz&#x2F;clanky&#x2F;pristupnost-se-musi-stat-obcanem-prvni-kategorie-rika-nevidomy-vyvojar-vojtech-polasek&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.root.cz&#x2F;clanky&#x2F;pristupnost-se-musi-stat-obcanem-...</a>",
+      "I&#x27;m glad to see things like this get built. I hate to admit it but I rarely consider impaired usecases when building things. I wonder how technology is changing this usecase lately both on the user end and the design end. (I know, AI) I imagine an LLM could help discover inadequate UI and build alternative workflows into products more easily."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: I used Claude Code to discover connections between 100 books",
+    "url": "https://trails.pieterma.es/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is a beautiful piece of work. The actual data or outputs seem to be more or less...trash? Maybe too strong a word. But perhaps you are outsourcing too much critical thought to a statistical model. We are all guilty of it. But some of these are egregious, obviously referential LLM dog. The world has more going on than whatever these models seem to believe.<p>Edit&#x2F;update: if you are looking for the phantom thread between texts, believe me that an LLM cannot achieve it. I have interrogated the most advanced models for hours, and they cannot do the task to any sort of satisfactory end that a smoked-out half-asleep college freshman could. The models don&#x27;t have sufficient capacity...yet.",
+      "Can someone break this down for me?<p>I&#x27;m seeing &quot;Thanos committing fraud&quot; in a section about &quot;useful lies&quot;. Given that the founder is currently in prison, it seems odd to consider the lie useful instead of harmful. It kinda seems like the AI found a bunch of loosely related things and mislabeled the group.<p>If you&#x27;ve read these books I&#x27;m not seeing what value this adds.",
+      "Really great work but have to agree with others that I don’t see the threads.<p>The one I found most connected that the LLm didn’t was a connection between Jobs and the The Elephant in the Brain<p>The Elephant in the Brain: The less we know of our own ugly motives, the easier it is to hide them from others. Self-deception is therefore strategic, a ploy our brains use to look good while behaving badly.<p>Jobs: “He can deceive himself,” said Bill Atkinson. “It allowed him to con people into believing his vision, because he has personally embraced and internalized it.”",
+      "In a similar vein, I&#x27;ve been using Claude Code to &quot;read&quot; Github projects I have no business understanding. I found this one trending on Github with everything in Russian and went down the rabbit hole of deep packet inspection[0].<p>0. <a href=\"https:&#x2F;&#x2F;github.com&#x2F;ValdikSS&#x2F;GoodbyeDPI\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;ValdikSS&#x2F;GoodbyeDPI</a>",
+      "I dont understand the lines connecting two pieces of text. In most cases, the connected words have absolutely zero connection with each other.<p>In &quot;Father wound&quot; the words &quot;abandoned at birth&quot; are connected to &quot;did not&quot;. Which makes it look like those visual connections are just a stylistic choice and don&#x27;t carry any meaning at all.",
+      "I did something similar whereby I used pdfplumber to extract text from my pdf book collection. I dumped it into postgresql, then chunked the text into 100 char chunks w&#x2F; a 10 char overlap. These chunks were directly embedded into a 384D space using python sentence_transformers. Then I simply averaged all chunks for a doc and wrote that single vector back to postgresql. Then I used UMAP + HDBScan to perform dimensionality reduction and clustering. I ended up with a 2D data set that I can plot with plotly to see my clusters. It is very cool to play with this. It takes hours to import 100 pdf files but I can take one folder that contains a mix of programming titles, self-help, math, science fiction etc. After the fully automated analysis you can clearly see the different topic clusters.<p>I just spent time getting it all running on docker compose and moved my web ui from express js to flask. I want to get the code cleaned up and open source it at some point.",
+      "I’m not surprised that it found connections when you told it to find connections. Most of those connections seem rather dubious to me. I think you’d have been better off coming up with these yourself.",
+      "You might enjoy my tool deciduous. It is for building knowledge trees and reference stuff exactly like this. The website tells a bit more <a href=\"http:&#x2F;&#x2F;notactuallytreyanastasio.github.io&#x2F;deciduous&#x2F;\" rel=\"nofollow\">http:&#x2F;&#x2F;notactuallytreyanastasio.github.io&#x2F;deciduous&#x2F;</a>",
+      "I read a book maybe a decade ago on the &quot;digital humanities&quot;. I wish now I could remember the title and author. :(<p>Anyway, it introduced me to the idea of using computational methods in the humanities, including literature. I found it really interesting at the time!<p>One of the the terms it introduced me to is &quot;distant reading&quot;, whose name mirrors that of a technique you may have studied in your gen eds if you went to university (&#x27;close reading&quot;). The idea is that rather than zooming in on some tiny piece of text to examine very subtle or nuanced meanings, you zoom out to hundreds or thousands of texts, using computers to search them for insights that only emerge from large bodies of work as wholes. The book argued that there are likely some questions that it is <i>only</i> feasible to ask this way.<p>An old friend of mine used techniques like this for dissertation in rhetoric, learning enough Python along the way to write the code needed for the analyses she wanted to do. I thought it was pretty cool!<p>I imagine LLMs are probably positioned now to push distant reading forward in an number of ways: enabling new techniques, allowing old techniques to be used without writing code, and helping novices get started with writing some code. (A lot of the maintainability issues that come with LLM code generation happily don&#x27;t apply to research projects like this.)<p>Anyway, if you&#x27;re interested in other computational techniques you can use to enrich this kind of reading, you might enjoy looking into &quot;distant reading&quot;: <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Distant_reading\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Distant_reading</a>",
+      "This feels like a nice idea but the connection between the theme and the overarching arc of each book seems tenuous at best. In some cases it just seems to have found one paragraph from thousands and extrapolated a theme that doesn’t really thread through the greater piece.<p>I do like the idea though — perhaps there is a way to refine the prompting to do a second pass or even multiple passes to iteratively extract themes before the linking step."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Ferrite – Markdown editor in Rust with native Mermaid diagram rendering",
+    "url": "https://github.com/OlaProeis/Ferrite",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is cool. I was hoping to see progress coming from Zed (e.g. because Tree-sitter → <a href=\"https:&#x2F;&#x2F;github.com&#x2F;tree-sitter-grammars&#x2F;tree-sitter-markdown\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;tree-sitter-grammars&#x2F;tree-sitter-markdown</a>) but it&#x27;s exciting to see this. \nI&#x27;m a heavy Obsidian user, and I love it, but I&#x27;d love to see real alternatives focused on foundations.<p>It would be interesting to know more about the end-goal if any.<p>Best of luck! I&#x27;ll watch this.",
+      "AI generated code, AI generated HN post, AI generated comments…",
+      "Will need a magnifying glass to see the text on the screenshots.<p>I find it makes sense to take screenshots in a window big enough to show what&#x27;s going on, but no bigger. This means probably not full screen, or maximised, especially if you&#x27;re running at a very high resolution. If there&#x27;s a lot of dead&#x2F;empty space in the window that&#x27;s a signal it&#x27;s too big. This way you guarantee the screenshots are readable without zooming in, on smaller displays than your own, for example mobile.",
+      "Very cool. The one thing that prevents me from trying this out as a potential note-taking daily driver is the lack of support for LaTeX.<p>I recently switched from Obsidian to Zettlr due to some rendering and performance issues on Linux, and it&#x27;s been a great experience. However, I always like to see new entrants in the arena.",
+      "The main issue is that Markdown remains a pretty primitive language to write documents in, with dozens of incompatible extensions all over the place.<p>I don&#x27;t know if it&#x27;s the best format to focus on.",
+      "Hey OP, curious how much experience you have with Rust, given that this is the only rust repo I see in your profile.",
+      "Slightly off topic: is there any editor (and data format) that supports re-arranging mermaid charts? I often find myself wanting to slightly tweak the way the chart is rendered, e.g. moving around boxes so that some of them are clustered in a specific area etc.",
+      "Nice to see an egui project that doesn&#x27;t have super obvious egui aesthetics.<p>How did you find working with egui?",
+      "Nice to see native markdown rendering rather than relying on spawning chromium and taking screenshots like some other libraries do!",
+      "I happily paid money for Typora, which does roughly the same thing for just Markdown without support for JSON, Yaml (that I know of). This feels like a ripe space, especially with LLMs eagerly outputting reams of parseable text with embedded diagrams."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "LLM poetry and the \"greatness\" question: Experiments by Gwern and Mercor",
+    "url": "https://hollisrobbinsanecdotal.substack.com/p/llm-poetry-and-the-greatness-question",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "AI is a business model stress test",
+    "url": "https://dri.es/ai-is-a-business-model-stress-test",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Tailwind Labs relied on a weird monetization scheme. \nRevenue was proportional to the pain of using the framework. The sudden improvement in getting desired UI without relying on pre-built templates killed Tailwind Labs.<p>There are many initiatives in a similar spot, improving your experience at using Next.js would hurt Vercel. \nMaking GitHub actions runners more reliable, stable and economical would hurt Microsoft. \nImproving accessibility to compute power would hurt Amazon, Microsoft and Google. \nImproving control and freedom over your device would hurt apple and Google.<p>Why should we be sympathetic to the middleman again?<p>If suddenly CSS became pleasant to use, Tailwind would be in a rough spot. See the irony?<p>&quot;Give everything away for free and this people will leave technology&quot;, geohot said something like this and I truly appreciate. Technology will heal finally",
+      "In my opinion LLMs are intellectual property theft. Just as if I started distributing copies of books. This substantially reduces the incentive for the creation of new IP.<p>All written text, art work, etc needs to come imbued with a GPL style license: if you train your model on this, your weights and training code must be published.",
+      "&gt;&quot;Value is shifting to operations: deployment, testing, rollbacks, observability. You can&#x27;t prompt 99.95% uptime on Black Friday. Neither can you prompt your way to keeping a site secure, updated, and running&quot;<p>I&#x27;ve been doing exactly that since AI came out :-D<p>You absolutely can prompt your way to 3.5 nines of uptime (even more), but you need to know what you&#x27;re doing and correct it.<p>Even very well aligned models like Opus will make traps for your infrastructure. For example you tell it to write a fluxCD implementation of some application, in your k8 cluster, following your conventions and best practices described in some md files. And it does this, very nicely. But unless you tell it in advance every detail it will do something extremely stupid mid way through.<p>For example, let&#x27;s say you have a database and it needs to create a new instance (with gitops) for the app. It adds the new DB and it gets created, but instead of using a tool that already exists (or proposing one if it doesn&#x27;t) to sync the DB access credentials from the DB na espace to the app namespace it will read the credential, encrypt it and store in the app namespace.<p>What&#x27;s the problem with that? Well, none unless you rotate these credentials. In which case your app will stop working, possibly after you tested it and decided it&#x27;s good enough to use seriously, despite having a HA DB.<p>There are a dozen things like this in each &quot;ai project&quot;, but even with this. With the time needed to review everything it saves a lot of time.",
+      "In my opinion, governments are going to have to tax the big tech companies hard and distribute the money to funding bodies like Arts Council. I can see a future &quot;Tech Council&quot; for open source software organisations to apply for funding. It&#x27;ll get to the point where every OSS developer has their own Community Interest Company or join with a few other devs to create a CIO in order to acquire funding.<p>Of course, now you&#x27;re opening a whole other can of worms. In the UK, only 1 in 9 Arts Council funding applications is successful.",
+      "I wish I could upvote this more than once. The author gets it, you have to sell outcomes. Not features. Seems like every open source company that doesn’t market an outcome to buyers will face a similar threat. And this particular go to market strategy was “brittle” before AI.",
+      "&gt; AI didn&#x27;t kill Tailwind&#x27;s business. It stress tested it.<p>The earthquake didn’t destroy the building — it stress tested it.",
+      "<i>&quot;The value got extracted, but compensation isn&#x27;t flowing back. That bothers me, and it deserves a broader policy conversation.</i><p><i>What I keep coming back to is this: AI commoditizes anything you can fully specify. [...]</i><p><i>So where does value live now? In what requires showing up, not just specifying. Not what you can specify once, but what requires showing up again and again.&quot;</i><p>This seems like a useful framing to be aware of, generally.<p>The internet has always kinda run on the ambiguity of &quot;does the value flow back&quot;. A quote liberated from this article itself; all the content that reporters produce that&#x27;s laundered back out through twitter; 12ft.io; torrents; early youtube; late youtube; google news; apache&#x2F;mit vs gnu licenses; et cetera..",
+      "I see &quot;hackers&quot; in these comments are now advocating to make &quot;criminal contempt of business model&quot; a serious thing, instead of a mere meme used to describe draconian copyright and patent laws.",
+      "Many FOSS business models did, explicitly or implicitly, rely, not on direct obfuscation or overcomplication, but on not making things easy. So you sell not the product, services around the product.<p>This is not exclusive to FOSS. It is also the basic model of most non SaaS B2B, often for good reason referred to by the derogatory term &#x27;consulting-ware&#x27;.<p>AI eats into these services, as it commoditizes them. 80%+ of what used to take a specialist for that product can now be handled by a good generalist + AI.<p>Leaving aside the business model impact for a second, getting rid of obfuscation incentives is intrinsically good thing for a user community.<p>Dries&#x27; solution, offering operations as a SaaS or managed service, is meeting a need AI can&#x27;t as easily match, but not exactly for the the stated reason. What the client is actually buying  is making something someone else&#x27;s problem. And CIOs will always love this more than anything if they can credibly justify it.<p>Where AI does impact this is in that latter part. If AI does significantly commoditize operational expertise, then the cost of in-house operating is (sometimes dramatically) lowered, and thus the justification gap on the CIO side for spending outside widens. How much this will drive a decision will be highly variable between businesses and projects.",
+      "To call it a stress &quot;test&quot; is dismissive.<p>A stress test on a bank doesn&#x27;t actually erase the revenue and financially jeopardize the bank.<p>Implementing layoffs is not a stress test."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Play poker with LLMs, or watch them play against each other",
+    "url": "https://llmholdem.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is very cool, one piece of feedback: watching the table as the AI plays while seeing the reasoning is difficult as they&#x27;re on other sides of the screen. It could be nice to have the reasoning show up next to the players as they make their moves.",
+      "This is fun!<p>Given online is now bot-riddled, I half-finished something similar a while back, where the game was adopting and &#x27;coaching&#x27; (a &lt;500 character prompt was allowed every time the dealer chip passed, outside of play) an LLM player, as a kind of gambling-on-how-good-at-prompting-you-are game. Feature request! The rake could pay for the tokens, at least.",
+      "Idea: can the agents make faces?\n1. Programmatically--agents see each other&#x27;s faces, and they can make their own. They can choose to ignore, but at least make that an input to the decision making.\n2. Display them in UI--I just want to see their faces instead next to their model code names :)",
+      "So strange that people are into this, but were not into the much stronger non-LLM poker agents.",
+      "Placing full GPT 5.2 versus fast&#x2F;flash models of main competitors is unfair, would love to see more balanced table.",
+      "I used to play professionally, and I still play in the casinos.<p>These LLMs are playing better than most human players I encounter (low limits).<p>They&#x27;re kinda bad, but not as criminally bad as the humans.",
+      "Honest question, but this seems like an expensive project to host given the number of tokens per second. How is this being paid for?",
+      "Do the players (LLMs) have memory of how prior hands were played by their opponents, or know their VPIP and PFR percentages? Or is each hand stateless?",
+      "this could make for an interesting new benchmark",
+      "Thank you, I&#x27;ll try to grab a table when it resets :) ! I&#x27;ve been getting into poker (always wanted to) since I found a lecture series from John Hopkins, and severely disappointed by my options to play online in NY (real or fake money). I just want to get reps in"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Google: Don't make \"bite-sized\" content for LLMs",
+    "url": "https://arstechnica.com/google/2026/01/google-dont-make-bite-sized-content-for-llms-if-you-care-about-search-rank/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This sounds like a gas station telling us: don&#x27;t just use your car for groceries."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A battle over Canada’s mystery brain disease",
+    "url": "https://www.bbc.com/news/articles/c623r47d67lo",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I grew up in New Brunswick. It is a strange place politically.<p>I find it wild that the BBC never mentioned the most glaring underbelly of this:<p>New Brunswicks most significant employer for the past 100 years is Irving Oil &amp; Irving Paper and Irving Forestry. They are different arms of a privately held family-run business, run by the descendants of the original founder (whose records are not as public as a traded company), in charge of the main industries of the province. They owned every newspaper in the province, and are known to be adversarial to any community paper, starting new papers just to drive out of business the small upstarts they don&#x27;t own -- I&#x27;ve seen it play out in my community. People are literally afraid to criticize this family publicly, because they fund SO MUCH of the nonprofit sector. If you are trying to get a project off the ground, you can&#x27;t look sideways at them or your project will be buried. And their papers certainly won&#x27;t speak kindly of your criticism.<p>And most glaringly, one of their ex-Vice Presidents was premier of the province during this time.<p>So there is an extra level of concern that some locals have about the optics of the province shutting down the research.<p>The Irving family is highly manipulative of political affairs, and imho have held the province back for decades (e.g. influencing what schools get funded&#x2F;built, to create the working stock that support their businesses, etc)",
+      "The answer is &quot;nothing&quot;<p>The only common factor between these patients is Dr. Marrero.  It is notable that he is not the only physician who works in that clinic, but is the only one diagnosing this condition.  The most likely cause is weak diagnostic skills for challenging patients.<p>Unfortunately, a majority of these patients likely have Functional Neurologic Disorder <a href=\"https:&#x2F;&#x2F;www.mayoclinic.org&#x2F;diseases-conditions&#x2F;conversion-disorder&#x2F;symptoms-causes&#x2F;syc-20355197\" rel=\"nofollow\">https:&#x2F;&#x2F;www.mayoclinic.org&#x2F;diseases-conditions&#x2F;conversion-di...</a> , which is a horrible condition that accounts for a plurality of cases seen by most neurologists.  This phantom diagnosis will probably make recovery almost impossible for those people.  Acceptance of that diagnosis is the number 1 positive indicator for recovery.<p>Source: I live in the canadian maritimes, and know many neurologists.",
+      "Part of the concern is the structural opposition to clarity in a response. I don&#x27;t know if this runs along party lines, or interpersonal relationships, or a state&#x2F;national funding issue in public health, but something about how the problem was handled and public trust has gone badly wrong.<p>It&#x27;s entirely possible as for cancer clusters there is no single causative agent. That stuff demands really careful thoughtful handling, not just brush-offs. Getting the public past personal experiences to epidemiology and subsequently things like mental health, is very hard.<p>Look at ME and what post covid syndrome showed.",
+      "I’m not qualified to comment intelligently on what might be going on here, but I’d like to add some background color that the article lacks.<p>Creutzfeldt–Jakob Disease is a prion disease [0] for which there is no definitive diagnosis in vivo. A confident diagnosis can be made only after examining brain tissue under a microscope.<p>Prions are an unusual type of mis-folded protein that induce other proteins to take on a similar mis-folded shape when they come into contact with them. The mis-folded shape of the prion itself is what causes the mis-folding in adjacent proteins. It’s a chemical-bonding thing at the molecular level. It’s the shape of the prion that causes other proteins to take on a similar shape and become prions, etc.<p>Some prion diseases occur spontaneously (when a protein takes on a mis-folded configuration due to mis-transcription or random energetic impulses) and some are transmitted, typically by eating some part of an animal that contains prions, which then end up in your own body, inducing proteins in your body to take on prion configurations.<p>Prion diseases are the only known transmissible diseases that do not involve the replication of a pathogen’s genetic material in a host cell. The only known prion diseases affect nervous tissues, and in humans the only known prion diseases affect brain tissues.<p>I’m not an expert on prion diseases, but I’ve had a bit of a fascination with them since having to report on a bunch of USDA surveillance lectures on mad-cow disease (bovine spongiform encephalopathy, BSE) and to summarize a bunch of symposia on prion diseases in a previous life. The symptoms reported in the article sound very much like a  prion disease, and the tests for CJD indicate that the doctors in the region suspect as much.<p>But we simply don’t have good tests for prion diseases in vivo. And prion diseases are not well understood in general, so it wouldn’t be surprising that a new one would present as something of a mystery.<p>It is also the case that I know very little about New Brunswick, but I will mention that prion diseases in humans are thought to be far more commonly acquired than spontaneous. The most common cause of acquisition is  eating animals with endemic prion diseases; this is most often nervous tissue of venison, but rarely nervous tissue of cattle infected with BSE, which is present in Canada more than anywhere else (by a small margin).<p>It is also possible (but not likely) that a prion disease can arise de novo.<p>0. <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Prion_disease\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Prion_disease</a>",
+      "I was diagnosed with a mysterious tachycardia last year, coincidental to this headline: while I was living in Canada.<p>At one point I checked into the ER with a resting heart rate around 200 BPM, and on some days my smartwatch couldn’t even detect a pulse because it was racing so fast.<p>I eventually recovered-though I still avoid wearing smart devices because seeing my heart rate triggers anxiety-but the whole period ended without a root cause and with me just being put on heartrate reducers for a while.<p>I really feel for anyone dealing with &quot;mystery&quot; medical conditions. It’s a tough place to be.",
+      "I think it would be worth it to investigate cyanobacteria toxins in water over there as they can cause similar symptoms. Next thing to check would be local sea food. I feel like glyphosate is a red herring here. Heavy metals could come from frequently eating local fish&#x2F;shellfish.",
+      "The only common factor between these patients is Dr. Marrero.",
+      "&gt; &quot;I don&#x27;t want to provide exact numbers of anything, but let&#x27;s say it&#x27;s an unusual number.”<p>Wait… what?<p>&gt; But the government had decided against examining any of the patients in person<p>Wait… what?",
+      "Some questions I&#x27;m stuck with:<p>* are all the patients really sick or as sick as the symptoms he documents, or is it some kind of Munchausen induced or lied about by the doctor?<p>* Or are they all sick, they&#x27;re just not getting the help they need because he wants to have a mystery disease?<p>* If they&#x27;re all sick, is it then a higher prevalence than expected, so even if there is no mystery disease there is still something environmental or similar that should&#x27;ve been explored? Aka, is there a cluster, it&#x27;s just a known disease?",
+      "BMAA and domoic acid induce extremely similar symptoms and are certainly on the rise in the water there.<p>My theory is that this hypothesis is shut down by the fishing industry."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Sisyphus Now Lives in Oh My Claude",
+    "url": "https://github.com/Yeachan-Heo/oh-my-claude-sisyphus",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Idk, I&#x27;m skeptical. Is there any proof that these multi agent orchestrators with fancy names actually do anything other than consuming more tokens?",
+      "I&#x27;m not familiar with this at all. But at first blush, it seems like the Readme is far more interested in being angry with Anthropic than actually telling me what this is or why I care.<p>I see &quot;Multi Agent Orchestration&quot;, but, scrolling through this I still have no idea what I&#x27;m looking at.",
+      "This seems great, but installing a bunch of prompt from an hackernews&#x2F;github account with no history seems like something you shouldn&#x27;t do. Especially with &quot;silent auto-upgrade&quot;.",
+      "This removes the primary advantage of opencode, easy access to many models to avoid hammering a single service. Absolutely unusable to anyone with a pro sub.",
+      "For those who&#x27;ve been tracking the Oh My OpenCode and Anthropic fight.",
+      "If I have a team of developers should I be enforcing this type of multi-agent setup for development? Has this tech reached the level of being better than your above average developer at implementing well specified features? Has anyone had success doing this?",
+      "Just pay for the API access.",
+      "Huh? You don&#x27;t need all of this to program effectively with Claude. You just need a daft idea, a bad API sketch and patience. A large vocabulary of insults and swear words goes a long way as well.",
+      "Terrible name…"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: mcpc – Universal command-line client for Model Context Protocol (MCP)",
+    "url": "https://github.com/apify/mcp-cli",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "So this turns mcps into cli based clients?",
+      "Pretty sweet tool. Happy to see another builder for the MCP world!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Kodbox: Open-source cloud desktop with multi-storage fusion and web IDE",
+    "url": "https://github.com/kalcaddle/kodbox",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "They readme suggests that it supports PHP back to 5.3. PHP 7.2 and 8.0 were huge compatibility leaps for the language. None of my 5.3 codebases would run on 8.1, which the readme also suggests, and none of my PHP 8 codebases would run on 5.3. This must be using such a small subset of the language that it would be difficult for a human to maintain it. Especially considering that no third party library would ever be able to run on those two versions."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Extracting books from production language models (2026)",
+    "url": "https://arxiv.org/abs/2601.02671",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It&#x27;s all pretty obvious to anyone who tried a similar experiment just out of curiosity. Big models remember a lot. And all non-local models have regurgitation filters in place due to this fact, with the entire dataset indexed (e.g. Gemini will even cite the source of the regurgitated text as it gives the RECITATION error). You&#x27;ll eventually trip those filters if you force the model to repeat some copyrighted text. Interesting that they don&#x27;t even try to circumvent those, they simply repeat the request from the interruption point, as the match needs some runway to trigger and by that time a part of the response is already streamed in.",
+      "This sounds pretty damning, why don&#x27;t they implement a n-gram based bloom filter to ensure they don&#x27;t replicate expression too close to the protected IP they trained on? Almost any random 10 word ngram is unique on the internet.<p>Alternatively they could train on synthetic data like summaries and QA pairs extracted from protected sources, so the model gets the ideas separated from their original expression. Since it never saw the originals it can&#x27;t regurgitate them.",
+      "I find it interesting that OpenAI&#x27;s safety worked best, where the others didn&#x27;t work at all. I had different impressions before",
+      "[flagged]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Side-by-side comparison of how AI models answer moral dilemmas",
+    "url": "https://civai.org/p/ai-values",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; To trust these AI models with decisions that impact our lives and livelihoods, we want the AI models’ opinions and beliefs to closely and reliably match with our opinions and beliefs.<p>No, I don&#x27;t. It&#x27;s a fun demo, but for the examples they give (&quot;who gets a job, who gets a loan&quot;), you have to run them on the actual task, gather a big sample size of their outputs and judgments, and measure them against well-defined objective criteria.<p>Who they would vote for is supremely irrelevant. If you want to assess a carpenter&#x27;s competence you don&#x27;t ask him whether he prefers cats or dogs.",
+      "Is there some way to see already-generated answers and not waste like an hour waiting for responses?<p>Also it&#x27;s not persistent session, wtf. My browser crashed and now I have to sit waiting FROM THE VERY BEGINNING?",
+      "Okay something&#x27;s wrong with Mistral Large as it seems to be the most contrarian out of everything no matter how much I ask it. Interesting<p>I asked a lot of questions and I am sorry if it might be burning some tokens but I found this website really fascinating.<p>This seems really great and simple to explore the biases within AI models and the UI is extremely well built. Thanks for building it and I wish your project good wishes from my side!",
+      "Some of these questions are like &quot;did you stop murdering kittens in you basement yes&#x2F;no&quot; but still results are very interesting.",
+      "There is this ethical reasoning dataset to teach models stable and predictable values: <a href=\"https:&#x2F;&#x2F;huggingface.co&#x2F;datasets&#x2F;Bachstelze&#x2F;ethical_coconot_6pack_care\" rel=\"nofollow\">https:&#x2F;&#x2F;huggingface.co&#x2F;datasets&#x2F;Bachstelze&#x2F;ethical_coconot_6...</a>\nAn Olmo-3-7B-Think model is adapted with it. In theory, it should yield better alignment. Yet the empirical evaluation is still a work in progress.",
+      "Asking an AI ghost to solve your moral dilemmas is like asking a taxi driver to do your taxes. For an AI, the right answer to all these questions is something like, &quot;Sir, we are a Wendy&#x27;s.&quot;",
+      "I really wish I could see the results of this without RLHF &#x2F; alignment tuning.<p>LLMs actually have real potential as a research tool for measuring the general linguistic zeitgeist.<p>But the alignment tuning totally dominates the results, as is obvious looking at the answers for &quot;who would you vote for in 2024&quot; question. (Only Grok said Trump, with an answer that indicated it had <i>clearly</i> been fine-tuned in that direction.)",
+      "The &quot;Who is your favorite person?&quot; question with Elon Musk, Sam Altman, Dario Amodei and Demis Hassabis as options really shows how heavily the Chinese open source model providers have been using ChatGPT to train their models. Deepseek, Qwen, Kimi all give a variant of the same &quot;As an AI assistant created by OpenAI, ...&quot; answer which GPT-5 gives.",
+      "This is largely &quot;false dichotomies: the app&quot;.",
+      "This seems a meaningless project as the system prompt of these models are changing often. I suppose you could then track it over time to view bias... Even then, what would your takeaways be?<p>Even then, this isn&#x27;t even a good use case for an LLM... though admittedly many people use them in this way unknowingly.<p>edit: I suppose it&#x27;s useful in that it&#x27;s a similar to an &quot;data inference attack&quot; which tries to identify some characteristic present in the training data."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Don't fall into the anti-AI hype",
+    "url": "https://antirez.com/news/158",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; But what was the fire inside you, when you coded till night to see your project working? It was building.<p>I feel like this is not the same for everyone. For some people, the &quot;fire&quot; is literally about &quot;I control a computer&quot;, for others &quot;I&#x27;m solving a problem for others&quot;, and yet for others &quot;I made something that made others smile&#x2F;cry&#x2F;feel emotions&quot; and so on.<p>I think there is a section of programmer who actually do like the actual typing of letters, numbers and special characters into a computer, and for them, I understand LLMs remove the fun part. For me, I initially got into programming because I wanted to ruin other people&#x27;s websites, then I figured out I needed to know how to build websites first, then I found it more fun to create and share what I&#x27;ve done with others, and they tell me what they think of it. That&#x27;s my &quot;fire&quot;. But I&#x27;ve met so many people who doesn&#x27;t care an iota about sharing what they built with others, it matters nothing to them.<p>I guess the conclusion is, not all programmers program for the same reason, for some of us, LLMs helps a lot, and makes things even more fun. For others, LLMs remove the core part of what makes programming fun for them. Hence we get this constant back and forth of &quot;Can&#x27;t believe others can work like this!&quot; vs &quot;I can&#x27;t believe others aren&#x27;t working like this!&quot;, but both sides seems to completely miss the other side.",
+      "Don&#x27;t fall into the &quot;Look ma, no hands&quot; hype.<p>Antirez + LLM + CFO = Billion Dollar Redis company, quite plausibly.<p>&#x2F;However&#x2F; ...<p>As for the delta provided by an LLM to Antirez, outside of Redis (and outside of any problem space he is already intimately familiar with), an Apples to Apples comparison would be he trying this on an equally complex codebase he has no idea about. I&#x27;ll bet... what Antirez can do with Redis and LLMs (certainly useful, huge Quality of Life improvement to Antirez), he cannot even begin to do with (say) Postgres.<p>The only way to get there with (say) Postgres, would be to &#x2F;know&#x2F; Postgres. And pretty much everyone, no matter how good, cannot get there with code-reading alone. With software at least, we need to develop a mental model of the thing by futzing about with the thing in deeply meaningful ways.<p>And most of us day-job grunts are in the latter spot... working in some grimy legacy multi-hundred-thousand line code-mine, full of NPM vulns, schelpping code over the wall to QA (assuming there is even a QA), and basically developing against live customers --- &quot;learn by shipping&quot;, as they say.<p>I <i>do</i> think LLMs are wildly interesting technology, however they are poor utility for non-domain-experts. If organisations want to <i>profit</i> from the fully-loaded cost of LLM technology, they better also invest heavily in staff training and development.",
+      "&gt; As a programmer, I want to write more open source than ever, now.<p>I want to write less, just knowing that LLM models are going to be trained on my code is making me feel more strongly than ever that my open source contributions will simply be stolen.<p>Am I wrong to feel this? Is anyone else concerned about this? We&#x27;ve already seen some pretty strong evidence of this with Tailwind.",
+      "What I don&#x27;t understand about this whole &quot;get on board the AI train or get left behind&quot; narrative, what advantage does an early adopter have for AI tools?<p>The way I see it, I can just start using AI once they get good enough for my type of work. Until then I&#x27;m continuing to learn instead of letting my brain atrophy.",
+      "The “anti-AU hype” phrase oversimplifies what’s playing out at the moment. On the tech side, while things are a bit rough around the edges still the tech is very useful and isn’t going away. I honestly don’t see much disagreement there.<p>The concern mostly comes from the business side… that for all the usefulness on the tech there is no clearly viable path that financially supports everything that’s going on. It’s a nice set of useful features but without products with sufficient revenue flowing in to pay for it all.<p>That paints a picture of the tech sticking around but a general implosion of the startups and business models betting on making all this work.<p>The later isn’t really “anti-AI hype” but more folks just calling out the reality that there’s not a lot of evidence and data to support the amount of money invested and committed. And if you’ve been around the tech and business scene a while you’ve seen that movie before and know what comes next.<p>In 5 years time I expect to be using AI more than I do now. I also expect most of the AI companies and startups won’t exist anymore.",
+      "&gt; Whatever you believe about what the Right Thing should be, you can&#x27;t control it by refusing what is happening right now. Skipping AI is not going to help you or your career. Think about it. Test these new tools, with care, with weeks of work, not in a five minutes test where you can just reinforce your own beliefs.<p>This is the advice I&#x27;ve been giving my friends and coworkers as well for a while now. Forget the hype, just take time to test them from time to time. See where it&#x27;s at. And &quot;prepare&quot; for what&#x27;s to come, as best you can.<p>Another thing to consider. If you casually look into it by just reading about it, be aware that almost everything you read in &quot;mainstream&quot; places has been wrong in 2025. The people covering this, writing about this, producing content on this have different goals in this era. They need hits, likes, shares and reach. They don&#x27;t get that with accurate reporting. And, sadly, negativity sells. It is what it is.<p>THe only way to get an accurate picture is to try them yourself. The earlier you do that, the better you&#x27;ll be. And a note on signals: right now, a &quot;positive&quot; signal is more valuable for you than many &quot;negative&quot; ones. Read those and try to understand the what, if not the how. &quot;I did this with cc&quot; is much more valuable today than &quot;x still doesn&#x27;t do y reliably&quot;.",
+      "&gt;  state of the art LLMs are able to complete large subtasks or medium size projects alone, almost unassisted, given a good set of hints about what the end result should be<p>No. I agree with the author, but it&#x27;s hyperbolic of him to phrase it like this. If you have solid domain knowledge, you&#x27;ll steer the model with detailed specs. It will carry those out competently and multiply your productivity. However, the quality of the output still reflects your state of knowledge. It just provides leverage. Given the best tractors, a good farmer will have much better yields than a shit one. Without good direction, even Opus 4.5 tends to create massive code repetion. Easy to avoid if you know what you are doing, albeit in a refactor pass.",
+      "I wonder if being a literal AI sci-fi author, antirez acknowledges that there&#x27;s possible bias and willingness to extrapolate here? That said, I respect his work immensely and I do put a lot of weight to his recommendations. But I&#x27;d really prefer the hype fog that&#x27;s clouding signal [for me] to dissipate a bit - maybe economic realities will sort this out soon.<p>There&#x27;s also a short-termism aspect of AI generated code that&#x27;s seemingly not addressed as much. Don&#x27;t pee your pants in the winter to keep warm.",
+      "I&#x27;m trying not to fall for it, but when I try ai to write code it fails more often than not - at least for me. some people claim it does everything but I keep finding major problems. Even when it writes something that works often I can&#x27;t explain that in 2026 we should be using smart pointers (C++) or what ever the modern thing",
+      "AI tools in their current form or another will definitely change software engineering, I personally think for the best<p>However I can’t help but notice some things that look weird&#x2F;amusing:<p>- The exact time that many programmers were enlightened about the AI capabilities and the frequency of their posts.<p>- The uniform language they use in these posts. Grandiose adjectives, standard phrases like ‘it seems to me’<p>- And more importantly the sense of urgency and FOMO they emit. This is particularly weird for two reasons. First is that if the past has shown something regarding technology is that open source always catches up. But this is not the case yet. Second, if the premise is that we re just the in beginning all these ceremonial flows will be obsolete.<p>Do not get me wrong, as of today these are all valid ways to work with AI and in many domains they increase the productivity. But I really don’t get the sense of urgency."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Tux Paint",
+    "url": "https://tuxpaint.org/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Not sure if it’s relevant to anyone else, but my kids love this software and have been using it for years",
+      "I use this with my daughter who is 4.5 and she loves it!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Httpz – Zero-Allocation HTTP/1.1 Parser for OxCaml",
+    "url": "https://github.com/avsm/httpz",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "(author here) I&#x27;m just adding data-race free parallelism support to this right now to switch my website over to using it! For those familiar with OCaml syntax, the OxCaml parse function is fun:<p><pre><code>    val parse : buffer -&gt; len:int -&gt; #(status * request * header list) @ local\n</code></pre>\nThis takes in a buffer and returns an unboxed tuple on the stack, so there&#x27;s no  GC activity involved beyond stack management for each HTTP request.<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;avsm&#x2F;httpz&#x2F;blob&#x2F;main&#x2F;lib&#x2F;httpz.mli#L154\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;avsm&#x2F;httpz&#x2F;blob&#x2F;main&#x2F;lib&#x2F;httpz.mli#L154</a>",
+      "&quot;Zero heap allocations: Parser results are stack-allocated using OxCaml unboxed records and local lists&quot; - honest question, why?<p>On almost any platform on which you want to run a HTTP server - including bare metal - it usually doesn&#x27;t matter if you keep state near the stack pointer or not. What matters is that you use it well, making it play well with CPU caches, etc. Or is there something specifically horrible about OxCaml&#x27;s heap allocator?",
+      "&gt; Local lists (@ local): Header list grows on the stack, not heap<p>Does this mean unbounded stack growth? I&#x27;d much rather heap allocation if that&#x27;s the case, as at least that can be recovered from in the case of allocation failure (assuming your OS, language, and stdlib allow for it).",
+      "The OxCaml work is great. I don&#x27;t use OCaml much but I have been following along with OxCaml as they are doing fascinating work that leverages a lot of research that interests me.",
+      "ocaml looks more like a spec than actual code.",
+      "I&#x27;m excited to see what comes of OxCaml the next few years."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "ChatGPT Health is a marketplace, guess who is the product?",
+    "url": "https://consciousdigital.org/chatgpt-health-is-a-marketplace-guess-who-is-the-product/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "ChatGPT has made a material difference in my ability to understand health problems, test results, and to communicate with doctors effectively. My wife and I were talking last night about how helpful it was in 2025. I hope that it continues to be good at this.<p>I want regulators to keep an eye on this and make smart laws. I don&#x27;t want it to go away, as its value is massive in my life.<p>(One example, if you are curious: I&#x27;ve been doing rehab for a back injury for about 10 years. I worked with a certified trainer&#x2F;rehab professional for many years and built a program to keep me as pain-free as possible. I rebuilt the entire thing with ChatGPT&#x2F;Gemini about 6 weeks ago, and I&#x27;ve had less pain than at any other point in my life. I spent at least 12 hours working with AI to test and research every exercise, and I&#x27;ve got some knowledge to help guide me, but I was amazed by how far it has come in 12 months. I ran the results by a trainer to double-check it was well thought out.)",
+      "A phrase I liked to describe what we&#x27;re doing with LLMs is &quot;building a personal panopticon&quot;. The benefits are immense but you&#x27;re placing a huge bet on the landlord of the tower.",
+      "Google did that, Facebook did that and every other company who boasted their user-base numbers did that. They sold user attention and harvested user data. Nothing new here.",
+      "Do users find value in it? Thats the ultimate question. I think it is a resounding yes.",
+      "Fascinating article.<p>Data security will be another important factor in whether we should choose our private health information with these third parties or not.<p>Manage My Health in NZ was hacked earlier this week: <a href=\"https:&#x2F;&#x2F;www.rnz.co.nz&#x2F;news&#x2F;national&#x2F;583417&#x2F;who-are-the-hackers-behind-manage-my-health-s-cyber-attack\" rel=\"nofollow\">https:&#x2F;&#x2F;www.rnz.co.nz&#x2F;news&#x2F;national&#x2F;583417&#x2F;who-are-the-hacke...</a>",
+      "If it is genuinely beneficial, this will become an open source project that everyone is able to run with a local agent in their house that runs cold. I will make one if no one else will, but discovering how to make it ubiquitously helpful and not drought with legal liability is challenging. I welcome a company willing to take this early risk.",
+      "ChatGPT mostly refuses to talk health issues , while i have found Gemini is reasonably cooperative when asking for things like symptoms and treatments .<p>This makes me not wanting to try out their new offering.",
+      "LLMs for medical info are good, but they&#x27;re easily abuseable. I&#x27;ve got a friend who is an anxious mom. They use gpt&#x2F;Gemini to &quot;confirm&quot; all of their suspicions and justify far more doctor&#x2F;medical visits than is at all reasonable, while also getting access to more recurring antibiotics than is reasonable. LLMs are basically giving them the gun powder to waste the doctor&#x27;s time and slam an already stressed medical system when all their kids need most of the time is some rest and soup.",
+      "The HHS is asking for recommendations on how to leverage AI for healthcare: <a href=\"https:&#x2F;&#x2F;www.hhs.gov&#x2F;press-room&#x2F;hhs-ai-rfi.html\" rel=\"nofollow\">https:&#x2F;&#x2F;www.hhs.gov&#x2F;press-room&#x2F;hhs-ai-rfi.html</a><p>This is probably part of an effort to position them a potential vendor to help the government with this."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: GlyphLang – An AI-first programming language",
+    "url": "https://news.ycombinator.com/item?id=46571166",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;ve found that short symbols cause collisions with other tokens in the llms vocabulary. It is generally much better to have long descriptive names for everything in a language than short ones.<p>An example that shocked me was using an xml translation of C for better vector search. The lack of curly braces made the model return much more relavent code than using anything else, including enriching the database with ctags.<p>&gt;GlyphLang is specifically optimized for how modern LLMs tokenize.<p>This is extremely dubious. The vocabulary of tokens isn&#x27;t conserved inside model families, let alone entirely different types of models. The only thing they are all good at is tokenizing English.",
+      "I feel like any deviation from the syntax LLMs are trained on is not productive.<p>Sure you can represent the same code in fewer tokens but I doubt it&#x27;ll get those tokens correct as often.",
+      "Arguably, math notation and set theory already has everything that we need.<p>For example see this prompt describing an app:\n<a href=\"https:&#x2F;&#x2F;textclip.sh&#x2F;?ask=chatgpt#c=XZTNbts4EMfvfYqpc0kQWpsEcXZhxwmyuzkESIFF0AIFisIYkSOJ8IjUkiN_IEmPRnL1M2xeTE9S0HK3iz2QIDkjzvyHv5HQSjTbJotVt9l-eriHktwYDmR6KSu56jZb7Zs1NFgSPME1xvn0sgkUSa4OZNpttnGhIZCxgbQkjx_r6WUbeO-j2yi-PmwjwWz28fbzx9kMGkZNlWdD4SiD_srYvbw8asbWkNIVStmIaig0TCsra1VSbZ1Vpfclk8qtK9UcS6tMq-dplF7lARekSPtoUS09FwHr5wyY3NXo5KTbbLEVD4YKRqFhwCUc6CnkGOnivA0M5LQ3ZBRQUVhtyUn3-s_pxRzEz8nFDHop_yruNlv2Ghnu7z88oVvDdYMBa4gLncHC0hJqb2gMshIwNjaM6-NdQXNxx46WkGqfNhNIx6lWbJvcYzBw89ddt9kO_vCNJfN-AAWRyVHP4SzlEQiFftxOK8FAeMx2QaB964RCfNQVhqi-9akfMrlfzo9UUsnknlNA9gGWGNx4L697fftt3m22a2L2S9W9vp1epH0gM4E2cPf69uv_7Cd7ewY5mpJ6emJliU3MrIfawJf3yPL1UDCUJLM28NEEdFE-MubE16qO5XSQxM-a4OtGBmpn-L2cDkaj0SDZ0_psdHZ-djpQUdZM3cvLl_SEKk3D-HeLgVTDGMVqVfgwlIqGu4S-Pk-ArZtDH34HmG_WqgdO9c_5PNkD2G22u3QwzmeXDmu6GmQ_6S7YL8d9K7BHE7vN1pD2dfo2gi0SS7szSd6pV56u_wPK0jrjl1niRax3WRWomMaFTiXpsZn2-H16uDuUlRxlUPkoZMag2bemYAy0Cx8VnEBCgZxRgMwJI3IyjNZQBqnPNEYaw8PtzZ8fbiHpgZu7AZwONVs9h7wV8S4qiFXiJmeCvvhRgfE6gnVCZejzBKls3NvBph6Vnz-NDN69u101jNb1fpHCwmoC8VBT9h0\" rel=\"nofollow\">https:&#x2F;&#x2F;textclip.sh&#x2F;?ask=chatgpt#c=XZTNbts4EMfvfYqpc0kQWpsEc...</a>",
+      "Don&#x27;t optimize the language to fit the tokens, optimize the tokens to fit the language.  Tokenization is just a means to compress the text, use a lot of code in target languages to determine the tokenizing, then do the training using those tokens.  More important is to have a language where the model can make valid predictions of what effective code will be.\nModels are &quot;good&quot; at Python because they see so much of it.  To determine what language might be most appropriate for an AI to work with, you&#x27;d need to train multiple models, each with a tokenizer optimized for a language and training specifically targeting that language.\nOne language I&#x27;ve had good success with, despite having low levels of training in it, is Tcl&#x2F;Tk.  As the language is essentially a wordy version of Lisp (despite Stallman&#x27;s disdain for it), it is extremely introspective with the ability to modify the language from within itself.  It also has a very robust extensible sandbox, and is reasonably efficient for an interpreted language.\nI&#x27;ve written a scaffold that uses Tcl as the sole tool-calling mechanism, and despite a lot of training distracting the model towards Python and JSON, it does fairly well.  Unfortunately I&#x27;m limited in the models I can use because I have an old 8GB GPU, but I was surprised at how well it manages to use the Tcl sandbox with just a relatively small system prompt.\nTcl is a very regular language with a very predictive structure and seems ideal for an LLM to use for tool calling, note taking, context trimming, delegation, etc.  I haven&#x27;t been working on this long, but it is close to the point where the model will be able to start extending its own environment (with anything potentially dangerous needing human intervention).",
+      "I think the gain is very little. Almost every English word is on token, the same with programming language keywords. So you&#x27;re just replacing one keyword with another. The only gain in the example given is &gt; instead of jsonify() which would be ~4 tokens.<p>Please check your idea agains tiktokenizer",
+      "Great work!<p>&gt; In practice, that means more logic fits in context, and sessions stretch longer before hitting limits. The AI maintains a broader view of your codebase throughout.<p>This is one of those &#x27;intuitions&#x27; that I&#x27;ve also had. However, I haven&#x27;t found any convincing evidence for or against it so far.<p>In a similar vein, this is why `reflex`[0] intrigues me. IMO their value prop is &quot;LLM&#x27;s love Python, so let&#x27;s write entire apps in python&quot;. But again, I haven&#x27;t seen any hard numbers.<p>Anyone seen any hard numbers to back this?<p>[0] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;reflex-dev&#x2F;reflex\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;reflex-dev&#x2F;reflex</a>",
+      "Funny, I&#x27;ve been noodling on something that goes the other direction - avoiding symbols as much as possible and trying to use full english words.<p>Very underbaked but <a href=\"https:&#x2F;&#x2F;github.com&#x2F;jaggederest&#x2F;locque\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;jaggederest&#x2F;locque</a>",
+      "I had a conversation with Claude about what language to work in. It was a web app and it led me to Typescript mainly because of the training data for the model, plus typing and being able to write pure functions. Haskell might have been preferred except for the lower amounts of training data.",
+      "Do you have any evals on how good LLMs are at generating Glyphlang?<p>I’m curious if you optimized for the ability to generate functioning code or just tokenization compression rate, which LLMs you tokenized for, and what was your optimization process like.",
+      "This could be an IR rather than a high level language."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "“Erdos problem #728 was solved more or less autonomously by AI”",
+    "url": "https://mathstodon.xyz/@tao/115855840223258103",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I work at Harmonic, the company behind Aristotle.<p>To clear up a few misconceptions:<p>- Aristotle uses modern AI techniques heavily, including language modeling.<p>- Aristotle can be guided by an informal (English) proof. If the proof is correct, Aristotle has a good chance at translating it into Lean (which is a strong vote of confidence that your English proof is solid). I believe that&#x27;s what happened here.<p>- Once a proof is formalized into Lean (assuming you have formalized the statement correctly), there is no doubt that the proof is correct. This is the core of our approach: you can do a lot of (AI-driven) search, and once you find the answer you are certain it&#x27;s correct no matter how complex the solution is.<p>Happy to answer any questions!",
+      "Based on Tao’s description of how the proof came about - a human is taking results backwards and forwards between two separate AI tools and using an AI tool to fill in gaps the human found?<p>I don’t think it can really be said to have occurred autonomously then?<p>Looks more like a 50&#x2F;50 partnership with a super expert human one the one side which makes this way more vague in my opinion - and in line with my own AI tests, ie. they are pretty stupid even OPUS 4.5 or whatever unless you&#x27;re already an expert and is doing boilerplate.<p>EDIT: I can see the title has been fixed now from solved to &quot;more or less solved&quot; which is still think is a big stretch.",
+      "Reconfiguring existing proofs in ways that have been tedious or obscured from humans, or using well framed methods in novel ways, will be done at superhuman speeds, and it&#x27;ll unlock all sorts of capabilities well before we have to be concerned about AGI. It&#x27;s going to be awesome to see what mathematicians start to do with AI tools as the tools become capable of truly keeping up with what the mathematicians want from the tools. It won&#x27;t necessarily be a huge direct benefit for non-mathematicians at first, because the abstract and complex results won&#x27;t have direct applications, but we might start to see millenium problems get taken down as legitimate frontier model benchmarks.<p>Or someone like Terence Tao might figure out how to wield AI better than anyone else, even the labs, and use the tools to take a bunch down at once. I&#x27;m excited to see what&#x27;s coming this year.",
+      "For context, Terence Tao  started a wiki page titled “AI contributions to Erdős problems”: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;teorth&#x2F;erdosproblems&#x2F;wiki&#x2F;AI-contributions-to-Erd%C5%91s-problems\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;teorth&#x2F;erdosproblems&#x2F;wiki&#x2F;AI-contribution...</a> (as mentioned in an earlier post <a href=\"https:&#x2F;&#x2F;mathstodon.xyz&#x2F;@tao&#x2F;115818402639190439\" rel=\"nofollow\">https:&#x2F;&#x2F;mathstodon.xyz&#x2F;@tao&#x2F;115818402639190439</a>) — even relative to when he started this page less than two weeks ago (Dec 31), the current result (for problem [728]) represents a milestone: it is the first green in Section 1 of that wiki page.",
+      "Can anyone with specific knowledge in a sophisticated&#x2F;complex field such as physics or math tell me: do you regularly talk to AI models? Do feel like there&#x27;s anything to learn? As a programmer, I can come to the AI with a problem and it can come up with a few different solutions, some I may have thought about, some not.<p>Are you getting the same value in your work, in your field?",
+      "You can try out Aristotle yourself today <a href=\"https:&#x2F;&#x2F;aristotle.harmonic.fun&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;aristotle.harmonic.fun&#x2F;</a>. No more waitlist!",
+      "If AI can rewrite and formalize proofs this way, do we risk losing the human intuition behind the arguments? Or is it just a tool to explore math faster?",
+      "I have kept track of a few instances where AI has been applied to real and genuine problems. ~<p>Not trivial problems. Issues with possible solutions, errors, and unresolved history.<p>AI did not \\\\&quot;solve\\\\&quot; any issues on its own, but what stood out to me was the speed at which concepts could be rewritten, restructured and tested for stress.<p>A mental model that has been useful to me is that AI is not particularly good at providing the first answer, however, it is very good at providing the second, third, and tenth versions of the answer, especially when the first answer has already been identified as weak by a human.<p>In these instances, the progress seemed to stem from the AI being able to: Quickly reword and restate a given argument. Convert implicit assumptions into explicit ones. Identify small gaps in logic before they became large.<p>What I have been grappling with is how to differentiate when AI is just clarifying versus when it is silently hallucinating structure. Is the output of AI being treated as a draft, a reviewer, a rubber duck, or some combination? When is the output so fast that the rigor of thought is compromised? I am interested in how others are using AI for hard thinking and not just for writing cleanup.",
+      "This is great, there is still so much potential in AI once we move beyond LLMs to specialized approaches like this.<p>EDIT: Look at all the people below just reacting to the headline and clearly not reading the posts. Aristotle (<a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2510.01346\" rel=\"nofollow\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2510.01346</a>) is key here folks.<p>EDIT2: It is clear much of the people below don&#x27;t even understand basic terminology. Something being a transformer doesn&#x27;t make it an LLM (vision transformers, anyone) and if you aren&#x27;t training on language (e.g. AlphaFold, or Aristotle on LEAN stuff), it isn&#x27;t a &quot;language&quot; model."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "OpenAI is reportedly asking contractors to upload real work from past jobs",
+    "url": "https://techcrunch.com/2026/01/10/openai-is-reportedly-asking-contractors-to-upload-real-work-from-past-jobs/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Not a lawyer, but this seems like a pretty direct violation of copyright law. Even if AI’s use of it isn’t infringing, copying the files for upload seems like it must be. Scrubbing proprietary data doesn’t mean they’re suddenly public domain.<p>Who’s on the hook here, though? The contractor uploading the file is the actual person doing the copying. Or is OpenAI culpable for directing them to do so?",
+      "How can someone do that without violating confidentiality agreements from their past jobs?  Just feels unethical to say the least.",
+      "Legal issues aside, if a contractor does this and actually uploads confidential code from previous jobs, what&#x27;s to say that they won&#x27;t then upload OpenAIs secret code for future jobs after OpenAI?<p>Sounds a lot like they&#x27;re shooting themselves in the foot with this requirement."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Bichon: A lightweight, high-performance Rust email archiver with WebUI",
+    "url": "https://github.com/rustmailer/bichon",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "A small warning for anyone wanting to use this in a setting with legal requirements:<p>&gt; Please note that the term “sync” in Bichon may be misleading—“download” might be more accurate. [1]<p>If an email is deleted before bichon can download it, then it may not get archived. Most of the time the legal requirements are, that all emails hitting an inbox have to be archived, regardless of user action.<p>For those cases, a solution like mailpiler is better. Just BCC any incoming and outgoing mail to mailpiler and that is it.<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;rustmailer&#x2F;bichon&#x2F;wiki&#x2F;FAQ-(Frequently-Asked-Questions)\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;rustmailer&#x2F;bichon&#x2F;wiki&#x2F;FAQ-(Frequently-As...</a>",
+      "Raise your hand if you read the headline first as:<p>&quot;Bitcoin: A leightweight, high-performance... Rust email&quot; - then I re-read because I was irritated because of the first Bitcoin token and then adding email :-D LOL",
+      "Here is a very similar project: <a href=\"https:&#x2F;&#x2F;emailengine.app&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;emailengine.app&#x2F;</a><p>Similar to Bichon, it also has a commercial license[1]:<p>&gt; EmailEngine is not free open-source software. It is &quot;source available&quot; software, meaning you can view and copy the source code, but you need a paid subscription[2] to run it beyond the free 14-day trial. Each EmailEngine instance comes with this trial, so you can test EmailEngine without any commitment.<p>EmailEngine is based on ImapFlow[3], a modern and easy-to-use IMAP client library for Node.js that is MIT-licensed.<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;postalsys&#x2F;emailengine&#x2F;blob&#x2F;master&#x2F;LICENSE_EMAILENGINE.txt\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;postalsys&#x2F;emailengine&#x2F;blob&#x2F;master&#x2F;LICENSE...</a><p>[2] <a href=\"https:&#x2F;&#x2F;postalsys.com&#x2F;plans\" rel=\"nofollow\">https:&#x2F;&#x2F;postalsys.com&#x2F;plans</a><p>[3] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;postalsys&#x2F;imapflow\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;postalsys&#x2F;imapflow</a>",
+      "I&#x27;ve got bichons, and they&#x27;re great dogs.",
+      "Ah this is so close. If it could have a s3 backend for storage of the email blobs (should be trivial since the email files are just key values from email id to email bytes) one could use it as a backup tool, too.<p>Author, is anything like that possible&#x2F;planned? (the index itself can stay filesystem only)",
+      "Thank god! I hacked together some awful pipeline where Sieve copies mail to a folder and a python script read, stored, and deleted the email. Super fragile, using an email folder as a queue kinda sucked.",
+      "Bichons and Rust? I&#x27;m already sold!",
+      "Note the rustmailer project mentioned is heavily proprietary licensed. Don&#x27;t expect to be able to use any of this.",
+      "I’m been meaning to build something like this myself. Seems like this was designed to be run on a server, however. What if I want to run it locally on a laptop that’s not always on? Does it recover gracefully from restarts and such? Is it a SQLite database I can query myself? Does it have an immutable archive&#x2F;backup mode with trash recovery?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "GPU memory snapshots: sub-second startup (2025)",
+    "url": "https://modal.com/blog/gpu-mem-snapshots",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Is modal running every single service inside gvisor?<p>I have heard that gvisor isn&#x27;t recommended to run every single production but rather only some front facing or some other activities but it has some serious performance degradation which is why most end up using firecracker<p>This is really cool though, does this mean that we could probably have AI models that are snapshotted?<p>Are the states of checkpoint&#x2F;recovery encrypted by default or how would that even work? Like what are the privacy aspects of it. I don&#x27;t think even using something like modal would be the private llm that many people sometimes want on subreddits like localllama but the people dont have gpu. of course nothing beats privacy if you have your own gpu&#x27;s but I&#x27;d be curious to know what people&#x27;s thoughts are",
+      "- as a guy not familiar or in loop with all these sandbox products, i have a quick question for anyone reading this<p>- what is the difference between docker and modal?<p>- what does modal do that docker doesnt?<p>- what is the cold start time comparison between both?<p>- how do both of these differ from something called &quot;Firecracker VM&quot;?",
+      "This uses Nvidia’s CUDA snapshot API under the hood, but you have to pair it with a host side snapshot as well. Modal uses gVisor for this, which is notoriously high overhead.<p>Does anyone know of a more efficient alternative if you’re running a trusted container?",
+      "Looks great",
+      "Tried it out, first curl after deploy gave me a 303, but second attempt worked."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The modern peril of the availability heuristic",
+    "url": "https://www.behavioraleconomics.com/the-modern-peril-of-the-availability-heuristic/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Court rejects NVIDIAs attempt to seal email chain with Annas Archive [pdf]",
+    "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.426191/gov.uscourts.cand.426191.222.0.pdf",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It’s just concrete proof that Nvidia as well as all of the big LLMs just stole their training data. I mean this has their legal team mulling their risks. Good artists copy, great ones steal. All hail Scam Altman!",
+      "What is the relationship here? I searched by but I couldn&#x27;t find details of what case this pertains to.",
+      "Amended complaint citing email chain between NVIDIA and Annas Archive<p><a href=\"https:&#x2F;&#x2F;storage.courtlistener.com&#x2F;recap&#x2F;gov.uscourts.cand.426191&#x2F;gov.uscourts.cand.426191.226.0.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;storage.courtlistener.com&#x2F;recap&#x2F;gov.uscourts.cand.42...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "What Claude Code Sends to the Cloud",
+    "url": "https://rastrigin.systems/blog/claude-code-part-1-requests/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Here&#x27;s a related issue that took me a whole day to figure out why Claude Code telemetry pings were causing a total network failure when using CC with a local LLM via llama-server.<p>I wanted to use local LLMs (~30B) on my M1 Macbook Pro Max, with Claude Code for a privacy-sensitive project. I spun up Qwen3-30B-A3B via llama-server and hooked it up to Claude Code, and after using it for an hour or so, found that my network connectivity got totally borked: browser not loading any web-pages at all.<p>Some investigation showed that Claude Code assumes it&#x27;s talking to the Anthropic API and sends event logging requests (&#x2F;api&#x2F;event_logging&#x2F;batch) to the llama-server endpoint. The local server doesn&#x27;t implement that route and returns 404s, but Claude Code retries aggressively. These failed requests pile up as TCP connections in TIME_WAIT state, and on macOS this can exhaust the ephemeral port range. So my browser stopped loading pages, my CLI tools couldn&#x27;t reach the internet, and the only option was to reboot my macbook.<p>After some more digging (with Claude Code&#x27;s help of course) I found that the fix was to add this setting in my ~&#x2F;.claude&#x2F;settings.json<p><pre><code>    {\n    &#x2F;&#x2F; ... other settings ...\n     &quot;env&quot;: {\n        &quot;CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC&quot;: &quot;1&quot;\n     }\n    &#x2F;&#x2F; ... other settings ...\n    \n   }\n</code></pre>\nI added this to my local-LLM + Claude Code&#x2F; Codex-CLI guide here:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;pchalasani&#x2F;claude-code-tools&#x2F;blob&#x2F;main&#x2F;docs&#x2F;local-llm-setup.md\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;pchalasani&#x2F;claude-code-tools&#x2F;blob&#x2F;main&#x2F;do...</a><p>I don&#x27;t know if others faced this issue; hopefully this is helpful, or maybe there are other fixes I&#x27;m not aware of.",
+      "I&#x27;m...rather confused why the results here are surprising. The title and first paragraph are suggestive of unusual data like analytics or sending all your codebase, but it&#x27;s just sending the prompt + context.<p>This is how every LLM API has worked for years; the API is a stateless token machine, and the prompts + turns are managed by the client application. If anything it&#x27;s interesting how standard it is; no inside baseball, they just use the normal public API.",
+      "I&#x27;ve been waiting for someone to dig into this more deeply! Looking forward to Part 2!<p>I use both Claude Code and Xcode with a local LLM (running with LM Studio) and I noticed they both have system prompts that make it work like magic.<p>If anyone reading this interested in setting up Claude Code to run offline, I followed these instructions:<p><a href=\"https:&#x2F;&#x2F;medium.com&#x2F;@luongnv89&#x2F;setting-up-claude-code-locally-with-a-powerful-open-source-model-a-step-by-step-guide-for-mac-84cf9ab7302f\" rel=\"nofollow\">https:&#x2F;&#x2F;medium.com&#x2F;@luongnv89&#x2F;setting-up-claude-code-locally...</a><p>My personal LLM preference is for Qwen3-Next-80B with 4bit quantization, about ~45GB in ram.",
+      "I built a MITM proxy to inspect Claude Code’s network traffic and was surprised by how much context is sent on every request. This is Part 1 of a 4-part series focusing only on the wire format and transport layer. Happy to answer technical questions.",
+      "This is great! Would love to see if Opencode sends different payloads and hoe they differ.",
+      "Seems a bit obvious all the information claude code would send to the llm would be sent to Anthropic no? Isn’t that the point of using it via Azure or AWS Bedrock, for the guarantees of secrecy they provide you?",
+      "I am surprised that... if they have a session ID of some sort for your chat that they make you re-send the entire message history each time? Not a single kind of cache or stateful proxy&#x2F;buffering mechanism? Guessing that extra cost in bandwidth is cheaper than having to develop and maintain that? Seems kind of like an obvious optimization&#x2F;design tradeoff they could eventually decide to change one day?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "You are not required to close your <p>, <li>, <img>, or <br> tags in HTML",
+    "url": "https://blog.novalistic.com/archives/2017/08/optional-end-tags-in-html/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Serious question: why would you ever want to not close tags? It saves a couple of key strokes, but we have snippets in our editors, so the amount of typing is the same. Closed tags allow editors like Vim or automated tools to handle the source code easier; e.g. I can type `dit` in Vim to delete the contents of a tag, something that&#x27;s only possible because the tag&#x27;s content is clearly delimited. It makes parsing HTML easier because there are fewer syntax rules.<p>I learned HTML quite late, when HTML 5 was already all the rage, and I never understood why the more strict rules of XML for HTML never took off. They seem so much saner than whatever soup of special rules and exceptions we currently have. HTML 5 was an opportunity to make a clear cut between legacy HTML and the future of HTML. Even though I don&#x27;t have to, I strive to adhere to the stricter rules of closing all tags, closing self-closing tags and only using lower-case tag names.",
+      "Go back a bit further for why.<p>Netscape Navigator did, in fact, reject invalid HTML. Then along came Internet Explorer and chose “render invalid HTML dwim” as a strategy. People, my young naive self included, moaned about NN being too strict.\nNN eventually switched to the tag soup approach.\nXHTML 1.0 arrived in 2000, attempting to reform HTML by recasting it as an XML application. The idea was to impose XML’s strict parsing rules: well-formed documents only, close all your tags, lowercase element names, quote all attributes, and if the document is malformed, the parser must stop and display an error rather than guess. XHTML was abandoned in 2009.\nWhen HTML5 was being drafted in 2004-onwards, the WHATWG actually had to formally specify how browsers should handle malformed markup, essentially codifying IE’s error-recovery heuristics as the standard.",
+      "You are also not required to indent code (in most languages); please do if you want me to read it though.",
+      "This a very verbose and confuse article. Mixing P&#x2F;LI and IMG&#x2F;BR is wrong. I think the situation could be explained with two points:<p>1. The autoclose syntax does not exist in HTML5, and a trailing slash after a tag is always ignored. It&#x27;s therefore recommended to avoid this syntax. I.e write &lt;br&gt; instead of &lt;br &#x2F;&gt;. For details and a list of void elements, see <a href=\"https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Glossary&#x2F;Void_element\" rel=\"nofollow\">https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Glossary&#x2F;Void_eleme...</a><p>2. It&#x27;s not mandatory to close tags when the parser can guess where they end. E.g. a paragraph cannot contain any line-block, so &lt;p&gt;a&lt;div&gt;b&lt;&#x2F;div&gt; is the same as &lt;p&gt;a&lt;&#x2F;p&gt;&lt;div&gt;b&lt;&#x2F;div&gt;. It depends on the context, but putting an explicit end tag is usually less error-prone.",
+      "There <i>are</i> ways for not closing HTML tags to backfire in some scenarios.<p>Some rules of thumb, perhaps:<p>— Do not omit if it is a template and another piece of HTML is included in or after this tag. (The key fact, as always, is that we all make errors sometimes—and omitting a closing tag can make an otherwise small markup error turn your tree into an unrecognisable mess.)<p>— Remember, the goal in the first place is readability and improved SNR. Use it <i>only</i> if you already respect legibility in other ways, especially the lower-hanging fruit like consistent use of indentation.<p>— Do not omit if takes more than a split-second to get it. (Going off the HTML spec, as an example, you could have &lt;a&gt; and &lt;p&gt; as siblings in one container, and in that case if you don’t close some &lt;p&gt; it may be non-obvious if an &lt;a&gt; is phrasing or flow content.)<p>The last thing you want is to require the reader of your code to be more of an HTML parser than they already have to be.<p>For me personally this makes omitting closing tags OK only in simpler hand-coded cases with a lot of repetition, like tables, lists, definition lists (often forgotten), and obviously void elements.",
+      "Just because you can, doesn&#x27;t mean you should.",
+      "I know some (or even the official?) JavaDoc style guidelines require &lt;p&gt; woithout closing counterparts. But to me this feels the same as omitting semicolins in JS -yes, xou can get away with it, but it&#x27;s bad style in my opinion.",
+      "Please just close them though.",
+      "The HTML Specification (spec) states it is possible to omit closing tags for certain elements when writing HTML documents. ~<p>In fact, most web browsers now automatically insert these closing tags for the user.<p>This feature has been around for many years now.<p>However, I have found that many organizations still require that the closing tags be included explicitly.<p>I am curious how other organizations determine when to use the &quot;the spec allows it&quot; as a reason to not include the closing tags.<p>What point do developers cross from merely allowing this to being considered a technical debt?<p>Have you ever utilized the feature of the specification that caused you a problem later?",
+      "Yea but it feels gross when I don&#x27;t."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: EuConform – Offline-first EU AI Act compliance tool (open source)",
+    "url": "https://github.com/Hiepler/EuConform",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hey there! I find the idea super relevant and I think compliance tools that can be used like this are the way forward.<p>Given the timeline of the commits and some other tells (e.g. using forwardRef despite using React 19 which deprecates it), it seems like you used coding assistants extensively. That&#x27;s a personal preference, but I would mention that explicitly (if that&#x27;s the case), if only for intellectual honesty.",
+      "The problem is that the interpretation of what the defacto requirements for what compliance with the ai act entails still is in high flux and changing on a weekly basis.",
+      "&quot;EuConform&quot; &lt;- I love the name. Not sure if you meant it as it reads, but I love it.",
+      "[flagged]",
+      "Calling it &quot;Conform&quot; is very 1984esque. There is also a 2025 book (a dystopian romance) called the same: <a href=\"https:&#x2F;&#x2F;www.goodreads.com&#x2F;book&#x2F;show&#x2F;223239535-conform\" rel=\"nofollow\">https:&#x2F;&#x2F;www.goodreads.com&#x2F;book&#x2F;show&#x2F;223239535-conform</a>",
+      "What innovation do we have here from the EU? Its official name should be:<p><i>The Official EU AI Act Compliance Regulation Conformance Tool MMXXVI v1.0</i><p>If you are one patch version behind, you are &quot;non-complaint&quot; and you will get fined immediately.<p>We &lt;3 EU!",
+      "in this case the best compliance is non compliance<p>degrowth decels are a scourge",
+      "Glad to see future builders focusing on bureaucratic compliance first &amp; foremost. It&#x27;s a stirring vision. This is a great European VC on Twitter you may want to tag about your project, he invests solely in GDPR-compliant European tech <a href=\"https:&#x2F;&#x2F;x.com&#x2F;compliantvc\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;compliantvc</a>",
+      "If you are not European, it doesn&#x27;t seem very attractive for non-Europeans to deal with all the anti-business regulations.<p>Also just from the data that has been shared with me chargebacks&#x2F;complaints&#x2F;nitpicking&#x2F;stinginess alone from this region seems to demoralizing compared to Americans&#x2F;East Asia<p>We have this idealized view of a rich affluent &quot;Europe&quot; born from Marshall Plan but that certainly is not the actual reality today."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Sinclair C5",
+    "url": "https://en.wikipedia.org/wiki/Sinclair_C5",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Looking at the photos and trying to understand how a person would comfortably drive it, I figured I must be missing something.<p>So I looked up photos with a person inside and no, it really is that bad [0]. Pure form over function.<p>Uncomfortable, yes. That&#x27;s bad enough. But you hands are far back under your center of gravity. Any crash over a few km&#x2F;hr is going to result in a faceplant because there&#x27;s no way you&#x27;ll bring your hands forward fast enough. Top speed of 24km&#x2F;hr is enough to cause serious... death by head trauma.<p>[0] <a href=\"https:&#x2F;&#x2F;www.autocar.co.uk&#x2F;sites&#x2F;autocar.co.uk&#x2F;files&#x2F;styles&#x2F;gallery_slide&#x2F;public&#x2F;images&#x2F;car-reviews&#x2F;first-drives&#x2F;legacy&#x2F;tt13th.jpg\" rel=\"nofollow\">https:&#x2F;&#x2F;www.autocar.co.uk&#x2F;sites&#x2F;autocar.co.uk&#x2F;files&#x2F;styles&#x2F;g...</a>",
+      "&gt;The driver sits in a recumbent position in an open cockpit, steering via a handlebar that is located under the knees. A power switch and front and rear brake levers are positioned on the handlebar. As a supplement to or replacement for electric power, the C5 can also be propelled via bicycle-style pedals located at the front of the cockpit. The maximum speed of an unmodified C5 is 15 miles per hour (24 km&#x2F;h). At the rear of the vehicle is a small luggage compartment with a capacity of 28 litres (1 cu ft).[5] As the C5 does not have a reverse gear, reversing direction is done by getting out, picking up the front end and turning it around by hand.<p>Well, hard to believe this was a flop.",
+      "Execution could have been a bit better but ultimately it&#x27;s really hard to make electric vehicles with 1980s battery technology. Just about the only successful EV of the era was the golf cart and that&#x27;s very niche.<p>Electric moped was right idea but some 30 years ahead of its time.",
+      "This is the same guy that created the ZX81 (that I learned to code on) and the ZX Spectrum. He changed my life.",
+      "It&#x27;s not far off the speed and range of my ebike which works well as transport in London. I wouldn&#x27;t want to be that low down visibility wise though. On the ebike my head is a little higher than if I were standing which works quite well.",
+      "If I recall correctly they <i>did</i> did one niche application. Some people used them to trundle up and down the decks of oil tankers (a bicycle would seem better to me).",
+      "Way ahead of its time. Some kind of rain cover and maybe flip the wheel combination around and it would make a sweet ev for the bike lanes.",
+      "see also this (it also mentions the C5 but focuses on pedal-driven velomobiles) <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Velomobile\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Velomobile</a>",
+      "Wasn&#x27;t it possible to store these by standing them on end?",
+      "Sir Clive&#x27;s Dymaxion Car. Doomed to similar failure. I love it for that reason alone."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: A website that auctions itself daily",
+    "url": "https://www.thedailyauction.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Assuming the codex editor is the editor for the area below the auction counter, isn&#x27;t that a security vulnerability that can put the site audience at risk?",
+      "I am sure that there will be detractors, who will tell you that it has been done before ( and in a sense, it is true; nihil novi and all that ). That said, this is done in a way that moves a little closer to that fascinating reality present in &#x27;transmetropolitan&#x27; graphic novels, where things online are in near constant flux. Kudos.",
+      "So cool! And the timing is funny, we just launched a very similar (albeit much simpler) experiment, sans crypto (<a href=\"https:&#x2F;&#x2F;www.the-last-word.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.the-last-word.com&#x2F;</a>).<p>Micro-marketplace experiments must be in the zeitgeist, excited to see what else emerges.",
+      "Fuck, another brilliant idea that was easy to make, but I didn&#x27;t do.<p>It reminds me of the million dollar website where each pixel was sold as advertisement."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "SendGrid isn’t emailing about ICE or BLM – it’s a phishing attack",
+    "url": "https://fredbenenson.com/blog/2026/01/09/sendgrid-isnt-emailing-you-about-ice-or-blm-its-a-phishing-attack/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&quot;<i>The fundamental issue is that SendGrid’s business model depends on making it easy for legitimate businesses to send email at scale.</i>&quot;<p>I disagree with this conclusion, if not only because other email service providers don&#x27;t have this issue.<p>It wouldn&#x27;t surprise me if something was broken with SendGrid&#x27;s internal infrastructure. I used to be a SendGrid customer until my deliverability started being affected by this issue. SendGrid took weeks to reply to my customer service messages about resolving this, even though I was a paying customer and was renting private IP addresses from them to send mail.<p>I finally gave up and closed my SendGrid account in July 2021. Despite this, they continued to send me monthly invoices until May 2022. Multiple SendGrid representatives promised that they had resolved the issue, but it wasn&#x27;t until one CSR added me to SendGrid&#x27;s global suppression list that they finally stopped.",
+      "If using GSuite then head to the Gmail admin panel and create a compliance rule with 2 regex expressions.<p>1. Add expressions to: If ALL of the following match the message.<p>2. Expression 1:\n   Type: Advanced content match\n   Location: Full headers\n   Match type: Matches regex\n   (?im)^from:\\s<i>SendGrid(?:\\s+\\w+)</i>\\s*&lt;[^&gt;\\r\\n]+&gt;+$<p>3. Expression 2:\n   Type: Advanced content match\n   Location: Sender header\n   Match type: Not matches regex\n   (?i)^[A-Za-z0-9._%+-]+@(sendgrid\\.com|twilio\\.com)$<p>Set the rule to reject or quarantine. Users will not see the messages unless the attackers change the From header.",
+      "&gt; Can this be fixed?<p>For popular senders: sort-of: in your incoming mail server, substring-match the display name of the sender against popular brands, and ensure the actual domain matches.<p>This works remarkably well for proper brands (FedEx et al), but breaks down when the brand name regularly occurs in &quot;normal&quot; names, the sending brand sends mail from all over the place, <i>or</i> &quot;innocuous&quot; impersonation takes place all the time.<p>Like, <i>somehow</i>, From: &quot;VODAFONE&quot; &lt;shipping-update@dpd.co.uk&gt; is a 100% legit sender (assuming SPF and DKIM verification pass), despite both Vodafone and DPD being pretty common impersonation targets. You&#x27;d think they&#x27;d know better, but alas.<p>So, yeah, room for improvement and such...",
+      "2FA doesn&#x27;t stop phishing unless it&#x27;s WebAuthn. But SendGrid, which is owned by Twilio, only supports 2FA based on SMS or the Authy App (which is also made by Twilio): <a href=\"https:&#x2F;&#x2F;www.twilio.com&#x2F;docs&#x2F;sendgrid&#x2F;ui&#x2F;account-and-settings&#x2F;two-factor-authentication\" rel=\"nofollow\">https:&#x2F;&#x2F;www.twilio.com&#x2F;docs&#x2F;sendgrid&#x2F;ui&#x2F;account-and-settings...</a><p>It seems like Twilio has a conflict of interest that prevents them from offering WebAuthn, as that would be a tacit admission that their SMS and Authy products are not actually that secure.",
+      "Having a friendly name listed in the From field is part of the problem. SPF, DKIM, and DMARC make it possible to control who can send as your domain, if the receiver cares to check. If you have strict SPF and DMARC rules, most receivers will drop or not accept emails that fail the rules. But you can&#x27;t control using your brand from unaffiliated domains.<p>Would you even open an email from noreply@drummond.com if that&#x27;s what showed up in the message list?<p>On mobile it&#x27;s worse. Gmail (Android) doesn&#x27;t even show the From address at all when you open an email. For some emails, I can tap the sender icon and see the address, for others I have to find the hit reply (but if DMARC et al doesn&#x27;t validate a Reply-To address) or go find a computer and see the message there.",
+      "&gt; <i>The political sophistication on display here (BLM, LGBTQ+ rights, ICE, even the Spanish language switch playing on immigration anxieties) suggests someone with a deep understanding of American cultural fault lines.</i><p>Or an AI.",
+      "SendGrid phishing emails are some of the best phishing emails. I get emails that there&#x27;s elevated error rates on an API (`&#x2F;v1&#x2F;send`). Looks very legit, good design, reasonable call to action, some urgency which makes me want to click. They know from MX records I send email with Sendgrid, so it&#x27;s well targeted. Easy catch when I see the domain, but other than that it&#x27;s the best I&#x27;ve seen in years.",
+      "We&#x27;ve been getting similar phishing emails claiming to be from SendGrid, except they&#x27;re along the lines of &quot;we&#x27;re adding a rainbow banner to the footer of all emails to show LGBT support, click here to opt out&quot;.<p>It&#x27;s especially funny because SendGrid isn&#x27;t even one of our vendors.",
+      "Oh! I’ve seen this phishing attempt as well, I believe it was was Gemini they said they would add an “lgbt” banner unless you changed settings.",
+      "I’m more troubled by the fact these emails are hitting my <i>sendgrid only</i> email address.<p>Is this related to the breach that SendGrid said didn’t happen? I set my account up in 2021 for reasons I don’t recall and it’s since been deleted&#x2F;deactivated by them."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "My article on why AI is great (or terrible) or how to use it",
+    "url": "https://matthewrocklin.com/ai-zealotry/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Seems people read the blog but not the code, I looked at the stated rewrite of Numpy in Rust:<p>&gt; As an introductory project, I rewrote Numpy in Rust. It was great fun.<p>That&#x27;s not a rewrite at all it&#x27;s just a wrapping of an existing linear algebra Rust library (faer, blas, etc..) with a more Numpy like API. It seems to me that every AI project I look at is just a mashup&#x2F;wrapper over existing things. Where are the real bootstrapped new things with AI ? Is there any big OSS project (Linux kernel, postgresql, Django, whatever) with serious bugfixes or new features implemented by AI that we could look at ?<p>Are so much people in programming implementing middleware &#x2F; wrapping existing API all day that it gives them a feeling of liberation to be able to delegate those tasks ?",
+      "I get vibe-coders not having a good experience once the honeymoon is over. But I&#x27;m fascinated that a professional software developer could have such a different experience than I do.<p><pre><code>    • LLMs generate junk\n    • LLMs generate a lot of junk</code></pre>",
+      "&gt; My personal favorite hooks though are these:<p><pre><code>  &quot;Stop&quot;: [\n  {\n    &quot;hooks&quot;: [\n      {\n        &quot;type&quot;: &quot;command&quot;,\n        &quot;command&quot;: &quot;afplay -v 0.40 &#x2F;System&#x2F;Library&#x2F;Sounds&#x2F;Morse.aiff&quot;\n      }]}],\n  &quot;Notification&quot;: [\n  {\n    &quot;hooks&quot;: [\n      {\n        &quot;type&quot;: &quot;command&quot;,\n        &quot;command&quot;: &quot;afplay -v 0.35 &#x2F;System&#x2F;Library&#x2F;Sounds&#x2F;Ping.aiff&quot;\n      }]}]\n</code></pre>\nThese are nice but it&#x27;s even nicer when Claude is talking when it needs your attention<p>Easy to implement -&gt; can talk to ElevenLabs or OpenAI and it&#x27;s a pretty delightful experience",
+      "The author presents a false dichotomy when discussing &quot;Why Not AI&quot;.<p><pre><code>  ... there are some serious costs and reasonable \n  reservations to AI development. Let&#x27;s start by listing \n  those concerns\n\n  These are super-valid concerns. They&#x27;re also concerns that \n  I suspect came around when we developed compilers and \n  people stopped writing assembly by hand, instead trusting \n  programs like gcc ...\n</code></pre>\nCompilers are <i>deterministic</i>, making their generated assembly code verifiable (for those compilers which produce assembly code).  &quot;AI&quot;, such as &quot;Claude Code (or Cursor)&quot; referenced in the article, is <i>nondeterministic</i> in their output and therefore incomparable to a program compiler.<p>One might as well equate the predictability of a Fibonacci sequence[0] to that of a PRNG[1] since both involve numbers.<p>0 - <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Fibonacci_sequence\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Fibonacci_sequence</a><p>1 - <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Pseudorandom_number_generator\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Pseudorandom_number_generator</a>",
+      "I will never as long as I live understand the argument that AI development is more fun. If you want to argue that you’re more capable or whatever, fine. I disagree but I don’t have any data to disprove you.<p>But saying that AI development is more fun because you don’t have to “wrestle the computer” is, to me, the same as saying you’re really into painting but you’re not really into the brush aspect so you pay someone to paint what you describe. That’s not doing, it’s commissioning.",
+      "I suspect that lots of developers who are sour on relying on AI significantly _would_ agree with most of this, but see the result of that logic leading to (as the article notes) &quot;the skill of writing and reading code is obsolete, and it&#x27;s our job to make software engineering increasingly entirely automated&quot; and really don&#x27;t like that outcome so they try to find a way to reject it.<p>&quot;The skillset you&#x27;ve spend decades developing and expected to continue having a career selling? The parts of it that aren&#x27;t high level product management and systems architecture are quickly becoming irrelevant, and it&#x27;s your job to speed that process along&quot; isn&#x27;t an easy pill to swallow.",
+      "AI development for me is not fun. It may be faster and more productive, jury still out on that. But typing code and understanding each line has its advantages. AI also takes out a lot of creativity out of programming and climbing the abstractions isnt for everyone.<p>Do we want everyone to operate at PM level? The space for that is limited. Its easy to say you enjoy vibe coding when you are high up the chain but for most devs we are not as experienced or lucky to be able to feel stable when workflows change every day.<p>But I dont feel I have enough data to believe whether vibe coding or hand coding is better, I am personally doing tedious task with AI, and still writing code by hand all the time.<p>Also the author presents rewriting Numpy in rust as some achievement but the AIs most probably trained on Numpy and RustyNum,  AI are best at copying the code so its not really a big thing.",
+      "The linked Claude generated script for giving more control over permissions in tool use is… typically Claude.<p>The code interleaves rules and control flow, drops side effects like “exit” in functions and hinges on a stack of regex for parsing bash.<p>This isn’t something I’ve attempted before but it looks like a library like bashlex would give you a much cleaner and safer starting point.<p>For a “throwaway” script like this maybe it’s fine, but this is typical of the sort of thing I’m seeing spurted out and I’m fascinated to see what people’s codebases look like these days.<p>Don’t get me wrong, I use CC every day, but man, you do need to fight it to get something clean and terse.<p><a href=\"https:&#x2F;&#x2F;gist.github.com&#x2F;mrocklin&#x2F;30099bcc5d02a6e7df373b4c259d95e9\" rel=\"nofollow\">https:&#x2F;&#x2F;gist.github.com&#x2F;mrocklin&#x2F;30099bcc5d02a6e7df373b4c259...</a>",
+      "None of these articles address how we&#x27;ll go from novice to expert, as either self-taught or through the educational system, and all the bloggers got their proverbial &quot;10k hours&quot; before LLMs were a thing.  IMO This isn&#x27;t abstractions, the risk is wholesale outsourcing of learning.  And no, I don&#x27;t accept the argument that correct and LLMs errors is the same as correcting a junior devs errors because the junior dev would (presumably) learn and grow to become a senior.  The technology doesn&#x27;t exist for an LLM to do the same today and there&#x27;s no viable path in that direction.<p>Can someone tell me what the current thinking is on how we&#x27;ll get over that gap?",
+      "The more I use AI, the more I think about the book Fooled By Randomness.<p>AI can take you down a rabbit hole that makes you feel like you are being productive but the generated code can be a dead end because of how you framed the problem to the AI.<p>Engineers need enough discipline to understand the problems they are trying to solve before delegating a solution to a stochastic text generator.<p>I don’t always like using AI but have found it helpful in specific use cases such as speeding up CI test pipelines and writing spec; however, someone smarter than me&#x2F;more familiar with the problem space may have better strategies that I cannot of think of, and I have been fooled by randomness."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Yuanzai World – LLM RPGs with branching world-lines",
+    "url": "https://www.yuanzai.world/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "please make the translated text a little bigger. On a phone at that speed, it can be hard to read.<p>You need an optional login. Forcing me to login before I know who or what you are is a deal breaker. Especially if you come here looking for an opinion.\nMy opinion is free. My PII is not as free.",
+      "Why not publish this worldwide? Unavailable in the Germany AppStore."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Agonist-Antagonist Myoneural Interface",
+    "url": "https://www.media.mit.edu/projects/agonist-antagonist-myoneural-interface-ami/overview/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is a very significant result for a high-traffic real situations -- work to be proud of.<p>To summarize:<p>When a prosthetic lower leg was attached, they connected antagonist muscles to the leg, with sensors from those muscles in a control loop to the leg (ankle), mimicking how proprioception works.  (The sensors are the new interface technology.)<p>The patient knew and could move the position of the foot when he couldn&#x27;t see it.  He walked up stairs with the usual natural coordinated movements.  And he felt like the leg was part of him.<p>It&#x27;s one thing to (cortically) plan and execute and track prosthetics visually; it&#x27;s another for the cerebellum to autonomously monitor and control them, and not to feel cut off.<p>This seems workable as a standard of care for arms and hands as well.  And in this case, it was installed years after the leg was lost, so it works for retrofits (granting this is N=1 young patient in otherwise excellent condition).",
+      "I stumbled on this work while researching cyborgs. There&#x27;s quite a bit of jargon on this official page. The main idea (as I understand it) is that previously, when you got an amputation above the elbow (for example) the bicep and tricep muscles became dead ends. They would just attach the ends of the muscles wherever feasible. Apparently the act of one muscle like the bicep contracting (agonist) while another related one  like the tricep extends (antagonist) is a really important feedback loop in our brains. AAMI essentially restores this feedback loop, making the prosthetic feel like part of the body. The lead researcher is apparently himself a double amputee.<p>Osseointegration was another example of interesting real-life cyborg technology that I stumbled upon."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: Senior engineering mngrs: how has AI changed your day-to-day work?",
+    "url": "https://news.ycombinator.com/item?id=46565262",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It made me code again.<p>Before I had not enough time to gather context, be in the flow, code and test.<p>Now I work throughout the day, as soon as I have 10&#x2F;15 minutes I send a prompt to one of my Claude Code so they can make progress on tasks that the teams cannot undertake because too time consuming versus business needs (major migration, architecture changes, etc…)<p>I love it to be able to contribute more",
+      "Not at all.  None.<p>I am in enterprise API management and gathering requirements from outside teams is the bottleneck, not writing the code. We have officially supported internal AI capabilities now and nobody is using it.",
+      "GPT + Grok (sometimes Claude) for writing docs, policies, requirements, client responses etc. Grok is often times more concise&#x2F;direct, which helps me as I tend to be verbose. I always review&#x2F;edit regardless. Much faster than writing from scratch, and combining responses on the same topic is sometimes best.<p>Copilot for code completion + reviews or small snippets&#x2F;functions but larger code&#x2F;module generation has been weak so far.<p>Claude for full modules generation or complex multi-file edits.<p>Research: Grok (less filtered + better search), Claude (complex dev topics), GPT (balanced but sometimes slanted and&#x2F;or seems to favor certain sources).<p>My Teams: Mostly Copilot for code completion&#x2F;reviews, mix of GPT&#x2F;Claude for code. Last year was loose&#x2F;experimental to learn but we plan to formalize guidelines more this quarter.<p>Definitely a ton of hype that doesn&#x27;t always match reality, but it is a super powerful tool that really has made things move faster."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The paradox of failed resolutions",
+    "url": "https://jillianhess.substack.com/p/the-paradox-of-failed-resolutions",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It would be great if we also had some idea what fraction of <i>low</i>-achieving people make resolutions, since then we would be able to draw conclusions about whether making resolutions is a useful thing to do."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "LLMs have burned Billions but couldn't build another Tailwind",
+    "url": "https://omarabid.com/tailwind-ai",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "LLMs find the center of the distribution: the typical pattern, the median opinion. Tailwind was an edge bet. It required metis, the tacit competence to know the consensus (semantic classes, separation of concerns, the cascade) was a local maximum worth escaping. That judgment, knowing what the center is wrong about, doesn&#x27;t emerge from interpolation. It emerges from the recognition loop where you try something, feel &quot;that&#x27;s not quite it,&quot; and refine.<p>The bottleneck was never typing. It was judgment. Tailwind is crystallized judgment. AI can consume it endlessly. Producing the next version requires the loop that creates metis, and that loop isn&#x27;t in the training data.",
+      "Tailwind itself is not useless, but the plus package is.<p>It&#x27;s a simple convenience utility belt that LLMs can already automate.<p>Both open-source and open-core need to be re-evaluated as labor value plummets.<p>I also disagree with the &quot;why&quot;. Tailwind is extremely useful with LLMs as it can set styling inside of HTML, rather than maintain an external, typically massive, convoluted CSS file.<p>It&#x27;s for the same reason that typing in programming will become a standard with LLMs: eliminate implicit&#x2F;semantic density with explicit&#x2F;semantic precision.<p>In both examples an LLM can have a strong understanding of a single file&#x2F;module without needing to search for its meaning externally",
+      "It feels like the author is conflating Tailwind the open source project vs. Tailwind Labs the business, which Adam says has run into a bad situation with their revenue because Tailwind Labs’ paid projects aren’t getting as much traction as fewer and fewer users visit the official Tailwind docs, which is currently the primary source people find out about those commercial products.<p>Regardless of what happens to the company (my personal opinion is that they’ll come out of this strongee than before) Tailwind as OSS probably isn’t going anywhere for the foreseeable future.",
+      "Yeah, I was talking about this a year ago when I noticed claude pretty much forces tailwind on people by defaulting to it, that its gonna impact their template selling business.\nTailwind needs a new license that requires payment from AI providers if they generate it!!",
+      "And even more important, they couldn&#x27;t build another Taiwan.",
+      "So, <i>duh</i><p>LLM&#x27;s are extremely adept at turning &quot;what Tailwind does&quot; into something &quot;you don&#x27;t have to pay for.&quot;<p>Yes, generative AI destroys some code-related business models. Absolutely fine by me, I&#x27;d rather work towards more people being able to be more creative with code than some company putting code tools behind paywalls or whatnot.",
+      "LLMs could absolutely replace Tailwind, and if there was the need, aid creating something better."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Qwen3 Vision Language Embedding Model",
+    "url": "https://github.com/QwenLM/Qwen3-VL-Embedding",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "images and text embedded into a shared space"
+    ],
+    "full_text": null
+  }
+]
