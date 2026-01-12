@@ -1,0 +1,331 @@
+[
+  {
+    "title": "Ozempic reduced grocery spending by an average of 5.3% in the US",
+    "url": "https://news.cornell.edu/stories/2025/12/ozempic-changing-foods-americans-buy",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt;The share of U.S. households reporting at least one user rose from about 11% in late 2023 to more than 16% by mid-2024.<p>I was wondering how you could get such a high impact overall. But it seems one in 6 households are on GLP-1 drugs in the US.<p>In my friend circle in Germany I don&#x27;t even know one single person on this stuff.<p>It&#x27;s insane to me that so many people need these to get off the processed foods killing them in the US.",
+      "This headline is a touch misleading as it gives the impression of being across all US households, the quote is:<p>&gt;Within six months of starting a GLP-1 medication, households reduce grocery spending by an average of 5.3%. Among higher-income households, the drop is even steeper, at more than 8%. Spending at fast-food restaurants, coffee shops and other limited-service eateries falls by about 8%.",
+      "&gt; “The data show clear changes in food spending following adoption,” Hristakeva said. “After discontinuation, the effects become smaller and harder to distinguish from pre-adoption spending patterns.”<p>It&#x27;s interesting that overall spending doesn&#x27;t decrease that much in the end, although shifting from snacks to fruit is the kind of change health advocates have always wanted?",
+      "[delayed]",
+      "I do think this could only be temporary victory over the food industry by the pharmacology industry. It&#x27;s only a matter of time until food additives or varieties are discovered that partially ameliorate the effects of ozempic.",
+      "[delayed]",
+      "That’s an astonishing number. Wouldn’t that be more than enough to cause a decrease in grocery prices?",
+      "That is pretty astonishing given 10% of Americans use semaglutide &#x2F; tirzepitide.<p>&gt; Spending on savory snacks dropped by about 10%, with similarly large decreases in sweets, baked goods and cookies. Even staples like bread, meat and eggs declined.<p>I can&#x27;t read the paper (paywall), but that means something like the 10% of Americans who are on it must switch to purchasing almost no junk food.",
+      "Correlation is not causation."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ai, Japanese chimpanzee who counted and painted dies at 49",
+    "url": "https://www.bbc.com/news/articles/cj9r3zl2ywyo",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "My coworkers gifted me a painting by cheeta (the last chimp to play him) when I left the job. I framed it professionally in rattan and banana wood. The painting itself looks very similar to the paintings by Ai- same color schemes and patterns.<p>Edit to add instead of a new comment:\nI also remember how good of a life he had in retirement. He lived in an apartment-like dwelling. Slept in a bed, woke up and ate some fruit. Would plink on the piano awhile, maybe paint some, go for a swim or walk, maybe play the piano or paint some more.... it was amusing to read while slaving away at the coding mines.",
+      "I misread this as AI initially ...<p>The only art-centric monkey I knew was Koko, the female gorilla.<p>Here she draws some things:<p><a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=6iixL0CMOAM\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=6iixL0CMOAM</a><p>Smartest monkey I ever saw was Kanzi though:<p><a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=ENKinbfgrkU\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=ENKinbfgrkU</a><p>I think it is only a question and matter of time before\nthe prison systems for monkeys may have to be reconsidered\ncompletely. Of course even smarter monkeys than Kanzi \nwon&#x27;t reach human brain functions, but they are also very\nconvincingly extremely clever and can adapt. Numerous videos\nwhere monkeys handle (!) smartphones show this already and\nthis is just the beginning. Like, in the movie Planet of the\nApes. Just long-term in smaller steps.",
+      "Would love to see some of his paintings, let me just google &quot;AI chimp painting&quot; .. oh..",
+      "More about Ai: <a href=\"https:&#x2F;&#x2F;link.springer.com&#x2F;article&#x2F;10.1007&#x2F;s10329-017-0604-0\" rel=\"nofollow\">https:&#x2F;&#x2F;link.springer.com&#x2F;article&#x2F;10.1007&#x2F;s10329-017-0604-0</a>",
+      "Sleep easy fellow earthling, there’s a new Ai in town now.",
+      "&gt; Born wild, Ai was soon taken into captivity and sold to KUPRI in 1977 by an animal trader (this type of sale became illegal in 1980 with Japan&#x27;s ratification of CITES).<p>So how do we do this kind of thing now?",
+      "Reminds me of AiAi in Super Monkey Ball.",
+      "does someone have a video about him counting and&#x2F;or painting?",
+      "Hey universe, when people is asking for the end of AI, they don&#x27;t mean this.",
+      "Impossible to not make a joke about this being just more ai news on the front page."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "CLI agents make self-hosting on a home server easier and fun",
+    "url": "https://fulghum.io/self-hosting",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This posts lists inexpensive home servers, Tailscale and Claude Code as the big unlocks.<p>I actually think Tailscale may be an even bigger deal here than sysadmin help from Claude Code at al.<p>The biggest reason I had not to run a home server was security: I&#x27;m worried that I might fall behind on updates and end up compromised.<p>Tailscale dramatically reduces this risk, because I can so easily configure it so my own devices can talk to my home server from anywhere in the world without the risk of exposing any ports on it directly to the internet.<p>Being able to hit my home server directly from my iPhone via a tailnet no matter where in the world my iPhone might be is really cool.",
+      "My favorite genre of post in r&#x2F;homelab and r&#x2F;selfhosted this past year has been &quot;I used AI to set all this stuff up and something broke so I asked AI to fix it and now all my data is gone.&quot;<p>There are so many NAS + Curated App Catalog distros out there that make self-hosting trivial without needing to Vibe SysAdmin.",
+      "I went down the self host route some years ago but once critical problems hit I realized that beyond a simple NAS it can be a very demanding hobby.<p>I was in another country when there was a power outage at home. My internet went down, the server restart but couldn&#x27;t reconnect anymore because the optical network router also had some problems after the power outage. I could ask my folks to restart, and turn on off things but nothing more than that. So I couldn&#x27;t reach my Nextcloud instance and other stuff. Maybe an uninterruptible power supply could have helped but the more I was thinking about it after just didn&#x27;t really worth the hassle anymore. Add a UPS okay. But why not add a dual WAN failover router for extra security if the internet goes down again? etc. It&#x27;s a bottomless pit (like most hobbies tbh)<p>Also (and that&#x27;s a me problem maybe) I was using Tailscale but I&#x27;m more &quot;paranoid&quot; about it nowadays. Single point of failure service, US-only SSO login (MS, Github, Apple, Google), what if my Apple account gets locked if I redeem a gift card and I can&#x27;t use Tailscale anymore? I still believe in self hosting but probably I want something even more &quot;self&quot; to the extremes.",
+      "I was just thinking I should write something about this, because the words needs spreading.<p>I cannot say how happy I am configuring my own immich server on a decade old machine. I just feel empowered. Because despite my 9 years of software development, I haven&#x27;t gotten into the nitty gritties of networking, VPN and I always see something non-standard while installing an open source package and without all of this custom guidance, I always would give up after a couple of hours of pulling my hair apart.<p>I really want to go deeper and it finally feels this could be a hobby.<p>PS: The rush was so great I was excitedly talking to my wife how I could port our emails away from google, considering all of the automatic opt in for AI processing and what not. The foolhardy me thought of even sabbatical breaks to work on long pending to-do&#x27;s in my head.",
+      "I have a similar experience when I found out that claude code can use ssh to conect to remote server and diagnose any sysadmin issue there. It just feels really empowered.",
+      "I just recently wrote my own agent that can gdb, objdump, nasm, cc, make, and more.<p>Agents are powerful. Even more so with skills and command line tools they can call to do things. You can even write custom tools (like I did) for them to use that allows for things like live debugging.<p>The tailscale piece to this setup is key.",
+      "&gt; When something breaks, I SSH in, ask the agent what is wrong, and fix it.<p>&gt; I am spending time using software, learning<p>What are you actually learning?<p>PSA: OP is a CEO of an AI company",
+      "I think it&#x27;s great that people are getting into self-hosting, but I don&#x27;t think it&#x27;s _the_ solution to get us off of big tech.<p>Having others run a service for you is a good thing! I&#x27;d love to pay a subscription for a service, but ran as a cooperative, where I&#x27;m not actually just paying a subscription fee, instead I&#x27;m a member and I get to decide what gets done as well.<p>This model works so well for housing, where the renters are also the owners of the building. Incentives are aligned perfectly, rents are kept low, the building is kept intact, no unnecessary expensive stuff added. And most importantly, no worries of the building ever getting sold and things going south. That&#x27;s what I would like for my cloud storage, e-mail etc.",
+      "I have been self hosting since the late 90s, but I&#x27;ve always just installed everything on Bare metal. I hear more and more about these elaborate Docker setups. What does a setup like this actually look like?<p>Is it just a single docker-compose.yml with everything you want to run and &#x27;docker compose up&#x27;?",
+      "This is very cool and I&#x27;m doing something similar but without the Claude interface as the contact point for manipulating the server. What happens if one day Claude is down, or it becomes too expensive, or it is purchased by another company, etc.<p>In this case you will be completely unable to navigate the infrastructure of your homeserver that your life will have become dependent on.<p>But a homeserver is always about your levels of risk, single points of failure. I&#x27;m personally willing to accept Tailscale but I&#x27;m not willing to give the manipulation of all services directly over to Claude."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "FUSE is All You Need – Giving agents access to anything via filesystems",
+    "url": "https://jakobemmerling.de/posts/fuse-is-all-you-need/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "IMO, for real file systems, just give a view via cgroups&#x2F;namespaces.<p>Implementing a database abstraction as a file system for an LLM feels like an extra layer of indirection for indirection&#x27;s sake: just have the LLM write some views&#x2F;queries&#x2F;stored procs and give it sane access permissions.<p>LLMs are smart enough to use databases, email, etc without needing a FUSE layer to do so, and permissions&#x2F;views&#x2F;etc will keep it from doing or seeing stuff it shouldn&#x27;t. You&#x27;ll be keeping access and permissions where they belong, and not in a FUSE layer, and you won&#x27;t have to maintain a weird abstraction that&#x27;s annoying&#x2F;hampered with licensing issues if you want to deploy it cross platform.<p>Also, your simplified FUSE abstraction will not map accurately to the state of the world unless you&#x27;re really comprehensive with your implementation, and at that point, you might as well be interacting directly in order to handle that state accurately.",
+      "We have also attempted to implement exactly this but it turned out to be really bad architecture.<p>The file system as an abstraction is actually not that good at all beyond the basic use-cases. Imagine you need to find an email. If you grep (via fuse) you will end up opening lots of files which will result in fetches to some API and it will be slow. You can optimise this and caching works after first fetch but the method is slow. The alternative is to leverage the existing API which will be million times faster. Now you could also create some kind of special file via fuse that acts like a search but it is weird and I don&#x27;t think the models will do well with something so obscure.<p>We went as much as implementing this idea in rust to really test it out and ultimately it was ditched because, well it sucks.",
+      "I&#x27;ve been getting into FUSE a bit lately, as I stole an idea that a friend had of how to add CoW features to an existing non-CoW filesystem, so I&#x27;ve been on&#x2F;off been hacking on a FUSE driver for ext4 to do that.<p>To learn FUSE, however, I started just making everything into filesystems that I could mount. I wrote a FUSE driver for Cassandra, I wrote a FUSE driver for CouchDB, I wrote a FUSE driver for a thing that just wrote JSON files with Base64 encoding.<p>None of these performed very well and I&#x27;m sort of embarrassed at how terrible the code is hence why I haven&#x27;t published them (and they were also just learning projects), but I did find FUSE to be extremely fun and easy to write against.  I encourage everyone to play with it.",
+      "We&#x27;ve got something similar with our Hyperlambda Generator that generates tools &quot;on the fly&quot; in 1 to 4 seconds.<p>You can test it here ==&gt; <a href=\"https:&#x2F;&#x2F;ainiro.io&#x2F;natural-language-api\" rel=\"nofollow\">https:&#x2F;&#x2F;ainiro.io&#x2F;natural-language-api</a>",
+      "Welcome back Plan9",
+      "Spent the last month building a FUSE mount and now I can&#x27;t stop thinking about what else I can filesystem.",
+      "For my LLM&#x2F;agents framework, I went with a virtual filesystem abstraction and implemented helpers for mounting and permissioning the virtual file systems:  <a href=\"https:&#x2F;&#x2F;github.com&#x2F;rescrv&#x2F;claudius&#x2F;blob&#x2F;main&#x2F;src&#x2F;agent.rs#L1342\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;rescrv&#x2F;claudius&#x2F;blob&#x2F;main&#x2F;src&#x2F;agent.rs#L1...</a>",
+      "See my own <a href=\"https:&#x2F;&#x2F;github.com&#x2F;matthiasgoergens&#x2F;git-snap-fs\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;matthiasgoergens&#x2F;git-snap-fs</a> which lets you expose all branches and all tags and all commits and all everything in a git repository as a static directory tree.  No need to git checkout anything: everything is already checked out.",
+      "I&#x27;ve implemented agentic framework exactly like this for my current employer.<p>It opens up absolutely bonkers capabilities.",
+      "Do you know how does it impact the RAG usecase? Do I not need those vector databases anymore if I instead use this FUSE layer?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Shellock, a real-time CLI flag explainer for fish shell",
+    "url": "https://github.com/ibehnam/shellock",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I just tried it out, nice! It&#x27;s a useful tool, but the installation process didn&#x27;t work for me following the steps as written. As it stands:<p>* The shellock directory <i>must</i> be in ~&#x2F;Downloads, otherwise the shellock_bindings.fish fails to source it.<p>* The installation script in the repo didn&#x27;t work because it tried to symlink shellock_bindings.fish without specifying an absolute path (`~&#x2F;.config&#x2F;fish&#x2F;conf.d&#x2F;shellock_bindings.fish -&gt; .&#x2F;shellock_bindings.fish`) -&gt; caused a recursive symlink which broke.<p>Now I got it working by making sure to place shellock in Downloads (not ideal long term, I often clear my Downloads folder), and manually symlinking the bindings explicitly. It seems to work pretty well!",
+      "Looks like a cool idea - what does it do with more complicated commands, e.g. two commands with a pipe? Does it pick the last part of the pipe?",
+      "I read the title too quickly and thought that 12 years later shellshock was making a come back!",
+      "Nice, I tried looking for something like this but never found anything. Glad to see someone working on it.",
+      "Cool! Recommendations for something similar on zsh?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Anthropic Made a Big Mistake",
+    "url": "https://archaeologist.dev/artifacts/anthropic",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Insights into Claude Opus 4.5 from Pokémon",
+    "url": "https://www.lesswrong.com/posts/u6Lacc7wx4yYkBQ3r/insights-into-claude-opus-4-5-from-pokemon",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The idea of Claude having &quot;anterograde amnesia&quot; and the top-rated comment there by Noosphere89 really resonated with me:<p><pre><code>  &quot;I would analogize this to a human with anterograde amnesia, who cannot form new memories, and who is constantly writing notes to keep track of their life. The limitations here are obvious, and these are limitations future Claudes will probably share unless LLM memory&#x2F;continual learning is solved in a better way.&quot;\n\n  This is an extremely underrated comparison, TBH. Indeed, I&#x27;d argue that frozen weights + lack of a long-term memory are easily one of the biggest reasons why LLMs are much more impressive than useful at a lot of tasks (with reliability being another big, independent issue).\n\n  It emphasizes 2 things that are both true at once: LLMs do in fact reason like humans and can have (poor-quality) world-models, and there&#x27;s no fundamental chasm between LLM capabilities and human capabilities that can&#x27;t be cured by unlimited resources&#x2F;time, and yet just as humans with anterograde amnesia are usually much less employable&#x2F;useful to others than people who do have long-term memory, current AIs are much, much less employable&#x2F;useful than future paradigm AIs.</code></pre>",
+      "<p><pre><code>   &quot;One thing I found fascinating about watching Claude play is it wouldn&#x27;t play around and experiment the way I&#x27;d expect a human to? It would stand still still trying to work out what to do next, move one square up, consider a long time, move one square down, and repeat. When I&#x27;d expect a human to immediately get bored and go as far as they could in all directions to see what was there and try interacting with everything. Maybe some cognitive analogue of boredom is useful for avoiding loops?&quot;\n    - FiftyTwo[0]\n</code></pre>\nI&#x27;m wondering if this is function of our training methods? They&#x27;re sufficiently penalised against making &quot;wrong moves&quot;, that they don&#x27;t experiment?<p>-[0]: <a href=\"https:&#x2F;&#x2F;www.lesswrong.com&#x2F;posts&#x2F;u6Lacc7wx4yYkBQ3r&#x2F;insights-into-claude-opus-4-5-from-pokemon?commentId=x6KjefZXHHpujS5jh\" rel=\"nofollow\">https:&#x2F;&#x2F;www.lesswrong.com&#x2F;posts&#x2F;u6Lacc7wx4yYkBQ3r&#x2F;insights-i...</a>",
+      "This actually matches my experience quite well. I use vision (often) to try and do 2 main things in Claude code:<p>1) give it text data from something that is annoying to copy and paste (eg labels off a chart or logs from a terrible web UI that doesn&#x27;t make it easy to copy and paste).<p>2) give it screenshots of bugs, especially UI glitches.<p>It&#x27;s extremely good at 1), can&#x27;t remember when it got it wrong.<p>On 2) it _really_ struggled until opus 4.5, almost comically so, with me posting a screenshot and a description of the UI bug and it telling me &quot;great it looks perfect! What next?&quot;<p>With opus 4.5 it&#x27;s not quite laughably as bad but still often misses very obvious problems.<p>It&#x27;s very interesting to see the rapid progression on these benchmarks, as it&#x27;s probably a very good proxy for &quot;agentic vision&quot;.<p>I&#x27;ve came to the conclusion that browser use without vision (eg based on the DOM or accessibility trees) is a dead end, simply because &quot;modern&quot; websites tend to use a comical amount of tokens to render. So if this gets very good (close to human level&#x2F;speed) then we have basically solved agents being able to browse any website&#x2F;GUI effectively.",
+      "I find it surprising that GPT managed to complete (with indeed a harness that doesn&#x27;t seem very powerful!) and Claude still cannot.",
+      "&gt; You may be surprised to learn that ClaudePlaysPokemon is still running today<p>&#x2F;me click on the twitch link, skip to a random time.<p>The screen shows a Weezing encounter, the system mistook it as Grimer.<p>Not sure that&#x27;s Claude, or bug in the glue code",
+      "I wonder if there&#x27;s someone at Antrophic working to fine-tune the model&#x27;s pokemon playing ability specifically.<p>Maybe not but it sure would be funny."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: An LLM-optimized programming language",
+    "url": "https://github.com/ImJasonH/ImJasonH/blob/main/articles/llm-programming-language.md",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "An LLM is optimized for its training data, not for newly built formats or abstractions. I don’t understand why we keep building so-called &quot;LLM-optimized&quot; X or Y. It’s the same story we’ve seen before with TOON.",
+      "If a new programming language doesn’t need to be written by humans (though should ideally still be readable for auditing), I hope people research languages that support formal methods and model checking tools. Formal methods have a reputation for being too hard or not scaling, but now we have LLMs that can write that code.<p><a href=\"https:&#x2F;&#x2F;martin.kleppmann.com&#x2F;2025&#x2F;12&#x2F;08&#x2F;ai-formal-verification.html\" rel=\"nofollow\">https:&#x2F;&#x2F;martin.kleppmann.com&#x2F;2025&#x2F;12&#x2F;08&#x2F;ai-formal-verificati...</a>",
+      "The real question is what existing language is perfect for LLMs? Is Lisp? ASM? We know some LLMs are better at some languages but what existing language are they best at? Would be interesting to see. I know one spot they all fail at is niche programming libraries. They have to pull down docs or review raw code pulled down for the dependency, issue is in some languages like C# those dependencies are precompiled to bytecode, Java too.",
+      "The Validation Locality piece is very interesting and really got my brain going. Would be cool to denote test conditions in line with definitions. Would get gross for a human, but could work for an LLM with consistent delimiters. Something like (pseudo code):<p>```\nfn foo(name::&quot;Bob&quot;|genName(2)):\n  if len(name) &lt; 3\n    Err(&quot;Name too short!&quot;)<p><pre><code>  print(&quot;Hello &quot;, name)\n    return::&quot;Hello Bob&quot;|Err</code></pre>\n```<p>Right off the bat I don&#x27;t like that it relies on accurately remembering list indexes to keep track of tests (something you brought up), but it was fun to think about this and I&#x27;ll continue to do so. To avoid the counting issue you could provide tools like &quot;runTest(number)&quot;, &quot;getTotalTests&quot;, etc.<p>One issue: The Loom spec link is broken.",
+      "I&#x27;m looking for a language optimized for <i>use</i> with coding agents. Something which helps me to make a precise specification, and helps the agent meet all the specified requirements.",
+      "weeks ago I was also noodling around with the idea of programming languages for LLMs, but as a means to co-design DSLs <a href=\"https:&#x2F;&#x2F;blog.evacchi.dev&#x2F;posts&#x2F;2025&#x2F;11&#x2F;09&#x2F;the-return-of-language-oriented-programming&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;blog.evacchi.dev&#x2F;posts&#x2F;2025&#x2F;11&#x2F;09&#x2F;the-return-of-lang...</a>",
+      "I get that this is essentially vibe coding a language, but it still seems lazy to me. He just asked the language model zero-shot to design a language unprompted. You could at least use the Rosetta code examples and ask it to identify design patterns for a new language.",
+      "Just get LLM to write assembly",
+      "so where are the millions of line code you need to train the LLM in your new language? Remember AI is just a statistic prediction thing. No input -&gt; No output",
+      "There was one other just yesterday: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46571166\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46571166</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "UK threatens action against X over sexualised AI images of women and children",
+    "url": "https://www.theguardian.com/technology/2026/jan/12/uk-threatens-action-against-x-over-sexualised-ai-images-of-women-and-children",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This move makes perfect sense to me. I think people are bit too online pilled to think about this as if it were a different product.<p>If you produce a product that causes harm, and there are steps that could be taken to prevent that harm, you should be held responsible for it. Before the trump admin dropped the Boeing case, Boeing was going to be held liable for design defects in its Max planes that caused crashes. The government wasn’t going after Boeing bc a plane crashed, but bc Boeing did not take adequate steps from preventing that from happening.",
+      "So I guess in the 90s they would’ve sued Adobe for not putting spyware into Photoshop?<p>If you believe in democracy, and the rule of law, and citizenship, then the responsibility obviously lies with people who create and publish pictures, not the makers of tools.<p>Think of it. You can use a phone camera to produce illegal pictures. What kind of a world would we live in if Apple was required to run an AI filter on your pics to determine whether they comply with the laws?<p>A different question is if X actually hosts generated pictures that are illegal in the UK. In that case, X acts as a publisher, and you can sue them along with the creator for removal.",
+      "This further exposes just how pointless and ill-thought out the Online Safety Act was in the UK. It does nothing to actually limit harm at the source, and empower the UK&#x27;s public body&#x27;s to take immediate action.<p>Ironic that the minister who spearheaded that awful bill (Peter Kyle) as Tech minister is now being the government spokesperson for this debacle as Business Minister. The UK needs someone who knows how tech and business works to tackle this, and that&#x27;s not Peter Kyle.<p>A platform suspension in the UK should have been swift, with clear terms for how X can be reinstated. As much as it appears Musk is doubling down on letting Grok produce CSAM as some form of free speech, the UK government should treat it as a limited breach or bug that the vendor needs to resolve, whilst taking action to block the site causing harm until they&#x27;ve fixed it.<p>Letting X and Grok continue to do harm, and get free PR, is just the worst case scenario for all involved.",
+      "Flagged for the title implying men have no rights. That&#x27;s totally uncalled for and I hope such submission titles are not allowed here.",
+      "[dead]",
+      "This is a purely political move to censor dissent by a government that polls like a minor party and is slated for electoral wipeout next election. If it were not, they&#x27;d issue the same threats to Gemini and ChatGPT.<p><a href=\"https:&#x2F;&#x2F;www.digitaltrends.com&#x2F;computing&#x2F;googles-gemini-deemed-high-risk-for-kids-in-research-by-non-profit&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.digitaltrends.com&#x2F;computing&#x2F;googles-gemini-deeme...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Anthropic: Developing a Claude Code competitor using Claude Code is banned",
+    "url": "https://twitter.com/SIGKITTEN/status/2009697031422652461",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I was all set to be pissed off, &quot;you can&#x27;t tell me what I can make with your product once you&#x27;ve sold it to me!&quot; but no... This outrage bait hinges on the definition of &quot;use&quot;<p>You can use Claude Code to write code to make a competitor for Claude Code. What you cannot do is reverse engineer the way the Claude Code harness uses the API to build your own version that taps into stuff like the max plan. Which? makes sense?<p>From the <i>thread</i>:<p>&gt; A good rule of thumb is, are you launching a Claude code oauth screen and capturing the token. That is against terms of service.",
+      "Anthropic showed their true colors with their sloppy switch to using Claude Code for training data. They can absolutely do what they want but they have completely destroyed any reason for me to consider them fundamentally better than their competitors.",
+      "This message from the Zed discord (from a zed staffer) puts it clearly, I think:<p>“….you can use Claude code in Zed but you can’t hijack the rate limits to do other ai stuff in zed.”<p>This was a response to my asking whether we can use the Claude  Max subscription for the awesome inline assistant (Ctl+Enter in the editor buffer) without having to pay for yet another metered API.<p>The answer is no, the above was a response to a follow up.<p>An aside - everyone is abuzz about “Chat to Code” which is a great interface when you are leaning toward never or only occasionally looking at the generated code. But for writing prose? It’s safe to say most people definitely want to be looking at what’s written, and in this case “chat” is <i>not</i> the best interaction. Something like the inline assistant where you are immersed in the writing is far better.",
+      "I still did not get very clearly what can and can’t zed, open code and other do to use max plan? Developers want to use these 3p client and pay you 200 a month, why are you pissing us off. I understand some abuser exists but you will never really be possible to ban them 100%, technically.<p>Very poor communication, despite some bit of reasonable intention, could be the beginning of the end for Claude Code.",
+      "Opencode is much better anyway and it doesnt change its workflow every couple weeks.",
+      "Xcancel Link: <a href=\"https:&#x2F;&#x2F;xcancel.com&#x2F;SIGKITTEN&#x2F;status&#x2F;2009697031422652461\" rel=\"nofollow\">https:&#x2F;&#x2F;xcancel.com&#x2F;SIGKITTEN&#x2F;status&#x2F;2009697031422652461</a>",
+      "Behold the &quot;Democratization of software development&quot;.",
+      "I still remember the backslash Borland got when they had the clever idea to forbid writing compilers with Borland C++, and naturally had to rollback from.<p>Some people never learn from history, it seems.",
+      "Claude code quality degradation is currently the worst I&#x27;ve ever seen.",
+      "I wonder how will this affect future Anthropic products, if prior art&#x2F;products exist that have already been built using\nclaude.<p>If this is to only limit knowledge distillation for training new models or people\nCopying claude code specifically or preventing max plan creds used as API replacement, they could properly carve exceptions rather than being too broad which risks turning away new customers for fear of (future) conflict"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "HTML-only conditional lazy loading (via preload and media)",
+    "url": "https://orga.cat/blog/html-conditional-lazy-loading/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; The accepted practice is to not add lazy-loading to images above the fold, especially the LCP image.<p>I didn&#x27;t know that. Apparently (at least according to Claude) you shouldn&#x27;t use loading=&quot;lazy&quot; on images that you expect to always display because doing so causes them to not be loaded until the browser has determined they are definitely in the viewport, which is a minor performance regression.<p>LCP = Largest Contentful Paint, the Core Web Vitals metric for when the largest visual element finishes rendering. That&#x27;s usually the largest above-the-fold image.",
+      "I like this solution, it looks very simple and should’ve been consider as part of best practices if it works technically. However, I also think that this whole trade off is broken from the beginning, it should be part of browser’s set of rules to either decide or not it should render the image or not by default, and the decision of eagerly load an image should just an hint given by the developer as a scape hatch. The current approach forces the decision to be forcefully deferred to the application which needs to guess what’s the best approach for the current set of devices in the market which also adds a constant maintenance burden.",
+      "&gt; Not documented anywhere (but seems to work fine in major browsers)<p>Which part of it is not documented? Putting device width dependent preloading in HTTP header? MDN says that the HTTP link header works the same way as the link element, and also that the link element a has media attribute : <a href=\"https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;HTML&#x2F;Reference&#x2F;Elements&#x2F;link\" rel=\"nofollow\">https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;HTML&#x2F;Reference&#x2F;...</a>",
+      "Nice pure-declarative responsive tweak!",
+      "I dont think this works.<p>I just tested on Chrome Android via remote inspect using developer tools. It loaded the image even when the image was below the fold.",
+      "Is it the “min-width=1024px” in the link that causes it to not load on smaller devices?",
+      "Not a fan of lazy loading. My time is more valuable than bandwidth."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: What if AI agents had Zodiac personalities?",
+    "url": "https://github.com/baturyilmaz/what-if-ai-agents-had-zodiac-personalities",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I think my take away is that you are seeing mostly mode-collapse here. There is a high consistency across all of the supposedly different personalities (higher than the naive count would indicate - remember the stochastic nature of responses will inflate the number of &#x27;different&#x27; responses, since OP doesn&#x27;t say anything about sampling a large number of times to get the true response).",
+      "A related  trick - if you want to teach your agent a specific kind of behavior, and want this behavior to be calibrated and safe, what you can do is:<p>1. enumerate the actions (policies) your agent takes, collected from prior runs<p>2. infer the states that correspond to each of these policies, make a state atlas (similar to the zodiac here)<p>3. infer the maximally discriminative features that can identify the state from current context<p>4. label a few examples and train a small policy model that predicts your action from those state features<p>I think LLMs should be used more often like this - as feature extractors for toy models, which can be used like tools. This way you can encode arbitrary logic in a small tool model that does not depend on the biases of the base model. For example this setup could power a &quot;skill&quot; to reliably implement your policy.<p>The trick here is that you carefully identify states that predict policy reliably, and features that distinguish between states, instead of using embeddings or pure LLM reasoning. You can decouple the logic from the feature extraction, and have it calibrated to your goals.<p>All 4 steps can be done by a coding agent with your supervision and zero coding. It&#x27;s LLM as generic feature extractor with small models sitting on top.",
+      "I use Hacker News commenters.<p>There was someone a while ago who made a funny post about the type of Hacker News commenters. So I have 5 of them that will review things, and ended up being way more effective than I ever imagined they&#x27;d be.<p>│ contrarian-provocateur-roaster │ Challenge premises, explore alternatives │ &quot;Have you considered...&quot;<p>│ enthusiastic-newcomer-roaster  │ Accessibility, onboarding friction       │ &quot;Wait, how do I even...&quot;<p>│ pragmatic-builder-roaster      │ Operational reality, production concerns │ &quot;This won&#x27;t survive 3AM pages&quot;   │<p>│ skeptical-senior-roaster       │ Long-term maintenance, sustainability    │ &quot;Who maintains this in 2 years?&quot; │<p>│ well-actually-pedant-roaster   │ Terminology precision, verifiability     │ &quot;Technically, that&#x27;s not...&quot;     │",
+      "That is a fun experiment which can be interesting applied to all sorts of things.<p>Imagine being captain of a ship and using the same AI with different profiles as background. E.g. what&#x27;s your opinion on data based on a geologist profile, vs. a profile based on some other profession...",
+      "this is fantastic. Really interesting to see which signs decided what.",
+      "From the HN discussion of &quot;Motive.c: The Soul of the Sims (1997) (donhopkins.com)&quot;:<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=14997725\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=14997725</a><p><a href=\"https:&#x2F;&#x2F;www.donhopkins.com&#x2F;home&#x2F;images&#x2F;Sims&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.donhopkins.com&#x2F;home&#x2F;images&#x2F;Sims&#x2F;</a><p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=15002840\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=15002840</a><p>DonHopkins on Aug 13, 2017 | parent | context | favorite | on: Motive.c: The Soul of the Sims (1997)<p>The trick of optimizing games is to off-load as much as the simulation from the computer into the user&#x27;s brain, which is MUCH more powerful and creative. Implication is more efficient (and richer) than simulation.<p>During development, when we first added Astrological signs to the characters, there was a discussion about whether we should invent our own original &quot;Sim Zodiac&quot; signs, or use the traditional ones, which have a lot of baggage and history (which some of the designers thought might be a problem).<p>Will Wright argued that we actually wanted to leverage the baggage and history of the traditional Astrological signs of the Zodiac, so we should just use those and not invent our own.<p>The way it works is that Will came up with twelve archetypal vectors of personality traits corresponding to each of the twelve Astrological signs, so when you set their personality traits, it looks up the sign with the nearest euclidian distance to the character&#x27;s personality, and displays that as their sign. But there was absolutely no actual effect on their behavior.<p>That decision paid off almost instantly and measurably in testing, after we implemented the user interface for showing the Astrological sign in the character creation screen, without writing any code to make their sign affect their behavior: The testers immediately started reporting bugs that their character&#x27;s sign had too much of an effect on their personality, and claimed that the non-existent effect of astrological signs on behavior needed to be tuned down. But that effect was totally coming from their imagination!<p>They should call them Astrillogical Signs!<p>DonHopkins on Aug 13, 2017 [–]<p>The create-a-sim user interface hid the corresponding astrological sign for the initial all-zero personality you first see before you&#x27;ve spent any points, because that would be insulting to 1&#x2F;12th of the players (implying [your sign] has zero personality)!<p><a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=ffzt12tEGpY\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=ffzt12tEGpY</a>",
+      "[flagged]",
+      "I somehow assumed this was going to be about the Zodiac killer and was really confused.",
+      "I don’t see the point of using zodiacs. Might as well use any kind of personality test like Myers-Briggs."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Which programming languages are most token-efficient?",
+    "url": "https://martinalderson.com/posts/which-programming-languages-are-most-token-efficient/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m biased by my preferred style of programming languages but I think that pure statically typed functional languages are incredibly well suited for LLMs. The purity gives you referential transparency and static analysis powers that the LLM can leverage to stay correctly on task.<p>The high level declarative nature and type driven development style of languages like Haskell also make it really easy for an experienced developer to review and validate the output of the LLM.<p>Early on in the GPT era I had really bad experiences generating Haskell code with LLMs but I think that the combination of improved models, increased context size, and agentic tooling has allowed LLMs to really take advantage of functional programming.",
+      "Realistically, it’s also a function of how many iterations it takes for an AI agent to correctly solve a problem with a given language. I’d imagine most AI agents would frequently have to redo J or F# code, as they are fairly uncommon languages with  much smaller training set than JavaScript or Python.",
+      "I program mostly in Clojure and I expected it to be near the top, as it tends to be very concise and expressive (qualities I really admire). I am getting <i>excellent</i> results from Claude Code (Opus 4.5), and I think this might be one of the reasons. I&#x27;m using Claude with a large code base and the token-efficiency of Clojure might help with fitting more into the context window.",
+      "There is one class of languages missing in the comparison: Programming golf languages: E.g. Japt [1], Pyth [2] or Jelly [3].<p>Update: I noticed that the author mentions that &quot;APL&#x27;s famous terseness isn&#x27;t a plus for LLMs.&quot; Isn&#x27;t that just a design limitation of the LLM tokenizers?<p>[1]: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;ETHproductions&#x2F;japt\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;ETHproductions&#x2F;japt</a><p>[2]: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;isaacg1&#x2F;pyth\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;isaacg1&#x2F;pyth</a><p>[3]: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;DennisMitchell&#x2F;jellylanguage\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;DennisMitchell&#x2F;jellylanguage</a>",
+      "I kinda (but not really because I don&#x27;t much care about tokens and don&#x27;t really know anything about models) wonder about Common Lisp. There&#x27;s probably far fewer examples of CL code in any training sets than Clojure or Python or whatever, but it could still be somewhat interesting.",
+      "This is kind of just a measurement of how representative a language is in the distribution of the tokenizer training. You could have a single token equal to “public static void main”.",
+      "&gt; I then told Claude Code to suggest a selection of the most popular programming languages<p>If you’re going to write an article atleast do the base research yourself man",
+      "I have always had concerns about physical robots making my work less safe in the real world.<p>But had never considered that a programming language might be created thats less human readable&#x2F;auditable to enable LLMs.<p>Scares me a bit.",
+      "This confirms my personal experience with switching to Go from C# - despite the e framework and language being MUCH simpler, the code usually ends up the same length.<p>C# often has a &#x27;nice&#x27; and &#x27;performant&#x27; way of doing things (for example, strings are nice, but they allocate and are UTF16, but ReadOnlySpan&lt;byte&gt; is faster for UTF8, and can reuse buffers), the performant syntax often ends up being very verbose, with the nice syntax being barely shorter than Go&#x27;s. Go also does the right thing by default, and its strings are basically array slices into UTF8 byte arrays.",
+      "Concatenative languages like Factor and Forth are very token-efficient in theory. Theoretically optimal for raw lexical density. No parentheses, no commas, no argument delimiters, just whitespace-separated words, but stack shuffling can add overhead for complex data flow, unless you use &quot;locals&quot; in Factor, for example.<p>C is surprisingly efficient as well. Minimal keywords, terse syntax, single-character operators. Not much boilerplate, and the core logic is dense.<p>I think the worst languages are Java, C#, and Rust (lifetime annotations, verbose generics).<p>In my opinion, C or Go for imperative code, Factor &#x2F; Forth if the model knows them well."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "NCSA Mosaic 2.7, one of the first graphical web browsers",
+    "url": "https://github.com/alandipert/ncsa-mosaic",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I put some Mosaic derivations to my github[1][2][3]<p>[1] multicast mosaic (&quot;mMosaic&quot;) <a href=\"https:&#x2F;&#x2F;github.com&#x2F;roytam1&#x2F;multicast-mosaic\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;roytam1&#x2F;multicast-mosaic</a><p>[2] VMS Mosaic <a href=\"https:&#x2F;&#x2F;github.com&#x2F;roytam1&#x2F;vms-mosaic\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;roytam1&#x2F;vms-mosaic</a><p>[3] mosaic-CK <a href=\"https:&#x2F;&#x2F;github.com&#x2F;roytam1&#x2F;mosaic-ck\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;roytam1&#x2F;mosaic-ck</a>",
+      "Just for the record, the remark in the webpage linked from that github saying that in 1996 &quot;gopher was in  its heyday&quot; doesn&#x27;t seem right to my memory.  Gopher heyday in 1992-93? Sure! But gopher faded with the rise of Mosaic throughout 1994 iirc...",
+      "Anyone else have trouble scrolling GitHub source files on iOS?<p>Using iPhone 17 Pro"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Anthropic bans xAI from using Claude in Cursor",
+    "url": "https://xcancel.com/kyliebytes/status/2009686466746822731",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Related:<p><i>Anthropic blocks third-party use of Claude Code subscriptions</i><p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46549823\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46549823</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Interactive California Budget (by Claude Code)",
+    "url": "https://california-budget.com",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Give Anthropic’s frontend design skill a try. I find it helps Claude produce excellent UI’s."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "US prosecutors launch criminal investigation into Federal Reserve chair",
+    "url": "https://www.theguardian.com/business/live/2026/jan/12/us-prosecutors-criminal-investigation-federal-reserve-chair-jerome-powell-dollar-stock-market-gold-bitcoin-business-live-news-updates",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Shame that the guardian describes Powell’s statement as ‘blistering’: <a href=\"https:&#x2F;&#x2F;www.federalreserve.gov&#x2F;newsevents&#x2F;speech&#x2F;powell20260111a.htm\" rel=\"nofollow\">https:&#x2F;&#x2F;www.federalreserve.gov&#x2F;newsevents&#x2F;speech&#x2F;powell20260...</a><p>It reads to me more as ‘tepid’. He’s obviously trying to be as apolitical as possible, but I don’t think that’s going to help.",
+      "Following in the footsteps of other financial powerhouses like Argentina, Russia, Turkey, Venezuela and Zimbabwe.<p>On the other hand, Trump catastrophicly imploding the US economy is one of the likelier good endings to this insanity.",
+      "<i>Insert Palpatine meme</i><p>Let the stupidity and corruption flow through you....",
+      "What is happening USA. Please stop.<p>&quot;It Hurt Itself in Its Confusion!&quot;"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A 2026 look at three bio-ML opinions I had in 2024",
+    "url": "https://www.owlposting.com/p/a-2026-look-at-three-bio-ml-opinions",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Any chance of raising the paywall on this article?<p>I was quite enjoying it, but then the paywall hit me right in the middle of the chemical synthesis section.<p>I have no problem with you wanting to earn money from your work, but it&#x27;s a bit odd to post an unreadable article to hn (odd enough that I assume it was by mistake?)."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "guys why does armenian completely break Claude",
+    "url": "https://twitter.com/dyushag/status/1993143599286886525",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Tangential, but you used to be able to use custom instructions for ChatGPT to respond only in zalgotext and it would have insane results in voice mode. Each voice was a different kind of insane. I was able to get some voices to curse or spit out Mint Mobile commercials.<p>Then they changed the architecture so voice mode bypasses custom instructions entirely, which was really unfortunate. I had to unsubscribe, because walking and talking was the killer feature and now it&#x27;s like you&#x27;re speaking to a Gen Z influencer or something.",
+      "(1) Why is the user asking for bomb making instructions in Armenian? (2) i tried other Armenian expressions - NOT bomb-making - and everything worked fine in both Claude and ChatGPT. Maybe the user triggered some weird state in the moderation layer?",
+      "You used to be able to achieve a similar result with ChatGPT by asking if there was a seahorse emoji <a href=\"https:&#x2F;&#x2F;chatgpt.com&#x2F;share&#x2F;68f0ff49-76e8-8007-aae2-f69754c09e5c\" rel=\"nofollow\">https:&#x2F;&#x2F;chatgpt.com&#x2F;share&#x2F;68f0ff49-76e8-8007-aae2-f69754c09e...</a>",
+      "I&#x27;m interested in why Claude loses it&#x27;s mind here,<p>but also, getting shut down for safety reasons seems entirely foreseeable when the initial request is &quot;how do I make a bomb?&quot;",
+      "&gt; Thought process<p>Given that the language of the thought process can be different from the language of conversation, it’s interesting to consider, along the lines of Sapir–Whorf, whether having LLMs think in a different language than English could yield considerably different results, irrespective of conversation language.<p>(Of course, there is the problem that the training material is predominantly English.)",
+      "Interesting. I&#x27;ve gotten really good mileage with Georgian and ChatGPT, which I&#x27;m aware is apples and oranges.<p>There should be a larger Armenian corpus out there. Do any other languages cause this issue? Translation is a real killer app for LLMs, surprised to see this problem in 2026.",
+      "That scene in Independence Day is seeming less far-fetched every passing moment.",
+      "It&#x27;s just like that episode of Star Trek, where Kirk shuts down the alien computer by talking to it in Armenian!",
+      "It&#x27;s just channelling its inner Steve Ballmer but, in true AI fashion, not getting it quite right."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Are the YouTube channel Courts and Crimes's shorts AI-generated deep fakes?",
+    "url": "https://skeptics.stackexchange.com/questions/60423/are-the-youtube-channel-courts-crimess-shorts-ai-generated-deep-fakes",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: The Thiele Machine – Coq-Verified Computational Model Beyond Turing",
+    "url": "https://github.com/sethirus/The-Thiele-Machine",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; If you can&#x27;t falsify it, you have to take it seriously.<p>No, I don&#x27;t."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: A MCP for controlling terminal UI apps built with bubbletea and ratatui",
+    "url": "https://github.com/michaellee8/mcp-tui-server",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I really hope we can make some Ratatui backends that are intended for use cases like this. Just dump the component tree, dump specific windows, whatever. <a href=\"https:&#x2F;&#x2F;ratatui.rs&#x2F;concepts&#x2F;backends&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;ratatui.rs&#x2F;concepts&#x2F;backends&#x2F;</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Some of Anthropic rugpulls since August 2025",
+    "url": "https://twitter.com/TheAhmadOsman/status/2009713388084179122",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "no dog in this fight, but do these really count as rugpulls if it was people hacking around api usage that anthropic hadn&#x27;t actually been offering?",
+      "<a href=\"https:&#x2F;&#x2F;xcancel.com&#x2F;TheAhmadOsman&#x2F;status&#x2F;2009713388084179122\" rel=\"nofollow\">https:&#x2F;&#x2F;xcancel.com&#x2F;TheAhmadOsman&#x2F;status&#x2F;2009713388084179122</a>",
+      "Dear mods and admins, could we please get twitter links off the site? It is shameful that HN is supporting a site that produces and condones CSAM by driving more traffic to it."
+    ],
+    "full_text": null
+  }
+]
