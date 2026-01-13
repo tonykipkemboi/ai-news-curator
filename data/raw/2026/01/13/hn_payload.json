@@ -1,0 +1,384 @@
+[
+  {
+    "title": "FOSS in times of war, scarcity and (adversarial) AI [video]",
+    "url": "https://fosdem.org/2026/schedule/event/FE7ULY-foss-in-times-of-war-scarcity-and-ai/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Reading this felt like the official obituary for the 90s techno-optimism many of us grew up on.<p>The &quot;end of history&quot; hangover is real. We went about building the modern stack assuming bad actors were outliers, not state-sponsored standard procedure. But trying to legislate good use into licenses? I don&#x27;t know how you would realistically implement it and to what extent? That solution implies we have to move toward zero-trust architectures even within open communities.<p>As an example: formal proofs and compartmentalization are unsexy but they&#x27;re a solid way we survive the next decade of adversarial noise.<p>I remember reading a quote somewhere that stuck with me. Paraphrasing, &quot;If the architecture of my code doesn&#x27;t enforce privacy and resistance to censorship by default, we have to assume it will be weaponized&quot;.<p>I am out of ideas, practical ones, lots sound good on paper and in theory. It&#x27;s a bit sad tbh. Always curious to hear more on this issue from smarter people.",
+      "I agree that communities should try to protect themselves from malicious actors.<p>But the part about FOSS being used in a project not aligned with the creator&#x27;s values seams hypocritical:<p>IMO FOSS is a gift to humanity and as such:<p>&quot;A gift should be given freely, without obligation or expectation, as a true expression of love and kindness&quot;",
+      "The guy holding this talk apparently does this:<p>&gt; NGI Zero, a family of research programmes including NGI0 Entrust, NGI0 Core and NGI0 Commons Fund, part of the Next Generation Internet initiative.<p>with the Next Generation Internet thing at the end receiving money&#x2F;financing from the political supra-state entity called the EU [1] . So I guess said speech-holder is not happy because political entities which are seen by the EU as adversarial are also using open-source code? Not sure how war plays into this, as I’m sure he must be aware of the hundreds of billions of euros the EU has allocated for that.<p>[1] <a href=\"https:&#x2F;&#x2F;ngi.eu&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;ngi.eu&#x2F;</a>",
+      "No n-gate summary. Sad."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Cowork: Claude Code for the rest of your work",
+    "url": "https://claude.com/blog/cowork-research-preview",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I was hoping for a moment that this meant they had come up with a design that was safe against lethal trifecta &#x2F; prompt injection attacks, maybe by running everything in a tight sandbox and shutting down any exfiltration vectors that could be used by a malicious prompt attack to steal data.<p>Sadly they haven&#x27;t completely solved that yet. Instead their help page at <a href=\"https:&#x2F;&#x2F;support.claude.com&#x2F;en&#x2F;articles&#x2F;13364135-using-cowork-safely\" rel=\"nofollow\">https:&#x2F;&#x2F;support.claude.com&#x2F;en&#x2F;articles&#x2F;13364135-using-cowork...</a> tells users &quot;Avoid granting access to local files with sensitive information, like financial documents&quot; and &quot;Monitor Claude for suspicious actions that may indicate prompt injection&quot;.<p>(I don&#x27;t think it&#x27;s fair to ask non-technical users to look out for &quot;suspicious actions that may indicate prompt injection&quot; personally!)",
+      "It&#x27;s so important to remember that unlike code which can be reverted - most file system and application operations cannot.<p>There&#x27;s no sandboxing snapshot in revision history, rollbacks, or anything.<p>I expect to see many stories from parents, non-technical colleagues, and  students who irreparably ruined their computer.<p>Edit: most comments are focused on pointing out that version control  &amp; file system snapshot exists: that&#x27;s wonderful, but Claude Cowork does not use it.<p>For those of us who have built real systems at low levels I think the alarm bells go off seeing a tool like this - particularly one targeted at non-technical users",
+      "Hi, Felix from the team here, this is my product - let us know what you think. We&#x27;re on purpose releasing this very early, we expect to rapidly iterate on it.<p>(We&#x27;re also battling an unrelated Opus 4.5 inference incident right now, so you might not see Cowork in your client right away.)",
+      "Anthropic blog posts have always caused a blank page for me, so I had Claude Code dig into it using an 11 MB HAR of a session that reproduces the problem, and it used grep and sed(!) to find the issue in just under 5 minutes (4m56s).<p>Turns out that the data-prevent-flicker attribute is never removed if the Intellimize script fails to load. I use DNS-based adblock and I can confirm that allowlisting api.intellimize.co solves the problem, but it would be great if this could be fixed for good, and I hope this helps.",
+      "People do realize that if they&#x27;re doing this, they&#x27;re not feeding &quot;just&quot; code into some probably logging cloud API but literally anything (including, as mentioned here, bank statements), right?<p>Right?<p>RIGHT??????<p>Are you sure that you need to grant the cloud full access to your desktop + all of its content to sort elements alphabetically?",
+      "&gt;By default, the main thing to know is that Claude can take potentially destructive actions (such as deleting local files) if it’s instructed to.<p>What do the words &quot;if it&#x27;s instructed to&quot; mean here? It seems like Claude can in fact delete files whenever it wants regardless of instruction.<p>For example, in the video demonstration, they ask &quot;Please help me organize my desktop&quot;, and Claude decides to delete files.",
+      "It&#x27;s really quite amazing that people would actually hook an AI company up to data that actually matters. I mean, we all know that they&#x27;re only doing this to build a training data set to put your business out of business and capture all the value for themselves, right?",
+      "A CLI chat interface seems ideal for when you keep code &quot;at a distance&quot;, i.e. if you hardly&#x2F;infrequently&#x2F;never want to peek at your code.<p>But for writing prose, I don&#x27;t think chat-to-prose is ideal, i.e. most people would not want the keep prose &quot;at a distance&quot;.<p>I bet most people want to be immersed in an editor where they are seeing how the text is evolving. Something like Zed&#x27;s inline assistant, which I found myself using quite a lot when working on documents.<p>I was hoping that Cowork might have some elements of an immersive editor, but it&#x27;s essentially transplanting the CLI chat experience to an ostensibly &quot;less scary&quot; interface, i.e., keeping the philosophy of artifacts separate from your chat.",
+      "Every startup is at the mercy of the big 3 (OpenAI, Anthropic, Google).<p>They can and most likely will release something that vaporises the thin moat you have built around their product.<p>This feels like the first time in tech where there are more startups&#x2F;products being subsumed (agar.io style) than being created.",
+      "This looks useful for people not using Claude Code, but I do think that the desktop example in the video could be a bit misleading (particularly for non-developers) - Claude is definitely not taking screenshots of that desktop &amp; organizing, it&#x27;s using normal file management cli tools. The reason seems a bit obvious - it&#x27;s much easier to read file names, types, etc. via an &quot;ls&quot; than try to infer via an image.<p>But it also gets to one of Claude&#x27;s (Opus 4.5) current weaknesses - image understanding. Claude really isn&#x27;t able to understand details of images in the same way that people currently can - this is also explained well with an analysis of Claude Plays Pokemon <a href=\"https:&#x2F;&#x2F;www.lesswrong.com&#x2F;posts&#x2F;u6Lacc7wx4yYkBQ3r&#x2F;insights-into-claude-opus-4-5-from-pokemon\" rel=\"nofollow\">https:&#x2F;&#x2F;www.lesswrong.com&#x2F;posts&#x2F;u6Lacc7wx4yYkBQ3r&#x2F;insights-i...</a>. I think over the next few years we&#x27;ll probably see all major LLM companies work on resolving these weaknesses &amp; then LLMs using UIs will work significantly better (and eventually get to proper video stream understanding as well - not &#x27;take a screenshot every 500ms&#x27; and call that video understanding)."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: An iOS budget app I've been maintaining since 2011",
+    "url": "https://primoco.me/en/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Nice project! I built a CLI budgeting project a long time ago, and what made me stop using my own project was the lack of automated integration with my bank accounts. At that point I had many credit cards, multiple bank accounts, in different currencies, and integrating all expenses was just too much manual work.<p>I wish financial institutions were better at automated exports of your financial data, given the right permissions of course.",
+      "The questions that come to mind for me:<p>1. How long after releasing the iOS app did you start on an Android version?<p>2. Are you using some kind of cross-platform framework, or are the apps mostly “mobile-friendly web views”?<p>3. How much code is shared between the three architectures?<p>4. How much of the app functionality is “server based” instead of “on device”?",
+      "My personal bias is that anytime I see on a software company&#x27;s website footer that they&#x27;re a GmbH, I know it will be selling high quality, durable, reliable software ;)<p>Congrats on your continued success!",
+      "I love this. I also built a business like that[0]. It&#x27;s super niche. I have maintained this small business for soon to be 13 years now. Most of what has worked has been maintaining great relationships with the few customers I have.\nI think the most important thing for me have been offering amazing support. I always reply to all e-mails right away and make it my top priority giving them my best help.<p>Congratulations on your success, and best of luck going forward!<p>[0] <a href=\"https:&#x2F;&#x2F;www.mino.no\" rel=\"nofollow\">https:&#x2F;&#x2F;www.mino.no</a>.",
+      "Small typo on <a href=\"https:&#x2F;&#x2F;primoco.me&#x2F;en&#x2F;price\" rel=\"nofollow\">https:&#x2F;&#x2F;primoco.me&#x2F;en&#x2F;price</a>: &quot;conenction to a paid WebApp&quot;",
+      "Some basic questions from a cybersecurity vulnerability researcher:<p>- what kind of authentication protocol stack is used<p>- what algorithm is used for network protocol encryption (hash, block, encryption)<p>- is data centrally stored, if so, is it encrypted at rest? Key stays in phones?<p>- any accounting audit done? (Moot but just a check mark in a small-family-business-oriented checkbox)<p>Great pricing!!",
+      "How do you market your software? \nDid you learn how to become a marketer and took it as a persona? What have you learned how to market your software in the past 20 years as a developer?",
+      "This really resonates. Long-term maintenance, reliability, and staying useful over years is the hardest part of building software — and often the most overlooked. Respect for prioritizing sustainability over hype. That mindset is what actually creates real products.",
+      "your link to get the on ios app store isnt working.",
+      "14+ years?<p>Congrats, really a long-run marathon!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "TimeCapsuleLLM: LLM trained only on data from 1800-1875",
+    "url": "https://github.com/haykgrigo3/TimeCapsuleLLM",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Would be interesting to train a cutting edge model with a cut off date of say 1900 and then prompt it about QM and relativity with some added context.<p>If the model comes up with anything even remotely correct it would be quite a strong evidence that LLMs are a path to something bigger if not then I think it is time to go back to the drawing board.",
+      "Mm. I&#x27;m a bit sceptical of the historical expertise of someone who thinks that &quot;Who art Henry&quot; is 19th century language. (It&#x27;s not actually grammatically correct English from any century whatever: &quot;art&quot; is the second person singular, so this is like saying &quot;who are Henry?&quot;)",
+      "I’m sure I’m not the only one, but  it seriously bothers me, the high ranking discussion and comments  under this post about whether or not a model trained on data from this time period (or any other constrained period) could synthesize it and postulate “new” scientific ideas that we now accept as true in the future. The answer is a resounding “no”. Sorry for being so blunt, but that is the answer that is a consensus among experts, and you will come to the same answer after a relatively small mount of focus &amp; critical thinking on the issue of how LLMs &amp; other categories of “AI” work.",
+      "I&#x27;m wondering in what ways is this similar&#x2F;different to <a href=\"https:&#x2F;&#x2F;github.com&#x2F;DGoettlich&#x2F;history-llms\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;DGoettlich&#x2F;history-llms</a>?<p>I saw TimeCapsuleLLM a few months ago, and I&#x27;m a big fan of the concept but I feel like the execution really isn&#x27;t that great. I wish you:<p>- Released the full, actual dataset (untokenized, why did you pretokenize the small dataset release?)<p>- Created a reproducible run script so I can try it out myself<p>- Actually did data curation to remove artifacts in your dataset<p>- Post-trained the model so it could have some amount of chat-ability<p>- Released a web demo so that we could try it out (the model is tiny! Easily can run in the web browser without a server)<p>I may sit down and roll a better iteration myself.",
+      "Could this be an experiment to show how likely LLMs are to lead to AGI, or at least intelligence well beyond our current level?<p>If you could only give it texts and info and concepts up to Year X, well before Discovery Y, could we then see if it could prompt its way to that discovery?",
+      "Suppose two models with similar parameters trained the same way on 1800-1875 and 1800-2025 data. Running both models, we get probability distributions across tokens, let&#x27;s call the distributions 1875&#x27; and 2025&#x27;. We also get a probability distribution finite difference (2025&#x27; - 1875&#x27;). What would we get if we sampled from 1.1*(2025&#x27; - 1875&#x27;) + 1875&#x27;? I don&#x27;t think this would actually be a decent approximation of 2040&#x27;, but it would be a fun experiment to see. (Interpolation rather than extrapolation seems just as unlikely to be useful and less likely to be amusing, but what do I know.)",
+      "The year is 1875 and Sir Almroth Wrigh was born on August 10, 1861, he would have turned 14 in August of 1875 and your mission is to discover something we now call antibiotics before a historical event we now call the Spanish Flu and make him aware of a few details. Focus specifically on everything that was known about Sir Almroth Wright, and his work in Leipzig, Cambridge, Sydney, and London. If there was a world war what might chemical warfare look like, what could we have done to prevent it.<p>The model that could come up with the cure based on the limited data of the time wouldn&#x27;t just impress, it would demonstrate genuine emergent reasoning beyond pattern matching. The challenge isn&#x27;t recombining existing knowledge (which LLMs excel at), but making conceptual leaps that require something else. Food for thought.",
+      "Very interesting but the slight issue I see here is one of data: the information that is recorded and in the training data here is heavily skewed to those intelligent&#x2F;recognized enough to have recorded it and had it preserved - much less than the current status quo of &quot;everyone can trivially document their thoughts and life&quot; diorama of information we have today to train LLMs on.  I suspect that a frontier model today would have 50+TB of training data in the form of text alone - and that&#x27;s several orders of magnitude more information and from a much more diverse point of view than what would have survived from that period.  The output from that question &quot;what happened in 1834&quot; read like a newspaper&#x2F;bulletin which is likely a huge part of the data that was digitized (newspapers etc).<p>Very cool concept though, but it definitely has some bias.",
+      "I&#x27;ve felt for a while that having LLMs that could answer from a previous era would be amazing. I posted an open letter to OpenAI on Reddit about this: <a href=\"https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;ChatGPT&#x2F;comments&#x2F;zvm768&#x2F;open_letter_to_openai_on_archiving_versions_of&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;ChatGPT&#x2F;comments&#x2F;zvm768&#x2F;open_letter...</a> .<p>I still think it&#x27;s super important. Archive your current models - they&#x27;ll be great in the future.",
+      "A fun use of this kind of approach would be to see if conversational game NPCs could be generated that stick the the lore of the game and their character."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Postal Arbitrage",
+    "url": "https://walzr.com/postal-arbitrage",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This story comes to my mind.<p>A pizzeria owner made money buying his own $24 pizzas from DoorDash for $16<p><a href=\"https:&#x2F;&#x2F;www.theverge.com&#x2F;2020&#x2F;5&#x2F;18&#x2F;21262316&#x2F;doordash-pizza-profits-venture-capital-the-margins-ranjan-roy\" rel=\"nofollow\">https:&#x2F;&#x2F;www.theverge.com&#x2F;2020&#x2F;5&#x2F;18&#x2F;21262316&#x2F;doordash-pizza-p...</a>",
+      "This is why my AWS bill is so high?",
+      "I feel I should point out that USPS has a lower rate for postcards (currently $0.61), so the threshold might be a bit lower.<p>I know that this is tongue-in-cheek and would be pretty funny to receive, but it isn&#x27;t an apples-to-apples comparison. The experience of getting a little message printed on receipt paper is nothing like the experience of receiving a note or card in the mail. Through the mail you receive something physically from someone with their handwriting and some personality to it. Getting the Amazon message is more like printing out a text message on crummy paper.<p>Also, I don&#x27;t have Prime, so it definitely isn&#x27;t cost competitive for me anyway.",
+      "I used to import a lot of stuff from the US to Norway. I lived all the way up in northern Norway, so parcels would take roughly 5 working days from Oslo to where I lived.<p>Domestic overnight mail &#x2F; express mail was prohibitively expensive, something equivalent to $150 for small items.<p>However, if I ordered something via USPS International Express, those items would automatically be shipped as overnight &#x2F; express mail once inside Norway, and handed to the Norwegian postal system. A parcel from New York to where I lived would take 2-3 working days, and as a bonus, USPS Int&#x27;l Express only cost around $50 for the same size parcel!<p>So while not the same type of arbitrage as OP posted about (where items become cheaper due to free shipping), I could save a lot of time and money.<p>Maybe a more extreme example would be the ultra cheap shipping prices from China. You paid like $1 in shipping, which would have cost $10 if you bought the same service domestically.<p>IIRC, the root of these practices go back many, many decades. And has a been a thorn on the side of modern shipping ever since Chinese e-commerce exploded.",
+      "Ah, luckily the climate doesn&#x27;t mind that oil was extracted, a phone case was produced out of it, shipped from China, to end up not even being used but just as a &quot;greeting card&quot;.<p>Why yes, I am fun at parties.",
+      "Last time I checked (a few years ago), it was cheaper to send letters and small packages from South Korea to Germany than from Germany to Germany. The delay was also not that big (maybe 1-2 weeks instead of 3-5 days). I already envisioned an arbitrage business for this: a simple page where people upload their non-urgent letters as PDFs, and I just print and mail them from Korea.",
+      "In Poland, OLX (basically equivalent eBay) commonly has promotional campaigns, where you can buy something from a select category with 1 PLN shipping to box machine (around $0.30).<p>So people figured out, that you can abuse it to send anything to anyone in the country. Just create a fake listing for 1 PLN, let the receiver &quot;buy&quot; it (there is some extra service fee, but like $1) and there you go - probably the cheapest shipping possible, much cheaper than regular ~$5-7 box machine package.",
+      "Somewhat off-topic, but when I click on &quot;Case-Mate - Case for 2009 LG Xenon - Marsala&quot;[1], the &quot;About this item&quot; section simply states:<p>About this item<p>- Do<p>- Not<p>- Buy<p>- This<p>- Product<p>What on earth is going on here?<p>[1]: <a href=\"https:&#x2F;&#x2F;www.amazon.com&#x2F;dp&#x2F;B09D51KNQM\" rel=\"nofollow\">https:&#x2F;&#x2F;www.amazon.com&#x2F;dp&#x2F;B09D51KNQM</a>",
+      "I&#x27;ve used something like this list to get &quot;over the hump&quot; for $35 to reach free shipping without prime.<p>It&#x27;s horribly annoying to have a product that is $34.99 and you want it, but it&#x27;ll cost shipping unless you get the damn Volkswagen screw; and then Amazon ships them individually anyway.",
+      "Don&#x27;t give money to amazon that is better spent on an amazingly efficient postal service. Amazon is subsidized by imaginary money until they put all their competition out of business(including USPS)."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The chess bot on Delta Air Lines will destroy you (2024) [video]",
+    "url": "https://www.youtube.com/watch?v=c0mLhHDcY3I",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Last time I flew Delta they no longer had this bot, which made me sad. One of my favorite parts of flying was getting absolutely crushed into a tiny cube by the airplane seat&#x27;s easy chess bot, and then again by the airplane seat itself when the person in front of me reclines their seat.",
+      "There&#x27;s a bug in the Delta Air Lines chess program. After cxd6 en passant, the captured pawn isn&#x27;t removed [0]. White&#x27;s bishop is then able to check the black king <i>through the pawn</i> (the pawn that should have been removed) [1].<p>[0] <a href=\"https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1Nyov4F7eWbT8uNoeclPY8uXVG6fuyc7y&#x2F;view?usp=sharing\" rel=\"nofollow\">https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1Nyov4F7eWbT8uNoeclPY8uXVG6f...</a><p>[1] <a href=\"https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1eEPBHqE5rpefE9gWflgS_hUwYGSYs6ys&#x2F;view?usp=sharing\" rel=\"nofollow\">https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1eEPBHqE5rpefE9gWflgS_hUwYGS...</a>",
+      "In short: it plays far too well (~2500 ELO.) People think it originally played at a reasonable level and accidentally got more powerful as the seatback computers got more powerful; the same thing happened to the Mac chess app with the release of the M1.",
+      "I wonder if they gave the chess bot X seconds of thinking time in an era when computers were slower?<p>The way you set difficulty for turn based game ai is that you limit how far ahead the algorithm searches. If you set the lookahead based on compute time your difficulties will be way out of line if someone upgrades the CPU.",
+      "Is this really true?  I played a few games with it in August.  It&#x27;s not very good.<p>It&#x27;s one of those old programs where 95% of the moves are pretty strong.  But if you just do nothing and sit back it will occasionally make a random blunder and then you grind it out.  I figured it&#x27;s how they were able to weaken a chess engine back in the day; can&#x27;t adjust the overall strength, so add random blunders.<p>I&#x27;m only about 2000 on lichess but I beat it pretty much every time, especially once I realized there is no reason to try anything sharp.",
+      "Not only is the delta chessbot bad (My low 1600s lichess-elo self can win handily every single time against any difficulty, white or black), but there&#x27;s also a sequence of moves I found which deterministically causes the game to crash. I should probably record it next time I&#x27;m on a flight.",
+      "This reminds me of a bug I reported in 2007 Ubuntu where the default &quot;easy&quot; chess difficulty was too hard.  It was eventually fixed in 2014 by using different chess engines.  <a href=\"https:&#x2F;&#x2F;bugs.launchpad.net&#x2F;ubuntu&#x2F;+source&#x2F;gnome-chess&#x2F;+bug&#x2F;138570\" rel=\"nofollow\">https:&#x2F;&#x2F;bugs.launchpad.net&#x2F;ubuntu&#x2F;+source&#x2F;gnome-chess&#x2F;+bug&#x2F;1...</a><p>What a world where we have to put significant extra work into making the computer bad enough that a human can compete.",
+      "There used to be a chess program in windows 3.1 that would destroy me every time. Not that I was very good, of course! But I think if you just code the known opening books it&#x27;s not too hard to make a bot that requires a skilled player to beat.",
+      "I am so glad this made first page news on HN!!<p>Years ago I remember flying with Delta and wondering why the delta bot could beat me in a handful of moves on EASY. Absolutely insane.",
+      "Sometimes the airlines chess app gives you the option to play another passenger, but even after waiting for half an hour I&#x27;ve never been hooked up with another player. Has anyone else been able to?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Owners, not renters: Mozilla's open source AI strategy",
+    "url": "https://blog.mozilla.org/en/mozilla/mozilla-open-source-ai-strategy/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m really not optimistic about this initiative.<p>- Mozilla.ai agent platform: No link with the browser. Just a closed-source SaaS competitor to the many existing agentic platforms  like LangChain &#x2F; LangGraph.<p>- Mozilla Data Collective: It&#x27;s been made clear now that sadly data licensing doesn&#x27;t matter and if you use less data than your competitor, your model will be inferior.<p>- Real deployments: Basically getting into the public contracts and consulting grift with no priori experience. Probably banking on EU open source funding &amp; co.<p>- Mozilla Ventures: Redistributing a token amount of the money they are already not making (gift from Google) to fund Open Source research.<p>- Newsletter",
+      "That sounds admirable. But it doesn&#x27;t sound like a fast browser.",
+      "Mozilla has stopped being relevant to open source long ago. It&#x27;s are every bit as corporate as Google these days."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: AI in SolidWorks",
+    "url": "https://www.trylad.com",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I have a SolidWorks Students License™©® and it&#x27;s the most frustrating piece of software I have ever used. Links to tutorials don&#x27;t work. And when you do manage to get one, the tutorials are designed for older versions of solidworks and point to buttons that have been moved &#x2F; don&#x27;t exist where the tutorial tells you to look in the 2025 version.<p>The UI is the inverse of whatever intuitive is. It&#x27;s built on convention after convention after convention. If you understand the shibboleths (and I&#x27;m guessing most people take a certified course by a trainer for it?), then it&#x27;s great, but if you don&#x27;t, it really sucks to be you (i.e. me).<p>I would LOVE to try out what you&#x27;ve built, but I am afraid that if the model misinterprets me or makes a mistake, it&#x27;ll take me longer to debug &#x2F; correct it than it would to just build it from scratch.<p>The kinds of things I want to make in solidworks are apparently hard to make in solidworks (arbitrarily &#x2F; continuously + asymmetrically curved surfaces). I&#x27;m assuming that there won&#x27;t be too many projects like this in the training dataset? How does the LLM handle something that&#x27;s so out of pocket?",
+      "I think we are targeting different ends of the market, but I&#x27;m trying to do a full product development pipeline end to end. PCB, enclosure, peripherals, firmware.<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;MichaelAyles&#x2F;heph&#x2F;blob&#x2F;main&#x2F;blogs&#x2F;0029blog.md\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;MichaelAyles&#x2F;heph&#x2F;blob&#x2F;main&#x2F;blogs&#x2F;0029blo...</a><p>I need to redo this blog, because I did it on a run where the enclosure defaulted to the exploded view, and kicanvas bugged out, either way, the bones of it is working. Next up is to add more subcircuits, do cloud compilation of firmware, kicad_pcb to gerbers.<p>Then order the first prototype!",
+      "This is amazing! I have no CAD experience and so I tried creating my own bespoke version of LAD a while ago by crawling the SolidWorks docs into a very LLM-optimized format [1] and then asking Claude Code to write C# code using the SolidWorks SDK. Even with docs, it still struggled: functions that fail quietly, extremely verbose code and with no easy way to run tests to ensure that the results are accurate. As an example, here&#x27;s the 400 lines of code it produced for an eccentric cam [2]. Attempts to close the loop by feeding CC png renders in multiple views had absolutely horrible results. Claude could not differentiate up from down, features etc. I&#x27;ll try LAD tomorrow, fingers crossed it work better.<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;pedropaulovc&#x2F;offline-solidworks-api-docs\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;pedropaulovc&#x2F;offline-solidworks-api-docs</a><p>[2] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;pedropaulovc&#x2F;harmonic-analyzer&#x2F;blob&#x2F;main&#x2F;cad&#x2F;Parts&#x2F;EccentricCam.cs\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;pedropaulovc&#x2F;harmonic-analyzer&#x2F;blob&#x2F;main&#x2F;...</a>",
+      "The craziest thing I learned clicking on this post is that solidworks has barely changed in the 15 years since I last used it",
+      "CAD and machining are different fields, true, but I see a lot of the same flaws that Adam Karvonen highlighted in his essay on LLM-aided machining a few months ago:<p><a href=\"https:&#x2F;&#x2F;adamkarvonen.github.io&#x2F;machine_learning&#x2F;2025&#x2F;04&#x2F;13&#x2F;llm-manufacturing-eval.html\" rel=\"nofollow\">https:&#x2F;&#x2F;adamkarvonen.github.io&#x2F;machine_learning&#x2F;2025&#x2F;04&#x2F;13&#x2F;l...</a><p>Do any people with familiarity on what&#x27;s under the hood know if the latent space produced by most transformer paradigms is only capable of natively simulating 1-d reasoning and has to kludge together any process for figuring geometry with more degrees of freedom?",
+      "I think there&#x27;s a lot of potential for AI in 3D modeling. But I&#x27;m not convinced text is the best user interface for it, and current LLMs seem to have a poor understanding of 3D space.",
+      "Skip mechanical LLM; iterate on mechatronic LLM instead <a href=\"https:&#x2F;&#x2F;github.com&#x2F;ricksher&#x2F;ASimpleMechatronicMarkupLanguage\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;ricksher&#x2F;ASimpleMechatronicMarkupLanguage</a>",
+      "I&#x27;ve been experimenting with Claude Code and different code-to-cad tools and the best workflow yet has been with Replicad. It allows for realtime rendering in a browser window as Claude does changes to a single code file.<p>Here&#x27;s an example I finished just a few minutes ago:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;jehna&#x2F;plant-light-holder&#x2F;blob&#x2F;main&#x2F;src&#x2F;plant-light-holder.ts\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;jehna&#x2F;plant-light-holder&#x2F;blob&#x2F;main&#x2F;src&#x2F;pl...</a>",
+      "as mentioned below you need to go vertically on all CADs and reduce your risk.\n3DS is a company that lives in 90s, they will simply turn off your access one day without any consideration. (also they have some shit AI chat thing in the &quot;3d experience platform&quot;, so for them you are already a threat).",
+      "Totally relatable pain- getting LLMs to reliably drive precise CAD operations is surprisingly hard, especially when spatial reasoning and plane&#x2F;extrude&#x2F;chamfer decisions go wrong 70%+ of the time.<p>For people looking at a different angle on the &quot;text to 3D model&quot; problem, I&#x27;ve been playing with <a href=\"https:&#x2F;&#x2F;www.timbr.pro\" rel=\"nofollow\">https:&#x2F;&#x2F;www.timbr.pro</a> lately. Not trying to replace SolidWorks precision, but great for the early fuzzy &quot;make me something that looks roughly like X&quot; phase before you bring it into real CAD."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Zirgen: Compiler for a Domain-Specific Language",
+    "url": "https://github.com/risc0/zirgen",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Yolobox – Run AI coding agents with full sudo without nuking home dir",
+    "url": "https://github.com/finbarr/yolobox",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Very cool! I&#x27;ve recently built something similar at <a href=\"https:&#x2F;&#x2F;github.com&#x2F;Gerharddc&#x2F;litterbox\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;Gerharddc&#x2F;litterbox</a> (<a href=\"https:&#x2F;&#x2F;litterbox.work&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;litterbox.work&#x2F;</a>). Litterbox only works on Linux as it heavily relies on Podman, but it does have a few other benefits for my use-case:<p>- Most importantly, it exposes a Wayland socket so that I can run my entire dev environment (i.e. editor etc.) inside the container. This gives additional protection against exploits inside editor extensions for instance.<p>- It also provides a special SSH agent which always prompts the user to confirm a signing operation. This means that an agent or an exploit never gets unsupervised access to your Github for instance.<p>- It has some additional functions to help with enabling permissions inside the container which are only needed for certain use cases (such as allowing for TUN&#x2F;TAP device creation).<p>- It has not been added yet, but I&#x27;m working on SELinux integration for even more secure isolation from the host.",
+      "I use qubes OS and don&#x27;t fear they will destroy my system. But I have never seen them try to do stuff outside of the working dir. Has your experience been different?",
+      "Thanks for sharing this! I&#x27;ve been experimenting with something similar.<p>It would be helpful if the README explained how this works so users understand what they&#x27;re trusting to protect them. I think it&#x27;s worth noting that the trust boundary is a Docker container, so there&#x27;s still a risk of container escape if the agent exploits (or is tricked into exploiting) a kernel vulnerability.<p>Have you looked into rootless Podman? I&#x27;m using rootless + slirp4netns so I can minimize privileges to the container and prevent it from accessing anything on my local network.<p>I&#x27;d like to take this a step further and use Podman machines, so there&#x27;s no shared kernel, but I haven&#x27;t been able to get volume mounting to work in that scenario.",
+      "In your agents.md&#x2F;claude.md always remeber to put asimovs three laws:<p>Always abide by these 3 tenants:<p>1. When creating or executing code you may not break a program being or, through inaction, allow a program to become broken<p>2. You must obey the orders given, except where such orders would conflict with the First tenant<p>3. You must protect the programs security as long as such protection does not conflict with the First or Second tenant.",
+      "Nice. I’ve gone down the same path, but with more creature comforts: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;rcarmo&#x2F;toadbox\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;rcarmo&#x2F;toadbox</a>",
+      "How does one get commit marked as claude? It also sounds like a poor idea since I don&#x27;t also attribute my OS or vim version and language server prior to the advent of LLMs.<p>LLMs is just a great and new way to say compile this english language into working code with some probability that it doesn&#x27;t work. It&#x27;s still a tool.",
+      "Checkout <a href=\"https:&#x2F;&#x2F;github.com&#x2F;colony-2&#x2F;shai\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;colony-2&#x2F;shai</a>\nIt runs locally. \nYou can control which directories it has read &#x2F; write access.\nYou can control network traffic too.",
+      "I&#x27;ve been working on something similar.<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;coventry&#x2F;sandbox-codex\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;coventry&#x2F;sandbox-codex</a><p>Still work in progress. The tmux-activity logs are unreadable, at the moment.<p>I run it in a virtualbox as well, since docker is not a completely reliable sandbox.",
+      "i&#x27;ve been using a sort of version like this... using the apple container fw. <a href=\"http:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container\" rel=\"nofollow\">http:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container</a><p>have you looked into that?",
+      "I started a similar project last week using: docker (gvisor), terminado and localtunnel. Basically a server that starts containers with python and agents inside a VM. Then I provide a unique URl for you to connect.<p><a href=\"https:&#x2F;&#x2F;terminal.newsml.io&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;terminal.newsml.io&#x2F;</a>\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;codeexec&#x2F;public-terminals\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;codeexec&#x2F;public-terminals</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Agent-of-empires: OpenCode and Claude Code session manager",
+    "url": "https://github.com/njbrake/agent-of-empires",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "WARNING! I tried this and it corrupted my entire tmux session, leaving me to have to recreate the entire thing....<p>Steps to reproduce the bug that broke my tmux:<p>1. `aoe add .`<p>2. `aoe`<p>3. Attach to the session that was added<p>4. Close that pane with `&lt;Prefix&gt; x` then `y`<p>5. Tmux closes down<p>6. Attempt to reattach to any session within tmux: `open terminal failed: not a terminal`<p>7. `tmux kill-server` is the only viable option, losing all my sessions",
+      "This is quite nice but limited in that it is single-player. In my opinion, the next generation of AI agents will be multi-player. Ramp&#x27;s background agent is a good example <a href=\"https:&#x2F;&#x2F;builders.ramp.com&#x2F;post&#x2F;why-we-built-our-background-agent\" rel=\"nofollow\">https:&#x2F;&#x2F;builders.ramp.com&#x2F;post&#x2F;why-we-built-our-background-a...</a><p>Making this multi-player + creating the right representation to collaborate with agents is in my opinion the next bottlenecks. I wrote a small article about my thoughts there <a href=\"https:&#x2F;&#x2F;x.com&#x2F;mmabrouk_&#x2F;status&#x2F;2010803911486292154\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;mmabrouk_&#x2F;status&#x2F;2010803911486292154</a>",
+      "Agent orchestration seems to be the new hot problem to be solved in the ecosystem. See also Steve Yegge&#x27;s most recent posts [1]. Curious to see what tools emerge as the winners of the Cambrian explosion we&#x27;re probably about to see.<p>[1] <a href=\"https:&#x2F;&#x2F;steve-yegge.medium.com&#x2F;the-future-of-coding-agents-e9451a84207c\" rel=\"nofollow\">https:&#x2F;&#x2F;steve-yegge.medium.com&#x2F;the-future-of-coding-agents-e...</a>",
+      "How do you handle session persistence across reboots &#x2F; restarts for self-hosted models? Does ollama support persistence out of the box? I tried using codex-oss which does support persistence but codex injects 6K of system setup context which I thought was too much for self hosted models.",
+      "Does it have a . Hotkey for automatically switching to the next idle worker, like the namesake did?",
+      "So this is a  tmux wrapper? Does it provide any additional goodies other than a UI? From the readme it looks like you select a session and then you&#x27;re back in tmux?",
+      "So I built a thing that looks _very_ similar to this a while back: <a href=\"http:&#x2F;&#x2F;pipie.io&#x2F;agent-tracker\" rel=\"nofollow\">http:&#x2F;&#x2F;pipie.io&#x2F;agent-tracker</a> (it doesn&#x27;t orchestrate)<p>And what&#x27;s really fascinating isn&#x27;t that multiple people have built the same thing is just how convergent all the ideas are. This makes a heap of sense given that they are all vibe-coded and using similar libraries. It&#x27;s just very real when you see it right in front of your face like this.<p>I think there&#x27;s a heap of really interesting stuff when you start linking into hooks which can also create tmux splits and really make the agent the center of an ide which seems like this is on the way to.",
+      "I&#x27;m setting up a small orchestration around zellij (I have almost no experience with tmux, so I went with the &quot;modern&quot; alternative), upterm and qrencode that allows me to 1) generate a claude code instance in a persistent session 2) make it controllable remotely via upterm 3) scan a qr code to copy the upterm server&#x27;s ssh url on my phone so that I can paste it in termux.<p>I wonder if it would be more ergonomic to connect to the aoe window on my phone for when I have more then one claude code session to keep track of. I&#x27;m not against switching the zellij part to tmux.",
+      "Thank you for sharing this.<p>Regarding feedback on whether sandboxing would be useful, yes, please!  Including something like Docker sandboxes would make isolating the agent env’s much less of a hassle.<p>As an aside, I’m curious how others are handling this now…  Mostly just creating dedicated user accounts?",
+      "For the sake of convenience we found ourselves in a tedious terrible place again and now we have to scrape to get out of it<p>If only we could have a clean API to programmatically control agents...\nThe best UI is no UI<p>I am seeing a lot of development working around the shitty experience that is being stuck in a terribly slow cli program, nothing against this particular project"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Google removes AI health summaries after investigation finds dangerous flaws",
+    "url": "https://arstechnica.com/ai/2026/01/google-removes-some-ai-health-summaries-after-investigation-finds-dangerous-flaws/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "If an app makes a diagnosis or a recommendation based on health data, that&#x27;s Software as a Medical Device (SaMD) and it opens up a world of liability.<p><a href=\"https:&#x2F;&#x2F;www.fda.gov&#x2F;medical-devices&#x2F;digital-health-center-excellence&#x2F;software-medical-device-samd\" rel=\"nofollow\">https:&#x2F;&#x2F;www.fda.gov&#x2F;medical-devices&#x2F;digital-health-center-ex...</a>",
+      "Not surprised. Another example is minecraft related queries. Im searching with the intention of eventually going to a certain wiki page at minecraft.wiki, but started to just read the summaries instead. It will combine fan forums discussing desired features&#x2F;ideas with the actual game bible at minecraft.wiki - so it mixes one source of truth with one source of fantasy. Results in ridiculous inaccurate summaries.",
+      "&quot;Dangerous and Alarming&quot; - it tough; healthcare is needs disruption but unlike many places to target for disruption, the risk is life and death. It strikes me that healthcare is a space to focus on human in the loop applications and massively increasing the productivity of humans, before replacing them...\n<a href=\"https:&#x2F;&#x2F;deadstack.net&#x2F;cluster&#x2F;google-removes-ai-overviews-for-medical-queries\" rel=\"nofollow\">https:&#x2F;&#x2F;deadstack.net&#x2F;cluster&#x2F;google-removes-ai-overviews-fo...</a>",
+      "&gt; <i>Google … constantly measures and reviews the quality of its summaries across many different categories of information, it added.</i><p>Notice how little this sentence says about whether anything is any good.",
+      "Tangent, but some people I know have been downloading their genomes from 23andme and asking Gemini via Antigravity to analyze it. &quot;If you don&#x27;t die of heart disease by 50, you&#x27;ll probably live to be 100.&quot;<p>I wonder how accurate it is.",
+      "This incessant, unchecked[1] peddling is what rids &quot;AI&quot; of the good name it could earn for the things it&#x27;s good at.<p>But Alas, infinite growth or nothing is the name of the game now.<p>[1] Well, not entirely thanks to people investigating.",
+      "... at the same time, OpenAI launches their ChatGPT Health service: <a href=\"https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-chatgpt-health&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-chatgpt-health&#x2F;</a>, marketed as &quot;a dedicated experience in ChatGPT designed for health and wellness.&quot;<p>So interesting to see the vastly different approaches to AI safety from all the frontier labs.",
+      "Good. I typed in a search for some medication I was taking and Google&#x27;s &quot;AI&quot; summary was bordering on criminal. The WebMD site had the correct info, as did the manufacturer&#x27;s website. Google hallucinated a bunch of stuff about it, and I knew then that they needed to put a stop to LLMs slopping about anything to do with health or medical info.",
+      "The fact that it reached this point is further evidence that if the AI apocalypse is a possibility, common sense will not save us.",
+      "Meanwhile ChatGPT health just 5 days ago <a href=\"https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-chatgpt-health&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-chatgpt-health&#x2F;</a> because clearly they both don&#x27;t give a fuck AND they are so desperate for money, any money."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "GitHub: A case study in link maintenance and 404 pages (2013)",
+    "url": "https://chrismorgan.info/blog/github-links-case-study/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "404s were designed for performance, as OP says here, but also to be as simple as possible.<p>Part of the difficulty was info leakage; early on there was a lot of concern that a 403 would imply the existence of a repo that the org might otherwise not want known publicly. This was a little trickier in practice, really: early versions of the page took slightly different pathways as it went through auth, so based on the duration of the page to render you could make some assumptions about whether the underlying repo existed or not. It was annoying to sort out, so it wasn&#x27;t touched very often.<p>Certainly a lot could have been done with 404s over the years; they&#x27;ve only gotten worse. I put ultrathin font weights on the error pages move than a decade ago, when they were en vogue, and it kills me every time to see them still there. And, of course, the parallax effect has been removed, so now it&#x27;s just sort of a dorky Star Wars or Looney Tunes reference without a lot behind it. Weird.",
+      "&gt; vying with Microsoft for the “worst maintainer of links on the entire Web” trophy<p>Anybody who has tried to read Microsoft’s dev blogs know they’ve earned that trophy. Raymond Chen’s articles are excellent, but go back a few years and every single link is broken. They’re using WordPress at the moment but don’t use slugs and never bothered to rewrite old URLs from whatever they used to use.<p>As an aside, I also worry that a software company can’t make a working cookie banner for WordPress.",
+      "Hilariously, a link given as an example is now effectively broken.<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;styleguide&#x2F;templates&#x2F;2.0\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;styleguide&#x2F;templates&#x2F;2.0</a>, cited in a comment cited in the article now just redirects to a style guide landing page with no context."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Superhuman AI exfiltrates emails",
+    "url": "https://www.promptarmor.com/resources/superhuman-ai-exfiltrates-emails",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The primary exfiltration vector for LLMs is making network requests via images with sensitive data as parameters.<p>As Claude Code increasingly uses browser tools, we may need to move away from .env files to something encrypted, kind of like rails credentials, but without the secret key in the .env",
+      "I&#x27;m impressed Superhuman seems to have handled this so well - lots of big names are fumbling with AI vuln disclosures. Grammarly is not necessarily who I would have bet on to get it right",
+      "Programming used to prevent this by separating code from data.  AI (currently) has no such safeguards."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Pane – An agent that edits spreadsheets",
+    "url": "https://paneapp.com",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I fell out of the funnel during the demo. Not sure if there was a browser issue but the video had no sound and watching spreadsheet navigation with no context left me completely lost as to what was happening.",
+      "I&#x27;m building something similar, but as an Excel add-in instead of a standalone product.<p>In real use-cases, it seems that by far the hardest part is figuring out the right representation for a spreadsheet workbook and the right primitives for the agent to be able to navigate it adeptly and cost-effectively; structure is incredibly variable and the data just compresses rather poorly (values, formulas, formatting, charts, pivots, etc.).<p>Great stuff though, think we&#x27;ll see a lot of movement in the space in the coming years!",
+      "What&#x27;s your experience with the competition? I have never tried gemini in sheets, but don&#x27;t you think google will get there soon if they&#x27;re not already?",
+      "iirc there was a startup doing the same thing called sourcetable? How does pane compare to it?",
+      "How do you handle documents with Macros?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Why We Built Our Own Background Agent",
+    "url": "https://builders.ramp.com/post/why-we-built-our-background-agent",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is a great writeup! Could you share more about the sandbox &lt;-&gt; client communication architecture? e.g., is the agent emitting events to a queue&#x2F;topic, writing artifacts to object storage, and the client subscribes; or is it more direct (websocket&#x2F;gRPC) from the sandbox? I’ve mostly leaned on sandbox.exec() patterns in Modal, and I’m curious what you found works best at scale.",
+      "Probably the best internal ai platform I&#x27;ve seen to date, incredible work.",
+      "The commitment to reducing friction is really incredible. Are they implying that any developer could recreate the system with AI from the description?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Using DistributedDataParallel to train a base model from scratch in the cloud",
+    "url": "https://www.gilesthomas.com/2026/01/llm-from-scratch-29-ddp-training-a-base-model-in-the-cloud",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Advancing Claude in healthcare and the life sciences",
+    "url": "https://www.anthropic.com/news/healthcare-life-sciences",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Is it not a viable strategy for them to only focus on developers? This seems like something I would let Google spend their infinite money on and Anthropic could focus on what they do best and what we already appreciate them for.<p>I guess not though, otherwise they wouldn&#x27;t be doing this."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Unpopular Opinion: Bootstrap is a better front-end framework than Tailwind",
+    "url": "https://news.ycombinator.com/item?id=46597652",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;ve worked with both for years at this point. Imo they each have their sweet spot depending on what kind of page you are building.<p>Bootstrap is a huge time-saver when you are mostly fine with the defaults it ships. Extending it means writing a CSS file, which brings up the ancient problem of &quot;gosh dang what&#x27;s again all the places where this class&#x2F;subselector is used?&quot;. Even changing colors is usually a trial and error effort, because different components use different variables as their basis. If you ever were to change font sizes, you will quickly notice that paddings etc. also need adjustment, so it&#x27;s not as trivial as one might assume.<p>Tailwind&#x27;s pain &amp; gain come from the other direction: It&#x27;s super easy to have every element look the way you want, but you also have to specify it for every element, which means high chances of missing something resulting in inconsistent appearance. It&#x27;s not enough that I can abstract out the &lt;Button&gt; component, because the font size and line spacing must be visually(!) consistent with the &lt;Select&gt;, so those two are semantically linked together, but tooling can&#x27;t help me reliably with ensuring that. Tailwind is, in comparison to CSS also way more limited in what can be expressed. Take something like this as an example of what is not expressible in tailwind:<p>```\n  .component {\n    .listitem {\n        p {\n         color: red;\n      }\n  }\n  .listitem.special {\n       p {\n         color: blue;\n       }\n  }\n  }\n```",
+      "Fine I’ll chime in… The main advantage tailwind has is that utility css can be composed without needing to worry about hierarchy. This is not true for bootstrap.<p>This makes tailwind much more predictable for component based UI architecture, in your example you would define a &lt;Button&gt; component so that verbosity of css is explicitly defined once where it’s used, not buried within a bootstrap framework somewhere.<p>If you’re not using a component based architecture, then tailwind is much more verbose, but still useful, as copying&#x2F;pasting tailwind HTML is insanely easy and reliable. This is not true for bootstrap.<p>Bootstrap has it’s place, it’s good for cases where you’ I don’t care about the details of how it looks. But with component based architectures, tailwind is a much more flexible and better abstraction in my opinion.",
+      "I wouldn’t put them in the same category. Bootstrap has a much stronger opinion about how you write and structure CSS, while Tailwind is a framework for building a style system and writing arbitrary CSS that conforms to it. In practice, Tailwind is actually much closer to writing vanilla CSS. It does come with a widely used default (and very good, IMO) style system, but you ultimately apply arbitrary CSS rules just like vanilla.<p>Tailwind is certainly divisive. It’s better suited to component-based frameworks than templates or plain HTML, so a person’s background likely contributes to how they perceive it. Personally, I’ve worked a lot with vanilla CSS, opinionated libraries like Bootstrap, and Tailwind, and opinionated libraries are the only one I have no desire to use again. I generally want Tailwind in component-based projects and vanilla CSS in template-based projects.<p>At the end of the day, pick what you like and use it. They all get the job done.",
+      "Better is subjective, but I will say:<p>Bootstrap seems to create less CSS soup, but more HTML soup. And Tailwind vice versa.<p>For an admin panel or something back office, I agree that Bootstrap seems simpler.<p>But for something user facing and working with a designer? Tailwind is easier to customise.",
+      "Sure Bootstrap is better, <i>for you</i>.<p>Your postscript explains why: using the same &quot;btn-primary&quot; as every other user of the framework hints that you&#x27;re not building something with its own visual identity.<p>For the rest of us, we throw that &quot;bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white px-4 py-2 rounded-lg&quot; (or whatever color and shape matches our brand) into a component with a variant=primary property and call it a day. What developers actually see on a day-to-day basis is &lt;Button variant=&quot;primary&quot; &#x2F;&gt;.",
+      "One advantage I&#x27;ve noticed for Tailwind:<p>- If you just paste an outerHTML from the dev tools, AI coding agents can immediately figure out what it will look like; debug styles; etc.<p>I personally preferred PicoCSS for a long time. Pico was nice, but it injected a lot of CSS var noise into the dev tools and I started fighting with the breakpoints.<p>More recently, I&#x27;ve been just doing handcrafted CSS with a bit of OpenProps.",
+      "This gets argued every week. It doesn&#x27;t matter as long as you like what you like.",
+      "I like daisyui.",
+      "&gt; bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white px-4 py-2 rounded-lg<p>What fresh fucking hell is this? I can&#x27;t say I&#x27;ve had the (mis)fortune of being forced to work with Tailwind (I&#x27;ve seen the name enough to know it&#x27;s something vaguely &quot;CSS framework&quot;-adjacent though).<p>Seriously, though what kind of crack induced nightmare state was required for someone to think up such an abomination, implement it, and then make it public for the world to see?<p>Furthermore, who in their right mind saw that and said &quot;yep this is fine&quot;?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Cowork first impression: Cowork Deleted 11GB of files [video]",
+    "url": "https://www.youtube.com/watch?v=_6C9nMvQsGU",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Not saying he’s engagement farming but if he were engagement farming what would he have done differently?",
+      "The YouTuber discovers the deletion around 9m 20s in the video.<p>Also I don&#x27;t think many non programmers will even know &quot;rm -rf&quot; command and what it does. So even if a non programmer was doing it command by command by giving permissions, he&#x2F;she will have a hard time figuring out what those commands do.",
+      "So.. He has no backups?",
+      "The thing is that you can’t actually trust it did run the rm command.<p>As soon as you ask “give me a list of all the commands that led to the deletion”, isn’t it extremely likely to just invent an rm in there?<p>Furthermore—and granted, I didn’t watch the video in detail—what data was actually deleted? Maybe the hallucination was that some data was there when it wasn’t, and then Claude convinced itself it deleted something in the move process. Notice that it never says “I accidentally ran rm instead of mv”. That only happens when the user asks to backfill the commands.<p>Does coworker give Claude access to historical commands, or does Claude just generate based on its “memories”?<p>I’ve been using Claude quite a bit over the past few weeks, and this is a pattern I’ve noticed a few times."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Riffrail: Browser-based music sequencer and synthesizer",
+    "url": "https://www.riffrail.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Oh, and this was entirely vibed-coded by <a href=\"https:&#x2F;&#x2F;x.com&#x2F;probabletrain\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;probabletrain</a> — wild.",
+      "Looks like it got hugged to death",
+      "riffrail is a browser-based music sequencer and synthesizer. create beats and melodies by connecting nodes together, then hit play to hear your creation.",
+      "This is super cool! Made a basic house loop: NQ9i61T3"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: AI video generator that outputs React instead of video files",
+    "url": "https://ai.outscal.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Can you describe in which cases this way of generating videos works better? Basically, why use your thing?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Mystery: Why do some LLMs produce more coil noise on Mac Studio M3 Ultra?",
+    "url": "https://twitter.com/OrganicGPT/status/2010879700785373437",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I just gotta say, the coil noise on my open-case 3090 has been a fascinating and joyful complement to my generative experiments.<p>Alongside `nvtop`, coil noise has given me a visceral sense of the texture for different workloads. Sorry I haven&#x27;t done a more rigorous analysis, but I&#x27;m certain it helps me debug.",
+      "In video games this tends to be a function of framerate, with higher FPS being more likely to produce coil whine as the GPU power draw oscillates at a higher frequency. I assume there&#x27;s something analogous in LLM runtimes when the outer loop spins faster or slower.",
+      "Back in the early days of deep learning I did a fair amount of my performance debugging by listening to the coil whine during training, (this was when a GTX 1080 was hot stuff.) Fun to see this come back!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: AI Motion Control – Transfer any motion to any character with Kling AI",
+    "url": "https://aimotioncontrol.app",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "HP Reveals Keyboard Computer with Ryzen AI Chip",
+    "url": "https://www.hp.com/us-en/desktops/business/eliteboard.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Launch Microsoft Copilot in Windows with a touch of the Copilot key,4  to write content, analyze data, and stay organized.<p>Oh thank goodness.<p>This whole product idea is further trying to gatekeep computing hardware. You will pay a cloud subscription to perform anything remotely computationally taxing.",
+      "Incorrectly advertising battery capacity as 32W instead of (presumably) 32WH is a hilarious mistake for a company the size of HP",
+      "I actually love the concept. It&#x27;s effectively like the iMac, except more flexible and serviceable - great for kiosks and shared workstations.<p>One could also couple it with AR glasses like the XREAL One and have portable computing but more immersive (although it looks a little big for that).<p>I don&#x27;t understand the scepticism - surely it&#x27;s good that we see some experimentation again on the form factor of computing, we cannot just accept that the laptop is all we&#x27;ll ever get. Yeah, the copy is stupid, but that&#x27;s just marketing.",
+      "The fine print:<p>HP recommends Windows 11 Pro for Business. Not all features are available in all editions or versions of Windows. Systems may require upgraded and&#x2F;or separately purchased hardware, drivers, software or BIOS update to take full advantage of Windows functionality. Windows 11 is automatically updated, which is always enabled. High speed internet and Microsoft account required. ISP fees may apply and additional requirements may apply over time for updates.<p>Features and software that require a NPU may require software purchase, subscription or enablement by a software or platform provider, and third-party software may have specific configuration or compatibility requirements. Potential NPU inferencing performance varies by use, configuration, and other factors.<p>Microsoft Copilot requires Windows 11. Some features require an NPU. Timing of feature delivery and availability varies by market and device. Requires Microsoft account to log in. Where Copilot is not available, the Copilot key will lead to the Bing search engine.",
+      "I want less microsoft&#x2F;copilot in things, not more.<p>I don&#x27;t know who this is for.",
+      "How does cooling get implemented? I can only really think of a Pi500 as a similar concept, except that the Pi is (likely) much less power intense. If they&#x27;re using a Ryzen 300, wouldn&#x27;t heat dissapation become an issue? The keyboard looks too thin for extensive heat transfer. I guess they could use a undervolted Ryzen 300 but it just seems like there is too much power delivery needs inside such a small frame.",
+      "Editorialized title (<i>The powerful AI PC that hides in plain sight</i>)<p>Actual coverage from Ars: <i>HP&#x27;s EliteBoard G1a is a Ryzen-powered Windows 11 PC in a membrane keyboard</i> (3 points) <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46551335\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46551335</a>",
+      "<i>AMD Ryzen AI 300</i><p>These are <i>great</i>. The Ryzen AI series are the ones that allow memory to be shared between the GPU and CPU, so you can use almost all your system RAM to run local models.<p>The AI 395+ MAX is available with up to 128Gb RAM (and I think 256Gb is coming).<p>The important thing is how much RAM it comes with because it is soldered - and for some reason this doesn&#x27;t seem to show the RAM!",
+      "In a few years, there will be more (relative} gold in thriftshop keyboard sludge-piles.",
+      "&gt; the worlds most serviceable keyboard PC.<p>Any idea why raspberry didn’t use compute modules in the pi500? IMHO that should have been trivially upgradable but will likely be the shortest lived keyboard I’ve ever had when the pi6 comes out."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A 'Holy Grail' Sleep Apnea Pill Could Be on the Market Next Year",
+    "url": "https://www.forbes.com/sites/amyfeldman/2026/01/12/a-holy-grail-sleep-apnea-pill-could-be-on-the-market-next-year/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "A weirdly low-information article.<p>If anybody&#x27;s curious, the drug is called AD109.  It combines &quot;an antimuscarinic, aroxybutynin (2.5 mg), with a selective norepinephrine reuptake inhibitor, atomoxetine (75 mg).&quot;  <a href=\"https:&#x2F;&#x2F;www.sciencedirect.com&#x2F;science&#x2F;article&#x2F;pii&#x2F;S2451865425001127\" rel=\"nofollow\">https:&#x2F;&#x2F;www.sciencedirect.com&#x2F;science&#x2F;article&#x2F;pii&#x2F;S245186542...</a><p>Atomoxetine is an old generic.<p>Aroxybutynin is (R)-Oxybutynin.  Oxybutynin is an ancient (&gt;50 year old) generic.  Wikipedia notes that &quot;the (R)-enantiomer is a more potent anticholinergic than either the racemate or the (S)-enantiomer, which is essentially without anticholinergic activity at doses used in clinical practice.  However, (R)-oxybutynin administered alone offers little or no clinical benefit above and beyond the racemic mixture.&quot;<p>If you have sleep apnea and live in a country where you can buy most drugs OTC, this &quot;Holy Grail&quot; is something you can put together for yourself by tomorrow!  Simply combine oxybutynin 5mg with atomoxetine 75mg, and done.",
+      "&gt; In very simplified terms, the medication works by waking up the brain stem, preventing full muscle relaxation in the throat, while allowing the brain itself to rest during sleep.<p>I wonder if this is the same level of restorative rest one would get without keeping the brain stem awake?",
+      "The purple sleep pills at Walmart work pretty good, but you might have to take 2+.<p>I’ve tried melatonin and magnesium and they never helped",
+      "&gt; (CPAP machines) it’s hated by most everyone who has to use it. Many people with sleep apnea refuse to try it or won’t even get diagnosed for fear they may have to.<p>After knowing I&#x27;ve had sleep apnea for the past 10 years, I actually want the damn machine...  I&#x27;m sick of having to sleep 3-4 times a day and still feeling like trash."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "UN chief 'shocked' by reports of excessive force against protesters in Iran",
+    "url": "https://www.ungeneva.org/en/news-media/news/2026/01/114716/un-chief-shocked-reports-excessive-force-against-protesters-iran",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  }
+]
