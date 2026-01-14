@@ -1,0 +1,417 @@
+[
+  {
+    "title": "Systematically generating tests that would have caught Anthropic's top‑K bug",
+    "url": "https://theorem.dev/blog/anthropic-bug-test/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Recently asked Claude Code how to do more thorough tests and described how I imagine it and it set up Hypothesis and mutmut testing. The latter is quite cool, it introduces bugs in the code like swapping values and relational operators and checks if any test catches the bug. If not, your tests are probably not thorough enough. Better than just line coverage checks.",
+      "Fuzzing as a concept is heavily underused in routine testing. People will usually focus on positive flows and some obvious&#x2F;typical negative ones. But it&#x27;s almost impossible to have the time to write exhaustive testing to cover all negative and boundary scenarios. But the good news is, you don&#x27;t actually have to. There are so many tools now that can almost exhaustively generate tests for you at all levels. The bad news, they are not so widely used.",
+      "Would you call it a K-top Defect Hunter?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: OSS AI agent that indexes and searches the Epstein files",
+    "url": "https://epstein.trynia.ai/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "As many others pointed out, the released files are nearly nothing compared to the full dataset. Personally I&#x27;ve been fiddling a lot with OSINT and analytics over the publicly available Reddit data(a considerable amount of my spare time over the last year) and the one thing I can say is that LLMs are under-performing(huge understatement) - they are borderline useless compared to traditional ML techniques. But as far as LLMs go, the best performers are the open source uncensored models(the most uncensored and unhinged), while the worst performers are the proprietary and paid models, especially over the last 2-3 months: they have been nerfed into oblivion - to the extent where simple prompts like &quot;who is eligible to vote in US presidential elections&quot; is considered a controversial question. So in the unlikely event that the full files are released, I personally would look at the traditional NLP techniques long before investing any time into LLMs.",
+      "The question is not how to analyze that, it&#x27;s how to prosecute those who are above the law.",
+      "I keep thinking that the lack of children’s faces in the blacked out rectangles make the files much less shocking. I wonder if AI could put back fake images to make clearer to people how sick all this is.",
+      "Please create a way to share conversations. I think that can be really relevant here<p>I am not a huge fan of AI but I allow this use case. This is really good in my opinion<p>Allowing the ability to share convo&#x27;s, I hope you can also make those convo&#x27;s be able to archived in web.archive.org&#x2F;wayback machine<p>So I am thinking it instead of having some random UUID, it can have something like <a href=\"https:&#x2F;&#x2F;duckduckgo.com&#x2F;?q=hello+test\" rel=\"nofollow\">https:&#x2F;&#x2F;duckduckgo.com&#x2F;?q=hello+test</a> (the query parameter for hello test)<p>Maybe its me but archive can show all the links archived by it of a particular domain, so if many people asks queries and archives it, you almost get a database of good queries and answers. Archive features are severely underrated in many cases<p>Good luck for your project!",
+      "Feedback: This agent didn&#x27;t really work well when I tried it with a specific non-famous, but definitely publicly known individual with known connections to Epstein.  I&#x27;d rather not post a specific name here. I found more documents with keyword searches. I guess it did get me to the conclusion that there wasn&#x27;t much out there, but it didn&#x27;t even mention stuff that showed up in name keyword searches.<p>To replicate though, you might look at the list of individuals mentioned in the brief email from Epstein to Bannon a couple weeks before Esptein died containing ~30 names and phow your engine works with each one.  See how a keyword search does on library of congress vs your agent.",
+      "When first reading OSS, I thought this was going to be an Office of Strategic Services AI [0] agent :)<p>[0] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Office_of_Strategic_Services\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Office_of_Strategic_Services</a>",
+      "Those are going to be some spicy hallucinations.",
+      "And what did you learn?",
+      "Is it able to handle a much larger dataset? Only a tiny fraction of data has been release from what is looks like.",
+      "Does this work with vector embeddings?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "vLLM large scale serving: DeepSeek 2.2k tok/s/h200 with wide-ep",
+    "url": "https://blog.vllm.ai/2025/12/17/large-scale-serving.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "If I followed the links correctly this benchmark was made on a 16xH200. At current prices I&#x27;d assume that is a system price of around $750,000.<p>The year has 86400*365 = 31536000 seconds. Thus 63072000000 tokens can be generated. As pricing is usually given per 1M tokens generated, this is 63072 such packages.<p>Now lets write off the investment over 3 years, 250,000&#x2F;63072 = 3.96. So almost $4 per 1M tokens generated with prompt processing included.<p>Model was a Deepseek 671B 32B MoE.<p>Looks to me that $20 for a month of coding is not very sustainable - let&#x27;s enjoy the party while VCs are financing it! And keep an eye on your consumption...<p>Electricity costs seem negligable with ~$10,000 per year at 10cts per kWh but overall cost would be ~10% higher if electricity is more like 30cts like it is in Europe.<p>Edit: like it is pointed out by other commenters it is 2200t&#x2F;s per single GPU thus the result needs to be divided by 16: $4&#x2F;16 = $0.25. This actually somewhat matches the deepseek API pricing.",
+      "I wish there were more open benchmarks comparing different setups and different engines. There are so many knobs to tune (TP &#x2F; DP &#x2F; PP &#x2F; PD &#x2F; spec. decoding &#x2F; etc.) and while the optimal setup will be highly dependent on the model, the environment and the traffic, it&#x27;s likely some useful conclusions could be drawn.<p>It almost feels like in the past year there is some unwritten agreement between the 3 main open-source engines (vLLM, sglang, TRT-LLM) to not compare to each other directly :) They used to publish benchmarks comparing against each other quite regularly.",
+      "Impressive performance work. It&#x27;s interesting that you still see these 40+% perf gains like this.<p>Makes you think that you will continue to see the costs for a fixed level of &quot;intelligence&quot; dropping.",
+      "Very impressive numbers - I&#x27;d expect 2K tok&#x2F;s on Cerebras hardware, not H200&#x27;s.",
+      "Hey HN! I’m Seiji Eicher from Anyscale, one of the authors of this post :) Feel free to ask questions here.",
+      "Still have to update it for snakepit 0.11.0, but I did start a vLLM wrapper for Elixir<p><a href=\"https:&#x2F;&#x2F;hex.pm&#x2F;packages&#x2F;vllm\" rel=\"nofollow\">https:&#x2F;&#x2F;hex.pm&#x2F;packages&#x2F;vllm</a>",
+      "Now all we need is better support for AMD gpus, both CDNA and RDNA types",
+      "Love vLLM!",
+      "As a user of a lot of coding tokens I’m most interested in latency - these numbers are presumably for heavily batched workloads. I dearly wish Claude had a cerebras endpoint.<p>I’m sure I’d use more tokens because I’d get more revs, but I don’t think token usage would increase linearly with speed: I need time to think about what I want to and what’s happened or is proposed. But I feel like I would be able to stay in flow state if the responses were faster, and that’s super appealing.",
+      "I couldn&#x27;t care less, tbh. This speed is ridiculously high, to the point where tool calls, not inference, become the bottleneck.<p>Also, I&#x27;d rather run a large model at slower speeds than a smaller at insanely high speeds."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI generated music barred from Bandcamp",
+    "url": "https://old.reddit.com/r/BandCamp/comments/1qbw8ba/ai_generated_music_on_bandcamp/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Funny to see this right now. Spotify&#x27;s promotion of AI music bothered me so much that it has actually pushed me to Bandcamp and the practice of buying music again. It&#x27;s really fun to build a collection knowing you&#x27;re supporting the artists, download FLAC files, organize your little &quot;collection&quot; page ... Feels like a renaissance in my relationship with music, the most fun I&#x27;ve had since what.cd. Anyway, love this stance they&#x27;re taking.",
+      "I&#x27;m a musician, but am also pretty amused by this anti ai wave.<p>There was recently a post referencing aphex twin and old school idm and electronic music stuff and i can&#x27;t help bein reminded how every new tech kit got always demonized until some group of artists came along and made it there own. Even if its just creative prompting, or perhaps custom trained models, someday someone will come along and make a genuine artistic viable piece of work using ai.<p>I&#x27;d pay for some app which allows be to dump all my ableton files into, train some transformer on it, just to synthesize new stuff out of my unfinished body of work. It will happen and all lines will get blurred again, as usual.",
+      "Completely understandable.<p>I had this opinion for a long time, but only recently was I personally affected, but that made me even more convinced.<p>I was listening to my new releases playlist on Apple Music and listened to a track that sounded nice, but also a little generic. I don’t know exactly what prompted me to check, but it had all the signs of something fishy going on like generic cover image, the artist page showed a crazy output of singles last year (all the same generic images), unspecific metadata and - to my surprise - I found other Reddit posts about this artist being AI.<p>Now, a lot of music is generic and goes through so many hands you can hardly call it a personal piece of art. But even then, there’s always <i>some</i> kind of connection.<p>I guess that’s why I felt betrayed.<p>I thought AI generated art was wrong before, but I didn’t expect to feel this mix of anger and disappointment.",
+      "A few months ago I spoke with the frontman of a local Boston band from the 1980s, who recently re-released a single with the help of AI. The source material was a compact cassette tape from a demo, found in a drawer. He used AI to isolate what would&#x27;ve been individual tracks from the recording, then cleaned them up individually, without AI&#x27;s help.<p>Does that constitute &quot;wholly or in substantial part&quot;? Would the track have existed were it not for having that easy route into re-mastering?<p>I understand what Bandcamp&#x27;s trying to do here, and I generally am in support of removing what we&#x27;d recognize as &quot;fully AI-generated music&quot;, but there are legitimate creative uses of AI that might come to wholly or substantially encompass the output. It&#x27;s difficult to draw any lines line on a creative work, by just by nature of the work being creative.<p>(For those interested - check out O Positive&#x27;s &quot;With You&quot; on the WERS Live at 75 album!)",
+      "I recently learned about Bandcamp Fridays: &quot;on which we waive our revenue share and pass the funds directly to artists &amp; labels&quot;<p><a href=\"https:&#x2F;&#x2F;daily.bandcamp.com&#x2F;features&#x2F;bandcamp-fridays\" rel=\"nofollow\">https:&#x2F;&#x2F;daily.bandcamp.com&#x2F;features&#x2F;bandcamp-fridays</a><p>I&#x27;m still sad about the company&#x27;s sale to Epic and then Songtradr, but glad to see that the service hasn&#x27;t turned to garbage yet.",
+      "I&#x27;m not ideologically opposed to making music with AI, but the dream would be new songs which which showcase the new sounds and musical forms that AI enables, like Believe for autotune, or Rumble for electric guitar, or Autobahn for synths.<p>I want a friend to message me like &quot;Hey, there&#x27;s some interesting stuff happening in the AI music scene, check out these tracks&quot;.<p>But everything I&#x27;ve seen is pastiche, either novelty songs (hit song as different genre, or famous monologue from popular movie as pop song) or generic background music meant for algorithmic streaming playlists.",
+      "Every major platform needs to also do this. They&#x27;ve all become overrun with literal trash.",
+      "Reddit link is an official announcement, and it&#x27;s also on their blog<p><a href=\"https:&#x2F;&#x2F;blog.bandcamp.com&#x2F;2026&#x2F;01&#x2F;13&#x2F;keeping-bandcamp-human&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;blog.bandcamp.com&#x2F;2026&#x2F;01&#x2F;13&#x2F;keeping-bandcamp-human&#x2F;</a>",
+      "For comparison, as an artist, I made 90 Euros on Bandcamp in December and 0.08 Eurocent on all other streaming platforms together! :-D",
+      "I&#x27;ve been having fun making stuff in Suno, I&#x27;m not a musician but I&#x27;ve always enjoyed &quot;producing tracks&quot; using Abelton and find the Suno + Abelton combo to be real magic on the weekends. I think some of the stuff I made isn&#x27;t too bad and I&#x27;d love feedback on it. For a few weeks I went back and forth about uploading them to my soundcloud and resolve with this: I wouldn&#x27;t have insisted we only allowed art made with MS paint on deviantART, we didn&#x27;t even enforce quality (tho we highlighted) -  we enforced the type of kindness that leads to learning and growth. I hope we can have places for professionals and places for people to display and play with creativity and art irrespective of the tooling. :)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "We can't have nice things because of AI scrapers",
+    "url": "https://blog.metabrainz.org/2025/12/11/we-cant-have-nice-things-because-of-ai-scrapers/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Metabrainz is a great resource -- I wrote about them a few years ago here: <a href=\"https:&#x2F;&#x2F;www.eff.org&#x2F;deeplinks&#x2F;2021&#x2F;06&#x2F;organizing-public-interest-musicbrainz\" rel=\"nofollow\">https:&#x2F;&#x2F;www.eff.org&#x2F;deeplinks&#x2F;2021&#x2F;06&#x2F;organizing-public-inte...</a><p>There&#x27;s something important here in that a public good like Metabrainz would be fine with the AI bots picking up their content -- they&#x27;re just doing it in a frustratingly inefficient way.<p>It&#x27;s a co-ordination problem: Metabrainz assumes good intent from bots, and has to lock down when they violate that trust. The bots have a different model -- they assume that the website is adversarially &quot;hiding&quot; its content. They won&#x27;t believe a random site when it says &quot;Look, stop hitting our API, you can pick all of this data in one go, over in this gzipped tar file.&quot;<p>Or better still, this torrent file, where the bots would briefly end up improving the shareability of the data.",
+      "AI is destroying the free internet along with everything else<p>My web host suspended my website account last week due to a sudden large volume of requests to it - effectively punishing me for being scraped by bots.<p>I&#x27;ve had to move to a new host to get back up, but what hope does the little guy have? it&#x27;s like GPU and ram prices, it doesn&#x27;t matter if I pay 10x 100x or 1000x more than I did, the AI companies have infinite resources, and they don&#x27;t care what damage they do in the rush to become the no 1 in the industry<p>The cynic in me would say it&#x27;s intentional, destroy all the free sites so you have to get your info from their ai models, price home users out of high end hardware so they have to lease the functions from big companies",
+      "I sysadmin my kids&#x27; PTA website. OpenAI was scraping it recently. I saw it looking at the event calendar, request after request to random days. I saw years 1000 through 3000 scroll by. I changed the response to their user agent to an access denied, but it still took about 4 hours for them to stop.",
+      "I self host a small static website and a cgit instance on an e2-micro VPS from Google Cloud, and I have got around 8.5 million requests combined from openai and claude over around 160 days. They just infinitely crawl the cgit pages forever unless I block them!<p><pre><code>    (1) root@gentoo-server ~ # egrep &#x27;openai|claude&#x27; -c &#x2F;var&#x2F;log&#x2F;lighttpd&#x2F;access.log\n    8537094\n</code></pre>\nSo I have lighttpd setup to match &quot;claude|openai&quot; in the user agent string and return a 403 if it matches, and a nftables firewall seutp to rate limit spammers, and this seems to help a lot.",
+      "Cloudflare has a service for this now that will detect AI scrapers and send them to a tarpit of infinite AI generated nonsense pages.",
+      "The SQLite team faced a similar problem last year, and Richard Hipp (the creator of SQLite) made almost the same comment:<p>&quot;The malefactor behind this attack could just clone the whole SQLite source repository and search all the content on his own machine, at his leisure. But no: Being evil, the culprit feels compelled to ruin it for everyone else. This is why you don&#x27;t get to keep nice things....&quot;<p><a href=\"https:&#x2F;&#x2F;sqlite.org&#x2F;forum&#x2F;forumpost&#x2F;7d3eb059f81ff694\" rel=\"nofollow\">https:&#x2F;&#x2F;sqlite.org&#x2F;forum&#x2F;forumpost&#x2F;7d3eb059f81ff694</a>",
+      "the more time passes the more i&#x27;m convinced that the solution is to—somehow—force everyone to have to go through something like common crawl<p>i don&#x27;t want people&#x27;s servers to be pegged at 100% because a stupid dfs scraper is exhaustively traversing their search facets, but i also want the web to remain scrapable by ordinary people, or rather go back to how readily scrapable it used to be before the invention of cloudflare<p>as a middle ground, perhaps we could agree on a new &#x2F;.well-known&#x2F; path meant to contain links to timestamped data dumps?",
+      "Its not just AI scrappers doing it by themselves but now users are also being trained to put the link in the claude chat&#x2F;chat gpt and ask it to summarise it. And off course that would show up on the website end as a scraper.<p>In fact firefox now allows you to preview the link and get key points without ever going to the link[1]<p>[1] <a href=\"https:&#x2F;&#x2F;imgur.com&#x2F;a&#x2F;3E17Dts\" rel=\"nofollow\">https:&#x2F;&#x2F;imgur.com&#x2F;a&#x2F;3E17Dts</a>",
+      "Okay, it&#x27;s been established that &quot;AI&quot; crawlers are a pest. One of the reasons being that they don&#x27;t actually run any &quot;AI&quot;, that would be too expensive.<p>You can&#x27;t ban by user agent because that will only catch the few crawlers that are actually honest about it.<p>Aren&#x27;t there rate limiting solutions built into at least some web servers? At least if you control your own web server, can&#x27;t you do it through some reverse proxy?<p>Cut off IPs that make more than NN requests in a minute? Require some kind of login to allow more, if you do have endpoints that are designed to be bulk hit?<p>There should be ready made solutions for this still. In spite of the current answer being &quot;lulz it&#x27;s too hard, just use cloudflare&quot;.",
+      "I feel the pain — it’s very difficult to detect many of the less ethical scrapers. They use residential IP pools, rotate IPs, and provide valid user agents."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A deep dive on agent sandboxes",
+    "url": "https://pierce.dev/notes/a-deep-dive-on-agent-sandboxes",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Very interesting read, I had no idea agents already had so much sandboxing built in! It does seem like this is probably not enough though.<p>A few months ago I built <a href=\"https:&#x2F;&#x2F;github.com&#x2F;Gerharddc&#x2F;litterbox\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;Gerharddc&#x2F;litterbox</a> (<a href=\"https:&#x2F;&#x2F;litterbox.work&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;litterbox.work&#x2F;</a>) primarily to shield my home directory from supply-chain attacks, but I imagine it could be very useful for defending against rogue agents too. Essentially it is a dev-container-like system for Linux built on rootless Podman with a strong focus on isolation and security.<p>A key difference to normal dev-containers is that it encourages placing your entire dev environment (i.e. also the editor etc.) inside the container so that you are even protected from exploits in editor extensions for instance. This also makes it safer to allow agents (or built tools) to for instance install packages on your system since this is not the &quot;real&quot; system, it is only a container.<p>Another important feature I added to Litterbox (and one I have not seen before) is a custom SSH agent which always prompts the user to confirm a signing operation through a pop-up. This means that things inside a Litterbox do not have unrestricted access to your normal SSH agent (something which could provide rogue actors access to your Github for instance).",
+      "6 months back I started dockerizing  my setup after multiple npm vulnerabilities.<p>Then I wrote a small tool[1] to streamline my sandboxing.<p>Now, I run agents inside it for keeping my non-working-directory files safe.<p>For some tools like markdown linter, I run them without network access as well.<p>1- <a href=\"https:&#x2F;&#x2F;github.com&#x2F;ashishb&#x2F;amazing-sandbox\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;ashishb&#x2F;amazing-sandbox</a>",
+      "The secret proxy trick is something I expect to become standard at some point in the near future. I first saw this trick being used in Deno Sandboxes (<a href=\"https:&#x2F;&#x2F;docs.deno.com&#x2F;sandboxes&#x2F;security&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;docs.deno.com&#x2F;sandboxes&#x2F;security&#x2F;</a>) but it&#x27;s cheap&#x2F;easy to implement so I&#x27;d be surprised if this doesn&#x27;t become the standard for a lot of these BaaS platforms.",
+      "I would like to see more articles about agent sandboxes.  With agents gaining popularity we need a higher fraction of users to understand containers and sandboxes and their risk profiles, and then to communicate their understandings to friends and family. It is a harder task than explaining ChatGPT, and it often feels like a hindrance.",
+      "Hugged to death? Seeing SSL failure to the site from CloudFlare.",
+      "devcontainers, devcontainers, devcontainers",
+      "&gt; turning complete<p>Dude, really?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Influencers and OnlyFans models are dominating U.S. O-1 visa requests",
+    "url": "https://www.theguardian.com/us-news/2026/jan/11/onlyfans-influencers-us-o-1-visa",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It&#x27;s funny, early on it says<p>&gt; The O-1 category includes the O-1A, which is designated for individuals with extraordinary ability in the sciences, education, business or athletics and the O-1B, reserved for those with “extraordinary ability or achievement”.<p>Then later it says<p>&gt; The O-1B visa, once reserved for Hollywood titans and superstar musicians, has evolved over the years.<p>I understand those two aren&#x27;t necessarily contradictory, but the wording of the first sentence paints a very different mental picture than the second one (at least it did for me), especially since they throw in the O-1A and then almost exclusively talk about people applying for the O-1B after that.<p>Personally, I don&#x27;t want the US choosing to give visas to influencers over scientists, but if this visa was already being heavily used to bring in actors, musicians, and athletes I don&#x27;t see what the hubbub is about. I don&#x27;t use TikTok or OnlyFans and I don&#x27;t find e-sports entertaining, but I have a hard time arguing that a screen actor, Victoria&#x27;s Secret model, or soccer player should be worthy of a visa and a social media star, OnlyFans model, or a professional Counter Strike player shouldn&#x27;t is not. It&#x27;s all just entertainment.",
+      "Such articles are interesting because they&#x27;re tacit disapproval, but I would argue that this use of the O-1 is the most American way to use it.<p>There&#x27;s a reason why Hollywood became the Earth&#x27;s center of cultural gravity post-WW2, <a href=\"https:&#x2F;&#x2F;goldenglobes.com&#x2F;articles&#x2F;exiles-and-emigres-hollywood-1933-1950&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;goldenglobes.com&#x2F;articles&#x2F;exiles-and-emigres-hollywo...</a><p>You may argue that these people aren&#x27;t of such import, but I would beg to differ. This is the future of culture. These people shape the culture that the young people around you consume. They create the memes of six-seven-ification.",
+      "The title is misleading. It says “dominating” however no sources or percentages are provided. And later in the article it only says “increasingly applying”, with just two examples.<p>I do have a friend (very popular drummer-YouTuber who makes covers, has millions of subs) who did get an O visa because he actually is a, kinda, celebrity, so I guess this is indeed happening occasionally.  But nothing is being “dominated” here.",
+      "One of my past manager was on a O-1 (in a tech company); he was from india.\nSo, it goes like this, you register to be a presenter in a conference, copy some material from another tech talk and (re-)present it there as a novelty (rince and repeat). Pretty Simple. Step #2, create your facebook, youtube channel (etc.) and buy subscribers (from mediamister.com, getafollower.com, views4you.com, socialwick.com, buzzoid.com, etc) which is perfectly legal; he must have spent 10% of his salary to buy millions of subscribers; and that&#x27;s how he&#x27;s been working in tech for the past 10+ years.",
+      "Most of the scientists and engineers I know are on different visas. The US has gained a ton from being largely the cultural center of the world so it&#x27;s good that there&#x27;s a visa to take in cultural figures (even if I don&#x27;t personally connect with influencer culture). As social media is new and fairly spread out, especially compared to traditional recipients like models and actors, it seems really unsurprising they are a ton of these now. I would say the problem is less we are taking in influencers and more we aren&#x27;t accepting other people.",
+      "&gt; The O-1 category includes the O-1A, which is designated for individuals with extraordinary ability in the sciences, education, business or athletics and the O-1B, reserved for those with “extraordinary ability or achievement”.<p>&gt; My whole thing is being the funny Jewish girl with big boobs.",
+      "Immigrants are taking American handjobs!",
+      "People are getting hung up on definitions of extraordinary. The thing you need to understand is that US immigration is a political blackhole. The main pathways to immigrate to the US are family, misery (asylum, refugee, tps), or luck (diversity). Employment or economic immigration is frowned upon and visas like H-1B are limited and exploitative and still ultimately politically unpopular as the masses don&#x27;t want to compete. So, that leaves O-1 as an escape hatch for a basic economic immigration visa that won&#x27;t rile up the masses. Afterall, a chud does not reasonably believe that an influencer or a pornstar is stealing his job. So it goes.",
+      "Actually, it falls under OF-1 visa category.",
+      "I wonder how much &quot;OnlyFans models applying for O-1 visas&quot; is just sex trafficking with a thin veneer"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Confer – End to end encrypted AI chat",
+    "url": "https://confer.to/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I don&#x27;t agree that this is end to end encrypted. For example, a compromise of the TEE would mean your data is exposed. In a truly end to end encrypted system, I wouldn&#x27;t expect a server side compromise to be able to expose my data.<p>This is similar to the weasely language Google is now using with the Magic Cue feature ever since Android 16 QPR 1. When it launched, it was local only -- now it&#x27;s local and in the cloud &quot;with attestation&quot;. I don&#x27;t like this trend and I don&#x27;t think I&#x27;ll be using such products",
+      "Get a fun error message on debian 13 with firefox v140:<p>&quot;This application requires passkey with PRF extension support for secure encryption key storage. Your browser or device doesn&#x27;t support these advanced features.Please use Chrome 116+, Firefox 139+, or Edge 141+ on a device with platform authentication (Face ID, Touch ID, Windows Hello, etc.).&quot;",
+      "An interesting take on the AI model. I&#x27;m not sure what their business model is like, as collecting training data is the one thing that free AI users &quot;pay&quot; in return for services, but at least this chat model seems honest.<p>Using remote attestation in the browser to attest the server rather than the client is refreshing.<p>Using passkeys to encrypt data does limit browser&#x2F;hardware combinations, though. My Firefox+Bitwarden setup doesn&#x27;t work with this, unfortunately. Firefox on Android also seems to be broken, but Chrome on Android works well at least.",
+      "Unless I misunderstand, this doesn&#x27;t seem to address what I consider to be the largest privacy risk: the information you&#x27;re providing to the LLM itself. Is there even a solution to that problem?<p>I mean, e2ee is great and welcome, of course. That&#x27;s a wonderful thing. But I need more.",
+      "As someone who has spent a good time of time working on trusted compute (in the crypto domain) I&#x27;ll say this is generally pretty well thought out, doesn&#x27;t get us to an entirely 0-trust e2e solution, but is still very good.<p>Inevitably, the TEE hardware vendor must be trusted. I don&#x27;t think this is a bad assumption in today&#x27;s world, but this is still a fairly new domain and longer term it becomes increasingly likely TEE compromises like design flaws, microcode bugs, key compromises, etc. are discovered (if they haven&#x27;t already been!) Then we&#x27;d need to consider how Confer would handle these and what sort of &quot;break glass&quot; protocols are in place.<p>This also requires a non-trivial amount of client side coordination and guards against any supply chain attacks. Setting aside the details of how this is done, even with a transparency log, the client must trust <i>something</i> about “who is allowed to publish acceptable releases”. If the client trusts “anything in the log,” an attacker could publish their own signed artifacts, So the client must effectively trust a specific publisher identity&#x2F;key, <i>plus</i> the log’s append-only&#x2F;auditable property to prevent silent targeted swaps.<p>The net result is a need to trust Confer&#x27;s identity and published releases, at least in the short term as 3rd party auditors could flag any issues in reproducible builds. As I see it, the game theory would suggest Confer remains honest, Moxie&#x27;s reputation plays are fairly large role in this.",
+      "MM is basically up-selling his _Signal_ trust score. Granted, Signal&#x2F;RedPhone predecessor upped the game but calling this E2E encrypted AI chat is a bit of a stretch..",
+      "&quot;trusted execution environment&quot; != end-to-end encryption<p>The entire point of E2EE is that both &quot;ends&quot; need to be fully under your control.",
+      "The best private LLM is the one you host yourself.",
+      "Does it say anywhere which model it’s using?<p>I see references to vLLM in the GitHub but not which actual model (Llama, Mistral, etc.) or if they have a custom fine tune, or you give your own huggingface link?",
+      "Well, if anyone could do it properly, Moxie certainly has the track record."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Let's be honest, Generative AI isn't going all that well",
+    "url": "https://garymarcus.substack.com/p/lets-be-honest-generative-ai-isnt",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Meanwhile, my cofounder is rewriting code we spent millions of salary on in the past by himself in a few weeks.<p>I myself am saving a small fortune on design and photography and getting better results while doing it.<p>If this is not all that well I can’t wait until we get to mediocre!",
+      "I find it a bit odd that people are acting like this stuff is an abject failure because it&#x27;s not perfect yet.<p>Generative AI, as we know it, has only existed ~5-6 years, and it has improved substantially, and is likely to keep improving.<p>Yes, people have probably been deploying it in spots where it&#x27;s not quite ready but it&#x27;s myopic to act like it&#x27;s &quot;not going all that well&quot; when it&#x27;s pretty clear that it actually <i>is</i> going pretty well, just that we need to work out the kinks. New technology is always buggy for awhile, and eventually it becomes boring.",
+      "I believe Gary Marcus is quite well known for terrible AI predictions. He&#x27;s not in any way an expert in the field. Some of his predictions from 2022 [1]<p>&gt; In 2029, AI will not be able to watch a movie and tell you accurately what is going on (what I called the comprehension challenge in The New Yorker, in 2014). Who are the characters? What are their conflicts and motivations? etc.<p>&gt; In 2029, AI will not be able to read a novel and reliably answer questions about plot, character, conflicts, motivations, etc. Key will be going beyond the literal text, as Davis and I explain in Rebooting AI.<p>&gt; In 2029, AI will not be able to work as a competent cook in an arbitrary kitchen (extending Steve Wozniak’s cup of coffee benchmark).<p>&gt; In 2029, AI will not be able to reliably construct bug-free code of more than 10,000 lines from natural language specification or by interactions with a non-expert user. [Gluing together code from existing libraries doesn’t count.]<p>&gt; In 2029, AI will not be able to take arbitrary proofs from the mathematical literature written in natural language and convert them into a symbolic form suitable for symbolic verification.<p>Many of these have already been achieved, and it&#x27;s only early 2026.<p>[1]<a href=\"https:&#x2F;&#x2F;garymarcus.substack.com&#x2F;p&#x2F;dear-elon-musk-here-are-five-things\" rel=\"nofollow\">https:&#x2F;&#x2F;garymarcus.substack.com&#x2F;p&#x2F;dear-elon-musk-here-are-fi...</a>",
+      "This feels like a pretty low effort post that plays heavily to superficial reader&#x27;s cognitive biases.<p>I work commercializing AI in some very specific use cases where it extremely valuable. Where people are being lead astray is layering generalizations: general use cases (copilots) deployed across general populations and generally not doing very well. But that&#x27;s PMF stuff, not a failure of the underlying tech.",
+      "A year ago I would have agreed wholeheartedly and I was a self confessed skeptic.<p>Then Gemini got good (around 2.5?), like I-turned-my-head good. I started to use it every week-ish, not to write code. But more like a tool (as you would a calculator).<p>More recently Opus 4.5 was released and now I&#x27;m using it every day to assist in code. It is regularly helping me take tasks that would have taken 6-12 hours down to 15-30 minutes with some minor prompting and hand holding.<p>I&#x27;ve not yet reached the point where I feel letting is loose and do the entire PR for me. But it&#x27;s getting there.",
+      "All I know is that I have built more in the past 10 months than I ever have. How do you quantify for the skeptics the mental shift that happens when you know you can just build stuff now?<p>COULD I do this stuff before? Sure. But I wouldn’t have. Life gets in the way. Now, the bar is low so why not build stuff? Some of it ships, some of it is just experimentation. It’s all building.<p>Trying to quantify that shift is impossible. It’s not a multiplier to productivity you measure by commits. It’s a builder mind shift.",
+      "Gary Marcus (probably): &quot;Hey this LLM isn&#x27;t smarter than Einstein yet, it&#x27;s not going all that well&quot;<p>The goalposts keep getting pushed further and further every month. How many math and coding Olympiads and other benchmarks will LLMs need to dominate before people will actually admit that in some domains it&#x27;s really quite good.<p>Sure, if you&#x27;re a Nobel prize winner or PhD then LLMs aren&#x27;t as good as you yet, but for 99% of the people in the world, LLMs are better than you at Math, Science, Coding, and every language probably except your native language, and it&#x27;s probably better at you at that too...",
+      "This post is literally just 4 screenshots of articles, not even its own commentary or discussion.",
+      "Ignoring the actual poor quality of this write-up, I think we don&#x27;t know how well GenAI is going to be honest. I feel we&#x27;ve not been able to properly measure or assess it&#x27;s actual impact yet.<p>Even as I use it, and I use it everyday, I can&#x27;t really assess its true impact. Am I more productive or less overall? I&#x27;m not too sure. Do I do higher quality work or lower quality work overall? I&#x27;m not too sure.<p>All I know, it&#x27;s pretty cool, and using it is super easy. I probably use it too much, in a way, that it actually slows things down sometimes, when I use it for trivial things for example.<p>At least when it comes to productivity&#x2F;quality I feel we don&#x27;t really know yet.<p>But there are definite cool use-cases for it, I mean, I can edit photos&#x2F;videos in ways I simply could not before, or generate a logo for a birthday party, I couldn&#x27;t do that before. I can make a tune that I like, even if it&#x27;s not the best song in the world, but it can have the lyrics I want. I can have it extract whatever from a PDF. I can have it tell me what to watch out for in a gigantic lease agreement I would not have bothered reading otherwise.<p>I can have it fix my tests, or write my tests, not sure if it saves me time, but I hate doing that, so it definitely makes it more fun and I can kind of just watch videos at the same time, what I couldn&#x27;t before. Coding quality of life improvements are there too, I want to generate a sample JSON out of a JSONSchema, and so on. If I want, I can write the a method using English prompts instead of the code itself, might not truly be faster or not, not sure, but sometimes it&#x27;s less mentally taxing, depending on my mood, it can be more fun or less fun, etc.<p>All those are pretty awesome wins and a sign that for sure those things will remain and I will happily pay for them. So maybe it depends on what you expected.",
+      "You&#x27;re absolutely right!<p>The irony of a five sentence article making giant claims isn&#x27;t lost on me. Don&#x27;t get me wrong: I&#x27;m amenable to the <i>idea</i>; but, y&#x27;know, my kids wrote longer essays in 4th grade."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "SkyPilot: One system to use and manage all AI compute (K8s, 20 clouds, Slurm)",
+    "url": "https://github.com/skypilot-org/skypilot",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Isn&#x27;t Slurm a trademark to be registered around year 3000?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Police chief apologises after AI error used to justify Maccabi Tel Aviv ban",
+    "url": "https://www.theguardian.com/uk-news/2026/jan/14/west-midlands-police-chief-apologises-ai-error-maccabi-tel-aviv-ban",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "True title: West Midlands police chief apologises after AI error used to justify Maccabi Tel Aviv ban",
+      "&quot;AI Error&quot; couldn&#x27;t be further from the truth",
+      "He needs to go - he lied to MPs by denying that they use A.I. and now he&#x27;s been caught out.<p>We need accountability for decisions and if a senior person is asked questions by MPs, then they need to be as truthful as possible. This kind of misrepresentation was used by the Post Office to gaslight MPs."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The insecure evangelism of LLM maximalists",
+    "url": "https://lewiscampbell.tech/blog/260114.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This doesn&#x27;t feel completely right.<p>Simon Wilson (known for Django) has been doing a lot of LLM evangelism on his blog these days. Antirez (Redis) wrote a blog post recently with the same vibe.<p>I doubt they are not good programmers. They are probably better than most of us, and I doubt they feel insecure because of the LLMs. Either I&#x27;m wrong, or there&#x27;s something more to this.<p>edit: to clarify, I&#x27;m not saying Simon and Antirez are part of the hostile LLM evangelists the article criticizes. Although the article does generalize to all LLM evangelists at least in some parts and Simon did react to this here. For these reasons, I haven&#x27;t ruled him out as a target of this article, at least partly.",
+      "Hearing people on tech twitter say that LLMs <i>always</i> produce better code than they do by hand was pretty enlightening for me.<p>LLMs can produce better code for languages and domains I’m not proficient in, at a much faster rate, but damn it’s rare I look at LLM output and don’t spot something I’d do measurably better.<p>These things are average text generation machines. Yes you can improve the output quality by writing a good prompt that activates the right weights, getting you higher quality output. But if you’re seeing output that is consistently <i>better</i> than what you produce by hand, you’re probably just below average at programming. And yes, it matters sometimes. Look at the number of software bugs we’re all subjected to.<p>And let’s not forget that code is a liability. Utilizing code that was “cheap” to generate has a cost, which I’m sure will be the subject of much conversation in the near future.",
+      "&gt; And then, inevitably, comes the character evaluation, which goes something like this:<p>I saw a version of this yesterday where a commenter framed LLM-skepticism as a disappointing lack of &quot;hacker&quot; drive and ethos that should be applied to making &quot;AI&quot; toolchains work.<p>As you might guess, I disagreed: The &quot;hacker&quot; is not driven just by <i>novelty</i> in problems to solve, but in wanting to <i>understand</i> them on more than a surface layer. Messing with kludgy things until they somehow work is always a part of software engineering... but the motive and payoff comes from <i>knowing</i> how things work, and perceiving how they could work better.<p>What I &quot;fear&quot; from LLMs-in-coding is that they will provide an unlimited flow of &quot;mess around until it works&quot; drudgery tasks with none of the upside. The human role will be hammering at problems which don&#x27;t really have a &quot;root cause&quot; (except in a stochastic sense) and for which there is never any permanent or clever fix.<p>Would we say someone is &quot;not really an artist&quot; just because they don&#x27;t want to spend their days reviewing generated photos for extra-fingers, circling them, and hitting the &quot;redo&quot; button?",
+      "The anti-LLM side seems much more insecure. Pro-LLM influencers are sometimes corny, but it&#x27;s sort of like any other influencer, they are incentivized to make everything sound exciting to get clicks. Nobody was complaining about 3d printer influencers raving about how printing replacement dishwasher parts was going to change everything.<p>LLMs have also become kind of a political issue, except only the &quot;anti&quot; side even really cares about it. Given that using and prompting them is very much a garbage in&#x2F;garbage out scenario, people let their social and political biases cloud their usage, and instead of helping it succeed, they try to collect &quot;gotcha&quot; moments, which doesn&#x27;t reflect the workflow of someone using an LLM productively.",
+      "&quot;LLM evangelists - are you willing to admit that you just might not be that good at programming computers?&quot;<p>No.",
+      "I think the author slips into the same pattern he’s criticizing. He says LLM fans shouldn’t label skeptics as “afraid” then he turns around and labels the fans as “insecure” or “not very good at programming.” \nIt’s the same move; guessing what’s going on in someone’s head instead of sticking to what actually happened and what the tools can or can’t do.\nThe simpler truth is LLMs are great in some cases and painful in others. They shine on boilerplate and tests. They struggle when the domain is unusual, requirements are fuzzy;  mistakes are made, you pay a big babysitting tax.<p>Instead of psychoanalyzing each other, people should share concrete examples",
+      "How much longer until we get to just... let the results speak for themselves and stop relitigating an open question with no clear answer.<p>We&#x27;re well past ad nauseum now. Let&#x27;s talk about anything else.",
+      "The tech industry seems to attract people that feel personally attacked when someone else makes different choices that they do.<p>&quot;Why are you using Go? Rust is best! You should be using that!&quot;\n&quot;Don&#x27;t use AWS CDK, use Terraform! Don&#x27;t you know anything?&quot;",
+      "5 anti-AI posts on the home page of Hacker News…yeah, plenty of insecure evangelism amongst the skeptics, too.",
+      "&quot;LLM evangelists - are you willing to admit that you just might not be that good at programming computers?&quot;<p>The people who were the best at something don&#x27;t necessarily be the best at a new paradigm. Unlearning some principles and learning new ones might be painful exercise for some masters.<p>Military history has shown that the masters of the new wave are not necessarily the masters of the previous wave we see the rise and downfall of several civilizations from Roman to Greek for being too sure of their old methods and old military equipments and strategy."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Bottom-up programming as the root of LLM dev skepticism",
+    "url": "https://www.klio.org/theory-of-llm-dev-skepticism/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is a novel point for me and does seem to make sense. I&#x27;m definitely more of a &quot;bottom up&quot; programmer and haven&#x27;t really been able to vibe (pun intended) with LLM workflows so far. In the cases where I can do a more top down approach (usually small, self contained projects) they work much better.",
+      "Hrrrm, nope, can&#x27;t be bottom up programmers either. I&#x27;m a bit more towards the bottom-up exploratory style at the moment, and have quite a lot of fun with Opus 4.5 providing power steering.<p>I should probably try a test project top-down to see if I can get more out of it though.<p>Either way, if you just sit on your hands and expect the LLM to magically do all the work for you, you&#x27;re a little bit mistaken, yet. (With certain exceptions proving the rule) .",
+      "Another classic AI fan article: thin veil of reasoning to finally go back to &quot;because they are stupid&quot;.",
+      "Show me the working code and the working product. Anything less is just another blob of PR nonsense, human or LLM generated."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI will compromise your cybersecurity posture",
+    "url": "https://rys.io/en/181.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is a trendy article, rehashing themes that were prevalent over the last year, and, like those themes, will age like milk.<p>If you look at the past 3 years and plot capabilities in 3 key areas, the conclusions will be vastly different.<p>Code completion was &quot;awww, how cute, this almost looks like python&quot; in early 2023. It&#x27;s now at the level of &quot;oh my, this actually looks decent&quot;.<p>Then there&#x27;s e2e &quot;agentic&quot; stuff, where you needed tons of glue 2 years ago to have a decent workflow working 50% of the time. Now you have agents taking a spec, working for 2h uninterrupted, and delivering working, tested, linted code. Unattended.<p>Lastly, these capabilities have led to CTF challenges going from 0 - 80% since RL was used to train these things. The first one was ~2y ago when a popular CTF site saw the first &lt;10s capture on a new task. Now, several companies are selling CTF as a service, with more and more competitions being dominated by said agents.<p>So yeah, rehashing all the old &quot;arguments&quot; is a futile attempt. This thing is getting better and better. RL does something really interesting, unlocking an interesting fixation with task completion. Give it a verifiable reward (i.e. capture a flag), and it will bang its head against the wall until it gets that flag. And what&#x27;s more important, in security stuff you don&#x27;t need perfect accuracy, nor maj@n. What you&#x27;re looking for is pass@n, which usually gives 20-30% more on any benchmark. So, yeah, all your flags are belong to AI.<p>----<p>AI will compromise your cybersecurity posture, but that&#x27;s because our postures have been bad all along. It will find more and more exploits, and the value in red-blue teams will be much more than the &quot;bugs&quot; and &quot;exploits&quot; LLM-assisted coding will &quot;bring&quot;. Those will get automatically caught as well. But there&#x27;s vastly more grass-fed guaranteed human-wrote good old fashion bugs out there.",
+      "Has anyone noticed how poorly tools like claude code (the main one I tried) themselves are working? You&#x27;d expect software from company with an infinite AI allowance to be unattainably excellent, instead it lags, hangs, flickers, and feels like unpleasant mvp mess.<p>I hear at every corner people telling, how they can 100x now, and if my AI use is not laying prime code it&#x27;s my skill issue. But where is this excellent AI generated software? Do you maybe have some examples you can share?",
+      "A lot of good information for infra teams to internalise, although I worry that it gets a bit lost in the structure of the piece (there&#x27;s kind of like 3-5 separate essays here but nothing a good edit couldn&#x27;t fix.) One thing I&#x27;ll add (or at least crystallise because I think the pieces are there) is that attack surface management is critical. A lot of the issues here are relevant in <i>exactly the same</i> scenario as exposing web applications. I have reported vulnerabilities in a lot of AI applications in prod and the issues aren&#x27;t magic or even novel. They&#x27;re typically the same authorisation and injection issues people have been talking about for decades. The methods of securing them are the same. Unfortunately it&#x27;s not uncommon for companies to get compromised via a good old fashioned REST API on an exposed dev domain, but I probably wouldn&#x27;t go so far as to say &quot;REST APIs will compromise your cybersecurity posture.&quot; I would just say companies have found another tool to flex their indifference towards protecting user and company data.",
+      "<i>lights cigarette</i> Not mine, directly, but I&#x27;m sure I&#x27;ll be part of the next 150-million-strong data breach because some suit shouted, red-faced, &quot;WE NEED AI&quot; into a Teams meeting, and several people with mortgages and children made it happen.",
+      "No shit Sherlock"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Why we don’t use AI",
+    "url": "https://yarnspinner.dev/blog/why-we-dont-use-ai/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I struggle with the &quot;good guys vs bad guys&quot; framing here.<p>Is a small indie dev &quot;dodgy&quot; if they use AI to unblock a tricky C# problem so they can actually finish their game? Yarn Spinner seems to conflate &quot;Enterprise Scale Replacement&quot; (firing 500 support staff) with &quot;assistive tooling&quot; (a solo dev using GenAI for texture variants).<p>By drawing such a hard line, they might be signaling virtue to their base, but they are also ignoring the nuance that AI -- like the spellcheckers and compilers before it -- can be a force multiplier for the very creatives they want to protect.<p>Personally, I do agree that there are many problems with companies behind major LLMs today, as well as big tech companies C-levels who don&#x27;t understand why AI can&#x27;t replace engineers. But this post, as much as written in a nice tone, doesn&#x27;t frame the problem correctly in my mind.",
+      "One could probably think of dozens of reasonable arguments for avoiding LLM use, but this one is awful. If LLMs actually are able to get more work done with fewer people aka &quot;firing people&quot; that would be wonderful for humankind. If you disagree and like getting less work done with more people, you are welcome to forego tractors, dishwashers, the steam engine, and all the rest.",
+      "&gt; This comment pops up a few times, often from programmers. Unfortunately, because of how messy the term AI now is, the same concerns still apply. Your adoption helps promote the companies making these tools. People see you using it and force it onto others at the studio, or at other workplaces entirely. From what we’ve seen, this is followed by people getting fired and overworked. If it isn’t happening to you and your colleagues, great. But you’re still helping it happen elsewhere. And as we said, even if you fixed the labour concerns tomorrow, there are still many other issues. There’s more than just being fired to worry about.<p>What other people and companies do because I happen to use something correctly (as an assistive technology), is not my responsibility. If someone happens to misuse it or enforce it use in a dysfunctional work environment, that is their doing and not mine.<p>If a workplace is this dysfunctional, there are likely many other issues that already exist that are making people miserable. AI isn&#x27;t the root cause of the issue, it is the workplace culture that existed before the presence of AI.",
+      "&gt; AI is now a tool for firing people<p>In essence we have an ownership problem. If I own the AI, I can do my work in couple of hours and then some and then have rest of the day off to enjoy things I like. If the company owns AI - I&#x27;m out of work. The difference between a world of plenty and beauty vs the world of misery for many of us - is who owns the AI.",
+      "It&#x27;s like saying we won&#x27;t use compilers because it puts all the people who would manually create punch cards out of a job",
+      "I&#x27;d be more concerned when AI companies decide its time to make a profit.  The more effective its supposed to be, the more they can justify charging for it.",
+      "I wonder if the title of this post will someday be a certification?",
+      "I wish.\nI have just witnessed a engineer on our (small) team push a 4k line change to prod at the middle of the night.\nHis message was: &quot;lets merge and check it after&quot;.\nAI can help good team become better, but for sure it will make bad teams worse.<p>I sorry friends, I think imma quit to farming :$",
+      "programming is just turning calories&#x2F;energy into text. some of you are just not that efficient at it, some of you produce garbage when you do. it&#x27;s only been three years, there is still low hanging fruit on the new branches."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Terry Tao: \"LLMs Are Simpler Than You Think – The Real Mystery Is Why They Work\" [video]",
+    "url": "https://www.youtube.com/watch?v=ukpCHo5v-Gc",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "What I appreciated here is how calmly Tao separates useful pattern matching from actual mathematical understanding. There’s no AI hype or dismissal but just a reminder that proof, verification, and intuition are different things. It made me rethink where LLMs genuinely help vs where they just feel convincing. Thank you for sharing!",
+      "Too impatient to go through the whole video but the title matches my thoughts exactly.<p>My personal conclusion - most of us are really just not as intelligent as we think.<p>AI isn’t smart. We’re just dumb.<p>The LLMs seem smart because they were trained on the intellectual content generated by smart people.<p>An LLM trained only on 4chan would be very different…"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claudette Colvin, Who Refused to Give Her Bus Seat to a White Woman, Dies at 86",
+    "url": "https://www.nytimes.com/2026/01/13/us/politics/claudette-colvin-dead.html",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Signal leaders warn agentic AI is an insecure, unreliable surveillance risk",
+    "url": "https://coywolf.com/news/productivity/signal-president-and-vp-warn-agentic-ai-is-insecure-unreliable-and-a-surveillance-nightmare/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This isn&#x27;t an AI problem, its an operating systems problem.\nAI is just so much less trustworthy than software written and read by humans, that it is exposing the problem for all to see.<p>Process isolation hasn&#x27;t been taken seriously because UNIX didn&#x27;t do a good job, and Microsoft didn&#x27;t either.\nWell designed security models don&#x27;t sell computers&#x2F;operating systems, apparently.<p>That&#x27;s not to say that the solution is unknown, there are many examples of people getting it right.\nPlan 9, SEL4, Fuschia, Helios, too many smaller hobby operating systems to count.<p>The problem is widespread poor taste. Decision makers (meaning software folks who are in charge of making technical decisions) don&#x27;t understand why these things are important, or can&#x27;t conceive of the correct way to build these systems.\nIt needs to become embarrassing for decision makers to not understand sandboxing technologies and modern security models, and anyone assuming we can trust software by default needs to be laughed out of the room.",
+      "It&#x27;s Signal&#x27;s job to prioritize safety&#x2F;privacy&#x2F;security over all other concerns, and the job of an enterprise IT operation to manage risk. Underrated how different those jobs --- security and risk management --- are!<p>Most normal people probably wouldn&#x27;t enjoy working in a shop where Signal owned the risk management function, and IT&#x2F;dev had to fall in line. But for the work Signal does, their near-absolutist stance makes a lot of sense.",
+      "<p><pre><code>    &gt; Recall takes a screenshot of your screen every\n    &gt; few seconds, OCRs the text, and does semantic\n    &gt; analysis of the context and actions. It then\n    &gt; creates a forensic dossier of everything you\n    &gt; do into a single database on your computer…\n</code></pre>\nI remember playing around with what sounds like Recall&#x27;s predecessor back in 2009 [1].<p>It was only a Microsoft Research project at the time…<p><pre><code>        &gt;&gt; PersonalVibe\n        &gt;&gt; \n        &gt;&gt; Personal Vibe is a prototype\n        &gt;&gt; Windows Activity Logger that\n        &gt;&gt; tracks user actions like moving\n        &gt;&gt; a window or starting an application.\n        &gt;&gt; The data can be used for a variety\n        &gt;&gt; of projects from monitoring the\n        &gt;&gt; actions of study participants to\n        &gt;&gt; building Vista gadgets that tell\n        &gt;&gt; you how long you’ve been at work\n        &gt;&gt; today. The data is stored in a\n        &gt;&gt; local database that is not remotely\n        &gt;&gt; accessible. No data is sent from\n        &gt;&gt; the user’s machine.\n        &gt;&gt; …\n        &gt;&gt; Version: 2.0.0.0\n        &gt;&gt; Date Published: 9 March 2009\n\n\n</code></pre>\n[1] <a href=\"https:&#x2F;&#x2F;g2ww.short.gy&#x2F;VibeCodeStudioCode\" rel=\"nofollow\">https:&#x2F;&#x2F;g2ww.short.gy&#x2F;VibeCodeStudioCode</a>",
+      "This resonates with what I&#x27;m seeing in the enterprise adoption layer.<p>The pitch for &#x27;Agentic AI&#x27; is enticing, but for mid-market operations, predictability is the primary feature, not autonomy. A system that works 90% of the time but hallucinates or leaks data the other 10% isn&#x27;t an &#x27;agent&#x27;, it&#x27;s a liability. We are still in the phase where &#x27;human-in-the-loop&#x27; is a feature, not a bug.",
+      "Recall itself is absolutely ridiculous. And any solution like it is as well.<p>Meanwhile, Anthropic is openly pushing the ability to ingest our entire professional lives into their model which ChatGPT would happily consume as well (they&#x27;re scraping up our healthcare data now).<p>Sandboxing is the big buzzword early 2026. I think we need to press harder for verified privacy at inference. Any data of mine or my company&#x27;s going over the wire to these models needs to stay verifiably private.",
+      "This is true. But lately technology direction has largely been a race to the bottom, while marketing it as bold bets.<p>It has created this dog eat dog system of crass negligence everywhere. All the security risks of signed tokens and auth systems are meaningless now that we are piping cookies, and everything else through AI browsers who seemingly have inifinite attack surface. Feels like the last 30 years of security research has come to naught",
+      "&quot;Hey, you know that thing no one understands how it works and has no guarantee of not going off the rails? Let&#x27;s give it unrestricted access over everything!&quot; Statements dreamed up by the utterly deranged.<p>I can see the value of agentic AI, but only if it has been fenced in, can only delegate actions to deterministic mechanisms, and if ever destructive decision has to be confirmed. A good example I once read about was an AI to parse customer requests: if it detects a request that the user is entitle to (e.g. cancel subscription) it will send a message like &quot;Our AI thinks you want to cancel your subscription, is this correct?&quot; and only after confirmation by the user will the action be carried out. To be reliable the AI itself must not determine whether the user is entitled to cancelling, it may only guess the the user&#x27;s intention and then pass a message to a non-AI deterministic service. This way users don&#x27;t have to wait until a human gets around to reading the message.<p>There is still the problem of human psychology though. If you have an AI that&#x27;s 90% accurate and you have a human confirm each decision, the human&#x27;s mind will start drifting off and treat 90% as if it&#x27;s 100%.",
+      "Are these assumptions wrong? If I\n1) execute the ai as a isolated user.\n2) behind a white list out and in firewall\n3) on a overlay file mount<p>I am pretty much good to go from a it can’t do something I don’t want it to do?",
+      "What we need is zero trust at the interaction level. Let an AI perform tasks without ever seeing the sensitive data it is using.<p>Even recording (which they already are doing) is not exposing sensitive content.<p>Mix that with hardware enclaves and you actually have a solution to these security and privacy problems.",
+      "That article is right on the money for the request I made here yesterday: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46595265\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46595265</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Anthropic invests $1.5M in the Python Software Foundation",
+    "url": "https://discuss.python.org/t/anthropic-has-made-a-large-contribution-to-the-python-software-foundation-and-open-source-security/105694",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This makes sense given how much of the current AI ecosystem is built on top of Python. I hope this helps the foundation improve security for everyone who relies on these libraries.",
+      "I must be the only one in here who thinks $1.5M is a small sum compared to Anthropic&#x27;s size and the amount of value they have gotten out of Python. Good press is cheaper than I thought.",
+      "They are probably trying to build influence. Why is a startup that is burning cash donating money?",
+      "Still crazy how little investment goes to Python given how critical it is to the ecosystem.",
+      "Glad to see Anthropic continuing to invest in the longevity and quality of their open-source dependencies!<p>If you missed it, they bought Bun a while back, which is what Claude Code is built in: <a href=\"https:&#x2F;&#x2F;bun.sh&#x2F;blog&#x2F;bun-joins-anthropic\" rel=\"nofollow\">https:&#x2F;&#x2F;bun.sh&#x2F;blog&#x2F;bun-joins-anthropic</a>",
+      "I did not know you could make donations with a string attached (&quot;improve security&quot;)...",
+      "It&#x27;s certainly better than absolute nothing!",
+      "Looking at you Deepmind and OpenAI",
+      "Seems like a good time to throw out a reminder regarding &quot;Roads and Bridges: The Unseen Labor Behind Our Digital Infrastructure&quot; by Nadia Asparouhova. While she may have published it in 2016, it&#x27;s still relevant today and speaks to the need for the private sector generally (looking at you VC firms) to support and understand the open source work, hours of unfunded labor, powering our societies.<p><a href=\"https:&#x2F;&#x2F;www.fordfoundation.org&#x2F;learning&#x2F;library&#x2F;research-reports&#x2F;roads-and-bridges-the-unseen-labor-behind-our-digital-infrastructure&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.fordfoundation.org&#x2F;learning&#x2F;library&#x2F;research-rep...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Ever wanted to look at yourself in Braille?",
+    "url": "https://github.com/NishantJoshi00/dith",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This does not look like Braille to me. Braille is a system that uses cells composed of six (or eight) dots. This is just dots strewn all over the place.<p>Reminds me of this relatively new device in the space though: <a href=\"https:&#x2F;&#x2F;store.humanware.com&#x2F;hca&#x2F;monarch-the-1st-dynamic-tactile-and-multi-line-braille-tablet.html\" rel=\"nofollow\">https:&#x2F;&#x2F;store.humanware.com&#x2F;hca&#x2F;monarch-the-1st-dynamic-tact...</a>",
+      "Are there blind users of hackernews here that could answer to the probably stupid question:<p>Would you be able to &quot;perceive&quot; a picture if that picture was engraved on a surface ?",
+      "stupid. maybe post something you actually made instead of telling a computer to make.",
+      "[flagged]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Games Workshop bans staff from using AI",
+    "url": "https://www.ign.com/articles/warhammer-maker-games-workshop-bans-its-staff-from-using-ai-in-its-content-or-designs-says-none-of-its-senior-managers-are-currently-excited-about-the-tech",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Don&#x27;t underestimate how anti-AI the tabletop community is. This could have been entitled: &quot;Games Workshop elects not to experience multi-year headache. Will use AI when profitable.&quot;<p>I don&#x27;t do much with crypto&#x2F;NFTs&#x2F;AI, because I don&#x27;t find any of it useful yet. But I get so much &quot;with us or against us&quot; heat for not being zealously against the the idea of them. It was NFTs, NFTs, NFTs at the table for months until it became AI, AI, AI. My preference is to talk about something else while playing board games.<p>One thing I&#x27;ve found when talking to non-technical board gamers about AI is that while they’re 100% against using AI to generate art or game design, when you ask them about using AI tools to build software or websites the response is almost always something like &quot;Programmers are expensive, I can&#x27;t afford that. If I can use AI to cut programmers out of the process I&#x27;m going to do it.&quot;<p>A minority are conflicted about this position.<p>When I talk to technical people at game nights we almost never talk about tech. The one time our programmers all played RoboRally the night kind of died because it felt too close to work for a Saturday night.<p>If GW was going to use AI they would probably start with sprue layouts. Maybe the AI could number the bits in sane way? I would be for that.",
+      "I was in management i probably also wouldn’t like my designers to use AI. I pay them good money to draw original pieces and everyone can tell and it looks generic when AI is used. I’d want my moneys worth",
+      "At the same time, the 3D printing community is very much embracing AI as a means to circumvent price-gouging behavior by GW in particular. The popular STL slicer Lychee just recently added a generator tool at <a href=\"https:&#x2F;&#x2F;3dgen.lychee.co&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;3dgen.lychee.co&#x2F;</a> that has seen both massive protests from hobby community idealists and, as it&#x27;s still around, likely a lot of adoption by the less vocal pragmatists.<p>We&#x27;ll have to see how this plays out. Games Workshop is (supposedly) notoriously litigous, and they&#x27;ve gone after artists who get too close to their art style. AI  models are trained on that, so this is going to be an interesting thing to monitor.",
+      "I believe the lore appropriate term is Abominable Intelligences.",
+      "Good for them, it&#x27;s nice to see some management that hasn&#x27;t totally bought into this &quot;no workers, only subscription AI bots&quot; vision of the future that so many tech CEOs are selling.<p>Personally I would never pay for tabletop miniatures or lore books generated by AI.  It&#x27;s the same core problem as publishing regurgitated LLM crap in a book or using ChatGPT to write an email - I&#x27;m not going to spend my precious time reading something that the author didn&#x27;t spend time to write.<p>I am perfectly capable of asking a model to generate a miniature, or a story, or a dumb comment for reddit.  I have no desire to pay a premium for someone else to do it and get no value from the generated content - the only original part is the prompt so if you try to sell AI generated &quot;content&quot; you might as well just sell the prompt instead.",
+      "I seee companies making statements like these (LArian and others) that must be afraid of the reaction from their customers if they decided they would use AI will eventually come to regret it. There will be other companies that do what they do better and faster because they leverage AI as part of the process, and I believe very soon the backlash against AI will disappear as people begin using products with AI that are really very good and they will jsuit  stop caring &#x2F; forget they had an issue with it in the first place as they watch their friends and others who dont care enjoying themselves regardless.",
+      "If they did use AI and still charged as much as they do for a sprue of models people would definitely be upset.<p>AI generated anything is seen as cheap. It is cheap. It generates “similar” reproductions from its training set. It’s called, “slop,” for a reason: low effort, low quality.<p>There have been quality issues in some of GW’s recent product lines, but for the most part they still have fans because the bar is already high for what they make.<p>Cutting costs to make an extra bunch by making the product crappier would be a kick to the knee. Fans already pay a premium for their products.<p>Good on them for not going down that road.",
+      "WFH vs in-office, AI mandatory vs AI forbidden: ideally I want my boss to let me work however I want, and ideally+realistically however makes me most productive.<p>&gt; in Its Content or Designs<p>Personally: I&#x27;m a developer, so my situation is different. But right now I use AI code completion and Claude Code. I think I&#x27;d be fine without Claude Code, since it hasn&#x27;t &quot;clicked&quot; for me yet; I think it&#x27;s motivating, particularly for new features and boilerplate, but often (even with the boilerplate) must rewrite a lot of what it generates. Code completion would be harder, but maybe if the work was interesting and non-boilerplate enough I&#x27;d manage.<p>I&#x27;ve heard Claude Code has improved a lot very recently, so I would feel left behind without it completely, except I can use it in my spare time on personal projects. But if it keeps improving and&#x2F;or ends up &quot;clicking&quot;, then I may feel like I&#x27;m spinning my wheels at work.",
+      "Very funny for this to come from the Warhammer studio, specifically",
+      "Their finance guys will use it to determine how to price three sprues of abs plastic for the most they possibly can though!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Unsung US civil rights pioneer Claudette Colvin dies, aged 86",
+    "url": "https://www.aljazeera.com/news/2026/1/14/unsung-us-civil-rights-pioneer-claudette-colvin-dies-aged-86",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "LLMs are a 400-year-long confidence trick",
+    "url": "https://tomrenner.com/posts/400-year-confidence-trick/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I disagree with the &quot;confidence trick&quot; framing completely. My belief in this tech isn&#x27;t based on marketing hype or someone telling me it&#x27;s good – it&#x27;s based on cold reality of what I&#x27;m shipping daily. The productivity gains I&#x27;m seeing right now are unprecedented. Even a year ago this wouldn&#x27;t have been possible, it really feels like an inflection point.<p>I&#x27;m seeing legitimate 10x gains because I&#x27;m not writing code anymore – I&#x27;m thinking about code and reading code. The AI facilitates both. For context: I&#x27;m maintaining a well-structured enterprise codebase (100k+ lines Django). The reality is my input is still critically valuable. My insights guide the LLM, my code review is the guardrail. The AI doesn&#x27;t replace the engineer, it amplifies the intent.<p>Using Claude Code Opus 4.5 right now and it&#x27;s insane. I love it. It&#x27;s like being a writer after Gutenberg invented the printing press rather than the monk copying books by hand before it.",
+      "I agree that all the AI doomerism is silly (by which I mean those that are concerned about some Terminator-style machine uprising, the economic issues are quite real).<p>But it&#x27;s clear the LLM&#x27;s have some real value, even if we always need a human-in-the-loop to prevent hallucinations it can still massively reduce the amount of human labour required for many tasks.<p>NFT&#x27;s felt like a con, and in retrospect were a con. The LLM&#x27;s are clearly useful for many things.",
+      "&gt; The purpose here is not to responsibly warn us of a real threat. If that were the aim there would be a lot more shutting down of data centres and a lot less selling of nuclear-weapon-level-dangerous chatbots.<p>you&#x27;re lumping together two very different groups of people and pointing out that their beliefs are incompatible. of course they are! the people who think there is a real threat are generally different people from the ones who want to push AI progress as fast as possible! the people who say both do so generally out of a need to compromise rather than there existing many people who simultaneously hold both views.",
+      "&quot;AI safety&quot; groups are part of what&#x27;s described here: you might assume from the general &quot;safety&quot; label that organizations like PauseAI or ControlAI would focus things like data center pollution, the generation of sexual abuse material, causing mental harm, or many other things we can already observe.<p>But they don&#x27;t. Instead, &quot;AI safety&quot; organizations all appear to exclusively warn of unstoppable, apocalyptic, and <i>unprovable</i> harms that seem tuned exclusively to instill fear.",
+      "&gt; GPT-3 was supposedly so powerful OpenAI refused to release the trained model because of “concerns about malicious applications of the technology”. [...] This has, of course, not happened.<p>What parallel world are they living in? Every single online platform has been flooded with AI generated content and had to enact counter measures, or went the other way, embraced it and replaced humans with AI. AI use in scams has also become common place.<p>Everything they warned about with the release of GPT‑2 did in fact happen.",
+      "I don&#x27;t think it&#x27;s true. It is probably overhyped but it is legitimately useful. Current agents can do around 70% of coding stuff I do at work with light supervision.",
+      "&gt; “…LLM vendors [are responsible for the message?] We should be afraid […] The purpose here is not to responsibly warn us of a real threat. If that were the aim there would be a lot more shutting down of data centres…”<p>Let’s not forget these innovations are on the heels of COVID. Strong, swift action by government, industry, and individuals against a deadly pathogen is “controversial”. Even if killer AI was here, twice shy…<p>I’m angry about a lot of things right now, but LLM “marketing” (and inadequate reporting which turns to science fiction instead of science) is not one of them. The LLM revolution is getting shoehorned into this Three Card Monte narrative, and I don’t see the utility.<p>The criticisms of LLM promise and danger is part of the zeitgeist. If firms are playing off of anything I bet it’s that, and not an industry wide conspiracy to trick the public and customers. Advertising and marketing meets people where they’re at, and “imagines” where they want to go, all wrapped up with the product. It doesn’t make the product frightening. It’s the same for all manner of dangerous technologies—guns, nuclear energy, whatever. The product is the solution to the fear.<p>&gt; “The LLMs we have today are famously obsequious. The phrase “you’re absolutely right!” may never again be used in earnest.”<p>Hard NO. I get it, the language patterns of LLMs are creepy, but it’s not bad usage. So, no.<p>I can handle the cognitive dissonance of computer algorithms spewing out anthropomorphic phrasing and not decide that I, as a human being, can no longer in humility and honesty tell someone else they’re right, and i was wrong.",
+      "Considerations around current events aside, what exactly is the supposed &quot;confidence trick&quot; of mechanical or electronic calculators? They&#x27;re labor-saving devices, not arbiters of truth, and as far as I can tell, they&#x27;re pretty good at saving a lot of labor.",
+      "&gt; We should be afraid, they say, making very public comments about “P(Doom)” - the chance the technology somehow rises up and destroys us.<p>&gt; This has, of course, not happened.<p>This is so incredibly shallow. I can&#x27;t think of even a single doomer, who ever claimed that AI will destroy us by now. P(doom) is about the likelihood of it destroying us &quot;eventually&quot;. And I haven&#x27;t seen anything in this post or in any recent developments to make my reduce my own p(doom), which is not close to zero.<p>Here are some representative values: <a href=\"https:&#x2F;&#x2F;pauseai.info&#x2F;pdoom\" rel=\"nofollow\">https:&#x2F;&#x2F;pauseai.info&#x2F;pdoom</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Families reeling, businesses suffering after ICE raided Ventura cannabis farms",
+    "url": "https://www.latimes.com/california/story/2025-12-24/families-reeling-six-months-after-ice-raid-cannabis-farms",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Excellent idea to promote US businesses. All our US customers are still holding their heads down and investing nothing. Canada, Australia and Netherlands are now at the top.<p>Poor Glass House.",
+      "<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;7Cs3h\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;7Cs3h</a>",
+      "I should try undocumented insider trading."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Using proxies to hide secrets from Claude Code",
+    "url": "https://www.joinformal.com/blog/using-proxies-to-hide-secrets-from-claude-code/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The proxy pattern here is clever - essentially treating the LLM context window as an untrusted execution environment and doing credential injection at a layer it can&#x27;t touch.<p>One thing I&#x27;ve noticed building with Claude Code is that it&#x27;s pretty aggressive about reading .env files and config when it has access. The proxy approach sidesteps that entirely since there&#x27;s nothing sensitive to find in the first place.<p>Wonder if the Anthropic team has considered building something like this into the sandbox itself - a secrets store that the model can &quot;use&quot; but never &quot;read&quot;."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Just the Browser: Remove AI features and other annoyances from web browsers",
+    "url": "https://justthebrowser.com/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Matthew McConaughey Trademarks Himself to Fight AI Misuse",
+    "url": "https://www.wsj.com/tech/ai/matthew-mcconaughey-trademarks-himself-to-fight-ai-misuse-8ffe76a9",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "As with most things around AI, the problem is the <i>scale</i>. We are not ready for the amount of cease &amp; desist court cases around individual likeness etc that are going to start flooding and overwhelming the system."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Ask your repos what shipped in plain English",
+    "url": "https://news.ycombinator.com/item?id=46607161",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Claudette Colvin, US civil rights pioneer, dies at 86",
+    "url": "https://www.bbc.co.uk/news/articles/c1dknn00v3eo",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Claudette_Colvin\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Claudette_Colvin</a>"
+    ],
+    "full_text": null
+  }
+]
