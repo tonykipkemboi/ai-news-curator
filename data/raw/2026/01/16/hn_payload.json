@@ -1,0 +1,398 @@
+[
+  {
+    "title": "Altaid 8800",
+    "url": "https://sunrise-ev.com/8080.htm",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Saw a z80 version of the tin computer the other day<p><a href=\"https:&#x2F;&#x2F;sunrise-ev.com&#x2F;z80.htm\" rel=\"nofollow\">https:&#x2F;&#x2F;sunrise-ev.com&#x2F;z80.htm</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude is good at assembling blocks, but still falls apart at creating them",
+    "url": "https://www.approachwithalacrity.com/claude-ne/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;ve yet to be convinced by any article, including this one, that attempts to draw boxes around what coding agents are and aren&#x27;t good at in a way that is robust on a 6 to 12 month horizon.<p>I agree that the examples listed here are relatable, and I&#x27;ve seen similar in my uses of various coding harnesses, including, to some degree, ones driven by opus 4.5. But my general experience with using LLMs for development over the last few years has been that:<p>1. Initially models could at best assemble a simple procedural or compositional sequences of commands or functions to accomplish a basic goal, perhaps meeting tests or type checking, but with no overall coherence,<p>2. To being able to structure small functions reasonably,<p>3. To being able to structure large functions reasonably,<p>4. To being able to structure medium-sized files reasonably,<p>5. To being able to structure large files, and small multi-file subsystems, somewhat reasonably.<p>So the idea that they are now falling down on the multi-module or multi-file or multi-microservice level is both not particularly surprising to me and also both not particularly indicative of future performance. There is a hierarchy of scales at which abstraction can be applied, and it seems plausible to me that the march of capability improvement is a continuous push upwards in the scale at which agents can reasonably abstract code.<p>Alternatively, there could be that there is a legitimate discontinuity here, at which anything resembling current approaches will max out, but I don&#x27;t see strong evidence for it here.",
+      "It&#x27;s just amazing to me how fast the goal posts are moving. Four years ago, if you had told someone that a LLM would be able to one-shot either of those first two tasks they would&#x27;ve said you&#x27;re crazy. The tech is moving <i>so fast</i>. I slept on Opus 4.5 because GPT 5 was kind of an air ball, and just started using it in the past few weeks. It&#x27;s so good. Way better than almost anything that&#x27;s come before it. It can one-shot tasks that we never would&#x27;ve considered possible before.",
+      "&gt; Claude can’t create good abstractions on its own<p>LLMs definitely can create abstractions and boundaries. e.g. most will lean towards a pretty clean front end vs backend split even without hints. Or work out a data structure that fits the need. Or splits things into free standing modules. Or structure a plan into phases.<p>So this really just boils down to „good” abstractions which is subject to model improvement.<p>I really don’t see a durable moat for us meatbags in this line of reasoning",
+      "In my experience Claude is like a &quot;good junior developer&quot; -- can do some things really well, FUBARS other things, but on the whole something to which tasks can be delegated if things are well explained.  If&#x2F;when it gets to the ability level of a mid-level engineer it will be revolutionary.  Typically a mid-level engineer can be relied upon to do the right thing with no&#x2F;minimal oversight, can figure out incomplete instructions, and deliver quality results (and even train up the juniors on some things).  At that point the only reason to have human junior engineers is so they can learn their way up the ladder to being an architect and responsible coordinating swarms of Claude Agents to develop whole applications and complete complex tasks and initiatives.<p>Beyond that what can Claude do... analyze the business and market as a whole and decide on product features, industry inefficiencies, gap analysis, and then define projects to address those and coordinate fleets of agents to change or even radically pivot an entire business?<p>I don&#x27;t think we&#x27;ll get to the point where all you have is a CEO and a massive Claude account but it&#x27;s not completely science fiction the more I think about it.",
+      "LLMs are just really good search. Ask it to create something and it&#x27;s searching within the pretrained weights. Ask it to find something and it&#x27;s semantically searching within your codebase. Ask it to modify something and it will do both. Once you understand its just search, you can get really good results.",
+      "Yeah, that&#x27;s my current gripe but I think this just needs some good examples in AGENTS.md (I&#x27;ve done some for hooks and it kinda works but need to remind it). I need good AGENTS.md that explain what good abstraction boundary is and how to define is the problem is I am not sure I know how to put it into words, if anyone has idea please let me know.",
+      "I am making an app in Elixir.<p>100% of code is made by Claude.<p>It is damn good at making &quot;blocks&quot;.<p>However, Elixir seems to be a langage that works very well for LLM, cf. <a href=\"https:&#x2F;&#x2F;elixirforum.com&#x2F;t&#x2F;llm-coding-benchmark-by-language&#x2F;72634\" rel=\"nofollow\">https:&#x2F;&#x2F;elixirforum.com&#x2F;t&#x2F;llm-coding-benchmark-by-language&#x2F;7...</a>",
+      "By and large, I agree with the article. Claude is great and fast at doing low level dev work. Getting the syntax right in some complicated mechanism, executing an edit-execute-readlog loop, making multi file edits.<p>This is exactly why I love it. It&#x27;s smart enough to do my donkey work.<p>I&#x27;ve revisited the idea that typing speed doesn&#x27;t matter for programmers. I think it&#x27;s still an odd thing to judge a candidate on, but appreciate it in another way now. Being able to type quickly and accurately reduces frustration, and people who foresee less frustration are more likely to try the thing they are thinking about.<p>With LLMs, I have been able to try so many things that I never tried before. I feel that I&#x27;m learning faster because I&#x27;m not tripping over silly little things.",
+      "This mirrors my experience trying to integrate LLMs into production pipelines.<p>The issue seems to be that LLMs treat code as a literary exercise rather than a graph problem. Claude is fantastic at the syntax and local logic (&#x27;assembling blocks&#x27;), but it lacks the persistent global state required to understand how a change in module A implicitly breaks a constraint in module Z.<p>Until we stop treating coding agents as &#x27;text predictors&#x27; and start grounding them in an actual AST (Abstract Syntax Tree) or dependency graph, they will remain helpful juniors rather than architects.",
+      "I&#x27;m not entirely convinced by the anecdote here where Claude wrote &quot;bad&quot; React code:<p>&gt; But in context, this was obviously insane. I knew that key and id came from the same upstream source. So the correct solution was to have the upstream source also pass id to the code that had key, to let it do a fast lookup.<p>I&#x27;ve seen Claude make mistakes like that too, but then the moment you say &quot;you can modify the calling code as well&quot; or even ask &quot;any way we could do this better?&quot; it suggests the optimal solution.<p>My guess is that Claude is trained to bias towards making minimal edits to solve problems. This is a desirable property, because six months ago a common complaint about LLMs is that you&#x27;d ask for a small change and they would rewrite dozens of additional lines of code.<p>I expect that adding a CLAUDE.md rule saying &quot;always look for more efficient implementations that might involve larger changes and propose those to the user for their confirmation if appropriate&quot; might solve the author&#x27;s complaint here."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Hc: an agentless, multi-tenant shell history sink",
+    "url": "https://github.com/alessandrocarminati/hc",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I like using atuin[1] but the capture mechanism here&#x27;s pretty convenient!  Cool idea.  May give it a try<p>[1] <a href=\"https:&#x2F;&#x2F;atuin.sh&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;atuin.sh&#x2F;</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Signal creator Moxie Marlinspike wants to do for AI what he did for messaging",
+    "url": "https://arstechnica.com/security/2026/01/signal-creator-moxie-marlinspike-wants-to-do-for-ai-what-he-did-for-messaging/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "previous discussion: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46600839\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46600839</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Primecoin and Cunningham Prime Chains",
+    "url": "https://www.johndcook.com/blog/2026/01/10/prime-chains/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This brings me back! During the second year of my bachelor&#x27;s we had a group project on distributed systems, we basically had to create a blockchain with primecoin PoW, written in service oriented programming language developed at the university of Bologna called Jolie (<a href=\"https:&#x2F;&#x2F;www.jolie-lang.org&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.jolie-lang.org&#x2F;</a>)",
+      "Interesting!<p>Does anyone know other innovative PoW chains?",
+      "If you wonder about its financial value, its market cap is around $ 2.5m [1].<p>[1] <a href=\"https:&#x2F;&#x2F;coinmarketcap.com&#x2F;currencies&#x2F;primecoin&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;coinmarketcap.com&#x2F;currencies&#x2F;primecoin&#x2F;</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: OpenWork – An open-source alternative to Claude Cowork",
+    "url": "https://github.com/different-ai/openwork",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Embarrassed to sound like a noob, but what is the use case people actually use for this (or Cowork)? There is a lot of hype&#x2F;excitement around these technologies, but I don’t know why I should, or how to, use them in my daily work.",
+      "Personally I’m skeptical and a bit dismissive of an insta- clone of commercial offerings. I ignore these things until they’re 3-6 months old and still iterating.<p>Announcements on their own are like whispers.",
+      "What&#x27;s the security boundary here - there&#x27;s no mention of a VM or anything to isolate the agent from the file system?",
+      "Looks great. I don&#x27;t use opencode myself but like a lot Claude skills, agents, I have like 50 different ones for personal life, work, dating, whatever\nIs there integration with Claude skills?<p>Have you considered using or integrating with ACP? <a href=\"https:&#x2F;&#x2F;zed.dev&#x2F;acp\" rel=\"nofollow\">https:&#x2F;&#x2F;zed.dev&#x2F;acp</a><p>We use it in our desktop app IDE (mediar.ai) and it&#x27;s pretty good",
+      "I don&#x27;t understand the point when opencode desktop already exists.",
+      "Nice job! How were you able to get it out so quickly?",
+      "Created two days ago.... Did you use Claude Code to generate the open source code? :P",
+      "Still feels a bit technical. The Claude approach is designed for &quot;Susan in Accounting&quot; - what thoughts do you have to reduce the technical barriers?",
+      "sounds cool! I&#x27;m non technical, I get the workflow with controling home assistant. How could I use this at work? Like how could the workflow be between marketing and devs, for example, for website work, can I change content without dealing with GitHub?",
+      "how does it compare to opencode&#x27;s own gui that uses tauri?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Tldraw pauses external contributions due to AI slop",
+    "url": "https://github.com/tldraw/tldraw/issues/7695",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "We&#x27;ve enjoyed a certain period (at least a couple of decades) of global, anonymous collaboration that seems to be ending. Trust in the individual is going to become more important in many areas of life, from open-source to journalism and job interviews.",
+      "Seems like reading the code is now the real work. AI writes PRs instantly but reviewing them still takes time. Everything flipped. Expect more projects to follow - maintainers can just use ai themselves without needing external contributions.",
+      "&gt;  and little to no follow-up engagement from their authors.<p>A strategy I sometimes use for external contributions is to immediately ask a question about the pull request. Ignoring PRs where I don&#x27;t get a reply or the reply doesn&#x27;t make sense potentially eliminates a lot of low quality contributions.<p>I wonder if a &quot;no AI&quot; rule is an overly blunt instrument. I can sympathise with it but babies and bathwater etc.",
+      "Generally speaking, the value of these contributions was determined by &quot;proof of work&quot;. Time and effort are precious to a human hence its a somewhat self-regulating system preventing huge amounts of low quality contributions being generated. This is now gone. Isn&#x27;t that an interesting problem to fix?",
+      "That&#x27;s interesting; another project stopped letting users directly open issues: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46460319\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46460319</a>",
+      "&gt; With luck, GitHub will soon roll out management features that let us open things back up.<p>I wouldn&#x27;t bet on it<p>SlopHub",
+      "Book publishers have stopped accepting unsolicited submissions for the same reason.<p>You need a literary agent for just about all of them",
+      "Curl project has had this issue <a href=\"https:&#x2F;&#x2F;daniel.haxx.se&#x2F;blog&#x2F;2025&#x2F;07&#x2F;14&#x2F;death-by-a-thousand-slops&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;daniel.haxx.se&#x2F;blog&#x2F;2025&#x2F;07&#x2F;14&#x2F;death-by-a-thousand-s...</a>",
+      "&gt; <i>An open pull request represents a commitment from maintainers: that the contribution will be reviewed carefully and considered seriously for inclusion.</i><p>This has always been the problem with github culture.<p>On the Linux and GCC mailing lists, a posted patch does not represent any kind of commitment whatsoever from the maintainers.  That&#x27;s how it should be.<p>The fact that github puts the number of open PR requests at the very top of <i>every single page</i> related to a project, in an extremely prominent position, is the sort of manipulative &quot;driving engagement&quot; nonsense you&#x27;d expect from social media, not serious engineering tools.<p>The fact that you have to pay github money in order to permanently turn off pull requests or issues (I mean <i>turn off</i>, not automatically close with a bot) is another one of these.  BTW codeberg lets <i>any</i> project disable these things.",
+      "They invited AI in by creating a comprehensive list of instructions for AI agents - in the README, in a context.md, and even as yarn scripts. What did they expect?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Aviator (YC S21) is hiring to build multiplayer AI coding platform",
+    "url": "https://www.ycombinator.com/companies/aviator/jobs",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Supply Chain Vuln Compromised Core AWS GitHub Repos & Threatened the AWS Console",
+    "url": "https://www.wiz.io/blog/wiz-research-codebreach-vulnerability-aws-codebuild",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Breaking this down, several of AWS&#x27;s core repos like the JS SDK use an allowlist of which contributor ids can run workflow actions in their PRs.  The list was a regex, contained several short ids, and wasn&#x27;t anchored with ^$, so if it allowed user 12345, then any userid <i>containing</i> 12345 could run their own actions on the PR, including one that exfiltrated access tokens.  So they spammed GH with user creation requests, got an id that matched, and they were in like Flynn.<p>Said tokens didn&#x27;t have admin access, but had enough privileges to invite other users to become full admins.  Not sure if they were rotated, but github tokens are usually long-lived, like up to a year.  Hey, isn&#x27;t AWS the one always lecturing us to use temporary credentials?  To be fair, AWS did more than just fix the regex, they introduced an &quot;approve workflow run&quot; UI unto the PR process that I think GH is also using now (not sure about that).",
+      "&gt; To escalate privileges, we abused the token’s repo scope, which can manage repository collaborators, and invited our own GitHub user to be a repository administrator.<p>From everything I know about pentesting, they should have stopped before doing this, right? From <a href=\"https:&#x2F;&#x2F;hackerone.com&#x2F;aws_vdp?type=team\" rel=\"nofollow\">https:&#x2F;&#x2F;hackerone.com&#x2F;aws_vdp?type=team</a> :<p>&gt; You may only interact with accounts you own or with explicit written permission from AWS or the account owner",
+      "How did they create so many GitHub accounts? I used login with GitHub in the past to prevent spam but I feel like, after hearing this, I need to check for something like account age to prevent spam.",
+      "I try to avoid regexes like the plague, it is right up there with passing stuff into SQL strings. It is tempting enough to be used but it <i>always</i> goes wrong, no matter how good your sanitation. Even if the original author gets it right sooner or later someone will tweak the regex just a little to allow some edgecase and accidentally open the door to a whole pile of other cases. It&#x27;s just too finicky and too powerful.",
+      "I worked on docs at GitHub which are open source, synced to an internal repo, and deployed on internal infra. I recall jumping through many hoops to make it work safely. These were workflows that had secrets access for deployments, and I recall zipping files, doing some weird handoffs&#x2F;file filtering between different workflows based on the triggers and permissions. Security folks were really quick to find any gaps =)<p>Glad to see a few more security knobs on actions these days!",
+      "I always wondered if their decision to limit availability of CodeCommit had something to do with the overall quality of the underlying implementation.  It always came off as an &quot;also ran&quot; product without any real care or effort put into it.  Either that or the team responsible for creating it ultimately left the company..  anyways..<p>This article lends some credibility to that notion.",
+      "Oh no, is the AWS Console ok?",
+      "happens to the best of us"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Gambit, an open-source agent harness for building reliable AI agents",
+    "url": "https://github.com/bolt-foundry/gambit",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Is this an alternative to <a href=\"https:&#x2F;&#x2F;mastra.ai&#x2F;docs\">https:&#x2F;&#x2F;mastra.ai&#x2F;docs</a><p>How would it compare?",
+      "We ran into similar reliability issues while building GTWY. What surprised us was that most failures weren’t about model quality, but about agents being allowed to run too long without clear boundaries.<p>What helped was treating agents less like “always-on brains” and more like short-lived executors. Each step had an explicit goal, explicit inputs, and a defined end. Once the step finished, the agent stopped and context was rebuilt deliberately.<p>Harnesses like this feel important because they shift the problem from “make the model smarter” to “make the system more predictable.” In our experience, reliability came more from reducing degrees of freedom than from adding intelligence.",
+      "[under-the-rug stub]<p>[see <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45988611\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45988611</a> for explanation]",
+      "This is an interesting direction for agent frameworks. What stood out to me is the shift from simple tool orchestration to agents that can reason, call other agents, and self-manage workflows. That’s something we’ve been thinking about a lot while building SalesPlay — especially around how autonomous sales agents need clear evaluation, guardrails, and accountability to actually be useful in real GTM teams. The built-in grading&#x2F;evaluation angle here feels like a practical step toward making agents less brittle and more production-ready. Curious to see how this evolves in real-world use cases."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Why senior engineers let bad projects fail",
+    "url": "https://lalitm.com/post/why-senior-engineers-let-bad-projects-fail/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Reminds me of one of my managers who said, “Sometimes, you have to let people fail.” It does take a lot of energy to keep some people afloat. My hope has always been they learn to swim as it were, but sometimes it’s just effort better spent elsewhere.<p>I know one project did not have my involvement and couldn’t have succeeded without my knowledge. They were so bad they would work in questions casually to their actual work.<p>I started avoiding all of them when I found out management had been dumping on my team and praising theirs. It’s just such a slap in the face because they could not have done well and their implementation was horrible.",
+      "&gt; It’s important to point out that for much of the lifecycle of a project, whether it’s “bad” is highly subjective.<p>I can’t emphasize this part enough.<p>I’ve been part of some projects where someone external to the team went on a crusade to shut our work down because they disagreed with it. When we pushed through, shipped it, and it worked well they lost a lot of credibility.<p>Be careful about what you spend your reputational capital on.",
+      "I think this advice is pretty apt for small to medium sized companies. We&#x27;re all invested in the company succeeding, but you don&#x27;t want to become known as the person that always says &quot;no&quot;.<p>At large companies, I&#x27;ve rarely found a reason to speak out on a project. Unless it has a considerable effect on my team&#x2F;work (read: peace of mind), it just doesn&#x27;t make sense to be the person casting doubt. There&#x27;s not much ROI for being &quot;right&quot;.<p>If you manage to kill the project before it starts, no one will ever know how bad of a disaster you prevented. If the project succeeds despite your objections, you look like an idiot. And if it fails - as the author notes, that doesn&#x27;t get remembered either.<p>As a senior IC, the only real ROI I&#x27;ve found in these situations is when you can have a solution handy if things fail. People <i>love</i> a fixer. Even if you only manage to pull this off once or twice, your perception in the org&#x2F;company gets a massive boost. <i>&quot;Wow, so-and-so is always thinking ahead.&quot;</i><p>A basic example I saw at my last company was automated E2E testing in production. My teammate had suggested this to improve our ability to detect regressions, but it was ultimately shot down as not being worth the investment over other features.<p>A few months later, we had seen multiple instances of users hitting significant issues before we could catch them. My teammate was able to whip out the test framework they had been building on the side, and was immediately showered with praise&#x2F;organizational support (and I&#x27;m sure a great review as well).",
+      "Excellent advice for the &#x27;House of Cards&#x27; politics of big tech, but it’s essentially corporate pacifism.<p>In any other setting you can&#x27;t afford to watch money and motivation burn just to stay &#x27;politically solvent&#x27;.<p>(Lalit is very good at fitting complex corporate dynamics in a single blog post though.)",
+      "I disagree, and I think this advice can be actively harmful. You shouldn’t ignore a problem when you’re in a position to help. At the same time, you also shouldn’t take on the emotional burden of other people’s projects.<p>If I see something heading toward failure, I let people know they may want to consider a different approach. That’s it. There’s no need to be harsh or belabor the point but it’s better to speak up than to quietly watch a train wreck unfold.",
+      "The dynamics are exactly right, but I would say engineers can&#x27;t &quot;let&quot; &quot;politically bad&quot; projects fail, because fixing that is, in a very real sense, above their paygrade. That responsibility lies with the executives.<p>The engineers&#x27; role should mostly be as technical advisors, i.e. calling out bad projects for technical reasons (UX, architecture, etc.) But even the seniormost engineers do not have the corporate standing, let alone political cachet, to call out or fix political issues (empire building, infighting between orgs, etc.) They can and should point out these conflicts to leadership (very diplomatically, of course) but should bear no responsibility for the outcomes.<p>However, as an engineer you should ABSOLUTELY be aware of these dynamics because they <i>will</i> impact your career. Like when the project is canceled with no impact delivered.<p>The example given of the latent turf war between the product and platform teams might have been avoided via a very clear mandate from senior leadership about who owns what exactly. This would probably have involved some horse-trading about what the org giving up its turf gets in return. (BTW if you&#x27;ve ever wondered &quot;Why so many re-orgs&quot; this is why.) That this didn&#x27;t happen is a failure on the execs&#x27; part.<p>As an aside, I know this happens in every large company, but somehow it appears to be a lot more common at Google? Or at least Googlers are more open about it. E.g. I observed something similar on that recent post about lessions from Google: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46488819\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46488819</a>",
+      "If one person thinks this way, many more do. This is typical in large organizations, especially government institutions, because expense of running entire teams at massive costs for no reason is not born by the team but by someone with a much larger budget that has more money than care or completely wrong incentives (the more people I manage, the more important I am, type of orgs). This is organizational gangrene described from the inside and partly how or why it happens. If you are leading an organization and reading this - figure out how to measure and prevent it.",
+      "Great analogy.<p>I&#x27;ve never worked at a company as large as Google but in my experience things can be a little more optimistic than the post. When earn enough trust with your leadership, such as at the staff&#x2F;architect level, you&#x27;ll be able to tell them they are wrong more often and they&#x27;ll listen. It doesn&#x27;t have to be a &quot;$50,000 check&quot; every time.<p>That leads to a very important question - Why doesn&#x27;t leadership always trust their engineers? And there&#x27;s a very important answer that isn&#x27;t mentioned in the blog post - Sometimes the engineers are wrong.<p>Engineers are extremely good at finding flaws. But not so good at understanding the business perspective. Depending on the greater context there are times where it does make sense to move forward with a flawed idea.<p>So next time you hear an idea that sounds stupid, take a beat to understand more where the idea is coming from. If you get better at discerning the difference between ideas that are actually fine (despite their flaws), versus ideas that need to die, then you&#x27;ll earn more trust with your org.",
+      "More succinctly:<p>* Know your audience. Saying things they are unable to hear is a waste of energy.<p>* Choose your battles carefully.<p>The flip side:<p>* Trust your gut<p>* Speak authentically and with an aim to help (not convince)<p>* Don’t be overly invested or dependent on the actions and reactions of others (can be hard to do if someone has power over you)<p>Balancing these things is something I’m learning about…",
+      "Definitely a big tech thing I don’t miss. At a startup everyone is trying to make the company succeed vs pet projects, so giving advice about architectural decisions or helping fellow engineers with areas you have more expertise in is often welcomed. There are always pros and cons, but that type of culture is so much more fun. Even on hard days I love working with people who want to help each other."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Cowork runs Linux VM via Apple virtualization framework",
+    "url": "https://gist.github.com/simonw/35732f187edbe4fbd0bf976d013f22c8",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Is there an easy way to do something similar for Claude Code? I&#x27;m growing tired of babysitting it to make sure it doesn&#x27;t do anything bad.<p>Late adopter. Started last night. Stayed up four hours past my normal bedtime because I couldn&#x27;t stop. (Ended up &quot;building&quot; a fancy .MOD player for DOS in Turbo C.)<p>Needed the Max 5x plan after two hours. (The &#x27;Pro&#x27; plan should be renamed &#x27;Sampler&#x27;, made one-time and free with CC details.) Max 5x seems like it can sustain my current appetite.<p>I very quickly went from thinking it was overpriced (around 100 USD&#x2F;month) to worrying that this pricing can&#x27;t last. I think I get about 50 working hours per week with this plan. So, running the numbers I guess the hourly cost is about 50 cents.",
+      "How about the windows App ?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Tabstack – Browser infrastructure for AI agents (by Mozilla)",
+    "url": "https://news.ycombinator.com/item?id=46620358",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "With all respect to Mozilla, &quot;respects robots.txt&quot; makes this effectively DoA. AI agents are a form of user agent like any other when initiated by a human, no matter the personal opinion of the content publisher (unlike the egregious automated &#x2F;scraping&#x2F; done for model training).",
+      "Pricing page is hidden behind a registration form. Why?<p>I also wanted to see how&#x2F;if it handled semantic data (schema.org and Wikidata ontologies), but the hidden pricing threw me off.",
+      "This looks good , but if Pay-as-you-go pricing can have some more information about what your actual are charges are per unit or whatever metrics, that would be helpful. I signed up but still can not find the actual pricing.",
+      "Congrats on the launch! It would be useful to have a matrix somewhere showing how this compares to Jina, Firecrawl, etc.",
+      "&gt; We don&#x27;t spin up a full browser instance for every request (which is slow and expensive)<p>there&#x27;s really no excuse for not spinning up a browser every request. a Firecracker VM boots ~50ms nowadays<p>&gt; We respect robots.txt rules.<p>you might, but most companies in the market for your service don&#x27;t want this",
+      "Mozilla giving up on Firefox every day ..."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI Destroys Institutions",
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5870623",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I would summarize the central claim of the paper as: the widespread use of AI to mediate human interaction will rob people of agency, understanding and skill development, as well as destroying the social links necessary to maintain and improve institutions, while at the same time allowing powerful unaccountable actors (AI cabal) to interject into those relations and impose their institutional goals; by &quot;institution&quot; we mean a shared set of beneficial social rules, not merely an organization tasked with promoting them, &quot;justice&quot; vs. &quot;US justice system&quot;.<p>The authors then break down the mechanisms by which AI achieves these outcomes (that seem quite reductive and dated compared to the frontier, for example they take it as granted that AI cannot be creative, that it can only work prospectively and can&#x27;t react to new situations and events etc.), as well as exemplifying those mechanism already at work in a few areas like journalism and academia.",
+      "We should be more worried what AI will due to the ability of an average human to think.<p>Not that I think there is a lot of thinking going on now anyway, thanks to our beloved smartphones.<p>But just think about a time when human ability to reason has atrophied globally. AI might even give us true Idiocracy!",
+      "Just from reading the abstract, it feels like the authors didn&#x27;t even attempt at trying to be objective. It hard to take what they&#x27;re saying seriously when the language is so loaded and full of judgments. The kind of language you&#x27;d expect in an Op-Ed and not a research paper",
+      "This is nothing but speculation written by lawyers in the format of a scientific paper to feign legitimacy.  Of course those $500 an hour nitpickers are terrified of AI because it threatens the exorbitant income of their cartel protected profession.",
+      "&gt; Purpose-driven institutions built around transparency, cooperation, and accountability empower individuals to take intellectual risks and challenge the status quo.<p>I am not sure if I am off-topic, but I am having a lot of trouble with this statement. Institutions are often opaque, and I have never belonged to an institution that empowered me to &quot;take intellectual risks and challenge the status quo.&quot; Quite the contrary.",
+      "None of these paper&#x27;s arguments are AI specific. The IRS doesn&#x27;t need AI to make mistakes and be unable to tell you why it did so. You can find stories of that happening to people already.",
+      "&gt;Civic institutions—the rule of law, universities, and a free press—are the backbone of democratic life. They are the mechanisms through which complex societies encourage cooperation and stability, while also adapting to changing circumstances.<p><a href=\"https:&#x2F;&#x2F;www.pewresearch.org&#x2F;politics&#x2F;2025&#x2F;12&#x2F;04&#x2F;public-trust-in-government-1958-2025&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.pewresearch.org&#x2F;politics&#x2F;2025&#x2F;12&#x2F;04&#x2F;public-trust...</a><p>In the 1960s, trust in institutions was around 70%.<p>In 2025 it&#x27;s about 17%.<p>This is not something like we had 70% until 2023 and then AI dropped our trust suddenly. If anything, AI doesnt even register on the graph.<p>So correlation here is practically non-existent. Gallup and Pew have the similar trends for journalists and universities.<p>You dont get to blame AI for this.<p>Interesting bump and question. How did clinton improve reputation and then bush destroy it? Or is that a false hump?",
+      "Who do institutions serve? To me AI democratises information. Allows access to information that would normally be gatekept. AI reduces barriers, and they don&#x27;t like that because those barriers gave them authority.",
+      "Dupe of <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46622870\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46622870</a>",
+      "I was amused at how they quote War Games."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Remails: A European Mail Transfer Agent",
+    "url": "https://tweedegolf.nl/en/blog/197/remails",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I’ve been pretty content with Postmark but I decided to compare pricing out of curiosity.<p>The free tier Remails offers is pretty generous in my opinion (3k a month) and I really like when the people making a service make blog posts like this. However having the next tier up (100k a month) start at €100 is a no go for me. It’s not that I think the price is bad, it’s that for my service I expect to send only 30k per month by the end of the year. Having a smaller capacity tier would be great for small but not tiny projects.",
+      "Woah this is so cool. I am literally building a MTA right now! I see we are targeting two very different goals here, but good to see more people working on the email problem space."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "vLLM-MLX – Run LLMs on Mac at 464 tok/s",
+    "url": "https://github.com/waybarrios/vllm-mlx",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hey HN! I built vLLM-MLX alike framework on macOS, which is painfully slow on Apple Silicon machines.<p>vLLM-MLX brings native GPU acceleration using Apple&#x27;s MLX framework, with:<p><pre><code>  • OpenAI-compatible API (drop-in replacement)\n  • Multimodal: Text, Images, Video, Audio in one server\n  • Continuous batching for concurrent users (3.4x speedup)\n  • TTS in 10+ languages (Kokoro, Chatterbox)\n  • MCP tool calling support\n\n  Performance on M4 Max:\n  - Llama-3.2-1B-4bit: 464 tok&#x2F;s\n  - Qwen3-0.6B: 402 tok&#x2F;s\n  - Whisper STT: 197x real-time\n</code></pre>\nQuick start:\n    pip install -e .\n    vllm-mlx serve mlx-community&#x2F;Llama-3.2-3B-Instruct-4bit<p>Works with standard OpenAI SDK. Happy to answer questions!<p>GitHub: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;waybarrios&#x2F;vllm-mlx\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;waybarrios&#x2F;vllm-mlx</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Playing Arcade Mahjong at Home? Or is it just a Mirage?",
+    "url": "https://nicole.express/2026/put-your-clothes-back-on.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Despite the author (quite correctly) saying that explanations of riichi mahjong tend to sound like Calvinball, I highly recommend people learn the game if you have some time. There are some good videos on youtube going through it (they are long!), but once you learn how to play it&#x27;s a ton of fun. A good mix of luck and strategy, and tiles are fun to play with (if you&#x27;re playing in person).",
+      "I’ll guess the computer at the bottom is an NEC PC-98&#x2F;9801.",
+      "What is this supergun the author keeps talking about?",
+      "I rather enjoy Mahjong - the actual game, played in person even - and so it&#x27;s a continuing mild disappointment that so often when a thing says &quot;Mahjong&quot; it&#x27;s actually just tile matching, or a porn game, or in some cases both.<p>I played a decent video game rendition of the actual Mayjong - not tile matching, nobody gets their tits out, it matters whether you&#x27;re actually any good at it - in the 1980s but I had no idea this wasn&#x27;t a common thing, so I don&#x27;t even remember the name of the software."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "New map reveals landscape beneath Antarctica in unprecedented detail",
+    "url": "https://www.bbc.co.uk/news/articles/c9qpx2qqeq7o",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "OBS Studio 32.1.0 Beta 1 available",
+    "url": "https://github.com/obsproject/obs-studio/releases/tag/32.1.0-beta1",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "If anyone is using&#x2F;testing WebRTC I would love to hear how it is working for them :) I am hoping Simulcast makes a impact with smaller streamers&#x2F;site operators.<p>* Cheaper servers. More competition and I want to see people running their own servers.<p>* Better video quality. Encoding from source is going to be better then transcoding.<p>* No more bad servers. Send video to your audience and server isn&#x27;t able to do modification&#x2F;surveillance with E2E Encryption via WebRTC.<p>* Better Latency. No more time lost transcoding. I love low latency streaming where people are connected to community. Not just blasting one-way video.",
+      "If you build OBS from source and would like more than a 3-band equalizer without a plugin, I&#x27;ve still got my eq8 branch getting stale here:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;phkahler&#x2F;obs-studio&#x2F;tree&#x2F;eq8\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;phkahler&#x2F;obs-studio&#x2F;tree&#x2F;eq8</a><p>I should rebase that...<p>BTW they do not want it upstream for whatever reasons. I&#x27;m not complaining, I get it. But some of us like this built-in so I&#x27;m keeping it around.",
+      "I like how OBS has subsumed (often low-quality) screen recording apps for me; apart from the apps original intent for streaming",
+      "a bit more information on the new features: <a href=\"https:&#x2F;&#x2F;obsproject.com&#x2F;forum&#x2F;threads&#x2F;obs-studio-32-1-beta.193720&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;obsproject.com&#x2F;forum&#x2F;threads&#x2F;obs-studio-32-1-beta.19...</a>",
+      "Holy moly the new source picker is awesome. Anxiously awaiting the full release of this version.",
+      "I wanted to thank the OBS team from the bottom of my heart.",
+      "Does anyone use OBS to record Teams or Zoom meetings? If so, what is the best way to set it up?<p>I wish their website had a getting started guide for this purpose but I haven&#x27;t found one.",
+      "What similar software runs on a raspberry pi?",
+      "OBS is a great solution if you&#x27;re on a budget or doing very simple streams, but I really urge anybody who is serious about live streaming professional shows to check out vMix. It&#x27;s an incredible piece of software that is versatile and packed full of so many features professional broadcasts need all baked in."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: AI music covers in 2026?",
+    "url": "https://news.ycombinator.com/item?id=46641627",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m a relatively serious pianist and have been composing music (mostly classical&#x2F;contrapuntal) since I was a kid.<p>A while back I wrote an article about how a musician could leverage GenAI along with the final piece.<p>The process I used was: start by singing to develop a motif → notate sheet music and chord progression → use an arranger keyboard to flesh it out → then convert the arrangement using the cover feature in Suno.<p><a href=\"https:&#x2F;&#x2F;mordenstar.com&#x2F;blog&#x2F;dutyfree-shop\" rel=\"nofollow\">https:&#x2F;&#x2F;mordenstar.com&#x2F;blog&#x2F;dutyfree-shop</a>",
+      "I think this is already possible with some manual effort.<p>However, AI companies likely avoid encouraging covers of copyrighted music to reduce legal risk. Record labels actively pursue unlicensed covers, and a company monetizing them would be an obvious target.<p>It would also likely make it easier to circumvent copyright detection algorithms.",
+      "This cover has been going viral for some time:<p><a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=JSH0fXp4LoI\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=JSH0fXp4LoI</a><p>First ai-generated song that I had on repeat. I don&#x27;t know the level of effort it required, but I don&#x27;t care, honestly, it&#x27;s very good.",
+      "I honestly wouldn’t call Suno “AI slop” at this point. Yes, there’s a ton of garbage coming out of it. But you can also create some really detailed and intricate songs if you do it right. I’ve made some really nice duets and trios for example. Cloned from a real voice, no… but I’m also not getting sued for stealing a real person’s voice.<p>And some of their upcoming features which aren’t generally known yet are going to be really useful to creators."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Noninvasive brain treatment for depression proves helpful",
+    "url": "https://www.cnn.com/2026/01/15/health/saint-tms-depression-therapy-wellness",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; one course of SAINT can cost roughly from $16,000 to over $30,000<p>Wow. For something that&#x27;s not invasive, reusable machine using just EM pulses, that&#x27;s very expensive!<p>Is the construction or maintenance cost of the machine that high? Or are highly trained doctors needed to operate the machine? What is driving the cost?<p>I hope there is more to it that just greed.",
+      "… in humans"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "We Gave Our Browser Agent a 3MB Data Warehouse",
+    "url": "https://100x.bot/a/we-gave-our-browser-agent-a-3mb-data-warehouse",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt;You import heavy libraries just to do fuzzy string matching.<p>So instead of a heavy library for string matching you use a heavy library for a whole SQL engine which includes fuzzy string matching?",
+      "Yeah, this is the natural next step. We&#x27;re currently combining LLMs and compute -- mostly in the form of giving agents tools, then terminal access and now most recently sandboxes. The most logical next step is to give them specialized compute engines and frameworks for their tasks.<p>I&#x27;ve been building SQL agents recently, and nothing is better than just giving it access to Trino."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A 0-click exploit chain for the Pixel 9 Part 1: Decoding Dolby",
+    "url": "https://projectzero.google/2026/01/pixel-0-click-part-1.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; The UDC is integrated into a variety of hardware and platforms, including Android, iOS, Windows and media streaming devices. It is shipped to most OEMs as a binary ‘blob’ with limited symbols, which is then statically linked into a shared library.<p>Does that suggest this is a vulnerability on other platforms as well?",
+      "They probably should&#x27;ve worked harder to avoid the name &quot;Dolby Unified Decoder&quot;, or DUD for short."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "‘ELITE’: The Palantir app ICE uses to find neighborhoods to raid",
+    "url": "https://werd.io/elite-the-palantir-app-ice-uses-to-find-neighborhoods-to-raid/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I’ve never worked at Palantir, but once you get past the noisy leadership’s villain virtue signaling, every report I’ve read about the platform itself gives me strong “typical enterprise vendor” vibes. A lackluster software offering that is overhyped to institutional purchasers, then shoved down frontline employees’ throats because the vendor is good at navigating the sales and compliance labyrinth to secure deals.<p>The goals and motivation for using these tools, and their broad allowance of access to what should be highly controlled data (or in some cases even not collected at all) is the problem. Don’t give Palantir the bad-boy street cred they crave, focus on the policy decisions that are leading to agencies wanting tools like this in the first place.",
+      "Since it&#x27;s inception, Palantir has extracted roughly 10 billion usd taxpayer money from the US government. God bless America.",
+      "Why have we all lost the ability to think in a nuanced way? It’s very disturbing to witness, particularly on a forum like HN, ostensibly populated by smart people.<p>It’s possible to simultaneously believe that ICE has a clear and ethical mandate while also believing that they are going about fulfilling that mandate via bad methods that need to change.<p>It’s possible to simultaneously believe that people shouldn’t be marked as intrinsically “illegal” while also believing that an immigration queue should exist and skipping it is immoral and should be illegal.<p>Etcetera, etcetera.<p>You don’t HAVE to dedicate yourself to a fully polarized set of beliefs. Nuance is possible. What the hell is causing us to lose our minds like this? Is it really just social media? So frustrating to witness.",
+      "To tech leaders and hiring managers at other companies: If you&#x27;re reading this, please consider publicly stating that your company will interview Palantir engineers who want to exit on moral grounds. Create an explicit off-ramp. Lower the barrier to leaving. Make it a tech industry norm that we offer refuge to engineers trying to do the right thing.",
+      "Can people bring higher effort posts to this discussion so that this thread doesn&#x27;t get pulled like the others?<p>Is there a specific product line that this app is using? What FOIA laws are applicable to its use? What kind of data does this provide? something else?",
+      "Palantir damage control got to this thread faster than the last one.",
+      "Palantir is a mediocre company staffed by mediocre people making mediocre products, owned by a mediocre person.",
+      "When I was 19, an ex-student of my Alma Mater came to give a talk about TDD. While I found the lecture interesting, I vividly remember that a portion of our community rallied against him, attempting to boycott his presence because he worked for Palantir.<p>At the time, I remember thinking how extreme that seemed, and how I was &quot;sure&quot; nothing is black-and-white and that, certainly, while Palantir had shady connections, for sure it must bring some good to the world and, so, why boycott this poor man? It felt genuinely baffling to me.<p>While in many ways I consider myself a more balanced person today (precisely thinking less in black-and-white terms), this is a topic where I do not agree. I would not work for Palantir and, were I to travel back in time, I would join the boycott. Heck, given how I was when I was younger, I&#x27;d expand on it greatly and try to rally some form of physical protest.<p>A friend of mine once threw me the argument of &quot;well, the enemy [presumably China] is doing this kind of stuff, so we have to do it, too&quot;. This may seem like a compelling argument at first — and it may be so for many — but it can&#x27;t, to me. It&#x27;s ethically disgusting. The solution to world with decaying ethics is not to continue contributing to its decay. It erases accountability, it normalizes atrocity, it strips humanity from our very own flesh and blood — it escalates conflict! It. Just. Can&#x27;t. be.<p>We must fight this filth.",
+      "The name is giving &quot;bad Malthusian&quot;"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Munimet.ro – ML-based status page for the local subways in SF",
+    "url": "https://munimet.ro/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Python Basics Explained with Real-World Examples",
+    "url": "https://medium.com/@pcodesdev/python-basics-the-complete-beginners-guide-to-programming-in-2026-a0fedf8fe6f7",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I created this guide after noticing most Python tutorials use abstract examples (foo, bar, myVar) that don&#x27;t help beginners understand <i>why</i> they&#x27;re learning something.<p>Instead, I used scenarios like:\n- Coffee shop order systems for variables\n- Email validation for string methods\n- Smart home automation for boolean logic\n- Login authentication for conditional statements<p>Each concept is tied to a practical use case. The goal was to show beginners how Python solves real problems, not just syntax.<p>I kept it focused on fundamentals (variables through functions) rather than trying to cover everything. Better to deeply understand basics than superficially know everything.<p>Happy to answer questions or hear feedback on what could be improved!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Control Claude permissions using a cloud-based decision table UI",
+    "url": "https://github.com/rulebricks/claude-code-guardrails",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It&#x27;s hard for me to comprehend how ublock origin blocks a total of 10 different tracking scripts on your website <a href=\"https:&#x2F;&#x2F;rulebricks.com&#x2F;\">https:&#x2F;&#x2F;rulebricks.com&#x2F;</a> and all you can come up with is a small text in the bottom saying &quot;This website may collect cookies to optimize your user experience&quot;.<p>&quot;May collect cookies&quot;? Do you think google makes money by collecting cookies? You are brazenly lying into my face and even using a dark pattern to hide this ridiculously formulated sentence at the bottom of the screen.<p>Why does your company decide to employ falsehoods and dark patterns at such an obvious place? It erodes any trust.",
+      "I like the approach, I’ve been looking for something with a UI but not from a corp compliance perspective; as I scale usage of Claude I am finding permission checks to be a huge pain in the neck. In my circle, you can identify someone who uses the heck out of Claude Code by their use of —dangerously-skip-permissions (I did that with fat fingers but without typos, that’s how often I need it).",
+      "I really find it disingenuous when Show HNs link to a github that is just a landing page to get you to create an account for their service. Multiple clicks to find that free only covers 100 rule evaluations.",
+      "Curious to learn if&#x2F;how folks are using the PreToolUse hook in their own setup",
+      "Missing a lot critical commands: like passwd, shutdown, etc"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The Executive Assistant Paradox: Why AI Makes This Role Critical, Not Obsolete",
+    "url": "https://vleech.substack.com/p/the-executive-assistant-paradox-why",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "America's Throwaway Spies: How the CIA Failed Iranian Informants in Tehran",
+    "url": "https://www.reuters.com/investigates/special-report/usa-spies-iran/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The article has an upfront agenda-so at least it&#x27;s honest in some regard?",
+      "(2022)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Beni AI – Real-time face-to-face AI companion",
+    "url": "https://thebeni.ai/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Really cool, which backend AI model is it using?\nDoes it have memory in the background too so it will remember session to session?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Simpler than Photoshop but for free AI Landscaping",
+    "url": "https://hadaa.pro/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I just finished deploying the unified Ai landscaping dashboard for Hadaa Ai. This allows you to easily switch Ai modes like style presets, typing your own text prompts and even the advanced Auto Fix tool which detects design improvements that can be done on your space.",
+      "Easier to just use your preferred llm with image editing capabilities. Nano banana was better than any tool I found when I used AI to come up with landscaping visualizations.",
+      "We had a few trees fall in our backyard last year and one of the first things I did was throw a picture into Photoshop for its generative fill tool. I removed the fallen trees, then added some raised garden beds and a gazebo (for good measure).<p>I&#x27;ll play around with the tool a bit later, as the above is an idea I have for a homework assignment. I&#x27;d be happy to chat off HN about some of the ways this type of tool would be super beneficial for landscapers&#x2F;engineers.",
+      "I&#x27;d love to see Screenshots or video of the brushing. I&#x27;ve found nanobanana difficult to control with, eg markings and highlighter.",
+      "This is really cool, and I wonder if there&#x27;s a way to do this with the home renovations&#x2F; construction side of things.<p>Might be something to look into."
+    ],
+    "full_text": null
+  }
+]
