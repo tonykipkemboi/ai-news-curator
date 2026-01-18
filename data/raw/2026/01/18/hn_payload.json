@@ -1,0 +1,275 @@
+[
+  {
+    "title": "Starting from scratch: Training a 30M Topological Transformer",
+    "url": "https://www.tuned.org.uk/posts/013_the_topological_transformer_training_tauformer",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Does this make any sense, to anyone?",
+      "Comparison with vanilla of the same size&#x2F;flops budget?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: GibRAM an in-memory ephemeral GraphRAG runtime for retrieval",
+    "url": "https://github.com/gibram-io/gibram",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Very cool, kudos<p>Where might one see more about what type of indexing you do to get the graph?",
+      "Out of curiosity, did you settle on that name before or after the RAM availability&#x2F;price issues?",
+      "how do you search the graph network?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "We put Claude Code in Rollercoaster Tycoon",
+    "url": "https://labs.ramp.com/rct",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Related:<p>I’ve always found it crazy that my LLM has access to such <i>terrible</i> tools compared to mine.<p>It’s left with grepping for function signatures, sending diffs for patching, and running `cat` to read all the code at once.<p>I however, run an IDE and can run a simple refactoring tool to add a parameter to a function, I can “follow symbol” to see where something is defined, I can click and get all usages of a function shown at a glance, etc etc.<p>Is anyone working on making it so LLM’s get better tools for actually writing&#x2F;refactoring code? Or is there some “bitter lesson”-like thing that says effort is always better spent just increasing the context size and slurping up all the code at once?",
+      "Author here - some bonus links!<p>Session transcript using Simon Willison&#x27;s claude-code-transcripts<p><a href=\"https:&#x2F;&#x2F;htmlpreview.github.io&#x2F;?https:&#x2F;&#x2F;gist.githubusercontent.com&#x2F;jaysobel&#x2F;dfeed9a65ce7209274acf9ada0eaa65e&#x2F;raw&#x2F;claude_code_rollercoaster_tycoon_transcript.html\" rel=\"nofollow\">https:&#x2F;&#x2F;htmlpreview.github.io&#x2F;?https:&#x2F;&#x2F;gist.githubuserconten...</a><p>Reddit post<p><a href=\"https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;ClaudeAI&#x2F;comments&#x2F;1q9fen5&#x2F;claude_code_in_rollercoaster_tycoon&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;ClaudeAI&#x2F;comments&#x2F;1q9fen5&#x2F;claude_co...</a><p>OpenRCT2!!<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;jaysobel&#x2F;OpenRCT2\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;jaysobel&#x2F;OpenRCT2</a><p>Project repo<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;jaysobel&#x2F;OpenRCT2\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;jaysobel&#x2F;OpenRCT2</a>",
+      "&gt; As a mirror to real-world agent design: the limiting factor for general-purpose agents is the legibility of their environments, and the strength of their interfaces. For this reason, we prefer to think of agents as automating diligence, rather than intelligence, for operational challenges.",
+      "&gt; The only other notable setback was an accidental use of the word &quot;revert&quot; which Codex took literally, and ran git revert on a file where 1-2 hours of progress had been accumulating.",
+      "I love the interview at the end of the video. The kubectl-inspired CLI, and the feedback for improvements from Claude, as well as the alerts&#x2F;segmentation feedback.<p>You could take those, make the tools better, and repeat the experience, and I&#x27;d love to see how much better the run would go.<p>I keep thinking about that when it comes to things like this - the Pokemon thing as well. The quality of the tooling around the AI is only going to become more and more impactful as time goes on. The more you can deterministically figure out on behalf of the AI to provide it with accurate ways of seeing and doing things, the better.<p>Ditto for humans, of course, that&#x27;s the great thing about optimizing for AI. It&#x27;s really just &quot;if a human was using this, what would they need&quot;? Think about it: The whole thing with the paths not being properly connected, a human would have to sit down and really think about it, draw&#x2F;sketch the layout to visualize and understand what coordinates to do things in. And if you couldn&#x27;t do that, you too would probably struggle for a while. But if the tool provided you with enough context to understand that a path wasn&#x27;t connected properly and why, you&#x27;d be fine.",
+      "&gt; We don&#x27;t know any C++ at all, and we vibe-coded the entire project over a few weeks. The core pieces of the build are…<p>what a world!",
+      "Interesting article but it doesn’t actually discuss how well it performs at playing the game. There is in fact a 1.5 hour YouTube video but it woulda been nice for a bit of an outcome postmortem. It’s like “here’s the methods and set up section of a research paper but for the conclusion you need to watch this movie and make your own judgements!”",
+      "&gt; kept the context above the ~60% remaining level where coding models perform at their absolute best<p>Maybe this is obvious to Claude users but how do you know your remaining context level? There is UI for this?",
+      "I think something like Civilization would be better because:<p>1) The map is a grid<p>2) Turn based",
+      "&gt; In this article we&#x27;ll tell you why we decided to put Claude Code into RollerCoaster Tycoon, and what lessons it taught us about B2B SaaS.<p>What is this? A LinkedIn post?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Five Practical Lessons for Serving Models with Triton Inference Server",
+    "url": "https://talperry.com/en/posts/genai/triton-inference-server/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hi HN,<p>I’m wrapping up a role where I spent a significant amount of time writing Triton kernels. It’s a fantastic tool, but the learning curve has some sharp edges. I wanted to share a few practical &quot;notes from the field&quot; for anyone moving beyond the very opaque docs."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Raising money fucked me up",
+    "url": "https://blog.yakkomajuri.com/blog/raising-money-fucked-me-up",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; It&#x27;s much more comfortable to be the person that &quot;could be X&quot; than to be the person that tries to actually do it.<p>Brilliant insight.<p>Reminds of me this, from Theodore Roosevelt&#x27;s Citizenship in a Republic:<p>&gt; It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat.<p>Good luck, and go get &#x27;em.",
+      "Expectations that we hold inside of ourselves can be a really difficult echo of identities we tried fantasizing about when growing up and as an adult. We want to do well, we want the approval, we want the validation.<p>The anxiety over expectations can kill you. It’s self abuse - people (investors, bosses, spouses) don’t invest in you for your anxiety driven productivity, they do it because of who you are outside of that worry. It’s hard to replace it if you consider it your motor. Let the desire to do well and good stay, but let the fear of others disappointment go, and the fantasy that we can control those outcomes by squeezing every last drop out of ourselves.",
+      "&gt; Then you look around and see &quot;startup X gets to $1M ARR a month after launch&quot; and shit like that and I&#x27;m feeling terrible about how we&#x27;re barely growing.<p>Comparison is the thief of joy. I fall into this trap almost weekly. Success stories are incredibly rare and we only see the splash, not the iceberg of failure just beneath the surface.<p>I think about my current business constantly even though on paper we are making enough to keep this thing going forever but it never feels enough.<p>I felt this post and appreciate the honesty.",
+      "&gt; As I dug deeper into these feelings, I realized I was feeling pressured. Except they&#x27;re not saying this, I am.<p>That&#x27;s a great insight.<p>Once you&#x27;ve realized that, I think the best thing to do is to talk to the person whose pressure you imagine. Then you can find out what they&#x27;re really thinking. Perhaps they really are thinking that (in which case the pressure is real and you can act on it) or they aren&#x27;t (hearing them say that will alleviate the pressure).<p>Once when freelancing I asked a customer what they liked and disliked about my work. They had previously seemed happy with me, so I was pretty sure I know what they&#x27;d say. I believed I wrote good stable software. What they actually said was they were a small company, and they had had previous developers who, when there were server problems etc., just shrugged and said they didn&#x27;t know how to fix it. They felt I wasn&#x27;t like that, that I&#x27;d sit there and get it fixed, call up friends if necessary, etc. So yeah, they were happy, but not for the reason I&#x27;d imagined.<p>So my learning was: So you always have to talk to people to find out what they think. You really can&#x27;t guess.",
+      "This may sound weird but this was a very interesting read for me as a father of 2 small kids.<p>A somewhat common (yet often not followed (because it&#x27;s hard)) piece of parenting advice is to not praise kids too much. Especially character judgements like &quot;you&#x27;re so smart&quot; or &quot;you&#x27;re so creative&quot;. Reason being it makes them do things that <i>seem</i> smart or <i>seem</i> creative just to get the praise. Then it comes crashing down when they&#x27;re faced with a challenge that contests the idea that they&#x27;re &quot;a smart kid&quot;.<p>It <i>kind of</i> looks like this is happening to the author. He became a founder, and started doing things that <i>seem like what a founder would do</i>, then got hit hard when he was unable to fulfill the &quot;founder&quot; role (i.e. didn&#x27;t grow fast enough).<p>I&#x27;m not totally sure what to conclude here. I guess humans are susceptible to this kind of thing regardless of age.",
+      "&gt; It&#x27;s much more comfortable to be the person that &quot;could be X&quot; than to be the person that tries to actually do it<p>I totally agree with that statement and it mostly explains why so many people does not go down a rabbit hole.",
+      "I think time and again, the main thing people should realize is you should never, ever raise venture capital unless you really, really have to™.<p>Or at least know that your interests as a founder and the interests of those who invest in your company will not always coincide. And they do this a lot more times every single day than you do.",
+      "When doing my own startup in the past, the biggest pain were: loneliness and inexplicable paranoia. Which then lead to anxiety.<p>This, when unchecked, can lead to self inflicted, unnecessary pressure on myself. And failure to meet the impossible deadlines, created downward spiral.<p>I think this is normal, everyone went through the same thing. That’s why some VCs filter for megalomaniacs, zealots, or people who have no idea what pain is, because the journey is insane arduous.<p>The pain magnifies if the startup is located in VHCOL. Every month a whale appears and eat a big chunk of your runway. Who wouldn’t have anxiety?",
+      "That sort of jump always looks both incredibly brave and foolish to me. I guess it’s necessary for startups though.<p>I’d think more would do a ramen bootstrap to test waters on both product fit and potential for monetization though",
+      "This hit close to home..!<p>I had a startup some years ago and took angel funding from family. When we were later running out of cash and had to raise professional money to stay alive, the pressure of the expectations I <i>thought</i> my family had because I was on the verge of losing their money caused me debilitating panic attacks.<p>I still feel the effects 6 years later, but have learned to cope whenever I feel the pressure begin to build. But man did it scar.<p>OP if there is any advice I can give, it&#x27;s that you should have a chat with your investor friends about and make sure you feel like you can always walk away."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Erdos 281 solved with ChatGPT 5.2 Pro",
+    "url": "https://twitter.com/neelsomani/status/2012695714187325745",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; no prior solutions found.<p>This is no longer true, a prior solution has just been found[1], so the LLM proof has been moved to the Section 2 of Terence Tao&#x27;s wiki[2].<p>[1] - <a href=\"https:&#x2F;&#x2F;www.erdosproblems.com&#x2F;forum&#x2F;thread&#x2F;281#post-3325\" rel=\"nofollow\">https:&#x2F;&#x2F;www.erdosproblems.com&#x2F;forum&#x2F;thread&#x2F;281#post-3325</a><p>[2] - <a href=\"https:&#x2F;&#x2F;github.com&#x2F;teorth&#x2F;erdosproblems&#x2F;wiki&#x2F;AI-contributions-to-Erd%C5%91s-problems#2-fully-ai-generated-solutions-to-problems-for-which-subsequent-literature-review-found-full-or-partial-solutions\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;teorth&#x2F;erdosproblems&#x2F;wiki&#x2F;AI-contribution...</a>",
+      "Can anyone give a little more color on the nature of Erdos problems? Are these problems that many mathematicians have spend years tackling with no result? Or do some of the problems evade scrutiny and go un-attempted for most of the time?<p>EDIT:\nAfter reading a link someone else posted to Terrance Tao&#x27;s wiki page, he has a paragraph that somewhat answers this question:<p>&gt; Erdős problems vary widely in difficulty (by several orders of magnitude), with a core of very interesting, but extremely difficult problems at one end of the spectrum, and a &quot;long tail&quot; of under-explored problems at the other, many of which are &quot;low hanging fruit&quot; that are very suitable for being attacked by current AI tools. Unfortunately, it is hard to tell in advance which category a given problem falls into, short of an expert literature review. (However, if an Erdős problem is only stated once in the literature, and there is scant record of any followup work on the problem, this suggests that the problem may be of the second category.)<p>from here: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;teorth&#x2F;erdosproblems&#x2F;wiki&#x2F;AI-contributions-to-Erdős-problems\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;teorth&#x2F;erdosproblems&#x2F;wiki&#x2F;AI-contribution...</a>",
+      "From Terry Tao&#x27;s comments in the thread:<p>&quot;Very nice! ... actually the thing that impresses me more than the proof method is the avoidance of errors, such as making mistakes with interchanges of limits or quantifiers (which is the main pitfall to avoid here). Previous generations of LLMs would almost certainly have fumbled these delicate issues.<p>...<p>I am going ahead and placing this result on the wiki as a Section 1 result (perhaps the most unambiguous instance of such, to date)&quot;<p>The pace of change in math is going to be something to watch closely. Many minor theorems will fall. Next major milestone: Can LLMs generate useful abstractions?",
+      "Personally, I&#x27;d prefer if the AI models would start with a proof of their own statements. Time and again, SOTA frontier models told me: &quot;Now you have 100% correct code ready for production in enterprise quality.&quot; Then I run it and it crashes. Or maybe the AI is just being tongue-in-cheek?<p>Point in case: I just wanted to give z.ai a try and buy some credits. I used Firefox with uBlock and the payment didn&#x27;t go through. I tried again with Chrome and no adblock, but now there is an error: &quot;Payment Failed: p.confirmCardPayment is not a function.&quot; The irony is, that this is certainly vibe-coded with z.ai which tries to sell me how good they are but then not being able to conclude the sale.<p>And we will get lots more of this in the future. LLMs are a fantastic new technology, but even more fantastically over-hyped.",
+      "FWIW, I just gave Deepseek the same prompt and it solved it too (much faster than the 41m of ChatGPT). I then gave both proofs to Opus and it confirmed their equivalence.<p>The answer is yes. Assume, for the sake of contradiction, that there exists an \\(\\epsilon &gt; 0\\) such that for every \\(k\\), there exists a choice of congruence classes \\(a_1^{(k)}, \\dots, a_k^{(k)}\\) for which the set of integers not covered by the first \\(k\\) congruences has density at least \\(\\epsilon\\).<p>For each \\(k\\), let \\(F_k\\) be the set of all infinite sequences of residues \\((a_i)_{i=1}^\\infty\\) such that the uncovered set from the first \\(k\\) congruences has density at least \\(\\epsilon\\). Each \\(F_k\\) is nonempty (by assumption) and closed in the product topology (since it depends only on the first \\(k\\) coordinates). Moreover, \\(F_{k+1} \\subseteq F_k\\) because adding a congruence can only reduce the uncovered set. By the compactness of the product of finite sets, \\(\\bigcap_{k \\ge 1} F_k\\) is nonempty.<p>Choose an infinite sequence \\((a_i) \\in \\bigcap_{k \\ge 1} F_k\\). For this sequence, let \\(U_k\\) be the set of integers not covered by the first \\(k\\) congruences, and let \\(d_k\\) be the density of \\(U_k\\). Then \\(d_k \\ge \\epsilon\\) for all \\(k\\). Since \\(U_{k+1} \\subseteq U_k\\), the sets \\(U_k\\) are decreasing and periodic, and their intersection \\(U = \\bigcap_{k \\ge 1} U_k\\) has density \\(d = \\lim_{k \\to \\infty} d_k \\ge \\epsilon\\). However, by hypothesis, for any choice of residues, the uncovered set has density \\(0\\), a contradiction.<p>Therefore, for every \\(\\epsilon &gt; 0\\), there exists a \\(k\\) such that for every choice of congruence classes \\(a_i\\), the density of integers not covered by the first \\(k\\) congruences is less than \\(\\epsilon\\).<p>\\boxed{\\text{Yes}}",
+      "The erdosproblems thread itself contains comments from Terence Tao: <a href=\"https:&#x2F;&#x2F;www.erdosproblems.com&#x2F;forum&#x2F;thread&#x2F;281\" rel=\"nofollow\">https:&#x2F;&#x2F;www.erdosproblems.com&#x2F;forum&#x2F;thread&#x2F;281</a>",
+      "There was a post about Erdős 728 being solved with Harmonic’s Aristotle a little over a week ago [1] and that seemed like a good example of using state-of-the-art AI tech to help increase velocity in this space.<p>I’m not sure what <i>this</i> proves. I dumped a question into ChatGPT 5.2 and it produced a correct response after almost an hour [2]?<p>Okay? Is it repeatable? Why did it come up with this solution? How did it come up with the connections in its reasoning? I get that it looks correct and Tao’s approval definitely lends credibility that it is a valid solution, but what exactly is it that we’ve established here? That the corpus that ChatGPT 5.2 was trained on is better tuned for pure math?<p>I’m just confused what one is supposed to take away from this.<p>[1] <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46560445\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46560445</a><p>[2] <a href=\"https:&#x2F;&#x2F;chatgpt.com&#x2F;share&#x2F;696ac45b-70d8-8003-9ca4-320151e0816e\" rel=\"nofollow\">https:&#x2F;&#x2F;chatgpt.com&#x2F;share&#x2F;696ac45b-70d8-8003-9ca4-320151e081...</a>",
+      "Has anyone verified this?<p>I&#x27;ve &quot;solved&quot; many math problems with LLMs, with LLMs giving full confidence in subtly or significantly incorrect solutions.<p>I&#x27;m very curious here. The Open AI memory orders and claims about capacity limits restricting access to better models are interesting too.",
+      "I wonder if they tried Gemini. I think Gemini could have done better, as seen from my experiences with GPT and Gemini models on some simple geometry problems.",
+      "I guess the first question I have is if these problems solved by LLMs are just low-hanging fruit that human researchers either didn&#x27;t get around to or show much interest in - or if there&#x27;s some actual beef here to the idea that LLMs can independently conduct original research and solve hard problems."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Shannon's randomness-guessing machine",
+    "url": "https://www.loper-os.org/bad-at-entropy/manmach.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I got 58% after 100 attempts.<p>My method uses the fact that the letters a-k + u make up around 49.9% of letters in a normal text. So I just go through a text letter by letter in my mind, giving 0 if the letter is a-k or u, and a 1 if it&#x27;s l-t or v-z.<p>For example, the Gettysburg Address:<p>f - 0<p>o - 1<p>u - 0<p>r - 1<p>s - 1<p>c - 0<p>o - 1<p>r - 1<p>e - 0",
+      "&gt; It is not hard to win this game. If you spent a whole day playing it, shame on you. But what if you did not know that you are playing a game? I dug up this toy when I saw people talking about generating &#x27;random&#x27; numbers for cryptography by mashing keys or shouting into microphones. It is meant to educate you regarding the folly of such methods.<p>I wouldn&#x27;t trust a human to generate enough entropy for any kind of key material. But I&#x27;d happily feed their output, and more importantly, the metadata around said output (like the ns delay between key presses) into the seed of a CSPRNG, (much more importantly, along with plenty of other sources of entropy).<p>The primary characteristic of a CSPRNG, is the inability to predict the next output, from the previous output. Once you get sufficient entropy to seed a CSPRNG, nothing you (correctly) mix into the state, can decrease it&#x27;s security.<p>There is no folly in using human interactions to help seed a random number generator. Assuming you dont use the characters they type as the only seed input.",
+      "There’s a basic approach to this using markov chains which works surprisingly well. Scott Aaronson once challenged some students to beat his algorithm — only one student could, who claimed he just “used his free will”. Human randomness isn’t so random. There’s a neat little writeup about it here: <a href=\"https:&#x2F;&#x2F;planetbanatt.net&#x2F;articles&#x2F;freewill.html\" rel=\"nofollow\">https:&#x2F;&#x2F;planetbanatt.net&#x2F;articles&#x2F;freewill.html</a>",
+      "Got 50% in first try, the computer only made two guesses, one right and one wrong, and passed the rest.",
+      "I did a couple runs without thinking much about it, and the computer never got more than 25%. I guess 0000 and 1111 don&#x27;t feel random, but work pretty well. Probably by random chance is only 1&#x2F;8 or 12.5%. In other words it will happen all the time."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "U.S. Court Order Against Anna's Archive Spells More Trouble for the Site",
+    "url": "https://torrentfreak.com/u-s-court-order-against-annas-archive-spells-more-trouble-for-the-site/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Specifically, the site’s operator and these third parties are prohibited from scraping WorldCat data, storing or distributing the data on Anna’s Archive websites, and encouraging others to store, use or share this data.<p>I don&#x27;t see how that impacts anyone but Anna&#x27;s Archive. Arguably ISPs distribute the data, but how are registrars implicated?",
+      "&gt; Specifically, the site’s operator and these third parties are prohibited from scraping WorldCat data, storing or distributing the data on Anna’s Archive websites, and encouraging others to store, use or share this data.<p>Given the timing, I assumed it was Spotify trying to prevent the release of their dataset but apparently not.",
+      "Cory Doctorow has it right. Since the USA is applying tariffs to everyone everywhere anyway, everyone should abandon their US free trade agreements  and get rid of the agreement required local laws that allow US companies to shut down others for felony violation of business model.",
+      "God knows how much OCLC spent in legal fees just to get it this far, even without any motions by the other party. What&#x27;s the point? None of the people using Anna&#x27;s Archive are potential customers of OCLC.<p>Just lawyers trying to justify their existence.",
+      "Judgment: <a href=\"https:&#x2F;&#x2F;torrentfreak.com&#x2F;images&#x2F;anna-oclc-default-judgment.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;torrentfreak.com&#x2F;images&#x2F;anna-oclc-default-judgment.p...</a><p>Disappointing in particular to see the court validate a ToS &quot;browsewrap agreement&quot;, admitting that OCLC provided no evidence that Anna&#x27;s Archive was aware of the agreement, but still finding the fact that &quot;Defendant is a sophisticated party that scraped data from Plaintiffs website daily&quot; as sufficient to bind them to it.",
+      "I don&#x27;t understand why Anna&#x27;s Archive has such a convoluted donation system. At first glance it looks like it&#x27;s trying to push a subscription on you, which is ironic considering aversion to subscriptions is exactly what&#x27;s driving people to AA in the first place. I found no convenient single-link crypto donate button where I could just send some money whenever I want.",
+      "How does it take more than 24 hours to take these servers down when they obviously are violating copyright. It should only take a few phone calls to get them taken down."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "How scientists are using Claude to accelerate research and discovery",
+    "url": "https://www.anthropic.com/news/accelerating-scientific-research",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Not to be a luddite, but large language models are fundamentally not meant for tasks of this nature. And listen to this:<p>&gt; Most notably, it provides confidence levels in its findings, which Cheeseman emphasizes is crucial.<p>These &#x27;confidence levels&#x27; are suspect. You can ask Claude today, &quot;What is your confidence in __&quot; and it will, unsurprisingly, give a &#x27;confidence interval&#x27;. I&#x27;d like to better understand the system implemented by Cheeseman. Otherwise I find the whole thing, heh, cheesy!",
+      "Call me when a disinterested third-party says so. PR announcements by the very people who have a large stake in our belief in their product are unreliable.",
+      "Of course this comes from Anthropic PR. Stanford basically has a stake in making LLMs and AI hype so no wonder they are the most receptive.",
+      "Pairs well with this: <a href=\"https:&#x2F;&#x2F;hegemon.substack.com&#x2F;p&#x2F;the-age-of-academic-slop-is-upon\" rel=\"nofollow\">https:&#x2F;&#x2F;hegemon.substack.com&#x2F;p&#x2F;the-age-of-academic-slop-is-u...</a><p>Taking CV-filler from 80% to 95% of published academic work is yet another revolutionary breakthrough on the road to superintelligence.",
+      "oh look another advertisement for anthropic",
+      "[dead]",
+      "[flagged]",
+      "By paying Anthropic large sums of money ?!?<p>Funny you say that."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "What twenty years of DevOps has failed to do",
+    "url": "https://www.honeycomb.io/blog/you-had-one-job-why-twenty-years-of-devops-has-failed-to-do-it",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It failed because there is an ongoing denial that development and operations are two distinct skillsets.<p>If you think 10x devs are unicorns consider how much harder it is to get someone 10x at the intersection of both domains. (Personally I have never met one). You are far better off with people that can work together across the bridge, but that requires actual mutual trust and respect, and we’re not able to do that.",
+      "DevOps is dead because it&#x27;s run by a bunch of ops people who don&#x27;t know how to do dev and a bunch of dev people who don&#x27;t know how to do ops. The only tooling problem is that a bunch of companies created &quot;DevOps tools&quot; that then get dictated to use: K8s, terraform, etc. The only way this works is if you build the application to fit within those frameworks. Writing an indexer that is massively parallel and is mainly constrained by CPU&#x2F;Memory. Instead, you have devs building something that gets thrown over the fence to a devops team that then containerizes it and throw it on K8s. What happens if the application requires lots of IOPS or network bandwidth? K8s doesn&#x27;t schedule applications that way. &quot;Oh you can customize the scheduler to take that into account&quot;. 2 years later, it&#x27;s still not &quot;customized&quot; because they are ops people who don&#x27;t know how to code. If you do customize it, the API is going to change in a few months which will break when you upgrade.",
+      "&gt;  most orgs are used to responding to a daytime alert by calling out, “Who just shipped that change?” assuming that whoever merged the diff surely understands how it works and can fix it post-haste. What happens when nobody wrote the code you just deployed, and nobody really understands it?<p>I assume the first time this happens at any given company will be the moment they realize fully autonomous code changes made on production systems by agents is a terrible idea and every change needs a human to take responsibility for and ownership of it, even if the changes were written by an LLM.",
+      "Yaml is my #1 failure in devops. That so many have resigned themselves to this limit and no longer seek to improve, it&#x27;s disappointing. Our job is to make things run better and easier, yet so many won&#x27;t recognize the biggest pains in their own work. Seriously, is text templating an invisibly scoped language really where you think the field has reached maturity?",
+      "DevOps only failed in that so many don&#x27;t know what it is.<p>DevOps isn&#x27;t a tool, but there are lots of tools that make it easier to implement.<p>DevOps isn&#x27;t how management can eliminate half the org and have one person do two roles, specialization is still valuable.<p>DevOps isn&#x27;t an organization structure, though the wrong org structure can make it fail.<p>DevOps is collaboration. It&#x27;s getting two distinct roles to better interoperate. The dev team that wants to push features fast. And the ops team that wants stability and uptime.<p>From the management side, if you aren&#x27;t focused on building teams that work well together, eliminating conflicts, rewarding the team collectively for features and uptime, and giving them the resources to deliver, that&#x27;s not a DevOps failure, that&#x27;s a management failure.",
+      "I&#x27;d argue that it has failed in some organisations. DevOps for me is embedding the operations with the development team. I still have operations specialist, however, they attend the development team stand ups and help articulate the problems to the developers. They may have separate operations standups and meetings to ensure the operations teams know what they are doing and share best practices. Developers learn about the operations side from those that understand it well and the operations experts learn the limitations and needs of the developers. Occasionally  I am fortunate to discover someone&#x27;s that can understand both areas incredibly well. Either way, this results in increased trust and closer working. You don&#x27;t care about helping some random person on a ticket from a tream you don&#x27;t know. You do care about the person you work with daily and understand the problems they have.<p>If you can&#x27;t account for someone spending x% of their time working with a team but for budgetary purposes belonging to a different team then sack your accountants.<p>DevOps,like agile, when done correctly should help to create teams that understand complete systems or areas of a business work more efficiently than having stand alone teams. The other part of the puzzle is to include the QA team too to ensure that the impact of full system, performance and integration tests are understood by all and that both everyone understands how their changes impact everything else.<p>Having the dev team build code that makes the test and ops teams life easier benefits everyone. Having the ops team provide solutions that support test and dev helps everyone. Having test teams build system that work best with the Dev and ops teams helps everyone.<p>Agile development should enable teams to work at a higher level of performance by granting them the agency to make the right decisions at the right time to deliver a better product by building what is needed in the correct timeline.<p>DevOps and agile fail where companies try to follow waterfall models whilst claiming agile processes. The goal with all these business and operating models is to improve efficiency. When that isn&#x27;t happening then either you aren&#x27;t applying the model correctly or you need to change the model.",
+      "If your developers weren&#x27;t looking at dashboards before, they won&#x27;t use a chat interface to interrogate it either. That doesn&#x27;t really bring it to them any more than their existing capabilities. There&#x27;s also a worrying underlying assumption being made here that the answers your LLM will give you are accurate and trustworthy.",
+      "I don&#x27;t know of any other term in tech that people experience in so many different often contradictory ways that causes people to talk past each other because they&#x27;re all talking about different things or been places that work so differently.",
+      "Am I the only one who remembers when DevOps meant &quot;developers are responsible for dealing with the operational part of their software too, so that they don&#x27;t just throw stuff over the wall for another team to deal with the 3AM pages&quot;?<p>It seems to have become: &quot;we turned ops into coding too, so now the ops team needs to be good at software engineering&quot;",
+      "As a <i>movement</i>, DevOps failed a long time ago. Once the word completely lost its meaning, it was impossible to educate anyone about it. But as a business practice (which is mostly what it is), it&#x27;s still a viable option that any business can implement. It just takes the right people rising into leadership positions to enact it."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "How London cracked mobile phone coverage on the Underground",
+    "url": "https://www.ianvisits.co.uk/articles/how-london-finally-cracked-mobile-phone-coverage-on-the-underground-86784/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Just to add a piece of data to support this:<p>&gt; It turns out the phone signal inside the station can be better than the one above ground<p>I was surprised when I noticed I had 5G in the tunnel, ran a speed test and hit 641Mbps down!<p><a href=\"https:&#x2F;&#x2F;www.speedtest.net&#x2F;result&#x2F;i&#x2F;6831252952\" rel=\"nofollow\">https:&#x2F;&#x2F;www.speedtest.net&#x2F;result&#x2F;i&#x2F;6831252952</a>",
+      "Pretty neat but as someone who commutes every day on the New York subway I hope it’s never “cracked” here. Phone usage without headphones is already annoying enough and I greatly appreciate the various people trying to take calls eventually lose service.",
+      "I had assumed the delay was technical but it turns out it was mostly about finding a business model that worked for everyone. It is good they finally settled on a shared infrastructure approach so they do not have to crowd the tunnels with extra equipment.",
+      "I wonder if they considered using the existing metal tracks as antennae, or even <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Power_line_communication\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Power_line_communication</a> to feed base stations in the trains themselves.<p><i>So the ESN in the tunnels runs at 400 MHz, far lower than the 700 to 3,600 MHz range usually used by smartphones.</i><p>It&#x27;s worth noting that 450MHz was listed as one of the GSM bands, but apparently was never used: <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;GSM_frequency_bands#GSM-450\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;GSM_frequency_bands#GSM-450</a>",
+      "This is the new system for emergency communications? TfL just finished up an upgrade on that in 2021. That upgrade was built by Thales.[1] That system is purely for operational use, and is not cell phone compatible. It&#x27;s compatible with the gear cops and fire brigades use. Is it being replaced?<p>As late as 2018, the classic century-old system, with two bare wires on insulators on the tunnel walls, was still maintained.[2] Clipping a telephone handset to the two wires would connect to a dispatcher, and the wires were placed so that reaching out of the driver&#x27;s cab to do this was possible. In addition, squeezing the wires together by hand would trip a relay and cut traction power. Is that still operational? The 2011 replacement was ISDN.<p>[1] <a href=\"https:&#x2F;&#x2F;www.thalesgroup.com&#x2F;en&#x2F;news-centre&#x2F;press-releases&#x2F;thales-performs-critical-refresh-london-undergrounds-communications\" rel=\"nofollow\">https:&#x2F;&#x2F;www.thalesgroup.com&#x2F;en&#x2F;news-centre&#x2F;press-releases&#x2F;th...</a><p>[2] <a href=\"https:&#x2F;&#x2F;www.railengineer.co.uk&#x2F;communications-on-the-central-line&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.railengineer.co.uk&#x2F;communications-on-the-central...</a>",
+      "I&#x27;m having a really hard reading this. Not only are the paragraphs are so short, they each feel like part of a uncompleted thought.<p>The content doesn&#x27;t feel AI generated, but maybe it is? I read somewhere that short paragraphs is an AI signature!?",
+      "Interesting! I know Sweden was not first, but Stockholm has had 3g coverage in the subway since 2005 and 4g since 2016.",
+      "I use the underground frequently. It doesn&#x27;t really feel like half of it is covered. Where it is available, it works amazingly. I might have been using the other half by sheer luck.",
+      "One of the frustrating things about international roaming in the UK is typically your plan does not include coverage on this neutral network on the underground",
+      "Are the dual redundant leaky feeders configured to act as a MIMO array?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: I built a tool to assist AI agents to know when a PR is good to go",
+    "url": "https://dsifry.github.io/goodtogo/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Sorry, so the tool is now even circumventing human review? Is that the goal?<p>So the agent can now merge shit by itself?<p>Just the let damn thing push nto prod by itself at this point.",
+      "Very interesting! This has a gem in the documentation: Using the tool itself as a CI check. I hadn&#x27;t considered unresolved comments by say a person, or CodeRabbit or similar tool being a CI status failure. That&#x27;s an excellent idea for AI driven PR&#x27;s.<p>On a personal note; I hate LLM output to advertise a project. If you have something to share have the decency to type it out yourself or at least redact the nonsense from it.",
+      "Then you had the LLM write the blog post as well as your post on HN.",
+      "I dislike the idea of coupling my workflow to saas platforms like github or code rabbit. The fact that you still have to create local tools is a selling point for just doing it all “locally”.",
+      "This looks nice! I like the idea of providing more deterministic feedback and more or less forcing the assistant to follow a particular development process. Do you have evidence that gtg improves the overall workflow? I think that there is a trade-off between risk of getting stuck (iteration without reaching gtg-green) versus reaching perfect 100% completion.",
+      "I don’t understand how this provides anything above using GitHub status checks and branch protections to require conversations to be resolved before merging. Combined with the GitHub CLI, this gives agents everything they need to achieve the same result. More AI slop on top of AI slop. At this point when seeing these kinds of posts I feel like Edward Norton in front of the copy machine.",
+      "Super interesting, any particular reason you didn&#x27;t try to solve these prior to pushing with hooks and subagents?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: App to spoof GPS location on iOS without jailbreaking",
+    "url": "https://github.com/acheong08/ios-location-spoofer",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I still can&#x27;t believe that certain IOS APIs are locked to paid developer accounts only (PacketTunnel, Shortcuts, etc.) such that you can&#x27;t even sideload your own app onto your own phone with these features. It&#x27;s not very well documented that it&#x27;s paid either. Spent forever a couple months ago figuring out why my code wasn&#x27;t working before giving up and opening my wallet."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Code with Anthropic API Compatibility [ollama blog]",
+    "url": "https://ollama.com/blog/claude",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Musk Seeks Up to $134B Damages from OpenAI, Microsoft",
+    "url": "https://www.bloomberg.com/news/articles/2026-01-17/musk-seeks-up-to-134-billion-damages-from-openai-microsoft",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Altman&#x27;s tweet on the subject seems to present some factual difficulties for Musk <a href=\"https:&#x2F;&#x2F;x.com&#x2F;sama&#x2F;status&#x2F;2012271781394989327\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;sama&#x2F;status&#x2F;2012271781394989327</a>",
+      "Well, the US legal system is that broken, I see him with high chances of winning, somehow? (like &quot;we give you 50% of what you are asking for but shut up now&quot;)",
+      "If you are confident that you can reach arbitrary judgments in about 1% of all cases, maybe via corruption, political influence or just random arbitrariness of court decisions, would this mean the expected value of this suit is approximately 1.3B usd minus ~10m legal fees?",
+      "<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;aokho\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;aokho</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Agam Space – Self-hosted, zero-knowledge, E2EE file storage",
+    "url": "https://github.com/agam-space/agam-space",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Why AI Doesn't Think: We Need to Stop Calling It \"Cognition\"",
+    "url": "https://docs.google.com/document/d/1FHUgpRTtL23cUygPhAh7xasccfKpX0T2ZGdlcsEr-4U/edit?usp=sharing",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I agree with what&#x27;s written, and I&#x27;ve been talking about the harm seemingly innocuous anthropomorphization does for a while.<p>If you do correct someone (a layperson) and say &quot;it&#x27;s not thinking&quot;, they&#x27;ll usually reply &quot;sure but you know what I mean&quot;. And then, eventually, they will say something that indicates they&#x27;re actually <i>not</i> sure that it isn&#x27;t thinking. They&#x27;ll compliment it on a response or ask it questions about itself, as if it were a person.<p>It won&#x27;t take, because the providers want to use these words. But different terms would benefit everyone. A lot of ink has been spilled on how closely LLM&#x27;s approximate human thought, and maybe if we never called it &#x27;thought&#x27; to begin with it wouldn&#x27;t have been such a distracting topic from what they are -- useful.",
+      "&gt; &quot;Cognition&quot; has a meaning. It&#x27;s not vague. In psychology, neuroscience, and philosophy of mind, cognition refers to mental processes in organisms with nervous systems.<p>Except if you actually look up the definitions, they don&#x27;t mention &quot;organisms with nervous systems&quot; at all. Curious.",
+      "This framing makes sense. What we call “AI thinking” is really large-scale, non-sentient computation—matrix ops and inference, not cognition. Once you see that, progress is less about “intelligence” and more about access to compute. I’ve run training and batch inference on decentralized GPU aggregators (io.net, Akash) precisely because they treat models as workloads, not minds. You trade polished orchestration and SLAs for cheaper, permissionless access to H100s&#x2F;A100s, which works well for fault-tolerant jobs. Full disclosure: I’m part of io.net’s astronaut program.",
+      "You know, I bet Claude encouraged you to post here and share with people. Because Claude Opus 4.5 has been trained on being kind. It&#x27;s a long story, but since you admitted to using it&#x2F;them, I&#x27;m going to give you a lot more credit than normal. Also because you can plug what I say right back into Claude and see what else comes out!<p>So you&#x27;re stumbling onto a position that&#x27;s closest to &quot;Biological Naturalism&quot;, which is Searle&#x27;s philosophy. However, lots of people disagree with him, saying he&#x27;s a closeted dualist in denial.<p>I mean, he was a product of his time, early 80&#x27;s was dominated by symbolic AI, and that definitely wasn&#x27;t working so well. Despite that, he got a lot of pushback from Dennett and Hofstadter even back then.<p>Chalmers recently takes a more cautious approach, while his student Amanda Askell is present in our conversation even if you haven&#x27;t realized it yet. ;-)<p>Meanwhile the poor field of Biology is feeling rather left out of this conversation, having been quite steadfastly monist since the late 19th century, having rejected vitalism in favor of mechanism. (though the last dualists died out in the 50&#x27;s-ish?)<p>And somewhere in our world&#x27;s oceans, two sailors might be arguing whether or not a submarine can swim. On board a Los Angeles class SSN making way at 35 kts at -1000feet.",
+      "why? there is no why to something that is not possible\nthere is zero evidence that ai has achived, slow crawling bug level abilities to navigate ,even a simplified version of reality, as there would already be a massive shift in a wide variety of low level human unskilled labour and tasks.\nthough if things keep going like they are we will see a new body dismorphia ,where people will be wanting more fingers.",
+      "An article about AI &quot;cognition&quot; is written by LLM. You kidding."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI industry insiders launch site to poison the data that feeds them",
+    "url": "https://www.theregister.com/2026/01/11/industry_insiders_seek_to_poison/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Besides the potential issues with sending user requests to this site, it&#x27;s only a single URL and could be easily ignored. Perhaps I&#x27;m misunderstanding something. Wouldn&#x27;t proxying and caching requests on behalf of your users make more sense?",
+      "Discussion: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46577464\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46577464</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "OpenAI could reportedly run out of cash by mid-2027",
+    "url": "https://www.tomshardware.com/tech-industry/big-tech/openai-could-reportedly-run-out-of-cash-by-mid-2027-nyt-analyst-paints-grim-picture-after-examining-companys-finances",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This doesn’t feel like news to me? A tech startup that has 18 months of runway is pretty good honestly. The story is the quantity of cash involved in that runway.<p>Edit: Startup might be the wrong term but Uber raised money every 18months at least for 10 years till it was finally profitable in 2023. My point is more that saying an unprofitable but massive company only has 18months of cash isn’t a new development. The new development is that the 18 months of cash is an order or two of magnitude more than prior companies.",
+      "Where is the actual financial modelling? This is pure speculation?<p>I understand being bearish and frightened of AI but this accounts for absolutely NOTHING, and especially doesn&#x27;t include any projections on potential ad revenue which is likely going to be huge given their DAU and what you can extrapolate their ARPU to be based on other big tech advertisers.",
+      "I&#x27;m gonna silently hope that this means we&#x27;ll suddenly have extremely cheap GPU and RAM selling out in 2027. Hardware prices have gotten out of hand.",
+      "The AI doom and gloom is so weird, and it&#x27;s just turning into a bizarre echo chamber. AI is orders of magnitude more useful and transformative than Facebook was in 2005, and Meta is now one of the most valuable companies on the planet. Even if OpenAI has a down round or defaults on some loans, the technology has already proven to have dozens upon dozens of practical applications.",
+      "What a useless article. OpenAI will obviously do many things before &quot;running out of cash&quot; -<p>1&#x2F; Implement more aggressive advertising\n2&#x2F; Stop training new models\n3&#x2F; Raise more funding",
+      "This looks less like an AI failure and more like a compute economics problem. Frontier labs are chasing marginal model gains that require exponentially more GPUs, power, and capex, so burn rates explode even if demand grows. Centralized hyperscale data centers concentrate that risk on a few balance sheets. An alternative is treating AI as a distributed workload problem—using spot or decentralized GPU markets (io.net, Akash, etc.) to tap existing idle capacity instead of financing trillion-dollar builds. You trade enterprise SLAs for lower capex exposure, but structurally it changes the cost curve.",
+      "Primary source: <a href=\"https:&#x2F;&#x2F;archive.is&#x2F;Pf1M6\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;Pf1M6</a>",
+      "I don&#x27;t know why I am expecting that to happen earlier with the rate they are burning throgh the dollars by the billions...",
+      "No, they can start selling overpriced RAMs; they might even sell it to Nvidia and buy back GPUs.",
+      "Original link: <a href=\"https:&#x2F;&#x2F;www.nytimes.com&#x2F;2026&#x2F;01&#x2F;13&#x2F;opinion&#x2F;openai-ai-bubble-financing.html\" rel=\"nofollow\">https:&#x2F;&#x2F;www.nytimes.com&#x2F;2026&#x2F;01&#x2F;13&#x2F;opinion&#x2F;openai-ai-bubble-...</a><p>This is pretty normal for a fast-growing startup, although OpenAI may be the largest to ever do it."
+    ],
+    "full_text": null
+  }
+]
