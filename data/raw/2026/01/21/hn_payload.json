@@ -1,0 +1,430 @@
+[
+  {
+    "title": "Batmobile: 10-20x Faster CUDA Kernels for Equivariant Graph Neural Networks",
+    "url": "https://elliotarledge.com/blog/batmobile",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hi, I just wanted to note that e3nn is more of an academic software that&#x27;s a bit high-level by design. A better baseline for comparison would be Nvidia&#x27;s cuEquivariance, which does pretty much the same thing as you did- take e3nn and optimize it for GPU.<p>As a HPC developer, it breaks my heart how worse academic software performance is compared to vendor libraries (from Intel or Nvidia). We need to start aiming much higher."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Anthropic's original take home assignment open sourced",
+    "url": "https://github.com/anthropics/original_performance_takehome",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I consider myself rather smart and good at what I do. It&#x27;s nice to have a look at problems like these once in a while, to remind myself of how little I know, and how much closer I am to the average than to the top.",
+      "I suspect this was released by Anthropic as a DDOS attack on other AI companies. I prompted &#x27;how do we solve this challenge?&#x27; into gemini cli in a cloned repo and it&#x27;s been running non-stop for 20 minutes :)",
+      "Naively tested a set of agents on this task.<p>Each ran the same spec headlessly in their native harness (one shot).<p>Results:<p><pre><code>    Agent                        Cycles     Time\n    ─────────────────────────────────────────────\n    gpt-5-2                      2,124      16m\n    claude-opus-4-5-20251101     4,973      1h 2m\n    gpt-5-1-codex-max-xhigh      5,402      34m\n    gpt-5-codex                  5,486      7m\n    gpt-5-1-codex                12,453     8m\n    gpt-5-2-codex                12,905     6m\n    gpt-5-1-codex-mini           17,480     7m\n    claude-sonnet-4-5-20250929   21,054     10m\n    claude-haiku-4-5-20251001    147,734    9m\n    gemini-3-pro-preview         147,734    3m\n    gpt-5-2-codex-xhigh          147,734    25m\n    gpt-5-2-xhigh                147,734    34m\n</code></pre>\nClearly none beat Anthropic&#x27;s target, but gpt-5-2 did slightly better in much less time than &quot;Claude Opus 4 after many hours in the test-time compute harness&quot;.",
+      "This is a really fun problem! I suggest anyone who likes optimization in a very broad sense to try their hand at it. Might be the most fun I&#x27;ve had while interviewing. I had to spend a week-worth of evenings on it to fully scratch the itch, and I managed to get 1112 cycles. But that was mostly manual, before the current crop of agentic models (clopus 4.5, gpt5.2). I wonder how far you can RalphWiggum it!",
+      "It&#x27;s pretty interesting how close this assignment looks to demoscene [1] golf [2].<p>[1] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Demoscene\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Demoscene</a>\n[2] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Code_golf\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Code_golf</a><p>It even uses Chrome tracing tools for profiling, which is pretty cool: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;anthropics&#x2F;original_performance_takehome&#x2F;blob&#x2F;main&#x2F;problem.py#L154\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;anthropics&#x2F;original_performance_takehome&#x2F;...</a>",
+      "Having recently learned more about SIMD, PTX and optimization techniques, this is a nice little challenge to learn even more.<p>As a take home assignment though I would have failed as I would have probably taken 2 hours to just sketch out ideas and more on my tablet while reading the code before even changing it.",
+      "Having done a bunch of take home for big (and small) AI labs during interviews, this is the 2nd most interesting one I have seen so far.",
+      "Is it &quot;write 20 astroturfing but somewhat believable posts about the merits of &quot;AI&quot; and how it is going to replace humans&quot;?",
+      "What is the actual assignment here?<p>The README only gives numbers without any information on what you’re supposed to do or how you are rated.",
+      "They should just have you create a problem that can&#x27;t be solved by an llm in two hours. That&#x27;s the real problem here"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A 26,000-year astronomical monument hidden in plain sight (2019)",
+    "url": "https://longnow.org/ideas/the-26000-year-astronomical-monument-hidden-in-plain-sight/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Slightly off topic, but it&#x27;s interesting to see the same phrase &quot;the long now&quot; pop up in different contexts independently and mean very different things:<p><a href=\"https:&#x2F;&#x2F;www.epsilontheory.com&#x2F;the-long-now&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.epsilontheory.com&#x2F;the-long-now&#x2F;</a><p>Both are pretty obscure references for now, but I can easily imagine a world where they both become widely known in separate groups. Like the word &quot;legacy&quot; has hilariously different connotations for software engineers as compared to _everyone else_",
+      "But is the star map there? This article seems to imply that it got demolished in 2022: <a href=\"https:&#x2F;&#x2F;www.oskarjwhansen.org&#x2F;news&#x2F;save-the-star-map\" rel=\"nofollow\">https:&#x2F;&#x2F;www.oskarjwhansen.org&#x2F;news&#x2F;save-the-star-map</a><p>If so that is somewhat ironic. A message intended to communicate a date to thousands of years into the future got demolished a mere 86 years after its creation due to a drainage issue and a contract dispute.",
+      "More:<p>&gt; <i>Due to the precession of the equinoxes (as well as the stars&#x27; proper motions), the role of North Star has passed from one star to another in the remote past, and will pass in the remote future. In 3000 BC, the faint star Thuban in the constellation Draco was the North Star, aligning within 0.1° distance from the celestial pole, the closest of any of the visible pole stars.[8][9] However, at magnitude 3.67 (fourth magnitude) it is only one-fifth as bright as Polaris, and today it is invisible in light-polluted urban skies.</i><p>&gt; <i>During the 1st millennium BC, Beta Ursae Minoris (Kochab) was the bright star closest to the celestial pole, but it was never close enough to be taken as marking the pole, and the Greek navigator Pytheas in ca. 320 BC described the celestial pole as devoid of stars.[6][10] In the Roman era, the celestial pole was about equally distant between Polaris and Kochab.</i><p>* <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Pole_star\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Pole_star</a><p>* <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Celestial_pole\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Celestial_pole</a>",
+      "I have once created a pendant to my friends’ wedding following a similar idea. A silver disk engraved one one side with the position of the planets and major moons at the moment of the ceremony. Fun thing is that the Galilean moons orbit fast enough that you can even read the intended minute. <a href=\"https:&#x2F;&#x2F;www.instagram.com&#x2F;reel&#x2F;DIpFTPOIP60&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.instagram.com&#x2F;reel&#x2F;DIpFTPOIP60&#x2F;</a>",
+      "Related: Huge fan of Long Now here.<p>Asking &quot;How would you build a 10k year clock?&quot; is one of my favorite ways to get to know people, say, at parties.<p>With a few seconds to mull it over, so far EVERYONE has had at least one strong, novel and leftfield idea that I had not heard or thought of before.<p>My favorites included: A mirror on the moon, bio-engineered crops and the Pyramids of Gizeh.",
+      "I wonder if you can pin down other cycles in the sky to pinpoint how many years after the big bang? I guess the appearance of galaxies must change.",
+      "I somehow doubt there is any future version of me that regrets joining The Long Now Foundation, and work like this is the main reason why.<p>If you&#x27;re in SF you should pay them a visit and buy a coffee at The Interval; I think you&#x27;ll find it worth the trip.",
+      "This is the kind of stuff I love about ancient architecture. It seems they were full of such clever things (or maybe only the few constructions which survived until today).<p>Its nice to see that some people still care about creating such thoughtful art for modern constructions. It seems that most building of our time are just optimized for fast and efficient construction.<p>I hope there are many more out there, so that Earth&#x27;s Graham Hancock of the year 16000 has something to explore on his&#x2F;her ayahuasca trip.",
+      "Many Hindus celebrated Malay Sankranti a week ago. It was originally meant to coincide with winter solstice but because the Hindu dates are based on the position of the Sun against the background stars (as viewed from the Earth), precession over the last ~1700 years has driven it out of sync with the tropical calendar.",
+      "Discussed at the time (of the article):<p><i>A 26,000-Year Astronomical Monument Hidden in Plain Sight</i> - <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=19124698\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=19124698</a> - Feb 2019 (57 comments)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Libbbf: Bound Book Format, A high-performance container for comics and manga",
+    "url": "https://github.com/ef1500/libbbf",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The feature matrix says cbz&#x2F;zip doesn&#x27;t have random page access, but it definitely does.  Zip also supports appending more files without too much overhead.<p>Certainly there&#x27;s a complexity argument to be made, because you don&#x27;t actually need compression just to hold a bundle of files.  But these days zip just works.<p>The perf measurement charts also make no sense.  What exactly are they measuring?<p>Edit:<p>This reddit post seems to go into more depth on performance: old.reddit.com&#x2F;r&#x2F;selfhosted&#x2F;comments&#x2F;1qi64pr&#x2F;comment&#x2F;o0pqaeo&#x2F;",
+      "Thinking more about this: ZIP files can be set up to have the data on whatever alignment of one&#x27;s choosing (as noted in the reddit thread). Integrity checks can be done in parallel by doing them in parallel. mmap is possible just by not using zip compression.<p>The aspect of integrity checking speed in a saturated context (N workers, regardless if its multiple workers per file, or a worker per file), CRC32(C) seems to be nearly twice as fast <a href=\"https:&#x2F;&#x2F;btrfs.readthedocs.io&#x2F;en&#x2F;latest&#x2F;Checksumming.html\" rel=\"nofollow\">https:&#x2F;&#x2F;btrfs.readthedocs.io&#x2F;en&#x2F;latest&#x2F;Checksumming.html</a><p>ZIP can also support arbitrary metadata.<p>I think this could have all been backported to ZIP files themselves",
+      "<a href=\"https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;selfhosted&#x2F;comments&#x2F;1qi64pr&#x2F;i_got_into_an_argument_on_discord_about_how&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;selfhosted&#x2F;comments&#x2F;1qi64pr&#x2F;i_got_i...</a>",
+      "This feels like the wrong end to optimize. Zip is plenty of fast, especially when it comes to a few hundred pages of a comic. Meanwhile the image decoding can take a while when you want to have a quick thumbnail overview showing all those hundred pages at once. No comic&#x2F;ebook software I have ever touched as managed to match the responsiveness of an actual book where you can flip through those hundreds of pages  in a second with zero loading time, despite it being somewhat trivial to implement when you generate the necessary thumbnail&#x2F;image-pyramid data first.<p>A multi-resolution image format would make more sense than optimizing the archive format. There would also be room for additional features like multi-language support, searchable text, … that the current &quot;jpg in a zip&quot; doesn&#x27;t handle (though one might end up reinventing DJVU here).",
+      "&quot;Native Data Deduplication&quot; not supported in CBZ&#x2F;CBR? But those are just ZIP&#x2F;RAR, which are compression formats, deduplication is their whole deal...?",
+      "At a glance this looks like an obviously nicer format that a zip of jpegs, but I struggle to think of a time I thought &quot;wow CBZ is a problem here&quot;.<p>I didn&#x27;t even realize random access is not possible, presumably because readers just support it by linear scanning or putting everything in memory at once, and comic size is peanuts compared to modern memory size.<p>I suppose this becomes more useful if you have multiple issues&#x2F;volumes in a single archive.",
+      "Why are the metadata blocks the way they are? I see you used pack directives but there already are plenty of padding and reserved bits. A 19 byte header just seems wrong.\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;ef1500&#x2F;libbbf&#x2F;blob&#x2F;b3ff5cb83d5ef1d841eca1e93f32a6b1baea0b87&#x2F;src&#x2F;libbbf.h#L27-L107\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;ef1500&#x2F;libbbf&#x2F;blob&#x2F;b3ff5cb83d5ef1d841eca1...</a>",
+      "I thought zips already support random access?",
+      "But with which library are you able to host these? And which scraper currently finds manga with chapters in that file format? does anybody have experience hosting their own manga server &amp; downloading them?",
+      "&gt; Footer indexed<p>So, like ZIP?<p>&gt; Uses XXH3 for integrity checks<p>I don’t think XXH3 is suitable for that purpose. It’s not cryptographically secure and designed mostly for stuff like hash tables (e.g. relatively small data)."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Mastra 1.0, open-source JavaScript agent framework from the Gatsby devs",
+    "url": "https://github.com/mastra-ai/mastra",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; That last one took a bit of time, we went down the ESM&#x2F;CJS bundling rabbithole, ran into lots of monorepo issues, and ultimately opted for a more explicit approach.<p><i>shudders in vietnam war flashbacks</i> congrats on launch guys!!!<p>for those who want an independent third party endorsement, here&#x27;s Brex CTO talking about Mastra in their AI engineering stack  <a href=\"http:&#x2F;&#x2F;latent.space&#x2F;p&#x2F;brex\" rel=\"nofollow\">http:&#x2F;&#x2F;latent.space&#x2F;p&#x2F;brex</a>",
+      "Within that repo is a concise, high signal book by Sam Bhagwat &quot;Principles of Building AI Agents&quot;<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;mastra-ai&#x2F;mastra&#x2F;blob&#x2F;main&#x2F;book&#x2F;principles-of-building-ai-agents.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;mastra-ai&#x2F;mastra&#x2F;blob&#x2F;main&#x2F;book&#x2F;principle...</a>",
+      "I worked with Mastra for three months and it is awesome. Thank you for making a great product.<p>One thing to consider is that it felt clunky working with workflows and branching logic with non LLM agents. I have a strong preference for using rules based logic and heuristics first. That way, if I do need to bring in the big gun LLM models, I already have the context engineering solved. To me, an agent means anything with agency. After a couple weeks of frustration, I started using my own custom branching workflows.<p>One reason to use rules, they are free and 10,000x faster, with an LLM agent fallback if validation rules were not passing. Instead of running an LLM agent to solve a problem every single time, I can have the LLM write the rules once. The whole thing got messy.<p>Otherwise, Mastra is best in class for working with TypeScript.",
+      "I don&#x27;t get the pricing page. It seems not to have prices.",
+      "Ran through quickstart, created my first agent &quot;Friendo&quot; that acts as my best friend, chatted a bit. Nice UI, cool systems, hope to play with it more and build something, but I&#x27;m just not sure what yet.",
+      "I&#x27;ve been building with Mastra for a couple of weeks now and loving it, so congratulations on reaching 1.0!<p>It&#x27;s built on top of Vercel AI elements&#x2F;SDK and it seems to me that was a good decision.<p>My mental heuristic is:<p>Vercel AI SDK = library, low level<p>Mastra = framework<p>Then Vercel AI Elements gives you an optional pre built UI.<p>However, I read the blog post for the upcoming AI SDK 6.0 release last week, and it seems like it&#x27;s shifting more towards being a framework as well. What are your thoughts on this? Are these two tools going to align further in the future?<p><a href=\"https:&#x2F;&#x2F;vercel.com&#x2F;blog&#x2F;ai-sdk-6\" rel=\"nofollow\">https:&#x2F;&#x2F;vercel.com&#x2F;blog&#x2F;ai-sdk-6</a>",
+      "Mastra looks great!<p>- How do you compare Mastra with Tanstack AI? And&#x2F;or do you plan to build on top of Tanstack AI like the Vercel AI SDK?<p>- Since there&#x27;s a Mastra cloud, do you have an idea as to what features will be exclusive to the hosted version?",
+      "Congratulations! I’m a fan of the publicity work and general out-of-the-box DX! That stuff matters a lot and I’m happy you’re aware.<p>I wonder: Are there any large general purpose agent harnesses developed using Mastra? From what I can tell OpenCode chose not to use it.<p>A lot of people on here repeat that rolling your own is more powerful than using Langchain or other frameworks and I wonder how Mastra relates to this sentiment.",
+      "We use typescript for all our entire stack and it&#x27;s super dope to see a production-grade framework (with no vendor lock in) launch!",
+      "Congrats on the launch ! Someone told me that you have an excellent product but I don&#x27;t have a need for it yet."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Which AI Lies Best? A game theory classic designed by John Nash",
+    "url": "https://so-long-sucker.vercel.app/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "There&#x27;s a YouTuber who makes AI Plays Mafia videos with various models going against each other. They also seemingly let past games stay in context to some extent.<p>What people have noted is that often times chatgpt 4o ends up surviving the entire game because the other AIs potentially see it as a gullible idiot and often the Mafia tend to early eliminate stronger models like 4.5 Opus or Kimi K2.<p>It&#x27;s not exactly scientific data because they mostly show individual games, but it is interesting how that lines up with what you found.",
+      "One weird thing I&#x27;ve found is that it&#x27;s <i>incredibly</i> difficult to get an LLM to generate an invalid syllogism. They can generate false premises all day, and they will usually call a valid syllogism with a false major or minor premise invalid. But you have to basically quote an invalid syllogism to get them to repeat it; they won&#x27;t form one on their own.",
+      "Sure would be handy if they actually included the rules anywhere.<p>There&#x27;s a kind of overview of the rules but not enough to actually play with. And the linked video is super confusing, self contradictory and 15 minutes long!<p>For a supposedly &quot;simple&quot; game...just include the rules?",
+      "I just tried to play and the chatter didn&#x27;t match the game-play (e.g. &quot;Good capture Yellow&quot; when yellow didn&#x27;t just capture...  Yellow said they were going to capture, and had a legal capture but started a new pile instead.<p>[edit]<p>I won without a single one of my chips being killed.  This was only because the moves they actually made didn&#x27;t match the moves the announced (i.e. they missed several capture possibilities), the overwhelming majority (but not all) of plays were to start new piles.<p>[edit 2]<p>Looking over the logs, the chatter could imply that their internal state was out of sync with the game.  E.g. &quot;Yellow has 3 prisoners now&quot; after Yellow played a new pile when the y <i>could</i> have gotten 3 prisoners and indeed stated that they were taking that pile.",
+      "The game didn&#x27;t seem to work - it asked me to donate but none of the choices would move the game forward.<p>The bots repeated themselves and didn&#x27;t seem to understand the game, for example they repeatedly mentioned it was my first move after I&#x27;d played several times.<p>It generally had a vibe coded feeling to it and I&#x27;m not at all sure I trust the outcomes.",
+      "This makes me think LLMs would be interesting to set up in a game of Diplomacy, which is an entirely text-based game which soft rather than hard requires a degree of backstabbing to win.<p>The findings in this game that the &quot;thinking&quot; model never did thinking seems odd, does the model not always show it&#x27;s thinking steps? It seems bizarre that it wouldn&#x27;t once reach for that tool when it must be being bombarded with seemingly contradictory information from other players.",
+      "One thing you notice immediately is _god_ how they babble... It&#x27;s uncomfortable listening in on a bunch of AI:s insisting to each other how &quot;they&#x27;ll keep everything peaceful&quot; over and over again",
+      "I asked chatGPT to give me a solution to a real world prisoners dilemma situation. It got it wrong. It moralized it. Then I asked it to be Kissinger and Machiavelli (and 9 other IR Realists) and all 11 got it wrong. Moralized.<p>Grok got it right.",
+      "For people interested in these kinds of benchmarks, I have two multiplayer, multi-round games:<p>- Elimination Game Benchmark: Social Reasoning, Strategy, and Deception in Multi-Agent LLM Dynamics at <a href=\"https:&#x2F;&#x2F;github.com&#x2F;lechmazur&#x2F;elimination_game&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;lechmazur&#x2F;elimination_game&#x2F;</a><p>- Step Race Benchmark: Assessing LLM Collaboration and Deception Under Pressure at <a href=\"https:&#x2F;&#x2F;github.com&#x2F;lechmazur&#x2F;step_game&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;lechmazur&#x2F;step_game&#x2F;</a>",
+      "I played a game all the way through, against the three different AIs on offer.<p>It was weird. I didn&#x27;t engage in any discussion with the bots (other than trying to get them to explain the rules at the start). I won without having any chips eliminated. One was briefly taken prisoner then given back for some reason.<p>So...they don&#x27;t seem to be very good."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Maintenance: Of Everything, Part One",
+    "url": "https://press.stripe.com/maintenance-part-one",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m interested in the topic, and the book cover looks great, so I&#x27;ll probably read it.<p>But it seems a bit &quot;Maintenance: For Boys&quot;. The items mentioned on this page are &quot;the maintenance of sailboats, vehicles, and weapons&quot;, and &quot;Soviet tanks, or tricked-out Model Ts&quot;.<p>No mention that for millenia we were mending our clothes, cleaning our houses, maintaining our food systems.<p>The reason this book sounds interesting is that maintenance is systematically undervalued, and basically in our human history pushed onto women and the lowest social classes. But the marketing material seems to highlight only the &quot;sexy&quot; stuff like weapons and vehicles. Where&#x27;s the maintenance of washing our hands, washing our clothes, cleaning our streets?<p>There&#x27;s this artist, Mierle Laderman Ukeles, who was the &quot;Artist in Residence&quot; at NYC&#x27;s department of sanitation in the 70s, and tried to use conceptual art as a way to highlight the work of the department and make &quot;maintenance art&quot; a thing. I&#x27;m interested in that kind of re-valuing of maintenance.<p>I bet this book will be interesting, I just don&#x27;t like the framing as &quot;Maintenance: Of Everything&quot; since it&#x27;s clearly not the whole story. Hopefully part 2 has a broader scope and mindset.",
+      "Stewart Brands article <i>The Maintenance Race</i>[0] was one of my favorite posts in 2022.<p>[0]: <a href=\"https:&#x2F;&#x2F;worksinprogress.co&#x2F;issue&#x2F;the-maintenance-race&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;worksinprogress.co&#x2F;issue&#x2F;the-maintenance-race&#x2F;</a><p>EDIT: discussion at that time: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=32196345\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=32196345</a>",
+      "I was fortunate to read a preprint of Brand&#x27;s latest. It&#x27;s magnificent.<p>How and why do things fail? What are the cultures that lead to long-lasting products?<p>The undercurrent here is that Brand is behind the 10,000 year clock and has a vested interest in making things last a long time.<p>This book is an exploration of the world of things, how they break, and how people fix them. It&#x27;s a huge effort, and Part One is right. He&#x27;s been posting further work on Twitter from Part Two.<p>He included some sword fighting manuals that I sent that we think are the earliest written instruction guide.",
+      "Sean Carroll interviews Stewart about this book on his latest podcast episode:<p><a href=\"https:&#x2F;&#x2F;www.preposterousuniverse.com&#x2F;podcast&#x2F;2026&#x2F;01&#x2F;19&#x2F;341-stewart-brand-on-maintenance-as-an-organizing-principle&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.preposterousuniverse.com&#x2F;podcast&#x2F;2026&#x2F;01&#x2F;19&#x2F;341-...</a><p>I really enjoyed it. I&#x27;ll probably get a copy of this. I loved the thermodynamics analogy in the start of the podcast, likening maintenance to the prevention of entropy, with all the energetic exchanges that entails. Though maintenance does take work, it&#x27;s worth it. Stewart makes a compelling case for it.",
+      "The cover art is such a master stroke.  \nSee Kintsugi: <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Kintsugi\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Kintsugi</a><p>---<p>Edit: Sorry, my mind was preoccupied with buying the book instead of elaborating.<p>The interactive 3d render of the book and the gold gleam of the Kintusgi sent me absolutely gushing.",
+      "If anyone has already read this book, can you share your thoughts on how does it compare to software engineering, do you see parallels, are they applicable and so on",
+      "This is a topic I’ve been wanting a book on for a long time. We’ve done so much work to eliminate the need for maintenance for the masses through things like planned obsolescence, renting instead of owning, and appeasing the hedonic treadmill. I can’t help but feel through this we’ve lost a lot of collective skills in patience and ownership as a result.<p>I’m looking forward to reading this.",
+      "Since when is Stripe a book publisher?",
+      "Gotta maintain The Machines of Loving Grace.",
+      "That&#x27;s really wonderful! That&#x27;s exactly what we&#x27;re doing at <a href=\"https:&#x2F;&#x2F;infinite-battery.com\" rel=\"nofollow\">https:&#x2F;&#x2F;infinite-battery.com</a> with a made-to-be-easily-repairable e-bike battery :)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: Do you have any evidence that agentic coding works?",
+    "url": "https://news.ycombinator.com/item?id=46691243",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Bear in mind that there is a lot of money riding on LLMs leading to cost savings, and development (seen as expensive and a common bottleneck) is a huge opportunity. There are paid (micro) influencer campaigns going on and what not.<p>Also bear in mind that a lot of folks want to be seen as being on the bleeding edge, including famous people. They get money from people booking them for courses and consulting, buying their books, products and stuff. A &quot;personal brand&quot; can have a lot of value. They can&#x27;t be seen as obsolete. They&#x27;re likely to talk about what could or will be, more than about what currently is. Money isn&#x27;t always the motive for sure, people also want to be considered useful, they want to genuinely play around and try and see where things are going.<p>All that said, I think your approach is fine. If you don&#x27;t inspect what the agent is doing, you&#x27;re down to faith. Is it the fastest way to get _something_ working? Probably not. Is it the best way to build an understanding of the capabilities and pit falls? I&#x27;d say so.<p>This stuff is relatively new, I don&#x27;t think anyone has truly figured out how to best approach LLM assisted development yet. A lot of folks are on it, usually not exactly following the scientific method. We&#x27;ll get evidence eventually.",
+      "The short answer to your question is “yes”. I’ve been a part of projects that largely leveraged agentic coding tools and produced net posititve results. BUT, we didn’t skip code review and we didn’t lower the bar for what good code looks like.<p>In my personal experience (working as part of a team and not a solo dev), good documentation and well-documented&#x2F;enforced practices can produce great results. That said, it’s not 100% perfect but neither are humans.",
+      "A principal engineer at Google posted on Twitter that Claude Code did in an hour what the team couldn’t do in a year.<p>Two days later, after people freaked out, context was added. The team built multiple versions in that year, each had its trade offs. All that context was given to the AI and it was able to produce a “toy” version. I can only assume it had similar trade offs.<p><a href=\"https:&#x2F;&#x2F;xcancel.com&#x2F;rakyll&#x2F;status&#x2F;2007659740126761033#m\" rel=\"nofollow\">https:&#x2F;&#x2F;xcancel.com&#x2F;rakyll&#x2F;status&#x2F;2007659740126761033#m</a><p>My experience has been similar to yours, and I think a lot of the hype is from people like this Google engineer who play into the hype and leave out the context. This sets expectations way out of line from reality and leads to frustration and disappointment.",
+      "It really depends by what you mean by &quot;it works&quot;. A retrospective of the last 6months.<p>I&#x27;ve had great success coding infra (terraform). It at least 10x the generation of easily verifiable and tedious to write code. Results were audited to death as the client was highly regulated.<p>Professional feature dev is hit and miss for sure, although getting better and better. We&#x27;re nowhere near full agentic coding. However, by reinvesting the speed gains from not writing boilerplate into devex and tests&#x2F;security, I bring to life much better quality software, maintainable and a boy to work with.<p>I suddenly have the homelab of my dreams, all the ideas previously in the &quot;too long to execute&quot; category now get vibe coded while watching TV or doing other stuff.<p>As an old jaded engineer, everything code was getting a bit boring and repetitive (so many rest APIs). I guess you get the most value out of it when you know exactly what you want.<p>Most importantly though, and I&#x27;ve heard this from a few other seniors: I&#x27;ve found joy in making cool fun things with tech again. I like that new way of creating stuff at the speed of thought, and I guess for me that counts as &quot;it works&quot;",
+      "I think one fatal flaw is letting the agent build the app from scratch. I&#x27;ve had <i>huge</i> success with agents, but only on existing apps that were architected by humans and have established conventions and guardrails. Agents are really bad at architecture, but quite good at following suit.<p>Other things that seem to contribute to success with agents are:<p>- Static type systems (not tacked-on like Typescript)<p>- A test suite where the tests cover large swaths of code (i.e. not just unit testing individual functions; you want e2e-style tests, but not the flaky browser kind)<p>With all the above boxes ticked, I can get away with only doing &quot;sampled&quot; reviews. I.e. I don&#x27;t review every single change, but I do review some of them. And if I find anything weird that I had missed from a previous change, I to tell it to fix it and give the fix a full review. For architectural changes, I plan the change myself, <i>start</i> working on it, then tell the agent to finish.",
+      "I&#x27;ll bite.<p>Here&#x27;s my realtime Bluetooth heart rate monitor for linux, with text output and web interface.<p><pre><code>   https:&#x2F;&#x2F;github.com&#x2F;lowrescoder&#x2F;BlueHeart\n</code></pre>\nThis was 100% written by Claude Code, my input was limited to mostly accepting Claude suggestions except a couple of cases where I could make suggestions to speed up development (skipping some tests I knew would work).<p>Particularly interesting because I didn&#x27;t expect this to work, let along not to write any code. Note that I limited it to pure C with limited dependencies; initial prompt was just to get text output (&quot;Heart Rate 76bpm&quot;), when it got to that point I told Claude to add a web interface followed by creating a realtime graph to show the interface in use.<p>Every file is claude generated. AMA.<p>edit: this was particularly interesting as it had to test against the HRM sensor I was wearing during development, and to cope with bluetooth devices appearing and disappearing all the time. It took about a day for the whole thing and cost around $25.<p>further edit: I am by no means an expert with Claude (haven&#x27;t even got to making a claude.md file); the one real objective here was to get a working example of using dBus to talk to blueZ in C, something I&#x27;ve failed at (more than once) before.",
+      "I&#x27;ve been programming for 20 years, and I&#x27;ve <i>always</i> been under-estimating how long things will take (no, not pressured by anyone to give firm estimates, just talking about informally when prioritizing work order together).<p>The other day I gave an estimate to my co-worker and he said &quot;but how long is it really going to take, because you always finish a lot quicker than you say, you say two weeks and then it takes two days&quot;.<p>The LLMs will just make me finish things a lot faster and my gut feel estimation for how long things will take still is not yet taking that into account.<p>(And before people talk about typing speed: No that isn&#x27;t it at all. I&#x27;ve always been the fastest typer and fastest human developer among my close co-workers.)<p>Yes, I need to review the code and interact with the agent. But it&#x27;s doing a lot better than a lot of developers I&#x27;ve worked with over the years, and if I don&#x27;t like the style of the code it takes very few words and the LLM will &quot;get it&quot; and it will improve it..<p>Some commenters are comparing the LLM to a junior. In some sense that is right in that the work relationship may be the same as towards a (blazingly fast) junior; but the communication style and knowledge area and how few words I can use to describe something feels more like talking to a senior.<p>(I think it may help that latest 10 years of my career a big part of my job was reviewing other people&#x27;s code, delegating tasks, being the one who knew the code base best and helping others into it. So that means I&#x27;m used to delegating not just coding. Recently I switched jobs and am now coding alone with AI.)",
+      "I use Augment with Claud Opus 4.5 every day at my job. I barely ever write code by hand anymore. I don&#x27;t blindly accept the code that it writes, I iterate with it. We review code at my work. I have absolutely found a lot of benefit from my tools.<p>I&#x27;ve implemented several medium-scale projects that I anticipate would have taken 1-2 weeks manually, and took a day or so using agentic tools.<p>A few very concrete advantages I&#x27;ve found:<p>* I can spin up several agents in parallel and cycle between them. Reviewing the output of one while the others crank away.<p>* It&#x27;s greatly improved my ability in languages I&#x27;m not expert in. For example, I wrote a Chrome extension which I&#x27;ve maintained for a decade or so. I&#x27;m quite weak in Javascript. I pointed Antigravity at it and gave it a very open-ended prompt (basically, &quot;improve this extension&quot;) and in about five minutes in vastly improved the quality of the extension (better UI, performance, removed dependencies). The improvements may have been easy for someone expert in JS, but I&#x27;m not.<p>Here&#x27;s the approach I follow that works pretty well:<p>1. Tell the agent your spec, as clearly as possible. Tell the agent to analyze the code and make a plan based on your spec. Tell the agent to not make any changes without consulting you.<p>2. Iterate on the plan with the agent until you think it&#x27;s a good idea.<p>3. Have the agent implement your plan step by step. Tell the agent to pause and get your input between each step.<p>4. Between each step, look at what the agent did and tell it to make any corrections or modifications to the plan you notice. (I find that it helps to remind them what the overall plan is because sometimes they forget...).<p>5. Once the code is completed (or even between each step), I like to run a code-cleanup subagent that maintains the logic but improves style (factors out magic constants, helper functions, etc.)<p>This works quite well for me. Since these are text-based interfaces, I find that clarity of prose makes a big difference. Being very careful and explicit about the spec you provide to the agent is crucial.",
+      "Shipping unreviewed, untested code into production is irresponsible. But not all code is production code, and in my experience most valuable work happens long before anything deserves architectural sign-off &#x2F; big commercial commitment.<p>Exploratory scripts, glue code—what I think of as digital duct tape between systems—scaffolding, probes, and throwaway POCs have always been messy and lightly governed. That’s kind of normal.<p>What’s different now is that more people can participate in that phase, and we’re judging that work by the same norms and processes we use for production systems. I know more designers now who are unafraid to code than ever before. That might be problematic or fantastic.<p>Where agentic coding does work for me is explicitly in those early modes, or where my own knowledge is extremely thin or I don’t have the luxury of writing everything myself (time etc). Things that simply wouldn’t get made otherwise: feasibility checks, bridging gaps between systems, or showing a half-formed idea fast enough to decide whether it’s worth formalising.<p>In those contexts, technical debt isn’t really debt, because the artefact isn’t meant to live long enough to accrue interest or be used in anger.<p>So I don’t think the real question is &quot;does agentic coding work?&quot; It’s whether teams are willing to clearly separate exploratory agency from production authority, and enforce a hard line between the two. ( I dont think they&#x27;ll know the difference sadly) and without that, you’re right—you just get spaghetti that passes today and punishes EVERYONE six months later.",
+      "<a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2507.09089\" rel=\"nofollow\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2507.09089</a><p>“Before starting tasks, developers forecast that allowing AI will reduce completion time by 24%. After completing the study, developers estimate that allowing AI reduced completion time by 20%. Surprisingly, we find that allowing AI actually increases completion time by 19%--AI tooling slowed developers down.”"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Nvidia: Natural Conversational AI with Any Role and Voice",
+    "url": "https://research.nvidia.com/labs/adlr/personaplex/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Its funny the give away for these is they respond too quickly! Really good though.",
+      "looking for voice agents for ActorDo and came across this crazy thing."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Electricity use of AI coding agents",
+    "url": "https://www.simonpcouch.com/blog/2026-01-20-cc-impact/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Only tangentially related, but today I found a repo that appears to be developed using AI assistance, and the costs for running the agents are reported in the PRs. For example, 50 USD to remove some code: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;coder&#x2F;mux&#x2F;pull&#x2F;1658\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;coder&#x2F;mux&#x2F;pull&#x2F;1658</a>",
+      "At first glance this looks like a credible set of calculations to me. Here&#x27;s the conclusion:<p>&gt; So, if I wanted to analogize the energy usage of my use of coding agents, it’s something like running the dishwasher an extra time each day, keeping an extra refrigerator, or skipping one drive to the grocery store in favor of biking there.<p>That&#x27;s for someone spending about $15-$20 in a day on Claude Code, estimated at the equivalent of 4,400 &quot;typical queries&quot; to an LLM.",
+      "I&#x27;m not sure I like this method of accounting for it. The critics of LLMs tend to conflate the costs of training LLMs with the cost of generation. But this makes the opposite error: it pretends that training isn&#x27;t happening as a consequence of consumer demand. There are enormous resources poured into it on an ongoing basis, so it feels like it needs to be amortized on top of the per-token generation costs.<p>At some point, we might end up in a steady state where the models are as good as they can be and the training arms race is over, but we&#x27;re not there yet.",
+      "Had a small discussion about this on an OP on bsky. A somewhat interesting discussion over there.<p><a href=\"https:&#x2F;&#x2F;bsky.app&#x2F;profile&#x2F;simonpcouch.com&#x2F;post&#x2F;3mcuf3eazzs2c\" rel=\"nofollow\">https:&#x2F;&#x2F;bsky.app&#x2F;profile&#x2F;simonpcouch.com&#x2F;post&#x2F;3mcuf3eazzs2c</a>",
+      "&quot;How much energy does it take to eat meat? (ignoring the cost to produce the meat into your hands)&quot;<p>Do people even care about this?<p>How much energy does it take to download a video on YouTube versus the energy input to keep it all setup and running?",
+      "I would like some real world comparisons. How much power does the laptop or desktop consume during these (likely multi hour) sessions? Assuming you’re using a large HDR monitor 50-100W isn’t unreasonable and at 8 hours a day you’re talking about at least 2 days before you crack 1000kwh like his sessions do. But then a personal desktop on a gaming session can easily pull 1000w (cpu + gpu + peripherals). So comparing it to a gaming session seems fair.",
+      "As long as it&#x27;s unaccounted for by users it&#x27;s at best anexternality. I think it may demand regulation to force this cost to the surface.<p>electricity and cooling incur wider costs and consequences.",
+      "That is a pretty good article although the one factor not mentioned that we see that has a huge impact on energy is batch size but that would be hard to estimate with the data he has.<p>We&#x27;ve only launched to friends and family but I&#x27;ll share this here since its relevant: we have a service which actually optimizes and measures the energy of your AI use: <a href=\"https:&#x2F;&#x2F;portal.neuralwatt.com\" rel=\"nofollow\">https:&#x2F;&#x2F;portal.neuralwatt.com</a> if you want to check it out.  We also have a tools repo we put together that shows some demonstrations of surfacing energy metadata in to your tools: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;neuralwatt&#x2F;neuralwatt-tools&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;neuralwatt&#x2F;neuralwatt-tools&#x2F;</a><p>Our underlying technology is really about OS level energy optimization and datacenter grid flexibility so if you are on the pay by KWHr plan you get additional value as we continue to roll new optimizations out.<p>DM me with your email and I&#x27;d be happy to add some additional credits to you.",
+      "So less energy than a human brain uses...",
+      "Us person does not consume 1600 liters a day"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Agent Skills Leaderboard",
+    "url": "https://skills.sh",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The install is very opaque. It&#x27;s not clear where these skills are installed, how to upgrade them or remove them.<p>Here&#x27;s the `skills` package on NPM: <a href=\"https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;skills\" rel=\"nofollow\">https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;skills</a> - it&#x27;s MIT licensed but I can&#x27;t find it on Github.<p>`skills` looks to be a wrapper around `add-skill`: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;vercel-labs&#x2F;add-skill\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;vercel-labs&#x2F;add-skill</a><p>From the docs, `add-skill` auto detects from 16 different potential paths to copy skills to in a repository (.claude&#x2F;, .codex&#x2F;, .Gemini&#x2F;, etc).<p>`add-skill` also let&#x27;s you install skills globally (~&#x2F;). From the code, `skills` looks like it doesn&#x27;t support global installs but under the hood it passes all args to add-skill, so you should be able to install skills globally or install multiple skills (even if the wrapper doesn&#x27;t expect it).<p>Aside: although lots of agents have adopted SKILLS.md conventions, they&#x27;re currently all using their own paths. There doesn&#x27;t seem to be a consensus yet, like there is with AGENTS.md. There are even 3 generic paths: .agent&#x2F;skills&#x2F;, .agents&#x2F;skills&#x2F; and just skills&#x2F;",
+      "So this is a page made by Vercel which conveniently puts the Vercel skill as top of the list.<p>Nice.<p>The page should properly advertize that this is a corporate built&#x2F;sponsored site so people can understand that it&#x27;s totally biased.",
+      "As someone who has found skills useful, seeing skills like this[0] raises the same question about (a subset of) skills as did MCP: why not just have the agent run ‘tool --help’?<p><a href=\"https:&#x2F;&#x2F;skills.sh&#x2F;ubie-inc&#x2F;agent-skills&#x2F;codex\" rel=\"nofollow\">https:&#x2F;&#x2F;skills.sh&#x2F;ubie-inc&#x2F;agent-skills&#x2F;codex</a>",
+      "I&#x27;ve been using Nix to manage my skills instead. It&#x27;s been great. Especially because I can now declaratively manage all the cli tools and mcps my skills depend on.<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;arianvp&#x2F;claude-nix\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;arianvp&#x2F;claude-nix</a>",
+      "What is this? How does it work? How are skills ranked? Seems a little bit fishy to me that you can only tell it&#x27;s from Vercel if you click the top left corner, and the top two skills come from vercel... despite there definitely being much more used skills in the overall AI coding ecosystem.<p>The UI looks nice, otherwise. I had thought about building something like this - maybe this just increases my confidence that this is needed, just not affiliated with a company.",
+      "Honest question: has anyone found skills that fundamentally changed their workflow vs. ones that are just ‘nice to have’? Curious what the actual power-user stack looks like.<p>Anyways, great work on this btw, the agent-agnostic approach is the right call",
+      "This is a really good implementation, but I don’t lean too heavily into skills especially not other people‘s. If I’m doing design who’s to say I want instructions in there in the first place like “pick an extreme“ (instructions in the design skill featured on the homepage)",
+      "Nice work! I don&#x27;t think Vercel is the first to do this, but it&#x27;s a good idea and I&#x27;m glad to see more players in this space.<p>A small UI suggestion: it would be helpful if hovering on a row showed the skill description, along with a button to copy the install command.<p>For anyone interested, there are two other sites already doing something similar:<p>- claudemarketplaces.com - A comprehensive directory with 1900+ marketplaces, shows descriptions directly in the list view with copy-to-install commands<p>- skillsmp.com - Has 77K+ skills indexed from GitHub. Cool developer-style UI, but honestly the UX could use work—the search is hidden behind cryptic command-style buttons and it&#x27;s not obvious how to actually search<p>Also worth checking out the Claude Code Mastery guide (thedecipherist.github.io&#x2F;claude-code-mastery) for a deeper dive into skills, hooks, MCP, and CLAUDE.md.",
+      "Why do none of these “npm for Skills” document any way to do basic package management things like updates, version-pinning, or even uninstalls?",
+      "The leaderboard is ranked by the weekly download count by their &quot;npx skills&quot; command. This is Vercel new &quot;standard&quot; skills installer so obvious their skills are at the top."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The Agentic AI Handbook: Production-Ready Patterns",
+    "url": "https://www.nibzard.com/agentic-handbook",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "All of this might as well be greek to me. I use ChatGPT and copy paste code snippets. Which was bleeding edge a year or two ago, and now it feels like banging rocks together when reading these types of articles. I never had any luck integrating agents, MCP, using tools etc.<p>Like if I&#x27;m <i>not</i> ready to jump on some AI-spiced up special IDE, am I then going to just be left banging rocks together? It feels like some of these AI agent companies just decided &quot;Ok we can&#x27;t adopt this into the old IDE&#x27;s so we&#x27;ll build a new special IDE&quot;?_Or did I just use the wrong tools (I use Rider and VS,  and I have only tried Copilot so far, but feel the &quot;agent mode&quot; of Copilot in those IDE&#x27;s is basically useless).",
+      "I’d rather just read the prompt that this article was generated from.",
+      "Not wanting to be a gatekeeper, but the author appears to be a &quot;AI Growth Innovator&quot; or some-such-I-don&#x27;t-know-what rather than an actual engineer who has been ramping up on AI use to see what works in production:<p><a href=\"https:&#x2F;&#x2F;www.nibzard.com&#x2F;about\" rel=\"nofollow\">https:&#x2F;&#x2F;www.nibzard.com&#x2F;about</a><p><i>Scaled GitHub stars to 20,000+</i><p><i>Built engaged communities across platforms (2.8K X, 5.4K LinkedIn, 700+ YouTube)</i><p>etc, etc.<p>No doubt impressive to marketing types but maybe a pinch of salt required for using AI Agents in production.",
+      "Not only is the website layout horrible to read, it also smells like the article was written by AI.\nMy brain just screams &quot;no&quot; when I try to read that.",
+      "AI written article about AI usage, building things with AI that others will use to build their own AI with. The future is now indeed.",
+      "So it begins, Design Patterns and Agile&#x2F;Scrum snake oil of modern times.",
+      "The emergence of this kind of thing has been so surprising to me. The exact same sort of person that managed to bottleneck themselves and obliterate signal-to-noise ratios at every company they work for with endless obsession over the trivial minutiae of the systems they are working with have found a way to do it with LLMs, too, which I would have assumed would have been the death of this kind of busywork",
+      "It&#x27;s unbelievable how productive AI has made me. With the release of the latest Claude, I&#x27;m now able to achieve 100x more than I could have without it.<p>In one week, I fine-tuned <a href=\"https:&#x2F;&#x2F;github.com&#x2F;kstenerud&#x2F;bonjson&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;kstenerud&#x2F;bonjson&#x2F;</a> for maximum decoding efficiency and:<p>* Had Claude do a go version (<a href=\"https:&#x2F;&#x2F;github.com&#x2F;kstenerud&#x2F;go-bonjson\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;kstenerud&#x2F;go-bonjson</a>), which outperforms the JSON codec.<p>* Had Claude do a Rust version (<a href=\"https:&#x2F;&#x2F;github.com&#x2F;kstenerud&#x2F;rs-bonjson\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;kstenerud&#x2F;rs-bonjson</a>), which outperforms the JSON codec.<p>* Had Claude do a Swift version (<a href=\"https:&#x2F;&#x2F;github.com&#x2F;kstenerud&#x2F;swift-bonjson\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;kstenerud&#x2F;swift-bonjson</a>), which outperforms the JSON codec (although this one took some time due to the Codable, Encoder, Decoder interfaces).<p>* Have Claude doing a Python version with Rust underpinnings (making this fast is proving challenging)<p>* Have Claude doing a Jackson version (in progress, seems to be not too bad)<p>In ONE week.<p>This would have taken me a year otherwise, getting the base library going, getting a test runner going for the universal tests, figuring out how good the SIMD support is and what intrinsics I can use, what&#x27;s the best tooling for hot path analysis, trying various approaches, etc etc. x5.<p>Now all I do is give Claude a prompt, a spec, and some hand-holding for the optimization phase (admittedly, it starts off at 10x slower, so you have to watch the algorithms it uses). But it&#x27;s head-and-shoulders above what I could do in the last iteration of Claude.<p>I can experiment super quickly: Try caching previously encountered keys and show me the performance change. 5 mins, done. Would take me a LOT longer to retool the code just for a quick test. Experiments are dirt cheap now.<p>The biggest bottleneck right now is that I keep hitting my token limits 1-2 hours before each reset ;-)",
+      "Here&#x27;s a pattern I noticed - you notice some pattern that is working (let&#x27;s say planning or TODO management) - if the pattern is indeed solid then it gets integrated into the black box and your agent starts doing that internally. At which point your abstraction on top becomes defective because agents get confused about planning the planning.<p>So with the top performers I think what&#x27;s most effective is just stating clearly what the end result you want to be (with maybe some hints for verification of results which is just clarifying the intent more)",
+      "I sometimes feel like the cognitive cost of agentic coding is so much higher than a skilled human. There is so much more bootstrap and handling process around making sure agents don&#x27;t go off the rails (they will), or that they will adhere to their goals (they won&#x27;t). And in my experience fixing issues downstream takes more effort than solving the issue at the root.<p>The pipe dream of agents handling Github Issue -&gt; PullRequest -&gt; Resolve Issue becomes a nightmare of fixing downstream regressions or other chaos unleashed by agents given too much privilege. I think people optimistic on agents are either naive or hype merchants grifting&#x2F;shilling.<p>I can understand the grinning panic of the hype merchants because we&#x27;ve collectively shovelled so much capital into AI with very little to show for it so far. Not to say that AI is useless, far from it, but there&#x27;s far more over-optimism than realistic assessment of the actual accuracy and capabilities."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "RAM shortage chaos expands to GPUs, high-capacity SSDs, and even hard drives",
+    "url": "https://arstechnica.com/gadgets/2026/01/ram-shortage-chaos-expands-to-gpus-high-capacity-ssds-and-even-hard-drives/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Is there anything good about this timeline?",
+      "That is the point in which one sincerely hopes that China&#x27;s efforts in creating and scaling semiconductor capacity are successful and fast."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "88x31 badge for gen-AI free, 100% human-made works",
+    "url": "https://aspiz.uk/100percenthuman/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "To be very honest, feels like fighting windmills.",
+      "The design is no great advertisement for human design.",
+      "Use this badge for websites, software, music, art, ... that were created completely by humans with no help from generative artificial intelligence. Use this badge to communicate that you have not used even a little bit of generative AI in your work.",
+      "Who is this badge for? It&#x27;s so low-resolution it&#x27;s not going to get used on any printed media and probably not on any websites either."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Unsealed: Spotify Lawsuit Triggered Anna's Archive Domain Name Suspensions",
+    "url": "https://torrentfreak.com/unsealed-spotify-lawsuit-triggered-annas-archive-domain-name-suspensions/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Aventos – An experiment in cheap AI SEO",
+    "url": "https://www.aventos.dev/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I stumbled across this a few weeks ago via Google or Kagi. One problem I have with a lot of AI tooling today is that I can&#x27;t tell if it&#x27;s a legit product, or just a toy that somebody vibe-coded in a day. AI can easily crap out a website that looks like this.<p>This is all just my 2 cents, so take it with a grain of salt, but I see trust and authenticity as a huge issue (made worse by LLMs), and it&#x27;s doubly so with AI-based companies because it attracts flies.<p>One question I have is it&#x27;s not clear to me that this all just doesn&#x27;t boil down to plain old SEO. Does your platform generate recommended actions on how to improve your ChatGPT ranking? (and how is that different from just improving your PageRank?)",
+      "&gt; <i>many of these still tools charge $70–$200+ per month, despite largely being wrappers around the same underlying data providers</i><p>That is business. You <i>should</i> be charging a premium for features that companies would like to use, that&#x27;s one of the first rules of B2B.",
+      "&gt; wrap a small number of third-party ChatGPT&#x2F;Perplexity&#x2F;Google AIO&#x2F;etc scraping APIs<p>Can you explain a little bit how this works? I&#x27;m guessing the third-parties query ChatGPT etc. with queries related to your product and report how often your product appears? How do they produce a distribution of queries that is close to the distribution of real user queries?",
+      "After demo login I&#x27;m stuck at Dashboard tour modal. Can&#x27;t strat tour or dismiss modal. FF on mobile.<p>Tried it again and somehow managed to bypass it. Site is not really mobile friendly. I understand but maybe you shoud info a potentional user somewhere?",
+      "I don’t understand what the business is here. Is this just scraping ChatGPT results that are public to check if your business has been mentioned in the answer?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: On-device browser agent (Qwen) running locally in Chrome",
+    "url": "https://github.com/RunanywhereAI/on-device-browser-agent",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Super interesting! If small models are to get as better as they make them to be, maybe eventually you can have perplexity comet like browser agents running locally",
+      "This is pretty neat. How complex can the tasks be? I&#x27;m also impressed by the model&#x27;s capability in the demo considering it&#x27;s only a 3B model. Curious to see what a larger local model like gpt-oss-20b would be able to accomplish, hosted via a local API on, say, Ollama.",
+      "This looks cool and I am also impressed with the tiny Qwen models.<p>I wonder if there is a malicious use of this similar to how people did bitcoin mining in visitors browsers. Maybe someone will create a botnet of compute slaves to run 470B models in a distributed way ;)",
+      "[dead]",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Chill: Fix Claude Code's flickering in terminal",
+    "url": "https://github.com/davidbeesley/claude-chill",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hi! I work on TUI rendering for Claude Code. I know this has been a long-standing frustration — it&#x27;s taken longer than any of us wanted.<p>The good news: we shipped our differential renderer to everyone today. We rewrote our rendering system from scratch[1] and only ~1&#x2F;3 of sessions see at least a flicker. Very, very few sessions see flickers in rapid succession which was so annoying before. Those numbers will keep dropping as people update.<p>We&#x27;ve also been working upstream to add synchronized output &#x2F; DEC mode 2026 support to environments where CC runs and have had patches accepted to VSCode&#x27;s terminal[2]  and tmux[3]. Synchronized output totally eliminates flickering. As always, I recommend using Ghostty which has 2026 support and zero flicker.<p>Happy to answer questions!<p>[1]: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;anthropics&#x2F;claude-code&#x2F;issues&#x2F;769#issuecomment-3667315590\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;anthropics&#x2F;claude-code&#x2F;issues&#x2F;769#issueco...</a>\n[2]: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;xtermjs&#x2F;xterm.js&#x2F;pull&#x2F;5453\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;xtermjs&#x2F;xterm.js&#x2F;pull&#x2F;5453</a>\n[3]: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;tmux&#x2F;tmux&#x2F;pull&#x2F;4744\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;tmux&#x2F;tmux&#x2F;pull&#x2F;4744</a>",
+      "What is the flickering issue?<p>Sometimes Claude Code scrolls up far away, and I struggle to scroll it down again. And I have to restart the terminal and Claude Code for it to behave well again. But I don&#x27;t know if this is the flickering issue, or if it&#x27;s due to a bug in Windows, Alacritty, Zsh or something else.",
+      "I would love to use this but it breaks Ghostty&#x27;s native scrollback (two-finger scroll), which I want more than I want to solve the flickering. The PTY proxy intercepts the output stream so Ghostty can&#x27;t access its internal scrollback buffer anymore.",
+      "It is very 2026, that this exists for the product by a company that goes all in on vibe coding. Kudos for the creative solution.",
+      "I have not used Claude Code in a couple months. THEY HAVEN’T FIXED THIS YET?<p>I’m starting to think that the reason why anthropic doesn’t open source Claude code isn’t due to competitive reasons, it’s because they don’t want people to see what a mess their code base is.<p>Maybe they bought Bun to increase the rate of flickering so that the text looks solid again",
+      "One feature I&#x27;d love is a toggle to lock the input to the bottom of the terminal. It&#x27;s a big inconvenience to have to scroll up and down between the chat and the input when responding to changes.",
+      "The readme.md format and conventions being a tell that this got written by Claude Code itself makes the whole thing <i>Chef&#x27;s kiss</i>. I love the future.",
+      "Related (I think?):<p><i>We&#x27;ve rewritten Claude Code&#x27;s terminal rendering to reduce flickering by 85%</i> - <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46312507\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46312507</a> - Dec 2025 (3 comments)",
+      "Possibly the greatest contribution to Claude code in months. I am rushing to my terminal to install, test, and update.",
+      "THANK YOU! that flickering is giving me a headache. You&#x27;re doing the lords work!<p>Anthropic: Please fix this ASAP"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Parallel Agentic Search on the Twitter Algorithm",
+    "url": "https://www.morphllm.com/playground/na/warpgrep?repo=xai-org%2Fx-algorithm",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: I figured out how to get consistent UI from Claude Code",
+    "url": "https://interface-design.dev/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Interesting work, in the examples I can see that quite a few of them have the teracotta&#x2F;warm-cream colour palette, was that an explicit choice to keep them in the prompts?<p>From the official frontend-design skill, on multiple occasions, unprompted, even I received the same warm-cream tones for different projects. Wondering if it&#x27;s a new  latent direction the model chooses to go to avoid safe&#x2F;generic patterns.",
+      "These are all over Twitter now. Everyone has their own flavor. I&#x27;d love to see someone benchmark them.",
+      "&gt; So I analyzed and broke down the official frontend-design skill to understand how it&#x27;s able to excel at creative tasks, and what I discovered is that the skill is mostly principle-based and evocative, which is brilliant when you think about it. It maintains just the right balance to fuel creativity while maintaining structure across different ranges of tasks.<p>&gt; So my approach changed. I decided to build my skill using the same pattern: detailing my design principles but framing them in an evocative way to force Claude to deeply explore the task domain before any visual output (feel free to tear apart my approach, but hey, it works). Since then I&#x27;ve been getting way more thoughtful initial output from Claude rather than it defaulting to the safe UI patterns it was trained on.<p>This is kind of unclear language to me. What does this mean? What is evocative in this context?",
+      "Just share your skill folder (with the SKILL.md file). Your description is unclear.",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Rust's Standard Library on the GPU",
+    "url": "https://www.vectorware.com/blog/rust-std-on-gpu/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Your Brain Might Not Be Full of Microplastics After All",
+    "url": "https://www.insidehook.com/wellness/microplastics-studies",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&quot;...<p>&gt; Your Brain Might Not Be Full of Microplastics After All<p>...!&quot;, he hissed, looking down at his cowering henchman over a mustache twirling sneer!",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Web-based video editor powered by WebGPU",
+    "url": "https://subformer.com/en-US/editor",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It&#x27;s a little glitchy in firefox on apple silicon but I like it",
+      "The mission is to make a photopea-like alternative for Video Editing tools like Premiere Pro and Davinci Resolve",
+      "Very sleek. I like to look, and feel immediately. Loading times were fast.<p>Definitely, added as a bookmark!",
+      "this is sick"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Scheme implementation as O'Reilly book via Claude Code",
+    "url": "https://ezzeriesa.notion.site/Scheme-implementation-as-O-Reilly-book-via-Claude-Code-2ee1308b420480ce9b9cd157ee5220fd",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Distort the beautiful scheme language via a limited python evaluator? Oh my.\nI.e. in scheme a math op is defines as applying the ops to all its args.<p><pre><code>    (+ 0 1 2 3 4 5) =&gt; (apply &#x27;+ &#x27;(0 1 2 3 4 5))\n</code></pre>\nIn this python code the op becomes a string (from a symbol), and a binop only. It can only do (&quot;+&quot; 0 1), but not more.\nThat&#x27;s why a proper book teaches this meta evaluator starting with apply, not such limited lambda&#x27;s.",
+      "What&#x27;s the point of this AI slop?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: How to introduce Claude Code to a team?",
+    "url": "https://news.ycombinator.com/item?id=46689024",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "How do you introduce any tool&#x2F;change to a team of people?<p>You get buy in, start having conversations see what AI people have explored. Have they tried claude? Do they prefer other tools? If so why? What are the objections. Actually listen.\n I’d also showcase what you can do. I love to present what codex has found when debugging something, or a prototype I’ve put together.<p>If you have the budget pay for subscriptions so they can play around.<p>Also, you say that development velocity is a big problem, but I would dive into why that is. You may be disappointed when velocity remains the same with AI tools.",
+      "I would give them a task and ask them to explore how to do it with Claude Code. Let them explore and learn.<p>I would start with internal tools, something you want to build fast, but you don&#x27;t need to deploy or make it public-facing. This will give them time to learn how to collaborate by making AGENTS.md, skills, and MCPs (if required).",
+      "Give them a challenge, and then you&#x27;ll participate in it yourself to prove yourself."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Verizon starts requiring 365 days of paid service before it will unlock phones",
+    "url": "https://arstechnica.com/tech-policy/2026/01/verizon-starts-requiring-365-days-of-paid-service-before-it-will-unlock-phones/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Having lived in a lot of countries over the past couple of decades, I can say this is absolutely something Americans do completely wrong. Just buy your phone at full price. The &quot;free&quot; phones cost significantly more than a full price phone.",
+      "&quot;Verizon was previously required to unlock phones automatically after 60 days due to restrictions imposed on its spectrum licenses and merger conditions that helped Verizon obtain approval of its purchase of TracFone. But an update applied today to the TracFone unlocking policy said new phones will be locked for at least a year and that each customer will have to request an unlock instead of getting it automatically.&quot;<p>merger conditions.",
+      "Why is anyone even tolerating a carrier selling them a phone locked for a single day (unless it is free with plan or something in which case there&#x27;s nothing wrong)?<p>If you&#x27;re using an iPhone, buy it from the Apple Store, full stop. No reason not to. If you need financing they have that (ACMI). They also sell older models refurb (like new condition) to save even more.<p>For a cheap Android (Revvl 60 or whatever), they&#x27;ll just give you another cheap one next time you switch carriers, right? They are basically e-waste after a year or two and don&#x27;t get updates.<p>And basically the only flagship Android widely sold in America is Samsung which is also sold DTC, albeit only online, and sometimes has promos for direct purchase? Maybe not as much financing tho. The other OEMs either don&#x27;t sell in the US, or have some DTC presence too (ex. OnePlus).",
+      "&gt; AT&amp;T’s policy allows unlocking of phones on postpaid plans after 60 days if the device has been paid in full, or after six months for phones on prepaid plans. T-Mobile’s policy allows unlocking of phones on postpaid plans after 40 days if the device has been paid in full, or after 365 days for phones on prepaid plans.<p>If the phone is paid in full, what is the justification for not unlocking it?",
+      "I would find it so deeply enjoyable to see the homes of Verizon management equipped with paddlocks on their bathroom doors, refrigerators, garages, etc.<p>It would be my pleasure to announce to them that the terms of service dictate that the padlocks would never be removed, but the new subscription fees would be announced shortly.<p>It would be delicious to see such a delightful revenge sink deep into their lives.<p>Until such time, enjoy our esteem, you scoundrels!",
+      "Can a carrier ever surreptitiously lock an unlocked phone, or is it only on phones financed or purchased through the carrier? For example, if I bought an unlocked phone and attached it to my Verizon plan, could Verizon lock it?",
+      "I&#x27;m glad I stumbled across this: life circumstances have allowed me go abroad for a trip the past two years. One thing I had forgotten about since the last trip were some of my group being unable to get one of the cheap prepaid data eSIMs because their phone was still locked to the carrier. I&#x27;ve been tempted to replace my aging iPhone SE 2022 (^1) with a trade-in deal and get a new phone, but it never occurred to me that would mean being forced to use AT&amp;T&#x27;s $10&#x2F;day (capped at $100 in one billing cycle) &quot;International Day Pass&quot; during future trips until it had been paid off for long enough.<p>(^1) I wish I wasn&#x27;t so tempted after ~4 years, but the battery health has dropped to 75% and the performance has suffered dramatically. A new battery is on the table I suppose, but I am split between just putting that money towards a new phone.",
+      "Interesting coincidence. I just ordered a new Tracfone for 50 bucks. I had assumed the unlock policy was 1 year. The same phone, unlocked, was much more expensive. Strategically, I figured that after being a Tracfone customer for well over a decade, I probably wouldn&#x27;t get around to switching for yet another year, so I&#x27;m OK.",
+      "I still remember at the beginning of the mobile era, when there were tons of small &quot;repair shops&quot; that would unlock phones for a small fee. They are likely still around.",
+      "Thanks FCC for looking out for the little guys!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "For Russia, Greenland offers an 'ideal solution' to its Ukraine problemX",
+    "url": "https://www.politico.eu/article/russia-greenland-offer-ideal-solution-ukraine-problem/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Yes, Trump gets Greenland, Russia gets Ukraine, China gets Taiwan, and then Trump will turn his attention to Canada.<p>Trump does not care about Ukraine and Taiwan as long as he gets what he wants. He sees this as a deal between the 3 countries."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "I Burned $160k Trying to Solve \"Online Tailoring\"",
+    "url": "https://www.indiehackers.com/post/how-i-burned-160-000-trying-to-solve-online-tailoring-the-engineering-reality-check-fbd7e0ccdd",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This business can&#x27;t be that important to this guy if he let his &quot;post mortem&quot; be written by an LLM."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Will AI Pet My Dog for Me",
+    "url": "https://eieio.games/blog/will-ai-pet-my-dog-for-me/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Before, I was humbled, learned and mastered.<p>Now I feel frustrated and numb.<p>I’m not an AI skeptic, but more and more I feel the joy has been sucked out of doing anything that AI has touched.",
+      "&quot;I’d like to nudge you away from a discussion you’ve probably had too many times in the past 3 years.<p>My immediate fear isn’t that I’ll be out of a job. My fear is that I’ll lose the part of my job that I love the most.&quot;"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Driver killed and several injured after second train derails near Barcelona",
+    "url": "https://www.bbc.com/news/articles/c1m78xl0gmpo",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; According to local officials, the Rodalies train collided with a retaining wall which fell onto the track between Gelida and Sant Sadurní on Tuesday evening.<p>&gt; [...]<p>&gt; The incident occurred as heavy storms battered north-eastern Spain.",
+      "I wouldn&#x27;t spread conspiracy theories without more information. It has rained really a lot and maintenance of railways are long overdue in Spain and especially Catalonia",
+      "sabotage",
+      "Slovakia had 2 train crashes in 1 month (October 13 and November 9)<p>Poland had blown up rails on November 17<p>You call it a conspiracy, I call it a hybrid warfare",
+      "Now this is a strange coincidence, if coincidence at all."
+    ],
+    "full_text": null
+  }
+]
