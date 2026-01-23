@@ -1,0 +1,569 @@
+[
+  {
+    "title": "Ghostty's AI Policy",
+    "url": "https://github.com/ghostty-org/ghostty/blob/main/AI_POLICY.md",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The biggest surprise to me with all this low-quality contribution spam is how little shame people apparently have. I have a handful of open source contributions. All of them are for small-ish projects and the complexity of my contributions are in the same ball-park as what I work on day-to-day. And even though I am relatively confident in my competency as a developer, these contributions are probably the most thoroughly tested and reviewed pieces of code I have ever written. I just really, really don&#x27;t want to bother someone with low quality &quot;help&quot; who graciously offers their time to work on open source stuff.<p>Other people apparently don&#x27;t have this feeling at all. Maybe I shouldn&#x27;t have been surprised by this, but I&#x27;ve definitely been caught off guard by it.",
+      "&gt; You must state the tool you used (e.g. Claude Code, Cursor, Amp)<p>Interesting requirement! Feels a bit like asking someone what IDE they used.<p>There shouldn&#x27;t be that meaningful of a difference between the different tools&#x2F;providers unless you&#x27;d consistently see a few underperform and would choose to ban those or something.<p>The other rules feel like they might discourage AI use due to more boilerplate needed (though I assume the people using AI might make the AI fill out some of it), though I can understand why a project might want to have those sorts of disclosures and control. That said, the rules themselves feel quite reasonable!",
+      "I can see this becoming a pretty generally accepted AI usage policy. Very balanced.<p>Covers most of the points I&#x27;m sure many of us have experienced here while developing with AI. Most importantly, AI generated code does not substitute human thinking, testing, and clean up&#x2F;rewrite.<p>On that last point, whenever I&#x27;ve gotten Codex to generate a substantial feature, usually I&#x27;ve had to rewrite a lot of the code to make it more compact even if it is correct. Adding indirection where it does not make sense is a big issue I&#x27;ve noticed LLMs make.",
+      "On a tangent: the origin of the problems with low-quality drive-by requests is github&#x27;s social nature. That might have been great when GitHub started, but nowadays many use it as portfolio padding and&#x2F;or social proof.<p>&quot;This person contributed to a lot of projects&quot; heuristic for &quot;they&#x27;re a good and passionate developer&quot; means people will increasingly game this using low-quality submissions. This has been happening to the fire.<p>Of course, AI just added kerosene to the fire, but re-read the policy and omit AI and it still makes sense!<p>A long term fix for this is to remove the incentive. Paradoxically, AI might help here because this can so trivially be gamed that it&#x27;s obvious it&#x27;s not longer any kind of signal.",
+      "&gt; Bad AI drivers will be banned and ridiculed in public. You&#x27;ve been warned. We love to help junior developers learn and grow, but if you&#x27;re interested in that then don&#x27;t use AI, and we&#x27;ll help you. I&#x27;m sorry that bad AI drivers have ruined this for you.<p>Finally an AI policy I can agree with :) jokes aside, it might sound a bit too agressive but it&#x27;s also true that some people have really no shame into overloading you with AI generated shit. You need to protect your attention as much as you can, it&#x27;s becoming the new currency.",
+      "I really like the phrase &quot;bad AI drivers&quot;...AI is a tool, and the stupid drive-by pull requests just mean you&#x27;re being inconsiderate and unhelpful in your usage of the tool, similar to how &quot;bad drivers&quot; are a nightmare to encounter on a highway...so stop it or you&#x27;ll end up on the dashcam subreddit of programming.",
+      "&quot;Pull requests created by AI must have been fully verified with human use.&quot; should always be a bare minimum requirement.",
+      "See x thread for rationale:\n<a href=\"https:&#x2F;&#x2F;x.com&#x2F;mitchellh&#x2F;status&#x2F;2014433315261124760?s=46&amp;t=FUC7A03ybfK2P4BtFJjecg\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;mitchellh&#x2F;status&#x2F;2014433315261124760?s=46&amp;t=FU...</a><p>“ Ultimately, I want to see full session transcripts, but we don&#x27;t have enough tool support for that broadly.”<p>I have a side project, git-prompt-story to attach Claude Vode session in GitHub git notes. Though it is not that simple to do automatic (e.g. i need to redact credentials).",
+      "&gt; No AI-generated media is allowed (art, images, videos, audio, etc.). Text and code are the only acceptable AI-generated content, per the other rules in this policy.<p>I find this distinction between media and text&#x2F;code so interesting. To me it sounds like they think &quot;text and code&quot; are free from the controversy surrounding AI-generated media.<p>But judging from how AI companies grabbed all the art, images, videos, and audio they could get their hands on to train their LLMs it&#x27;s naive to think that they didn&#x27;t do the same with text and code."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI Is a Horse (2024)",
+    "url": "https://kconner.com/2024/08/02/ai-is-a-horse.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Famously Steve Jobs said that the (personal) computer is &quot;like a bicycle for the mind&quot;. It&#x27;s a great metaphor because- besides the idea of lightness and freedom it communicates- it also described the computer as multiplier of the human strength- the bicycle allows one to travel faster and with much less effort, it&#x27;s true, but ultimately the source of its power is still entirely in the muscles of the cyclist- you don&#x27;t get out of it anything that you didn&#x27;t put yourself.<p>Bu the feeling I&#x27;m having with LLMs is that we&#x27;ve entered the age of fossil-fuel engines: something that moves on its own power and produces somewhat more thought than the user needs to put into it. Ok, in the current version it might not go very far and needs to be pushed now and then, but the total energy output is greater than what users need to put in. We could call it a horse, except that this is artificial: it&#x27;s a tractor. And in the last months I&#x27;ve been feeling like someone who spent years pushing a plough in the fields, and has suddenly received a tractor. A primitive model, still imperfect, but already working.",
+      "&quot;Computers aren&#x27;t the thing. They&#x27;re the thing that gets you to the thing.&quot;<p>My favorite quote from the excellent show halt and catch fire. Maybe applicable to AI too?",
+      "Maybe from the client&#x27;s point of view, although it&#x27;s more likely a Tamagotchi. But from the server side, it’s more like a whole hippodrome where you need to support horse racing 24&#x2F;7",
+      "AI is not a horse (2023) <a href=\"https:&#x2F;&#x2F;essays.georgestrakhov.com&#x2F;ai-is-not-a-horse&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;essays.georgestrakhov.com&#x2F;ai-is-not-a-horse&#x2F;</a>",
+      "That&#x27;s not from the last week, so obviously doesn&#x27;t matter.",
+      "It&#x27;s also a big bloatey gas bag that needs constant de-farting to function",
+      "<a href=\"https:&#x2F;&#x2F;polmuz.github.io&#x2F;2026&#x2F;01&#x2F;04&#x2F;its-a-horse.html\" rel=\"nofollow\">https:&#x2F;&#x2F;polmuz.github.io&#x2F;2026&#x2F;01&#x2F;04&#x2F;its-a-horse.html</a>",
+      "&quot;No, I am not a horse.&quot;<p>Horse rumours denied.",
+      "All true apart you can only lead it to water - it drinks ALL the water regardless of anything else.",
+      "Some day, I imagine one will be a senator"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The State of Modern AI Text to Speech Systems for Screen Reader Users",
+    "url": "https://stuff.interfree.ca/2026/01/05/ai-tts-for-screenreaders.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Glooming bottom line:<p>So what&#x27;s the way forward for blind screen reader users? Sadly, I don&#x27;t know.<p>Modern text to speech research has little overlap with our requirements. Using Eloquence [32-bit voice last compiled in 2003], the system that many blind people find best, is becoming increasingly untenable. ESpeak uses an odd architecture originally designed for computers in 1995, and has few maintainers. Blastbay Studios [...] is a closed-source product with a single maintainer, that also suffers from a lack of pronunciation accuracy.<p>In an ideal world, someone would re-implement Eloquence as a set of open source libraries. However, doing so would require expertise in linguistics, digital signal processing, and audiology, as well as excellent programming abilities. My suspicion is that modernizing the text to speech stack that is preferred by blind power-users is an effort that would require several million dollars of funding at minimum.<p>Instead, we&#x27;ll probably wind up having to settle for text to speech voices that are &quot;good enough&quot;, while being nowhere near as fast and efficient [800 to 900 words per minute] as what we have currently.",
+      "This surprises me: &quot;These modern systems are developed to sound human, natural, and conversational. Unfortunately this seems to come at the expense of accuracy. In my testing, both models had a tendency to skip words, read numbers incorrectly, chop off short utterances, and ignore prosody hints from text punctuation. &quot;",
+      "Has anyone considered decompiling eloquence? With something like ghidra or ida pro? Mario 64 was turned back into high level language source code this way."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "GPTZero finds 100 new hallucinations in NeurIPS 2025 accepted papers",
+    "url": "https://gptzero.me/news/neurips/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I spot-checked one of the flagged papers (from Google, co-authored by a colleague of mine)<p>The paper was <a href=\"https:&#x2F;&#x2F;openreview.net&#x2F;forum?id=0ZnXGzLcOg\" rel=\"nofollow\">https:&#x2F;&#x2F;openreview.net&#x2F;forum?id=0ZnXGzLcOg</a> and the problem flagged was &quot;Two authors are omitted and one (Kyle Richardson) is added. This paper was published at ICLR 2024.&quot; I.e., for one cited paper, the author list was off and the venue was wrong. And this citation was mentioned in the background section of the paper, and not fundamental to the validity of the paper. So the citation was not fabricated, but it was incorrectly attributed (perhaps via use of an AI autocomplete).<p>I think there are some egregious papers in their dataset, and this error does make me pause to wonder how much of the rest of the paper used AI assistance. That said, the &quot;single error&quot; papers in the dataset seem similar to the one I checked: relatively harmless and minor errors (which would be immediately caught by a DOI checker), and so I have to assume some of these were included in the dataset mainly to amplify the author&#x27;s product pitch. It succeeded.",
+      "Yuck, this is going to really harm scientific research.<p>There is already a problem with papers falsifying data&#x2F;samples&#x2F;etc, LLMs being able to put out plausible papers is just going to make it worse.<p>On the bright side, maybe this will get the scientific community and science journalists to finally take reproducibility more seriously.  I&#x27;d love to see future reporting that instead of saying &quot;Research finds amazing chemical x which does y&quot; you see &quot;Researcher reproduces amazing results for chemical x which does y.  First discovered by z&quot;.",
+      "This feels less like scientific integrity and more like predatory marketing.\nI find this public &quot;shame list&quot; approach by GPTZero deeply unethical and technically suspect for several reasons:<p>1. Doxxing disguised as specific criticism: Publishing the names of authors and papers without prior private notification or independent verification is not how academic corrections work. It looks like a marketing stunt to generate buzz at the expense of researchers&#x27; reputations.<p>2. False Positives &amp; Methodology: How does their tool distinguish between an actual AI &quot;hallucination&quot; and a simple human error (e.g., a typo in a year, a broken link, or a messy BibTeX entry)? Labeling human carelessness as &quot;AI fabrication&quot; is libelous.<p>3. The &quot;Protection Racket&quot; Vibe: The underlying message seems to be: &quot;Buy our tool, or next time you might be on this list.&quot; It’s creating a problem (fear of public shaming) to sell the solution.<p>We should be extremely skeptical of a vendor using a prestigious conference as a billboard for their product by essentially publicly shaming participants without due process.",
+      "NeurIPS leadership doesn’t think hallucinated references are necessarily disqualifying; see the full article from Fortune for a statement from them: <a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;yizHN\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;yizHN</a><p>&gt; When reached for comment, the NeurIPS board shared the following statement: “The usage of LLMs in papers at AI conferences is rapidly evolving, and NeurIPS is actively monitoring developments. In previous years, we piloted policies regarding the use of LLMs, and in 2025, reviewers were instructed to flag hallucinations. Regarding the findings of this specific work, we emphasize that significantly more effort is required to determine the implications. Even if 1.1% of the papers have one or more incorrect references due to the use of LLMs, the content of the papers themselves are not necessarily invalidated. For example, authors may have given an LLM  a partial description of a citation and asked the LLM to produce bibtex (a formatted reference). As always, NeurIPS is committed to evolving the review and authorship process to best ensure scientific rigor and to identify ways that LLMs can be used to enhance author and reviewer capabilities.”",
+      "I was getting completely AI-generated reviews for a WACV publication back in 2024. The area chairs are so overworked that authors don&#x27;t have much recourse, which sucks but is also really hard to handle unless more volunteers step up to the bat to help organize the conference.<p>(If you&#x27;re qualified to review papers, please email the program chair of your favorite conference and let them know -- they really need the help!)<p>As for my review, the review form has a textbox for a summary, a textbox for strengths, a textbox for weaknesses, and a textbox for overall thoughts. The review I received included one complete set of summary&#x2F;strengths&#x2F;weaknesses&#x2F;closing thoughts in the summary text box, another distinct set of summary&#x2F;strengths&#x2F;weaknesses&#x2F;closing thoughts in the strengths, another complete and distinct review in the weaknesses, and a fourth complete review in the closing thoughts. Each of these four reviews were slightly different and contradicted each other.<p>The reviewer put my paper down as a weak reject, but also said &quot;the pros greatly outweigh the cons.&quot;<p>They listed &quot;innovative use of synthetic data&quot; as a strength, and &quot;reliance on synthetic data&quot; as a weakness.",
+      "The ironic part about these hallucinations is that a research paper includes a literature review because the goal of the research is to be in dialogue with prior work, to show a gap in the existing literature, and to further the knowledge that this prior work has built.<p>By using an LLM to fabricate citations, authors are moving away from this noble pursuit of knowledge built on the &quot;shoulders of giants&quot; and show that behind the curtain output volume is what really matters in modern US research communities.",
+      "Wow! They&#x27;re literally submitting references to papers by Firstname Lastname, John Doe and Jane Smith and nobody is noticing or punishing them.",
+      "Especially for your first NeurIPS paper as a PhD student, getting one published is extremely lucrative.<p>Most big tech PhD intern job postings have NeurIPS&#x2F;ICML&#x2F;ICLR&#x2F;etc. first author paper as a de facto requirement to be considered. It&#x27;s like getting your SAG card.<p>If you get one of these internships, it effectively doubles or triples your salary that year right away. You will make more in that summer than your PhD stipend. Plus you can now apply in future summers and the jobs will be easier to get. And it sets your career on a good path.<p>A conservative estimate of the discounted cash value of a student&#x27;s first NeurIPS paper would certainly be five figures. It&#x27;s potentially much higher depending on how you think about it, considering potential path dependent impacts on future career opportunities.<p>We should not be surprised to see cheating. Nonetheless, it&#x27;s really bad for science that these attempts get through. I also expect some people did make legitimate mistakes letting AI touch their .bib.",
+      "I&#x27;m surprised by these results. I would have expected non-Anglo-American universities to rank at the top of the list. One of the most valuable features of LLMs from the beginning has been their ability to improve written language. This is particularly beneficial for non-English-speaking researchers in preventing language-related biases. However, the list shows that LLM usage is more intensive in the English-speaking world. Why?",
+      "Could you run a similar analysis for pre-2020 papers? It&#x27;d be interesting to know how prevalent making up sources was before LLMs."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Proton Spam and the AI Consent Problem",
+    "url": "https://dbushell.com/2026/01/22/proton-spam/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I think we must make it clear that this is not related to AI at all, even if the product in question is AI-related.<p>It is a very common problem with modern marketing teams, that have zero empathy for customers (even if they have one, they will never push back on whatever insane demands come from senior management). This is why any email subscription management interface now is as bloated as a dead whale. If too many users unsubscribe, they just add one more category and “accidentally” opt-in everyone.<p>It’s a shame that Proton marketing team is just like every other one. Maybe it’s a curse of growing organization and middle management creep. The least we can do is push back as customers.",
+      "&gt; Has anyone else noticed that the AI industry can’t take “no” for an answer? AI is being force-fed into every corner of tech. It’s unfathomable to them that some of us aren’t interested. The entire AI industry is built upon a common principle of non-consent.<p>I can&#x27;t help but see the spam as more circumstantial evidence of a bubble, where top-down &quot;pump those numbers&quot; priorities overrides regular process.",
+      "I saw a Mastodon tweet a while ago, which went something like:<p>Do tech companies understand consent?:<p>- [ ] Yes<p>- [ ] Ask me again in a few days",
+      "This problem, along with general annoyances at Proton’s lack of focus on a good email experience pushed me over the edge to move to Fastmail. I’m so much happier. Proton Mail Bridge would often pin one core of my laptop CPU, draining my battery, and it was still slow to sync new email. With Fastmail, incoming mail is so fast that the verification codes are already there before I can alt tab over.",
+      "I have a Proton mailbox I specifically keep around to serve as a honeypot, for tracking when one of the many annoying little services will inevitably mishandle the contact address I hand them.<p>Over the years, the only spam I ever received there was from Proton. Quite the way to recalibrate my expectations, eh?",
+      "This is not an AI problem, it&#x27;s an &quot;data privacy + lack of consequences problem&quot;. It happens everywhere. I mean, have you ever tried making an airline company to stop sending their shitty miles newsletters?<p>Only way to stop is to start fining these companies.",
+      "This isn&#x27;t an AI issue. Marketing departments have been like this forever, or at least since the infamous Canter &amp; Siegel &#x27;Green Card&#x27; email.<p><a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Laurence_Canter_and_Martha_Siegel\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Laurence_Canter_and_Martha_Sie...</a>",
+      "I only use Proton for the spam or temporary low value (and free) email accounts. Proton also tries to do everything, which I don&#x27;t like. If I did I&#x27;d use Google.<p>The thing I pay for is Tuta. The cheapest tier is way more generous than Proton and the product is simpler.",
+      "Trust is maybe the most valuable commodity for a VPN provider… And I have the feeling Proton is gambling it away.<p>It made me move to Mullvad.<p>Despite the fact that in terms of performance Proton is slightly better.\n(underscoring just *how* crucial ‘trust’ is)",
+      "I have often found proton’s intrusive marketing campaigns annoying.<p>I use them for email and that’s all I want. Every time they market some new product to me, I get closer to moving to a new provider."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "I was banned from Claude for scaffolding a Claude.md file?",
+    "url": "https://hugodaniel.com/posts/claude-code-banned-me/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;ve been doing something a lot like this, using a claude-desktop instance attached to my personal mcp server to spawn claude-code worker nodes for things, and for a month or two now it&#x27;s been working great using the main desktop chat as a project manager of sorts. I even started paying for MAX plan as I&#x27;ve been using it effectively to write software now (I am NOT a developer).<p>Lately it&#x27;s gotten entirely flaky, where chat&#x27;s will just stop working, simply ignoring new prompots, and otherwise go unresponsive. I wondered if maybe I&#x27;m pissing them off somehow like the author of this article did.<p>Now even worse is Claude seemingly has no real support channel. You get their AI bot, and that&#x27;s about it. Eventually it will offer to put you through to a human, and then tell you that don&#x27;t wait for them, they&#x27;ll contact you via email. That email never comes after several attempts.<p>I&#x27;m assuming at this point any real support is all smoke and mirrors, meaning I&#x27;m paying for a service now that has become almost unusable, with absolutely NO means of support to fix it. I guess for all the cool tech, customer support is something they have not figured out.<p>I love Claude as it&#x27;s an amazing tool, but when it starts to implode on itself that you actually require some out-of-box support, there is NONE to be had. Grok seems the only real alternative, and over my dead body would I use anything from &quot;him&quot;.",
+      "Once men turned their thinking over to machines in the hope that this would set them free.\nBut that only permitted other men with machines to enslave them.\nFrank Herbert, Dune, 1965",
+      "I also got banned from Claude over a year ago. The signup process threw an error and I couldn&#x27;t try again because they took my phone number. The support system was a Google form petition to be unblocked. I am still mad about it to this day.<p>Edit: my only other comment on HN is also complaining about this 11 months ago",
+      "I was reminded of this classic short story by Isaac Asimov, The feeling of Power: <a href=\"https:&#x2F;&#x2F;archive.org&#x2F;details&#x2F;1958-02_IF&#x2F;page&#x2F;4&#x2F;mode&#x2F;2up\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.org&#x2F;details&#x2F;1958-02_IF&#x2F;page&#x2F;4&#x2F;mode&#x2F;2up</a>",
+      "Similar thing happened to me back in November 19 shortly after GitHub outage (which sent CC into repeated requests and time outs to GitHub) while beta testing Claude Code Web.<p>Banned and appeal declined without any real explanation to what happened, other than saying &quot;violation of ToS&quot; which can be basically anything, except there was really nothing to trigger that, other than using their most of the free credits they gave to test CC Web in less than a week. (No third party tools or VPN or anything really) There were many people had similar issues at the same time, reported on Reddit, so it wasn&#x27;t an isolated case.<p>Companies and their brand teams work hard to create trust, then an automated false-positive can break that trust in a second.<p>As their ads say: &quot;Keep thinking. There has never been a better time to have a problem.&quot;<p>I&#x27;ve been thinking since then, what was the problem. But I guess I will &quot;Keep thinking&quot;.",
+      "I clicked your link to go look at the innocent Claude.md file as you invited us to do. Only problem: there is no Claude.md file in your repo! What are you trying to hide? Are you some kind of con man?<p>Looks like Claude.ai had the right idea when they banned you.",
+      "We really need some law to stop &quot;you have been banned and we won&#x27;t even tell you actual reason for it&quot;, it&#x27;s become a plague, made worse with automated systems giving out a ban",
+      "I was recently kicked out from ChatGPT because I wrote &quot;a*hole&quot; in a context where ChatGPT constantly kept repeating nonsense! I find the ban by OpenAI to be very intrusive. Remember, ChatGPT is a machine! And I did not hurt any sentient being with my statement, nor was the GPT chat public. As long as I do not hurt any feeling beings with my thoughts, I can do whatever I want, can&#x27;t I? After all, as the saying goes, &quot;Thoughts are free.&quot; Now, one could argue that the repeated use of swear words, even in private, negatively influences one&#x27;s behavior. However, there is no repeated use here. I don&#x27;t run around the flat all day swearing. Anyone who basically insinuates such a thing, like OpenAI, is, as I said, intrusive. I want to be able to use a machine the way I want to! As long as no one else is harmed, of course...",
+      "I am really confused as to what happened here. The use of ‘disabled organization’ to refer to the author made it extra confusing.<p>I think I kind of have an idea what the author was doing, but not really.",
+      "The future (the PRESENT):<p>You are only allowed to program computers with the permission of mega corporations.<p>When Claude&#x2F;ChatGPT&#x2F;Gemini have banned you, you must leave the industry.<p>When you sign up, you must provide legal assurance that no LLM has ever banned you (much like applying for insurance). If true then you will be denied permission to program - banned by one, banned by all."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Why I Don't Have Fun With Claude Code",
+    "url": "https://brennan.io/2026/01/23/claude-code/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Here’s a big difference.<p>I value writing and playing my own music.<p>Most are happy enough to listen to other people’s music.<p>Somehow with music this isn’t a religious war.",
+      "This resonates with my own anxiety: <a href=\"https:&#x2F;&#x2F;blog.danieljanus.pl&#x2F;2025&#x2F;12&#x2F;27&#x2F;llms&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;blog.danieljanus.pl&#x2F;2025&#x2F;12&#x2F;27&#x2F;llms&#x2F;</a>",
+      "I am full in line with the sentiment expressed on the post, and can&#x27;t wait for the whole must use AI bubble to implode.<p>Also the whole I am more productive vibe, well management will happilly reduce team size, it has always been do more with less, and now the robots are here.<p>Each day one step closer to have software development reach the factory level.<p>Yes some will be left around to maintain the robots, or do the little things they aren&#x27;t still yet able to perform (until they do), and a couple of managers.<p>All the rest, I guess there are other domains where robots haven&#x27;t yet taken over.<p>I for one am happier to be closer to retirement, than hunting for junior jobs straight out of a degree, it is going to get though out there.",
+      "This post brings up a lot of (imo true) points that I honestly can&#x27;t share with the ai-lovers at work because they will just get in a huff. But the OP is right - we automate stuff we don&#x27;t value doing, and the people automating all their code-gen have made a very clear statement about what they want to be doing - they want _results_ and don&#x27;t actually care about the code (which includes ideas like testing, maintainability, consistent structure, etc).<p>It&#x27;s extra hilarious to hear someone you _thought_ treated their code work as a craft refer to &quot;producing 3 weeks worth of work in the last week&quot; because (a) I don&#x27;t believe it, not for one bit, unless you are the slowest typist on earth and (b) it clearly positions them as a code _consumer_, not a code _creator_, and they&#x27;re happy about it. I would not be.<p>Code is my tool for solving problems. I&#x27;d rather write code than _debug_ code - which is what code-gen-bound people are destined to do, all day long. I&#x27;d rather not waste the time on a spec sheet to convince the llm to lean a little towards what I want.<p>Where I&#x27;ve found LLMs useful is in documentation queries, BUT (and it&#x27;s quite a big BUT) they&#x27;re only any good at this when the documentation is unchanging. Try ask it questions about nuances of the new extension syntax in c# between dotnet 8 and dotnet 10 - I just had to correct it twice in the same session, on the same topic, because it confidently told me stuff that would not compile. Or in the case of elasticsearch client documentation - the REST side has remained fairly constant, but if you want help with the latest C# library, you have to remind it all the time of the fact - not because it doesn&#x27;t have any information on the latest stuff, but because it consistently conflates old docs with new libraries. An attempt to upgrade a project from webpack4 to webpack5 had the same problems - the llm confidently telling me to do &quot;X&quot;, which would not work in webpack 5. And the real kicker is that if you can prove the LLM wrong (eg respond with &quot;you&#x27;re wrong, that does not compile&quot;), it will try again, and get closer - but, as in the case with C# extension methods, I had to push on this twice to get to the truth.<p>Now, if they can&#x27;t reliably get the correct context when querying documentation, why would I think they could get it right when writing code? At the very best, I&#x27;ll get a copy-pasta of someone else&#x27;s trash, and learn nothing. At the worst, I&#x27;ll spin for days, unless I skill up past the level of the LLM and correct it. Not to mention that the bug rate in suggested code that I&#x27;ve seen is well over 80% (I&#x27;ve had a few positive results, but a lot of the time, if it builds, it has subtle (or flagrant!) bugs - and, as I say, I&#x27;d rather _write_ code than _debug_ someone else&#x27;s shitty code. By far."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Scaling PostgreSQL to power 800M ChatGPT users",
+    "url": "https://openai.com/index/scaling-postgresql/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; It’s also common to find long-running idle queries in PostgreSQL. Configuring timeouts like idle_in_transaction_session_timeout is essential to prevent them from blocking autovacuum.<p>Idle transactions have been a huge footgun at $DAYJOB… our code base is full of “connect, start a transaction, do work, if successful, commit.” It means you’re consuming a connection slot for all work, even while you’re not using the database, and not releasing it until you’re done. We had to bump the Postgres connection limits by an order of magnitude, multiple times, and before you know it Postgres takes up more RAM than anything else just to support the number of connections we need.<p>The problem permeated enough of our (rust) codebase that I had to come up with a compile time check that makes sure you’re not awaiting any async functions while a Postgres connection is in your scope. Using the .await keyword on an async function call, but <i>not</i> passing the pg connection to that function, ends up being a nearly perfect proxy for “doing unrelated work while not releasing a connection”. It worked extremely well, the compiler now just straight up tells us where we’re doing it wrong (in 100+ places in fact.)<p>Actually getting away from that pattern has been the hard part, but we’re almost rid of every place we’re doing it, and I can now run with a 32-connection pool in load testing instead of a 10,000 connection pool and there’s no real slowdowns. (Not that we’d go that low in production but it’s nice to know we can!)<p>Just decreasing the timeout for idle transactions would have probably been the backup option, but some of the code that holds long transactions is very rarely hit, and it would have taken a lot of testing to eliminate all of it if we didn’t have the static check.",
+      "Article has so much fluff and only some very coarse information like (we sharded writes, yay!). Almost no detail just keywords for SEO, or whatever they’re aiming for.<p>There’s also a lot of repetition. Maybe it was AI generated…?",
+      "The &#x27;single primary with read replicas&#x27; pattern scaling to 800M users is the real insight here. Most startups reach for sharding or distributed databases way too early, adding complexity for scale they don&#x27;t have. If OpenAI can serve hundreds of millions from one Postgres primary by offloading reads and pushing new write-heavy features elsewhere, that&#x27;s a strong argument for simplicity.",
+      "Regarding schema changes and timeouts - while having timeouts in place is good advice, you can go further. While running the schema rollout, run a script alongside it that kills any workload conflicting with the aggressive locks the schema change is trying to take. This will greatly reduce the pain caused by lock contention, and prevent you from needing to repeatedly rerun statements on high-throughput tables.<p>This would be a particularly nice-to-have feature for Postgres - the option to have heavyweight locks just proactively cancel any conflicting workload. For any case where you have a high-throughput table, the damage of the heavyweight lock sitting there waiting (and blocking all new traffic) is generally much larger than just cancelling some running transactions.",
+      "I don’t get it. This whole thing says single writer does not scale, so we stopped writing as much and removed reads away from it, so it works ok and we decided that’s enough. I guess thats great.",
+      "This is why I love Postgres. It can get you to being one of the largest websites before you need to reconsider your architecture just by throwing CPU and disk at it. At that point you can well afford to hire people who are deep experts at sharding etc.",
+      "First OpenAI Engineering blog? I&#x27;m definitely interested in seeing more and how they handled the rapid growth.",
+      "Cool! I&#x27;d love to know a bit more about the replication setup. I&#x27;m guessing they are doing async replication.<p>&gt;  We added nearly 50 read replicas, while keeping replication lag near zero<p>I wonder what those replication lag numbers are exactly and how they deal with stragglers. It seems likely that at any given moment at least one of the 50 read replicas may be lagging cuz CPU&#x2F;mem usage spike. Then presumably that would slow down the primary since it has to wait for the TCP acks before sending more of the WAL.",
+      "&quot;... If a new feature requires additional tables, they must be in alternative sharded systems such as Azure CosmosDB rather than PostgreSQL....&quot;<p>So it is not really scaling too much now, rather maintaining current state of things and new features go to a different DB?",
+      "The article is basically &quot;we use PostgreSQL, it works, but we had to do some optimization to make it scale&quot;.<p>I don&#x27;t really get the point here. What is novel and great? It feels they followed the first &quot; how to scale pg&quot; article."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "White House defends sharing AI image showing arrested woman crying",
+    "url": "https://www.bbc.co.uk/news/live/ce9yydgmzdvt",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The article title is overly kind; the White House didn&#x27;t defend the image, they dismissed it as an issue.<p>This reporting presents it as a debate with reasoning on both sides, rather than a brazen act with no defence supplied. It&#x27;s not good journalism to legitimise a position that didn&#x27;t even attempt to legitimise itself.",
+      "White House defends real life pedophiles",
+      "Those who can do; those that can&#x27;t meme and make fake images.",
+      "This is just so absolutely stupid. This group of people have somehow got it in their heads that their primary job is owning the libs, and not governing.<p>Independent of your views on immigration, or law and order, or anything. Juvenile shit like this does absolutely nothing to advance any policy goals.<p>Even worse, why should you average normie trust any image that comes out from the White House? If there&#x27;s a serious national security issue, why are we going to trust a group of people who are willing to doctor a photo for such stupid ends?",
+      "The White House said &quot;The memes will continue&quot;. Dodging the direct question while at the same time admitting it is a doctored image as it qualifies as a &#x27;meme&#x27;. Obviously it masquerades as truth and this is terrifying deception.<p>What should I expect from the same administration that also altered the (tiny fraction of) Epstein files before releasing them.",
+      "The title is a bit misleading, at least, I interpreted it wrong. The white house took  a photo of a woman who was arrested, but expressionless, and used AI to make it look like she was crying. Insanely disgusting behaviour.",
+      "It&#x27;s propaganda, plain and simple.<p>&quot;The government... the American government - they&#x27;re sneaky, they&#x27;re very deceitful, they&#x27;re liars, they&#x27;re cheats, they&#x27;re rip-offs. I mean, the American government is one-- is one systematic government that... that nobody can trust. I don&#x27;t trust them myself&quot;",
+      "Distract from the pedophile issue with memes while grifting billions from the US.<p>Trump did not have enough pay the money from his rape case and through bribes and making Americans poorer with tariffs has now personally earned over a billion dollars in just one year.",
+      "For everyone involved or resposible about this kind of thing, this sheds no light whatsoever on their position when it comes to deepfakes.",
+      "It&#x27;s the non-stop openly lying to judges in court that should be the worldwide newspaper headline<p>That&#x27;s some post-constitutional anti-democracy bullsh*t right there that should have zero tolerance because that means everything else is likely a lie.<p>It&#x27;s like a virus since he came down the golden escalator, first every single thing he said was a lie or wild exaggeration, and then he recruited exclusively only people around him to do the same.<p>There&#x27;s good reason the highest power positions in the government are HIS PERSONAL LAWYERS with legal obligation first to him beyond anything else."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Launch HN: Constellation Space (YC W26) – AI for satellite mission assurance",
+    "url": "https://news.ycombinator.com/item?id=46721933",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "pretty intriguing demo video. how do you ensure your telemetry ingestion happens  operationally that will be daunting task. output will be as good as your telemetry any delay or break in data everything bound break.",
+      "Rather than longer times, what about short times? I did some work on fast fading and you can see rapid swings in fade over &lt;5s. That is hard for automated systems to respond to, so you normally respond by increasing the link margin. If you can predict this you could reduce the margin needed. That could potentially be very valuable.",
+      "Is the inference running on-orbit or ground-side? I guess SWaP is a major constraint for the former. Not sure if you are using FPGAs or something like a Jetson?",
+      "Very cool company! Are y’all hiring?",
+      "Are you raising?",
+      "Do you plan to work on orbital weapon systems like Golden Dome?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "'Active' sitting is better for brain health: review of studies",
+    "url": "https://www.sciencealert.com/not-all-sitting-is-equal-one-type-was-just-linked-to-better-brain-health",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&quot;Passively watching TV&quot; feels like a common target for brain health&#x2F;strength&#x2F;etc discussions. I&#x27;m curious if there&#x27;s been any studies into the differences that engagement with television programs can have on the brain. There&#x27;s been a whole breadth of television programming over the decades. I think it would be wrong to treat it all as equal in regards to how it impacts your brain.",
+      "I&#x27;m confused by this... It seems to me like the relevant part is &quot;playing computer games is good&quot; not &quot;the type of sitting you do matters&quot;. Playing computer games while standing might be even better",
+      "I have an “ADHD” Pipersong desk chair so I can go through a random-walk sitting position open-ended training circuit while I work. Without even thinking about it.",
+      "This article has nothing to do with sitting.",
+      "Breaking news! Using the brain is better for brain health than not using it.<p>Next: Playing chess on one leg is better for brain health than sitting.",
+      "As soon as my kid was able to play video games, we basically banned him from watching tv.<p>His only tv was phonics and numbers, which helped significantly because when he started playing minecraft on creative, he had to sound out the items he wanted to search for.<p>I didn&#x27;t have any science, it was intuition.<p>I suppose next step is to figure out which video games are best. We basically don&#x27;t let them play Idle games, but I&#x27;m starting to think platformers might need to be banned too.",
+      "<a href=\"https:&#x2F;&#x2F;journals.sagepub.com&#x2F;doi&#x2F;10.1177&#x2F;13872877251394751\" rel=\"nofollow\">https:&#x2F;&#x2F;journals.sagepub.com&#x2F;doi&#x2F;10.1177&#x2F;13872877251394751</a><p>Based on this report.",
+      "Original source:<p><a href=\"https:&#x2F;&#x2F;news.uq.edu.au&#x2F;2026-01-not-all-sitting-same-when-it-comes-brain-health\" rel=\"nofollow\">https:&#x2F;&#x2F;news.uq.edu.au&#x2F;2026-01-not-all-sitting-same-when-it-...</a><p>&gt; &quot;...Passive activities such as watching television have been linked to worse memory and cognitive skills, while ‘active sitting’ like playing cards or reading correlate with better brain health, researchers have found.&quot;<p>...Do these researchers even read this to themselves aloud before hitting publish? It&#x27;s confounding that they would find &quot;sitting&quot; to be the active ingredient pushing the outcome differential. Obviously, if you remove the bodily posture from the action that the user is engaging in, you would observe the same outcome the researchers did—meaning sitting was not operative here (..duh).<p>Breaking news at 11: the brain works best when it’s actually used.",
+      "That this is the state of &quot;science&quot; is very disappointing, and whenever I see the domain sciencealert, am pretty much trained that it is going to be nonsense.<p>Sadly, other science publications seem to be following a not dissimilar trend.",
+      "Don’t do that. Don’t give me hope."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: BrowserOS – \"Claude Cowork\" in the browser",
+    "url": "https://github.com/browseros-ai/BrowserOS",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hey cool stuff since last update!<p>I still don&#x27;t buy the we needed it to be a whole Browser and not a Chrome Extension argument:<p>- your interface is still literally a chrome extension side panel<p>- none of the agentic browsers from the bigger players like Atlas and Comet really took off either<p>I do think the server side integration is required:<p>- with rtrvr.ai a ton of users are integrating our web agent chrome extension via Remote MCP from chatgpt.com as well as triggering as an API endpoint remotely. Your implementation is limited to only local connections as I understand.<p>- the biggest unlock for users is running at scale, so just being able to launch a hundred cloud browsers, do a task, and return results while you do other things. So we see hybrid cloud&#x2F;local execution as the key unlock for this year<p>Your workflow pipeline is really cool! Any blog post&#x2F;summary on how you set it up?<p>Last year was a lot of technical builders exploring the capabilities, and I am excited for this year of making these agentic browsers useful!",
+      "Thanks a lot, i wanted to ask about the headless agent use case: \nHow does it compare to using <a href=\"https:&#x2F;&#x2F;github.com&#x2F;vercel-labs&#x2F;agent-browser\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;vercel-labs&#x2F;agent-browser</a>",
+      "<a href=\"https:&#x2F;&#x2F;github.com&#x2F;browseros-ai&#x2F;BrowserOS&#x2F;issues&#x2F;99#issuecomment-3259432840\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;browseros-ai&#x2F;BrowserOS&#x2F;issues&#x2F;99#issuecom...</a><p>I didn&#x27;t hear back there, but huzzah, it looks like this is in there. I&#x27;m glad to see it!",
+      "Really cool product. How do you plan to monetize it?<p>You guys need some marketing help. There’s a lot of potential here, but you don’t do a good job of selling it. Tell me what problems I’m going to be able to solve or what headaches it will eliminate. Can it going into that shitty Canvas app my kids’ school uses, identify outstanding assignments or low grades and send me a daily text summary? Can it automate buying everything on my grocery list and setting up delivery? Or look up flight options, ask me what I want and book it for me? Even better, I’m stuck having to look up international flights for 7 people in three households, get everyone to agree on one and then book them. Please build something that will do that.<p>Keep at it because this thing is cool!",
+      "IAM for agents sounds interesting but how is it reliably enforced? You also built evals?",
+      "&gt; we&#x27;re adding browser-level guardrails (think IAM for agents)<p>This sounds interesting, but where would I go to see these guardrails and their implementation? I tried searching in the repository and couldn&#x27;t find them.",
+      "What would be great is if it could work in the browser like Claude in chrome and communicate (with my control) back to objects on my desktop like my ide for example or really anything",
+      "It seems cool, will it work in headless mode without X11&#x2F;Wayland&#x2F;.. ?",
+      "Which local model works best with this? (Assuming MacOS with 32GB unified RAM)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Text-to-video model from scratch (2 brothers, 2 years, 2B params)",
+    "url": "https://huggingface.co/collections/Linum-AI/linum-v2-2b-text-to-video",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "That’s amazing effort - I am impressed.<p>Awesome to see more small teams making impressive leaps.",
+      "I want to build my own video model, just for learning purposes, is there any course which can teach end to end",
+      "Great work.  How many GPU hours to train?",
+      "Incredibly impressive, dudes. Well done.",
+      "Post it on r&#x2F;StableDiffusion",
+      "How much compute was ultimately required to get this done?",
+      "[dead]",
+      "Rad! huggingface link gives 404 on my side though."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Composing APIs and CLIs in the LLM era",
+    "url": "https://walters.app/blog/composing-apis-clis",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I built a tool specifically for dealing with remote mcp servers via the cli. No config files needed. FUSE (and Bash) is all we need. This way we can still get benefits of discoverability of mcp endpoints, but can use cli tools and bash to do things easier.<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;turlockmike&#x2F;murl\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;turlockmike&#x2F;murl</a>",
+      "This is what I’ve been doing too. Give the LLM a link to an OAS for an API and let it use curl for everything after that. I don’t even wrap the API or use restish all, the LLM knows how to use curl well enough.<p>This lets me add quick skills that are essentially just: “this is the OAS link, this is how you store and use the authorization, this is when I want you to use it”. That combined with pointing it at the documentation for common workflows and usage examples, and it’s been great.<p>The only thing I’ve had trouble with is auth really. MCPs are treated as first class citizens by most model provider’s agents and trying to provide a shell-based alternative for hiding the secret credentials from the LLM has been difficult.",
+      "I&#x27;m working on tpmjs.com the npm registry for ai tools (just the vercel ai sdk flavor atm)<p>which lets users create collections of any publicly available tool which let&#x27;s us do awesome things<p>We can auto generate a skills.md for collections <a href=\"https:&#x2F;&#x2F;tpmjs.com&#x2F;ajax&#x2F;collections&#x2F;unsandbox&#x2F;skills.md\" rel=\"nofollow\">https:&#x2F;&#x2F;tpmjs.com&#x2F;ajax&#x2F;collections&#x2F;unsandbox&#x2F;skills.md</a> (<a href=\"https:&#x2F;&#x2F;tpmjs.com&#x2F;ajax&#x2F;collections&#x2F;unsandbox\" rel=\"nofollow\">https:&#x2F;&#x2F;tpmjs.com&#x2F;ajax&#x2F;collections&#x2F;unsandbox</a> to see the collection)<p>We analyze all the tools source code to write the skills.md using LLM&#x27;s and then we auto inject three different ways agents can iteract with them<p>- hosted mcp servers for collections automatically e.g. <a href=\"https:&#x2F;&#x2F;tpmjs.com&#x2F;api&#x2F;mcp&#x2F;ajax&#x2F;unsandbox&#x2F;sse\" rel=\"nofollow\">https:&#x2F;&#x2F;tpmjs.com&#x2F;api&#x2F;mcp&#x2F;ajax&#x2F;unsandbox&#x2F;sse</a><p>- a cli tool that can invoke each tool in the collection e.g.  tpm run --collection ajax&#x2F;unsandbox --tool [tool-name] --args &#x27;{&quot;key&quot;: &quot;value&quot;}&#x27;<p>- restful endpoints for direct execution of tools e.g. curl -X POST <a href=\"https:&#x2F;&#x2F;tpmjs.com&#x2F;api&#x2F;mcp&#x2F;ajax&#x2F;unsandbox&#x2F;http\" rel=\"nofollow\">https:&#x2F;&#x2F;tpmjs.com&#x2F;api&#x2F;mcp&#x2F;ajax&#x2F;unsandbox&#x2F;http</a><p>It&#x27;s very much alpha, but after building this, I don&#x27;t see why you can&#x27;t let agents choose any method they want of interacting with your service.<p>It means your agents can use CLI, MCP or REST, only in one style or any style all at once.",
+      "thanks for sharing this, it resonates with me. as some other commenters have said, CLIs, cURL, and other shell tools are composable and discoverable. it seems like a good direction.<p>auth considerations are present in the design of MCP. this, as opposed to the hodgepodge auth story with CLIs. there are APIs that either don&#x27;t support OAuth or where using bare credentials is more expedient, and using agent-visible env vars is a security incident waiting to happen. but that doesn&#x27;t necessarily mean we must use MCP. i think it&#x27;s a matter of time before agentic tools come bundled with a proxy layer from which secrets &#x2F; env vars can be set and used but not directly read [0].<p>[0] <a href=\"https:&#x2F;&#x2F;www.joinformal.com&#x2F;blog&#x2F;using-proxies-to-hide-secrets-from-claude-code&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.joinformal.com&#x2F;blog&#x2F;using-proxies-to-hide-secret...</a>",
+      "I&#x27;ve been beating this drum for the last 8 months.<p>The next frontier is using hooks to guide agents to use tools better and avoid doom loops.",
+      "We also use CLI tools for agents because it is obvious that they are good at it.<p>Our approach is slightly more complex because we need to supported fully authenticated sessions for end users and for shared credentials. It works by creating scoped API tokens to our service which get bundled into dynamically generated CLI clients. We point the agent to the client and voila. The agent can now run `some-command list-gmail-messages --query &quot;tom&quot;`. The oauth complexities, credential lifecycle and everything is handled automatically by the platform on the fly - it does not matter if the user is on Slack or access the agent through some chat interface or if the agent runs in the background doing work. It just works!",
+      "Of all the interface modalities available, CLIs seem like the most natural for copilots to work with. Lots of examples in the training data, universal interface for help, maps well to the sequential nature of token generation, similar syntax for different OSs… I can see them replacing skills and MCP et al from the model’s perspective.",
+      "this seems like what MCPs should have been from the beginning. If you think MCPs are better, can you explain why?",
+      "Building an API client : <a href=\"https:&#x2F;&#x2F;voiden.md&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;voiden.md&#x2F;</a><p>The points made in the article can be included in the design choices.",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Keeping 20k GPUs healthy",
+    "url": "https://modal.com/blog/gpu-health",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I help run a fleet of GPU servers, and I might see 1 DIMM or SSD failure for every 50-100 GPU failures.<p>I realize NVIDIA is just cranking them out as fast as they can, but the quality on them is terrible. They overheat, disappear after you reboot, they fall off the bus, memory failures, and then mix in all the software crashes your users generate...<p>Our current server vendor is actually good at replacing them, unlike our previous vendor, but the failure rates are just insane. If any other component failed this much we&#x27;d have the vendor buy the servers back.",
+      "I wonder why H100 H2D and D2H unpinned memcpy bandwidth is *faster* on PCIe with vendor B than on SXM with vendor D. Is resizable BAR available on PCIe but not SXM?<p>Or, could it be a software configuration difference? The driver API flag CU_MEMHOSTREGISTER_IOMEMORY states that host memory being physically contiguous may matter to the driver, in this context for memory-mapped memory. If vendor B has THP enabled or configured differently than vendor D, small allocations up to 2 MiB could be physically contiguous which may result in higher efficiency&#x2F;more bytes transferred per request.<p>At a higher level: unpinned memcpy is a performance antipattern. Perhaps vendor D has fewer clients using unpinned memcpy in their workloads than vendor B, or they decided not to dedicate support to it for this reason. TensorFlow will go to great lengths to copy unpinned memory to a pinned staging buffer if you feed unpinned host memory tensors to a graph.",
+      "I recently had to route a PCB for a fpga using DDR3. It needed 3 designs to get the ram interface good. Dont get me wrong i have designed such things before but there are so may external factors. Now think of DDR of higher order. I think they are on the edge what can be done on todays PCB design",
+      "A taxonomy and statistics of GPU failures are described in this paper<p>Story of Two GPUs: Characterizing the Resilience of Hopper H100 and Ampere A100 GPUs<p><a href=\"https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.1145&#x2F;3712285.3759821\" rel=\"nofollow\">https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.1145&#x2F;3712285.3759821</a>",
+      "Are the numbers in the H100 PCIE vs SXM table swapped for rows 3 onwards? It looks to me like the PCI is showing higher GiB&#x2F;s numbers, which is counter to expectations.\nOr am I misunderstanding those benchmarks?",
+      "In his newsletter Ed Zitron hammered down the point that GPUs depreciate quickly, but these kind of reliability issues are shocking to read. The GPUs are so common to fail that they hang out in a 24&#x2F;7 slack channel with customers like Meta (who apparently can&#x27;t set up a cluster themselves..).<p>Ed Zitron also called out the business model of GPU-as-a-service middleman companies like modal deeply unsustainable, and I also don&#x27;t see how they can make a profit if they are only reselling public clouds. Assuming they are VC funded the VCs need returns for their funds.<p>Unlike fiber cable during the dot com boom the currently used GPUs eventually end up in the trash bin. These GPUs are treated like toilet paper, you use them and throw them away, nothing you will give to the next generation.<p>Who will be the one who marks down these &quot;assets&quot;? Who is providing money to buy the next batch of GPUs, now that billions are already spent?<p>Maybe we&#x27;ll see a wave of retirements soon.<p>&gt; It’s underappreciated how unreliable GPUs are. NVIDIA’s hardware is a marvel, the FLOPs are absurd. But the reliability is a drag. A memorable illustration of how AI&#x2F;ML development is hampered by reliability comes from Meta’s paper detailing the training process for the LLaMA 3 models: “GPU issues are the largest category, accounting for 58.7% of all unexpected issues.”\n&gt; Imagine the future we’ll enjoy when GPUs are as reliable as CPUs. The Llama3 team’s CPUs were the problem only 0.5% of the time. In my time at Modal we can’t remember finding a single degraded CPU core.\n&gt; For our Enterprise customers we use a shared private Slack channel with tight SLAs. Slack is connected to Pylon, tracking issues from creation to resolution. Because Modal is built on top of the cloud giants and designed for dynamic compute autoscaling, we can replace bad GPUs pretty fast!",
+      "&gt; Today, we’re sharing our GPU reliability system as both a demonstration of our commitment to Modal customers and as a guide for fellow travelers renting hyperscaler or neocloud cards. It’s dangerous to go alone! Take this.<p>&gt; We’ve chosen not to refer to cloud providers directly, but instead give them anonymized A, B, C, D identifiers. If you want know who’s who, track the clues or buy us a beer sometime.<p>Come on, either name names or admit it is pure PR.<p>Edit: or will someone who can decode the clues weigh in?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: I've been using AI to analyze every supplement on the market",
+    "url": "https://pillser.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Technical: I started this project when the first LLMs came out. I&#x27;ve built extensive internal evals to understand how LLMs are performing. The hallucinations at the time were simply too frequent to passthrough this data to visitors. However, I recently re-ran my evals with Opus 4.5 and was very impressed. I am running out of scenarios that I can think&#x2F;find where LLMs are bad at interpreting data.<p>It&#x27;s nice to see an AI-centric Show HN product that uses proper evals and cares about data quality.<p>How did you build your initial data set that you&#x27;re using for the evals? Bootstrapping a high quality data set is one of the hardest parts of really knowing how an AI product is performing.",
+      "Please seriously consider *not* using ads to generate revenue. We need to return to other models rather than just slapping ads on everything. Be the change you want to see in the world. Do you really want to see more ads?<p>Have a look at <a href=\"https:&#x2F;&#x2F;examine.com\" rel=\"nofollow\">https:&#x2F;&#x2F;examine.com</a> as the closest site I can think of in this space, and check out their revenue models.",
+      "I just searched the most popular&#x2F;researched supplement of all time: creatine. There is a mistake in the data there: the Wellnesss Code Whey Protein indeed contains creatine, but not 2g per container, but 2g per serving (that is correctly reflected). Error is easily spotted due to the price per gram being an extreme outlier. That is perhaps something you can look for when evaluating the data gotten from the LLM.",
+      "Unfortunately, none of these data are usable because (in the US, at least) there is no oversight on labeling accuracy for nutritional supplements.<p>That means I can dump woodchips into capsules and sell them as Multivitamins with 12 vitamins &amp; minerals, and nobody would be the wiser.<p>There is more rigorous testing being done in underground steroid + peptide communities than in legal nutritional supplements.<p>Crazy world where you can trust vialed peptides from China more than something you bought on Amazon...",
+      "This seems more like cataloguing than analyzing<p>I&#x27;d love to see a project that actually analyzes every supplement on the market to make sure it actually contains what it claims to, contains it at the listed dosage, and to show anything else found (heavy metals for example). That&#x27;s not something AI can do for us though since it&#x27;d involve physically collecting and testing samples.",
+      "Monetize it with Amazon or other affiliate links, and provide dollar per effective dose for a given set of desired supplements.",
+      "found a bug searching for &quot;collagen&quot;:<p><pre><code>  Failed to execute &#x27;removeChild&#x27; on &#x27;Node&#x27;: The node to be removed is not a child of this node.\n  Something broke. We&#x27;re working on it, but in the meantime, try reloading the page. If that doesn&#x27;t work, come back later.\n\n  Error ID: b846e2e2ba3b483ab93f10e72ef76820\n\n  NotFoundError: Failed to execute &#x27;removeChild&#x27; on &#x27;Node&#x27;: The node to be removed is not a child of this node.\n    at ds (https:&#x2F;&#x2F;pillser.com&#x2F;assets&#x2F;entry.client-DWgmqxdv.js:1:112074)\n    at gs (https:&#x2F;&#x2F;pillser.com&#x2F;assets&#x2F;entry.client-DWgmqxdv.js:1:113602)\n    at ys (https:&#x2F;&#x2F;pillser.com&#x2F;assets&#x2F;entry.client-DWgmqxdv.js:1:113850)\n    at gs (https:&#x2F;&#x2F;pillser.com&#x2F;assets&#x2F;entry.client-DWgmqxdv.js:1:113728)</code></pre>",
+      "I picked Vitamin D as it was an option on the main page. The cheapest offered was $1.1&#x2F;mg.<p>Costco (<a href=\"https:&#x2F;&#x2F;www.costco.com&#x2F;p&#x2F;-&#x2F;kirkland-signature-extra-strength-d3-50-mcg-600-softgels&#x2F;11467951?DM_PersistentCookieCreated=true&amp;langId=-1\" rel=\"nofollow\">https:&#x2F;&#x2F;www.costco.com&#x2F;p&#x2F;-&#x2F;kirkland-signature-extra-strength...</a>) sells Vitamin D at less than half that price. On Amazon, the two pack of those is even cheaper.<p>Just an observation.",
+      "How did you get around the legal issues?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: What AI feature looked in demos and failed in real usage? Why?",
+    "url": "https://news.ycombinator.com/item?id=46731289",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Real-time voice translation looked amazing in demos, but in practice it struggled with accents, technical jargon, and context. The demos were clearly done in controlled environments with clear speakers and simple topics.<p>The reason? Training data bias and the &quot;last mile&quot; problem - demos use ideal conditions while real usage involves messy audio, overlapping speech, and domain-specific vocabulary the models never saw during training."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Skill.md: An open standard for agent skills",
+    "url": "https://www.mintlify.com/blog/skill-md",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "There was already a “standard” published by Anthropic. How is this different?",
+      "&gt; Deprecating install.md<p>&gt; Last Friday we announced install.md and it didn&#x27;t see much adoption.<p>With thrash like this why would anyone adopt this for something serious?<p>It&#x27;s just an .md file, so the overhead is low. The lack on conviction in your design does not inspire confidence though.",
+      "I feel like there is a new one of these everyday",
+      "links are broken to cloudflare and vercel. who&#x27;s writing these...",
+      "Phew, at least this is under .well-known&#x2F;"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: What 'AI feature' created negative ROI in production?",
+    "url": "https://news.ycombinator.com/item?id=46731015",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "We implemented an AI-powered customer support triage system that initially looked promising in testing. In production, it actually increased our support costs by ~30% because:<p>The AI would confidently misroute 15-20% of tickets, requiring human review of ALL AI decisions\nand the Customers lost trust after a few bad experiences and started explicitly requesting human agents\nalso Support agents spent more time correcting AI mistakes than they saved<p>The breaking point was data quality - our training data was too clean compared to real customer queries. We ended up rolling back to rule-based routing with AI as an optional suggestion tool instead."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Anthropic Economic Index economic primitives",
+    "url": "https://www.anthropic.com/research/anthropic-economic-index-january-2026-report",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is very cool but it&#x27;s not quite what I expected out of economic primitives.<p>I expected to see measures of the economic productivity generated as a result of artificial intelligence use.<p>Instead, what I&#x27;m seeing is measures of artificial intelligence use.<p>I don&#x27;t really see how this is measuring the most important economic primitives. Nothing related to productivity at all actually. Everything about how and where and who... This is just demographics and usage statistics...",
+      "Skimmed, some notes for a more &#x27;bear&#x27; case:<p>* value seems highly concentrated in a sliver of tasks - the top ten accounting for 32%, suggesting a fat long-tail where it may be less useful&#x2F;relevant.<p>* productivity drops to a more modest 1-1.2% productivity gain once you account for humans correcting AI failure.  1% is still plenty good, especially given the historical malaise here of only like 2% growth but it&#x27;s not like industrial revolution good.<p>* reliability wall - 70% success rate is still problematic and we&#x27;re getting down to 50% with just 2+ hours of task duration or about &quot;15 years&quot; of schooling  in terms of complexity for API.  For web-based multi-turn it&#x27;s a bit better but I&#x27;d imagine that would at least partly due to task-selection bias.",
+      "&gt;  This also highlights the importance of model design and training. While Claude is able to respond in a highly sophisticated manner, it tends to do so only when users input sophisticated prompts.<p>If the output of the model depends on the intelligence of the person picking outputs out of its training corpus, is the model intelligent?<p>This is kind of what I don&#x27;t quite understand when people talk about the models being intelligent. There&#x27;s a huge blindspot, which is that the prompt entirely determines the output.",
+      "The title actually cringes me out a bit, it reads like early report titles in academia where young students (myself no doubt incl back when) try their hardest at making a title sound clever but in actuality only achieve obscuration of their own material.",
+      "&gt; These “primitives”—simple, foundational measures of how Claude is used, which we generate by asking Claude specific questions about anonymized Claude.ai and first-party (1P) API transcripts<p>I just skimmed but is there any manual verification &#x2F; human statistical analysis done on this or we just taking Claude’s word for it?",
+      "I&#x27;m not an economist so can someone explain whether this stat is significant:<p>&gt; a sustained increase of 1.0 percentage point per year for the next ten years would return US productivity growth to rates that prevailed in the late 1990s and early 2000s<p>What can it be compared to? Is it on the same level of productivity growth as computers? The internet? Sliced bread?",
+      "Every single AI economic analysis talks about travel planning but none of the AI labs have the primitives (transit routing, geocoding, etc.) in a semantic interface for the models to use.",
+      "All of this performative bullshit coming out of Anthropic is slowly but surely making them my least favorite AI company.<p>We get it guys the very scary future is here any minute now and you’re the only ones taking it super seriously and responsibly and benevolently. That’s great. Now please just build the damn thing",
+      "&gt; How is AI reshaping the economy?<p>oh I know this one!<p>it&#x27;s created mountains of systemic risk for absolutely no payoff whatsoever!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Talking to LLMs has improved my thinking",
+    "url": "https://philipotoole.com/why-talking-to-llms-has-improved-my-thinking/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This article matches my experience as well. Chatting with LLM has helped me to crystalize ideas I had before and explore relevant topics to widen the understanding. Previously, I wouldn&#x27;t even know where to begin with when getting curious about something, but ChatGPT can tell you if your ideas have names, if they were explored previously, what primary sources there are. It&#x27;s like a rabbit hole of exploring the world, a more interconnected one where barriers of entry to knowledge are much lower. It even made me view things I previously thought of as ultra boring in different, more approachable manner - for example, I never liked writing, school essays were a torture, and now I may even consider doing that out of my own will.",
+      "Not to dismiss other people&#x27;s experience, but thinking improves thinking. People tend to forget that you can ask yourself questions and try to answer them. There is such thing as recursive thinking where you end up with a new thought you didn&#x27;t have before you started.<p>Don&#x27;t dismiss this superpower you have in your own head.",
+      "Your writing disagree -<p>&quot;This is not &lt;&gt;. This is how &lt;&gt;.&quot;<p>&quot;When &lt;&gt; or &lt;&gt;, &lt;&gt; is not &lt;&gt;. It is &lt;&gt;.&quot;<p>&quot;That alignment is what produces the sense of recognition. I already had the shape of the idea. The model supplied a clean verbal form.&quot;<p>It&#x27;s all LLM&#x27;s. Nobody writes like this.",
+      "I started teaching undergraduate computer science courses a year ago, after ~20 years in various other careers. My campus has relatively low enrollment, but has seen a massive increase in CS majors recently (for reasons I won’t go into) so they are hiring a lot without much instructional support in place. I was basically given zero preparation other than a zip file with the current instructor’s tests and homeworks (which are on paper, btw).<p>I thought that I would be using LLMs for coding, but it turns out that they have been much more useful as a sounding board for conceptual framing that I’d like to use while teaching. I have strong opinions about good software design, some of them unconventional, and these conversations have been incredibly helpful for turning my vague notions into precise, repeatable explanations for difficult abstractions.",
+      "I agree with the authors observations here. I think rather than it being purely language related, there&#x27;s a link to the practice of &#x27;rubber ducking&#x27;, where when you start to explain your problem to someone else it forces you to step through the problem as you start to explain the context, the steps you&#x27;ve tried and where you&#x27;re stuck. I think LLMs can be that other person for us sometimes, except that other person has a great broad range of expertise.",
+      "I share the sentiment here about LLMs helping to surface personal tacit knowledge and the same time there was a popular post[1] yesterday about cognitive debt when using AI. It&#x27;s hard not to be in agreement with both ideas.<p>[1] <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46712678\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46712678</a>",
+      "I&#x27;m not sure I agree with this article&#x27;s idea of what &quot;good thinking&quot; is. To me, good thinking is being able to think logically through a problem, account for detail and nuance, be able to see all the possibilities clearly. Not simply put vague intuitions into words. I do think intuitions are important, but they tend to be only a starting point for an investigation, preferrably an empirical one. While intuitions can be useful, trusting them is the root of all sorts of false ideas about the world. LLMs don&#x27;t really help you question your intuitions, they&#x27;ll give you false sense of confidence in them. This would make your thinking worse in my opinion.",
+      "I wonder if we&#x27;ve conflated thinking with literacy for too long.<p>While I&#x27;m comfortable with text, I often feel that my brain runs much smoother when I&#x27;m talking with colleagues in front of a whiteboard compared to writing alone. It makes me suspect that for centuries, we&#x27;ve  filtered out brilliance from people whose brains are effectively wired for auditory or spatial reasoning rather than symbolic serialization. They&#x27;ve been fighting an uphill battle against the pen and the keyboard.<p>I&#x27;m optimistic that LLMs (and multimodal models) will finally provide the missing interfaces for these types of thinkers.",
+      "I&#x27;ve also found that talking through an idea with a language model can sharpen my thinking. It works a bit like rubber duck debugging: by explaining something to an impartial listener, you have to slow down and organise your thoughts, and you often notice gaps you didn&#x27;t realise were there. The instant follow‑up questions help you explore angles you might not have considered.",
+      "That&#x27;s my main usage for LLMs, they are usually intellectual sparring partners or researching my ideas to see who came up with them before and how they thought about them. So it&#x27;s debate and literature research."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Autodesk burns the village to feed AI and the Cloud – cuts 7% of workforce",
+    "url": "https://blog.adafruit.com/2026/01/22/autodesk-burns-the-village-to-feed-ai-and-the-cloud-cuts-7-of-workforce/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Autodesk can just die at this point.<p>It&#x27;s an anti-customer, anti-industry, anti-everyone succubus riding on tired legacy trash and incompetent court rulings that allow it (and other corporations) to steal from customers and creators of all kinds... even musicians.",
+      "20 years ago when I was in 3D graphics&#x2F;rendering&#x2F;gaming they were the absolute &quot;must-have-tools&quot; - is that still the case today?",
+      "Autodesk is an evil rapacious company. Competition authorities should not have allowed them to buy Revit, to create a monopoly for Architecture software, enabling them to get away with charging outrageous prices to Architects, especially considering how poorly paid they are.",
+      "Very emotional article. I keep seeing this trope but I wonder how people reconcile this: autodesk is enshittifying its product. Users are leaving. But also wall street likes it. But also Wall Street is this powerful institution that keeps making money.<p>How does all this add up? Is Wall Street so stupid to encourage all products to enshittify thereby leading to their own loss of investments?",
+      "It&#x27;s Autodesk they would burn anything for more money.",
+      "Why does everyone seem to hate Autodesk?<p>I’m new to hardware stuff but have been putting in a lot of time in fusion 360. It seems to work well on Mac and Windows and it’s free for me just starting out.<p>I got a year subscription for $350, which was not a horrible price.<p>I will say it is very weird to me that there isn’t an open source program with all the features that Autodesk has."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Tesla didn't remove Robotaxi safety monitor – just moved them to a trailing car",
+    "url": "https://electrek.co/2026/01/22/tesla-didnt-remove-the-robotaxi-safety-monitor-it-just-moved-them-to-a-trailing-car/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Why not have the driver ahead to point out any issues on the road to the car behind. Call it Potemkin Self-Driving.",
+      "i can&#x27;t help but think of the scammy communication around this on X. and the actual need to be deceitful about it.<p>oh how low the mighty have fallen"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: CLI for working with Apple Core ML models",
+    "url": "https://github.com/schappim/coreml-cli",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Looks really nice. I plan to try it out this weekend. I am not familiar with all the Core ML models. Where can I get their names to try out?",
+      "Does this handle conversion and quantization from PyTorch? Or is it strictly for running existing Core ML files?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "CEOs Say AI Is Making Work More Efficient. Employees Tell a Different Story",
+    "url": "https://www.wsj.com/lifestyle/workplace/ceos-say-ai-is-making-work-more-efficient-employees-tell-a-different-story-6613ce9d",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Most of the time large corporate CEOs appear to be just magic 8 balls, making decisions to ensure that the company doesn&#x27;t end up with decision paralysis. AI reduces the amount they have to read before saying yes&#x2F;no, so of course it makes their lives more efficient. Most of the time it doesn&#x27;t even matter if they choose yes or no. Just that they pick something.",
+      "If I would get suckered into paying lot of money for AI, I would definitelly try to convince myself that the AI is working.",
+      "I would say that AI has not saved me any time as a developer. What is has done is allowed me to increase scope by doing tasks like documentation and prototyping&#x2F;experimentation that I would not have found time for otherwise.<p>Saying that the AI saves time is like saying that a printer saves paper.",
+      "<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;PZ2Kv\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;PZ2Kv</a>",
+      "I think the real issue is that its still in its painful growth stage and we have a way to go until we will start to understand better where its good and where its a disaster.<p>I have a co-worker who is really good at herding agents. I&#x27;ve seen him do work in an afternoon what would take more than two weeks without AI, but some of his other work ends up being so bad the rest of us want to string him up by his thumbs.<p>Its impossible to tell from just looking before hand what the result will be.",
+      "Obviously, C suite will allways be biased",
+      "The pain of using AI is only temporary—once you get the hang of it, your efficiency will improve significantly"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Metastable Failures and Interactions Between Systems",
+    "url": "https://charap.co/on-metastable-failures-and-interactions-between-systems/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Bible translated using LLMs from source Greek and Hebrew",
+    "url": "https://biblexica.com",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "One Bible translation that I really appreciate is the NET Bible [0] -- in particular, I appreciate its translator&#x27;s notes. It can be very helpful to read the translator&#x27;s notes and to understand the reasoning that went into any particular rendition. I.E., something like &quot;The disjunctive clause (conjunction + subject + verb) at the beginning of v. 2 gives background information for the following narrative, explaining the state of things when “God said…” (v. 3)...&quot;<p>Did you use a reasoning model to translate these verses? If so, I would be very interested in seeing the breakdown that the LLM used that went into each verse.<p>I understand that such breakdowns can be hallucinated at many levels also (and final output does not always correspond with the reasoning flow), but I (personally) would find this helpful.<p>[0] <a href=\"https:&#x2F;&#x2F;bible.org&#x2F;sites&#x2F;bible.org&#x2F;resources&#x2F;netbible&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;bible.org&#x2F;sites&#x2F;bible.org&#x2F;resources&#x2F;netbible&#x2F;</a>",
+      "&gt; The technology has a lot of benefit for the faithful<p>Although written primarily for Orthodox Christians, there are valuable cautions here to consider regardless of your tradition: <a href=\"https:&#x2F;&#x2F;www.jordanville.org&#x2F;artificialintelligence\" rel=\"nofollow\">https:&#x2F;&#x2F;www.jordanville.org&#x2F;artificialintelligence</a>",
+      "<i>&gt; but the overall quality surprised me.</i><p>With all due respect, how are you in any position to be able to objectively evaluate the quality assuming you’re not fluent in Hebrew and Greek?",
+      "I&#x27;m not sure how this is accomplished, but I like the &quot;poetic&quot; translation a lot more than the &quot;optimal&quot; one.<p>Which reminds me, do you think it&#x27;s possible that the stories in the Bible are actually mystic symbolism and &quot;veiled truth&quot; (like the sort of stories that you might get in a dream) and people have mistaken it for actual physical history (with which it&#x27;s obviously incompatible)?<p>The parables of Jesus come to mind. They weren&#x27;t meant to be taken literally but to teach, to get a point across.",
+      "What is the difference between the &quot;Adam&quot; translations and the &quot;Eve&quot; translations? Where can I read about this more?",
+      "I would be really interested in this done to the Peshitta Bible, which is roughly as old as the Septuagint. Peshitta is in Aramaic a sister language to Hebrew. Over the years I&#x27;ve found interesting insights about verses that make way less sense in Greek but in Aramaic they make drastically more sense. It seems that somehow the Greek translated from some other source where in Aramaic or Hebrew the word used could have been one of two words, the Greek seemed to pick the worst possible representation in some cases that the Aramaic highlights.<p>For example. It is easier for a Camel to go into the eye of a needle than a rich man to get into Heaven. If you read this, it makes it sound like Abraham cannot get into Heaven, wasn&#x27;t he wealthy? Heck, there&#x27;s others who were wealthy in  scripture, even kings are they all doomed? In Aramaic the same word that in Greek is said to mean camel, can also mean rope.<p>If you think about a rope going through the eye of a needle, and what it TAKES for a rope to go through the eye of a needle, aka removing all the threads or layers (humbling the person and forcing them to strip themselves down to their core) in order to make it through the eye of the needle. Or in other words, you must be willing to dethatch yourself from all your wealth. Remember the guy who asked Jesus was he must do to be saved and enter heaven, and walked away when Jesus told him to give away everything he owned to the poor? That is the same exact message.<p>There&#x27;s a few other verses, but that&#x27;s the main one that always strikes me. Some of them are far more nuanced and I get into hours of debate with people who are ignoring everything I am saying (I don&#x27;t know why, I try to lay it all out in the most simple way possible) as if I&#x27;m breaking the law, but its obvious to me that we don&#x27;t have perfect copies of the Bible. I still think the overall message is the same though, so nothing wrong with that. It proves yet again that men are all fallible.<p>Sorry for the tangent. I used to deep dive translations and their nuances, and the Aramaic based Bibles are very interesting.<p>There&#x27;s also an Aleh Tav Old Testament Bible which is fascinating to me. It adds the Aleph Tav anywhere it would be in the Hebrew into the English.",
+      "The Bible is too well-known a text that is too represented in training datasets for this _not_ to be skewed towards poorly reproducing existing translations.<p>Beyond that,<p>&gt;there are hallucinations and issues<p>seems like a deal-killer for a religious text. Yes, all translation by humans is an act of interpretation on some level, and so there&#x27;s lossiness in all translation – but the difference between a human carefully weighing their reasoning for a particular choice of rendering vs. an LLM that is basically weighted dice that might land totally wrong is a categorically-different thing, not a question of degrees.",
+      "What&#x27;s up with these?<p>Genesis 1:13, Eve optimal\nReplace &#x27;Then&#x27; with &#x27;And&#x27; in optimal (&#x27;And the LORD God said&#x27;) and poetic_daily to preserve narrative vav-consecutive connective consistently.",
+      "What is the &quot;expanse&quot;?<p>Answer: The sky.  The ancient people who wrote the bible thought the sky was a solid dome that separated &quot;the water&#x27;s above&quot; (aka rain) from the water&#x27;s below.  God lived on the other side of this dome.<p>This is confirmed later in Genesis with the Tower of Babel story.<p>They tried to reach this dome by building a tower.  And &quot;god&quot; was so offended by their ignorance and stupidity (which he perpetrated) that he decided to punish them.<p>The &quot;faithful&quot; obviously reject this simple interpretation in favor of something more obtuse and mystical.",
+      "Which set of NT Greek manuscripts is it using? Textus Teceptus? Byzantine? Critical Text?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "How LLM agents solve the table merging problem",
+    "url": "https://futuresearch.ai/deep-merge-tutorial/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Been working on this exact problem in the financial&#x2F;accounting space - matching bank statement rows to accounting records. Real-world messiness makes it interesting:<p>The fuzzy threshold question is tricky because false positives are worse than false negatives. A user seeing a wrong match erodes trust fast. We ended up with a tiered approach: high-confidence matches go through automatically, medium-confidence gets surfaced for human review, low-confidence stays unmatched rather than guessing.<p>One thing we found: the hardest cases aren&#x27;t the ones where strings are slightly different - they&#x27;re the ones where the same transaction appears with completely different descriptions on each side. &quot;PAYPAL *ACME&quot; vs &quot;Invoice 1234 - Acme Ltd&quot;. No amount of fuzzy matching helps there. That&#x27;s where learning from historical patterns (how did the user match these before?) beats trying to infer semantic similarity from scratch every time.",
+      "Interesting approach with the cascade. How do you decide when to escalate from fuzzy matching to LLM?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Figr – AI that thinks through product problems before designing",
+    "url": "https://figr.design/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "In my experience, knowing you have glaring UX problems, or that product does not have an easy intuitive user flow is rarely the bottleneck for developing new &amp; useful user facing AI applications.<p>There’s usually a very real and very hard to describe data related impracticality that voids the usefulness of a design that appears well thought out and complete.<p>Additionally enterprise AI products are built on custom integrations, and complexity of maintenance overwhelms the engineering team and leaves very little time to build out new things.<p>The simplest changes that come from knowing insider customer  experience have significant impacts. If the default range for a duration filter is 5-30min, and it turns out the most interesting data is really on 1.5hr+ rows. Or adding search across legacy platforms that bury uniform information under deeply nested modals, which people spend 20+ a week clicking through to collect a usable sample set based on existence of a few keywords. But building a system that returns good search results is the hard part.<p>I do like the “build on top” pieces in your gallery. If it’s fast and reliable enough to collab during a discovery meeting, or a customer success meeting, that would be genius. Because then you’d have a way to pull customers into the right mindset to articulate frustrations with their current software, iterate on getting those frustrations get translated into concrete designs together, and at the end you walk away with something that proves you both understand and can solve their problem to any audience.",
+      "I like the way you&#x27;ve framed the problem, and it&#x27;s actually an issue I bring up with designers that I work with, not that they go directly to screens, but that they go from problem to ideation too quickly.<p>We work in hardware, so we don&#x27;t have UI to work with. \nUX isn&#x27;t just UI, which I&#x27;m sure you know. I&#x27;d like to see something like your product to help guide people through the right questions, rather than finding the solution.<p>One of the challenges I have with many AI subscriptions is that when you price in credits, I have no idea how many questions, or what kind of workflow that gives me. 10 credits. That could be 3 questions.<p>This was actually the business model issue we had with our last business, where we had to pay for map tiles, and we loaded thousands of them. For our B2B customers, we came up with a pricing model which said &quot;per 1000 scenes&quot; and they knew what a scene was. We still had no idea how big their scene was going to be, but we priced so that they could understand what they&#x27;d get, and they could verify, yes we opened 40,000 scenes.<p>For our B2C customers, we had a simple monthly subscription because they would only likely use so much. We barely made any money on the consumers, but it helped offset the costs.<p>This isn&#x27;t just a you problem. But it is what prevents me from using a lot of, what may be, very good tools.",
+      "I like that you’re positioning this as an “AI PM that happens to design” instead of yet another screen generator. Most tools are great at producing artifacts and terrible at preserving the reasoning behind them. If Figr could reliably spit out a tight decision log&#x2F;constraints list from each session (what we considered, what we rejected, and why), that alone would replace a lot of hand-wavy product docs.<p>The 200k UX pattern corpus sounds powerful, but that’s also the scary part: pattern bias overpowering the specifics of a product. The more you can show “this suggestion came from your own data” (analytics, funnels, support tickets) and let teams tune how opinionated the pattern-matching is, the easier it is to trust it for things like onboarding and billing flows rather than just happy-path demos."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI SlopStop by Kagi",
+    "url": "https://help.kagi.com/kagi/features/slopstop.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Current status:<p>&gt; SlopStop is getting ready! Report processing has not started yet at-scale. We are reviewing the initial wave of reports, and finalizing our systems for handling them.<p>&gt; We will start processing reports officially in January. Please continue submitting reports as you find more content!",
+      "The section <i>What is considered “Slop&quot;?</i> conspiciously fails to answer this question. It simply describes the recognition of material as &quot;AI-generated&quot;.<p>From <i>SlopStop is Kagi’s community-driven feature for reporting low-quality, mass‑generated AI content (“AI slop”) found in web, image and video search results.</i> one might conclude slop is low-quality, mass‑generated content, but why limit opposition to the subset that&#x27;s from &quot;AI&quot;?",
+      "I think this really needs to be framed as a &quot;report low-quality content&quot; feature, not a &quot;report AI slop&quot; feature. Otherwise, it just incentivizes people to hide their process, and it risks turning into a witch hunt where everything gets judged on whether it &quot;looks AI&quot; rather than whether it’s actually bad content.",
+      "Previous discussion on the blog post: <a href=\"https:&#x2F;&#x2F;blog.kagi.com&#x2F;slopstop\" rel=\"nofollow\">https:&#x2F;&#x2F;blog.kagi.com&#x2F;slopstop</a> (<a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45919067\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45919067</a>)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Tell HN: Cursor agent force-pushed despite explicit \"ask for permission\" rules",
+    "url": "https://news.ycombinator.com/item?id=46728766",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hey always ignore boundaries. I prohibit agents from accessing version control at all. Makes sure I review code before it gets committed, and they can’t do stupid things like force-push.",
+      "A few months ago, I switched to exclusively using an SSH key stored on my Yubikey token. I also recently switched to my default git config signing all commits with my SSH key. The way it’s setup means I have to touch my token every time I try to commit or push.<p>I typically commit everything myself—I’m still quite early in my adoption of coding agents. One of my first experience with OpenCode (which made me stop using it instantly) was when it tried to commit and force push a change after I simply asked it to look into a potential bug.<p>Claude Code seems to have better safeguards against this. However, I wonder how come we don’t generally run these things inside docker containers with only the current dir volume mounted or something to prevent spurious FS modifications.<p>I’m entirely with you that we need better ways to filter what commands these things are allowed to run. Specifically, a CLAUDE.md or “do not do this under any circumstance” as part of the prompt is a futile undertaking.",
+      "&gt; The irony is that the agent acknowledged the rule violation in its apology, which means it &quot;knew&quot;<p>No, the AI never &quot;knew&quot; anything! :)",
+      "Prompt instructions are never sufficient for this. The tool call itself needs to be gated.<p>With Claude Code, tools like Bash(“git *”) always ask for permission unless you’ve allowed it.<p>Figure out the Cursor equivalent of that.",
+      "It continues to surprise me that people continue to be surprised by this."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Mana LLM OS",
+    "url": "https://www.mana.space/landing",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Nice—who have you found that sits at the intersection of &quot;wants to build custom personal apps&quot; and &quot;doesn&#x27;t want to use a terminal UI&quot;? Or, is there something people who already use Claude Code would get from this?",
+      "If you combine an LLM that can run code, a cloud file system, and UI generation, you can create a new kind of os that evolves dynamically with the user.",
+      "Very cool product! Can it store the data for apps as well?",
+      "this is really cool! so basically it makes something like claude code but with ui possible for anyone?",
+      "Very nice, any plans for storing file system locally?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: Best practice securing secrets on local machines working with agents?",
+    "url": "https://news.ycombinator.com/item?id=46719363",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Concrete setup: (1) All secrets in 1Password&#x2F;Bitwarden with CLI, (2) Agent sandbox with no env var access, (3) Wrapper scripts that fetch secrets on-demand and inject at runtime, (4) Context scrubbers that strip secrets before LLM sees logs.\nKey insight: don&#x27;t prevent agent access to secrets, prevent secrets from entering agent context&#x2F;logs. Different problem, solvable with tooling.",
+      "The solution that Anthropic uses for Claude Code Web for repository access is to not give the LLM any secrets at all - anything requiring escalated privilege is done through a proxy which holds the credentials.",
+      "I’m not too familiar with the space, but a friend of mine works at Descope[0] where they offer IAM solutions for agents.<p>[0] <a href=\"https:&#x2F;&#x2F;www.descope.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.descope.com&#x2F;</a>",
+      "TBH, the best pattern I&#x27;ve seen is just nuking the secrets at the input level. Run a local regex watcher in-memory that flags anything looking like a PK or seed phrase before it even hits the agent&#x27;s context window. Keeps it off the network stack entirely",
+      "I&#x27;ve been having success using Doppler for secret storage. Takes it off the filesystem.",
+      "Run the agent in a sandbox without access to production secrets."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Korea's AI law requires watermarks on generated content",
+    "url": "https://koreajoongangdaily.joins.com/news/2026-01-22/business/tech/Koreas-groundbreaking-AI-law-requires-watermarks-on-generated-content-but-enforcement-gaps-remain/2506349",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Korea is in an interesting situation to do this; if the USA did it, people outside the US would make English AI generated videos. But who outside of Korea is going to make Korean AI generated videos?",
+      "But concerns remain over whether the requirement can be enforced in practice, as watermark-removal applications remain widely available."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: Is Claude Down for You?",
+    "url": "https://news.ycombinator.com/item?id=46725804",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Yes, it is down for me too. Germany.<p>&gt; API Error: 500 {&quot;type&quot;:&quot;error&quot;,&quot;error&quot;:{&quot;type&quot;:&quot;api_error&quot;,&quot;message&quot;:&quot;Internal server error&quot;},&quot;request_id&quot;:&quot;req_xxxxxx&quot;}",
+      "Yes, same generic 500 that s-macke posted and it&#x27;s spiking on downdetector.<p><a href=\"https:&#x2F;&#x2F;downdetector.com&#x2F;status&#x2F;claude-ai&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;downdetector.com&#x2F;status&#x2F;claude-ai&#x2F;</a>",
+      "<a href=\"https:&#x2F;&#x2F;status.claude.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;status.claude.com&#x2F;</a><p>Nothing.",
+      "Claude Down is the new Github Down.",
+      "Yes, Internal server error as of 5 minutes ago.",
+      "Time to figure out how to use Gemini",
+      "API error 500 :(",
+      "We are so back",
+      "Same error!",
+      "Yes"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Vargai/SDK – JSX for AI Video. Declarative Programming Language for Claude Code",
+    "url": "https://varg.ai/sdk",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This turns Claude Code into Sora lol<p>It&#x27;s similar to remotion.dev, but focuses on generative video. Uses declarative JSX to orchestrate AI calls, which makes it much more readable!",
+      "I am impressed, i might give it a try. The prices for generation of images and videos scared me a little bit. I thought they were much cheaper",
+      "Looks phenomenal - do any docs exist past the marketing page? or llms.txt?",
+      "im a product engineer. i dont like building endless workflows in comfy ui or weavy. i always wanted to do it with agent. This sdk helps.",
+      "this is super cool"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A gaming success story: how Warhammer became one of Britain's biggest companies",
+    "url": "https://www.theguardian.com/lifeandstyle/2026/jan/18/a-gaming-success-story-how-warhammer-became-one-of-britains-biggest-companies",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It don&#x27;t mean to diminish Warhammer&#x27;s success, but part of the reason why it&#x27;s one of the &quot;biggest companies&quot; is because many of the other big companies have slowly disappeared. Britain used to have a viable ship building industry that employed huge amounts of people. It&#x27;s gone. It can&#x27;t compete. And the same story is repeated again and again. Companies like Morris Garage and Triumph used to compete on the world stage. No longer.<p>Again, I&#x27;m proud of the Warhammer folks. It&#x27;s just the fact that it&#x27;s one of the &quot;biggest&quot; makes me sad.",
+      "The thing about Warhammer is there are so many ways to experience it and an unbelieveable amount of content. I&#x27;ve never set hands on the codex (guide books) nor the actual miniatures (too expensive) but I&#x27;ve read so many books from the dark library, and engaged most of its community through its lore. I&#x27;ve spent the last 3 years just within the circle of the Horus Heresy, I don&#x27;t know anything about the Tau nor the Orks... The game has so much to offer its actually incredible.",
+      "The article does not explain much about the “how”. Games Workshop was a small company that failed to grow for most of its history, then suddenly struck gold. Look at the stock quote: it fluctuated in the 400–800p band from 1996 to 2016, then soared for five years in a row, hitting 10&#x27;000p in 2020.<p>What happened in that crucial period? Did GW manage to spread its brand awareness to the mainstream public?",
+      "My take on Games workshop is:<p>1. In general I don&#x27;t like their boardgames - but I like co-op Euro style board games while the majority of their games are pvp (apart from Warhammer Quest line and maybe 1-2 other ones).<p>2. In the early 2000s the CEO stated that they are a model company first rather than a boardgame company (and it shows in my view). They do have fantastic miniatures though.<p>3. Most of the cool lore was written in the 80s. Their lore is fantastic (if dated) and I do enjoy reading from the black library. To geek out, I&#x27;m not a fan of the lore change in Warhammer fantasy battle world to Age of Sigma around 2015- even if they did need to revise change the battle system the new lore sucks and come across as a money grab. I have no problem with them wanting to make money - but the new lore seems so lame (looking at you storm cast eternals). Still the AOS line seems to be doing well - I&#x27;d argue they could have had the same system in the old world.<p>4. The model building and painting is a healthy hobby and a nice hobby for an adult&#x2F;child to do. I am about to have a child and I do want to introduce them to painting and modelling and playing boardgames - but I would be cautious about introducing them to a warhammer store - the models are very pricey, the staff are pushy, and I don&#x27;t really rate the games. Maybe something like killzone or lord of the rings (but probably not).<p>5. Still I did pick up the new warhammer quest so they do have things in there even for me.",
+      "I used to play warhammer when I was younger and am honestly astounded gamesworkshop is still in business let alone one of Britain&#x27;s biggest companies. At least in the 00s and 2010s, they were the epitome of a greedy corporation squeezing blood from a stone.<p>Sales were down? Increase the prices of everything. Something not selling well? Change the game rules to make that it more powerful (or conversely, hype it up constantly so people only realize it sucks after they buy it). And of course constant changes so it was likely any models you bought would eventually become uncompetitive due to new, flashier, more overpowered things released.<p>Basically every bad business practice we see now was Games Workshop&#x27;s wheelhouse. And while this may come across as bashing on them, I&#x27;m psyched to hear the company is thriving because their games are immensely fun and its impressive they&#x27;ve avoided stagnating or run out of ideas. It gives me hope for the software industry because if an in-person, expensive niche hobby could survive through social media and the pandemic, tech can bounce back from the current enshitification and short-term profit seeking.<p>If you have the money and enjoy lots of lore&#x2F;worldbuilding and complex strategy games, Warhammer is a fantastic hobby I&#x27;d recommend checking out",
+      "This is going to be a really silly question. Do Warhammer players who buy the miniatures ever 3D print their own? Just curious if that&#x27;s a thing."
+    ],
+    "full_text": null
+  }
+]
