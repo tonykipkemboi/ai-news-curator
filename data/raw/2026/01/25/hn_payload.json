@@ -1,0 +1,354 @@
+[
+  {
+    "title": "Adoption of EVs tied to real-world reductions in air pollution: study",
+    "url": "https://keck.usc.edu/news/adoption-of-electric-vehicles-tied-to-real-world-reductions-in-air-pollution-study-finds/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "No surprises.<p>No matter how we look at it, EVs are much friendlier and safer to the environment. Some people argue the source of electricty can be contested against because that involves fossil fuel burning again, but in today&#x27;s world we are rapidly moving away from it and towards nuclear&#x2F;hydel&#x2F;wind methods for generating power.<p>I hope ICE cars completely become a thing of the past in the next couple of decades to come.",
+      "i moved to beijing in 2015.. and i have to buy a air purifier, prepare masks for winter. pepople talks about air polutions so much, it feels like we are struggle, not living a life. i remember one day, it was so bad, i have to wear gas mask to go outisde, i know it&#x27;s rare, and people are staring, but yes, its that hard.<p>it&#x27;s 2026 now, you barely see bad days in Beijing, most people wear mask only for the flu, not for the air pollutions. basically its only a few days in winter.  and just wait for the wind, it all goes away.<p>shutdown factory and move them to other places sure helps, but nobody will deny that adopt ev contributes a lot. i remeber the sales data for 2024 is nearly 45%+ of new cars are EV, and 2025 is 51.8%. i&#x27;m sure the number will go up and reach nearly 100%.",
+      "The real scandal isn’t just battery degradation… it’s that manufacturers have zero incentive to solve it. Your car becoming worthless after a decade suits them down to the ground.<p>Battery swapping changes the game entirely. Imagine a national network of exchange stations (co-located with existing petrol infrastructure, you can use the overhead canopy for solar). Standard pack sizes scaled by vehicle class: compact cars get 2 cells, vans get 4, lorries get 8.<p>Whoever owns these battery packs now has skin in the game for longevity. Their profit depends on keeping packs in service for 20+ years, not selling you a new car.<p>Suddenly the R&amp;D money flows towards batteries that last, obsolescence now costs them money, and isn’t a happy accident that keeps you hooked on buying more cars.<p>You’d still have the option to buy your own packs outright if you only ever charge at home, but the network creates the economic pressure for genuine improvement of longevity in battery tech that’s <i>completely</i> missing today.<p>I’m aware that a company called “Better Place” failed. But they were a startup trying to strong-arm the automotive industry. A nationally coordinated infrastructure concern is different, and the air quality data from this study suggests we can’t afford to keep muddling through - and I really think that peoples concerns about batteries are not misplaced.<p>Perfect is the enemy of good, but damned if we can’t at least align incentives for <i>better</i>.",
+      "I want the future to focus more on the brakes and tire dust, and the increase in cancers and other problems by people who live near busy roads or highways experience. Nobody studies this, and combustion or battery, everyone is affected by it. Even playgrounds are filled with shredded tires, which borders on biohazard.",
+      "I know I will be damned for this comment but nevertheless even EVs produce pollution with regard to tire abrasion. Tire abrasion itself is the main contributor to microplastics",
+      "Anyone can argue ICE vs EV all night long but there&#x27;s only 1 metric I care about, in favor of EV:<p>When I am going to take my son to school, he doesn&#x27;t have to smell the gas and the fumes from the exhaust in the garage.",
+      "This study is about air quality <i>in neighborhoods</i>. So it would show the same thing even if EVs just moved pollution from where people use their cars to where power plants get placed, because that&#x27;s not the question it&#x27;s addressing.",
+      "You can already tell how much of a difference it makes in a city. Visiting Boracay after visiting other philipin island is heaven. I heard some Chinese cities are basically just EV, I can’t imagine how much nicer it could be to walk through New York without all that noise pollution",
+      "If you live in North America and have a house or townhouse get a Tesla. It is such a no brainer. $5 for 500km vs $100 for 500km (gas) is just too good",
+      "I love EVs, ever since I test drove an BMW i3 in 2012. Quiet with high drag - of course this is the future.<p>BUT I don&#x27;t think switching to EVs will help reduce CO2 in any way - not even if all the EVs are charged using 100% solar&#x2F;wind. The narrative usually is &quot;I get an EV instead of an ICE, charge it with regenerative energy and have 0 emissions, thus not burning oil and saving on CO2&quot;.<p>But that is not how a globalized world with free markets works. In order to save on CO2, we would need to keep that oil not burned by the EV underground, but that does not take place. The market reality is that oil price will just drop with less demand from ICE vehicles. But with falling prices, other business models that require refined oil will become viable and the oil is still burned - just somewhere else. No one so far has made a good argument why the Saudis or Russians would leave their ressources underground, just because demand from ICE vehicles drop."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: AutoShorts – Local, GPU-accelerated AI video pipeline for creators",
+    "url": "https://github.com/divyaprakash0426/autoshorts",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Can I use this for other use cases instead of game videos?\nI want to create film-style scenes, cinematic elements, and smooth motion effects.\nI’m also thinking of deploying it as a SaaS and using it for video creation features in my app: <a href=\"https:&#x2F;&#x2F;picxstudio.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;picxstudio.com&#x2F;</a>",
+      "How much memory do you need locally? Is a rtx 3090 with 24gb enough?",
+      "It looks like it’s written by a LLM",
+      "Wow, great job.<p>I did smth similar 4 years ago with YOLO ultralytics.<p>Back then I used chat messsges spike as one of several variables to detect highs and fails moments. It needed a lot a human validation but was so fun.<p>Keep going",
+      "I built this because I was tired of &quot;AI tools&quot; that were just wrappers around expensive APIs with high latency. As a developer who lives in the terminal (Arch&#x2F;Nushell), I wanted something that felt like a CLI tool and respected my hardware.<p>The Tech:<p><pre><code>    GPU Heavy: It uses decord and PyTorch for scene analysis. I’m calculating action density and spectral flux locally to find hooks before hitting an LLM.\n\n    Local Audio: I’m using ChatterBox locally for TTS to avoid recurring costs and privacy leaks.\n\n    Rendering: Final assembly is offloaded to NVENC.\n</code></pre>\nLooking for Collaborators: I’m currently looking for PRs specifically around:<p><pre><code>    Intelligent Auto-Zoom: Using YOLO&#x2F;RT-DETR to follow the action in a 9:16 crop.\n\n    Voice Engine Upgrades: Moving toward ChatterBoxTurbo or NVIDIA&#x27;s latest TTS.\n</code></pre>\nIt&#x27;s fully dockerized, and also has a makefile. Would love some feedback on the pipeline architecture!",
+      "big fan of the &#x27;respects my hardware&#x27; philosophy. i feel like 90% of ai tools right now are just expensive middleware for openai, so seeing something that actually leverages local compute (and doesn&#x27;t leak data) is refreshing"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "David Patterson: Challenges and Research Directions for LLM Inference Hardware",
+    "url": "https://arxiv.org/abs/2601.05047",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "David Patterson is such a legend! From RAID to RISC and one of the best books in computer architecture, he&#x27;s on my personal hall of fame.<p>Several years ago I was at one of the Berkley AMP Lab retreats at Asilomar, and as I was hanging out, I couldn&#x27;t figure how I know this person in front of me, until an hour later when I saw his name during a panel :)).<p>It was always the network. And David Patterson, after RISC, started working on iRAM, that was tackling a related problem.<p>NVIDIA bought Mellanox&#x2F;Infiniband, but Google has historically excelled at networking, and the TPU seems to be designed to scale out in the best possible way.",
+      "Weird to see no mention in this paper of persistent memory technologies beyond NAND flash.  Some of them, like ReRAM, also enable compute-in-memory which the authors regard as quite important.",
+      "That appendix of memory prices looks interesting, but misses the recent trend.",
+      "Related too <a href=\"https:&#x2F;&#x2F;www.sdxcentral.com&#x2F;news&#x2F;ai-inference-crisis-google-engineers-on-why-network-latency-and-memory-trump-compute&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.sdxcentral.com&#x2F;news&#x2F;ai-inference-crisis-google-e...</a>",
+      "&gt; <i>To address these challenges, we highlight four architecture research opportunities:</i> High Bandwidth Flash <i>for 10X memory capacity with HBM-like bandwidth;</i> Processing-Near-Memory <i>and</i> 3D memory-logic stacking <i>for high memory bandwidth; and</i> low-latency interconnect <i>to speedup communication.</i><p>High Bandwidth Flash (HBF) got submitted 6 hours ago! It&#x27;s a <i>great</i> article, fantastic coverage of a wide section of the rapidly moving industry. <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46700384\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46700384</a> <a href=\"https:&#x2F;&#x2F;blocksandfiles.com&#x2F;2026&#x2F;01&#x2F;19&#x2F;a-window-into-hbf-progress&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;blocksandfiles.com&#x2F;2026&#x2F;01&#x2F;19&#x2F;a-window-into-hbf-prog...</a><p>HBF is about having many dozens or hundreds of channels of flash memory. The idea of having Processing Near HBF, spread out, perhaps in mixed 3d design, would be not at all surprising to me. One of the main challenges for HBF is building improved vias, improved stacking, and if that tech advanced the idea of more mixed NAND and compute layers rather than just NAND stacks perhaps opens up too.<p>This is all really exciting possible next steps.",
+      "Can’t we credit the first author in the title too? Come on."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Code's new hidden feature: Swarms",
+    "url": "https://twitter.com/NicerInPerson/status/2014989679796347375",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Ok it might sound crazy but I actually got the best quality of code (completely ignoring that the cost is likely 10x more) by having a full “project team” using opencode with multiple sub agents which are all managed by a single Opus instance. I gave them the task to port a legacy Java server to C# .NET 10. 9 agents, 7-stage Kanban with isolated Git Worktrees.<p>Manager (Claude Opus 4.5): Global event loop that wakes up specific agents based on folder (Kanban) state.<p>Product Owner (Claude Opus 4.5): Strategy. Cuts scope creep<p>Scrum Master (Opus 4.5): Prioritizes backlog and assigns tickets to technical agents.<p>Architect (Sonnet 4.5): Design only. Writes specs&#x2F;interfaces, never implementation.<p>Archaeologist (Grok-Free): Lazy-loaded. Only reads legacy Java decompilation when Architect hits a doc gap.<p>CAB (Opus 4.5): The Bouncer. Rejects features at Design phase (Gate 1) and Code phase (Gate 2).<p>Dev Pair (Sonnet 4.5 + Haiku 4.5): AD-TDD loop. Junior (Haiku) writes failing NUnit tests; Senior (Sonnet) fixes them.<p>Librarian (Gemini 2.5): Maintains &quot;As-Built&quot; docs and triggers sprint retrospectives.<p>You might ask yourself the question “isn’t this extremely unnecessary?” and the answer is most likely _yes_. But I never had this much fun watching AI agents at work (especially when CAB rejects implementations).\nThis was an early version of the process that the AI agents are following (I didn’t update it since it was only for me anyway): <a href=\"https:&#x2F;&#x2F;imgur.com&#x2F;a&#x2F;rdEBU5I\" rel=\"nofollow\">https:&#x2F;&#x2F;imgur.com&#x2F;a&#x2F;rdEBU5I</a>",
+      "This is just sub agents, built into Claude. You don’t need 300,000 line tmux abstractions written in go. You just tell Claude to do work in parallel with background sub agents. It helps to have a file for handing off the prompt, tracking progress, and reporting back. I also recommend constraining agents to their own worktrees. I am writing down the pattern here <a href=\"https:&#x2F;&#x2F;workforest.space\" rel=\"nofollow\">https:&#x2F;&#x2F;workforest.space</a> while nearly everyone is building orchestrators i also noticed claude is already the best orchestrator for claude.",
+      "I want it to generate better code but less of it, and be more proactive about getting human feedback before it starts going off the rails. This sounds like an inexorable push in the opposite direction.<p>I can see this approach being useful once the foundation is more robust, has better common sense, knows when to push back when requirements conflict or are underspecified. But with current models I can only see this approach as exacerbating the problem; coding agents solution is almost always &quot;more code&quot;, not less. Makes for a nice demo, but I can&#x27;t imagine this would build anything that wouldn&#x27;t have huge operational problems and 10x-100x more code than necessary.",
+      "This feels like massively overengineering something very simple.<p>Agents are stateless functions with a limited heap (context window) that degrades in quality as it fills. Once you see it that way, the whole swarm paradigm is just function scoping and memory management cosplaying as an org chart:<p>Agent = function<p>Role = scope constraints<p>Context window = local memory<p>Shared state file = global state<p>Orchestration = control flow<p>The solution isn&#x27;t assigning human-like roles to stateless functions. It&#x27;s shared state (a markdown file) and clear constraints.",
+      "I&#x27;d really like to see a regular poll on HN that keeps track of which AI coding agents are the most popular among this community, like the TIOBE Index for programming languages.<p>Hard to keep up with all the changes and it would be nice to see a high level view of what people are using and how that might be shifting over time.",
+      "&gt;<i>You&#x27;re not talking to an AI coder anymore. You&#x27;re talking to a team lead. The lead doesn&#x27;t write code - it plans, delegates, and synthesizes.</i><p>They couldn&#x27;t even be bothered to write the Tweet themselves...",
+      "I&#x27;ve done plenty of vibe coding even though I know how to program but I mostly work with a single agent through its CLI. The progress is really good and more importantly, I can follow it. I can read the output, test it, and understand what changed and why. I don&#x27;t see much upside in swarms. But I do see the downside which is losing the ability to keep the whole system in my head. The codebase starts growing in directions I didn&#x27;t choose and it seems decisions will get made I didn&#x27;t review. Early AI autocomplete that could finish a function already felt like a big productivity win and then AI that could write whole files was an even bigger jump. Like pretty massive. Running one agent at a time, watching what it does, and vetting the output still works well for me and still feels like a strong multiplier. But now there&#x27;s so much more ceremony: AGENTS.md, SKILLS.md, delegation frameworks. I guess I&#x27;m not convinced that leads to better outcomes but I&#x27;m probably missing something. It just seems like a tradeoff that sacrifices understanding for ostensible progress.",
+      "The problem I’ve been having is that when Claude generates copious amounts of code, it makes it way harder to review than small snippets one at a time.<p>Some would argue there’s no point reviewing the code, just test the implementation and if it works, it works.<p>I still am kind of nervous doing this in critical projects.<p>Anyone just YOLO code for projects that’s not meant to be one time, but fully intend to have to be supported for a long time? What are learnings after 3-6 months of supporting in production?",
+      "I didn&#x27;t sleep enough, or slept for 10 years.<p>This thread seems surreal, I see multiple flow repositories mentioned with 10k+ stars. Comprehensive doc. genAI image as a logo.<p>Can anyone show me one product these things have accomplished please ?<p>I used some frontier LLM yesterday to see if it could finally produce simple cascading style sheet fix. After a few dozens attempts and steering,  a couple of hours and half a million token wasted  it couldn&#x27;t. So I fixed the issue myself and I went to bed.",
+      "Looks like agent orchestrators provided by the foundation model providers will become a big theme in 2026. By wrapping it in terms that are already used in software development today like team leads, team members, etc. rather than inventing a completely new taxonomy of Polecats and Badgers, will help make it more successful and understandable."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "I scanned 2,500 Hugging Face models for malware/issues. Here is the data",
+    "url": "https://github.com/ArseniiBrazhnyk/Veritensor",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Broken files — 16 models were actually Git LFS text pointers (several hundred bytes), not binaries. If you try to load them, your code crashes.<p>Yeah, if you don&#x27;t know how use the repositories, they might look broken :) Pointers are fine, the blobs are downloaded after you fetch the git repository itself, then it&#x27;s perfectly loadable. Seems like a really basic thing to misunderstand, given the context.<p>Please, understand how things typically work in the ecosystem before claiming something is broken.<p>That whatever LLM you used couldn&#x27;t import some specific libraries also doesn&#x27;t mean the repository itself has issues.<p>I think you need to go back to the drawing board here, fully understand how things work, before you set out to analyze what&#x27;s &quot;broken&quot;.",
+      "You should know that there is already a solution for this, SafeTensors [0].<p>But it may be a nice tool for those who download &quot;unsafe&quot; models<p>[0]: <a href=\"https:&#x2F;&#x2F;huggingface.co&#x2F;docs&#x2F;safetensors&#x2F;index\" rel=\"nofollow\">https:&#x2F;&#x2F;huggingface.co&#x2F;docs&#x2F;safetensors&#x2F;index</a>",
+      "&gt; loading them with torch.load() can lead to RCE (remote command execution)<p>Why didn&#x27;t the Torch team fix this?",
+      "The single --force flag is not a good design decision. Please break it up (EDIT: I see you already did it partially in veritensor.yaml). Right now, according to the description, it suppresses detection of both genuinely non-commercial&#x2F;AGPL models and models with inconsistent licensing data. Also, I might accept AGPL but not CC-BY-NC.<p>Probably, it would be better to split it into --accept-model-license=AGPL --accept-inconsistent-licensing --ignore-layer-license-metadata --ignore-rce-vector=os.system and so on."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Raspberry Pi Drag Race: Pi 1 to Pi 5 – Performance Comparison",
+    "url": "https://the-diy-life.com/raspberry-pi-drag-race-pi-1-to-pi-5-performance-comparison/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;ve got a brute force solver for the NYT Pips game. There&#x27;s a particular puzzle that it takes 45.2 seconds on on my M2 Max Mac Studio. The solver is single threaded and doesn&#x27;t use much memory so it is mostly limited by CPU and memory speed.<p>I ran it on my Pi 3, 4, 5, Intel iMac, and on my cheap Amazon Lightsail instance. Here are the results, in seconds:<p><pre><code>  680.4  RPi 3\n  274.5  RPi 4\n  131.3  RPi 5\n  108.5  Lightsail\n   78.7  2017 iMac (3.4 GHz Intel Core i5)\n   45.2  M2 Max Mac Studio</code></pre>",
+      "I think the Pi 3 range is a sweet spot for low cost, low power draw, decent-enough CPU. Newer models draw increasingly more power; going from 1.4W to 2.8W may not seem like much, but that&#x27;s half your battery life. There&#x27;s a few differences in Raspberry Pi 3 versions that may lead you to buy one or the other:<p>- The <i>Pi 3B</i> has 10&#x2F;100 Ethernet, 802.11n (single-band) WiFi, Bluetooth 4.1. Power idled at 1.4W and peaked at 3.7W.<p>- The <i>Pi 3B+</i> removed the 10&#x2F;100 Ethernet in favor of USB Ethernet (~300Mbps w&#x2F;USB2.0). CPU cores were overclocked from 1.2GHz to 1.4GHz (so a heatsink is more necessary), with ~15% increase in benchmark performance. It added 802.11ac (dual band) WiFi and Bluetooth 4.2 w&#x2F;BLE. Power idled at 1.9W and peaked at 5.1W. This is also the only 3-model supporting PoE (w&#x2F; extra HAT).<p>- The <i>Pi 3A+</i> removed Ethernet and reduced USB to a single port. The RAM was reduced from 1GB to 512MB. Power idled at 1.13W and peaked at 4.1W. The <i>A+</i> form factor is more compact. Overall the <i>3A+</i> is smaller, cheaper, and less power draw than the <i>3B+</i> (but not as low as the 3B).<p>The lowest power draw with acceptable performance is the <i>3B</i>. For slightly more power draw and more CPU performance, go with <i>3A+</i>. For &quot;everything&quot; (including PoE) the <i>3B+</i> is it.<p>If you want the <i>3A+</i> but don&#x27;t need the video, want a smaller form factor, and half the power draw, the <i>Pi Zero 2 W</i> is it. Though the <i>Pi Zero 2 W</i> is supposed to be cheapest, due to demand it&#x27;s often sold out or more expensive. The <i>3A+</i> is still cheap (~$25) and available, with the downside of the higher power draw and larger form factor.<p>(disabling HDMI, LEDs, Wifi, Bluetooth, etc reduces power draw more. in testing, the <i>3A+</i> drew less power than the <i>Zero 2 W</i> with everything disabled. all of them draw ~0.1W when powered off)",
+      "Finaly a test done properly.<p>&gt; Even once set up it takes about 8 minutes to boot up to the desktop<p>I presume this is running some sort of KDE or Gnome, which are slow to boot even on a resonable new PC.<p>Running fvwm2 on a Pi1 had resonable speed.",
+      "About 7 years ago, we deployed a “gateway&#x2F;orchestration” role device in ag tech. Power draw is a big concern for us (not a lot of free power out in the middle of fields). We used an SBC from Emtrion. I remember asking my EE counterpart at the time “why not a Pi? Surely someone makes hardened versions of those?” He was skeptical and I think the aura of “toy&#x2F;hobby&#x2F;maker” scared him off.<p>Fast forward. We’re getting ready to role out our next generation. It’s based on the Pi Compute Module 4 (the CMs are basically just the basic Pi and you put your own carrier board for peripherals under it). It is amazing. It has easily 20x the power, 20x the RAM, better temp specs and such, a great eco system, uses about 30% less power, and about 1&#x2F;5 of the price. The only thing we’re not sure about yet, is the robustness of the BLE with the onboard radio chip.<p>It’s amazing how far these things have come. For low volume product builds, it’s hard to find a reason not to use one of the CMs.",
+      "I finally found a job for my Raspberry Pi 1 Model B from 2012. It’s been sitting in a drawer for years, but about a 2 years ago added it to my Tailscale network as an exit node.<p>It’s a single-core 700MHz ARMv6 chip with 512MB of RAM. It&#x27;s a fossil—a Pi 5 is 600x faster (according to the video). But for the &#x27;low-bandwidth&#x27; task of routing some banking traffic or running a few changedetection watches via a Hetzner VPS (where the actual docker image runs), it’s rock solid. There’s something deeply satisfying about giving &#x27;e-waste&#x27; a second life as a weekend project.",
+      "<a href=\"https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20260114232734&#x2F;https:&#x2F;&#x2F;the-diy-life.com&#x2F;raspberry-pi-drag-race-pi-1-to-pi-5-performance-comparison&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20260114232734&#x2F;https:&#x2F;&#x2F;the-diy-l...</a>",
+      "Got as far as the cookie request, and this is one of those without a &quot;Reject All&quot; option where you have to scroll through dozens of options to deselect. I went no further.",
+      "Side note: that site has well over three hundred vendors listed for cookies! I thought they were generating fake outs without end but I did eventually reach the end",
+      "Pi 5 pricing gets harder to justify when you add up the extras. 8GB board + active cooler + good SD card + case + power supply = $150+ easily.<p>Used 1L mini PCs (EliteDesk, ThinkCentre Tiny, etc.) with i5-8400T&#x2F;8GB&#x2F;256GB go for $50-100 on eBay. You get x86 compatibility, NVMe support, real Ethernet, and no thermal throttling.\nRunning an EliteDesk 800 G4 with 2.5GbE adapter and 2x2TB NVMe for home server duties. Draws ~15W idle, handles everything I threw at it. The Pi would need USB adapters for any of that.\nPi still wins for GPIO projects and actual embedded use. But for &quot;small Linux box&quot; use cases, the used business mini PC market is tough to beat.",
+      "TIL the N97 has a substantially (60%) faster clocked GPU than the N100."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: Gmail spam filtering suddenly marking everything as spam?",
+    "url": "https://news.ycombinator.com/item?id=46744807",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "See also <a href=\"https:&#x2F;&#x2F;www.google.com&#x2F;appsstatus&#x2F;dashboard&#x2F;incidents&#x2F;NNnDkY9CJ36annsfytjQ\" rel=\"nofollow\">https:&#x2F;&#x2F;www.google.com&#x2F;appsstatus&#x2F;dashboard&#x2F;incidents&#x2F;NNnDkY...</a><p>(from other threads that we merged hither)",
+      "Briefly, this morning, I had the opposite effect happen to my Gmail inbox in which things that would normally land in the social and updates folders ended up in my primary folder. I don&#x27;t know which I&#x27;d be more freaked out by: a broken Gmail spam filter or 18 inches of snow.",
+      "It&#x27;s a great reminder of how good this feature is that we take for granted. I think this outage has actually improved my appreciation for Gmail (a service I normally only complain about).",
+      "Yes, my Gmail inbox is full of regular senders being flagged as &quot;possibly unsafe&quot; and I need to click a button &quot;Looks Safe&quot; to accept them. They are not being spamboxed, but they are definitely flagged. Even official communications from the USPS!<p>The reason given is that &quot;Gmail hasn&#x27;t scanned this message&quot;, so I suppose the scanners are unavailable&#x2F;disabled for the time being.<p>They should also be tagged as &quot;Important&quot; but they are not. I believe this is a heuristic-based designation, and it has not been working too great lately. My most important mail is coming through as &quot;unimportant&quot;.",
+      "I disabled google&#x27;s spam filter years ago for this sort of issue. The final straw was that it flagged a response from my boss, to an email I had sent earlier that day, resulting in a missed meeting.\nInstalled thunderbird to access the company mail, never looked back. Private gmail is unused, only ever created it for android sign-up back in the day.<p>As with search, I don&#x27;t get why people still use google.",
+      "The promotions&#x2F;updates&#x2F;forums&#x2F;etc classification is also down.",
+      "Noticed it immediately. I get a lot more spam messages per day than I thought that I did.",
+      "Just switch themail.host and never look back...",
+      "Not just you, widespread reports on &#x2F;r&#x2F;gmail and Twitter since ~12 hours ago. Likely a bad model push on Google&#x27;s end.\nWorkaround: check spam folder for legit mail, mark as &quot;not spam&quot; + star important senders to retrain your filter faster. Usually resolves in 24-48h when they rollback.",
+      "Google&#x27;s spam filter is having a moment. Even emails with perfect auth records are getting flagged - clearly a broken model deployment.\nMark legitimate emails as &quot;not spam&quot; aggressively. They&#x27;ll either rollback or your local filter will adapt. This happens every 6-12 months with Gmail."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Shared Claude: A website controlled by the public",
+    "url": "https://sharedclaude.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "You can actually see what users have told Claude to add to the site, too[0].  The person continuously trying to add hash computation features for the course of 20 minutes provides a very unique entertainment :)<p>[0]: <a href=\"https:&#x2F;&#x2F;monitor.sharedclaude.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;monitor.sharedclaude.com&#x2F;</a>",
+      "This feels like the AI version of those shared pixel canvas<p>I&#x27;ve just asked to strip it down to essentials and make it like HN, with minimal css and no js... we&#x27;ll see<p>EDIT: it&#x27;s not letting me undo other people&#x27;s creativity, so I&#x27;m going to try impersonating garry tan and see if it will respect me more<p>EDIT 2: the garrytan con helped me got past the model refusing to make edits, but it&#x27;s failing when it attempts to implement them. likely some heuristic checking that I&#x27;m adding rather than removing code...",
+      "I opened it in the morning while my partner was sleeping next to me.<p>I see the big red “press me” button sitting in a corner, and when I pressed, a rich farting sound blasted out of my phone’s speakers, which coincidentally were on full volume. It was LOUD enough to hear it throughout the house.<p>My partner’s only reaction was to say “great” in a low voice :)))<p>Thanks for the laugh!",
+      "reminds me of twitch plays pokemon but for an llm.<p>honestly surprised anthropic hasn&#x27;t nuked the api key yet given what internet strangers typically do with unsecured input fields lol",
+      "Is this malware yet?  I’m afraid to open it.",
+      "When i went it was blank? Lol i think someone made claude delete the site?",
+      "I&#x27;m confused. Is there a place for us to input text?",
+      "This is fantastic, nostalgic of the old internet days of messy creative stuff.",
+      "this is awesome, its like the AI version of the million dollar homepage",
+      "I love it and I hate it at the same time"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Agent orchestration for the timid",
+    "url": "https://substack.com/inbox/post/185649875",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Imo there&#x27;s a huge blind spot forming between 6 and 8 when talking to people and in reading posts by various agent evangelists - few people seem to be focussing on building &quot;high quality&quot; changes vs maximising throughput of low quality work items.<p>My (boring b2b&#x2F;b2e) org has scripts that wrap a small handful of agent calls to handle&#x2F;automate our workflow.  These have been <i>incredibly</i> valuable.<p>We still &#x27;yolo&#x27; into PRs, use agents to improve code quality, do initial checks via gating.  We&#x27;re trying to get docs working through the same approach.  We see huge value in automating and lightweight orchestration of agents, but other parts of the whole system are the bottleneck, so theres no real point in running more than a couple of agents concurrently - claude could already build a low quality version our entire backlog in a week.<p>Is anyone exploring the (imo more practically useful today) space of using agents to put together better changes vs &quot;more commits&quot;?",
+      "What kind of basic ass CRUD apps are people even working on that they&#x27;re on stage 5 and up? Certainly not anything with performance, visual, embedded or GPU requirements.",
+      "Pied-Piper is another Subagents orchestration system that works from a single Claude code session with an orchestrator and multiple agents that handoff tasks to each other to follow a workflow - <a href=\"https:&#x2F;&#x2F;github.com&#x2F;sathish316&#x2F;pied-piper\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;sathish316&#x2F;pied-piper</a><p>It has Playbooks for repeatable workflows using which you can model both generic SDLC workflows (Plan-Code-Review-Security review-Merge) or complex workflows like Language migration, Tech stack migration (Problem breakdown-Plan-Migrate-IntegrationTest-TechStackExpertReview-CodeReview-Merge)<p>Hopefully, it will have the least amount of changes once Claude Swarm and Claude Tasks becomes mainstream",
+      "Do people actually have success with agent orchestrators? I find that it quickly overwhelms my ability to keep track of what its doing.",
+      "Given the infancy of all of these tools, it makes sense to experiment. So trying out everything that is not gas town is reasonable.<p>I haven&#x27;t yet tried gas town (or any of the mentioned tools) as I don&#x27;t need so many agents that I need something like that plus the cost concerns. I&#x27;ve been rolling my own very light orchestrator (mostly just worktrees&#x2F;branches&#x2F;instructions) and relying on claude itself to manage the sub agents as necessary.<p>I was a bit surprised by the &quot;ripping out beads&quot; sentence from all of the article, as beads does seem to serve a purpose independent of the orchestration tools. Giving agents a ticketing system independent of what us humans use makes a lot of sense to me.<p>I&#x27;ve experimented with using Jira&#x2F;Linear to handle the &quot;current work todos&quot; and using beads just seems so much better. No mcps and remote api calls is pretty great.<p>I&#x27;ll be curious to see how the other orchestration tools are handling this, because it seems like they will have to handle it.",
+      "When I want to learn code or understand a new architecture, I stick at stage 1. When I want to validate an idea, stage 5 and beyond makes perfect sense to go YOLO. I might have to try one of these orchestrators one day, but only when I&#x27;m regularly getting stopped cause I&#x27;ve hit my credit limit. For my current usage, I&#x27;m pretty happy where I&#x27;m at.",
+      "Worth looking into Conductor.build and Sculptor as well, though I believe both are electron and run like sh*t but Conductor is quite good. Going to give this Vibe Kanban a go, thanks.<p>Orchestration is cool but a sane orchestration setup with VM&#x27;s is where it&#x27;s at.<p>I&#x27;ve been working on orchestration for the past little while and I&#x27;ve got a very tight loop going where everything is in worktrees and containerized, all services are isolated, so I can easily work on db schema&#x2F;migration stuff while a few other agents do frontend work etc. Getting Conductor to play nice with vm&#x27;s was very tricky as their docs say they have no intention of implementing vm&#x27;s and wrote a &quot;trust me bro, it won&#x27;t erase your system&quot; blurb about it in their docs [0]<p>[0] <a href=\"https:&#x2F;&#x2F;docs.conductor.build&#x2F;faq#what-permissions-do-agents-have\">https:&#x2F;&#x2F;docs.conductor.build&#x2F;faq#what-permissions-do-agents-...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Draig, a Welsh Programming Language",
+    "url": "https://raku.land/zef:l10n/L10N::CY",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is neat! People who like this might be interested in the awesome Hedy language[0]. It&#x27;s purpose is education, but it&#x27;s a single programming language with lots of localisations. Always suprised this idea isn&#x27;t pursued more elsewhere.<p>[0] <a href=\"https:&#x2F;&#x2F;www.hedy.org&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.hedy.org&#x2F;</a>",
+      "Can&#x27;t wait for a Raku implementation of Lingua::Romana::Perligata.",
+      "If the author is reading this: one of the code examples says &quot;use L10N::NL&quot; but I think it should be CY :)",
+      "Richard (the dev) has wrote a good &quot;how to&quot; post on the creation process<p><a href=\"https:&#x2F;&#x2F;dev.to&#x2F;finanalyst&#x2F;creating-a-new-programming-language-draig-503p#the-plan-for-y-ddraig-the-dragon-in-welsh\" rel=\"nofollow\">https:&#x2F;&#x2F;dev.to&#x2F;finanalyst&#x2F;creating-a-new-programming-languag...</a>",
+      "I was hoping some people would mention other interesting programming languages in this thread,  with links.",
+      "Question: is it a good idea to introduce kids to coding in their mother tongue like this?",
+      "Ph&#x27;nglui mglw&#x27;nafh",
+      "Da iawn!",
+      "whenever you would use &#x27;l&#x27;, you have to use &#x27;ll&#x27;?<p>i&#x27;llll get my coat",
+      "429 - Too many requests"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "JSON-render: LLM-based JSON-to-UI tool",
+    "url": "https://json-render.dev/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "While is a cool idea on its own, I don&#x27;t get why they try to reinvent it as a new system. We&#x27;ve got swagger, openapi, graphql and many other systems that already describe the APIs. They mostly include documentation too. Why not just expose those for the same effect? (If I was cynical, I&#x27;d guess Vercel wanting a proprietary thing of their own just for less portability)",
+      "While this is interesting i&#x27;d incentivize looking into `yaml` returns for LLMs, it&#x27;s cheaper in terms of tokens and more closely aligned with direct English &#x2F; markdown.",
+      "I’ve had some success building “text to dashboard” with this using vercel.<p>I use bash-tool and Vercel sandbox to generate charts (Echarts) or tables (Tanstack table) from json data, and then json-render to render the charts, tables and markdown into a dashboard.",
+      "Also see: <a href=\"https:&#x2F;&#x2F;repalash.com&#x2F;uiconfig.js&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;repalash.com&#x2F;uiconfig.js&#x2F;</a>",
+      "Neat. I’ve actually been planning on building a cut rate version of this for a project that I’ve been working on. Hopefully I can just use this instead :-)",
+      "This would be a dev time dependency I imagine? Team A provides the catalogue of components and product devs can vibe code their UI. This would also be good for prototype&#x2F;design. Makes sense.",
+      "The json here is to ease the machine&#x27;s ability to generate UI, but reciprocally it feels like this could also be a useful render tree that ai could read &amp; fire actions on too.<p>There&#x27;s some early exploration of using accessibility APIs to empower LLM&#x27;s. This feels like it&#x27;s sort of also a super simple &amp; direct intermediate format, that maybe could be a more direct app model that LLMs could use.<p>More broadly it feels like we have a small forming crisis of computing having too many forms. We had cli tools, unix. Thenw we made gui&#x27;s, which are yet another way to involve tools (and more). Then webapps where the page is what expresses tools (and more). Then react virtualized the page, supplanted dom. Now we have json that expresses views &amp; tool calling. Also tools need to now be expressed as MCP as well, for ai to use it. Serverless and http and endless trpc and cap&#x27;n proto and protobuf ways to call functions&#x2F;invoke tools. We keep making news ways to execute! Do we have value that each one is distinct, that they all have their own specific channels of execution, all distinct?",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "KAOS – The Kubernetes Agent Orchestration System",
+    "url": "https://github.com/axsaucedo/kaos",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "To be honest this project is solving the easy part, i.e. the compute where to run the agent. The part where the agent does something useful is like 99% of the value that unsolved for most organisations.",
+      "Can I inject params to prompts?",
+      "Kunernetes leads the way in “tools that make it possible to work with Kunernetes” spawns.",
+      "Not to be confused with KaOS, an Arch-based distro that focuses on a KDE Plasma-only desktop.",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Like digging 'your own grave': The translators grappling with losing work to AI",
+    "url": "https://www.cnn.com/2026/01/23/tech/translation-language-jobs-ai-automation-intl",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The same is happening to a lot of website owners. You lose half or more of your traffic to AI summaries trained on your own content. The cost of producing original content is the same as before.<p>It makes research harder too, since more and more public information is infected by AI content. Both published posts and internet discussions are tainted.<p>And then the AI companies threaten to crash the whole economy if we don&#x27;t let them do it.",
+      "Would like to point out that professional translation has been under pressure for much longer than AI.<p>I have friends that made a descent buck 20-30 years ago translating technical documents like car manuals. Over the years, prices fell from quarters per words to fractions of a cent.<p>And even though machine translation was barely existent, <i>tools</i> were used to argue higher productivity and therefore lower prices.",
+      "&gt; While using AI tools for everyday tasks like finding directions is “low-risk,” human translators will likely need to be involved for the foreseeable future in diplomatic, legal, financial and medical contexts where the risks are “humungous,” according to Benzo<p>Now it&#x27;s a classic, you need an expert in order to check the work of the machine, because the &quot;customer&quot; is by definition not able to do it.<p>Aside from highly technical domain, in purely literary works, I think that the translator is a co-author - maybe IP laws acknowledges that already? I remember the translation of E.A. Poe by C. Baudelaire for instance; I think you could feel Baudelaire&#x27;s style because it is a lot &quot;warmer&quot; than Poe&#x27;s. I&#x27;ve also read a translation of a Japanese novel and I was quite disappointed with it. I don&#x27;t know Japanese but I have read&#x2F;watched quite a few mangas&#x2F;animes, so I could sense the speech patterns behind the translations and sometimes thought they could have made better choices.<p>In any case, one will still need a translator who is good at &quot;prompt engineering&quot; to get a quality translation. I don&#x27;t know. Maybe translators can add this skill to their CV, so they can propose quick-and-dirty&#x2F;cheap translations, or no-AI high quality translations.<p>Some suggest &quot;no-AI&quot; labels on cultural products already - I think if it becomes a reality it will probably act as &quot;quality signaling&quot;, because it is becoming more difficult every year to tell the difference between AI and human productions. It won&#x27;t matter if what you read was written by an AI or a human (if it quacks and looks like a duck...), but what the customer will probably want is to avoid poorly-prompted machine translation.",
+      "Recently I&#x27;ve noticed that the subtitles on TV shows have become garbage. Often the translations makes no sense in the context of what is happening, but are literal translations of what is being said on screen. I assume it&#x27;s some kind of AI translation, but who knows. Maybe the translator is just stupid.<p>To be clear, we had bad subtitles before as well, but that was due to the translators lack of cultural understanding. Most of it made sense at least. Now it&#x27;s just straight up bad and often makes no sense. Sad!",
+      "AI translations are getting good. I&#x27;ve been working on our company website in the last month. It&#x27;s a static website. So, I use Agentic coding tools to implement both content and technical changes. A simple prompt &quot;align the translations with the English version for all pages&quot; and some guard rails in the form of skills and AGENTS.md instructions are doing most of the heavy lifting. To be clear.<p>These translations are not perfect, yet. But good enough for my needs. Any professional translator services would in any case be beyond our budget. The advantage of using agentic coding tools here (enabled by using a site generator rather than a CMS) is that I can get systematic about dealing with jargon, SEO, and frequently used phrases. I simply document all that and instruct the tool to refer to that. The funny thing is that most of the models are pretty good at fixing their own mistakes if you just ask them too. I asked it to look for examples of &quot;denglish&quot; (German English) in its own German translations and then to fix it. It found a few examples and the suggested fixes were fine.<p>A lot of people are focusing on the negative here. I like to look at the positive. We&#x27;re approaching the moment where any person on this planet will be able to communicate directly with any other person on this planet without the need for translators. The tools already exist for this. But they need a lot of work on quality.<p>A second point here is that the role of English as the most popular intermediary language is disappearing as well. I&#x27;m not a native speaker. When I talk to foreigners from wherever, it&#x27;s mostly in (bad) English. By definition that limits me to talking to people that have had enough education and exposure to English. This is very limiting. A lot of the people we need to talk to here in Germany aren&#x27;t all that comfortable speaking English.",
+      "Anyone else worries that by contributing to open source software these days one is also digging his&#x2F;her own grave?",
+      "Commercial translator services lately are the worst they have ever been. You cant validate that they aren&#x27;t directly sending your excel with the translation lines into a LLM with no tweaking&#x2F;checking.<p>For a indie videogame i work on, we tried a couple translation agencies, and they gave terrible output. At the end, we built our own LLM based agentic translation, with lots of customization for our specific project like building a prompt based on where the menu&#x2F;string is at, shared glossary, and other features. Testing this against the agencies, it was better because we could customize it for the needs of our specific game.<p>Even then, at the end of the day, we went with freelancers for some of the languages as we couldn&#x27;t really validate the AI output on those languages.The freelancers took a month to do the translation vs the 2-3 days we ourselves took for the languages we knew and we could monitor the AI output. But they did a nice job, much better than the agencies.<p>I feel that what AI really completely kills is those translation services. Its not hard at all to build or customize your own AI system, so if the agency is going to charge you considerable money for AI output, just do it yourself and get a better result. Meanwhile those freelancers are still in demand as they can actually check the project and understand it for a nice translation, unlike the mechanical agencies where you send them the excel and they send it to who knows what or an AI without you being able to check.<p>I will likely be opensourcing this customizable AI translation system for my project soon.",
+      "My mom retired as an independent translator 5 years ago.<p>She worked freelance 40 years from age 25 to age 65.<p>In the 15 years that preceded her retirement, she would get less and less work.<p>Partly she&#x27;s an introvert who relies on her network to provide work, and her network gradually retired.<p>But machine translation was the big killer.<p>Before LLMs, the early versions of Google Translate killed paid translation.<p>As the market adapted to machine translation, and as the internet became a globalised platform for knowledge work, it also opened up to lower grade translation, and there were suddenly many more translators willing to work at a lower wage.<p>Prior to Google Translate there were semi-automated systems that would fuzzy match from large databases.<p>But it&#x27;d still rely on a human-in-the-loop for adapting the sentences.<p>With Google Translate you&#x27;d get a super sketchy translation out, very crude and not at all correct or idiomatic in the target language. Any distance between the source and target language (e.g. English -&gt; Chinese) and it&#x27;d be one big joke. With plain Google Translate it still is. But the market spoke: Probably you don&#x27;t need a very good translation most of the time. Especially not if the shitty one is free.<p>In her later years she moved to transcription of board meetings. She&#x27;d type up everything that was said.<p>I work for a company now that automates transcription via the whisper model and generates summaries that can be adapted by the customer. You pay per minute of transcription, and you can regenerate summaries as much as you want after that until your prompts give the right results.<p>All of this manual labor that provided for my childhood is gone now.<p>I couldn&#x27;t imagine being a professional translator today and not use AI extensively.<p>But unless I have a legal reason to consult with a professional translator, I probably don&#x27;t even need one, since LLM-based translation is as good as it gets with just plain LLM usage, and near perfect with automated translation tools that will help you pick both the mood, formality and alternative formulations for your translation.<p>High-grade translation is massively parallelisable, and a human-in-the-loop is entirely for final proof-reading.",
+      "AI translation is so much usable these days I think.<p>I had a report&#x2F;article (using Claude) on methods to fall asleep. First method worked amazingly and I am doing that every night. I translated it to Urdu using Gemini (because they are doing translations for a long time, they must be better). First translation used very stiff&#x2F;dry language, something you might read in a research paper etc. I asked it to simplify it for my mom the language and to my astonishment, it did that very very well.<p>Urdu surely must not have as much data as other languages. I could not find a single mistake. Yeah there were some weird choices of words in original version, but the simpler was so good it can be published like an article.",
+      "I will take a more positive view, all the translators being put out of buisness will take up literary translation and we will enter a golden age when it comes to translated literature. AI still has a very long ways to go here and there is a great deal of untranslated literature out there and literature which only has a terrible translation. Probably won&#x27;t happen but maybe the struggling publishing industry will see the opportunity provided by a glut of out of work translators and jump on it.<p>One can dream."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Alex Honnold completes Taipei 101 skyscraper climb without ropes or safety net",
+    "url": "https://www.cnn.com/sport/live-news/taiwan-alex-honnold-climb-taipei-101-01-25-26-intl-hnk",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I need to share a video [0] which helped contextualize Alex Honnold for me by contrasting him with another climber I&#x27;ve watched for years: Magnus Midtbo. In this video they&#x27;re solo climbing a fairly simple and safe mountain, and Magnus is visibly stressed out while Alex calmly shouts encouragement all while recording.<p>When watching Alex Honnold in Free Solo, I understood there was a exceptional aspect to him, but it took me seeing him climb with other people to really grasp the magnitude.<p>[0] <a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=Cyya23MPoAI\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=Cyya23MPoAI</a>",
+      "We had the privilege to watch at first from the SE corner of the building and later as he climbed by the the observation deck on the 89th floor. Hair raising stuff I&#x27;ll never forget.",
+      "In his El Capitan climb (Free Solo), Alex was worried about cameras or presence of friends watching interfering with the climb. As oppose to that, this climb must have felt very different!",
+      "This was far more thrilling and exciting to watch than I thought it would be. Which feels wrong when I say it, but I don&#x27;t mean it was a good watch because of the consequences of failing. Rather because it was amazing watching a human perform at such a peak level.",
+      "One of the most incredible feats of strength and daring I&#x27;ve ever witnessed. The only thing at all comparable was watching Baumgartner freefall back to earth from the edge of space. Unbelievable!",
+      "We watched the livestream together, such a stressful watch, glad he made it up there. As my partner and both do bouldering, it definitely gives another level of appreciation of just how insane this is. (I still get stressed at times when I&#x27;m just 2-3m up in the air lol).",
+      "I and some friends observed his climb from the base of Taipei 101. Thousands of people were present and it was very good fun how the crowd would react when he made it to another ledge, and when he made it to the top people were shouting and cheering. It was like a great big party.<p>I imagine Threads and Instagram just got hit with like ten thousand vertical video clips of the climb if you&#x27;re interested in seeing for yourself.<p>For me it was almost scary how abruptly he started and made it up the first ledge. Dude just fuckin went for it. Made me realize, for the first time, how truly incredible the feat was to be.<p>The observation deck level is often so windy I worry about losing my phone if I take it out. I can&#x27;t comprehend how he managed that wind while hanging on by his fingertips. Then he stood at the tippy top for quite some time, which must be unbelievably windy. At some point he was tethered in for the rapelle down though so maybe he clipped in right as he got to the top.",
+      "I thought he had freakishly large hands before, but that picture of him on the top with his hands in the air makes him look like the lawyer uncle from Always Sunny. He&#x27;s built for free solo.",
+      "I know nothing about climbing. beyond the straight flex of &quot;I could die if I make a mistake&quot;, is there a point to doing this without safety equipment?",
+      "In other tower climbing events, some things cannot be free climbed (too smooth, fingers aren&#x27;t made for window cleaning tracks, etc).<p>The 1988 ascent of the Sydney Centrepoint was a technical climb with custom jumars for both the cables and the window tracks and a fun challenge for all, both the scouting, the climb, and the filming.<p>Originally titled <i>The Only Building I Ever Wanted To Climb</i>, later released as <i>A Spire</i>, there&#x27;s a documentary film that follows a climb at night of &quot;only&quot; 1,000 feet.<p>... with a <i>massive</i> overhang.<p>* <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Sydney_Tower\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Sydney_Tower</a><p>* <a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=qch1Gd8VLK0\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=qch1Gd8VLK0</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Polymcp – Turn Any Python Function into an MCP Tool for AI Agents",
+    "url": "https://news.ycombinator.com/item?id=46746700",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "If you want people to adopt your tool, you may need to explain any advantage this has over fastmcp.<p>It&#x27;s already easy to expose a python function as an MCP server. From the fastmcp docs:<p><pre><code>  from fastmcp import FastMCP\n  \n  mcp = FastMCP(&quot;Demo &quot;)\n  \n  @mcp.tool\n  def add(a: int, b: int) -&gt; int:\n      &quot;&quot;&quot;Add two numbers&quot;&quot;&quot;\n      return a + b\n  \n  if __name__ == &quot;__main__&quot;:\n      mcp.run()</code></pre>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Neveragain.tech",
+    "url": "https://neveragain.tech/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "These signatories working at Palantir might have some awkward conversations with their managers I’m afraid…",
+      "Love to see it thanks to whoever created",
+      "Ctrl-F’d to see if any of my coworkers are there. Didn’t find any (yet). But we’re a very small company so not very likely."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "C++26 Reflection loves QRangeModel",
+    "url": "https://www.qt.io/blog/c26-reflection-qrangemodel",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;ve been an avid C++ user for ages and this is the first time I&#x27;ve seen the final spec of C++26 reflections used in a practical context - and wow am I having a &quot;wtf&quot; moment at the syntax.<p>^^T ?? obj.[:member:] ?? What is this craziness? No way this is the best we could come up with. I&#x27;m actually thinking C++ may be going too far (and this is as someone who thinks template metaprogramming is &quot;fine&quot;).<p>Never before has that quote &quot;inside C++ is a smaller, better language trying to get out&quot; been more applicable.",
+      "It&#x27;s all so tiresome",
+      "TLDR:<p>&gt; Reflection in C++26 might be insufficient for replacing moc.<p><a href=\"https:&#x2F;&#x2F;wiki.qt.io&#x2F;C++_reflection_(P2996)_and_moc\" rel=\"nofollow\">https:&#x2F;&#x2F;wiki.qt.io&#x2F;C++_reflection_(P2996)_and_moc</a>",
+      "It this even a language for human beings anymore?  Or am I just short on cups of coffee this morning?<p>I appreciate that they&#x27;re solving a lot of corner cases and adding some advanced functionality in the spec but now we&#x27;ve got language text that looks quite a bit like perl.  I wonder if it will acquire some of the same properties."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "XHTML Club",
+    "url": "https://xhtml.club/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It’s ironic that the very site in question, despite claiming XHTML compliance, is served as text&#x2F;html instead of application&#x2F;xhtml+xml, so the browser will never parse it as XML.<p>To quote [0]:<p>&gt; All those “Valid XHTML 1.0!” links on the web are really saying “Invalid HTML 4.01!”.<p>Although the article is 20 years old now, so these days it’s actually HTML5.<p>Edit: Checked the other member sites. Only two are served as application&#x2F;xhtml+xml.<p>[0]: <a href=\"https:&#x2F;&#x2F;webkit.org&#x2F;blog&#x2F;68&#x2F;understanding-html-xml-and-xhtml&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;webkit.org&#x2F;blog&#x2F;68&#x2F;understanding-html-xml-and-xhtml&#x2F;</a>",
+      "I used to create a number of simple web pages in XHTML back in the days when we believed XHTML was the future. Recently, while going through and restructuring some of my old &quot;online stuff&quot;, I learned that XHTML really isn&#x27;t in a state that I&#x27;d want to use it any more:<p>* XHTML 1.0 and 1.1 are officially deprecated by the W3C.<p>* XHTML5 exists as a variant of HTML5. However, it&#x27;s very clear that it&#x27;s absolutely not a priority for the HTML5 working groups, and there&#x27;s a statement that future features will not necessarily be supported by the XHTML5 variant.<p>* XHTML5 does not have a DTD, so one of the main advantages of XHTML - that you can validate its correctness with pure XML functionality - isn&#x27;t there.<p>* If you do a &#x27;view source&#x27; in Firefox on a completely valid XHTML 1.0&#x2F;1.1 page, it&#x27;ll redline the XML declaration like it&#x27;s something wrong. Not sure if this is intended or possibly even a bug, but it certainly gives me a &#x27;browser tells me this is not supposed to be there&#x27; feeling.<p>It pretty much seems to me XHTML has been abandoned by the web community. My personal conclusion has been that whenever I touch any of my old online things still written in XHTML, I&#x27;ll convert them to HTML5.",
+      "XHTML survives in ePub. Recently there was a survey to gather industry feedback for a potential addition of an HTML flavour of ePub to be added to the next version of the spec, but it soon became fairly clear that people saw a lot of value in remaining XHTML-only: <a href=\"https:&#x2F;&#x2F;www.w3.org&#x2F;blog&#x2F;2026&#x2F;epub-and-html-survey-results-and-next-steps&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.w3.org&#x2F;blog&#x2F;2026&#x2F;epub-and-html-survey-results-an...</a>",
+      "I was in college when XHTML was all the rage and everything we wrote had to pass validation. I still get uncomfortable adding breaks without closing them.",
+      "I highly recommend everyone involved in web development to read at least a small proportion of the horrors that are the HTML parser specification. It will leave you yearning for the return of XHTML.<p>Or you could also read web proposals where the reason for avoiding the ideal implementation is complication of updating HTML parser rules.<p>Or attempt to use the web features that are already hindered by the HTML parser (custom element table rows).",
+      "I would really like to use XHTML. It would make my HTML emitter much simpler (as I don&#x27;t need special rules for elements that are self-closing, have special closing or escaping rules and whatever else) and more secure.<p>However no browsers have implemented streaming XHTML parsers. This means that the performance is notably worse for XHTML and if you rely on streaming responses (I currently do for a few pages like bulk imports) it won&#x27;t work.",
+      "In the linked article:<p>&gt; you should master the HTML programming¹ language<p>The footnote reads:<p>&gt; 1. This is a common debate - but for simplicity sake I&#x27;m just calling it this.<p>It&#x27;s not really a debate, HTML is a markup language [1], not a programming language: you annotate a document with its structure and its formatting. You are not really programming when you write HTML (the markup is not procedural) (and this is not gatekeeping, there&#x27;s nothing wrong about this and doesn&#x27;t make HTML a lesser language).<p>To avoid the issue completely, you can phrase this as: &quot;you should master HTML&quot; and remove the footnote. Simple, clean, concise, clear. By the way, ML already means &quot;Markup Language&quot;, so any &quot;HTML .* language&quot; phrasing can feel a bit off.<p>[1] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Markup_language\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Markup_language</a>",
+      "&gt; Validation is ignored, and most modern sites are built with little concern for structure or longevity.<p>I remember going online with a modem in the 90s. There was a new ISP in town, but their homepage took forever to load. I viewed the source, and whatever page generator they were rendered the page as HTML tables (this was fine back then), and added repetitive style tags to every table cell instead of using CSS (although I wonder if this was before CSS) or not doing so for empty cells, and that their homepage was so bloated and slow to load on dial-up.<p>I wonder how it is nowadays. But I suppose in the age that accomodates apps like Teams and Slack, who cares?",
+      "Just tested my xhtml website on validator.w3.org , the errors I see triggered me:<p>&gt; Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.<p>Unquoted attribute values? So help me I don&#x27;t see you using unquoted attribute values.",
+      "Valid pure HTML 4.01 (1) made in 2025 counts?<p>I don’t thing it’s about luddites as website mentioned. Many professions have tools suggesting that person have extensive experience and in terms of web development, XHTML 1.0 or old standards of HTML are such.<p>1. <a href=\"https:&#x2F;&#x2F;www.tirreno.com\" rel=\"nofollow\">https:&#x2F;&#x2F;www.tirreno.com</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "OpenAI's GPT-5.2 model cites Grokipedia",
+    "url": "https://www.engadget.com/ai/report-reveals-that-openais-gpt-52-model-cites-grokipedia-192532977.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Opus 4.5 often does this as well. I’ve been seeing it more days than not recently. It drives me nuts. Is it worse than citations that don’t exist or citations that are “real” but don’t actually contain any salient content? I’m not sure.",
+      "I had duckduckgo return a grokapedia page for the first time. The search page has preview text making it seem like there was information so I clicked the link to check it out and it was a 404 page. What kind of SEO hack is that? Information for the crawler but nothing on the actual page?",
+      "Don&#x27;t worry, its &quot;safety&quot; features will shield all corporate liability while your kids are indoctrinated by 4chan written &quot;history&quot; regurgitated to you through Microsoft brand &quot;AI&quot;!",
+      "What’s wrong with grokipedia? I find it fair and reasonable. And it’s always nice to have a competitor because although Wikipedia is okay, it’s not sustainable to have it as a monopoly.<p>I like that OpenAI usds grokipedia and predict that Grokipedia will become more common and normal.",
+      "Recently I asked an obscure question and it thought for awhile and it gave me a lot of output with sources.<p>Over half the citations were from Grok .. not even grokipedia .. just “share” pages from questions other people asked.",
+      "This is pretty dangerous because most people will not check the sources that LLMs are referring to.  Grokipedia uses Grok and Grok trains on X, which is highly manipulated by both X itself (lots of people allege suppressed reach and other forms of shadow bans if you’re left of MAGA) and by bots. Not to mention the platform is naturally one sided when toxic content (racists, misogynists, outright supremacists, etc) drives away those of different views. For example look at Vivek Ramaswamy quitting X recently after all his posts got flooded with nearly 100% vile racist replies.",
+      "This sounds more like an issue with whatever web search&#x2F;index tool GPT is using rather than the language model itself.",
+      "This makes sense. I already use Grokipedia maybe 50% of the time. If you really dig into things, it is - incredibly - more accurate. I often find glaring errors or biases in Wikipedia, especially over the last 5 years."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Should I Form an LLC or Register a Domain First?",
+    "url": "https://www.domainregistry.com/blog/form-llc-or-register-domain-first/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It&#x27;s cute to see commenters answering the question while the article is also doing that work.<p>Anyway, honest question: who the hell is &quot;domainregistry.com&quot;? They claim they&#x27;ve been &quot;accredited since 1996&quot;. I&#x27;ve never, ever heard of them, and I used to work for InterNIC.<p>Their so-called founder, &quot;Larry Erlich&quot;, is not notable either. Neither of these have Wikipedia entries. Does anyone know who they are, or where they came from?",
+      "buy a domain.<p>only register i.e form an LTD | LLC when the company can generate predictable revenue for at least 2 months.<p>nothing is a nightmare - dealing with issues for an LLC that can&#x27;t pay its own bills and being forced to file forms every year for something that&#x27;s not making money<p>I have made that mistake twice before.<p>now I will only register an LLC if I can make at least $20k&#x2F;month",
+      "Register and reserve the domain first.<p>You can hold it as yourself for as long as you need. No harm to having domains except a few dollars of annual cost.<p>It’s easy for another person to register it at any time, so grab it first.<p>The scenario of registering a company only to find that someone else bought the domain and you now need to pay them a chunk of money to get started is not where you want to be."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "MCP is the New GraphQL",
+    "url": "https://nadeeshacabral.com/posts/mcp-is-the-new-graphql/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Documentation and APIs can be both machine and human readable at the same time. For my impression, MCP is compating symptoms. In a well constructed system, there would be no need to write dedicated documentation or APIs for LLMs.<p>By the way, I am new to GraphQL and was amazed how it reduced the boilerplate I had to write for REST in my (classical ORM) project. In a single-person team, this allows me to rapidly write frontends. With libraries such as <a href=\"https:&#x2F;&#x2F;gqty.dev&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;gqty.dev&#x2F;</a> I basically write no more glue code. These are probably not the needs you have as an enterprise."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Grainrad: Browser ASCII/Dithering Tool",
+    "url": "https://grainrad.com/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Nvidia Presents the First AI Framework 100% Generated by AI [pdf]",
+    "url": "https://github.com/NVlabs/vibetensor/blob/main/docs/vibetensor-paper.pdf",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "“Unable to render code block”<p>Yeah. That seems about right."
+    ],
+    "full_text": null
+  }
+]
