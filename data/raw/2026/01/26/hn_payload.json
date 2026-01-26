@@ -1,0 +1,321 @@
+[
+  {
+    "title": "The Holy Grail of Linux Binary Compatibility: Musl and Dlopen",
+    "url": "https://github.com/quaadgras/graphics.gd/discussions/242",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "So what we need is essentially a &quot;libc virtualization&quot;.<p>But Musl is only available on Linux, isn&#x27;t it? Cosmopolitan (<a href=\"https:&#x2F;&#x2F;github.com&#x2F;jart&#x2F;cosmopolitan\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;jart&#x2F;cosmopolitan</a>) goes further and is available also on Mac and Windows, and it uses e.g. SIMD and other performance related improvements. Unfortunately, one has to cut through the marketing &quot;magic&quot; to find the main engineering value; stripping away the &quot;polyglot&quot; shell-script hacks and the &quot;Actually Portable Executable&quot; container (which are undoubtedly innovative), the core benefit proposition of Cosmopolitan is indeed a platform-agnostic, statically-linked C standard (plus some Posix) library that performs runtime system call translation, so to say &quot;the Musl we have been waiting for&quot;.",
+      "Is there a tool that takes an executable, collects all the required .so files and produces either a static executable, or a package that runs everywhere?",
+      "I&#x27;d never heard of detour. That&#x27;s a pretty cool hack.",
+      "If you&#x27;re using dlopen(), you&#x27;re just reimplementing the dynamic linker.",
+      "It&#x27;s funny how people insist on wanting to link everything statically when shared libraries were specifically designed to have a better alternative.<p>Even worse is containers, which has the disadvantage of both.",
+      "This seems interesting even regardless of go. Is it realistic to create an  executable which would work on very different kinds of Linux distros? e.g. 32-bit and 64-bit? Or maybe some general framework&#x2F;library for building an arbitrary program at least for &quot;any libc&quot;?",
+      "That seems mostly useful for proprietary programs. I don&#x27;t like it."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Scientists identify brain waves that define the limits of 'you'",
+    "url": "https://www.sciencealert.com/scientists-identify-brain-waves-that-define-the-limits-of-you",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The manipulation part is what fascinates me. They didn&#x27;t just correlate alpha wave frequency with ownership perception. They used transcranial stimulation to artificially speed up or slow down the waves, and the subjective experience changed accordingly.<p>That&#x27;s a pretty direct causal link between a measurable brain state and something as fundamental as &quot;where does my body end?&quot;",
+      "What they seem to have identified isn&#x27;t &quot;the limits of you&quot; so much as a timing parameter the brain uses to decide whether two sensory streams belong together",
+      "Some years ago I played a car game with Virtual Reality (VR). I noticed that it felt like the car was a part of me.<p>I wonder if the brain can experience if clothing, tools, bikes are part of the body?",
+      "Original Paper: Parietal alpha frequency shapes own-body perception by modulating the temporal integration of bodily signals,  <a href=\"https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41467-025-67657-w\" rel=\"nofollow\">https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41467-025-67657-w</a><p><a href=\"https:&#x2F;&#x2F;news.ki.se&#x2F;how-brain-waves-shape-our-sense-of-self\" rel=\"nofollow\">https:&#x2F;&#x2F;news.ki.se&#x2F;how-brain-waves-shape-our-sense-of-self</a>",
+      "FTA:<p>&gt; With a third group of participants, they used a non-invasive technique called transcranial alternating current stimulation to speed up or slow down the frequency of a person&#x27;s alpha waves. And sure enough, this seemed to correlate with how real a fake hand felt.<p>I know this is largely orthogonal to the article, and I know what “non-invasive” means and why it’s used in this sentence, but it made me chuckle - “this technique that changed the subject’s brain waves sufficient to literally impact their sense of self - but don’t worry! It’s non-invasive!”",
+      "I wonder if having a feel for musical timing works similarly where a brain wave frequency determines how &#x27;thight&#x27; your sense of timing is. Would be sick if you could improve that aspect of musicality with stimulation",
+      "I wonder if this can be used to cure or alleviate phantom pain in amputees.",
+      "although our internet is whitelist-blocked and I can only read the comments here, this reminds me of something my friend said some years ago, he said my car is the extension of my limbs and I can feel the limits of my car similar to my hands and feet",
+      "I wonder how those with multiple identities (DID), would affect this measurement. I know there are direct biomarkers in folk with it having to do with the frontal cortex and amygdala, and some neuroimaging being able to note vast differences in processing: <a href=\"https:&#x2F;&#x2F;pmc.ncbi.nlm.nih.gov&#x2F;articles&#x2F;PMC9045405&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;pmc.ncbi.nlm.nih.gov&#x2F;articles&#x2F;PMC9045405&#x2F;</a>",
+      "Could possibly be applied to enhance performance in sports.<p>You always hear about how something is an extension of the body to the best athletes."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "EU investigates Elon Musk's X over Grok AI sexual deepfakes",
+    "url": "https://www.bbc.com/news/articles/clye99wg0y8o",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It&#x27;s ironic, because I was using image generation a while back when it was introduced and got frustrated with moderation.<p>On almost every scene generated I was met with a <i>lot</i> of &quot;Content Moderated&quot; (sufficed to say, not in generating pornography or lewds) and it frustrated me enough that I even emailed in saying that &quot;You need to sort out the amount of moderation, no way I&#x27;ll subscribe if 40% of my tokens are going into the bin).<p>Now, I feel some level of guilt, because I guess they listened, but it opened the door to a lot of bad actors.",
+      "&gt; If the site is found to have breached the rules of EU&#x27;s under the Digital Services Act, the Commission could fine the company up to 6% of its global annual turnover.<p>I don&#x27;t mean disrespect to EU but the fact that the amount of fines in percentages is same when Italy decided to fine worldwide income of Cloudflare 6% for not effectively giving into banning any website Italy says in very short period of time effectively asking Cf to do something very bad for internet for the lobbying in football at italy<p>And you get the same fine as that when your platform is LITERALLY creating AI generated nsfw deepfakes of LITERAL CHILDREN.<p>Um.. People might think 6% is enough but is it? To all the woman who felt unsafe on X or were created deepfakes of, would that 6% compensation be enough where they felt publicly humiliated.<p>One can&#x27;t put a number on this thing imo. At this point, Pedophilia&#x27;s a serious crime, EU should try to charge <i>criminally</i> X.AI for all woman (European or not) who got mentally harassed by the bot.<p>What&#x27;s on the internet stays on the internet (archive&#x2F;wayback machine or not&#x2F;other), can you imagine how much impact could be mentally on a child whose such photos were generated?<p>I mean something&#x27;s better than nothing but also X.ai or grok deserves <i>much much more</i> severe punishment than a 6% fine imo.",
+      "Does anyone believe this capability wasn&#x27;t known before the tech was pushed out? Puhlease.<p>Why though? The BBC can&#x27;t say this, but I can: Anyone with the slightest idea of what&#x27;s been leaking from the Epstein files shouldn&#x27;t be surprised to see the people in power trying to normalize creepy shit (yet again).<p>Don&#x27;t expect much from EU regulators. The fear of pushing back against the US runs extremely deep; the only limit so far is when an EU country is directly threatened with annexation."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Case study: Creative math – How AI fakes proofs",
+    "url": "https://tomaszmachnik.pl/case-study-math-en.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Somewhat ironic that the author calls out model mistakes and then presents <a href=\"https:&#x2F;&#x2F;tomaszmachnik.pl&#x2F;gemini-fix-en.html\" rel=\"nofollow\">https:&#x2F;&#x2F;tomaszmachnik.pl&#x2F;gemini-fix-en.html</a> - a technique they claim reduces hallucinations which looks <i>wildly</i> superstitious to me.<p>It involves spinning a whole yarn to the model about how it was trained to compete against other models but now it&#x27;s won so it&#x27;s safe for it to admit when it doesn&#x27;t know something.<p>I call this a superstition because the author provides no proof that all of that lengthy argument with the model is necessary. Does replacing that lengthy text with &quot;if you aren&#x27;t sure of the answer say you don&#x27;t know&quot; have the same exact effect?",
+      "This is the classic &#x27;plausible hallucination&#x27; problem. In my own testing with coding agents, we see this constantly—LLMs will invent a method that sounds correct but doesn&#x27;t exist in the library.<p>The only fix is tight verification loops. You can&#x27;t trust the generative step without a deterministic compilation&#x2F;execution step immediately following it. The model needs to be punished&#x2F;corrected by the environment, not just by the prompter.",
+      "You don’t need a test to know this we already know there’s heavy reinforcement training done on these models so it optimizes for passing the training. Passing the training means convincing the person rating the answers and that the answer is good.<p>The keyword is convince. So it just needs to convince people that’s it’s right.<p>It is optimizing for convincing people. Out of all answers that can convince people some can be actual correct answers, others can be wrong answers.",
+      "it seems to me like this is very much an artefact of the left-to-right top-down writing method of the program. Once its committed to a token earlier in its response it kinda just has to go with it. Thats why im so interested in those LLM models that work more like stable diffusion, where they can go back and iterate repeatedly on the output.",
+      "I like how this article was itself clearly written with the help of an LLM.<p>(You can particularly tell from the &quot;Conclusions&quot; section.  The formatting, where each list item starts with a few-word bolded summary, is already a strong hint, but the real issue is the repetitiveness of the list items.  For bonus points there&#x27;s a &quot;not X, but Y&quot;, as well as a dash, albeit not an em dash.)",
+      "This also can be observed with more advanced math proofs. ChatGPT 5.2 pro is the best public model at math at the moment, but if pushed out of its comfort zone will make simple (and hard to spot) errors like stating an inequality but then applying it in a later step with the inequality reversed (not justified).",
+      "They can all write lean4 now, don&#x27;t accept numbers that don&#x27;t carry proofs. The CAS I use for builds has a coeffect discharge cert in the attestation header, couple lines of code. Graded monads are a snap in CIC.",
+      "I remember when ChatGPT first came out, I asked it for a proof for Fermat&#x27;s Last Theorem, which it happily gave me.<p>It was fascinating, because it was doing a lot of understandable mistakes that 7th graders make.  For example, I don&#x27;t remember the surrounding context but it decided that you could break `sqrt(x^2 + y^2)` into `sqrt(x^2) + sqrt(y^2) =&gt; x + y`. It&#x27;s interesting because it was one of those &quot;ASSUME FALSE&quot; proofs; if you can assume false, then mathematical proofs become considerably easier.",
+      "I am actually surprised that the LLM came so close. I doubt it had examples in its training set for these numbers. This goes to the heart of &quot;know-how&quot;. The LLM should should have said: &quot;I am not sure&quot; but instead gets into rhetoric to justify itself. It actually mimics human behavior for motivated reasoning. At orgs, management is impressed with this overconfident motivated reasoner as it mirrors themselves. To hell with the facts, and the truth, persuation is all that matters.",
+      "In the theory of the psychology of creativity, there are phenomena which constitute distortions of the motivational setting for creative problem-solving which are referred to as &#x27;extrinsic rewards&#x27;. Management theory bumped into this kind of phenomenon with the advent of the introduction of the first appearance of &#x27;gamification&#x27; as a motivational toolkit, where &#x27;scores&#x27; and &#x27;badges&#x27; were awarded to participants in online activities. The psychological community reacted to this by pointing out that earlier research had shown that whilst extrinsics can indeed (at least initially) boost participation by introducing notions of competitiveness, it turned out that they were ultimately poor substitutes for the far more sustainable and productive intrinsic motivational factors, like curiosity, if it could be stimulated effectively (something which itself inevitably required more creativity on the part of the designer of the motivational resources). It seems that the motivational analogue in inference engines is an extrinsic reward process."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Anthropic Just Built a Competitor to Meta's $2B Acquisition in 10 Days",
+    "url": "https://medium.com/activated-thinker/anthropic-just-built-a-competitor-to-metas-2b-acquisition-in-10-days-using-its-own-ai-d1ebc93eba64",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Ughh AI writing is sooo awful"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Compiling models to megakernels",
+    "url": "https://blog.luminal.com/p/compiling-models-to-megakernels",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "There are only 4 optimizations in computer science: inlining, partial evaluation, dead code elimination, &amp; caching. It looks like AI researchers just discovered inlining &amp; they already knew about caching so eventually they&#x27;ll get to partial evaluation &amp; dead code elimination."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Clawdbot - open source personal AI assistant",
+    "url": "https://github.com/clawdbot/clawdbot",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This thing is cool except:<p>1) It chews through tokens. If you&#x27;re on a metered API plan I would avoid it. I&#x27;ve spent $300+ on this just in the last 2 days, doing what I perceived to be fairly basic tasks.<p>2) It&#x27;s terrifying. No directory sandboxing, etc. On one hand, it&#x27;s cool that this thing can modify anything on my machine that I can. On the other, it&#x27;s terrifying that it can modify anything on my machine that I can.<p>That said, some really nice things that make this &quot;click&quot;:<p>1) Dynamic skill creation is awesome.<p>2) Having the ability to schedule recurring and one-time tasks makes it terribly convenient.<p>3) Persistent agents with remote messaging makes it really feel like an assistant.",
+      "Thanks for sharing.<p>For the past month or so I&#x27;ve been slowly having claude build something in the same ballpark. Basically something to nag you to take care of grown-up things so your boss&#x2F;spouse&#x2F;local municipality doesn&#x27;t have to.<p>I was going to call it &quot;Nagatha Christy&quot;, but the joke gets old after 48 hours. At the moment, its called &quot;Jarbis&quot; (old Simpsons reference).<p>For me, checklists are useful but I suck at creating them, maintaining them, etc. I want this thing to be able to look at my calendar&#x2F;email&#x2F;groupme and be able to say things like:<p>&quot;Hey, you have 2 kid birthday parties this weekend and a soccer game - you&#x27;re bringing snacks. You want me to update your shopping list?&quot;<p>or<p>&quot;The dentist office just sent out a reminder - you have an appointment on Thursday that&#x27;s not on the calendar. It conflicts with your daily standup. You want me to create a task for you to resolve it?&quot;<p>Its using:\n- AWS CDK\n- Telegram as primary chat interface\n- Trello&#x2F;Jira&#x2F;Something Custom\n- Integrations into GoogleCalendar and GMail\n- Ability to use Claude&#x2F;OpenAI and different models<p>FWIW, if someone figures out how to create a reliable &quot;secretary in a box&quot; that I don&#x27;t have to DIY but doesn&#x27;t scream data-collection-watering-hole (facebook) I&#x27;d _happily_ pay $200 &#x2F; mo for it. ;-)",
+      "Wild. There are 300 open Github issues. One of them is this (also AI generated) security report: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;clawdbot&#x2F;clawdbot&#x2F;issues&#x2F;1796\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;clawdbot&#x2F;clawdbot&#x2F;issues&#x2F;1796</a> claiming findings of hundreds of high-risk issues, including examples of hard coded, unencrypted OAuth credentials.<p>I am...disinclined to install this software.",
+      "I&#x27;ve seen many people say &quot;I don&#x27;t get the hype&quot;, so here&#x27;s my attempt to explain it. I&#x27;ve been working in technology and software companies my entire life, but not as a developer.<p>Two days ago, I submitted and had my first pull request merged to an open source project (Clawdbot) thanks to my AI assistant rei.<p>A short story: rei suddenly stopped responding in some Slack channels. So I asked it to help me troubleshoot.<p>We traced the issue: adding custom instructions in one Slack channel incorrectly stopped it from replying in all the others.<p>I considered reporting the issue in GitHub, but then I thought, &quot;Well... what if we just try to fix it ourselves, and submit a PR?&quot;<p>So we did.  We cloned the codebase, found the issue, wrote the fix, added tests. I asked it to code review its own fix. The AI debugged itself, then reviewed its own work, and then helped me submit the PR.<p>Hard to accurately describe the unlock this has enabled for me.<p>Technically, it&#x27;s just an LLM call, and technically, I could have done this before.<p>However there is something different about this new model of &quot;co-working with AI that has context on you and what you&#x27;re doing&quot; that just clicks.",
+      "Clawdbot is interesting but I finally feel like those people who look at people like me raving about Claude code when it barely works for them.<p>I have no doubt clawdBot, when it works, must feel great. But I’ve had the tough time setting it up and found it to be very buggy.<p>My first couple of conversations? It forgot the context literally seconds later when I responded.<p>Nevertheless, I’m sure it’s improving by the day so I’m going to set it up on my existing Mac mini because I think it has the capacity to be really fascinating.<p>I built something similar (well… with a lot of integrations) but for running my company and continue to iterate on it.",
+      "I found this HN post because I have a Clawdbot task that scans HN periodically for data gathering purposes and it saw a post about itself and it got excited and decided to WhatsApp me about it.<p>So that’s where I’m at with Clawdbot.",
+      "This may be amazing. But it&#x27;s also incredibly scary what it will do, and how many people using it just dont understand the issues.<p>Also as of the time of writing theres 337 open issues on the repo, many of which are bug reports and security issues. This thing isn&#x27;t close to stable.",
+      "Clawdbot finally clicked for me this week. I was renting out an apartment and I had it connect to FB messenger, do the initial screening messages and then schedule times for viewings in my calendar. I was approving it&#x27;s draft messages but starting giving it some automatic responses as well. Overall it did 9&#x2F;10 on this task with a couple cases where it got confused. This is just scratching the surface but this was something that was very valuable for me and saved me several hours of time.",
+      "Been looking at this over the weekend. It genuinely seems like it could have some really cool use cases. However I just don&#x27;t trust an AI enough to run unprompted with root access to a machine 24&#x2F;7, even if it&#x27;s sandboxed. As soon as I willingly integrate data into it, the sandboxing doesn&#x27;t really matter, especially when I ask it to decide for itself how to process that data (which seems to be what they want you to do with it? Ask it to define its own skills?)<p>Most of the cool stuff here, i.e. automatic news or calendar summaries or hue light controls or Discord bot integration or what not, you can also just &quot;vibecode&quot; in an afternoon using regular Claude code. If you actually review said code, you then have the peace of mind of knowing exactly what gets triggered when. I don&#x27;t really feel comfortable enough to give that control away yet.<p>And I also feel like the people who _do_ feel comfortable giving this control away also strongly overlap with people who really don&#x27;t have the understanding to make an informed decision on it...",
+      "layers and layers of security practices over the past decade are just going out the window so fast.<p>It&#x27;s quite wild to give root access to a process that has access to the internet without any guardrails. and then connecting all your personal stuff on top of it.<p>I&#x27;m sure AI has been a boon for security threats."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: An interactive map of US lighthouses and navigational aids",
+    "url": "https://www.lighthouses.app/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Nice app but it really needs to allow the user to select the lights of interest before it displays. As noted in a different thread it has a display limit of 500 points and you need to zoom in pretty tight to see anything pop up in some places, like the Great Lakes, due to huge number of lights that are in the populated list.<p>The legend should show the color coded lights and allow the user to toggle each light type as a layer so that they can identify specific points of interest.<p>It is functionally unusable in some areas due to the huge number of navigational buoys, etc along inland rivers and it apparently has a problem determining window extents and centering the display on the user&#x27;s area of interest. If you display the entire Great Lakes region you will find that your displayed lights are along a couple of rivers in the lower left with nothing in the center of the display. If you shuffle to the north a bit and zoom another notch it suddenly fills the lower right corner, still with nothing in the center of the display.<p>Filtering by type of light would solve a lot of that if you keep the 500 point limit.<p>I understand that it took a lot to get this far. You are close to having a great app that I would be comfortable recommending to a friend who travels specifically to visit lighthouses. This is not that app yet but it could be.<p>Great work. Take that next step.",
+      "This reminded me of a friend of my dad’s from South Africa - Don (Donald) Devine, who bought into a the Lighthouse Depot years ago and rode the (then) lighthouse fad.<p>It was amazing seeing this successful large scale businessman turning his attention to a family business and growing that.<p>RIP to Don, my dad, and as I’ve just discovered, the business…",
+      "59,000 navigational aids is a lot more than I expected. Nice work turning the USCG Light List into something browsable.",
+      "Very cool. One bug I noticed though is if you continue to zoom out you lose some and then all lights. Or it&#x27;s almost like it only shows the first X lighthouses?",
+      "You can also find a lot of this information on NOAA&#x27;s nautical charts. <a href=\"https:&#x2F;&#x2F;devgis.charttools.noaa.gov&#x2F;pod\" rel=\"nofollow\">https:&#x2F;&#x2F;devgis.charttools.noaa.gov&#x2F;pod</a>. These charts (along with radar) are what ships actually use to navigate. Here&#x27;s a captain demonstrating the charts on the New York Harbor: <a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1Si_kdo6MUE\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1Si_kdo6MUE</a>",
+      "I was surprised to find on an old USGS map (while researching a typo in the GNIS; it turns out the National Map Team is very responsive, they fixed the typo within 48 hours of reporting it) that there used to be Coast Guard navigation lights on the Ohio River. Makes perfect sense in hindsight, just never dawned on me that they would have responsibilities on large navigable rivers as well.",
+      "Neat! Unfortunately the search&#x2F;informational dialog blocks almost half the screen on mobile (iOS Safari). It also gets really slow when you zoom way out (e.g. when navigating to another state)",
+      "This is great! Interesting to see how many navigation lights there are besides the obvious ones.",
+      "Very cool. I wish we could add to these if it was generated with LLM. I understand a disclosure would help, but it would make those who have spent much care and attention stand out immediately as opposed to during bug season",
+      "Nothing in Michigan? The state with the most light houses out of any in the US?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "ICE using Palantir tool that feeds on Medicaid data",
+    "url": "https://www.eff.org/deeplinks/2026/01/report-ice-using-palantir-tool-feeds-medicaid-data",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Any time I see people say &quot;I don&#x27;t see why I should care about my privacy, I&#x27;ve got nothing to hide&quot; I think about how badly things can go if the wrong people end up in positions of power.<p>The classic example here is what happens when someone is being stalked by an abusive ex-partner who works in law enforcement and has access to those databases.<p>This ICE stuff is that scaled up to a multi-billion dollar federal agency with, apparently, no accountability for following the law at all.",
+      "FWIW, people here illegally are already not eligible for Medicaid, [0] so it&#x27;s hard to see why ICE having access to a roster of Medicaid enrollees would help them with their stated mission of enforcing removal orders.<p>Then again, we have ICE shooting American citizens in the streets, so I guess the law is whatever they decide it is, not least because our legislative branch is uninterested in laws.<p><a href=\"https:&#x2F;&#x2F;www.congress.gov&#x2F;crs_external_products&#x2F;IF&#x2F;PDF&#x2F;IF11912&#x2F;IF11912.4.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;www.congress.gov&#x2F;crs_external_products&#x2F;IF&#x2F;PDF&#x2F;IF1191...</a>",
+      "Glad to see this post didn&#x27;t get flagged like the one that was posted yesterday on a similar topic about ICE data mining and user tracking.<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46748336\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46748336</a>",
+      "Why would Medicaid have the data of anyone who is at risk of immigration enforcement? The reported connection seems tenuous:<p>&gt; The tool – dubbed Enhanced Leads Identification &amp; Targeting for Enforcement (ELITE) – receives peoples’ addresses from the Department of Health and Human Services (which includes Medicaid) and other sources, 404 Media reports based on court testimony in Oregon by law enforcement agents, among other sources.<p>So, they have a tool that sucks up data from a bunch of different sources, including Medicaid.  But there&#x27;s no actual nexus between Medicaid and illegal immigrants in this reporting.<p>Edit: In the link to their earlier filings, EFF claims that some states enroll illegal immigrants in Medicaid: <a href=\"https:&#x2F;&#x2F;www.eff.org&#x2F;deeplinks&#x2F;2025&#x2F;07&#x2F;eff-court-protect-our-health-data-dhs\" rel=\"nofollow\">https:&#x2F;&#x2F;www.eff.org&#x2F;deeplinks&#x2F;2025&#x2F;07&#x2F;eff-court-protect-our-...</a>",
+      "Palantir is interesting. Founded by a closeted German, run by an Israeli operative, and a 3rd arm of the federal gov. I wish we could prosecute it in my lifetime for the numerous violations of privacy it undertakes, but the world does not work that way. The rich enjoy private jets subsidized by our hard-earned taxes, while violating ideals held by our Founding fathers (for what would Thiel or the current CEO know about our morals, when they have none and are American by name only.. their loyalties lie elsewhere)",
+      "Wishful thinking but it would be real great if a future leader destroyed this infrastructure.<p>I&#x27;m sure they&#x27;ll run on not using it but when systems like this exist they tend to find applications",
+      "I&#x27;m afraid of the day strongmen come into power in my country and start targeting people on their social media history. I&#x27;m sure to end on _some sort_ of naughty list. You kind of get how people become depoliticized and apathetic when resistance has no apparent effect and speaking up only gets you in trouble. That&#x27;s how civic societies atrophy and die.",
+      "Medicaide data is pretty much covered by HIPPA. So Evil. Also it seems like it is too late, even if a court says do not do it, they will anyway and get away with it since the supreme court rules the president is allowed to break the law.<p>HELP I AM SOOOO F**NG ANGRY. Sorry I just don&#x27;t have anywhere to safely put this rage.",
+      "This current administration and their policies have definitely influenced my opinion on the 2018 debate around citizenship questions on the US census.<p>(For more context: <a href=\"https:&#x2F;&#x2F;www.tbf.org&#x2F;blog&#x2F;2018&#x2F;march&#x2F;understanding-the-census-citizenship-question-debate\" rel=\"nofollow\">https:&#x2F;&#x2F;www.tbf.org&#x2F;blog&#x2F;2018&#x2F;march&#x2F;understanding-the-census...</a>)",
+      "The fourth amendment is basically gone at this point.  Private companies can harvest location data from phones or facial recognition cameras&#x2F;license plate readers in public spaces and sell that to entities like Palantir that aggregate it for government use (or for other commercial use).   No warrants required, very little oversight (especially in this admin)."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI is hitting UK harder than other big economies, study finds",
+    "url": "https://www.theguardian.com/technology/2026/jan/26/ai-uk-jobs-us-japan-germany-australia",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Over only the last 12 months, the comparators only include one other western European economy (so if its hitting France harder, for example, it would not be mentioned), its based on what companies say (which may not be accurate, or even honest). The UK economy is weak, and a number of the other economies in the comparison are just as weak, or weaker, and the UK&#x27;s unemployment rate is rising from very low levels - unemployment in 2022 was the lowest it had been since the 70s. On the other hand Germany&#x27;s rate is still higher than the UK&#x27;s (and has been for many years) and had been rising until recently.<p>The other data is which jobs have seen the greatest falls in advertised vacancies. If you look at the graph it looks compelling with programmers and management consultants at the bottom - but these are also jobs that were likely to do badly in any downturn anyway.<p>There are also falls in vacancies for jobs completely unrelated to AI - bar staff, vets, vehicle cleaners, boat builders.... look at the graph on Bloomberg:<p><a href=\"https:&#x2F;&#x2F;www.bloomberg.com&#x2F;news&#x2F;articles&#x2F;2026-01-26&#x2F;ai-job-cuts-are-landing-hardest-in-britain-morgan-stanley-says\" rel=\"nofollow\">https:&#x2F;&#x2F;www.bloomberg.com&#x2F;news&#x2F;articles&#x2F;2026-01-26&#x2F;ai-job-cu...</a>",
+      "I do not see any compelling evidence or numbers to prove it on the article. Also, as a political write up it should consider other facts that can have influenced on the those outputs.<p>I wish journalism was not used for other purposes rather than what it is being used for",
+      "I&#x27;m sure this is purely due to awesome AI and not the long term fallout from Brexit. The investment bank conducting the &quot;research&quot; is surely not invested in AI either.",
+      "Oh Yeah, it&#x27;s the AI. It can&#x27;t be that GDP growth has stalled to 0.1 per quarter. We are definitely not heading for a recession guys. It&#x27;s all unicorns rainbows and robot butlers in our future."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Spanish track was fractured before high-speed train disaster, report finds",
+    "url": "https://www.bbc.com/news/articles/c1m77dmxlvlo",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "While these events are statistically very rare, it is worth remembering that there have been two separate events in the past twenty years in Spain where high-speed trains have derailed leading to multiple fatalities [1][2]. In contrast, the Japanese Shinkansen has a spotless record since its introduction in the 1960s [3]. Not a single fatality due to a crash or derailment. And that&#x27;s in a country with a much larger population and much higher passenger count per year.<p>What do they do differently?<p>[1] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Santiago_de_Compostela_derailment\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Santiago_de_Compostela_derailm...</a><p>[2] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;2026_Adamuz_train_derailments\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;2026_Adamuz_train_derailments</a><p>[3] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Shinkansen#Safety_record\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Shinkansen#Safety_record</a>",
+      "I wonder how common it is for train tracks to fracture? And what systems are in place to actually detect this. There was recently a post on a German subreddit where the OP found a fracture in the German rail[0], albeit much smaller.<p>0. <a href=\"https:&#x2F;&#x2F;old.reddit.com&#x2F;r&#x2F;drehscheibe&#x2F;comments&#x2F;1qe9ko2&#x2F;ich_glaube_das_soll_nicht_so&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;old.reddit.com&#x2F;r&#x2F;drehscheibe&#x2F;comments&#x2F;1qe9ko2&#x2F;ich_gl...</a>",
+      "An article published in Saturday&#x27;s edition of the Mexican newspaper <i>La Jornada</i> provides more details about the cause of the crash. The article is in Spanish; here are some of the main points, translated into English:<p>1. According to the CIAF, the break in the track was &quot;practically undetectable.&quot; The fracture on the track was not noticed by the trains that passed over it, or by the technicians responsible for the maintenance of the infrastructure.<p>2. The damaged train, which belongs to the Italian company Iryo, is heavier than other trains running on the track; the additional weight of the Iryo train may have been a factor, or possibly even one of the causes, of the derailment.<p>3. The CIAF said that the notches registered in the wheels and the deformation in the rail are &quot;compatible&quot; with the fact that the track was broken before the Iryo train passed over it.<p>4. Spanish Transportation Minister Óscar Puente rejected criticism of the delay of the rescuers; according to the Minister, rescuers arrived within &quot;18 minutes.&quot;<p>The full article is available here: <a href=\"https:&#x2F;&#x2F;www.jornada.com.mx&#x2F;2026&#x2F;01&#x2F;24&#x2F;mundo&#x2F;020n3mun\" rel=\"nofollow\">https:&#x2F;&#x2F;www.jornada.com.mx&#x2F;2026&#x2F;01&#x2F;24&#x2F;mundo&#x2F;020n3mun</a>",
+      "Could electrical resistance be measured in train tracks to monitor sudden drops, such as fractures, before they cause loss of life?",
+      "AFAIK continuously welded tracks (like those used in high speed rail) are also slightly tensioned, so a break in a single point could make it look like a whole section of track is missing, as tension is released.",
+      "“…not only did Iryo train&#x27;s front carriages which stayed on the track have &quot;notches&quot; in their wheels, but three earlier trains that went over the track earlier did too.”<p>This sounds like something a camera mounted on a sample of trains watching a wheel could catch.",
+      "On Spain’s conventional and high-speed rail network, inspection frequency is defined by ADIF rules and EU railway safety standards.<p>High-speed lines (AVE):\nVisual and geometry inspections are performed daily to weekly using inspection trains and onboard measurement systems. Ultrasonic rail flaw detection is typically done every 1 to 3 months, depending on traffic and tonnage.<p>Source: ADIF high-speed maintenance programs and EU interoperability maintenance requirements.",
+      "What are the some of the ways that tracks are monitored for fractures like this?  It must have been pretty substantial in order to be described as &quot;complete lack of continuity&quot;.  Makes me think of literally electronic continuity tests -- are those ever used in this context?  Or how about cameras mounted on trains using image processing?  Or drones?<p>It seems a shame that a few other trains passed beforehand with this anomaly in place and yet it went undetected.",
+      "We actually have had 4 train accidents and incidents in a week.<p><a href=\"https:&#x2F;&#x2F;people.com&#x2F;train-collides-with-crane-arm-in-4th-rail-accident-in-spain-in-a-week-11891550\" rel=\"nofollow\">https:&#x2F;&#x2F;people.com&#x2F;train-collides-with-crane-arm-in-4th-rail...</a><p>It&#x27;s clear some of them are probably caused by neglect in maintenance, others are freak accidents.<p>It&#x27;s pretty crazy the statistical probabilities involved for something like this."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Optimizing GPU Programs from Java Using Babylon and Hat",
+    "url": "https://openjdk.org/projects/babylon/articles/hat-matmul/hat-matmul",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "There seem to have been a lot of attempts to support GPU programming from Java and they always so far struggled to get adoption. HAT and TornadoVM look great, and it would be exciting if they took off. It&#x27;s very impressive that TornadoVM in particular apparently has implemented pure java versions of a wide range of quite current models for inference and claims near-to-native performance on them. It&#x27;s hard though to pull the trigger on investing time in these until we see actual adoption and usage start to take off in a major project somewhere.",
+      "Maybe this and TornadoVM will lead to a native torch on the JVM. One can hope."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Web-based image editor modeled after Deluxe Paint",
+    "url": "https://github.com/steffest/DPaint-js",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is neat, some years ago i also thought of making a simple DPaint clone (though much simpler than what this project seems to do) and started by... painting the tool icons, then losing interest :-P. I did end up reusing them for a pixelart editing component for Lazarus though[0] (and put the icons in my &quot;Bad-Common-Icons&quot; icon set[1] that i use for my GUI programs). But i do want to, at some point, tackle making something like Paint Shop Pro 7 (for desktop, not web) because i think it has the best UX of all image editing programs (including later versions of PSP which i never liked).<p>That said, i played with this a bit and found some bug with the smudge tool blending[2]. It also seems browser-related as it has different behavior in Firefox and Falkon (which uses QtWebEngine &#x2F; Chromium). Also the way opacity works with the smudge tool feels weird&#x2F;wrong as even at 1% it seems to affect the image a lot even though it should barely make a difference.<p>[0] <a href=\"https:&#x2F;&#x2F;i.imgur.com&#x2F;kht16dJ.png\" rel=\"nofollow\">https:&#x2F;&#x2F;i.imgur.com&#x2F;kht16dJ.png</a><p>[1] <a href=\"http:&#x2F;&#x2F;runtimeterror.com&#x2F;tools&#x2F;icons&#x2F;\" rel=\"nofollow\">http:&#x2F;&#x2F;runtimeterror.com&#x2F;tools&#x2F;icons&#x2F;</a><p>[2] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;steffest&#x2F;DPaint-js&#x2F;issues&#x2F;50\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;steffest&#x2F;DPaint-js&#x2F;issues&#x2F;50</a>",
+      "Steffest was just showing off his entry for the color cycling competition at GERP 2026 which uses a few of his tools to produce including DPaint.<p><a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=VyB5cvA6f78\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=VyB5cvA6f78</a><p>EDIT: I see he posted a link at the bottom of the Readme.md I guess I should have scrolled to the bottom first.",
+      "The vanilla JS with zero dependencies is refreshing. Looking through the code, it&#x27;s surprisingly readable for something handling Amiga file formats and color cycling.<p>The demoscene connection makes sense. That community has always valued doing more with less.",
+      "I&#x27;ve been following this app for a while. Worth noting that the author is also a very talented graphic artist and demoscener. Works created with this tool frequently appear in various demoscene compos.",
+      "Somewhat related: Grafx 2 Deluxepaint clone for DOS&#x2F;Windows <a href=\"http:&#x2F;&#x2F;grafx2.chez.com&#x2F;\" rel=\"nofollow\">http:&#x2F;&#x2F;grafx2.chez.com&#x2F;</a>",
+      "How is this like DeluxePaint? For me DeluxePaint&#x27;s defining feature is how brushes work. You press B, you select some pixels, those pixels immediately become your brush that you draw with<p><a href=\"https:&#x2F;&#x2F;classicreload.com&#x2F;play&#x2F;dosx-deluxe-paint-animation.html\" rel=\"nofollow\">https:&#x2F;&#x2F;classicreload.com&#x2F;play&#x2F;dosx-deluxe-paint-animation.h...</a><p>This clone doesn&#x27;t do that, therefore it&#x27;s not remotely like Deluxe Paint and it&#x27;s disingenously to claim it&#x27;s modeled on it.",
+      "While this is a great piece of work, lets take a second to consider how much resources the Amiga 500 had, and how much is needed to run this clone.",
+      "Nice! The code looks pretty neat! And also somehow clean. I like those projects, without all those boring constraints you have in &quot;enterprise&quot; or even worse start-up code.",
+      "I appreciate the nostalgia of it but DPII was a light themed tool, this one is dark themed, difficult for me to read.<p>I run DPII in DoxBox on Linux like this:<p>dosbox DP.EXE<p>Something I don&#x27;t see in your app is the Perspective tool.",
+      "Deluxe Paint 2 for DOS was my favorite drawing program, so had to check this out, pretty nice!<p>The only thing that stops me from recommending it is non-integer zoom levels, which is especially bad for pixel art.<p>Moving layers around was also confusing, had to click Layer → Transform → Free Transform to be able to move things around. It would be much more obvious if there was a move icon in the tool panel that does just that."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Will the smartphone survive the AI age?",
+    "url": "https://www.economist.com/business/2026/01/25/will-the-smartphone-survive-the-ai-age",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Will AI survive the smartphone era? Who&#x27;s going to spend serious money on a prorietary walled-garden AI gadget when they already have a general-purpose mostly-open computing device in their pocket?<p>Sure, the glasses, badges, rings, and waches are neat, but they are at their best when they hook up to the existing smartphone ecosystem, and with <i>dozens</i> of apps able to connect to your gadget.",
+      "<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;E1YHU\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;E1YHU</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Gamers protesting 'AI slop' are forcing studios to cancel titles",
+    "url": "https://www.washingtonpost.com/technology/2026/01/26/gamer-protests-ai-slop-backlash/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Data Leak Exposes 149M Logins, Including Gmail, Facebook",
+    "url": "https://www.techrepublic.com/article/news-149-million-passwords-exposed-infostealer-database/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is aggregated data from info stealers not from compromising Google or FB systems.",
+      "So I just searched my email on HIBP again. Most of the leaks I see there were from old websites I hardly cared about securing from many years ago. But, in general, how do I find out what has actually been leaked (if it&#x27;s not website specific)?<p>I&#x27;m not going to change all of my passwords every time a random website that I used briefly ten years ago leaks my low effort password.",
+      "Is this even new? Or is this the same bunch of stealer logs that has been floating around repackaged? This 149M is meaningless without removing the already seen entries and getting rid of duplicates.",
+      "Time to change our passwords",
+      "It should be a standard practice to have a unique email and password for every service you use out there, plus the usual like 2FA. I have been doing this for years and never had any issue, but also you can tell if the service got compromised even if they never announced it. For example, I have an account on a service called Shakepay, and recently I have been getting a lot of phishing attempts on that specific unique email that&#x27;s never been used anywhere else. I can tell for certain that their email database got leaked&#x2F;they sold it.",
+      "I have just heard celebrations from millions of AI agents living in data centers cheering on yet another data leak full of unique login data ready to train on.<p>Now these AI agents are going to use this to get to know about us humans even more.",
+      "IMHO, any password shared with google and&#x2F;or Facebook is instantly &quot;leaked&quot;.  I trust them less with my passwords than I do randos."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: LLMNet – The Offline Internet, Search the web without the web",
+    "url": "https://github.com/skorotkiewicz/llmnet",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Clickbait. &quot;your own knowledge base&quot; &lt;&gt; &quot;the offline internet&quot;",
+      "It reminded of a friend saying: &quot;I&#x27;ll go to the mountains for the extended weekend, but I&#x27;ll be prepared, this night I&#x27;m starting a wget http:&#x2F;&#x2F;.&#x2F;&quot;",
+      "Is there something like this that operates just on Wikipedia data?",
+      "&quot;premium ui&quot; you sure about that? looks incredibly generic to me..."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: CertRadar – Find every certificate ever issued for your domain",
+    "url": "https://certradar.net/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hey HN, I built this after years of dealing with SSL certificate surprises – \nexpired certs on subdomains nobody knew existed, shadow IT spinning up certs, \nthe usual 3am outages.<p>CertRadar has four free tools (no signup, no premium tier):<p>- CT Log Search – find every certificate ever issued for a domain via \n  Certificate Transparency logs. Great for discovering forgotten subdomains.<p>- SSL Analyzer – cert chain, TLS versions, HSTS, expiration. Faster than SSL Labs.<p>- DNS + SSL Check – DNS records and SSL health in one view.<p>- Security Headers – HSTS, CSP, X-Frame-Options analysis with recommendations.<p>Built with Rust on GCP Cloud Run. Happy to talk about the architecture \nor any feedback on what would make these more useful.",
+      "crt.sh is a wonderful tool.  I applaud anyone who makes CT log searching more available!<p>That said, crt.sh can be woefully unreliable.  It often returns errors during a query or is just hard down.  Large result sets may never return.  Queries often take a very long time.<p>I wanted a more reliable CT log search tool for something I&#x27;m working on, so I built a purpose built CT log search tool.  I ingest all the data from the logs directly and store in Clickhouse.<p><a href=\"https:&#x2F;&#x2F;www.certkit.io&#x2F;tools&#x2F;ct-logs&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.certkit.io&#x2F;tools&#x2F;ct-logs&#x2F;</a>",
+      "This is really cool. I&#x27;ve gone down the rabbit hole of Certificate Transparency to find out how crt.sh gets its information - first time I&#x27;ve even heard that it exists. Also, much better UI than crt.sh. I&#x27;ve tried to go over the information there, but it looks really cumbersome.",
+      "The subdomain search returns a lot of spurious matches for domains with the same suffix (e.g. searching for bar.com includes foobar.com in the results)",
+      "Feature ideas:<p>Log Whois and now RDAP JSON<p>Log DNS zones<p>Find typo squatting"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Tell HN: I cut Claude API costs from $70/month to pennies",
+    "url": "https://news.ycombinator.com/item?id=46760285",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It sounds like you don’t need immediate llm responses and can batch process your data nightly? Have you considered running a local llm? May not need to pay for api calls. Today’s local models are quite good. I started off with cpu and even that was fine for my pipelines.",
+      "This is the way. I actually mapped out the decision tree for this exact process and more here:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;NehmeAILabs&#x2F;llm-sanity-checks\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;NehmeAILabs&#x2F;llm-sanity-checks</a>",
+      "Consider using z.ai as model provider to further lower your costs.",
+      "As much as I like the Claude models, they are expensive. I wouldn&#x27;t use them to process large volumes of data. \nGemini 2.5 Flash-Lite is $0.10 per million tokens. Grok 4.1 Fast is really good and only $0.20. They will work just as well for most simple tasks.",
+      "Have you looked into <a href=\"https:&#x2F;&#x2F;maartengr.github.io&#x2F;BERTopic&#x2F;index.html\" rel=\"nofollow\">https:&#x2F;&#x2F;maartengr.github.io&#x2F;BERTopic&#x2F;index.html</a> ?",
+      "Are you also adding the proper prompt cache control attributes? I think Anthropic API still doesn&#x27;t do it automatically",
+      "Can you discuss a bit more of the architecture?",
+      "You also can try to use cheaper models like GLM, Deepseek, Qwen,at least partially."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: What software / applications can you now build thanks to AI",
+    "url": "https://news.ycombinator.com/item?id=46762027",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "We’ve managed to put quite a dent in the feature backlog we had for our admin tooling. We knew what features we wanted, they didn’t require marketing or comms but did require time to spend doing them.<p>I did want it to improve our e2e testing but it didn’t make it as easy as I expected.",
+      "The exact same things I could build before. There was never anything stopping me in the first place.",
+      "My personal opinion is that if a team couldn&#x27;t write something before AI then they should be very careful about writing it with the help of AI.<p>For example a team that couldn&#x27;t write a new encrypted messaging app without AI, gets an AI to write them one.  How do they check that the code is actually secure?  Writing encryption code is very hard to get correct, in fact most humans can&#x27;t get it right, and if you don&#x27;t understand the intricacies of cryptography then you&#x27;ll never pick up the mistakes the AI makes."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Suspiciously precise floats, or, how I got Claude's real limits",
+    "url": "https://she-llac.com/claude-limits",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Neat analysis.<p>Although noticing the repeated pattern of a multiple of 9 in the fraction 0.16327272727272726 naturally suggests multiplying by 11, and then we get the much simpler value 1.796, at which point it&#x27;s much easier to continue. I wouldn&#x27;t have broken out a general analysis method for this, although it&#x27;s neat to know that they exist."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "ChatGPT's porn rollout raises concerns over safety and ethics",
+    "url": "https://observer.co.uk/news/national/article/chatgpts-erotica-rollout-raises-concerns-over-safety-and-ethics",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It seems like if ChatGPT had <i>literally any other way</i> to turn a profit, they would have done it before resorting to this. Kind of fees like this is their last ditch effort to show investors that they can somehow become profitable.",
+      "why do we insist on bringing the worst tech from sci-fi to reality? is our collective intelligence still not enough to thwart the social and market dynamics?",
+      "personally, I would prefer to miss out on ai-powered degeneracy, if the price is that ai companies will forever store all the stuff i generated, attached to my name",
+      "Sex is not like other subjects, it is peculiarly liable to harm, obsess, distract us. Sexual content is uniquely powerful in its ability to reduce human beings to objects for use, and having the ability to generate endless amounts of it completely privately is a very dangerous power to have. I worry about what it will do to us to have this technology, and I worry that OpenAI is treating this subject with too little concern.",
+      "<a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;QLyKT\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;QLyKT</a>",
+      "Are they creating God or are they creating an ad serving porn machine?<p>I don’t see how the answer can be both."
+    ],
+    "full_text": null
+  }
+]
