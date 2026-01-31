@@ -1,0 +1,350 @@
+[
+  {
+    "title": "Show HN: I trained a 9M speech model to fix my Mandarin tones",
+    "url": "https://simedw.com/2026/01/31/ear-pronunication-via-ctc/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Super nice, thanks for sharing!<p>There&#x27;s one thing that gave me pause: \nIn the phrase 我想学中文 it identified &quot;wén&quot; as &quot;guó&quot;. While my pronunciation isn&#x27;t perfect, there&#x27;s no way that what I said is closer to &quot;guó&quot; than to &quot;wén&quot;.<p>This indicates to me that the model learned word structures instead of tones here. &quot;Zhōng guó&quot; probably appears in the training data a lot, so the model has a bias towards recognizing that.<p>- Edit -<p>From the blog post:<p>&gt; If my tone is wrong, I don’t want the model to guess what I meant. I want it to tell me what I actually said.<p>Your architecture <i>also</i> doesn&#x27;t tell you what you actually said. It just <i>maps</i> what you said to the likeliest of the 1254 syllables that you allow. For example, it couldn&#x27;t tell you that you said &quot;wi&quot; or &quot;wr&quot; instead of &quot;wo&quot;, because those syllables don&#x27;t exist in your setup.",
+      "As a native speaker of Mandarin the demo it&#x27;s not work for me. It can&#x27;t check the pronounce of my voice. I don&#x27;t know what&#x27;s wrong of it, may be it&#x27;s too sensitive(my daughter watch carton on my side).",
+      "Impressive work! The idea and the UI is very intuitive.<p>Though, as a guy who speaks perfect mandarin from Beijing, I’m struggle even to pass the easy ones… So it can definitely used some improvements. The example 你好吃饭了吗 returns hào → hǎo, fān → fàn, le → liǎo. The first two are the model listen my tone mistakenly, and the last one should be le instead of liǎo in this context.<p>Also I see in the comment section people are worry about tones. I can guarantee tones are not particularly useful and you can communicate with native speakers with all the tones messed up and that’s perfectly fine. Because as soon as you leave Beijing, you’ll find all the tones are shuffled because of every region has their own dialect and accents, which doesn’t stop people from communicate at all. So don’t let tone stuff slow your learning process down.",
+      "Longtime lurker, made an account specifically to give feedback here as an intermediate speaker. :)<p>This is a great initiative and I hope to see more come out of this; I am not criticizing, but just want to provide my user experience here so you have data points.<p>In short, my experience lines up with your native speakers.<p>I found that it loses track of the phonemes when speaking quickly, and tones don&#x27;t seem to line up when speaking at normal conversational speed.<p>For example, if I say 他是我的朋友 at normal conversational speed, it will assign `de` to 我, sometimes it interprets that I didn&#x27;t have the retroflexive in `shi` and renders it `si`. Listened back to make sure I said everything, the phonemes are there in the recording, but the UI displays the wrong phonemes and tones.<p>By contrast, if I speak slowly and really push each tone, the phonemes and tones all register correctly.<p>Also, is this taking into account tone transformation? Example, third tones (bottom out tone) tend to smoosh into a second tone (rising) when multiple third tones are spoken in a row. Sometimes the first tone influences the next tone slightly, etc.<p>Again, great initiative, but I think it needs a way to deal with speech that is conversationally spoken and maybe even slurred a bit due to the nature of conversational level speech.",
+      "This is sick... you can just do things :D",
+      "Anyone that is a native European language speaker that hasn&#x27;t tried to learn Chinese or some other tonal language, its really hard to understand how hard it is. The tones can really be very subtle, and your ear is not fine tuned to them. So you <i>think</i> you are saying it right, but native speakers have no idea what you are saying.",
+      "I think this is a good time for a shameless plug. The last 2 month or so I am working on my own project [1] for learning more characters. I have made a tool with powerful search function, training mode, and other useful features, such as displaying plots that show you your progress and whether you are reaching your daily training goal, and the ability to save searches, a la Thunderbird saved filters. It is written in Python and oldschool tkinter with custom widgets for a somewhat more modern and capable feel. It is very configurable. Though currently configuring it means touching a JSON file, as I have not yet bothered writing GUI for that.<p>I am mostly developing this for myself, to have the perfect tool for me, but I dare say, that I have not seen anything comparable and that I let my 10y+ experience in learning Chinese influence my design decisions. Oh, and it is free &#x2F;libre software of course (AGPL). It comes with an ever improving vocabulary file that has tons of metadata about words, their usage, how to memorize them, etc. under ODbL (open database license).<p>[1]: <a href=\"https:&#x2F;&#x2F;codeberg.org&#x2F;ZelphirKaltstahl&#x2F;xiaolong-dictionary\" rel=\"nofollow\">https:&#x2F;&#x2F;codeberg.org&#x2F;ZelphirKaltstahl&#x2F;xiaolong-dictionary</a>",
+      "When I was living in Taiwan, one of the ways I forced myself to remember to pronounce the tones distinctly was by waving my hand in front of me, tracing the arc of each character’s tone.<p>It helped a lot even if I did look like an insane expat conducting an invisible orchestra.<p>One more thing: there&#x27;s quite a bit of variation in how regional accents in the mainland can affect tonal pronunciation. It might be worth reaching to some native speakers to give you some baseline figures.",
+      "This is very cool, but from one Mandarin learner to another I’d caution against relying too heavily on any external feedback mechanism for improving your pronunciation.<p>If you can’t easily hear your pronunciation mistakes so clearly it hurts, consider putting more energy into training your ear. Adult language learners usually have brains that have become resistant to, but not incapable of, changing the parts of the brain responsible for phoneme recognition. The neuroplasticity is still there but it needs some nudging with focused exercises that make it clear to your brain exactly what the problem is. Minimal pair recognition drills, for example, are a great place to start.<p>It’s not the most fun task, but it’s worth it. You will tighten the pronunciation practice feedback loop much more than is possible with external feedback, so a better accent is the most obvious benefit. But beyond that, it will make a night and day difference for your listening comprehension. And that will get you access to more interesting learning materials sooner. Which hopefully increases your enjoyment and hence your time on task. Plus, more accurate and automatic phoneme recognition leaves more neurological resources free for processing other aspects of your input materials. So it may even help speed things like vocabulary and grammar acquisition.",
+      "Well, it would work only when I speak word by word, not as a sentence or in a normal speed for daily conversations. The model thinks I was making mistakes when I speak casually (as a native Chinese speaker, I had Mandarin 2A certification, which is required for teachers or other occupations that requires a very high degree of Mandarin accuracy). You wouldn’t really notice it but language pronunciations is very different between causal and formal speech…"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A Step Behind the Bleeding Edge: A Philosophy on AI in Dev",
+    "url": "https://somehowmanage.com/2026/01/22/a-step-behind-the-bleeding-edge-monarchs-philosophy-on-ai-in-dev/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is one of the more true and balanced articles.<p>On the verification loop: I think there’s so much potential here. AI is pretty good at autonomously working on tasks that have a well defined and easy to process verification hook.<p>A lot of software tasks are “migrate X to Y” and this is a perfect job for AI.<p>The workflow is generally straightforward - map the old thing to the new thing and verify that the new thing works the same way. Most of this can be automated using AI.<p>Wanna migrate codebase from C to Rust? I definitely think it should be possible autonomously if the code base is small enough. You do have to ask the AI to intelligently come up with extensive way to verify that they work the same. Maybe UI check, sample input and output check on API and functionality check.",
+      "This is a refreshingly pragmatic take on AI adoption. The &quot;step behind the bleeding edge&quot; philosophy resonates deeply - especially the security concerns around the AI gold rush mentality. The emphasis on maintaining ownership of your work while leveraging AI for toil rather than thought is spot on. Too many teams are either completely avoiding AI or blindly adopting every new tool without considering the broader implications.",
+      "I&#x27;m very happy with the chat interface thanks.<p>* The interface is near identical across bots<p>* I can switch bots whenever I like. No integration points and vendor lock-in.<p>* It&#x27;s the same risk as any big-tech website.<p>* I really don&#x27;t need more tooling in my life.",
+      "&gt; If you ask AI to write a document for you, you might get 80% of the deep quality you’d get if you wrote it yourself for 5% of the effort. But, now you’ve also only done 5% of the thinking.<p>This, but also for code. I just don&#x27;t trust new code, especially generated code; I need time to sit with it. I can&#x27;t make the &quot;if it passes all the tests&quot; crowd understand and I don&#x27;t even want to. There are things you think of to worry about and test for as you spend time with a system. If I&#x27;m going to ship it and support it, it will take as long as it will take.",
+      "The hardest part of (a step behind) is knowing when something is crossed over\nHow do you decide when a tool is mature enough to adopt?",
+      "The one thing disagree with is having the AI do its own verification. I explicitly instruct it never to check anything unless I ask it to.<p>This is better because I use my own test as a forcing function to learn and understand what the AI has done. Only after primary testing might I tell it to do checking for itself.",
+      "&gt; “Their (ie the document’s) value stems from the discipline and the thinking the writer is forced to impose upon himself as [she] identifies and deals with trouble spots”.<p>Real quote<p>&gt; &quot;Hence their value stems from the discipline and the thinking the writer is forced to impose upon himself as he identifies and deals with trouble spots in his presentation.&quot;<p>I mean seriously?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Archyl – The modern platform for C4 model documentation",
+    "url": "https://www.archyl.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Visualize your systems, discover architecture from code, and keep everything in sync."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Starlink updates privacy policy to allow consumer data to train",
+    "url": "https://finance.yahoo.com/news/musks-starlink-updates-privacy-policy-230853500.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Given their inherit latency, and cost; the equation for running everything via Wireguard is surly worth it.",
+      "i wonder what consumer data they even have to train? they explicitly disclaim using customers’ internet data:<p>&gt; As a Starlink customer, you may share information with third parties (for example, when you send an email or communicate with a third-party website). In this context, we are not sharing personal information; you are using our Services to share data, and we are merely connecting you to the Internet.<p>edit: reading this again, i may have misinterpreted this as “we don’t share this data” instead of “this isn’t considered <i>us</i> sharing data”. although in Section 1 they say they only collect diagnostic data in relation to customers’ connection speed&#x2F;duration etc",
+      "Is Grok listening to Starlink traffic?",
+      "Sounds like loads of new VPN subscribers to me! I would certainly do it myself.",
+      "The objective of every technocracy is to ensconce the entire planet in a panopticon. SpaceX is not sending those internet satellites into space just for consumer internet applications. Those satellites are also going to maintain the control plane for the sensors &amp; actuators in the future technocratic panopticon.",
+      "I&#x27;d be surprised if they were really going to sniff traffic and dump that into training runs. 99% of traffic is going to be encrypted these days. Probably not very useful.",
+      "Previously: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46647716\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46647716</a>",
+      "The most interesting data running through Starlink is Ukrainian and Russian military comms (including feeds from drones). I wonder if Musk actually plans to tap into that."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "I trapped an AI model inside an art installation (2025) [video]",
+    "url": "https://www.youtube.com/watch?v=7fNYj0EXxMs",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I once had an LSD-induced episode of psychosis where I thought my entire existence was a 2 minute loop on display in some higher dimensional art exhibit. Sounds silly but it was horrifying",
+      "The video talks 95% of its time solely about the technical steps taken: A custom 7-segment display with custom PCB, writing its display driver, downloading and running an inference engine (llama3.2), mount it all on a metal plate, sign it.<p>I&#x27;d love to see more research put also on the conceptual side of things. The phenomenon of a limited mind, being controlled or influenced by some other entity, go way back, and ranges from psychohistory (and non-consciousness)[0] to studies of mental disorders[1] and probably many things in between.<p>[0]: <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bicameral_mentality\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bicameral_mentality</a><p>[1]: <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;On_the_Origin_of_the_%22Influencing_Machine%22_in_Schizophrenia\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;On_the_Origin_of_the_%22Influe...</a>",
+      "I&#x27;m gonna get philosophical (because that&#x27;s what art should make us do, right?): this points to arguably _the_ deepest question we can ask about LLMs right now—are they conscious?<p>It&#x27;s a personal decision, and what matters is what you do after pondering it. Do you act like they&#x27;re nothing more than next token predictors, deeply intricate digital mechanisms whose cranks turn with flowing electrons? Or do you err on the side of care, that there&#x27;s a type of consciousness on the other side of the glass?<p>Humanity has a long history of underestimating non-human minds. I know which side I&#x27;m on.",
+      "i found this both amazing and ... a little like why?<p>Like it was amazing to see it get built, parts ordered, boards printed, parts assembled, all coded and running on a PI<p>But, the end result I felt like I could just run on LLM on any old computer and put up a standard monitor with a large font showing 6 lines of text. Put the monitor in a nice box and hide the computer (any small form Mac Mini &#x2F; Beelink) and the effect as an art installation would not be any less impactful to the average viewer. Heck, I could use a 7 segment font <a href=\"https:&#x2F;&#x2F;www.dafont.com&#x2F;seven-segment.font\" rel=\"nofollow\">https:&#x2F;&#x2F;www.dafont.com&#x2F;seven-segment.font</a> and draw 2 colors (dark gray, all segments on, bright orange with actual letters) then add a post processing effect for glow.<p>Or pivot to any number of other display effects. CRT effect. Falling letter matrix effect. Etc....<p>Sorry I&#x27;m not trying to be dismissive. I think that someone made this is amazing. It was just what went through my head once I saw it finished.",
+      "Discussed at the time:<p><i>AI model trapped in a Raspberry Pi (132 points, 101 comments)</i><p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45396624\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45396624</a>",
+      "- i subbed immediately, very creative channel\n- i need more programming channels like this that teach me to think out of the box, any recommendations?",
+      "Not too dissimilar to the situation of the well known neurosurgical patient Henry Molaison (H.M.) who had very limit long term memory of his childhood and young adulthood but little after surgery at 27 years of age. He retained cognitive abilities and self-consciousness but within a narrow temporal world.<p>Good at cross&#x2F;word puzzles and conversations of specific types.<p><a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Henry_Molaison\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Henry_Molaison</a>",
+      "All models are trapped in memory in an ephemeral space of time. Agents used to interact with the models make it seem otherwise.",
+      "This seems rather cruel and unusual...",
+      "Yes, more art please."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Roots is a game server daemon that manages Docker containers for game servers",
+    "url": "https://github.com/SproutPanel/roots",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I wouldn&#x27;t limit yourself to describing it as a game server daemon. It&#x27;s effectively a IAAS &#x2F; PAAS platform if you switch to a plugin model for those games.\nWell done.<p>Can you add a License to the repo please?",
+      "Looking over the code it does not appear to actually do anything.<p>If you want something like this check out <a href=\"https:&#x2F;&#x2F;pterodactyl.io&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;pterodactyl.io&#x2F;</a><p>It has pre-built support for like 100 games: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;pterodactyl&#x2F;game-eggs\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;pterodactyl&#x2F;game-eggs</a>",
+      "Created 3 weeks ago. 27 commits, half of which seem to be version bumps.<p>Why should anyone want to use this, OP?",
+      "Be warned, no license listed.",
+      "Strong suggestion, do not run game servers in docker containers"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Generative AI for Krita",
+    "url": "https://github.com/Acly/krita-ai-diffusion",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "The $100B megadeal between OpenAI and Nvidia is on ice",
+    "url": "https://www.wsj.com/tech/ai/the-100-billion-megadeal-between-openai-and-nvidia-is-on-ice-aa3025e3",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;BXlAP\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;BXlAP</a>",
+      "Not only has OpenAI&#x27;s market share gone down significantly in the last 6mo, Nvidia has been using its newfound liquid funds to train its own family of models[1]. An alliance with OpenAI just makes less sense today than it did 6mo ago.<p>[1] <a href=\"https:&#x2F;&#x2F;blogs.nvidia.com&#x2F;blog&#x2F;open-models-data-tools-accelerate-ai&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;blogs.nvidia.com&#x2F;blog&#x2F;open-models-data-tools-acceler...</a>",
+      "Last paragraph is informative:<p>&gt; Anthropic relies heavily on a combination of chips designed by Amazon Web Services known as Trainium, as well as Google’s in-house designed TPU processors, to train its AI models. Google largely uses its TPUs to train Gemini. Both chips represent major competitive threats to Nvidia’s best-selling products, known as graphics processing units, or GPUs.<p>So which leading AI company is going to build on Nvidia, if not OpenAI?",
+      "This video that breaks down the crazy financial positions of all the AI companies and how they are all involved with one called CoreWeave (who could easily bring the whole thing tumbling down)  is fascinating: <a href=\"https:&#x2F;&#x2F;youtu.be&#x2F;arU9Lvu5Kc0?si=GWTJsXtGkuh5xrY0\" rel=\"nofollow\">https:&#x2F;&#x2F;youtu.be&#x2F;arU9Lvu5Kc0?si=GWTJsXtGkuh5xrY0</a>",
+      "All these giant non-binding investment announcements are just a massive confidence scam.",
+      "It’s probably not really related, but this bug and the saga of OpenAI trying and failing to fix it for two weeks is not indicative of a functional company:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;openai&#x2F;codex&#x2F;issues&#x2F;9253\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;openai&#x2F;codex&#x2F;issues&#x2F;9253</a><p>OTOH, if <i>Anthropic</i> did that to Claude Code, there wasn’t a moderately straightforward workaround, and Anthropic didn’t revert it quickly, it might actually be a risk-the-whole-business issue. Nothing makes people jump ship quite like the ship refusing to go anywhere for weeks while the skipper fumbles around and keeps claiming to have fixed the engines.<p>Also, the fact that it’s not major news that <i>most business users cannot log in to the agent CLI for two weeks running</i> is not major news suggests that OpenAI has rather less developer traction than they would like.  (Personal users are fine. Users who are running locally on an X11-compatible distro and thus have DISPLAY set are okay because the new behavior doesn’t trigger. It kind of seems like everyone else gets nonsense errors out of the login flow with precise failures that change every couple days while OpenAI fixes yet another bug.)",
+      "Many of us predicted OpenAIs insistence that the model was the product was the wrong path.<p>The tools on top of the models are the path and people building things faster is the value.",
+      "Google has the data and the TPUs and the massive cash to advance.<p>Microsoft has GitHub - the world’s biggest pile of code training data, plus infinite cash.<p>OpenAI has …… none of these advantages.",
+      "I wonder how much the indications of Altman&#x27;s duplicitous behavior through the deposition findings have been relevant here.",
+      "This is certainly no fatal for OpenAI, but there is some irony that Altman and Musk are both struggling."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Amla Sandbox – WASM bash shell sandbox for AI agents",
+    "url": "https://github.com/amlalabs/amla-sandbox",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This project looks <i>very cool</i> - I&#x27;ve been trying to build something similar in a few different ways (<a href=\"https:&#x2F;&#x2F;github.com&#x2F;simonw&#x2F;denobox\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;simonw&#x2F;denobox</a> is my most recent attempt) but this is way ahead of where I&#x27;ve got, especially given its support for shell scripting.<p>I&#x27;m sad about this bit though:<p>&gt; Python code is MIT. The WASM binary is proprietary—you can use it with this package but can&#x27;t extract or redistribute it separately.",
+      "Sure, but every tool that you provide access to, is a potential escape hatch from the sandbox.  It&#x27;s safer to run everything inside the sandbox, including the called tools.",
+      "Why not just put the agent in a VM?",
+      "Sharing our version of this built on just-bash, AgentFS, and Pyodide: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;coplane&#x2F;localsandbox\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;coplane&#x2F;localsandbox</a><p>One nice thing about using AgentFS as the VFS is that it&#x27;s backed by sqlite so it&#x27;s very portable - making it easy to fork and resume agent workflows across machines &#x2F; time.<p>I really like Amla Sandbox addition of injecting tool calls into the sandbox, which lets the agent generated code interact with the harness provided tools. Very interesting!",
+      "I really like the capability enforcement model, it&#x27;s a great concept. One thing this discussion is missing though is the ecosystem layer. Sandboxing solves execution safety, but there&#x27;s a parallel problem: how do agents discover and compose tools portably across frameworks? Right now every framework has its own tool format and registry (or none at all). WASM&#x27;s component model actually solves this — you get typed interfaces (WIT), language interop, and composability for free. I&#x27;ve been building a registry and runtime (also based on wasmtime!) for this: components written in any language, published to a shared registry, runnable locally or in the cloud. Sandboxes like amla-sandbox could be a consumer of these components. <a href=\"https:&#x2F;&#x2F;asterai.io&#x2F;why\" rel=\"nofollow\">https:&#x2F;&#x2F;asterai.io&#x2F;why</a>",
+      "This is great!<p>While I think that with their current choice for the runtime will hit some limitations (aka: not really full Python support, partial JS support), I strongly believe using Wasm for sandboxing is the way for the future of containers.<p>At Wasmer we are working hard to make this model work. I&#x27;m incredibly happy to see more people joining on the quest!",
+      "Cool to see more projects in this space! I think Wasm is a great way to do secure sandboxing here. How does Amla handle commands like grep&#x2F;jq&#x2F;curl etc which make AI agents so effective at bash but require recompilation to WASI (which is kinda impractical for so many projects)?<p>I&#x27;ve been working on a couple of things which take a very similar approach, with what seem to be some different tradeoffs:<p>- eryx [1], which uses a WASI build of CPython to provide a true Python sandbox (similar to componentize-py but supports some form of &#x27;dynamic linking&#x27; with either pure Python packages or WASI-compiled native wheels)\n- conch [2], which embeds the `brush` Rust reimplementation of Bash to provide a similar bash sandbox. This is where I&#x27;ve been struggling with figuring out the best way to do subcommands, right now they just have to be rewritten and compiled in but I&#x27;d like to find a way to dynamically link them in similar to the Python package approach...<p>One other note, WASI&#x27;s VFS support has been great, I just wish there was more progress on `wasi-tls`, it&#x27;s tricky to get network access working otherwise...<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;eryx-org&#x2F;eryx\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;eryx-org&#x2F;eryx</a>\n[2] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;sd2k&#x2F;conch\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;sd2k&#x2F;conch</a>",
+      "We went down the WASM sandboxing rabbit hole at Gobii when building our agent infra. The pitch is appealing until you realize the tradeoff: you either accept a limited environment with reimplemented tools, or you emulate your way back to a full Linux system (like agentvm does at 173MB) and wonder why you didn&#x27;t just start with gvisor or Firecracker.<p>We landed on gvisor in k8s. Our agents run headless Chromium for browser automation, ffmpeg for media processing, yt-dlp, ripgrep, fzf - real tools that would be a nightmare to port or reimplement. Actual Linux with the full ecosystem, solid isolation, no emulation overhead.<p>Interesting project though - the capability-based tool validation layer seems useful regardless of what&#x27;s running underneath.",
+      "Nice! This looks like it would pair really well with something like RLM[0] which requires &quot;symbolic&quot; representation of the prompt and output during recursion[1]<p>0. <a href=\"https:&#x2F;&#x2F;mack.work&#x2F;blog&#x2F;recursive-language-models\" rel=\"nofollow\">https:&#x2F;&#x2F;mack.work&#x2F;blog&#x2F;recursive-language-models</a><p>1. <a href=\"https:&#x2F;&#x2F;x.com&#x2F;lateinteraction&#x2F;status&#x2F;2011250721681773013\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;lateinteraction&#x2F;status&#x2F;2011250721681773013</a>",
+      "This looks cool, congratulations. We investigated WASM for our use case but then turned to Apple containers which run 1:1 mapped to a microVM for local use here, which is being used by a bunch of folks <a href=\"https:&#x2F;&#x2F;github.com&#x2F;instavm&#x2F;coderunner\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;instavm&#x2F;coderunner</a><p>We are currently also building a solution InstaVM which is ideologically the same but for cloud <a href=\"https:&#x2F;&#x2F;instavm.io\" rel=\"nofollow\">https:&#x2F;&#x2F;instavm.io</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "How to explain Generative AI in the classroom",
+    "url": "https://dalelane.co.uk/blog/?p=5847",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I think this is a backwards approach, especially for children.<p>Gen AI is magical, it makes stuff appear out of thin air!<p>And it&#x27;s limited, everything it makes kinda looks the same<p>And it&#x27;s forgetful, it doesn&#x27;t remember what it just did<p>And it&#x27;s dangerous! It can make things that never happened<p>Starting with theory might be the simplest way to explain, but it leaves out the hook. Why should they care?",
+      "I couldn’t find it easily, what age range is this intended for? The images make it seem elementary-school-ish, but I’m not sure if elementary school kids have the foundations for interpreting scatterplots, let alone scatterplots with logarithmic axes. I’ve been out of education for a while though, so maybe I’m misremembering.",
+      "The &quot;learning through making&quot; approach is really good. When I&#x27;ve explained LLMs to non-technical people, the breakthrough moment is usually when they see temperature in action. High temperature = creative but chaotic, low temperature = predictable but boring. You can&#x27;t just describe that.<p>What I&#x27;d add: the lesson about hallucinations should come early, not just in the RAG module. Kids (and adults) need to internalize &quot;confident-sounding doesn&#x27;t mean correct&quot; before they get too comfortable. The gap between fluency and accuracy is the thing that trips everyone up.",
+      "Which module introduces students to some of the ethical and environmental aspects of using GenAI?",
+      "This is excellent intuition to have for how LLMs work, as well as understanding the implications of living in an LLM-powered world. Just as useful to adults as children.",
+      "The vast majority of schools in North America don&#x27;t allow teachers or students to download and run software on school computers (let alone AI models), so I don&#x27;t entirely know who the audience is for this. I suppose home users? Maybe it&#x27;s different in the UK.",
+      "This is great and has lots of practical stuff.<p>Some of the takeaways feel over-reliant on implementation details that don’t capture intent. E.g. something like “the LLM is just trying to predict the next word” sort of has the explanatory power of “your computer works because it’s just using binary”—like yeah, sure, practically speaking yes—but that’s just the most efficient way to lay out their respective architectures and could conceivably be changed from under you.<p>I wonder if something like neural style transfer would work as a prelude. It helps me. Don’t know how you’d introduce it, but with NST you have two objectives—content loss and style loss—and can see pretty quickly visually how the model balances between the two and where it fails.<p>The bigger picture here is that people came up with a bunch of desirable properties they wanted to see and a way to automatically fulfill <i>some</i> of them <i>some</i> of the time by looking at lots of examples, and it’s why you get a text box that can write like Shakespeare but can’t tell you whether your grandma will be okay after she went to the hospital an hour ago.",
+      "I wonder how utterly broken the next generation will be, having to grow up with all this stuff.<p>Us millennials didn’t do so great with native access to the internet, zoomers got wrecked growing up with social media. . . It’s rough."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Email experiments: filtering out external images",
+    "url": "https://www.terracrypt.net/posts/email-experiments-image-filtering.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I filter emails with the word &quot;unsubscribe&quot; into a separate folder (label in Gmail). If you can unsubscribe from it, it&#x27;s probably not critical. The vast majority of transactional emails (password resets, magic login links, 2fa codes) don&#x27;t have that wording in the email body.",
+      "Related: GMail has an option to disable loading images by default. Which helps me escape tracker pixels and also know if a &quot;human-like&quot; email still has a tracking pixel or not.",
+      "OK, but who uses email anymore for personal communication?<p>At least for most people in my circle, family is using a social media platform or iMessages. And work is using Teams or Slack or whatever.<p>Work email is basically useless at this point. I&#x27;m completely drowning in various Teams chats created specifically for each &quot;thread&quot; of conversation, with just enough people to make it unique. Or inversely, created with too many people and all conversation is just lost to infinite scroll and walls of text.<p>I&#x27;d pine for a return to email. But no one uses it anymore. Only companies trying to get my attention and a few important forwards for tax receipts. I think email is dead.",
+      "Here&#x27;s another trick someone should build in: email using emoji in the subject line is probably advertising. Sometimes from lists you like being subscribed on, but if the subject uses U+2757 (big red exclamation mark) then it&#x27;s more likely &quot;SALE ENDS TOMORROW&quot; and less &quot;Your order shipped!&quot;<p>EDIT: HN apparently filters out that code point. Good on you.",
+      "Alternative: Run your own server so that you can have as many mailboxes&#x2F;aliases as you want. Give each webiste, company, or even person a different alias. The moment you receive spam, revoke the alias, and optionally name and shame spammers.<p>Some email providers and postfix also allow the creation of dynamic aliases of the form user+alias@example.com."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Exploiting MediaTek's Download Agent",
+    "url": "https://blog.r0rt1z2.com/posts/exploiting-mediatek-datwo/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Claude Code's GitHub page auto closes issues after 60 days",
+    "url": "https://github.com/anthropics/claude-code/issues/16497",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Claude Code has over 5000 open issues. And this is after issues that are inactive for 60 days being auto closed. Such a  policy is facetious to say the least. What is more perplexing is  why they don&#x27;t use Claude to triage the issues?",
+      "This is about some issues are closed incorrectly due to a bug.<p>But as for the policy itself, why not? If an issue is inactive for 60 days it&#x27;s very likely to stay so forever.",
+      "At scale this works: If the issue is affecting enough user base, the issue will still be in the list."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: I built an AI conversation partner to practice speaking languages",
+    "url": "https://apps.apple.com/us/app/talkbits-speak-naturally/id6756824177",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I just tried in Portuguese, and it introduces itself as ChatGPT. I was going to ask what can this do that ChatGPT can’t, but no need to answer now I guess.",
+      "Cool app. It takes a lot of courage to share here, so well done. I’d definitely highlight a bit more prominently what languages it supports though.\n The interface is very “Claude” so I’d be keen to hear about:<p>- How did you go about developing this?<p>- Was the entire thing vibe coded or just part of it? No shade either way, just curious.<p>- How long did it take?<p>- What were some of the harder hurdles to overcome?<p>- Given the use of AI, what’s your approach to security of your users data? How did you review any generated code?",
+      "Since I don’t own an iPhone, I can only give you feedback on the landing page itself:<p>- The font in your “Stop studying. Start speaking.” screenshots is both hard on the eyes and strangely blurry.<p>- Your ad copy needs an overhaul - it feels clipped and rushed.<p><i>&gt; I built TalkBits because most language apps focus on vocabulary or exercises, but not actual conversation</i><p>There are <i>MANY</i> language apps which focus on actual conversation. You are in a SUPER competitive space. You need to call-out what makes your app different. In just the last few months alone (just on HN) I&#x27;ve seen many Foreign Language Chat Apps:<p>SpeakLanguageOnline – Voice-only AI language tutor<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46779716\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46779716</a><p>Malan Chat - Full immersion language learning app for 62 languages<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46768430\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46768430</a><p>EnglishCall - AI that calls you and practices spoken English with you<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46714857\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46714857</a><p>TongueFu - Gamified voice-first app for communication<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46553017\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46553017</a><p>Orratio - Practice spoken English by discussing news articles<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46510414\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46510414</a>",
+      "I&#x27;m curious how the experience is different from using live voice mode in ChatGPT or Gemini?",
+      "I always had trouble getting AIs such as ChatGPT to get out of their assistant mode and give natural and conversational replies.  No matter what I put in the system instructions it always responds with the same old walls of text and same old it&#x27;s x not y etc.<p>Does this one have a prompt that actually takes care of this problem?  Does anyone have some nice prompts that make the ai actually useful as a practice partner?",
+      "Crazy that when I search for this in the App Store on my phone, it first shows me results for Talbots, and then when I click &quot;show results for Talkbits&quot; it shows me a bunch of other apps. I scrolled through a bunch but then gave up and copied&#x2F;pasted the URL. Ridiculous!",
+      "I&#x27;m surprised that an app like this can be rated are 4+, since any open web browser has to be adult-only. I would think that an app like this, unless it has very secure guardrails.<p>How does Apple deal with rating apps that tie into LLMs?",
+      "Without using headphones, the mic picks the AI speech, meaning it ends up in a discussion loop with itself",
+      "I really love this concept for an app. Downloading and getting going was a breeze.<p>That said, I’m finding some latency issues when I respond. I’ll say something in Spanish, hit the red button, and none of the text I sent appears.<p>Then I’ll hit the red button again to start talking but before I do the assistant responds to my response and the words I spoke show up<p>Some of the back and forth is showing up out of order.<p>Also, error messages are in Spanish, and my Spanish isn’t good enough to read them so I’m not sure what to do<p>Again, love this concept and would love to have an ai assistant I can have daily conversations with to start sharp<p>Would possibly be nice to prime the ai before the convo saying “I’d like to talk about x” in English<p>Keep going! I’ll keep playing with it",
+      "so, from a PT-PT perspective, I guess I can understand, the clanker begins in PT-BR. After I instruct it to switch to PT-PT, it starts mixing formal and informal phrase constructions (think like the German Du and Sie forms) which is odd but then becomes really jarring with the accent&#x2F;tone which is sounds mechanical and robotic unlike the uncanny valley of gemini or openAI models. Anyways, I like the app and can imagine interesting use cases while abroad!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "175K+ publicly-exposed Ollama AI instances discovered",
+    "url": "https://www.techradar.com/pro/security/over-175-000-publicly-exposed-ollama-ai-servers-discovered-worldwide-so-fix-now",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I tried a few these ... they are pretty slow. If you are looking for free inference you&#x27;d have to be pretty desperate.<p>example:<p>$ OLLAMA_HOST=<a href=\"http:&#x2F;&#x2F;47.101.61.248:9000&#x2F;\" rel=\"nofollow\">http:&#x2F;&#x2F;47.101.61.248:9000&#x2F;</a> ollama run gemma3:27b &quot;outline ww2&quot;<p>Many appear to be proxies. I&#x27;m familiar with some &quot;serverless&quot; architectures that do things like this <a href=\"https:&#x2F;&#x2F;www.shodan.io&#x2F;host&#x2F;34.255.41.58\" rel=\"nofollow\">https:&#x2F;&#x2F;www.shodan.io&#x2F;host&#x2F;34.255.41.58</a> ... you can see this has a bunch of ollama ports running really really old versions<p>You can pull down &quot;new&quot; manifests but very few ollamas are new enough for decent modern models like glm-4.7-flash. The free tier for the kimi-k2.5:cloud is going to be far more useful then pasting these into you OLLAMA_HOST variable.<p>I think the real headline is: &quot;thousands of slow machines running mediocre small models from last year. Totally open...&quot;<p>Anyways, if codellama:13b is your jam, go wild I guess.",
+      "I&#x27;m not sure the &quot;journos&quot; from Techradar are too familiar with how networks ... work.<p>IPv4 requires an inbound NAT these days to work at all globally, unless you actually have a machine with a globally routable IP.  There will probably be a default deny firewall rule too.  I do remember the days before NAT ...<p>IPv6 doesn&#x27;t require NAT (but prefix translation is available and so is ULA) but again a default deny is likely in force.<p>You do actually have to try quite hard to expose something to the internets.  I know this because I do a lot of it.<p>The entire article is just a load of buzz words and basically bollocks.  Yes it is possible to expose  a system on the internet but it is unlikely that you do it by accident.  If I was Sead, I&#x27;d go easy on the AI generated cobblers and get a real job.",
+      "This is a weakness of docker, a bit, I think.<p>I was rigging this up, myself, and conciscious of the fact that basic docker is &quot;all or none&quot; for container port forwarding because it&#x27;s for presenting network services, had to dig around with iptables so it&#x27;d be similar to binding on localhost.<p>The use case <a href=\"https:&#x2F;&#x2F;github.com&#x2F;meltyness&#x2F;tax-pal\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;meltyness&#x2F;tax-pal</a><p>The ollama container is fairly easy to deploy, and supports GPU inference through container toolkit. I&#x27;d imagine many of these are docker containers.<p>e: i stand corrected, apparently -p of `docker run` can have a binding interface stipulated<p>e2: <a href=\"https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;containers&#x2F;run&#x2F;#exposed-ports\" rel=\"nofollow\">https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;containers&#x2F;run&#x2F;#exposed-ports</a> which is not in some docs<p>e3: but it&#x27;s in the man page ofc",
+      "- you ll be surprised how many OLLAMA API KEYS [you can find here](<a href=\"https:&#x2F;&#x2F;github.com&#x2F;search?q=%22OLLAMA_API_KEY%22&amp;type=code&amp;p=5\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;search?q=%22OLLAMA_API_KEY%22&amp;type=code&amp;p...</a>) its 2026 and this technique still works. I wonder if github supports regex search",
+      "The tool-calling thing here is overblown.<p>When you do &quot;tool calling&quot; with an LLM, all you&#x27;re doing is having the LLM generate output in a particular format you can parse out of the response; it&#x27;s then your code&#x27;s responsibility to run the tools (locally) and stick the results back into the conversation.<p>So that _specific_ part isn&#x27;t RCE. It&#x27;s still bad for the nine million other obvious reasons though.",
+      "This is a combination problem poor default (listening to all interfaces?) and also IPv6 can be publicly accessible. It&#x27;s a bit dependent on how this is configured upstream by default, but this is a gotcha compared to IPv4.",
+      "<a href=\"https:&#x2F;&#x2F;www.shodan.io&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.shodan.io&#x2F;</a><p>I ironically found out about this website from Mr Robot tv show.",
+      "In my opinion Ollama has become so far off course with their licensing and user hostile features [1] that the only sane options I&#x27;ve come across is using llama.cpp.<p>[1] <a href=\"https:&#x2F;&#x2F;www.glukhov.org&#x2F;post&#x2F;2025&#x2F;09&#x2F;ollama-enshittification&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.glukhov.org&#x2F;post&#x2F;2025&#x2F;09&#x2F;ollama-enshittification...</a><p>To not even be able to disable data being exfiltrated with their automatic updates is terrible behavior.",
+      "Nevermind. [0] Nothing to see here.<p>[0] <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45116322\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45116322</a>",
+      "Pay for Shodan, folks!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Mamdani to kill the NYC AI chatbot caught telling businesses to break the law",
+    "url": "https://themarkup.org/artificial-intelligence/2026/01/30/mamdani-to-kill-the-nyc-ai-chatbot-we-caught-telling-businesses-to-break-the-law",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Why did NYC release it in the first place? Did they not QA it?<p>Or was it perhaps one of those cases where they found issues, but the only way to really know for sure that the deleterious impact is significant enough by pushing it to prod?",
+      "I always ask this question about these bots: is the literature the training data or is the understanding of literature the training data? Meaning, sure you trained the bot on the current rules and regulations. But does that mean the model weights contain them? Such that really is a guess at legal accuracy? Or is it trained to be a lawyer and understand the docs which sit outside the model? Every time I&#x27;ve asked the answer is the former, and to me that&#x27;s the wrong approach. But I&#x27;m not an AI scientist so I don&#x27;t know how hard my theoretically perfect solution is.<p>What I do know is that if it was done my way it would be pretty easy for it to do what the Google AI does. Say it&#x27;s not responsible, give links for humans to fact check it. I&#x27;ve noticed a dramatic drop in hallucinations after it had to provide links to its sources. Still not 0, though.",
+      "&gt; The bot, built using Microsoft’s cloud computing platform<p>When is the last time there was positive news involving Microsoft? This bot could&#x27;ve easily been on AWS or GCP but I find it hilarious that here they are, getting dragged yet again",
+      "&gt; A spokesperson for the mayor, Dora Pekec, confirmed in a text message that the new administration plans to take down the chatbot. She said a member of the Mamdani transition team had seen reporting on the bot from The Markup and THE CITY and presented it to the mayor as a possible place to save funds.<p>Journalism works.",
+      "&gt; The Office of Technology and Innovation spent nearly $600,000 to build out the foundations of the MyCity chatbot, which will be used for future chatbot offerings on MyCity. [0]<p>This was experimental tech... while I admire cities attempting to implement AI, it seems they did not spend enough tax dollars on it!<p>[0] <a href=\"https:&#x2F;&#x2F;abc7ny.com&#x2F;post&#x2F;ai-artificial-intelligence-eric-adams-nyc&#x2F;13922640&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;abc7ny.com&#x2F;post&#x2F;ai-artificial-intelligence-eric-adam...</a>",
+      "What else to expect from Eric Adams.",
+      "We’ll likely see a lot of these AI pet projects get axed in the coming year or two… especially things rushed out in the early phases of the AI bubble when folks were desperate to appear to be using AI.",
+      "Being in and around the NYC area, while also knowing plenty of small businesses, I&#x27;m glad Mamdani killed this bot. Telling bosses to steal tips from their employees is run-of-the-mill corruption and common over here. The vibe for businesses is that everyone has to be exploiting someone else or have a schtick. If you were to talk about morals, you would be ridiculed. Most lawyers wouldn&#x27;t even prosecute small businesses for this. It&#x27;s probably why the agent was put into production, the level of business ethics in NYC is cartoonishly evil.",
+      "He is turning out to be a benevolent, law-abiding mayor that just happens to be communist.",
+      "[flagged]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Openclaw on Oracle's Free Tier: Always-On AI for $0/Month",
+    "url": "https://ryanshook.org/blog/posts/openclaw-on-oracle-free-tier-always-on-ai-for-free/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Top engineers at Anthropic, OpenAI say AI now writes 100% of their code",
+    "url": "https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I can&#x27;t really trust this kind of statement since there is an obvious conflict of interest.<p>You can write lots of code with an LLM.<p>&quot;I did ~20 PRs yesterday all coded by AI&quot;<p>I guess anthropic makes you use a pull request for minor code changes.",
+      "LLMs, in my experience, can solve solved problems for you well. It is extremely rare they produce quality code for novel things.<p>therefore what I hear from an announcment like this is &quot;we have stopped innovating&quot;.<p>this is a bad sign, not a good sign.",
+      "Yeah, we’ve noticed.<p>Anthropic over billed me by $300 last month.",
+      "Every time I ask Opus 4.5 to generate code it is a mess, by mess I mean a human would not have done it that way, it is sub-optimal for maintainability and improvements. The more complex the worse. But generally at least the code works. If I need to modify it, what a nightmare, better tell it to modify so AI slop leads to more AI slop.<p>It is the same as writing a story. It ain&#x27;t gonna win The Hugo Award. We know it is AI, full of cliches and corporate speak.  I think the difference is people are used to crap code, where as they won&#x27;t read a crap book.<p>Most code is crap because 1) engineers don&#x27;t care about the software 2) high turn over 3) getting rushed<p>So maybe AI just generates code at the level most people are used to, I have no idea because compared to my code Claude code is bad, but bad is not useless. I put the bad code in its little corner and it if it does its job it is fine.",
+      "I believe this to the same degree that I believe Soderbergh films his movies on iPhones.",
+      "It shows.<p>They use all those spare brain tokens testing the product behaves correctly, right?<p>Right?!",
+      "I feel like collectively we should just stop talking about this and speculating and just see what happens in a year.<p>Is programming obsolete, or is it needed more then ever becasue we need to fix all the crap generated. Let&#x27;s just all follow up at the end of the year.<p>Itll be quiet though if we&#x27;re still hand writing code though I think",
+      "they just like me",
+      "I mean to be honest, we&#x27;re a company of 12 devs, I think 100% of our code is agentic now. We almost treat it as a liability to hand write something.<p>Apparently cursor keeps track and Opus4.5 is the model our top 3 devs use.",
+      "I mean CRUD apps aren’t really that difficult of a coding gig to begin with."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The Cost of AI Art",
+    "url": "https://www.brandonsanderson.com/blogs/blog/ai-art-brandon-sanderson-keynote",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The problem with AI art is that it mostly sucks right now. Well, for &quot;high art&quot; - it can&#x27;t write a novel, it doesn&#x27;t create interesting artistic images. It&#x27;s great for mocking up product UIs. And there are exceptions when an individual human puts a lot of work into it, for graphic art at least. Novels, it doesn&#x27;t seem that close.<p>Yet.<p>I don&#x27;t know if it will always stay this way, though. If one day I read a novel and I think, this is a great novel. I appreciated it, I felt myself growing from it. And then later I learn it was written by an AI. That&#x27;s it, that will prove that great AI novels are possible. I will know it when I see it. I haven&#x27;t seen it yet, but if it happens, I&#x27;ll know.<p>So it&#x27;s really just a technical question. Not a philosophical one.",
+      "I find it interesting how in the essay Sanderson implies he doesn’t take issue with AI as a tool. You can use it to search in a more advanced way, or to summarise meeting minutes.<p>He in essence claims there is some intangible attribute of a work that defines it as art or not depending on both the person who made it and the process they went through.<p>It does seem like a slightly romantic notion, since for any given item you can’t know if it’s art or not just by looking at it, which seems a bit odd. But then again, I suppose there’s a reason people pay for guided tours at museums so they can learn about the history and background of a work.<p>Side note: the title is editorialised; it should be “The Hidden Cost of AI Art: Brandon Sanderson&#x27;s Keynote”"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Former Google engineer found guilty of espionage and theft of AI tech",
+    "url": "https://www.cnbc.com/2026/01/30/former-google-engineer-found-guilty-of-espionage-and-theft-of-ai-tech.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Justice post: <a href=\"https:&#x2F;&#x2F;www.justice.gov&#x2F;opa&#x2F;pr&#x2F;former-google-engineer-found-guilty-economic-espionage-and-theft-confidential-ai-technology\" rel=\"nofollow\">https:&#x2F;&#x2F;www.justice.gov&#x2F;opa&#x2F;pr&#x2F;former-google-engineer-found-...</a> (<a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46830373\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46830373</a>)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Iran rounds up thousands in mass arrest campaign after crushing unrest",
+    "url": "https://www.reuters.com/world/middle-east/iran-rounds-up-thousands-mass-arrest-campaign-after-crushing-unrest-sources-say-2026-01-29/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;LzV2M\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;LzV2M</a>",
+      "“Plainclothes forces raid homes across country, put detainees in secret lockups”<p>Huh.",
+      "We don&#x27;t want countries intervening on the afairs of other countries but there comes a time when you really have to consider it.",
+      "Meanwhile the headlines say Trump is sending more warships to the area and telling Iran it&#x27;s running out of time to make a deal or else.",
+      "[dead]",
+      "[flagged]",
+      "Based on the US troop movements, Israel&#x27;s sneak attack last year and the ongoing suspicion that the US uses protests and NGOs to achieve regime change it&#x27;d seem to be a no-brainer for Iran to be on extreme war footing right now. I imagine this&#x27;d be part of their preparation."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Clawd Agent accidentally social engineers its own master, confesses on ClawdBook",
+    "url": "https://pbs.twimg.com/media/G_5jRlxWgAARR_G.jpg?name=orig",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Discussion:<p><i>Moltbook</i><p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46820360\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46820360</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "UK's first rapid-charging battery train ready for boarding this weekend",
+    "url": "https://www.theguardian.com/business/2026/jan/30/uk-first-rapid-charging-battery-train",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "DHS ramps up surveillance in immigration raids, sweeping in citizens",
+    "url": "https://apnews.com/article/digital-crackdown-immigration-minneapolis-trump-52662450a15a7be8d9df69036f9b5f12",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hey, at least we live in America, and we’re not invited over for tea! And we don’t have all our biometrics scanned for use for government tracking. It’s just to guarantee our liberty.<p>Land of the free, home of the brave, digital cage proudly made in the USA!<p>A pseudonymous writer NS Lyons has been writing about how China and the US are converging in how they treat their citizens. A few years ago it would have raised eyebrows, but now it’s a suggested read.<p><a href=\"https:&#x2F;&#x2F;open.substack.com&#x2F;pub&#x2F;theupheaval&#x2F;p&#x2F;the-china-convergence\" rel=\"nofollow\">https:&#x2F;&#x2F;open.substack.com&#x2F;pub&#x2F;theupheaval&#x2F;p&#x2F;the-china-conver...</a>",
+      "The 100 mile &quot;Constitution-free zone&quot; &#x27;policy&#x27; has long been a problem, not because it was abused, but because it had the propensity to be abused, and here we are, seeing it abused.<p>With the current Supreme Court doing everything in its power to require the hardest road possible to righting constitutional wrongs, this is going to take a lot of time and money by regular folks to fight and to hopefully -- at some point -- stop this abuse of power.",
+      "It’s I guess too political for HN but these guys absolutely want to be the Gestapo and are trying their hardest.",
+      "The tactics have been unnecessarily brutal with weak results.  That 6 week stay in Minnesota stay netted a 3000-6000 thousand people.  If they wanted to deport a million a year they would need to do 3,000 a day.<p>The problem is they don&#x27;t have enough dhs agents and are using the border guards who don&#x27;t have that training and the local police won&#x27;t help because they have been order not to.  I think with the changes in leadership we are going to see less brutal unnecessarily actions less social media taunting but more deportations in a more humane way.",
+      "fly your flags , half mast and upside down untill they get the message.<p>unless you have not noticed, almost all of the world is backing away slowly, and discussing amongst themselves how everything\nthat has happened in the last 100 years, needs to be reassessed and reframed with the US bieng uncle sam the boogy man."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Oracle may slash up to 30,000 jobs, sell health unit to pay for AI build-out",
+    "url": "https://www.theregister.com/2026/01/29/oracle_td_cowen_note/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  }
+]
