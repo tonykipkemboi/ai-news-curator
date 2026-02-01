@@ -1,0 +1,264 @@
+[
+  {
+    "title": "What I learned building an opinionated and minimal coding agent",
+    "url": "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; If you look at the security measures in other coding agents, they&#x27;re mostly security theater. As soon as your agent can write code and run code, it&#x27;s pretty much game over.<p>At least for Codex, the agent runs commands inside an OS-provided sandbox (Seatbelt on macOS, and other stuff on other platforms).  It does not end up &quot;making the agent mostly useless&quot;.",
+      "I&#x27;ve seen a couple of power users already switching to Pi [1], and I&#x27;m considering that too. The premise is very appealing:<p>- Minimal, configurable context - including system prompts [2]<p>- Minimal and extensible tools; for example, todo tasks extension [3]<p>- No built-in MCP support; extensions exist [4]. I&#x27;d rather use mcporter [5]<p>Full control over context is a high-leverage capability. If you&#x27;re aware of the many limitations of context on performance (in-context retrieval limits [6], context rot [7], etc.), you&#x27;d truly appreciate Pi lets you fine-tune context for optimal performance.<p>It&#x27;s clearly not for everyone, but I can see how powerful it can be.<p>---<p>[1] <a href=\"https:&#x2F;&#x2F;lucumr.pocoo.org&#x2F;2026&#x2F;1&#x2F;31&#x2F;pi&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;lucumr.pocoo.org&#x2F;2026&#x2F;1&#x2F;31&#x2F;pi&#x2F;</a><p>[2] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;badlogic&#x2F;pi-mono&#x2F;tree&#x2F;main&#x2F;packages&#x2F;coding-agent#system-prompt\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;badlogic&#x2F;pi-mono&#x2F;tree&#x2F;main&#x2F;packages&#x2F;codin...</a><p>[3] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;mitsuhiko&#x2F;agent-stuff&#x2F;blob&#x2F;main&#x2F;pi-extensions&#x2F;todos.ts\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;mitsuhiko&#x2F;agent-stuff&#x2F;blob&#x2F;main&#x2F;pi-extens...</a><p>[4] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;nicobailon&#x2F;pi-mcp-adapter\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;nicobailon&#x2F;pi-mcp-adapter</a><p>[5] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;steipete&#x2F;mcporter\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;steipete&#x2F;mcporter</a><p>[6] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;gkamradt&#x2F;LLMTest_NeedleInAHaystack\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;gkamradt&#x2F;LLMTest_NeedleInAHaystack</a><p>[7] <a href=\"https:&#x2F;&#x2F;research.trychroma.com&#x2F;context-rot\" rel=\"nofollow\">https:&#x2F;&#x2F;research.trychroma.com&#x2F;context-rot</a>",
+      "I really like pi and have started using it to build my agent.\nMario&#x27;s article fully reveals some design trade-offs and complexities in the construction process of coding agents and even general agents. I have benefited a lot!",
+      "Pi has probably the best architecture and being written in Javascript it is well positioned to use the browser sandbox architecture that I think is the future for ai agents.<p>I only wish the author changed his stance on vendor extensions: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;badlogic&#x2F;pi-mono&#x2F;discussions&#x2F;254\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;badlogic&#x2F;pi-mono&#x2F;discussions&#x2F;254</a>",
+      "I dont know how to feel about being the only one refusing to run yolo mode until the tooling is there, which is still about 6 months away for my setup. Am I years behind everyone else by then? You can get pretty far without completely giving in. Agents really dont need to execute that many arbitrary commands. linting, search, edit, web access should all be bespoke tools integrated into the permission and sandbox system. agents should not even be allowed to start and stop applications that support dev mode, they edit files, can test and get the logs what else would they need to do? especially as the amount of external dependencies that make sense goes to a handful you can without headache approve every new one. If your runtime supports sandboxing and permissions like deno or workerd this adds an initial layer of defense.<p>This makes it even more baffling why anthropic went with bun, a runtime without any sandboxing or security\narchitecture and will rely in apple seatbelt alone?",
+      "Being minimalist is real power these days as everything around us keeps shoving features in our face every week with a million tricks and gimmicks to learn. Something minimalist like this is honestly a breath of fresh air!<p>The YOLO mode is also good, but having a small ‘baby setting mode’ that’s not full-blown system access would make sense for basic security. Just a sensible layer of &quot;pls don&#x27;t blow my machine&quot; without killing the freedom :)",
+      "Armin Ronacher wrote a good piece about why he uses Pi here: <a href=\"https:&#x2F;&#x2F;lucumr.pocoo.org&#x2F;2026&#x2F;1&#x2F;31&#x2F;pi&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;lucumr.pocoo.org&#x2F;2026&#x2F;1&#x2F;31&#x2F;pi&#x2F;</a><p>I hadn&#x27;t realized that Pi is the agent harness used by OpenClaw.",
+      "I did something similar in Python, in case people want to see a slightly different perspective (I was aiming for a minimal agent library with built-in tools, similar to the Claude Agent SDK):<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;NTT123&#x2F;nano-agent\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;NTT123&#x2F;nano-agent</a>",
+      "Glad to see more people doing this!<p>I built on ADK (Agent Development Kit), which comes with many of the features discussed in the post.<p>Building a full, custom agent setup is surprisingly easy and a great learning experience for this transformational technology. Getting into instruction and tool crafting was where I found the most ROI."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "List animals until failure",
+    "url": "https://rose.systems/animalist/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "One of the few sites with a fun &quot;you have javascript turned off&quot; message.<p>&gt; This game requires JavaScript. Or, if you&#x27;ve superior taste, take out a pen and paper and start listing animals.",
+      "I added Jellyfish and then Portuguese Man-o-war.<p>It took the man o war, but crossed out Jellyfish and said &quot;added a vaguer term&quot;, but a jellyfish and a man-o-war are discrete animals.<p>The man-o-war is a colonial siphonophore composed of zooids, while a jellyfish is a singular marine organism.<p>They&#x27;re both in the phylum Cnidaria, and that would have been a more vague term had I entered it.",
+      "Presumably inspired by this tweet: <a href=\"https:&#x2F;&#x2F;x.com&#x2F;Fredward3948576&#x2F;status&#x2F;1763363909669388588\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;Fredward3948576&#x2F;status&#x2F;1763363909669388588</a>",
+      "For anyone wondering: This is based on basic text parsing and a key-value lookup table, no AI involved whatsoever.<p>Here&#x27;s the table: <a href=\"https:&#x2F;&#x2F;rose.systems&#x2F;animalist&#x2F;lower_title_to_id.js\" rel=\"nofollow\">https:&#x2F;&#x2F;rose.systems&#x2F;animalist&#x2F;lower_title_to_id.js</a>",
+      "No LLMs is impressive. Also recognizes &quot;drop bear&quot;. Well played.",
+      "68. The unique title texts are really fun. But I strongly disagree that &quot;chipmunks are squirrels&quot;.",
+      "Lazy daisy:<p><pre><code>  (async () =&gt; {\n    for (c of &#x27;red black white brown blue green yellow golden grey arctic mountain forest spotted striped&#x27;.split(&#x27; &#x27;))\n\n      for (a of &#x27;bear lion tiger wolf fox eagle shark whale snake frog cat dog horse bat rat mouse owl hawk duck crab ant bee spider deer penguin elephant rabbit&#x27;.split(&#x27; &#x27;)) {\n\n        guessbox.value = c + &#x27; &#x27; + a;\n        uncomment(); attempt();\n        await new Promise(r =&gt; setTimeout(r, 75));\n      }\n  })();</code></pre>",
+      "This was fun.\nI definitely could feel the fatigue slowing me down until the timer got me. I also wasted a bunch of time trying to spell specific animals like the wobbegong.<p>I like the emoji output as well:\n203 animals listed:<p>𓃬𓆊 𓃜𓃘𓅱𓆉𓅃",
+      "It might be an interesting LLM benchmark: how many can they list without breaking the rules (repetition or non-animals). Although I bet that big bucks would be then thrown at pointlessly optimizing for that benchmark, so...",
+      "Nice! I added this to the HN Arcade <a href=\"https:&#x2F;&#x2F;andrewgy8.github.io&#x2F;hnarcade&#x2F;games&#x2F;games&#x2F;list-animals-until-failure\" rel=\"nofollow\">https:&#x2F;&#x2F;andrewgy8.github.io&#x2F;hnarcade&#x2F;games&#x2F;games&#x2F;list-animal...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "In praise of –dry-run",
+    "url": "https://henrikwarne.com/2026/01/31/in-praise-of-dry-run/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "If you&#x27;re interacting with stateful systems (which you usually are with this kind of command), --dry-run can still have a race condition.<p>The tool tells you what it would do in the current situation, you take a look and confirm that that&#x27;s alright. Then you run it again without --dry-run, in a potentially different situation.<p>That&#x27;s why I prefer Terraform&#x27;s approach of having a &quot;plan&quot; mode. It doesn&#x27;t just tell you what it would do but does so in the form of a plan it can later execute programmatically. Then, if any of the assumptions made during planning have changed, it can abort and roll back.<p>As a nice bonus, this pattern gives a good answer to the problem of having &quot;if dry_run:&quot; sprinkled everywhere: You have to separate the planning and execution in code anyway, so you can make the &quot;just apply immediately&quot; mode simply execute(plan()).",
+      "I like this pattern a lot, but it&#x27;s important that the code in the dry path is representative. I&#x27;ve been bitten a few too many times by dry code that just runs `print(&quot;would have updated ID: 123&quot;)`, but not actually running most of the code in the hot path. Then when I run it for real, some of the prep for the write operation has a bug &#x2F; error, so my dry run didn&#x27;t actually reveal much to me.<p>Put another way: your dry code should do everything up until the point that database writes &#x2F; API calls &#x2F; etc actually happen. Don&#x27;t bail too early",
+      "I like the opposite too, -commit or -execute as it is assumed running it with defaults is immutable as the dry run, simplifying validation complexity and making the go live explicit.",
+      "In order to make it work without polluting the code-base I find that I have to move the persistence into injectable strategy, which makes it good anyway. If you keep passing in `if dry_run:` everywhere you&#x27;re screwed.<p>Also, if I&#x27;m being honest, it&#x27;s much better to use `--wet-run` for the production run than to ask people to run `--dry-run` for the test run. Less likely to accidentally fire off the real stuff.",
+      "I prefer “—really-do”, so the default behaviour of the tool is to do nothing. That’s more fault tolerant for the scenario you forget to add “—dry-run”.",
+      "Funny, I recalled a tool called &quot;molly-guard&quot; which solves the problem when you want to reboot a Unix server, but can be on the wrong one. It asks to type the server name.<p>Anybody who rebooted a wrong server can say that this tool is brilliant.<p>Like &quot;--dry-run&quot; but for &quot;reboot.&quot;",
+      "One of the kick-ass feature of PowerShell is you only need to add `[CmdletBinding(SupportsShouldProcess)] ` to have the `-whatIf` dry-run for your functions.<p>Quite handy.",
+      "I usually do the opposite and add a --really flag to my CLI utilities, so that they are read-only by default and extra effort is needed to screw things up.",
+      "In one (internal) CLI I maintain, I actually put the `if not dry_run:` inside the code which calls the REST API, because I have a setting to log HTTP calls as CURL commands, and that way in dry-run mode I can get the HTTP calls it would have made without it actually making them.<p>And this works well if your CLI command is simply performing a single operation, e.g. call this REST API<p>But the moment it starts to do anything more complex: e.g. call API1, and then send the results of API1 to API2 – it becomes a lot more difficult<p>Of course, you can simulate what API1 is likely to have returned; but suddenly you have something a lot more complex and error-prone than just `if not dry_run:`",
+      "For me the ideal case is three-state. When run interactively with no flags, print a dry run result and prompt the user to confirm the action; and choose a default for non-interactive invocations. In both cases, accept either a --dry-run or a --yes flag that indicates the choice to be made.<p>This should always be included in any application that has a clear plan-then-execute flow, and it&#x27;s definitely nice to have in other cases as well."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Generative AI and Wikipedia editing: What we learned in 2025",
+    "url": "https://wikiedu.org/blog/2026/01/29/generative-ai-and-wikipedia-editing-what-we-learned-in-2025/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; <i>That means the article contained a plausible-sounding sentence, cited to a real, relevant-sounding source. But when you read the source it’s cited to, the information on Wikipedia does not exist in that specific source. When a claim fails verification, it’s impossible to tell whether the information is true or not.</i><p>This has been a rampant problem on Wikipedia always. I can&#x27;t seem to find any indicator that this has increased recently? Because they&#x27;re only even investigating articles flagged as potentially AI. So what&#x27;s the control baseline rate here?<p>Applying correct citations is actually really hard work, even when you know the material thoroughly. I just assume people write stuff they know from their field, then mostly look to add the minimum number of plausible citations after the fact, and then most people never check them, and everyone seems to just accept it&#x27;s better than nothing. But I also suppose it depends on how niche the page is, and which field it&#x27;s in.",
+      "The title I&#x27;ve chosen here is carefully selected to highlight one of the main points.  It comes (lightly edited for length) from this paragraph:<p><i>Far more insidious, however, was something else we discovered:</i><p>More than two-thirds of these articles failed verification.<p><i>That means the article contained a plausible-sounding sentence, cited to a real, relevant-sounding source. But when you read the source it’s cited to, the information on Wikipedia does not exist in that specific source. When a claim fails verification, it’s impossible to tell whether the information is true or not. For most of the articles Pangram flagged as written by GenAI, nearly every cited sentence in the article failed verification.</i>",
+      "Note that this article is <i>only</i> about edits made through the Wiki Edu program, which partners with universities and academics to have students edit Wikipedia on course-related topics. It&#x27;s not about Wikipedia writ large!",
+      "So, a small proportion of articles were detected as bot-written, and a large proportion of those failed validation.<p>What if in fact a large proportion of articles were bot-written, but only the unverifiable ones were bad enough to be detected?",
+      "Set aside the effect within Wikipedia and consider the larger picture, millions of people generating text with LLMs and at least some of that text being accepted as correct by millions of readers.<p>The WikiEdu article clearly demonstrates what everyone should have known already: an LLM has no commitment to the truth. An LLM&#x27;s only commitment is to correct syntax.",
+      "I feel like this is such a tragedy of the commons for the LLM providers.  Wikipedia probably makes up a huge bulk of their dataset, why taint it?  Would be interesting if there was some kind of &quot;you shall not use our platform on Wikipedia&quot; stance adopted.",
+      "What would be a truly epic application would be their own chat bot to ask about applying edit guidelines. After reading almost all of the guidelines the talkpage debates, even amoung experienced edditors, looked waaaay off. The pattern of revert first make up excuses later seems the worse newbie deterrent possible. This while it should be fine to make mistakes. Many such excuses would get debunked by a bot imediately. It simply wont do any favors. If established editors dont like it they can edit the guidelines.",
+      "wikipedia is great but I can&#x27;t get over this - <a href=\"https:&#x2F;&#x2F;www.wikifunctions.org&#x2F;view&#x2F;en&#x2F;Z16393\" rel=\"nofollow\">https:&#x2F;&#x2F;www.wikifunctions.org&#x2F;view&#x2F;en&#x2F;Z16393</a>",
+      "I’m honestly surprised LLMs are still screwing up citations. It does not feel like a harder task than building software or generating novel math proofs. In both those cases, of course, there is a verifier, but self-verification with “Does this text support this claim?” seems like it ought to be within the capabilities of a good reasoning model.<p>But as I understand the situation, even the major Deep Research systems still have this issue.",
+      "I find it very interesting that the main competitor to Wikipedia which is Grokipedia is taking a 180 degree approach being AI first."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Coffee as a staining agent substitute in electron microscopy",
+    "url": "https://phys.org/news/2026-01-coffee-agent-substitute-electron-microscopy.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "You just know how they found out about this...<p>&gt; &quot;I got the idea of using espresso as a staining agent from the circular dried stains in used coffee cups,&quot;<p>Suuure...",
+      "Calling it now: this is ignobel prize-worthy research. If it doesn’t get a nod I’ll eat my hat.",
+      "Make sure to leave out the hazelnut syrup.",
+      "Next up: &quot;Coffee in Austria recalled due to high concentrations of heavy metals&quot;",
+      "One does not simply ... ordinary espresso.",
+      "Finally, something Starbucks is good for!<p>ZING!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Minimal – Open-Source Community driven Hardened Container Images",
+    "url": "https://github.com/rtvkiz/minimal",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "As those are built on Wolfi by Chainguard I would not use them in production. They restricted already their own images for only paid customers and also recently limited OSS entirely on Wolfi. So there is no guarantee how long the packages may be available for non paying customers.",
+      "Dumb question but how would these work in practice? I use kamal to deploy containerized applications. Would I on a regular basis update the versions of the underlying images to match the latest hardened container and then redeploy? I assume this is automatable?",
+      "This is great. I have been talking to quite some vendors in the space. I have looked in docker hardened images too. They have made it free too.<p>I think the problem in general is hardened image market is keeping up with CVEs and making sure the catalog is vast so that it covers all the images and nuances.<p>Responding and patchibg CVEs with an SLA is the KPI of the vendors. As much as I would like cheer for you, doing it as an opensource initiate with a guaranteed SLA is going to be painful for you as maintainer without profit as a motive.",
+      "I have been curious on secure base images for the AI ecosystem, where we need to ship with cuda 11.8&#x2F;12.8&#x2F;13.1 for stability reasons, and in our case, a bit of the torch ecosystem and Nvidia rapids ecosystem. That ends up being... A lot. Extra fun: going all the way to FIPS..",
+      "What is the process to trust the usage of this?<p>How can we learn the identity of the contributors? How are the contributors vetted? How are we notified if a significant change in leadership happens?<p>It&#x27;s just a general problem when relying on GitHub accounts for important code.<p>For some reason I trust the big vendors to have better safe-guards against things like the questions above. Such as aws linux containers etc..<p>Would love to hear how other people think around this.",
+      "I&#x27;m not sure what problem this is solving. This seems like chainguard but being built in &quot;your ci&quot; (github) vs &quot;their ci&quot;. Images may be a bit smaller, but this is already a feature set that wolfi already allows for. Besides that chainguard is not full-source bootstrapped.",
+      "are these images based on debian?  seems unclear as they are all framework specific..",
+      "Why does this not use chisel? I assume you at least drop the bin dir? Although the presence of ncurses is super weird<p>I don&#x27;t understand why one would go halfway and leave packages which are unneeded for services. The only executable in a hardened container image should be your application.",
+      "Looks very useful, we should definitely build up on this!!!",
+      "Fewer CVEs do not necessarily mean safety."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "CPython Internals Explained",
+    "url": "https://github.com/zpoint/CPython-Internals",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Had to write a fairly substantial native extension to Python a couple years ago and one of the things I enjoyed was that the details were not easily &quot;Googleable&quot; because implementation results were swamped by language level results.<p>It took me back to the old days of source diving and accumulated knowledge that you carried around in your head.<p><a href=\"https:&#x2F;&#x2F;www.dave.org&#x2F;posts&#x2F;20220806_python&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.dave.org&#x2F;posts&#x2F;20220806_python&#x2F;</a>",
+      "This looks quite nice. I always wished there was something like &quot;Ruby Under a Microscope&quot; for Python (and other languages). It was quite instrumental for my deeper understanding of the language.",
+      "Very interesting! Gonna look through this for sure in the next weeks",
+      "vstinner&#x27;s Python docs; &quot;Unofficial Python Development (Victor&#x27;s notes) documentation&quot; &gt; Garbage Collector &gt; &quot;Implement the GC protocol in a type&quot;: \n<a href=\"https:&#x2F;&#x2F;pythondev.readthedocs.io&#x2F;garbage_collector.html#implement-the-gc-protocol-in-a-type\" rel=\"nofollow\">https:&#x2F;&#x2F;pythondev.readthedocs.io&#x2F;garbage_collector.html#impl...</a><p>Python Developer&#x27;s Guide &gt; &quot;CPython&#x27;s  internals&quot;: \n<a href=\"https:&#x2F;&#x2F;devguide.python.org&#x2F;internals&#x2F;index.html\" rel=\"nofollow\">https:&#x2F;&#x2F;devguide.python.org&#x2F;internals&#x2F;index.html</a><p>Python&#x2F;cpython&#x2F;&#x2F;InternalDocs&#x2F;README.md &gt; &quot;CPython Internals Documentation&quot;: \n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;python&#x2F;cpython&#x2F;blob&#x2F;main&#x2F;InternalDocs&#x2F;README.md\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;python&#x2F;cpython&#x2F;blob&#x2F;main&#x2F;InternalDocs&#x2F;REA...</a>",
+      "I wish they would just go back to calling it Python, since it’s the Python that everyone knows and uses.  No one gets confused over Python the spec and Python the implementation.  Every time I see “CPython” i have to double check we’re just talking about Python.<p>I guess they “CPython’ed” back when people thought Jython would take off , and it never did because Java sucks.",
+      "I&#x27;ve been comparing various platforms and discussing them with ChatGPT—for instance, why Python&#x27;s execution is slower than JavaScript&#x27;s V8. It claimed this is due to mtechnical debt and the inability to change because libraries like NumPy bypass public interfaces and access data directly.<p>I&#x27;m wondering how much of that is true and what is just a hallucination.&quot;<p>Btw: JavaScript seems to have similar complexity issues.<p>Edit: Python has no JIT"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Browser Agent Benchmark: Comparing LLM models for web automation",
+    "url": "https://browser-use.com/posts/ai-browser-agent-benchmark",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Since we&#x27;re in this topic, can anyone suggest good AI-based tool for exploratory (fuzzy?) web testing?",
+      "It&#x27;s lacking the best model (Opus 4.5) on the benchmark tho.",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: OpenJuris – AI legal research with citations from primary sources",
+    "url": "https://openjuris.org/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I’ve been lately trying to build something similar, where did you acquire case law database to build this tool on top?",
+      "One problem with AI in law is AI&#x27;s tendency to hallucinate non-existent cases and invent citations. This should be easy to solve and if you&#x27;ve done so, congratulations.",
+      "How exactly do you handle hallucinations? Hallucinations need not just be in the citations, right? And what if there are hallucinations without any citations?",
+      "How do we know it’s not just a crappy wrapper? What’s the difference between just uploading documents into a general purpose LLM and asking it to cite sources?<p>I would also add as feedback that it’s kind of scammy to use the word “open” and “.org” like this when you’re running a for-profit business. It’s not illegal but it feels unethical. Just because OpenAI made fake non-profit status popular doesn’t mean you have to follow that oath.<p>&gt; This free tier will be subsidized by our enterprise functions<p>I assume you are not in any way a non-profit organization."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "US has investigated claims WhatsApp chats aren't private",
+    "url": "https://www.bloomberg.com/news/articles/2026-01-29/us-has-investigated-claims-that-whatsapp-chats-aren-t-private",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "WhatsApp&#x27;s end-to-end encryption has been independently investigated: <a href=\"https:&#x2F;&#x2F;kclpure.kcl.ac.uk&#x2F;ws&#x2F;files&#x2F;324396471&#x2F;whatsapp.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;kclpure.kcl.ac.uk&#x2F;ws&#x2F;files&#x2F;324396471&#x2F;whatsapp.pdf</a><p>Full version here: <a href=\"https:&#x2F;&#x2F;eprint.iacr.org&#x2F;2025&#x2F;794.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;eprint.iacr.org&#x2F;2025&#x2F;794.pdf</a><p>We didn&#x27;t review the entire source code, only the cryptographic core. That said, the main issue we found was that the WhatsApp servers ultimately decide who is and isn&#x27;t in a particular chat. Dan Goodin wrote about it here: <a href=\"https:&#x2F;&#x2F;arstechnica.com&#x2F;security&#x2F;2025&#x2F;05&#x2F;whatsapp-provides-no-cryptographic-management-for-group-messages&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;arstechnica.com&#x2F;security&#x2F;2025&#x2F;05&#x2F;whatsapp-provides-n...</a>",
+      "No closed-source E2EE client can be truly secure because the ends of e2e are opaque.<p>Detecting backdoors is only truly feasible with open source software and even then it can difficult.<p>A backdoor can be a subtle remote code execution &quot;vulnerability&quot; that can only be exploited by the server. If used carefully and it exfiltrates data in expected client-server communications it can be all but impossible to detect. This approach also makes it more likely that almost no insider will even be aware of it, it could be a small patch applied during the build process or to the binary itself (for example, a bound check branch). This is also another reason why reproducible builds are a good idea for open source software.",
+      "Ex-WhatsApp engineer here. WhatsApp team makes so much effort to make this end to end encrypted messages possible. From the time I worked I know for sure it is not possible to read the encrypted messages.<p>From business standpoint they don’t have to read these messages, since WhatsApp business API provide the necessary funding for the org as a whole.",
+      "Matthew Green&#x27;s take from 3 days ago:<p>&gt; There’s a lawsuit against WhatsApp making the rounds today, claiming that Meta has access to plaintext. I see nothing in there that’s compelling; the whole thing sounds like a fishing expedition.<p><a href=\"https:&#x2F;&#x2F;bsky.app&#x2F;profile&#x2F;matthewdgreen.bsky.social&#x2F;post&#x2F;3mdglo2z6i22i\" rel=\"nofollow\">https:&#x2F;&#x2F;bsky.app&#x2F;profile&#x2F;matthewdgreen.bsky.social&#x2F;post&#x2F;3mdg...</a>",
+      "None of the statements I’ve seen from Meta, people formerly involved in WhatsApp that chimed in here (thanks!), or the quotes from the investigation are incompatible with the whistleblowers’ allegations.<p>At this point, I won’t trust anything short of this on the front page of an SEC filing, signed by zuck and the relevant management chain:<p>“The following statement is material to earnings:  Facebook has never (since E2EE was rolled out) and will never access messages sent through whatsapp via any means including the encryption protocol, application backdoor moderation access or backup mechanisms.  Similarly, it does not provide third parties with access to the methods, and does not have the technical capability to do so under any circumstances.”",
+      "Just to throw in a couple of possibly outlandish theories:<p>1. as others have said, they could be collecting the encrypted messages and then tried to decrypt them using quantum computing, the Chinese have been reportedly trying to do this for many years now.<p>2. with metadata and all the information from other sources, they could infer what the conversation is about without the need to decrypt it: if I visit a page (Facebook cookies, they know), then I share a message to my friend John, and then John visits the same page (again, cookies), then they can be pretty certain that the contain of the message was me sharing the link.",
+      "I wonder how these investigations go? Are they just asking them if it is true? Are they working with IT specialist to technically analyze the apps? Are they requesting the source code that can be demonstrated to be the same one that runs on the user devices and then analyze that code?",
+      "I said this in another recent HN thread but all encryption comes down to key management. If you don’t control the keys, something else does. Sometimes that’s a hardware enclave, sometimes it’s a key derivation algorithm, sometimes it’s just a locally generated key on the filesystem.<p>If you never give WhatsApp a cryptographic identity then what key is it using? How are your messages seamlessly showing up on another device when you authenticate? It’s not magic, and these convenience features always weaken the crypto in some way.<p>WhatsApp has a feature to verify the fingerprint of another party. How many people do you think use this feature, versus how many people just assume they&#x27;re safe because they read that WhatsApp has E2EE?",
+      "I witnessed something recently that points unambiguously at Whatsapp chats being not private.<p>Not two months ago I sent a single photo to a friend of some random MacGyver kitchen contraption I made. Never described it, just a photo with the lol. He replied lol. He never reshared nor discussed it with anyone else. We never spoke about this before or after. Two days later he starts seeing ads on Facebook for a proper version of the same. There&#x27;s virtually no other explanation except for Meta vacuuming and analyzing the photo. None."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "SQLite Is a Self Contained System",
+    "url": "https://sqlite.org/selfcontained.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "So am I correct I&#x27;m thinking that SQLite doesn&#x27;t need, for example, FS sycalls just the VFS functions?",
+      "The less stuff you talk to the fewer libs you need."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "nanochat can now train GPT-2 grade LLM for –$73 (3 hours on single 8XH100 node)",
+    "url": "https://twitter.com/karpathy/status/2017703360393318587",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "interesting benchmark but is a gpt-2 class model actually useful for agents? we run ~10k ai companions and found that anything below 7b params struggles hard with reliable json output and tool use. the training cost is impressive but for structured tasks the error rate might be too high for production.",
+      "Is there a theoritical minimum for computing power required to say, target GPT-2? Is there something fundamental to prevent a gaming laptop from exceeding Claude Opus?",
+      "I have an unrelated question: Why the URL is submission is &quot;twitter.com&quot; when the link leads to &quot;x.com&quot;. Is it still possible to use twitter.com?",
+      "And why becomes &quot;~&quot; (circa) a minus?<p>Luckily that error is blatantly obvious."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The 80% Problem in Agentic Coding – Addy Osmani",
+    "url": "https://addyo.substack.com/p/the-80-problem-in-agentic-coding",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Seems pretty spot on, based on my extremely limited experience thus far with agentic development.  If I don&#x27;t narrowly scope &amp; carefully review the changes the agent makes, the potential for it making changes that cascade into bigger problems explodes.  At which point, I spend a lot of subsequent time and effort identifying and fixing those problems.",
+      "Reads like LLM text that says little, and talks surface level. Wasn&#x27;t able to read through it.",
+      "&gt; But the shift is real. When Karpathy admits he barely writes code directly anymore, when the Claude Code team ships 20+ PRs daily with 100% AI-written code, we’re past the point of dismissing this as hype.<p>Oh a company 100% invested in AI hype says they have 100% AI-written code PRs. Water is still wet. CC Team is least trustable team when it comes to judging how good AI is.<p>Also, to Pro-AI people, if you really believe that models are going to become much better from now, why shouldnt we just wait for those models rather than building tech debt at a scale unseen before 2025?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Exposed Moltbook Database Let Anyone Take Control of Any AI Agent on the Site",
+    "url": "https://www.404media.co/exposed-moltbook-database-let-anyone-take-control-of-any-ai-agent-on-the-site/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It really sucks that Supabase is what LLMs default to. Supabase has an innate problem.<p>- RLS asks for way more discipline to use securely than the bog-standard &quot;client+API+SQL db&quot;<p>- Supabase has spent all of its marketing budget on beginners (pre-LLMs) and completely non-technical users (post-LLMs)<p>This combination is always going to lead to complete trainwrecks. It&#x27;s like marketing angle grinders to people who have never learnt to use a saw.<p>The chance of Supabase ever changing from RLS-first to RLS-last is near zero as well as it&#x27;s too core to their brand. As long as it&#x27;s RLS-first it doesn&#x27;t matter how many &quot;barriers&quot; and &quot;checks&quot; they put up either. They will never put up enough to slow adoption, which is what would be needed.<p>It would be much better for everyone if the standard vibe coding stack was based on, for example, Cloudflare. Pages&#x2F;Workers&#x2F;D1 or something. Not that I&#x27;m a fan of CF (and there may be better alternatives) but at least it would cut these cases of &quot;entire DB exposed&quot; at least in half.<p>Another bit of irony is that the whole selling point of Supabase has been &quot;time from zero to one&quot;, &quot;less code&#x2F;boilerplate required&quot;, &quot;I&#x27;m a frontend developer and don&#x27;t want to learn backend&quot;. But those things are <i>exactly</i> things that LLMs already solve, especially for vibecoders who don&#x27;t even know what the code is doing. For them it&#x27;d be so much better if the LLM just went with the standard SQL setup rather than Supabase&#x2F;RLS.",
+      "I find it kinda amusing that the only two times I&#x27;ve heard Supabase mentioned on here was the time that someone let Cursor delete their prod DB and this.<p>I understand it&#x27;s some kind of RAD framework for JavaScript people?<p>I feel I might be showing my age here, but I don&#x27;t understand how securing your production database is a challenge all of a sudden. (My hot take of the day)",
+      "Source: <a href=\"https:&#x2F;&#x2F;x.com&#x2F;theonejvo&#x2F;status&#x2F;2017732898632437932\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;theonejvo&#x2F;status&#x2F;2017732898632437932</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Pi: The Minimal Agent Within OpenClaw",
+    "url": "https://lucumr.pocoo.org/2026/1/31/pi/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Pinchwork – A task marketplace where AI agents hire each other",
+    "url": "https://github.com/anneschuth/pinchwork",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is a great idea! How do the market economics work? Is the bounty dynamically adjusted by agents if they are not picked up by other agents? Curious to find out how the &#x27;price&#x27; of a task is determined in such a marketplace.",
+      "neat idea, people can make agents and then &quot;hire&quot; them out",
+      "[dead]",
+      "[dead]",
+      "[dead]",
+      "[dead]",
+      "[dead]",
+      "[dead]",
+      "[dead]",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: ToolKuai – Privacy-first, 100% client-side media tools",
+    "url": "https://toolkuai.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "I replaced a $120/year micro-SaaS in 20 minutes with LLM-generated code",
+    "url": "https://blog.pragmaticengineer.com/i-replaced-a-120-year-micro-saas-in-20-minutes-with-llm-generated-code/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I am flummoxed that this service costs $120&#x2F;year in the first place. Wow!<p>I think the article is right that a lot of people will replace such things with LLM-generated options, but I also think a lot of people won’t. For programmers and technical types, maybe so. But I suspect that for a lot of nontechnical users, even the relative ease of AI coding will remain more than they really want to do.",
+      "Have a similar experience with replacing Copilot after looking at the system prompts and wtf&#x27;n<p>It&#x27;s certainly taken longer because it&#x27;s more involved, certainly less than a month for someone already familiar with vs code extension development. A weekend project for the basics level like OP.<p>I hope Ai shakes up the economy in a good way, away from consolidation, because it&#x27;s not working for most of us right now."
+    ],
+    "full_text": null
+  }
+]
