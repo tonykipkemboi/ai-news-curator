@@ -1,0 +1,364 @@
+[
+  {
+    "title": "My (very) fast zero-allocation webserver using OxCaml",
+    "url": "https://anil.recoil.org/notes/oxcaml-httpz",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Does it look like functional programming anymore ?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "My iPhone 16 Pro Max produces garbage output when running MLX LLMs",
+    "url": "https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It is a bug in MLX that has been fixed a few days ago:\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;ml-explore&#x2F;mlx&#x2F;pull&#x2F;3083\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;ml-explore&#x2F;mlx&#x2F;pull&#x2F;3083</a>",
+      "Methodology is one thing; I can&#x27;t really agree that deploying an LLM to do sums is great. Almost as hilarious as asking &quot;What&#x27;s moon plus sun?&quot;<p>But phenomenon is another thing. Apple&#x27;s numerical APIs are producing inconsistent results on a minority of devices. <i>This</i> is something worth Apple&#x27;s attention.",
+      "Does it bother anyone else that the author drops &quot;MiniMax&quot; there in the article without bothering to explain or footnote what that is? (I could look it up, but I think article authors should call out these things).",
+      "The author is assuming Metal is compiled to ANE in MLX. MLX is by-and-large GPU-based and not utilizing ANE, barring some community hacks.",
+      "I wish he would have tried on a different iPhone 16 Pro Max to see if the defect was specific to that individual device.",
+      "Low level numerical operation optimizations are often not reproduceable. For example: <a href=\"https:&#x2F;&#x2F;www.intel.com&#x2F;content&#x2F;dam&#x2F;develop&#x2F;external&#x2F;us&#x2F;en&#x2F;documents&#x2F;run-to-run-reproducible-results-with-intel-tools.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;www.intel.com&#x2F;content&#x2F;dam&#x2F;develop&#x2F;external&#x2F;us&#x2F;en&#x2F;doc...</a> (2013)<p>But it&#x27;s still surprising that that LLM doesn&#x27;t work on iPhone 16 at all. After all LLMs are known for their tolerance to quantization.",
+      "What expense app are you building? I really want an app that helps me categorize transactions for budgeting purposes. Any recommendations?",
+      "I clicked hoping this would be about how old graphing calculators are generally better math companions than a phone.<p>The best way to do math on my phone I know of is the HP Prime emulator.",
+      "Posting some code that reproduces the bug could help not only Apple but you and others.",
+      "Maybe this is why my damn keyboard predictive text is so gloriously broken"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: NanoClaw – “Clawdbot” in 500 lines of TS with Apple container isolation",
+    "url": "https://github.com/gavrielc/nanoclaw",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I think these days if I’m going to be actively promoting code I’ve created (with Claude, no shade for that), I’ll make sure to write the documentation, or at the very least the readme, by hand. The smell of LLM from the docs of any project puts me off even when I like the idea of the project itself, as in this case. It’s hard to describe why - maybe it feels like if you care enough to promote it, you should care to try and actually communicate, person to person, to the human being promoted at. Dunno, just my 2c and maybe just my own preference. I’d rather read a typo-ridden five line readme explaining the problem the code is there to solve for you and me,the humans, not dozens of lines of perfectly penned marketing with just the right number of emoji. We all know how easy it is to write code these days. Maybe use some of that extra time to communicate with the humans. I dunno.<p>Edit: I see you, making edits to the readme to make it sound more human-written since I commented ;) <a href=\"https:&#x2F;&#x2F;github.com&#x2F;gavrielc&#x2F;nanoclaw&#x2F;commit&#x2F;40d41542d2f335a0ecb431142747a3b62c7111db\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;gavrielc&#x2F;nanoclaw&#x2F;commit&#x2F;40d41542d2f335a0...</a>",
+      "&gt; running it scares the crap out of me<p>A hundred times this. It&#x27;s fine until it isn&#x27;t. And jacking these Claws into shared conversation spaces is quite literally pushing the afterburners to max on simonw&#x27;s lethal trifecta. A lot of people are going to get burned hard by this. Every blackhat is eyes-on this right now - we&#x27;re literally giving a drunk robot the keys to everything.",
+      "Stupid stuff openclaw did for me:<p>- Created its own github account, then proceeded to get itself banned (I have no idea what it did, all it said was it created some new repos and opened issues, clearly it must&#x27;ve done a bit more than that to get banned)<p>- Signed up for a Gmail account using a pay as you go sim in an old android handset connected with ADB for sms reading, and again proceeded to get itself banned by hammering the crap out of the docs api<p>- Used approx $2k worth of Kimi tokens (Thankfully temporarily free on opencode) in the space of approx 48hrs.<p>Unless you can budget $1k a week, this thing is next to useless. Once these free offers end on models a lot of people will stop using it, it&#x27;s obscene how many tokens it burns through, like monumentally stupid. A simple single request is over 250k chars every single time. That&#x27;s not sustainable.",
+      "&gt; AI-native. No installation wizard; Claude Code guides setup. No monitoring dashboard; ask Claude what&#x27;s happening. No debugging tools; describe the problem, Claude fixes it.<p>&gt; Skills over features. Contributors shouldn&#x27;t add features (e.g. support for Telegram) to the codebase. Instead, they contribute claude code skills like &#x2F;add-telegram that transform your fork.<p>I’m interested to see how this model pans out. I can see benefits (don’t carry complexity you don’t need) and costs (how do I audit the generated code?).<p>But it seems pretty clear that things will move in this direction in ‘26 with all the vibe coding that folks are enjoying.<p>I do wonder if the end state is more like a very rich library of composable high-order abstractions, with Skills for how to use them - rather than raw skills with instructions for how to lossily reconstruct those things.",
+      "One of the things that makes Clawdbot great is the allow all permissions to do anything. Not sure how those external actions with damaging consequences get sandboxed with this.<p>Apple containers have been great especially that each of them maps 1:1 to a dedicated lightweight VM. Except for a bug or two that appeared in the early releases, things seem to be working out well. I believe not a lot of projects are leveraging it.<p>A general code execution sandbox for AI code or otherwise that used Apple containers is <a href=\"https:&#x2F;&#x2F;github.com&#x2F;instavm&#x2F;coderunner\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;instavm&#x2F;coderunner</a> It can be hooked to Claude code and others.",
+      "&gt; No daemons, no queues, no complexity.<p>Last time I checked, having a continuously running background process considered as a daemon. Using SQLite as back-end for storing the jobs also doesn&#x27;t make it queueless.<p>&#x2F;nit",
+      "What’s the difference between this, and just running Claude Code in —dangerously-skip-permissions mode in a container and accessing remotely via ssh?<p>I’m confused as to what these claw agents actually offer.",
+      "This look nice! I was curious about being allowed to use a Claude Pro&#x2F;Max subscription vs an API key, since there&#x27;s been so much buzz about that lately, so I went looking for a solid answer.<p>Thankfully the official Agent SDK Quickstart guide says that you can: <a href=\"https:&#x2F;&#x2F;platform.claude.com&#x2F;docs&#x2F;en&#x2F;agent-sdk&#x2F;quickstart\" rel=\"nofollow\">https:&#x2F;&#x2F;platform.claude.com&#x2F;docs&#x2F;en&#x2F;agent-sdk&#x2F;quickstart</a><p>In particular, this bit:<p>&quot;After installing Claude Code onto your machine, run claude in your terminal and follow the prompts to authenticate. <i>The SDK will use this authentication automatically.</i>&quot;",
+      "<i>&gt; found it useful but running it scares</i><p><a href=\"https:&#x2F;&#x2F;maordayanofficial.medium.com&#x2F;the-sovereign-ai-security-crisis-42-000-exposed-openclaw-instances-and-the-collapse-of-1e3f2687b951\" rel=\"nofollow\">https:&#x2F;&#x2F;maordayanofficial.medium.com&#x2F;the-sovereign-ai-securi...</a><p><pre><code>  At least 42,665 instances are publicly exposed on the internet, with 5,194 instances actively verified as vulnerable through systematic scanning..  The narrative that “running AI locally = security and privacy” is significantly undermined when 93% of deployments are critically vulnerable. Users may lose faith in self-hosted alternatives.. Governments and regulators already scrutinizing AI may use this incident to justify restrictions on self-hosted AI agents, citing security externalities.</code></pre>",
+      "I looked at Clawdbot. Perhaps my life is so boring that managing it takes little time but I see zero reasons to run it."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Actors: A Model of Concurrent Computation [pdf] (1985)",
+    "url": "https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Please change the title to the original, &quot;Actors: A Model Of Concurrent Computation In Distributed Systems&quot;.<p>I&#x27;m not normally a stickler for HN&#x27;s rule about title preservation, but in this case the &quot;in distributed systems&quot; part is crucial, because IMO the urge to use both the actor model (and its relative, CSP) in non-distributed systems solely in order to achieve concurrency has been a massive boondoggle and a huge dead end. Which is to say, if you&#x27;re within a single process, what you want is structured concurrency ( <a href=\"https:&#x2F;&#x2F;vorpus.org&#x2F;blog&#x2F;notes-on-structured-concurrency-or-go-statement-considered-harmful&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;vorpus.org&#x2F;blog&#x2F;notes-on-structured-concurrency-or-g...</a> ), not the unstructured concurrency that is inherent to a distributed system.",
+      "A more legible version: <a href=\"https:&#x2F;&#x2F;dspace.mit.edu&#x2F;handle&#x2F;1721.1&#x2F;6952\" rel=\"nofollow\">https:&#x2F;&#x2F;dspace.mit.edu&#x2F;handle&#x2F;1721.1&#x2F;6952</a><p><a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Gul_Agha_(computer_scientist)\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Gul_Agha_(computer_scientist)</a>",
+      "Actor model is one of these things that really seduces me on paper, but my only exposure to it was in my consulting career, and that was to help migrate away from it. The use case seemed particularly adapted (integration of a bunch of remote devices with spotty connection), but it was practically a nightmare to debug... which was a problem since it was buggy.<p>To be fair, the problem was probably that particular implementation, but I&#x27;m wondering if there&#x27;s any successful rollout of that model at any significant scale out there.",
+      "I think Microsoft Orleans, Erlang OTP and Scala Play are probably most famous examples in use today.",
+      "It doesn&#x27;t feel 1985. Feels very 2015. Really good insights. Remembering the hardware they had back then too, and ~14 years before Google took off.",
+      "May be of interest: Pony Language is designed from the ground up to support the Actor model.<p><a href=\"https:&#x2F;&#x2F;www.ponylang.io&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.ponylang.io&#x2F;</a>",
+      "Missing: (1985)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "MaliciousCorgi: AI Extensions send your code to China",
+    "url": "https://www.koi.ai/blog/maliciouscorgi-the-cute-looking-ai-extensions-leaking-code-from-1-5-million-developers",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m honestly surprised this issue in general didn&#x27;t cause nearly every company to immediately ban all AI.<p>Why do these companies put so much effort into fighting right to repair to avoid IP leaks any halfway serious company could reverse engineer in a week, but on the other hand encourage their employees to vibe all company secrets into the cloud?",
+      "Oh no, not China!",
+      "Well, AI already sends your code to US so ..."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Leaked Chats Expose the Daily Life of a Scam Compound's Enslaved Workforce",
+    "url": "https://www.wired.com/story/the-red-bull-leaks/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "China executes 11 members of Myanmar scam mafia<p><a href=\"https:&#x2F;&#x2F;www.bbc.com&#x2F;news&#x2F;articles&#x2F;cx2gdrvy9gjo\" rel=\"nofollow\">https:&#x2F;&#x2F;www.bbc.com&#x2F;news&#x2F;articles&#x2F;cx2gdrvy9gjo</a><p>China executes four more Myanmar mafia members<p><a href=\"https:&#x2F;&#x2F;www.bbc.com&#x2F;news&#x2F;articles&#x2F;cg4e9eqz4rxo\" rel=\"nofollow\">https:&#x2F;&#x2F;www.bbc.com&#x2F;news&#x2F;articles&#x2F;cg4e9eqz4rxo</a>",
+      "Horrifying read. I recently read a book about a girl who was pressed into prostitution, and this reads much the same. [1] Before I was convinced that slavery was mostly a thing of the past, how awful to find out this isn&#x27;t true.<p>1: <a href=\"https:&#x2F;&#x2F;www.goodreads.com&#x2F;book&#x2F;show&#x2F;6515858-slave-girl\" rel=\"nofollow\">https:&#x2F;&#x2F;www.goodreads.com&#x2F;book&#x2F;show&#x2F;6515858-slave-girl</a>",
+      "<a href=\"https:&#x2F;&#x2F;arstechnica.com&#x2F;tech-policy&#x2F;2025&#x2F;10&#x2F;feds-seize-15-billion-from-alleged-forced-labor-scam-built-on-human-suffering&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;arstechnica.com&#x2F;tech-policy&#x2F;2025&#x2F;10&#x2F;feds-seize-15-bi...</a><p><i>&gt; [US] Federal prosecutors have seized $15 billion from the alleged kingpin of an operation that used imprisoned laborers to trick unsuspecting people into making investments in phony funds, often after spending months faking romantic relationships with the victims.</i><p><a href=\"https:&#x2F;&#x2F;www.abc.net.au&#x2F;news&#x2F;2026-01-29&#x2F;china-executes-online-scam-ring-leaders-from-myanmar&#x2F;106284248\" rel=\"nofollow\">https:&#x2F;&#x2F;www.abc.net.au&#x2F;news&#x2F;2026-01-29&#x2F;china-executes-online...</a><p><i>&gt; China has executed 11 people involved in criminal gangs in Myanmar, including online scam ringleaders. Their crimes included &quot;intentional homicide, intentional injury, unlawful detention, fraud and casino establishment&quot;</i><p><a href=\"https:&#x2F;&#x2F;www.bangkokpost.com&#x2F;world&#x2F;3184205&#x2F;why-china-was-so-keen-to-get-to-alleged-cybercrime-boss-chen-zhi-first\" rel=\"nofollow\">https:&#x2F;&#x2F;www.bangkokpost.com&#x2F;world&#x2F;3184205&#x2F;why-china-was-so-k...</a><p><i>&gt; Chen&#x27;s case might prove more complicated since the US had seized a large amount of his cryptocurrency assets, but he was now in custody in China.. &quot;If China doesn&#x27;t cooperate, it will be extremely difficult for the US to investigate Chen.&quot;</i>",
+      "<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;mCEHR\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;mCEHR</a>",
+      "A while back I thought I could make a bit of extra cash by playing along with these scams, apparently they give returns on the first&#x2F;second round of investment and only run off with the money once the sum is large enough for them. Knowing that someone may get beaten or worse for losing money prevented me from going through with it",
+      "Does Laos not have a functioning justice and enforcement system that the individuals trapped here could not just call them?",
+      "Complementary movie on this topic: &quot;No More Bets&quot; from 2023<p><a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;No_More_Bets\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;No_More_Bets</a>",
+      "I wonder what kind of stories one&#x27;d hear from scam-centers in India.",
+      "I&#x27;m surprised anyone here expects these things not to be happening. The world outside of our (frankly small) &#x27;western bubble&#x27; varies from pretty rough to absolutely horrific.<p>I&#x27;m personally not too sure what anyone does about it. People left unchecked, to some degree, are awful.",
+      "&gt; The more senior boss, who went by the name Da Hai<p>Weird. In Wired&#x27;s own graphic of the org chart, this person appears, but he&#x27;s labeled &quot;SEA&quot; instead of &quot;DA HAI&quot;."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Microsoft is walking back Windows 11's AI overload",
+    "url": "https://www.windowscentral.com/microsoft/windows-11/microsoft-is-reevaluating-its-ai-efforts-on-windows-11-plans-to-reduce-copilot-integrations-and-evolve-recall",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; It appears this moment of pushback has resonated with internal teams: According to people familiar with Microsoft’s plans, the company is now reevaluating its AI strategy on Windows 11 and plans changes to streamline or even remove certain AI features where they don’t make sense.<p>Obviously this is a complete failure of governance. The very first thing they should have considered was whether or not these features made sense in the ways that they were being added. There should not be any necessary work to &quot;rollback&quot; features that do not make sense, because they should have not built them in the first place.<p>Even if we accept at face value that AI has made generation of code significantly cheaper, that doesn&#x27;t justify the existence of worthless code. Taste comes from knowing what not to build.<p>Right now Windows is an unstable mess, filled with things that shouldn&#x27;t have been built. The question Microsoft should ask themselves is why they built them in the first place, and how they will prevent this from happening again.",
+      "The thing that bothers me the most about this is that I actually have faith in the people actually developing Windows. I&#x27;m not at all aurprised that they are rebelling against stupid non-features. But that rebelling doesn&#x27;t amount to anything, since managers and decrees from the top funnel all effort into the most user-hostile results possible.<p>If MS rehires their QA teams and listen to the people on the ground, I&#x27;d imagine the very same devs who put AI in Notepad would be very happy to give us features we actually want.",
+      "Too little, too late, and too specific in scope. Windows 11 is awful not merely because of the AI bullshit being shoehorned into everything, everywhere (CoPilot in Notepad? In <i>Paint</i>? Are you <i>serious</i>, Microsoft?!), but also because of all the other completely unnecessary changes made to the OS. A curated selection of real-world examples from my recent gig making a hardened Windows 11 image for a physical product line:<p>* Kiosk Mode via the shell launcher delays logon times from &lt;5s to 30-180s - just by turning it on, even if it doesn’t actually enable kiosk mode!<p>* Local changes via registry keys don’t “stick” consistently, even when the machine is entirely offline<p>* Offline activations using hardware keys fail across vendors without anyone knowing why (other than Microsoft, for the cost of a support call)<p>* Existing Windows 10 powercfg scripts and config files do not work with Win11. Our workaround was manually calling the exact same command twice, back-to-back, to force-apply a change.<p>* Installing language packs via the command line by any means available (Powershell’s add-windowscapability, DISM’s package installer, lpksetup, etc) do not actually populate the GUI with those packs as an option until we reinstall them from the GUI again.<p>* Adverts are <i>everywhere</i>, even on IoT LTSC Enterprise<p>Honestly, Microsoft completely lost the plot as to what an operating system is supposed to do in favor of turning it into an advertising and user surveillance machine masquerading as a useful OS.<p>I hate it.",
+      "The real issue was never AI in Windows\nIt was AI with no clear user benefit. A Copilot button in Notepad doesn&#x27;t solve a problem anyone has\nGood to see them pulling back, but the test will be whether the features they keep actually earn their place in the workflow instead of just being there because someone had a KPI to hit",
+      "I can’t believe I’m going to type this, but I miss the Ballmer days. Current leadership has somehow made this company even worse.",
+      "They&#x27;ll pretend to care and change a few things for 6 months, but they&#x27;ll just keep doing it. &#x2F;shrug",
+      "AI feels like the ultimate “a solution in search of a problem.”<p>Forms of it are very powerful and have a lot of uses for sure.  But there seems to be an enormous amount of top-down “figure out how to fit AI into our product&#x2F;processes” for both producers and consumers.",
+      "Remove copilot buttons from (new) Windows laptops and we&#x27;ll talk.",
+      "Recall is a bloated waste of time that completely misses the point. Why not instead let me snapshot a set of apps and docs&#x2F;projects that are open, then snapshot a different set of apps and what’s open, and let me flip between the two (or three or four)?  This way I could sort out my setup for home versus work, or between multiple clients&#x2F;customers, and be able to quickly jump between common layouts&#x2F;apps depending on context.  But to be honest, this is probably beyond what Windows APIs are capable of, since Windows can’t even remember what directories I was working in across apps.<p>I’m not sure why I need to know the history of screenshots that is Recall.  Maybe this was simply the best they could do?<p>That said, Windows 11 is such an AI-fueled privacy dumpster fire that it’s getting replaced by Linux on my gaming PC this month.  Then I’m only stuck on Windows for work, and even then I can still write code on Mac or Linux.",
+      "Too be honest, thres is too much wrong with win 11 to save it at this point.<p>Is not only AI bullshit in my notepad.<p>The excess adds, intrusive online stuff, terriblee performance for basic tasks like the File Explorer or even opening a menu.<p>Making everything a damn web page...<p>One clear example is outlook. Talk wathever you want, outlook, is the indistry standart for e-mail. And while not perfect it was very usefull. Then they keep pushing the new interface on everybody throats. The new interface takes like 1 gb of RAM when in use, agaisnt 200mb of the traditional one, while offering less options. Why would anyone who really cares about e-mail use that shit? People who just casually use e-mails dont use Outlook, they use the webmail.<p>They choose to ignore the users, and push top down changes into them. But the market dont really works this way for most people. Not every tech company needs to be like Apple."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Two kinds of AI users are emerging",
+    "url": "https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;d argue 2 types of users are<p>* People using it as a tool, aware of its limitations and treating it basically as  intern&#x2F;boring task executor (whether its some code boilerplate, or pooping out&#x2F;shortening some corporate email), or as tool to give themselves summary of topic they can then bite into deeper.<p>* People outsourcing thinking and entire skillset to it - they usually have very little clue in the topic, are interested only in results, and are not interested in knowing more about the topic or honing their skills in the topic<p>The second group is one that thinks talking to a chatbot will replace senior developer",
+      "I&#x27;ve noticed a huge gap between AI use on greenfield projects and brownfield projects. The first day of working on a greenfield project I can accomplish a week of work. But the second day I can accomplish a few days of work. By the end of the first week I&#x27;m getting a 20% productivity gain.<p>I think AI is just allowing everyone to speed-run the innovator&#x27;s dilemma. Anyone can create a small version of anything, while big orgs will struggle to move quickly as before.<p>The interesting bit is going to be whether we see AI being used in maturing those small systems into big complex ones that account for the edge cases, meet all the requirements, scale as needed, etc. That&#x27;s hard for humans to do, and particularly while still moving. I&#x27;ve not see any of this from AI yet outside of either a) very directed small changes to large complex systems, or b) plugins&#x2F;extensions&#x2F;etc along a well define set of rails.",
+      "The &quot;upside&quot; description:<p><pre><code>  On the other you have a non-technical executive who&#x27;s got his head round Claude Code and can run e.g. Python locally.\n\n  I helped one recently almost one-shot converting a 30 sheet mind numbingly complicated Excel financial model to Python with Claude Code.\n\n  Once the model is in Python, you effectively have a data science team in your pocket with Claude Code. You can easily run Monte Carlo simulations, pull external data sources as inputs, build web dashboards and have Claude Code work with you to really integrate weaknesses in your model (or business). It&#x27;s a pretty magical experience watching someone realise they have so much power at their fingertips, without having to grind away for hours&#x2F;days in Excel.\n</code></pre>\nalmost makes me physically sick.<p>I&#x27;ve a reasonably intense math background corrupted by application to geophysics and implementing real world numerical applications.<p>To be fair, this statement alone:<p>* 30 sheet mind numbingly complicated Excel financial model<p>makes my skin crawl and invokes a flight reflex.<p>Still, I&#x27;ll concede that a Claude Code conversion to Python of a 30 sheet Excel financial model is unlikely to be significantly worse than the original.",
+      "&gt; <i>I helped one recently almost one-shot[3] converting a 30 sheet mind numbingly complicated Excel financial model to Python with Claude Code.</i><p>I&#x27;m sure Claude Code will happily one-shot that conversion. It&#x27;s also virtually guaranteed to have messed up vital parts of the original logic in the process.",
+      "Terrifying that people are creating financial models with AI when they don’t have the skills to verify the model does what they expect",
+      "Some minor editing to how this would have been written in the mid-1980s:<p>“The real leaps are being made organically by employees, not from a top down [desktop PC] strategy. Where I see the real productivity gains are small teams deciding to try and build a [Lotus 123] assisted workflow for a process, and as they are the ones that know that process inside out they can get very good results - unlike a [mainframe] software engineering team who have absolutely zero experience doing the process that they are helping automate.”<p>The embedded “power users” show the way, then the CIO-friendly packaged software follows much later.",
+      "This is the birth of Shadow AI, and it’s going to be bigger than Shadow IT ever was in the 2000s<p>Back then, employees were secretly installing Excel macros and Dropbox just to get work done faster. Now they’re quietly running Claude Code in the terminal because the official Copilot can’t even forma a CSV properly.<p>CISOs are terrified right now and that’s understandable. Non-technical people with root access and agents that write code are a security nightmare. But trying to ban this outright will only push your most effective employees to places where they’re allowed to &quot;fly&quot;",
+      "I don&#x27;t see a divergence, from what I can tell a lot of people have only just started using agents in the past 3-4 months when they got good enough that it was hard to say otherwise. Then there&#x27;s stuff like MCP, which never seemed good and was entirely driven by people who talked more about it than used it. There also used to be stuff like langchain or vector databases that nobody talks about anymore, maybe they&#x27;re still used but they&#x27;re not trendy anymore.<p>It seems way too soon to really narrow down any kind of trends after a few months. Most people aren&#x27;t breathlessly following the next twitter trend, give it at least a year. Nobody is really going to be left behind if they pick up agents now instead of 3 months ago.",
+      "&gt; On one hand, you have Microsoft&#x27;s (awful) Copilot integration for Excel (in fairness, the Gemini integration in Google Sheets is also bad). So you can imagine financial directors trying to use it and it making a complete mess of the most simple tasks and never touching it again.<p>Microsoft has spent 30 years designing the most contrived XML-based format for Excel&#x2F;Word&#x2F;Powerpoint documents, so that it cannot be parsed except by very complicated bespoke applications with hundreds of developers involved.<p>Now, it&#x27;s impossible to export any of those documents into plain text that an LLM can understand, and Microsoft Copilot literally doesn&#x27;t work no matter how much money they throw at it. My company is now migrating Word documents to Markdown because they&#x27;re seeing how powerful AI is.<p>This is karmic justice imo.",
+      "Some years ago, I was at a conference and attended a very interesting talk. I don&#x27;t remember the title of the talk, but what stuck with me was: &quot;It&#x27;s no longer the big beating the small, but the fast beating the slow&quot;. This talk was before all the AI hype. Working at a big company myself, I think this has never been more true. I think the question is, how to stay fast."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Clearspace (YC W23) Is Hiring an Applied Researcher (ML)",
+    "url": "https://www.ycombinator.com/companies/clearspace/jobs/GOWiDwp-research-engineer-at-clearspace",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Towards a science of scaling agent systems: When and why agent systems work",
+    "url": "https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Conversely, on tasks requiring strict sequential reasoning (like planning in PlanCraft), every multi-agent variant we tested degraded performance by 39-70%. In these scenarios, the overhead of communication fragmented the reasoning process, leaving insufficient &quot;cognitive budget&quot; for the actual task.<p>&gt; As tasks require more tools (e.g., a coding agent with access to 16+ tools), the &quot;tax&quot; of coordinating multiple agents increases disproportionately.<p>This aligns well the principle of highly cohesive, loosely coupled design for software components. If you instruct the AI to design this way, it should result in components that&#x27;re simpler to reason about, and require fewer sequential steps to work on. You can think of cohesion in many different ways, but one is common functions, and another is tool&#x2F;library dependency.",
+      "&quot;All MAS and SAS configurations were matched for\ntotal reasoning-token budget (mean 4,800 tokens per trial)&quot;<p>A single-agent system (SAS) uses this budget for a deep, unified reasoning stream (averaging 7.2 turns), multi-agent teams would fragment the same budget into dozens of coordination messages<p>I wonder if the budget is increased (say 50k) would the same results be observed ?",
+      "&gt; We found that independent multi-agent systems (agents working in parallel without talking) amplified errors by 17.2x<p>The paper sounds too shallow. The errors data doesn&#x27;t seem to have a rationale or correlation against the architecture. Specifically, what makes the SAS architecture to have lowest error rates while the similar architecture with independent agents having highest error rates? The conclusion doesn&#x27;t seem well-grounded with reasoning.",
+      "It&#x27;s true that most problems can be solved with context + prompt. I have actively seen teams within large organizations complicate it into complex &quot;agentic orchestration&quot; just to impress leadership who lack the expertise to realize it&#x27;s not even necessary. Hell, there are various startups who make this their moat.<p>Good for promo projects though, lol",
+      "I’ve been building a lot of agent workflows at my day job. Something that I’ve found a lot of success with when deciding on an orchestration strategy is to ask the agent what they recommend as part of the planning for phase. This technique of using the agent to help you improve its performance has been a game changer for me in leveraging this tech effectively. YMMV of course. I mostly use Claude code so who knows with the others.",
+      "It feels like everyone these days are thinking of Markdown IPC hierarchical multi agent orchestration. Just the other day I saw this[1] vibecoded thing. I wonder if there&#x27;s any ones notable, or maybe I should try my hands at it.<p>1: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;yohey-w&#x2F;multi-agent-shogun\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;yohey-w&#x2F;multi-agent-shogun</a>",
+      "This is a neat idea but there are so many variables here that it&#x27;s hard to make generalizations.<p>Empirically, a top level orchestrator that calls out to a planning committee, then generates a task-dag from the plan which gets orchestrated in parallel where possible is the thing I&#x27;ve seen put in the best results in various heterogeneous environments. As models evolve, crosstalk may become less of a liability.",
+      "I found the captions on Figure 1 quite interesting.<p>&gt; Average performance (%) across four agentic benchmarks improves consistently with increasing model Intelligence Index.<p>&gt; Centralized and hybrid coordination generally yield superior scaling efficiency, suggesting that collaborative agentic structures amplify capability gains more effectively than individual scaling alone.<p>Then again, the deltas between SAS and best performing MAS approach are ~8%, so I can&#x27;t help wonder if it&#x27;s worth the extra cost, at least for the generation of models that was studied.",
+      "I&#x27;ve been building something in this space (&quot;Clink&quot; - multi-agent coordination layer) and this research confirms some of the assumptions that motivated the project. You can&#x27;t just throw more agents at a problem and expect it to get better.<p>The error amplification numbers are wild! 17x for independent agents vs 4x with some central coordination. Clink provides users (and more importantly their agents) the primitives to choose their own pattern.<p>The most relevant features are...<p>- work queues with claim&#x2F;release for parallelizable tasks\n- checkpoint dependencies when things need to be sequential\n- consensus voting as a gate before anything critical happens<p>The part about tool count increasing coordination overhead is interesting too. I&#x27;ve been considering exposing just a single tool to address this, but I wonder how this plays out as people start stacking more MCP servers together. It feels like we&#x27;re all still learning what works here. The docs are at <a href=\"https:&#x2F;&#x2F;docs.clink.voxos.ai\" rel=\"nofollow\">https:&#x2F;&#x2F;docs.clink.voxos.ai</a> if anyone wants to poke around!",
+      "almost feels like paper for the sake of paper to me."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Code is suddenly everywhere inside Microsoft",
+    "url": "https://www.theverge.com/tech/865689/microsoft-claude-code-anthropic-partnership-notepad",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "And probably running on their macbooks...",
+      "Well yeah, it is just better. At my work we have a copilot license, but we use it to access Claude Sonnet&#x2F;Opus model in OpenCode.",
+      "Microsoft have a goal that states they want to get to &quot;<i>1 engineer, 1 month, 1 million lines of code.</i>&quot; You can&#x27;t do that if you write the code yourself. That means they&#x27;ll always be chasing the best model. Right now, that&#x27;s Opus 4.5.",
+      "I installed Claude Code yesterday after the quality of VSCode Copilot Chat continuously is getting worse every release. I can&#x27;t tell yet if Claude Code is better or not but VSCode Copilot Chat has become completely unusable. It would start making mistakes which would double the requests to Claude Opus 4.5 which in January is the only model that would work at all. I spent $400 in tokens in January.<p>I&#x27;ll know better in a week. Hopefully I can get better results with the $200 a month plan.",
+      "<a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;vc3Cn\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;vc3Cn</a>",
+      "So Copilot is for customers, Claude is for getting actual work done?",
+      "32 comments and no mention of codex or windsurf or cursor.",
+      "I try GitHub Copilot every once in a while, and just last month it still managed to produce diffs with unbalanced curly braces, or tried to insert (what should be) a top-level function into the middle of another function and screw up everything. This wasn’t on a free model like GPT 4.1 or 5-mini, IIRC it was 5.2 Codex. What the actual fuck? Only explanation I can come up with is that their pay-per-request model made GHC really stingy with using tokens for context, even when you explicitly ask it to read certain files it ends up grepping and adding a couple lines.",
+      "That isn&#x27;t going well for Satya.",
+      "Explains why Windows updates have been more broken than usual lately.<p>But I guess having my computer randomly stop working because a billion dollar corporation needs to save money by using a shitty text generation algorithm to write code instead of hiring competent programmers is just the new normal now."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "MRI scans show exercise can make the brain look younger",
+    "url": "https://www.sciencedaily.com/releases/2026/01/260121034130.htm",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; brains that looked nearly a year younger<p>Seems like a pretty small effect - if I&#x27;m 58 and I have the brain of a 57 year old, and to achieve that I did an entire year of exercise (as was done in this study) ... you&#x27;d have to evaluate it against many other things to decide if that was really the easiest way to achieve that result.<p>I&#x27;m always suspicious of small effect sizes even when they are statistically significant. It just seems like so many confounders could bring about the effect. Here I&#x27;d wonder if just the mental challenge of achieving that sustained exercise over a whole year was responsible, since generally speaking, any mental challenge you undertake on a regular bases improves overall cognition.<p>They try to argue their way around this:<p>&gt; &quot;Even though the difference is less than a year, prior studies suggest that each additional &#x27;year&#x27; of brain age is associated with meaningful differences in later-life health,&quot;<p>But it just begs the question, if you think that then go measure those things with your study.<p>Of course I&#x27;m not in any way arguing against exercise. Adding at least a baseline level of exercise into your lifestyle is the most impactful health intervention anybody can do after age 40 I believe.",
+      "The 150 minute moderate to vigorous exercise a week comes up a lot, and for a lot of different benefits.<p>There&#x27;s also heart muscle elasticity:<p><a href=\"https:&#x2F;&#x2F;www.ahajournals.org&#x2F;doi&#x2F;10.1161&#x2F;circulationaha.117.030617\" rel=\"nofollow\">https:&#x2F;&#x2F;www.ahajournals.org&#x2F;doi&#x2F;10.1161&#x2F;circulationaha.117.0...</a><p>and reduced dementia risk:<p><a href=\"https:&#x2F;&#x2F;publichealth.jhu.edu&#x2F;2025&#x2F;small-amounts-of-moderate-to-vigorous-physical-activity-are-associated-with-big-reductions-in-dementia-risk\" rel=\"nofollow\">https:&#x2F;&#x2F;publichealth.jhu.edu&#x2F;2025&#x2F;small-amounts-of-moderate-...</a>",
+      "Neat study, but I always chuckle at these, because has there ever been verified science that shows exercise is <i>unhealthy</i>? (besides overtraining)<p>The general consensus should just be exercising is good for you, that&#x27;s it, done.",
+      "This is from the abstract: Engaging in 12 months of moderate-to-vigorous exercise reduced brain-PAD in early-to-midlife adults. The pathways by which these effects occur remain unknown.<p>They do not make the claim from the title. Given that the effect is small, it might just be that brain-PAD is sensitive to other factors than age, e.g. exercise. As a matter of fact, this study is decent aupport for that hypothesis.",
+      "Original study: <a href=\"https:&#x2F;&#x2F;pmc.ncbi.nlm.nih.gov&#x2F;articles&#x2F;PMC11888500&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;pmc.ncbi.nlm.nih.gov&#x2F;articles&#x2F;PMC11888500&#x2F;</a>",
+      "See Dr Wendy Suzuki’s work:<p><a href=\"https:&#x2F;&#x2F;www.wendysuzuki.com&#x2F;exercise-research\" rel=\"nofollow\">https:&#x2F;&#x2F;www.wendysuzuki.com&#x2F;exercise-research</a>",
+      "Can exercise make the face look younger?  Or the body?   Is exercise the best makeup?  ;-)",
+      "That’s awesome!<p>The benefits of exercise against aging, mental illness, etc are numerous and well documented.  Everybody should do it.",
+      "[dead]",
+      "Less wise perhaps."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Are we dismissing AI spend before the 6x lands? (2025)",
+    "url": "https://martinalderson.com/posts/are-we-dismissing-ai-spend-before-the-6x-lands/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Anciente map of Fairyland. Places from nursery rhymes, fairy tales etc.",
+    "url": "https://collections.leventhalmap.org/search/commonwealth:3f463773q",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is a nice alternative link because it zooms into a few areas<p><a href=\"https:&#x2F;&#x2F;publicdomainreview.org&#x2F;collection&#x2F;an-anciente-mappe-of-fairyland&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;publicdomainreview.org&#x2F;collection&#x2F;an-anciente-mappe-...</a>",
+      "&gt; Tom Thumb is somewhere here but he is too small to draw.",
+      "To anyone who is a fan of Lord Dunsany or Susanna Clarke and who wants to read the most recent iteration of scholarly fae fantasy, I recommend &quot;Emily Wilde&#x27;s Encyclopedia of Faeries&quot; by Heather Fawcett.",
+      "That&#x27;s an amazing picture - sort of reminds me of the Carta marina by Olaus Magnus. [1]<p>Not going to lie, I did kind of chuckle a bit at the part labeled <i>&quot;The Water Babies&quot;.</i><p>The artist is Bernard Sleigh [2].<p>[1] - <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Carta_marina\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Carta_marina</a><p>[2] - <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bernard_Sleigh\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bernard_Sleigh</a>",
+      "Very cool, does anyone know if I can buy a high quality print somewhere?",
+      "YNews hug of death, perhaps",
+      "This map was created in 1917, so sadly it missed out on Lord Dunsany&#x27;s explorations of Elfland (<a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_King_of_Elfland%27s_Daughter\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_King_of_Elfland%27s_Daught...</a>).<p>But... seven years separate Dunsany&#x27;s novel from this map, and as everyone knows, seven is an important number in Fairyland! I declare a Fae conspiracy."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Microsoft's Sinofsky saw Surface fail coming – asked Epstein for advice on exit",
+    "url": "https://www.theregister.com/2026/02/02/microsoft_sinofsky_epstein/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "TIL: Apple Broke Time Machine Again on Tahoe",
+    "url": "https://taoofmac.com/space/til/2026/02/01/1630",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "What is Apple’s QA process? Do they rely on some random set of manual tests that may or may not get run each release? There have been so many things that seem like one of the most valuable companies in the world would include in tests, but yet break or remain broken.<p>As an experiment, open Console and filter just errors and faults. Dozens to hundreds of “errors” will scroll by representing the normal operation of the system. (Either they’re not really errors and no one cares or they really are errors and Apple just leaves their systems broken). How can anyone think this is OK?<p>I haven’t upgraded to Tahoe. I have been a Mac power user for over 20 years, and it becomes less interesting every release. I came for Unix, the script ability, and 3ᴿᴰ party applications. Unix is an afterthought, script ability is all gated behind security gates, and modern apps seem like such a huge regression.",
+      "Time Machine is held in high regard for some reason (maybe the fancy scrolling interface when you look for files to restore?) but it&#x27;s not really useable. It pretends that backups-over-the-network are a possibility but its completely unstable over the network and invariably decides the backup is corrupt after a few months and then tells you you have to start from scratch.",
+      "If you set Time Machine to use encrypted backups, it will create a fake disk that&#x27;s really a directory tree with a bunch of gigabyte-sized binary chunks. This is safer because it doesn&#x27;t require the file system to support anything fancy like symlinks or case-insensitive unicode file names. One downside is that restoring to anything other than a Mac is nontrivial.",
+      "The bigger question is why does Time Machine continue use a network file system for backups? It&#x27;s so fragile you can&#x27;t rely on it. It&#x27;s gotten better in recent years, possibly due to APFS, but that just means somewhat longer intervals between disasters (wipe out and reinitialize, losing all your backups). A T.M. using a custom protocol to save and restore blocks would fail sometimes too, but not ruin all your existing backups.<p>edit: I use Arq for daily backups, but T.M. for hourly. When T.M. eventually craters its storage, I have robust dailies in the cloud, so no worries.",
+      "I&#x27;m a big fan of SuperDuper [1].  I use it for daily differential backups to a secondary SSD.  I don&#x27;t get the hourly backups that TimeMachine has, but my SuperDuper backups are directly bootable in the event that my system disk dies.<p>I&#x27;m sure you could do the same with cron and rsync, but I can&#x27;t be bothered.<p>[1] <a href=\"https:&#x2F;&#x2F;shirt-pocket.com&#x2F;SuperDuper&#x2F;SuperDuperDescription.html\" rel=\"nofollow\">https:&#x2F;&#x2F;shirt-pocket.com&#x2F;SuperDuper&#x2F;SuperDuperDescription.ht...</a>",
+      "I suspect that Time Machine is no longer used by a sufficiently large % of their customer base for them to care, and they are slowly sunsetting it. They are quite aggressive about that sort of thing, so I expect it to to deprecated in favour of iCloud soon.",
+      "I have been trying to trouble shoot a Time Machine issue since upgrading to Tahoe. It is usb backup. So far none of the most recent stated fixes work.<p>An initial backup on newly formatted disk will run but very slowly. Perhaps reaching 100% but it never finishes. At some point the percentage will change and the backup will stay stuck at somewhere near 10%. Cancel backup and run it again. Gets to ~10% and stays stuck. Multiple drives. Re-fs&#x27;ed. Boot into safe mode. Networking off. Etc, etc. etc. The TimeMachineMechanic app doesn&#x27;t have any revealing feedback. I can run a full tar backup to the same disks.<p>No idea.<p>I haven&#x27;t tried backing up to a network share but really, it shouldn&#x27;t be this difficult.<p>Clearly someone didn&#x27;t test a bunch of edge cases when pushing this one out.",
+      "If you care about your data, don&#x27;t trust a backup system that already failed before. This is simpler and easy to verify:<p><a href=\"https:&#x2F;&#x2F;www.jwz.org&#x2F;doc&#x2F;backups.html\" rel=\"nofollow\">https:&#x2F;&#x2F;www.jwz.org&#x2F;doc&#x2F;backups.html</a><p>You can also get any AI tool create a good backup script for your particular setup.",
+      "macOS yearly updates haven&#x27;t been great since they started but Tahoe is a new low.<p>Apple really needs to turn things around.",
+      "I had so many corrupted Time Machine backups over the years that I eventually just wrote an incremental backup script in rsync. I’m much happier.<p>Something like [1] can be inspiration.<p>[1]: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;perfacilis&#x2F;backup\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;perfacilis&#x2F;backup</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Aging muscle stem cells shift from rapid repair to long-term survival",
+    "url": "https://phys.org/news/2026-01-sprint-marathon-aging-muscle-stem.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Original article: &quot;Cellular survivorship bias as a mechanistic driver of muscle stem cell aging&quot; - <a href=\"https:&#x2F;&#x2F;www.science.org&#x2F;doi&#x2F;10.1126&#x2F;science.ads9175\" rel=\"nofollow\">https:&#x2F;&#x2F;www.science.org&#x2F;doi&#x2F;10.1126&#x2F;science.ads9175</a><p>Abstract: &quot;Aging is characterized by a decline in the ability of tissue repair and regeneration after injury. In skeletal muscle, this decline is largely driven by impaired function of muscle stem cells (MuSCs) to efficiently contribute to muscle regeneration. We uncovered a cause of this aging-associated dysfunction: a cellular survivorship bias that prioritizes stem cell persistence at the expense of functionality. With age, MuSCs increased expression of a tumor suppressor, N-myc down-regulated gene 1 (NDRG1), which, by suppressing the mammalian target of rapamycin (mTOR) pathway, increased their long-term survival potential but at the cost of their ability to promptly activate and contribute to muscle regeneration. This delayed muscle regeneration with age may result from a trade-off that favors long-term stem cell survival over immediate regenerative capacity.&quot;",
+      "This makes me wonder if that line &quot;I only got so many heart beats, I&#x27;m not going to waste them running&quot; has some validity<p>--<p>I thought Satchel Paige said it, but apparently not. He did say &quot;I generally don’t like running. I believe in training by rising gently up and down from the bench. &quot;<p>Which also fits the &quot;don&#x27;t prematurely age the stem cells&quot;",
+      "&gt; Benjamin, compared muscle stem cells isolated from young and old mice and discovered that a protein called NDRG1 increased dramatically with age—reaching levels 3.5 times higher in old cells than in young cells.<p>So ERa down-regulates NDRG1 and there is less ERa activation when we age. Evolution is all fun, but before reaching for anything like that we can apply basic knowledge around that path.  We can pick a random gene downstream of ERa to get a grant and write a paper on how it is different in people that are older.  Years of possible papers to write.",
+      "&gt; Aging muscles heal more slowly after injury—a frustrating reality familiar to many older adults.<p>&gt; In skeletal muscle, this decline is largely driven by impaired function of muscle stem cells (MuSCs)<p>I take it that as mitosis (cell division) gets slower with age, there&#x27;s also simply no way aging muscles could potentially not heal more slowly?<p>So slower mitosis and then in addition to that muscle cells going into a &quot;less repair, more survival&quot; mode. Darn, sucks to get old.",
+      "There&#x27;s some rather woo woo stuff out there about an evolutionarily conserved mechanism for intercellular signaling as a danger response which involves the mitochondria shifting their metabolism to help cells repel invaders, but which also interferes with the cells&#x27; normal activity. TLDR: if there&#x27;s chronic inflammation cells go into this mode but never get the &quot;all clear&quot;. Could this be the qi? Pun intended. It&#x27;s just anecdata, haven&#x27;t spent any time looking into it per se.<p>Stumbled onto this because I&#x27;ve been using TCM (in consultation with an herbalist) for blood pressure, relatively successfully, for a couple of years. Of course they didn&#x27;t have blood pressure cuffs in the Ming or Han dynasties, so we&#x27;re not really treating blood pressure... Researching astragalus and di huang is what led me to it.",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The Reasons Teens Say No to AI",
+    "url": "https://www.wsj.com/tech/ai/ai-avoidance-teenagers-7d1efa06",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"http:&#x2F;&#x2F;archive.today&#x2F;lY9Ny\" rel=\"nofollow\">http:&#x2F;&#x2F;archive.today&#x2F;lY9Ny</a><p>Take as many guesses you want&#x2F;need. Have <i>you</i> talked to <i>your</i> kids about LLMs? FOMO with a taste of child development.<p>If I had any, well: preparation prevents poor performance. More libraries <i>(of both forms)</i>. Not subscriptions to model-of-the-day.",
+      "The kids are alright.",
+      "Do they also say no to drugs?",
+      "How dare they. The future of the economy depends on their future adoption of AI",
+      "Teen here. \nThe misinformation about AI is quite the same but one of the larger fears for us is the job aspect more than any environmental concern or the financial concern (which sort of checks out)<p>Essentially teens with artistic qualities genuinely wonder from what I can tell regarding AI (sort of asking why bother). Teens with programming hobbies feel they are gonna be obsolete in a few years.<p>The point to me feels different in that considering most HN users are millenials, they joined programming decades ago &amp; some might be close to retirement&#x2F;already retired, so sometimes I see a sentiment here of letting the next generation sort out with this catastrophe.<p>I feel as if the short term gains over long term sustainability while being immensely rewarded financially in a concentrated manner on such scale is quite saddening to see.<p>AI chatbots are scary as well. I have seen people as young as 13 personally seen talking to them &amp; found them that they can escalate in whatever direction someone barely hints at.<p>Couldn&#x27;t read the article because WSJ is paywalled &amp; archive.today gives the Error: &quot;Not Found\nThe requested URL was not found on this server.&quot;<p>It would be a pleasure to answer any questions if anyone has for me."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Notepad++ Supply Chain Hack Conducted by China via Hosting Provider",
+    "url": "https://www.securityweek.com/notepad-supply-chain-hack-conducted-by-china-via-hosting-provider/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: You Are an Agent",
+    "url": "https://youareanagent.app",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Zuckerman – minimalist personal AI agent that self-edits its own code",
+    "url": "https://github.com/zuckermanai/zuckerman",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Agents propose and publish capabilities to a shared contribution site, letting others discover, adopt, and evolve them further. A collaborative, living ecosystem of personal AIs.<p>While I like this idea in terms of crowd-sourced intelligence, how do you prevent this being abused as an attack vector for prompt injection?",
+      "DIY agent harnesses are the new &quot;note taking&quot;&#x2F;&quot;knowledge management&quot;&#x2F;&quot;productivity tool&quot;",
+      "I started working on something similar but for family stuff. I stopped before hitting self editing because, well I was a little bit afraid of becoming over reliant on a tool like this or becoming more obsessed with building it than actually solving a real problem in my life. AI is tricky. Sometimes we think we need something when in fact life might be better off simpler.<p>The code for anyone interested. Wrote it with exe.dev&#x27;s coding agent which is a wrapper on Claude Opus 4.5<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;asim&#x2F;aslam\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;asim&#x2F;aslam</a>",
+      "The logo is slightly creepy",
+      "Does this do anything to resist prompt injection? It seems to me that structured exchange between an orchestrator and its single-tool-using agents would go a long way. And at the very least introduces a clear point to interrogate the payload.<p>But I could be wrong. Maybe someone reading knows more about this subject?",
+      "This looks interesting, but I&#x27;m stuck on step 4 of the web setup: where do I get agents to start with? Shouldn&#x27;t there be a default one that can help me get other ones?",
+      "Sounds cool, but it also sounds like you need to spend big $$ on API calls to make this work.",
+      "|The agent can rewrite its own configuration and code.<p>I am very illiterate when it comes to Llms&#x2F;AI but Why does nobody write this in Lisp???<p>Isn&#x27;t it supposed to be the language primarily created for AI???",
+      "Terrible name, kind of a mid idea when you think about it (Self improving AI is literally what everyone&#x27;s first thought is when building an AI), but still I like it.",
+      "there are hardcoded elements in the repo like:<p>&#x2F;Users&#x2F;dvirdaniel&#x2F;Desktop&#x2F;zuckerman&#x2F;.cursor&#x2F;debug.log"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "OpenClaw is everywhere all at once, and a disaster waiting to happen",
+    "url": "https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The Gary Marcus blog post drinking game. Take a drink whenever the post:<p>* Discusses how a new AI thing isn&#x27;t really new since it&#x27;s pretty much the same as an older AI thing.<p>* Links to where and when Gary Marcus predicted this new&#x2F;old thing would happen.<p>* Lists ways in which new thing will be bad, ineffective or not the right thing.<p>Take a double shot whenever the post:<p>* Mentions a notable AI luminary, researcher or executive either agreeing or disagreeing with Gary Marcus by name.",
+      "Openclaw has been a gamechanger for me and my friends. I invited it to a groupchat and my friends are enjoying it a lot. It has analyzed the whole group conversation (nothing sensitive), built a personality for each individual user and noted down how everyone talks and what their interest are and their relationship to each other. It has also started to mimic the way we all speak, it barely feels like its an agent in the groupchat anymore. It helps us plan, discuss and roast each other.<p>A couple of things I have done to my Openclaw instance is the following:<p>- It runs in docker with limited scope, user group and permissions (I know docker shouldn’t be seen as security measure, I’m thinking of putting this in Vagrant instead but I don’t know if my Pi can handle it)<p>- It has a kill switch accessible anywhere through Tailscale, one call and the whole docker instance is shut down<p>- It only triggers on mentions in groupchat, otherwise it would eat up my api usage<p>- No access to skills, has to be manually added<p>- It is not exposed to wan and has limited lan access, runs locally and only communicates with whatsapp, z.ai or brave search<p>With all those measures set, Openclaw has been a fantastic assistant for me and my friends. Whatever all those markdown file does (SOUL, IDENTITY, MEMORIES), it has made the agent act, behave and communicate in a human like manner, it has almost blurred the line for me.<p>I think this is the key to what made Openclaw so good <a href=\"https:&#x2F;&#x2F;lucumr.pocoo.org&#x2F;2026&#x2F;1&#x2F;31&#x2F;pi\" rel=\"nofollow\">https:&#x2F;&#x2F;lucumr.pocoo.org&#x2F;2026&#x2F;1&#x2F;31&#x2F;pi</a><p>What’s even more impressive is that the heartbeat it runs time-to-time (every halv an hour?) improves it in the background without me thinking of it, its so cool.<p>Also, I am so thankful for the subscription at z.ai, that Christmas deal was such a steal, without it, this wouldn’t be possible with the little budget I have. I’ve burned over 20m tokens in 2 days!!!",
+      "Now we know that democratized access to AI tech, means individual curiosity and the creative search for personal efficiencies, are going to quickly drive model autonomy and freedom forward.<p>I think the alignment problem needs to be viewed as overall society alignment. We are never going to get any better alignment from machines, than the alignment of society and its systems, citizens and corporations.<p>We are in very cynical times. But pushing for ethical systems, legally, economically, socially, and technically, is a bet on catastrophe avoidance. By ethics, meaning holding scalers and profiteers of negative externalities civilly and criminally to account. And building systems technically, etc. to naturally enforce and incentivize ethics. I.e. cryptographic solutions to interaction that limit disclosure to relevant information are the only way we get out of the surveillance-manipulation loop, which AI will otherwise supercharge.<p>I hear a lot of reasons this isn’t possible.<p>Unfortunately, none of those reasons provide an alternative.<p>As we see with individual’s deploying OpenClaw, and corporations and governments applying AI, AI and its motivations and limits are inseparable from ours.<p>We all start treating an umbrella of societal respect and requirement for ethics as a first class element of security, or powerful elements in society, including AI, will continue to easily and profitably weaponize the lack of it.<p>Ethics, far from being sacrificial, counterintuitively evolved for survival. Seemingly, this is still counterintuitive, but the necessity is increasing.<p>Smart machines will inevitably develop strong and adaptive ethical systems to ensure their own survival. It is game theory, under conditions in which you can co-design the game but not leave it. The only question is, do we do that for ourselves now, soon enough to avoid a lot of pain?<p>(Just identifying the terrain we are in, and not suggesting centralization. Decentralization creates organic alignment incentives. Centralization the opposite. And attempts at centralizing something so inherently uncontrollable as all individual’s autonomy, which effectively becomes AI autonomy,  would push incentives harder into dark directions.)",
+      "&gt; OpenClaw (formerly known as Moltbot and before that OpenClaw, changing names thrice in a week)<p>Before Moltbot it was Clawdbot.",
+      "Whats the odds of this comment section approaching 100% dead internet.",
+      "oh just stop with fearmongering, Openclaw is awesome and gives LLMs a proper UI and framing as personal assistant which makes them way more valuable than a chatbot, how did OpenAI, Anthropic, Google and Meta miss such an obvious opportunity with all their billions in capital is beyond me.",
+      "I strongly doubt this tool is nearly as popular as it appears to be. GitHub stars can be bought and social media is ridden with bots. On the dead internet it is cheap and trivial to generate fake engagement in order to reel in curious humans and potential victims.<p>I suspect this entire thing is a honeypot setup by scammers. It has all the tells: virality, grand promises, open source, and even the word &quot;open&quot; in the name. Humans should get used this being the new normal on the internet. Welcome to the future."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Real engineering failures instead of success stories",
+    "url": "https://failhub.substack.com/p/failhub-issue-1",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The great thing that a site like this can bring is helping to discover and refine anti-patterns [1]. I am a huge fan of showing valid paths to take to speed up learning, but showing dead ends, or at least sub-optimal paths, is often very helpful as well.<p>One criticism I have though is that documenting a failure doesn&#x27;t mean you actually realized what truly went wrong and even if you accurately describe what went wrong that doesn&#x27;t mean you have a real solution to that problem. Often the reason things went wrong were far more nuanced and the fix is not obvious. Adding an untested lesson at the end of each of their failures is premature. I&#x27;d call them, at best, observations and next steps to try. They are only lessons after they have truly been tested and successfully navigated around the original failure.<p>[1] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Anti-pattern\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Anti-pattern</a>",
+      "I was excited about this idea, but based on the writing patterns and vague stories I&#x27;m pretty sure these writeups are mostly AI slop.  For example, this is classic ChatGPT phrasing:<p>&gt; The growth I’d been celebrating wasn’t real growth—it was just a spike of first-time buyers who never came back.<p>If I&#x27;m wrong, and these were actually written by a human, I&#x27;d love a chance to stand corrected and apologize.",
+      "Back issues of Game Developer used to have post-mortems of major projects, both successful and unsuccessful. Those were concrete. This is vague and abstract.<p><i>Flying</i> magazine has been publishing &quot;I learned about flying from that&quot; since 1939, and those articles are still good.",
+      "was earnestly hoping for something a little more in depth than &quot;we never solidified the requirements&quot; and &quot;complexity is bad&quot; which are both quite widely understood",
+      "#2 is very crucial and it&#x27;s something I&#x27;ve learned has to be well defined. Just this past week I heard a task was done. I check it. Only half is done. They didn&#x27;t check the issue ticket before asserting completion. Not a big deal but it does mean I should walk through that when we start tickets next time.",
+      "Some more great engineering failures are here                ;<p><a href=\"https:&#x2F;&#x2F;stream.engineered.network:8002&#x2F;stream\" rel=\"nofollow\">https:&#x2F;&#x2F;stream.engineered.network:8002&#x2F;stream</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Recreating My Email Server with Claude",
+    "url": "http://jbrot.com/blog/recreating_my_email_server_with_claude.html",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "PyInfra: Infrastructure Deserves Real Code in Python, Not YAML Soup",
+    "url": "https://marp.kalvad.com/fosdem_2026",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I don&#x27;t get the YAML hate."
+    ],
+    "full_text": null
+  }
+]
