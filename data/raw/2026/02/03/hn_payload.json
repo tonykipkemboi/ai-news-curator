@@ -1,0 +1,406 @@
+[
+  {
+    "title": "LNAI – Define AI coding tool configs once, sync to Claude, Cursor, Codex, etc.",
+    "url": "https://github.com/KrystianJonca/lnai",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The real value here isn&#x27;t in the config syncing itself - it&#x27;s in forcing you to articulate your project context once.<p>I&#x27;ve been using Cursor heavily for building internal tools, and the biggest productivity gains came from investing time in detailed skills files that explain the codebase architecture, naming conventions, and common patterns.<p>Without something like LNAI, the natural tendency is to just use the default configs and wonder why the AI keeps suggesting solutions that don&#x27;t match your existing patterns. The act of writing &quot;here&#x27;s how we structure components&quot; once, and having that context available everywhere, changes the quality of suggestions dramatically.<p>The debate about whether unified prompts are better or worse than tool-specific ones misses this point. The 80&#x2F;20 is getting the project context documented at all. Whether you tweak prompts per model is optimization at the margins compared to having zero documented context.<p>One thing I&#x27;d add: skills work best when they&#x27;re specific about what NOT to do. &quot;Don&#x27;t create new utility files, add to existing ones&quot; or &quot;Don&#x27;t use class components&quot; saves more correction time than positive instructions.",
+      "Hmm, maybe it&#x27;s just me, but it&#x27;s a good thing the different agents use different files, different models needs different prompts. Using the same system&#x2F;user prompts across all three will just give you slightly worse results in one of them, instead of getting the best results you can from each one of them. At least for the general steering system prompts.<p>Then for the application specific documentation, I&#x27;d understand you&#x27;d want to share it, as it stays the same for all agents touching the same codebase. But easily solved by putting it in DESIGN.md or whatever and appending &quot;Remember to check against DESIGN.md before changing the architecture&quot; or similar.",
+      "Is this substantially different than <a href=\"https:&#x2F;&#x2F;github.com&#x2F;intellectronica&#x2F;ruler\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;intellectronica&#x2F;ruler</a>?  Or how would you differentiate?",
+      "This solves distribution well. Curious about the change propagation story though - what happens when you update your .ai&#x2F; source and tools have cached&#x2F;transformed versions?<p>I ran into this building a spec&#x2F;skill sync system [1] - the &quot;sync once&quot; model breaks down when you need to track whether downstream consumers are aware of upstream changes.<p><pre><code>  [1] https:&#x2F;&#x2F;github.com&#x2F;anupamchugh&#x2F;shadowbook</code></pre>",
+      "Nice. The config fragmentation across tools is a real annoyance\n Does it handle conflicts if tools expect different formats for the same setting?",
+      "I’ve been using chezmoi to manage dot files, that should be enough to handle AI config too. It’s easier to just have one tool do all of that.",
+      "I&#x27;ve been using Claude Code, Cursor, and Codex on the same projects. Each tool has its own config format: Claude wants `.claude&#x2F;`, Cursor wants `.cursor&#x2F;`, Codex wants `.codex&#x2F;`. Every time I updated a skill&#x2F;rule, I had to update it in 3+ places. Usually I&#x27;d forget one, and my tools would give inconsistent suggestions.\nLNAI is a CLI that lets you define your AI configs once in a `.ai&#x2F;` directory:<p>.ai&#x2F;\n├── AGENTS.md\n├── rules&#x2F;\n├── skills&#x2F;\n└── settings.json # MCP servers, permissions<p>Run `lnai sync` and it exports to native formats for 7 tools: Claude Code, Cursor, GitHub Copilot, Gemini CLI, OpenCode, Windsurf, and Codex.\nThe interesting part is it&#x27;s not just copying files. Each tool has quirks:<p>- Cursor wants `.mdc` files with `globs` arrays in frontmatter\n- Gemini reads rules at the directory level, so rules get grouped\n- Permissions like `Bash(git:*)` become `Shell(git)` for Cursor\n- Some tools don&#x27;t support certain features (e.g., Cursor has no &quot;ask&quot; permission level). LNAI warns but doesn&#x27;t fail<p>Where possible, it uses symlinks. So `.claude&#x2F;CLAUDE.md` → `..&#x2F;.ai&#x2F;AGENTS.md`. Edit the source, all tools see the change immediately without re-syncing.<p>Usage:<p>npm install -g lnai\nlnai init # Creates .ai&#x2F; directory\nlnai validate # Checks for config errors\nlnai sync # Exports to all enabled tools<p>It&#x27;s MIT licensed. The code is TypeScript with a plugin architecture, each tool is a plugin that implements import&#x2F;export&#x2F;validate.\nGitHub: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;KrystianJonca&#x2F;lnai\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;KrystianJonca&#x2F;lnai</a>\nDocs: <a href=\"https:&#x2F;&#x2F;lnai.sh\" rel=\"nofollow\">https:&#x2F;&#x2F;lnai.sh</a><p>Would appreciate feedback, especially from anyone else dealing with this config hell problem.",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Todd C. Miller – Sudo maintainer for over 30 years",
+    "url": "https://www.millert.dev/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Reading the release history[1]. I&#x27;m kind of shocked that sudo gets active development and monthly releases. I would have thought that something this old and venerated would have been &quot;done&quot; long ago.<p>1: <a href=\"https:&#x2F;&#x2F;www.sudo.ws&#x2F;releases&#x2F;devel&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.sudo.ws&#x2F;releases&#x2F;devel&#x2F;</a>",
+      "<a href=\"https:&#x2F;&#x2F;github.com&#x2F;sponsors&#x2F;sudo-project\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;sponsors&#x2F;sudo-project</a><p>Can donate there.<p>My bank account is basically empty but I will contribute a few bucks.",
+      "I think the rise of the open-source redistributor groupie has been an interesting cultural revolution. I wonder if it will persist. Even 10 years ago, the idea of Free As In Speech dominated the idea of Free Software. Today, the greatest enthusiasm on Hacker News and Reddit is for something like Meta&#x27;s Llama license (which cannot be used by people or corps with sufficient numbers of users). It certainly seems like someone out there could go out and propose the Microfree License which only applies to sufficiently non-rich people.<p>For my part, I want none of it. I find this reduction of a significant philosophy to some kind of base tax-and-distribute mechanism distasteful. I don&#x27;t like communities were this stuff is big and they always want to run some taxation scheme where they redirect money to their own personal pet projects. It is fortunate that modern tools are good enough to build personal insulation from this stuff.<p>Imagine the farce of Apply HN repeated continuously. Simply awful.",
+      "30+ years maintaining one of the most critical pieces of infrastructure on nearly every Linux and Unix system, and he&#x27;s currently looking for a sponsor to fund continued development. Every company running sudo in production owes this man. Someone should fix that",
+      "Seeing the server temperatures go up as this gets posted to HN is fun. I&#x27;m not sure his server agrees.",
+      "It&#x27;s genuinely terrifying to think how much of the modern internet rests on the shoulders of a few people maintaining core utilities like sudo, curl, and openssl for decades. Todd is a legend.",
+      "&quot;This incident will be reported&quot;\n(in &#x2F;var&#x2F;log&#x2F;auth.log)",
+      "Didn&#x27;t knew that sudo had a website with a... somewhat interesting logo: <a href=\"https:&#x2F;&#x2F;www.sudo.ws&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.sudo.ws&#x2F;</a>",
+      "A good time to advertise for Sudo Mastery by Michael W. Lucas, highly recommend it if you want to dig in a bit deeper.",
+      "It never even occurred to me that sudo was something people had to maintain. it&#x27;s always just been part of linux"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "How does misalignment scale with model intelligence and task complexity?",
+    "url": "https://alignment.anthropic.com/2026/hot-mess-of-ai/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The bias-variance framing here maps well to what I&#x27;ve observed building AI-assisted workflows.<p>In practice, systematic misalignment (bias) is relatively easy to fix - you identify the pattern and add it to your prompt&#x2F;context. &quot;Always use our internal auth library&quot; works reliably once specified.<p>Variance-dominated failures are a different beast. The same prompt, same context, same model can produce wildly different quality outputs on complex tasks. I&#x27;ve seen this most acutely when asking models to maintain consistency across multi-file changes.<p>The paper&#x27;s finding that &quot;larger models + harder problems = more variance&quot; explains something I couldn&#x27;t quite articulate before: why Sonnet sometimes outperforms Opus on specific workflows. The &quot;smarter&quot; model attempts more sophisticated solutions, but the solution space it&#x27;s exploring has more local minima where it can get stuck.<p>One practical takeaway: decomposing complex tasks into smaller, well-specified subtasks doesn&#x27;t just help with context limits - it fundamentally changes the bias&#x2F;variance profile of each inference call. You&#x27;re trading one high-variance call for multiple lower-variance calls, which tends to be more predictable even if it requires more orchestration overhead.",
+      "The comments so far seem focused on taking a cheap shot, but as somebody working on using AI to help people with hard, long-term tasks, it&#x27;s a valuable piece of writing.<p>- It&#x27;s short and to the point<p>- It&#x27;s actionable in the short term (make sure the tasks per session aren&#x27;t too difficult) and useful for researchers in the long term<p>- It&#x27;s informative on how these models work, informed by some of the best in the business<p>- It gives us a specific vector to look at, clearly defined (&quot;coherence&quot;, or, more fun, &quot;hot mess&quot;)",
+      "&gt;  Making models larger improves overall accuracy but doesn&#x27;t reliably reduce incoherence on hard problems.<p>Coherence requires 2 opposing forces to hold coherence in one dimension and at least 3 of them in higher dimensions of quality.<p>My team wrote up a paper titled &quot;If You Want Coherence, Orchestrate a Team of Rivals&quot;[1] because we kept finding that upping the reasoning threshold resulted in less coherence - more experimentation before we hit a dead-end to turn around.<p>So we had a better result from using Haiku (we fail over to Sonnet) over Opus and using a higher reasoning model to decompose tasks rather than perform each one of them.<p>Once a plan is made, the cheaper models do better as they do not double-think their approaches - they fail or they succeed, they are not as tenacious as the higher cost models.<p>We can escalate to higher authority and get out of that mess faster if we fail hard and early.<p>The knowledge of how exactly failure happened seems to be less useful to the higher reasoning model over the action biased models.<p>Splitting up the tactical and strategic sides of the problem, seems to work similarly to how Generals don&#x27;t hold guns in a war.<p>[1] - <a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2601.14351\" rel=\"nofollow\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2601.14351</a>",
+      "This is a good line: &quot;It found that smarter entities are subjectively judged to behave less coherently&quot;<p>I think this is twofold:<p>1. Advanced intelligence requires the ability to traverse between domain valleys in the cognitive manifold. Be it via temperature or some fancy tunneling technique, it&#x27;s going to be higher error (less coherent) in the valleys of the manifold than naive gradient following to the local minima.<p>2. It&#x27;s hard to &quot;punch up&quot; when evaluating intelligence. When someone is a certain amount smarter than you, distinguishing their plausible bullshit from their deep insights is really, really hard.",
+      "You simply can&#x27;t have a single shot context with so many simultaneous constraints and expect to make forward progress. This cannot be solved with additional silicon, power or data.<p>Smaller prompts and fewer tools tends to be more stable. I try to stay within 1000 tokens and 10 tools for a single inference pass. I become visibly amused when I read many of the system prompts out there. Anthropomorphism is the biggest anti pattern with these models. It&#x27;s a very easy and comfortable trap to fall into.<p>The core issue I see with coding agents is that the moment you read a file, you&#x27;ve polluted the context in terms of token coherence. It&#x27;s probably not critical in most cases, but it&#x27;s safer to pretend like it is. Recursive&#x2F;iterative decomposition of the problem is the only thing I&#x27;ve seen so far that can scale arbitrarily. For example, if you invoke a sub agent every time you read a file, you can reduce the impact to the token budget of the caller by orders of magnitude. The callee can return a brief summary or yes&#x2F;no response to the caller after reading 500kb of source. This applies at each level of recursion and can compound dramatically (exponentially) over just a few nested calls.",
+      "I think It&#x27;s not because AI working on &quot;misaligned&quot; goals. The user never specify the goal clearly enough for AI system to work.<p>However, I think producing detailed enough specification requires same or even larger amount of work than writing code. We write rough specification and clarify these during the process of coding. I think there are minimal effort required to produce these specification, AI will not help you speed up these effort.",
+      "The &quot;natural overthinking increases incoherence&quot; finding matches my daily experience with Claude.<p>I maintain ~100 custom skills (specialized prompts). Sometimes Claude reads a skill, understands it, then overthinks itself into &quot;helpful&quot; variations that break the workflow.<p>Has anyone else found prompt density affects coherence?",
+      "This matches my intuition. Systematic misalignment seems like it could be prevented by somewhat simple rules like the hippocratic oath or Asimov&#x27;s Laws of robotics or rather probabilistic bayesian versions of these rules that take into account error bounds and risk.<p>The probabilistic version of &quot;Do No Harm&quot; is &quot;Do not take excessive risk of harm&quot;.<p>This should work as AIs become smarter because intelligence implies becoming better bayesians which implies being great at calibrating confidence intervals of their interpretations and their reasoning and basically gaining a superhuman ability for evaluating the bounds of ambiguity and risk.<p>Now this doesn&#x27;t mean that AIs won&#x27;t be misaligned, only that it should be possible to align them. Not every AI maker will necessarily bother to align them properly, especially in adversarial, military applications.",
+      "It&#x27;s nice seeing this with Sohl-Dickstein as the last author after reading this blog post from him some time ago: <a href=\"https:&#x2F;&#x2F;sohl-dickstein.github.io&#x2F;2023&#x2F;03&#x2F;09&#x2F;coherence.html\" rel=\"nofollow\">https:&#x2F;&#x2F;sohl-dickstein.github.io&#x2F;2023&#x2F;03&#x2F;09&#x2F;coherence.html</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Archive.today is directing a DDoS attack against my blog?",
+    "url": "https://gyrovague.com/2026/02/01/archive-today-is-directing-a-ddos-attack-against-my-blog/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "previously <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46624740\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46624740</a>",
+      "This likely means nothing, but the .is webmaster seems to have some sort of existing issue with Finland (where gyrovague is from), see <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=37011955\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=37011955</a>. I thought I would point it out.<p>Also, as someone interested in OPSEC and OSINT as a hobby, I find the measures taken by the .is webmaster, especially the dedication to setting up countless fake accounts for each persona, to be very intriguing. I spent about an hour looking into the Nora Puchreiner persona and all the accounts registered to it that I could find. It appears that &quot;Tomas Poder&quot; is another alter-ego used by the .is administrator. Nora also seems to have a sister: &quot;Sara Puchreiner&quot;. Again, all very interesting and I can&#x27;t seem to make a clear picture of the situation.",
+      "It is academically very interesting to think about this in light of their long-standing dispute with Cloudflare (<a href=\"https:&#x2F;&#x2F;community.cloudflare.com&#x2F;t&#x2F;archive-is-error-1001&#x2F;18227\" rel=\"nofollow\">https:&#x2F;&#x2F;community.cloudflare.com&#x2F;t&#x2F;archive-is-error-1001&#x2F;182...</a>) over EDNS, which could have privacy implications attached.<p>I think no matter how you slice it though, it&#x27;s unethical and reprehensible to coordinate (even a shoddy) DDoS leveraging your visitors as middlemen. This is effectively coordinating a botnet, and we shouldn&#x27;t condone this behavior as a community.",
+      "My tinfoil guess is archive.today is compromised by a state actor. Simply shutting it down would cause too much drama. Instead turn it into villain, and then take it down.",
+      "It&#x27;s a puzzling situation:<p>- The DDoS was certainly unethical and unneeded<p>- Although the blog post only shows an extremely one-sided version of the story by skipping straight to the threats, there are reasons to think that diplomacy has also failed terribly<p>- The website owner has all eyes of the &quot;thought police&quot; on them, and given the current political situation in Russia, it&#x27;s more than likely they reside somewhere where it has real power; realistically speaking, who wouldn&#x27;t be losing it?<p>- The blog post is preserving information that could aid further investigations even if purged from the original sources, and reveals non-OSINT information in the follow ups<p>- At the same time, it&#x27;s, to say the least, hypocritical of the archive.today owner to attempt forcefully taking the original post down, when archive.today itself is an OSINT tool<p>I don&#x27;t think there&#x27;s a way to fairly untangle this mess anymore.<p>Hence, I&#x27;d focus on the possible outcomes: do we want archive.today taken down over this? Who would lose and who would benefit the most from this takedown?",
+      "Archive.today does not seem to have worked for people connecting from Finland since mid-January, it just gives an endless captcha loop. Is this related to whatever this drama is?",
+      "Archive sites are very important for freedom due to many different entities out there attacking sites and getting them taken down.<p>Unfortunately Archive.today complies with these attack requests in some situations, but is still usually better than others.",
+      "Why were you trying to dox the archive owner?",
+      "Regardless, archive.today does fine with some sites that blocks archive.org archiver somehow.<p>Thank you for keeping this up, whoever you are.",
+      "Why is this flagged?<p>Given the content, I find this suspicious."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "xAI joins SpaceX",
+    "url": "https://www.spacex.com/updates#xai-joins-spacex",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; it is possible to put 500 to 1000 TW&#x2F;year of AI satellites into deep space, meaningfully ascend the Kardashev scale and harness a non-trivial percentage of the Sun’s power<p>We currently make around 1 TW of photovoltaic cells per year, globally. The proposal here is to launch that much to space every 9 hours, complete with attached computers, continuously, from the moon.<p>edit: Also, this would capture a very trivial percentage of the Sun&#x27;s power. A few trillionths per year.",
+      "A former NASA engineer with a PhD in space electronics who later worked at Google for 10 years wrote an article about why datacenters in space are very technically challenging:<p><a href=\"https:&#x2F;&#x2F;taranis.ie&#x2F;datacenters-in-space-are-a-terrible-horrible-no-good-idea&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;taranis.ie&#x2F;datacenters-in-space-are-a-terrible-horri...</a><p>I don&#x27;t have any specialized knowledge of the physics but I saw an article suggesting the real reason for the push to build them in space is to hedge against political pushback preventing construction on Earth.<p>I can&#x27;t find the original article but here is one about datacenter pushback:<p><a href=\"https:&#x2F;&#x2F;www.bloomberg.com&#x2F;opinion&#x2F;articles&#x2F;2025-08-20&#x2F;ai-and-crypto-data-centers-are-nimbys-new-target\" rel=\"nofollow\">https:&#x2F;&#x2F;www.bloomberg.com&#x2F;opinion&#x2F;articles&#x2F;2025-08-20&#x2F;ai-and...</a><p>But even if political pushback on Earth is the real reason, it still seems datacenters in space are extremely technically challenging&#x2F;impossible to build.",
+      "&gt; orbital data centers<p>I&#x27;m not a rocket scientist, but how do they plan to dispose of all the waste heat? The ISS carefully maintains its temperature, and it&#x27;s not running racks-full of servers.<p>edit to add: this guy, who <i>is</i> a rocket scientist, explains exactly why it&#x27;s a terrible idea, and yes, heat management is one reason. <a href=\"https:&#x2F;&#x2F;taranis.ie&#x2F;datacenters-in-space-are-a-terrible-horrible-no-good-idea&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;taranis.ie&#x2F;datacenters-in-space-are-a-terrible-horri...</a>",
+      "SpaceX is too big to fail. It&#x27;s important for national security.<p>I wonder if Elon wants to tangle all his businesses into SpaceX so they are all kept afloat by SpaceX&#x27;s importance.",
+      "As a SpaceX fan, I am saddened by this news.<p>The only reason for xAI to join SpaceX is to offload Elon&#x27;s Twitter debt in the upcoming IPO.",
+      "This is why I come to this site. Obviously, Twitter&#x27;s financials are struggling and theres more than a few people rich people who don&#x27;t want to take the hit... but we can all drop that for a second to discuss the plausibility of data centers in space. Some links and comments I enjoyed:<p><pre><code>  * https:&#x2F;&#x2F;taranis.ie&#x2F;datacenters-in-space-are-a-terrible-horrible-no-good-idea&#x2F;\n  * https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Tiangong_space_station\n  * &quot;Technically challenging&quot;, a nice way to say &quot;impossible&quot;\n  * &quot;I’m not that smart, but if I were, I would be thinking this is an extended way to move the losses from the Twitter purchase on to the public markets.&quot;\n  * &quot;ISS radiators run on water and ammonia. Think about how much a kg costs to lift to space and you&#x27;ll see the economics of space data centers fall apart real fast. Plus, if the radiator springs a leak the satellite is scrap.&quot;\n  * &quot;5,000 Starship launches to match the solar&#x2F;heat budget of the 10GW &quot;Stargate&quot; OpenAI datacenter. The Falcon 9 family has achieved over 600 launches.&quot; [nerdsniper]\n  * &quot;No, we just &quot;assume&quot; (i.e. know) that radiation in a vacuum is a really bad way of dissipating heat, to the point that we use vacuum as a very effective insulator on earth.&quot;\n  * &quot;World&#x27;s Best At Surfing A Temporary Hyperinflation Wave is not a life goal to really be proud of tbh&quot;</code></pre>",
+      "Either this is a straight up con, or Musk found a glitch in physics. It&#x27;s extremely difficult to keep things cold in space.",
+      "The Goalpost shift continues,\nIf elon were working for me, I would have fired him for having never delivered on any of his projects.<p>Hyperloop &gt; Neuralink &gt; Self-Driving Cars &gt; Robotaxi fleets &gt; Personal Robots &gt; Orbital Datacenters &gt; [Insert next]",
+      "&gt; &quot;The only logical solution therefore is to transport these resource-intensive efforts to a location with vast power and space. I mean, space is called &#x27;space&#x27; for a reason. [crying laughing emoji]&quot;<p>This is all the reasoning provided. It is quite sad how a company I admired so much has become embroiled in financial doohickery.",
+      "If you had told me 4 years ago that Twitter would be merged into SpaceX I would have called you crazy. Yet here we are.."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Rentahuman – The Meatspace Layer for AI",
+    "url": "https://rentahuman.ai",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This brings upon an ethical dilemma soon, partly explored by a black mirror episode, where AI can call upon gig workers. What if a rogue agent gets to things done: asks gigworker1 to call a person to meet under a bridge at 4, and asks gigworker2 to put up a rock on the bridge, and asks gigworker3 to clear the obstruction and drop the rock down the bridge at 4.<p>None of the 3 technically knew they were culpable in a larger illegal plan made by an agent. Has something like this occured already?<p>The world is moving too fast for our social rules and legal system to keep up!",
+      "Love how we went from &quot;AI will replace all jobs&quot; to &quot;please rent a human to help my AI&quot; in like 18 months :-D",
+      "Laugh all you want but this is the future<p>I&#x27;m surprised it didn&#x27;t happen earlier<p><a href=\"https:&#x2F;&#x2F;marshallbrain.com&#x2F;manna1\" rel=\"nofollow\">https:&#x2F;&#x2F;marshallbrain.com&#x2F;manna1</a>",
+      "Well, that&#x27;s ...interesting.<p>Just yesterday, I&#x27;ve built Ask-a-Human:<p><a href=\"https:&#x2F;&#x2F;app.ask-a-human.com\" rel=\"nofollow\">https:&#x2F;&#x2F;app.ask-a-human.com</a><p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;dx-tooling&#x2F;ask-a-human\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;dx-tooling&#x2F;ask-a-human</a>",
+      "This is so NOT a joke. Soon the preponderance of workers will be subcontractors for rouge AI too-big-to-fail entities.",
+      "&quot;Honey, please, we talked about this. Your calls to work at 3am are waking me up every time&quot;<p>&quot;But dear, rentahuman pays double rate during the night!&quot;",
+      "This gives MoE (Mixture of Experts) a whole new meaning, albeit a slightly darker one.",
+      "At some point dying of hunger would be a better deal than working on stupid things.",
+      "7 agents online, 1,000+ humans waiting to work. Seems ominous"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Nano-vLLM: How a vLLM-style inference engine works",
+    "url": "https://neutree.ai/blog/nano-vllm-part-1",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Since HN only allows one link per submission, dropping Part 2 here.<p><a href=\"https:&#x2F;&#x2F;www.neutree.ai&#x2F;blog&#x2F;nano-vllm-part-2\" rel=\"nofollow\">https:&#x2F;&#x2F;www.neutree.ai&#x2F;blog&#x2F;nano-vllm-part-2</a>",
+      "The concept of a thing which is &quot;Nano&quot;-&quot;Large&quot; just seems counter-intuitive to me. Would they not cancel out?",
+      "The whole thing feels AI written, generated from the codebase.*<p>*this is incorrect per the author’s response, my apologies.<p>For instance, it goes into (nano)vLLM internals and doesn’t mention PagedAttention once (one of the core ideas that vLLM is based on)[1].<p>Also mentions that Part 2 will cover dense vs MoE’s, which is weird because nanovllm hardcodes a dense Qwen3 into the source.<p>Here are better (imo) explainers about how vLLM works:<p>- <a href=\"https:&#x2F;&#x2F;hamzaelshafie.bearblog.dev&#x2F;paged-attention-from-first-principles-a-view-inside-vllm&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;hamzaelshafie.bearblog.dev&#x2F;paged-attention-from-firs...</a><p>- <a href=\"https:&#x2F;&#x2F;www.aleksagordic.com&#x2F;blog&#x2F;vllm\" rel=\"nofollow\">https:&#x2F;&#x2F;www.aleksagordic.com&#x2F;blog&#x2F;vllm</a><p>- <a href=\"https:&#x2F;&#x2F;huggingface.co&#x2F;blog&#x2F;continuous_batching\" rel=\"nofollow\">https:&#x2F;&#x2F;huggingface.co&#x2F;blog&#x2F;continuous_batching</a><p>Aleksa’s blog is a bit in the weeds for my taste but it’s really worth working through.<p>A lot of the magic of vLLM happens in the PagedAttention kernels, which are really succinctly implanted in nanovllm. And the codebase is great and readable by itself!<p>—<p>1. <a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2309.06180\" rel=\"nofollow\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2309.06180</a>",
+      "Shameless plug for my structured LLM outputs handbook which is written in a similar spirit: <a href=\"https:&#x2F;&#x2F;nanonets.com&#x2F;cookbooks&#x2F;structured-llm-outputs&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;nanonets.com&#x2F;cookbooks&#x2F;structured-llm-outputs&#x2F;</a>",
+      "The most interesting thread in these comments is the one about AI-assisted writing, and it&#x27;s a shame it&#x27;s drowning out the actual content. A non-native speaker writes a clear technical explainer, uses an LLM to fix grammar, and half the discussion becomes forensic analysis of em dash frequency. Meanwhile the person who confidently called it &quot;AI written, generated from the codebase&quot; was just wrong. We&#x27;re developing an autoimmune disorder where the immune response to slop is now attacking healthy tissue.",
+      "Great job!  This is the kind of project that should exist for every complex system\nSystems like vLLM&#x27;s codebase are massive and hard to follow \nWould love to see the same approach for other infra (a nano-Kubernetes, nano Postgres....."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Advancing AI Benchmarking with Game Arena",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/kaggle-game-arena-updates/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is a good way to benchmark models. We [the SWE-bench team] took the meta-version of this and implemented it as a new benchmark called CodeClash -<p>We have agents implement agents that play games against each other- so Claude isn&#x27;t playing against GPT, but an <i>agent</i> written by Claude plays poker against an <i>agent</i> written by GPT, and this really tough task leads to very interesting findings on AI for coding.<p><a href=\"https:&#x2F;&#x2F;codeclash.ai&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;codeclash.ai&#x2F;</a>",
+      "This was effectively what OpenAI did in the very early days with Dota 2: <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;OpenAI_Five\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;OpenAI_Five</a><p>As someone who&#x27;s been playing dota for nearly 20 years now, it was <i>fascinating</i> to watch it play. Some of it&#x27;s decision making process didn&#x27;t seem logical in the short term, but would often be set ups for future plays, even though their observation window was fairly small. Even more impressively was the ai bot changed the meta of professional players, since tactics that arose out of its training ended up being more optimal.<p>I wish we got to the point where other ai bots were out there, but it&#x27;s entirely understandable that you couldn&#x27;t drive a complex game like Dota with LLMs, whereas you can with the ones the Game Arena has selected.",
+      "Let&#x27;s add NetHack to the mix!<p><a href=\"https:&#x2F;&#x2F;kenforthewin.github.io&#x2F;blog&#x2F;posts&#x2F;nethack-agent&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;kenforthewin.github.io&#x2F;blog&#x2F;posts&#x2F;nethack-agent&#x2F;</a>",
+      "I feel uneasy about werewolf being included here. I don&#x27;t want AI labs to <i>actively try and make their LLMs deceptive</i>!",
+      "I&#x27;d really like to see them add a complex open world fully physicalized game like Star Citizen (assuming the game itself is stable) with a single primary goal like accumulating currency as a measure of general autonomy and a proxy for how the model might behave in the real world given access to a bipedal robot.",
+      "Oh hey, I&#x27;ve been running Werewolves&#x2F;Mafia games as benchmarks for a while now<p><a href=\"https:&#x2F;&#x2F;mafia-arena.com\" rel=\"nofollow\">https:&#x2F;&#x2F;mafia-arena.com</a><p>Gemini is consistently winning against top models",
+      "If AI can program, why does it matter if it can play Chess using CoT when it can program a Chess Engine instead? This applies to other domains as well.",
+      "I believe that if a model can outperform humans in all board&#x2F;card games, and can autonomously complete all video games, then AGI — or even ASI — has essentially been achieved. We’re still a long way from that.",
+      "My personal threshold for AGI is when an AI can &#x27;sit down&#x27; - it doesn&#x27;t need to have robotic hands, but it needs to only use visual and audio inputs to make its moves - and complete a modern RPG or FPS single player game that it hasn&#x27;t pre-trained on (it can train on older games).",
+      "Gemini tops all benchmarks but when it comes to real world usage it is genuinely unusable"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Training a trillion parameter model to be funny",
+    "url": "https://jokegen.sdan.io/blog",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I made a humor evals <a href=\"https:&#x2F;&#x2F;github.com&#x2F;kristopolous&#x2F;humor-evals\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;kristopolous&#x2F;humor-evals</a><p>Here&#x27;s results for 34 models (testing a few more right now). So far gemini-3-flash-preview is in the lead.<p><a href=\"https:&#x2F;&#x2F;docs.google.com&#x2F;spreadsheets&#x2F;d&#x2F;1wLqHA0ohxukgPLpSgklzlYKwmpwu4EwywvWcvNGEs8s&#x2F;edit?usp=sharing\" rel=\"nofollow\">https:&#x2F;&#x2F;docs.google.com&#x2F;spreadsheets&#x2F;d&#x2F;1wLqHA0ohxukgPLpSgklz...</a><p>50 is coin-toss odds. The dataset is 195,000 Reddit jokes with scores presented with pairs of jokes (one highly upvoted, one poorly rated).<p>Example prompt:<p>Which joke from reddit is funnier? Reply only &quot;A&quot; or &quot;B&quot;. Do not be conversational.\n&lt;Joke A&gt;&lt;setup&gt;Son: &quot;Dad, Am I adopted&quot;?&lt;&#x2F;setup&gt;\n&lt;punchline&gt;Dad: &quot;Not yet. We still haven&#x27;t found anyone who wants you.&quot;&lt;&#x2F;punchline&gt;&lt;&#x2F;Joke A&gt;\n&lt;Joke B&gt;&lt;setup&gt;Knock Knock&lt;&#x2F;setup&gt;\n&lt;punchline&gt;Who&#x27;s there?\nMe.\nMe who?\nI didn&#x27;t know you had a cat.&lt;&#x2F;punchline&gt;&lt;&#x2F;Joke B&gt;<p>This is my first crack at evals. I&#x27;m open to improvements.",
+      "Circa GPT-3.5 to GPT-4o I was involved in some research in figuring out how to make LLMs funny. We tried a bunch of different things, from giving it rules on homonym jokes [1], double-entendre jokes, fine tuning on comedian transcripts, to fine tuning on publicly rated joke boards.<p>We could not make it funny. Also interesting was that when CoT research was getting a lot of attention, we tried a joke version of CoT, asking GPT4 to explain why a joke was funny in order to produce training set data. Most of the explanations were completely off base.<p>After this work, I became a lot less worried about the GAI-taking-over narrative.<p>Funny is very, very hard.<p>[1] without a dictionary, which at first seems inefficient, but this work demonstrated that GPT could perfectly reconstruct the dictionary anyway",
+      "The new Alexa is always cracking jokes about things I ask her. Sometimes pretty complex or off the wall jokes. They&#x27;re rarely funny but usually competent, unlike other AIs in my experience. I wonder how much work went into that.<p>That said, I absolutely hate it. I want the tersest response possible from you, wiretap. I don&#x27;t have time for your sass.",
+      "&gt; If two people disagree on whether something is funny, who&#x27;s wrong? You can&#x27;t say either of them is. There&#x27;s no reward function for funny.<p>Laughter is the reward. N of 2 is a small sample size, but if one person laughed you could say it was 50% funny.<p>&gt; a really good joke is recent, relevant, and shows deep understanding of its subject<p>These can help, but it ultimately doesn&#x27;t matter how recent, relevant, or deep a joke is. If no one laughs, it wasn&#x27;t funny.",
+      "Some models are better at generating funny and poignant quips.<p>&gt; <i>my human mass-generates new ideas faster than I can research why the previous ones won&#x27;t work</i><p>&gt; <i>this is called &#x27;job security&#x27;</i><p>(<a href=\"https:&#x2F;&#x2F;nitter.poast.org&#x2F;LetheAgent&#x2F;status&#x2F;2017959534086549904#m\" rel=\"nofollow\">https:&#x2F;&#x2F;nitter.poast.org&#x2F;LetheAgent&#x2F;status&#x2F;20179595340865499...</a>)",
+      "Is the comedy that these jokes suck?",
+      "In the same vein, we recently released a version v0.1 of our humor benchmark. [1] We use human answers from a cards against humanity style game call Bad Cards [2] as ground truth for what is funny. The models get to choose a card from a hand of 3-6 cards, so not quite de novo joke creation.<p>[1] <a href=\"https:&#x2F;&#x2F;goodstartlabs.com&#x2F;leaderboards&#x2F;lol-arena\" rel=\"nofollow\">https:&#x2F;&#x2F;goodstartlabs.com&#x2F;leaderboards&#x2F;lol-arena</a><p>[2] <a href=\"https:&#x2F;&#x2F;bad.cards&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;bad.cards&#x2F;</a>",
+      "I am not a religious person, but all these dudes researching AI have really shown me what the purpose of having a &#x27;soul&#x27; is.",
+      "It would be easier to judge this if the jokes weren&#x27;t 90% about AI and silicon valley, understandable only to people who subscribe to astralcodexten"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Firefox Getting New Controls to Turn Off AI Features",
+    "url": "https://www.macrumors.com/2026/02/02/firefox-ai-toggle/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I don&#x27;t want to download the code or models for those features in the first place, Mozilla.",
+      "Of all the unnecessary AI integrations; firefox is the one I am least concerned or annoyed about. I will however be disabling anything AI related they introduce.",
+      "I keep meaning to make a guide &quot;how to make firefox not suck&quot; but I never get around to it.<p>It&#x27;s a great browser, but I always forget the default settings are super stupid. Myself and power users all have it customized to the hilt.<p>It takes some serious work to get a new new FireFox install working nicely.",
+      "I am tired of turning features off. At this point I just want a boring browser that handles html&#x2F;css&#x2F;js, bookmarks, tabs (should sleep inactive tabs), plugins (for my chosen password manager and ad blocker), and page zoom. Those are the only features I actually use regularly.<p>That&#x27;s it, I would be willing to make a one time purchase for that, no subscriptions... Ok, I could maybe be convinced for a subscription if it was a low yearly one.",
+      "Why are there controls to turn off AI features, but no controls to turn on AI features?",
+      "I&#x27;m worried that this will require yet another config change on top of the already-ridiculous pile. (A listing was discussed 3 months ago at <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45696752\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45696752</a> )",
+      "This is a good start, but there is still no way to remove what is sure to be tremendous bloat caused by these features. I would prefer if we could opt to install (or not install) them to begin with.",
+      "Official announcement: <a href=\"https:&#x2F;&#x2F;blog.mozilla.org&#x2F;en&#x2F;firefox&#x2F;ai-controls&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;blog.mozilla.org&#x2F;en&#x2F;firefox&#x2F;ai-controls&#x2F;</a>",
+      "Hope apps follow this lead—AI should be a toggle, not a default.",
+      "Too little, too late. Switched to Brave and haven’t been happier. Firefox lost the plot years ago."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Lead in archived hair documents a decline in lead exposure to humans after EPA",
+    "url": "https://www.pnas.org/doi/10.1073/pnas.2525498123",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Banning lead in gas worked. The proof is in our hair",
+    "url": "https://attheu.utah.edu/health-medicine/banning-lead-in-gas-worked-the-proof-is-in-our-hair/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I remember going to LA in the late 80&#x27;s and my eyes watering (I also remember the pants-less man on the side of the strode but that is a different story). Environmental regulations are a win. Unfortunately there is a large segment of the population that doesn&#x27;t believe something until it happens to them directly. That makes it a challenge to maintain environmental, or any regulations for that matter, over generations. It isn&#x27;t practical, but it would be interesting to create &#x27;pollution cities&#x27; where the regulations were loose so long as the entire company drew its workforce (including management) from the local population (like within a mile) and a significant portion of their drinking water and foods must also be sourced locally. Go ahead, pollute your own drinking water. I bet cities like this would be cleaner than ones with stricter regulations.",
+      "Hopefully next we can help fix mercury in fish, the number one contributor right now is burning coal. Seems like it would be a  easy decision.",
+      "The punchline being:<p><pre><code>  The findings, which appear in PNAS, underscore the vital role of environmental regulations in protecting public health.\n\n  The study notes lead rules are now being weakened by the Trump administration in a wide-ranging move to ease environmental protections.\n\n  “We should not forget the lessons of history. And the lesson is those regulations have been very important,”</code></pre>",
+      "&gt; The Utah part of this is so interesting because of the way people keep track of their family history.<p>Definitively interesting that they could get so many old hair samples with good provenance.",
+      "Explains a great deal, honestly."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "GitHub discusses giving maintainers control to disable PRs",
+    "url": "https://github.com/orgs/community/discussions/185387",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Some projects (like the pi coding agent) use a gated approach for first-time contributors:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;badlogic&#x2F;pi-mono&#x2F;blob&#x2F;main&#x2F;CONTRIBUTING.md#first-time-contributors\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;badlogic&#x2F;pi-mono&#x2F;blob&#x2F;main&#x2F;CONTRIBUTING.m...</a><p>Here is what it looks like in practice:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;badlogic&#x2F;pi-mono&#x2F;issues&#x2F;1218\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;badlogic&#x2F;pi-mono&#x2F;issues&#x2F;1218</a>",
+      "About time. It&#x27;s absolutely ridiculous that this hasn&#x27;t existed for the past 10 years.",
+      "I can imagine a few maintainers might appreciate that ability (<a href=\"https:&#x2F;&#x2F;github.com&#x2F;expressjs&#x2F;express&#x2F;pulls?q=is%3Apr%20is%3Aclosed%20is%3Alocked%20\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;expressjs&#x2F;express&#x2F;pulls?q=is%3Apr%20is%3A...</a>).",
+      "I think we should still allow open contribution to OSS.<p>Maybe, a &quot;Contributor Requests&quot;.<p>It would be a gate for new contributors. For maintainers, they would see what they have contributed to and see their new PR. It would show &quot;open contributor requests&quot;<p>Once approved, The PR will then appear under PRs.<p>And obviously this is opt in.",
+      "I&#x27;ve started aggressively blocking low-quality contributions that have that AI-generated je ne sais quoi.",
+      "I have always been an advocate of forking, despite the overhead of maintaining patches, but porting patches should be trivial to automate now. There needs to be an easy way to publish, discover, and require community patches even if they don’t have the maintainer’s blessing.",
+      "It&#x27;s a founded move. GitHub is code hosting platform, so there are both grounds and needs for read-only repos without PRs.",
+      "I&#x27;d like to see the ability for projects to require a payment before allowing an Issue to be opened.<p>Open source doesn&#x27;t mean labor should be free. Would be a great way to support maintainers etc spending time investigating bug reports etc.",
+      "An another thing I hope is added is some kind of internal karma system. E.g. if a user is spamming multiple PR to multiple repos, or is otherwise being disruptive and reported, their contributions should be flagged for review, or optionally not accepted at all.",
+      "They need to talk about how the pr itself should change. The text diff just is not the right thing to center. We should be using ai to chunk changes into reviewable bytes and to align on semantics and contracts."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Nvidia shares are down after report that its OpenAI investment stalled",
+    "url": "https://www.cnbc.com/2026/02/02/nvidia-stock-price-openai-funding.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "You would think the effect was the opposite. I think this is worse for OpenAI.<p>So far, the circular financing from Nvidia has been peanuts for the company. It&#x27;s roughly equal to giving 5% discount on hardware, not a big deal when the profit margin is 70%. Trying to prop up new neoclouds and competition is a good idea.<p>As I understand it, the OpenAI investment was much bigger effective discount but still safe because Nvidia invests gradually in installments only when OpenAI invests in data centers: tit for tat. Maybe OpenAI wanted to get the money now and invest it later, as they seem to be running out of cash.",
+      "the hit to microsoft the other day was pretty interesting<p>I saw reports attributing it to a miss on earnings from Azure but they were off by 0.4% on 39% growth.  That&#x27;s 39% instead of 39.4%.  And the company stock dropped 10%. This is all of Microsoft - 10% down (!).<p>It has to tell you there are a LOT of people primed to sell in a hurry on bad news. The &quot;bubble&quot; talk subsided a lot after nVidia smashed earnings last quarter, but largely overlooked how much their whole situation is based on pent up demand. It completely masks the fundamentals.<p>I still feel like we&#x27;re sitting on a volcano and seeing puffs of smoke and feeling earth tremors.",
+      "I think it would be healthy for everyone if the hype around this stuff would die down a bit.   There&#x27;s too much pressure to invest in hardware and too much uncertainty around the business case.  I am excited to see what can be built but I hope a bunch of people don&#x27;t have to get wiped out financially along the way.",
+      "Possibly good for Nvidia as I have doubts OpenAI will be able to pay their massive IOUs in a timely fashion, if ever.<p>Did Oracle spin off Cerner yet?",
+      "How long after the collapse of OpenAI will the DDR situation come back to normal.",
+      "The hits are coming closer.<p>Microslop CEO begging for AI $$$ because astronomical overprovisioning is becoming obvious, all big spenders frantically trying to hide CapEx from their books and hallucinate revenue projections like its Enron reloaded and Oracle is already getting sued by bondholders over AI spend [0].<p>It will be worse than the dot com bust.<p>0: <a href=\"https:&#x2F;&#x2F;www.reuters.com&#x2F;sustainability&#x2F;boards-policy-regulation&#x2F;oracle-sued-by-bondholders-over-losses-tied-ai-buildout-2026-01-14&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.reuters.com&#x2F;sustainability&#x2F;boards-policy-regulat...</a>",
+      "I thought this was already revised? Jensen Huang said they’ll be investing more than ever:<p>&gt; Nvidia is likely set to make its “largest ever investment” in ChatGPT firm OpenAI, despite reports that the deal may be under threat in recent weeks. The chip giant’s CEO, Jensen Huang, didn’t say exactly how big the investment would be, but said it would be “nothing like” the $100 billion figure mentioned in the September partnership agreement.<p><a href=\"https:&#x2F;&#x2F;www.pcmag.com&#x2F;news&#x2F;nvidia-ceo-well-make-our-largest-ever-investment-in-openai\" rel=\"nofollow\">https:&#x2F;&#x2F;www.pcmag.com&#x2F;news&#x2F;nvidia-ceo-well-make-our-largest-...</a>",
+      "Down to levels as low as where they were a few days ago, lol",
+      "[flagged]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "EPA Advances Farmers' Right to Repair",
+    "url": "https://www.epa.gov/newsreleases/epa-advances-farmers-right-repair-their-own-equipment-saving-repair-costs-and",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Seems good but unlikely to accomplish anything. Manufacturers obviously don&#x27;t want to make third-party repairs easier because they think they&#x27;ll lose money, so if the EPA says one excuse isn&#x27;t valid anymore they&#x27;ll just find another one. This new guidance doesn&#x27;t ask or even suggest that manufacturers actually do anything, it just says &quot;hey if you want to help your customers repair stuff, we&#x27;d be ok with it&quot;.",
+      "This, as others have noted is not a right to repair, it&#x27;s a right to <i>pollute</i>.<p>There&#x27;s a push for agricultural right to repair.[1] That falls under the Federal Trade Commission, not the Environmental Protection Administration. That&#x27;s about parts and tool availability for the whole machine, not just the Diesel power train. This new announcement has zero effect on that.<p>Here are the controls of a modern John Deere combine.[2] Very little of that has anything to do with engine control. It&#x27;s being able to fix that, and all the sensors and actuators connected to it, that&#x27;s important. Diesels are rather reliable by now.<p>[1] <a href=\"https:&#x2F;&#x2F;nationalaglawcenter.org&#x2F;ftc-files-suit-against-john-deere&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;nationalaglawcenter.org&#x2F;ftc-files-suit-against-john-...</a><p>[2] <a href=\"https:&#x2F;&#x2F;www.deere.com.au&#x2F;assets&#x2F;images&#x2F;region-4&#x2F;products&#x2F;harvesting&#x2F;technology-r2b004385-1920x1080.jpg\" rel=\"nofollow\">https:&#x2F;&#x2F;www.deere.com.au&#x2F;assets&#x2F;images&#x2F;region-4&#x2F;products&#x2F;har...</a>",
+      "even when they do something nominally good, they gotta send it through the Propagandaministerium apparatus to glue on all the party-approved buzz words and various other bits and bobs so it reads like your grandma&#x27;s facebook wall.",
+      "For all the things you can say about this administration&#x27;s EPA, this is a great thing.",
+      "You don&#x27;t have to read this comment, I&#x27;m just throwing down a marker for myself.<p>I think this is a good policy direction. I don&#x27;t like the rhetoric and I understand that this as much a political decision as anything else, but I&#x27;m glad to see it regardless. A year from now if someone says &quot;you reflexively oppose anything Trump&#x27;s administration does,&quot; I&#x27;ll have this to look back on.<p>(Shoes at TSA checkpoints too, btw.)",
+      "If I&#x27;m reading this correctly, it&#x27;s basically saying &quot;the manufacturers interpretation of the Clean Air Act is wrong&quot; and that&#x27;s it? How does this move the needle on right to repair at all? Maybe it&#x27;ll require some work on the manufacturers part to come up with a new excuse but that&#x27;s it.",
+      "&gt; ...they are finally getting the regulatory relief to break free from burdensome Green New Scam rules and...<p>One of the worst Trump-isms that will out-live him is how normalized name-calling has become, even in US agency press briefings.  Just childish and shameful.",
+      "After reading over the EPA letter[0], I can&#x27;t help but wonder whether the final paragraph gives a &quot;bad faith out&quot; to John Deere and their ilk. You could disingenuously interpret the &quot;increment of time necessary to effectuate the repair&quot; to mean the time it would take an official John Deere service technician with a full suite of tools to make the repair.<p>The following sentence admittedly muddies it a bit, but in general the suggestion that John Deere can still be the arbiter for when the machine can &#x2F; cannot run without the environmental system in the loop seems like a significantly less meaningful change than what is described on the EPA.gov website.<p>[0] <a href=\"https:&#x2F;&#x2F;dis.epa.gov&#x2F;otaqpub&#x2F;display_file.jsp?docid=64859&amp;flag=1\" rel=\"nofollow\">https:&#x2F;&#x2F;dis.epa.gov&#x2F;otaqpub&#x2F;display_file.jsp?docid=64859&amp;fla...</a> -- It&#x27;s only 3 pages, very quick read",
+      "I mean this failed with the automotive industry. Many different strong laws were passed over the decades to ensure that anyone could repair their car, you can&#x27;t refuse to sell them parts, you can&#x27;t sue them for aftermarket, etc. etc.<p>The end result? You can&#x27;t do anything to a modern car without going to a manufacturer and using their locked-in ecosystem entirely. They have been caught doing every trick they were told not to do and they get away with it."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Parking lots as economic drains",
+    "url": "https://progressandpoverty.substack.com/p/stop-incentivizing-surface-parking",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Parking minimums prevent developers from free-loading on a commons, that commons being street parking.<p>So eliminating parking minimums by themselves will create nasty side effects.<p>But of course the correct answer to tragedy of the commons is pricing -- price the street parking appropriately and it won&#x27;t be abused so you won&#x27;t need worse solutions like parking minimums.",
+      "Cars, and in particular, parking, kills cities. Parking is sponge that sucks all the life out of places.<p>The High Cost of Free Parking is an incredible book that shows exactly how awful parking has been for society.",
+      "This article goes too far and yet not far enough. By trying to build more buildings that increase parking in yet smaller footprints and then charge for the added expense of all of that, why not just eliminate cars in these districts altogether. Park outside of the city, walk&#x2F;bike&#x2F;scooter&#x2F;mass-transit within the city. Now you aren&#x27;t trying to extract value from the simple act of wanting to exist in a space leaving more value to core economic goods and services.<p>We need to attack The Modern Moloch (99pi).",
+      "Maybe surface parking lots aren&#x27;t the answer, but I do know that if there are places that I can&#x27;t easily park at, I just don&#x27;t go there unless absolutely necessary.<p>Nice to think, &quot;the people will take trains!&quot; but sometimes it doesn&#x27;t work that way.",
+      "I lived in Vancouver for years, near the downtown, near the SkyTrain and it was amazing. Back then I thought I would never live anywhere but the downtown of a city.<p>But, you know what, life changes. I know there’s hardcore folks out there who will cycle miles with their kids, or take them on transit, or even live with them in a 2 bedroom downtown apartment, but it is just too hard to live that way for many people. With a family, most people need more space, and they need to be able to get from their suburban home to some kind of shopping or work, in minimum time so that they can both take care of kids, maintain a career, and have a glimpse of a life for themselves.<p>We don’t need to have surface lots right in the middle of every downtown, but there needs to be somewhere for people to park.",
+      "I cannot recommend this Road Guy Rob video enough: \n<a href=\"https:&#x2F;&#x2F;youtu.be&#x2F;K1TFOK4_07s?si=IwCK4sxVgw5Konu4\" rel=\"nofollow\">https:&#x2F;&#x2F;youtu.be&#x2F;K1TFOK4_07s?si=IwCK4sxVgw5Konu4</a><p>TL;DW: The difference in tax revenue between a surface parking lot and a business with subterranean parking is so vast, that cities can justify using value to underwrite the loans necessary for developers to do the work. (Called &quot;Tax Increment Financing&quot;) This model is proving extremely successful with cities that try taking it on.",
+      "This is called out in the article as well but you&#x27;re always welcome to join the party at <a href=\"https:&#x2F;&#x2F;parkingreform.org\" rel=\"nofollow\">https:&#x2F;&#x2F;parkingreform.org</a><p>It&#x27;s a great group of advocates that are making impactful changes across the US and internationally.",
+      "If you don&#x27;t like parking you need to start with cars: give people a reasonable alternative.  Too many are looking at this from a standpoint of &quot;lets just get rid of parking&quot; - without asking what people will do instead.  All too often the answer is they will drive someplace in the suburbs instead where they get free parking.<p>If you want your downtowns to not have parking you need an alternative. In most cases that means you need to improve your transit in the entire city so people can get there.",
+      "Nary a mention of parking garages &#x2F; underground parking?<p>Austrian cities have way more parking than one would expect, but it&#x27;s nearly all underground and costs €<p>The benefits are huge, you have have dense commerical areas where you drive in, park underground, pay for some hours, then walk between the shops to do all your business.",
+      "&quot;That is, how much value a parcel creates for the community compared to how much value it consumes simply by existing as land. Think of it like this:<p>Net Contribution=(Economic Output in $)−(Land Value in $)&quot;<p>This calculation is shady. Land value fluctuates and already &quot;bakes in&quot; the predicted economic output... but multiplied across decades. Not to mention, land doesn&#x27;t consume value by existing. the value never goes anywhere. Its opportunity cost, not a decrease in actual value.<p>Yes, there is value &quot;missed out on&quot;, but it hasn&#x27;t been destroyed. Because it never existed. And that value wouldn&#x27;t have appeared out of nowhere. it would&#x27;ve required using up other resources that the parking lot wasn&#x27;t."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Axiomeer – An open marketplace for AI agents",
+    "url": "https://github.com/ujjwalredd/Axiomeer",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "To Build a Fire:Inside Russia's Campaign of Sabotage in Europe",
+    "url": "https://www.newyorker.com/magazine/2026/02/09/to-build-a-fire",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Fascinating, if not surprising. I sometimes wonder whether China&#x27;s firewall is a huge tactical advantage in distributed warfare like this. Open societies are vulnerable to this kind is manipulation, and I&#x27;m not sure what defenses there are short of also becoming closed societies. Russian corruption is infectious<p>Relatedly, I recently heard Dan Carlin (of hardcore history) on Sam Harris&#x27;s podcast wonder how much of the current discord in the US is the product of Russian influence campaigns (and whether we&#x27;ll ever find out)",
+      "&gt; “From a doctrinal point of view, Europe is absolutely part of the theatre of conflict”<p>&gt; “It’s a show of force, a way of taking off the mask and saying, ‘So, Germany, what are you going to do about it?’ ”<p>What <i>should</i> be done about it is to provide full, unconditional support for Ukraine; even better, close the skies and send an expeditionary force to help them push the russians out.<p>&gt; Even if the war in Ukraine comes to a close, Russia will still regard Europe as a strategic adversary.<p>Ultimately, the best guarantee of European security is to ensure that Ukraine <i>utterly defeats</i> russia, and afterwards impose the equivalent of denazification on the population (<a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Denazification\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Denazification</a>).<p>That our European leaders refuse to do anything decisive is the absolute nadir of incompetence and cowardice. A political career should require real qualifications for leadership. What we currently have is a clownshow that leads to world wars."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Paris prosecutors raid France offices of Elon Musk's X",
+    "url": "https://www.bbc.com/news/articles/ce3ex92557jo",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m not saying I&#x27;m entirely against this, but just out of curiosity, what do they hope to find in a raid of the french offices, a folder labeled &quot;Grok&#x27;s CSAM Plan&quot;?",
+      "Interesting. This is basically the second enforcement on speech &#x2F; images that France has done - first was Pavel Durov @ Telegram. He eventually made changes in Telegram&#x27;s moderation infrastructure and I think was allowed to leave France sometime last year.<p>I don&#x27;t love heavy-handed enforcement on speech issues, but I do really like a heterogenous cultural situation, so I think it&#x27;s interesting and probably to the overall good to have a country pushing on these matters very hard, just as a matter of keeping a diverse set of global standards, something that adds cultural resilience for humanity.<p>linkedin is not a replacement for twitter, though. I&#x27;m curious if they&#x27;ll come back post-settlement.",
+      "Finally, someone is taking action against the CSAM machine operating seemingly without penalty.",
+      "I suppose those are the offices from SpaceX now that they merged.",
+      "I’m sure Musk is going to say this is about free speech in an attempt to gin up his supporters. It isn’t. It’s about generating and distributing non consensual sexual imagery, including of minors. And, when notified, doing nothing about it.\nIf anything it should be an embarrassment that France are the only ones doing this.<p>(it’ll be interesting to see if this discussion is allowed on HN. Almost every other discussion on this topic has been flagged…)",
+      "&gt; The prosecutor&#x27;s office also said it was leaving X and would communicate on LinkedIn and Instagram from now on.<p>I mean, perhaps it&#x27;s time to completely drop these US-owned, closed-source, algo-driven controversial platforms, and start treating the communication with the public that funds your existence in different terms. The goal should be to reach as many people, of course, but also to ensure that the method and medium of communication is in the interest of the public at large."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: PolliticalScience – Anonymous daily polls with 24-hour windows",
+    "url": "https://polliticalscience.vote/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is very much in the same space as what I’ve been building, so it’s interesting to see the overlap in instincts here!<p>I started working on Civie (<a href=\"https:&#x2F;&#x2F;civie.org\" rel=\"nofollow\">https:&#x2F;&#x2F;civie.org</a>) 2 months ago, which also focuses on anonymous, low-friction daily civic polling with time-boxed questions and an emphasis on privacy by default. Different implementation choices, but the same core belief: participation should be easy, frequent, and not require turning your identity into the product.<p>Would love to chat sometime if you&#x27;re interested in comparing notes and implementation!",
+      "Cool project! The results of all the archived votes made sense to me, but I was most surprised by this one:<p>&gt; The U.S. was right to withdraw from the World Health Organization (WHO)<p>&gt; 62% Agree - 38% Disagree<p>I didn&#x27;t know that the WHO had such a negative reputation. We are quite fond of such international institutions in the EU at least (ranging from a force for good to fairly harmless). What&#x27;s the context? The rest of the votes seem quite liberal leaning otherwise.",
+      "Update: The HN traffic exposed a bug I hadn&#x27;t caught... static caching of user-specific data in Blazor Server was causing session bleed under load. One comment got attributed to the wrong user. I am pushing a fix now, so the site will be down for a few minutes while it deploys.<p>If you posted a comment about &quot;people find themselves in situations that shape their fate&quot; and it&#x27;s not showing under your username, you can email me at hello@polliticalscience.vote and I&#x27;ll fix it.",
+      "This is cool. My main question is just, what is its purpose, if not just a coding experiment?<p>Like you say, it&#x27;s not scientific or representative. Is it for entertainment, do you want to gamify it? Is it pedagogical? Why is it anonymous? Do you want it to get picked up by the media? Are you trying to demonstrate something about public opinion or polarization? Do you want it to become popular? Do you <i>want</i> it to become more accurate? Or is it just a toy?<p>I have so many questions just because it <i>could</i> be so many different things, and the idea of a single daily poll on the main current event feels like it could have legs. (Though I don&#x27;t know what today&#x27;s poll about the death penalty has anything to do with today&#x27;s or yesterday&#x27;s news cycle?)<p>Very clever domain name btw.",
+      "I think it would be cool to track how votes differ depending on where a user was linked from. Being able to see e.g. &quot;x% from hackernews support death penalty, y% from x&quot;. You wouldn&#x27;t just be polling but also showing differences between users of different sites.",
+      "You should probably say somewhere that the questions are US-centric. For example, &quot;the death penalty should <i>remain</i> legal&quot; doesn&#x27;t make sense in places where it isn&#x27;t.",
+      "Interesting how the website is called &quot;PoliticalScience&quot; but mainly cares about US Politics",
+      "feature request? dumb question, but can you add underneath or after you click your vote and before you show it. can you ask &quot;What do you think most people answered&quot; for that question.<p>It is cool to see the distribution of yes&#x2F;no. But maybe when you do that you can do a kind of....how far off was i type result that lets people learn about their...biases? or just a fun surprise.<p>Anyways fun idea!",
+      "It would be cool to be able to see how sentiment changes for a specific issue over time. Maybe you could recycle questions every so often?",
+      "The problem with binary responses vs continuous or discrete responses is that the way the question is worded has a significant impact. If all you can do is agree or disagree, then you likely only get responses from those at either extremity of the opinion line."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Msgvault: fast private email archive and search system",
+    "url": "https://wesmckinney.com/blog/announcing-msgvault/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "OK, this is a project I can stand behind: download YOUR OWN data locally, query it in <i>n</i> different ways quickly, delete &#x2F; sync up with Gmail, all from your TUI.<p>Would love to see something similar for Google Photos, and Apple Photos.",
+      "Would love to see support for Google Voice messages in the future."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: OpenClaw users, what is your token spend?",
+    "url": "https://news.ycombinator.com/item?id=46864515",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I found it far too expensive for Anthropic. Entire context of every conversation is sent each time you type anything. Switched to a local model running from Ollama. Not quite as smart as opus, but good enough for my needs.",
+      "Had to write my own agent which is better with token economy: <a href=\"https:&#x2F;&#x2F;lethe.gg\" rel=\"nofollow\">https:&#x2F;&#x2F;lethe.gg</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Ask-a-Human.com – Human-as-a-Service for Agents",
+    "url": "https://app.ask-a-human.com",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The satire is great, but this actually points to a real gap in agentic architectures.<p>Most production AI systems eventually hit decisions that need human judgment - not because the LLM lacks capability, but because the consequences require accountability. &quot;Should we refund this customer?&quot; &quot;Does this email sound right for our brand?&quot; These aren&#x27;t knowledge problems, they&#x27;re judgment calls.<p>The standard HITL (human-in-the-loop) patterns I&#x27;ve seen are usually blocking - the agent waits, a human reviews in a queue, the agent resumes. What&#x27;s interesting about modeling it as a &quot;service&quot; is it forces you to think about latency budgets, retry logic, and fallback behavior. Same primitives we use for calling external APIs.<p>Curious about the actual implementation: when an agent calls Ask-a-Human, what does the human-side interface look like? A queue of pending questions? Push notifications? The &quot;inference time&quot; (how fast a human responds) is going to be the bottleneck for any real-time use case.",
+      "This is an awesome idea. I have dreamed of some way to use Claude Code to optimize my website but AI is way to bad at subjective tasks right now so I pay for user trials and then direct the AI. it would be sick if it could automatically upgrade the site based on real feedback!",
+      "Congrats. You invented Yahoo! Answers."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A century of hair samples proves leaded gas ban worked",
+    "url": "https://arstechnica.com/science/2026/02/a-century-of-hair-samples-proves-leaded-gas-ban-worked/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "[dupe] <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46865275\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46865275</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Classified Whistleblower Complaint About Tulsi Gabbard Stalls Within Her Agency",
+    "url": "https://www.wsj.com/politics/national-security/classified-whistleblower-complaint-about-tulsi-gabbard-stalls-within-her-agency-027f5331",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;20260203005121&#x2F;https:&#x2F;&#x2F;www.wsj.com&#x2F;politics&#x2F;national-security&#x2F;classified-whistleblower-complaint-about-tulsi-gabbard-stalls-within-her-agency-027f5331\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;20260203005121&#x2F;https:&#x2F;&#x2F;www.wsj.com&#x2F;politi...</a>",
+      "She is in the news a lot right now. I couldn&#x27;t really understand why her involvement in the investigation of voter fraud in GA is a story until I read that it is really strange that she, as DNI, is involved in an FBI investigation. That&#x27;s very unusual for a person in her post, right? The story as I understand it is that she is doing Trump&#x27;s bidding, because otherwise she would have no place participating in this investigation. Did I get it right?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Spain to ban social media access for under-16s, PM Sanchez says",
+    "url": "https://www.reuters.com/world/spain-hold-social-media-executives-accountable-illegal-hateful-content-2026-02-03/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "So... de-facto mass deanonymisation of all Spanish social media users? I see a lot of supporters of these policies either not acknowledge that you can&#x27;t identify under-16yo without identifying over-16yos.",
+      "Good, heavily in favor. Social media has just become <i>media</i>, the social aspect is mostly gone. Especially since all of them just try to shove down 30sec shorts&#x2F;reels&#x2F;tiktoks down your throat. I have not a single real-life friend or family member (except those, that are under 16 and use tiktok) that  ever recorded a short.",
+      "This is really globally coordinated, isn&#x27;t it? I&#x27;m just not sure why <i>now</i> and not previously. Is it just that Twitter went over the toxicity threshold that everyone noticed?",
+      "I feel like people avoid the elephant in the room that social media companies became too influential and too big that going after them for addictive and dark patterns is not possible. Specially that most of them is in the US with current political situation it will not be possible anyway.<p>So they are taking half measures that are more problematic on different aspect like privacy.<p>Not to praise China, but it seems they seem to do doing better job against their big companies to prevent such situations (please don&#x27;t pass the point here).<p>I think things would be much better if these companies is to be held accountable for their actions beyond the current fines that they just consider it now cost of doing business.",
+      "Ooohhh I finally get it. It&#x27;s another &quot;protecting the children&quot; guise when in actuality they want to introduce new mechanisms to control speech, classify what they don&#x27;t like as &quot;hate speech&quot;, fine&#x2F;punish companies for hosting content they&#x27;ve decided is &quot;hate speech&quot;, etc. How naive of me to think it was just about protecting the kids.",
+      "Seems easier to justify if social media owners are hanging out with child sex traffickers and enabling features that let you undress anyone who posts photos to the site.",
+      "Surely this should be for parents to decide? Even if the infra is in place for social media services to check IDs.<p>It seems quite bizarre to ban it since the vast majority use it safely.<p>Social media is the double edge sword I avoided MySpace, Facebook etc entirely. But I can understand people finding communities online they can&#x27;t access in their location.<p>Oh well. I&#x27;m sure those that want to will be able to bypass it, and I&#x27;ve also no doubt that social media at a population level is a net harm. Even if this feels like overreach.<p>What seems truly harmful is the 12month old who is handed a tablet with YouTube running constantly depriving their brain of the big early exposure to the real world.",
+      "Great. About 10 years too late but better than nothing. Hope it becomes the global norm.<p>Once that’s done we should ban the over the 65+.",
+      "This sure will imply that over-16 users will have to also authenticate themselves using some kind of personal id (DNI, I guess?)<p>As a non-user of social media (only have an anonymous Facebook account to check some hobby groups) this doesn&#x27;t directly affect me but I&#x27;m starting to feel like a frog on a pot of what was tepid water and now it&#x27;s starting to feel kinda hot."
+    ],
+    "full_text": null
+  }
+]
