@@ -1,0 +1,348 @@
+[
+  {
+    "title": "Freshpaint (YC S19) Is Hiring a Senior SWE, Data",
+    "url": "https://www.freshpaint.io/about?ashby_jid=3a7926ba-cf51-4084-9196-4361a7e97761",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Claude Code: connect to a local model when your quota runs out",
+    "url": "https://boxc.net/blog/2026/claude-code-connecting-to-local-models-when-your-quota-runs-out/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Reduce your expectations about speed and performance!<p>Wildly understating this part.<p>Even the best local models (ones you run on beefy 128GB+ RAM machines) get <i>nowhere</i> close to the sheer intelligence of Claude&#x2F;Gemini&#x2F;Codex. At worst these models will move you backwards and just increase the amount of work Claude has to do when your limits reset.",
+      "Useful tip.<p>From a strategic standpoint of privacy, cost and control, I immediately went for local models, because that allowed to baseline tradeoffs and it also made it easier to understand where vendor lock-in could happen, or not get too narrow in perspective (e.g. llama.cpp&#x2F;open router depending on local&#x2F;cloud [1] ).<p>With the explosion of popularity of CLI tools (claude&#x2F;continue&#x2F;codex&#x2F;kiro&#x2F;etc) it still makes sense to be able to do the same, even if you can use several strategies to subsidize your cloud costs (being aware of the lack of privacy tradeoffs).<p>I would absolutely pitch that and evals as one small practice that will have compounding value for any &quot;automation&quot; you want to design in the future, because at some point you&#x27;ll care about cost, risks, accuracy and regressions.<p>[1] - <a href=\"https:&#x2F;&#x2F;alexhans.github.io&#x2F;posts&#x2F;aider-with-open-router.html\" rel=\"nofollow\">https:&#x2F;&#x2F;alexhans.github.io&#x2F;posts&#x2F;aider-with-open-router.html</a><p>[2] - <a href=\"https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;LocalLLaMA\" rel=\"nofollow\">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;LocalLLaMA</a>",
+      "Some native Claude code options when your quota runs out:<p>1. Switch to extra usage, which can be increased on the Claude usage page: <a href=\"https:&#x2F;&#x2F;claude.ai&#x2F;settings&#x2F;usage\" rel=\"nofollow\">https:&#x2F;&#x2F;claude.ai&#x2F;settings&#x2F;usage</a><p>2. Logout and Switch to API tokens (using the ANTHROPIC_API_KEY environment variable) instead of a Claude Pro subscription. Credits can be increased on the Anthropic API console page: <a href=\"https:&#x2F;&#x2F;platform.claude.com&#x2F;settings&#x2F;keys\" rel=\"nofollow\">https:&#x2F;&#x2F;platform.claude.com&#x2F;settings&#x2F;keys</a><p>3. Add a second 20$&#x2F;month account if this happens frequently, before considering a Max account.<p>4. Not a native option: If you have a ChatGPT Plus or Pro account, Codex is surprisingly just as good and comes with a much higher quota.",
+      "Claude Code Router or ccr can connect to OpenRouter. When your quota runs out, it’s a much better speed vs quality vs cost tradeoff compared to running Qwen3 locally - <a href=\"https:&#x2F;&#x2F;github.com&#x2F;musistudio&#x2F;claude-code-router\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;musistudio&#x2F;claude-code-router</a>",
+      "Interesting approach for cost management, but one angle nobody seems to be discussing: the security implications.<p>When you fall back to a local model for coding, you lose whatever safety guardrails the hosted model has. Claude&#x27;s hosted version has alignment training that catches some dangerous patterns (like generating code that exfiltrates env vars or writes overly permissive IAM policies). A local Llama or Mistral running raw won&#x27;t have those same checks.<p>For side projects this probably doesn&#x27;t matter. But if your Claude Code workflow involves writing auth flows, handling secrets, or touching production infra, the model you fall back to matters a lot. The generated code might be syntactically fine but miss security patterns that the larger model would catch.<p>Not saying don&#x27;t do it - just worth being aware that &quot;equivalent code generation&quot; doesn&#x27;t mean &quot;equivalent security posture.&quot;",
+      "My experience thus far is that the local models are a) pretty slow and b) prone to making broken tool calls. Because of (a) the iteration loop slows down enough to where I wander off to do other tasks, meaning that (b) is way more problematic because I don&#x27;t see it for who knows how long.<p>This is, however, a major improvement from ~6 months ago when even a single token `hi` from an agentic CLI could take &gt;3 minutes to generate a response. I suspect the parallel processing of LMStudio 0.4.x and some better tuning of the initial context payload is responsible.<p>6 months from now, who knows?",
+      "Or better yet: Connect to some trendy AI (or web3) company&#x27;s chatbot. It almost always outputs good coding tips",
+      "What are peoples&#x27; current suggestions for using Claude Code with a locally hosted LLM running on regular consumer hardware (for the sake of discussion, assume you&#x27;re spending $US500-ish on a mini PC, which would get you a reasonably decent CPU, 32Gb RAM and a cheapish GPU)?<p>I get that it&#x27;s not going to work as well as hosted&#x2F;subscription services like Claude&#x2F;Gemini&#x2F;Codex&#x2F;..., but sometimes those aren&#x27;t an option",
+      "I bought a Z.ai subscription and used GLM 4.7 for like 10 days before giving up on it. Couldn&#x27;t even stick to DRY principle. Wish it worked well but it didn&#x27;t.",
+      "Since Llama.cpp&#x2F;llama-server recently added support for the Anthropic messages API, running Claude Code with several recent open-weight local models is now very easy. The messy part is what llama-server flags to use, including chat template etc. I&#x27;ve collected all of that setup info in my claude-code-tools [1] repo, for Qwen3-Coder-next, Qwen3-30B-A3B, Nemotron-3-Nano, GLM-4.7-Flash etc.<p>Among these, I had lots of trouble getting GLM-4.7-Flash to work (failed tool calls etc), and even when it works, it&#x27;s at very low tok&#x2F;s. On the other hand Qwen3 variants perform very well, speed wise. For local sensitive document work, these are excellent; for serious coding not so much.<p>One caviat missed in most instructions is that you have to set \n    CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC = 1\nin your ~&#x2F;.claude&#x2F;settings.json, otherwise CC&#x27;s telemetry pings cause total network failure because local ports are exhausted.<p>[1] claude-code-tools local LLM setup: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;pchalasani&#x2F;claude-code-tools&#x2F;blob&#x2F;main&#x2F;docs&#x2F;local-llm-setup.md\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;pchalasani&#x2F;claude-code-tools&#x2F;blob&#x2F;main&#x2F;do...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI is killing B2B SaaS",
+    "url": "https://nmn.gl/blog/ai-killing-b2b-saas",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It&#x27;s a tale as old as time that developers, particularly junior developers, are convinced they could &quot;slap together something in one weekend&quot; that would replace expensive SAAS software and &quot;just do the parts of it we actually use&quot;. Unfortunately, the same arguments against those devs regular-coding a bespoke replacement apply to them vibe-coding a bespoke replacement: management simply <i>doesn&#x27;t want to be responsible for it</i>. I didn&#x27;t understand it before I was in management either, but now that I&#x27;m in management I 100% get it.",
+      "I have few sticks in the sand in my thinking framework:<p>* writing code has always been the easiest part of building software, deciding what to do and what not to do is something else that takes forever sometimes<p>* there are several open source projects that can replace commercial SaaS and still people prefer to purchase commercial SaaS. These are available immediately, deployed immediately etc etc.<p>* along the same line, some of those open source projects offer self-hosting and cloud version: I would always personally go for the cloud version because in a small team I don&#x27;t want to operate something that other people built and I don&#x27;t know how to operate. That&#x27;s not my job not my team job<p>* people are underestimating how draining is operating and maintaining software, which is something that goes beyond the adrenaline rush you get after &quot;building&quot; something with Lovable or similar tools. Also, I find it extremely easy to get 80% done quickly but excruciatingly slow to get things done right.<p>* I still see huge value in using tools like Lovable to build a working prototype and validate assumptions so that you get quickly build the right thing right solving the right problem in the right away avoiding waste<p>* camcorders have been around for ages but you don&#x27;t have millions of directors around just because you make a tool more accessible<p>* same can be said for other things like restaurants, where sometimes it&#x27;s more convenient (although expensive) to buy vs build.",
+      "I&#x27;d actually say the opposite is the case. B2B (even SaaS) is probably the most robust when it comes to AI resistance. The described &quot;in house vibe coded SaaS replacement&quot; does not mirror my experience in B2B at all. The B2B software mindset I&#x27;ve encountered the most is &quot;We&#x27;ll pay you so we don&#x27;t have to wrestle with this and can focus on what we do. We&#x27;ll pay you even more if we worry even less.&quot; which is basically the opposite of...let&#x27;s have someone inhouse vibe code and push to production. B2B is usually fairly conservative.",
+      "1. This isn&#x27;t rooted in data but anecdotes &quot;One Series E CEO told me that they’re re-evaluating the quarterly renewal of their engineering productivity software because they along with an engineer reimplemented something using Github and Notion APIs. They were paying $30,000 to a popular tool3 and they were not going to renew anymore.&quot;<p>2. These anecdotes are about tech startups spend, not your &lt;insert average manufacturing business&gt;. Nor or they grounded in data that says &quot;we interviewed 150 SMB companies and 40% of them have cancelled their SaaS subscriptions and replaced it with vibe coded tools&quot;<p>3. &quot;Analysts are writing notes titled “No Reasons to Own” software stocks.&quot; - there is just one analyst saying this: <a href=\"https:&#x2F;&#x2F;finance.yahoo.com&#x2F;news&#x2F;no-reasons-own-software-stocks-140000103.html\" rel=\"nofollow\">https:&#x2F;&#x2F;finance.yahoo.com&#x2F;news&#x2F;no-reasons-own-software-stock...</a><p>4. Most of these SaaS tech stocks have been trading at all time highs...this smells of &quot;explain something very complex with a simple anecdote&quot;<p>EDIT: Oh lol, the author has a vibe coding SaaS offering...there ya go.",
+      "What the authors of this kind of doomer-type articles do not realize is that B2B software companies have the data that their customers pay for, and they also have access to the AI tools themselves, meaning they can accelerate in adding new features to their products, making them more competitive.<p>It&#x27;s a fallacy to consider the bad performance of software stocks as a definite sign that AI is going to replace them. One needs to factor financials into the equation to explain a downtrend. Take Figma for example, spending 109 mil on AWS bills, cutting through their margins. Investors know that such costs do not simply go down due to the vendor lock-in companies experience when using cloud services.<p>Claude Code is good, but definitely far away from being able to vibe code Figma.",
+      "I see that Software as a Service banked too much on the first S, Software. But really customers want the second S, the Service.<p>When you sell a service, it&#x27;s opaque, customer don&#x27;t really care how it is produced. They want things done for them.<p>AI isn&#x27;t killing SaaS, it&#x27;s shifting it to second S.<p>Customers don&#x27;t care how the service is implemented, they care about it&#x27;s quality, availability, price, etc.<p>Service providers do care about the first S, software makes servicing so much more scalable. You define the service once and then enable it to happen again and again.",
+      "It kills low hanging fruit SaaS that was always just some minor piece of functionality wrapped in a subscription model usually based on 99% open source and 1% actual contribution.",
+      "It’s about the &quot;Per User Tax&quot;<p>The panic over SaaS vs AI is simpler than people think. For years, we’ve been paying &quot;Enterprise&quot; prices for tools that are essentially just a UI on top of a database.<p>I&#x27;m a solution architect, and we recently looked at the $30&#x2F;user&#x2F;mo price tag for legacy test management tools. It’s insane. Why am I paying a &quot;per user per month tax&quot; for a glorified spreadsheet when I can pay $20 for an AI agent that can build me a custom version in a week?<p>So, we did exactly that. We used Claude and Cursor to &quot;vibe-code&quot; EZTest. A 100% open source, self hosted alternative that does 90% of what the expensive SaaS tools do, but with zero recurring fees and total data ownership.<p>The market is crashing because the &quot;Application Layer&quot; has been commoditized. If you can build and own your infrastructure for the cost of a few API calls, the era of renting basic software is over.<p>We aren&#x27;t just building a tool; we&#x27;re proving that the &quot;SaaS Tax&quot; is now optional.",
+      "We will have to go through the stage of disillusionment of what AI is and understanding of what it is not. There is too much FOMO and too many stories driven by the heavy-AI-invested parties today to see thing clearly.",
+      "I think one of the interesting things here is that AI doesn&#x27;t need to be able build B2B SaaS to kill it. So much of the overhead of B2B SaaS companies is thinking about multitenancy, intergrating with many auth providers and mapping those concepts to the program&#x27;s user system, juggling 100 features when any given customer only needs 10 of them, creating PLG upsell flows to optimize conversions, instrumenting A&#x2F;B tests etc...<p>A given company or enterprise does not have to vibe code all this, they just need to make the 10 features with the SLA they actually care about, directly driven off the systems they care about integrating with. And that new, tight, piece of software ends up being much more fit for purpose with full control of new features given to company deploying it. While this was always the case (buy vs build), AI changes the CapEx&#x2F;OpEX for the build case."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Code for Infrastructure",
+    "url": "https://www.fluid.sh/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The reason:<p>&gt; Safety. I didn&#x27;t want CC to SSH into a prod machine<p>The call to action:<p>&gt; curl -fsSL <a href=\"https:&#x2F;&#x2F;fluid.sh&#x2F;install.sh\" rel=\"nofollow\">https:&#x2F;&#x2F;fluid.sh&#x2F;install.sh</a> | bash<p>The reason this is ironic: <a href=\"https:&#x2F;&#x2F;x.com&#x2F;sheeki03&#x2F;status&#x2F;2018382483465867444\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;sheeki03&#x2F;status&#x2F;2018382483465867444</a>",
+      "All these tools to build something, but nothing to build. I feel like I am part of a Pyramid Scheme where every product is about building something else, but nothing reaches the end user.<p>Note: nothing against fluid.sh, I am struggling to figure out something to build.",
+      "Hey HN,\nMy name is Collin and I&#x27;m working on fluid.sh (<a href=\"https:&#x2F;&#x2F;fluid.sh\" rel=\"nofollow\">https:&#x2F;&#x2F;fluid.sh</a>) the Claude Code for Infrastructure.<p>What does that mean?<p>Fluid is a terminal agent that do work on production infrastructure like VMs&#x2F;K8s cluster&#x2F;etc. by making sandbox clones of the infrastructure for AI agents to work on, allowing the agents to run commands, test connections, edit files, and then generate Infra-as-code like an Ansible Playbook to be applied on production.<p>Why not just use an LLM to generate IaC?<p>LLMs are great at generating Terraform, OpenTofu, Ansible, etc. but bad at guessing how production systems work. By giving access to a clone of the infrastructure, agents can explore, run commands, test things before writing the IaC, giving them better context and a place to test ideas and changes before deploying.<p>I got the idea after seeing how much Claude Code has helped me work on code, I thought &quot;I wish there was something like that for infrastructure&quot;, and here we are.<p>Why not just provide tools, skills, MCP server to Claude Code?<p>Mainly safety. I didn&#x27;t want CC to SSH into a prod machine from where it is running locally (real problem!). I wanted to lock down the tools it can run to be only on sandboxes while also giving it autonomy to create sandboxes and not have access to anything else.<p>Fluid gives access to a live output of commands run (it&#x27;s pretty cool) and does this by ephemeral SSH Certificates. Fluid gives tools for creating IaC and requires human approval for creating sandboxes on hosts with low memory&#x2F;CPU and for accessing the internet or installing packages.<p>I greatly appreciate any feedback or thoughts you have, and I hope you get the chance to try out Fluid!",
+      "So... I already tell Claude Code to do this. Just run kubectl for me please and figure out why my helm chart is broken.<p>Scary? A little but it&#x27;s doing great. Not entirely sure why a specialized tool is needed when the general purpose CLI is working.",
+      "Making clones of production isn&#x27;t trivial. Is your app server clone going to connect to your production database? It is going to spin up your whole stack?  Seems a bit naive.<p>A better approach is to have AI understand how prod is built and make the changes there instead of having AI inspect it and figure out how to apply one off changes.<p>Models are already very good at writing IaaC.",
+      "Clever solution. I think ops (like this) and observability will be pretty hot markets for a while soon. The code is quite cheap now, but actually running it and keeping it running still requires some amount of background. I&#x27;ve had a number of acquaintances ask me how they can get their vibe coded app available for others to use.<p>I really like this idea. I do a lot of kubernetes ops with workloads I&#x27;m unfamiliar with (and not directly responsible for) and often give claude read access in order to help me debug things, including with things like a grafana skill in order to access the same monitoring tools humans have. It&#x27;s saved me dozens of hours in the last months - and my job is significantly less frustrating now.<p>Your method of creating ansible playbooks makes _tons_ of sense for this kind of work. I typically create documentation (with claude) for things after I&#x27;ve worked through them (with claude) but playbooks is a very, very clever move.<p>I would say something similar but as an auditable, controllable kubernetes operator would be pretty welcome.",
+      "Is this a real product? This is a solved problem.<p>First I’m personally never going to create infrastructure in the console.  I’m going to use IAC from the get go. That means I can reproduce my infra on another account easily.<p>Second if I did come across an environment where this was already the case, there are tools for both Terraform and CloudFormation where you can reverse your infra to reproducible IAC.<p>After that, let Claude go wild in my sandbox account with a reasonably scoped IAM role with temporary credentials",
+      "&gt; LLMs are great at generating Terraform, OpenTofu, Ansible, etc. but bad at guessing how production systems work.<p>Sorry, that last part is absolutely not the case from my experience. IaC also uses the API to inquire about the infrastructure, and there are existing import&#x2F;export tools around it, so I’m not exactly sure what you are gaining by insisting on abandoning it. IaC also has the benefit of being reusable and commitable.",
+      "It always makes me smile when you get some random domain with a good looking CSS telling you:<p><pre><code>    Don&#x27;t do the same as everyone!\n\n    For safety...\n</code></pre>\nhere... Just curl this script and execute it :)",
+      "So this is a client&#x2F;server thing to control KVM via libvert and provision SSH keys to allow LLM agent access to the VMs?<p>How does the Ansible export work? Do the agents hack around inside the VM and then write a playbook from memory, or are all changes made via Ansible?<p>If Ansible playbooks are the artifact, what does features does Fluid offer over just having agents iterate on an Ansible codebase and having Ansible drive provisioning?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Top downloaded skill in ClawHub contains malware",
+    "url": "https://1password.com/blog/from-magic-to-malware-how-openclaws-agent-skills-become-an-attack-surface",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It begins..."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "BMW's Newest \"Innovation\" Is a Logo-Shaped Middle Finger to Right to Repair",
+    "url": "https://www.ifixit.com/News/115528/bmws-newest-innovation-is-a-logo-shaped-middle-finger-to-right-to-repair",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "BMW resale values make it very clear: these cars are actively hostile (in many many ways) to their owners the second they go out of warranty. Pity, their interiors are lovely. In the long term, is this strategy going to work out for them? I won&#x27;t buy another one. I know... anecdata :)",
+      "Reminded me of the &quot;shim&quot; discussion about BMW motorcycles and part authenticity from the 1974 classic &quot;Zen and the art of motorcycle maintenance&quot;: <a href=\"http:&#x2F;&#x2F;www.hilarygallo.com&#x2F;the-zen-shim-question&#x2F;\" rel=\"nofollow\">http:&#x2F;&#x2F;www.hilarygallo.com&#x2F;the-zen-shim-question&#x2F;</a>",
+      "Correct bit for screwdriver available on AliExpress 5 minutes after the bolt is available for public.",
+      "This feels like they want to use trademark law to prevent third-party products. You can&#x27;t legally produce the screws without baiscally copying the BMW logo onto it. I don&#x27;t know if a similar argument would hold water for the drivers though.",
+      "The &quot;screw you&quot; jokes just write themselves.",
+      "Every time I see that now to me it will represent stupidity and greedy waste",
+      "If it&#x27;s metric thread you only need to unbolt them once, and then you replace them with TORX.",
+      "I&#x27;d be interested to know how BMW manufactures those screws. The patterns in the metal in the image suggest the entire hole was drilled out? The deepest part has circular marks inside that looks like the marks left by a facing tool on a lathe or similar. Then I guess the two wedges were inserted and the whole screw faced?",
+      "You will be able to buy a &quot;BMW screwdriver&quot; from China in a couple of weeks. This prevents nothing, it&#x27;s just annoying and goes to show that BMW is run by dickheads (in case you didn&#x27;t know yet).<p>Apple&#x27;s &quot;pentalobe&quot; screws tell you the same about <i>that</i> company.",
+      "Wouldn&#x27;t circumventing trademark lockouts like this be fair use under &quot;Sega v. Accolade&quot;[1]?<p>[1] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Sega_v._Accolade\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Sega_v._Accolade</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "RS-SDK: Drive RuneScape with Claude Code",
+    "url": "https://github.com/MaxBittker/rs-sdk",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Glad to see more projects building on top of Lost City. This looks super fun and I can&#x27;t wait to try it out. Writing RuneScape bots was how I first learned programming, and I think it&#x27;s one of the most interesting ways to interact with the game.",
+      "Happy to answer any questions! I think one of the most interesting elements here is the way that the grounding a game environment allows agents to ratchet their engineering progress and run more autonomously than you might be able to for normal engineering tasks.",
+      "I&#x27;ve always imagined my last few days on earth as being in a nursing home playing Runescape Classic (2001-2003 runescape) with just me and a bunch of bots, recreating the glory days.",
+      "Amazing. Would be cool to see agents end up trading at varrock bank like during the old days. Sort of a facebook&#x2F;moltbook equivalent - wonder how genuine it would feel",
+      "If Jagex would release a server of RS (ideally 3, but 2 is fine) where you could control your character with an agent like this... I would probably play it all day, every day, in parallel with whatever else I was doing.",
+      "It is not said very explicitly in the description. \nIs this for use on the real RuneScape game servers or does it run a dummy game server and run bots on that one?",
+      "Botting runescape is how many of us got into programming. Long live botting. If you want to do it, do it on an account that doesnt effect the economy.",
+      "So this is why RAM prices are increasing...",
+      "I’ve never played RuneScape before but this was very cool, it wrote lots of scripts as it went and eventually finished a quest to gain the ability to make runes"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: CLI tool to convert Markdown to rich HTML clipboard content",
+    "url": "https://github.com/letientai299/md2cb",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I’d highly recommend pandoc[0] if you need markdown conversion. Basically converts from everything and any markdown style to everything else. And then for clipboard just use `| pbcopy` on a Mac or `| xsel -ib`. Full command on a Mac would just be `pandoc README.md -t html | pbcopy`. If you want a docx you can get that too.<p>0: <a href=\"https:&#x2F;&#x2F;pandoc.org&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;pandoc.org&#x2F;</a>",
+      "Interesting - I think this can go with Voiden.<p>We are a offline API client using Markdown.<p>Take a look here maybe : <a href=\"https:&#x2F;&#x2F;github.com&#x2F;VoidenHQ&#x2F;voiden&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;VoidenHQ&#x2F;voiden&#x2F;</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Pipeline and datasets for data-centric AI on real-world floor plans",
+    "url": "https://archilyse.standfest.science",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Interesting work floor plans are a great real world testbed for data centric AI because the bottleneck is almost always annotation quality, not model architecture.<p>We’ve seen similar patterns in document layout and indoor mapping projects: cleaning mislabeled walls&#x2F;doors, fixing class imbalance (e.g., tiny symbols vs large rooms), and enforcing geometric consistency often gives bigger gains than switching models. For example, simply normalizing scale, snapping lines, and correcting room boundary labels can outperform moving from a basic U-Net to a heavier transformer.<p>A reproducible pipeline + curated datasets here feels especially valuable for downstream tasks like indoor navigation, energy modeling, or digital twins where noisy labels quickly compound into bad geometry.<p>Would be curious how you handle symbol ambiguity (stairs vs ramps, doors vs windows) and cross-domain generalization between architectural styles.<p>Nice focus on data quality over model churn."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A real-world benchmark for AI code review",
+    "url": "https://www.qodo.ai/blog/how-we-built-a-real-world-benchmark-for-ai-code-review/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Company creates a benchmark. Same company is best in that benchmark.<p>Story as old as time.",
+      "Some feedback for the team, looked at pricing page and saw it more expensive ($30&#x2F;dev&#x2F;mo) and highly limiting (20prs per month per user). We have devs putting up that many prs in a single day. With this kind of plan pretty much no way we would even try this product",
+      "I&#x27;m not as cynical as the others here; if there are no popular code review benchmarks why should they not design one?<p>Apparently this is in support of their 2.0 release: <a href=\"https:&#x2F;&#x2F;www.qodo.ai&#x2F;blog&#x2F;introducing-qodo-2-0-agentic-code-review&#x2F;#introducing-qodo-2-0\" rel=\"nofollow\">https:&#x2F;&#x2F;www.qodo.ai&#x2F;blog&#x2F;introducing-qodo-2-0-agentic-code-r...</a><p>&gt; We believe that code review is not a narrow task; it encompasses many distinct responsibilities that happen at once. [...]<p>&gt; Qodo 2.0 addresses this with a multi-agent expert review architecture. Instead of treating code review as a single, broad task, Qodo breaks it into focused responsibilities handled by specialized agents. Each agent is optimized for a specific type of analysis and operates with its own dedicated context, rather than competing for attention in a single pass. This allows Qodo to go deeper in each area without slowing reviews down.<p>&gt; To keep feedback focused, Qodo includes a judge agent that evaluates findings across agents. The judge agent resolves conflicts, removes duplicates, and filters out low-signal results. Only issues that meet a high confidence and relevance threshold make it into the final review.<p>&gt; Qodo’s agentic PR review extends context beyond the codebase by incorporating pull request history as a first-class signal.",
+      "I&#x27;d be interested, but they don&#x27;t even list any anthropic model on their code review benchmark, so I feel like they haven&#x27;t really tested their benchmark on SOTA models.",
+      "Cmd+F - &quot;Overfitting&quot;...nothing.<p>Nope, no mention of how they do anything to alleviate overfitting. These benchmarks are getting tiresome.",
+      "I don&#x27;t think LLMs are the right tool for pattern enforcement in general, better to get them to create custom lint rules.<p>Agents are pretty good at suggesting ways to improve a piece of code though, if you get a bunch of agents to wear different hats and debate improvements to a piece of software it can produce some very useful insights.",
+      "I&#x27;m trying to bring a slightly different take to the pricing of ShipItAI (<a href=\"https:&#x2F;&#x2F;shipitai.dev\" rel=\"nofollow\">https:&#x2F;&#x2F;shipitai.dev</a>, brazen plug). I&#x27;ve got a $5&#x2F;mo&#x2F;active dev + Bring Your Own Key option for those that want better price controls.<p>Still early in development and has a much simpler goal, but I like simple things that work well.",
+      "I feel like pricing needs to be included here. I kind of don&#x27;t care about 10 percentage points if the cost is dramatically higher. Cursor Bugbot is about the same cost but gives 10x the monthly quota of Qodo.<p>I know this is focused solely on performance, but cost is a major factor here.",
+      "Where&#x27;s the code for this? I&#x27;d love to run our tool, <a href=\"https:&#x2F;&#x2F;tachyon.so&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;tachyon.so&#x2F;</a>, against it.",
+      "coderabbit being the worst while (presumeably) advertising the most seems to be check out at least, wouldn&#x27;t believe the recall % seems bogus."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Morph – Videos of AI testing your PR, embedded in GitHub",
+    "url": "https://morphllm.com/products/glance",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "While the product sounds mildly interesting, I see it as a major red flag you think it&#x27;s ok for either a submitter or reviewer to not even read the code they are working with and ship thousand line diffs of LLM-generated code.<p>That&#x27;s the lack of professionalism I give my random PoC personal projects where the only user I can break is myself - at work I am reading every line of every PR I submit or review, even if I used an LLM to assist writing the code.",
+      "Forgive me if this is a stupid question, but why does the introduction of AI mean that you now allow 2000 line PRs?",
+      "seems trivial for antigravity to do",
+      "[dead]",
+      "[dead]",
+      "[dead]",
+      "How a show HN leading to a sign up without any information on what&#x27;s behind that manage to get to the front page is beyond understanding...",
+      "[dead]",
+      "[dead]",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude is a space to think",
+    "url": "https://www.anthropic.com/news/claude-is-a-space-to-think",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I really hope Anthropic turns out to be one of the &#x27;good guys&#x27;, or at least a net positive.<p>It appears they trend in the right direction:<p>- Have not kissed the Ring.<p>- Oppose blocking AI regulation that other&#x27;s support (e.g. They do not support banning state AI laws [2]).<p>- Committing to no ads.<p>- Willing to risk defense department contract over objections to use for lethal operations [1]<p>The things that are concerning:\n- Palantir partnership (I&#x27;m unclear about what this actually is) [3]<p>- Have shifted stances as competition increased (e.g. seeking authoritarian investors [4])<p>It inevitable that they will have to compromise on values as competition increases and I struggle parsing the difference marketing and actually caring about values. If an organization cares about values, it&#x27;s suboptimal not to highlight that at every point via marketing. The commitment to no ads is obviously good PR but if it comes from a place of values, it&#x27;s a win-win.<p>I&#x27;m curious, how do others here think about Anthropic?<p>[1]<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;Pm2QS\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;Pm2QS</a><p>[2]<a href=\"https:&#x2F;&#x2F;www.nytimes.com&#x2F;2025&#x2F;06&#x2F;05&#x2F;opinion&#x2F;anthropic-ceo-regulate-transparency.html?unlocked_article_code=1.JlA.6SV6.hqcvsT7z64p9&amp;smid=url-share\" rel=\"nofollow\">https:&#x2F;&#x2F;www.nytimes.com&#x2F;2025&#x2F;06&#x2F;05&#x2F;opinion&#x2F;anthropic-ceo-reg...</a><p>[3]<a href=\"https:&#x2F;&#x2F;investors.palantir.com&#x2F;news-details&#x2F;2024&#x2F;Anthropic-and-Palantir-Partner-to-Bring-Claude-AI-Models-to-AWS-for-U.S.-Government-Intelligence-and-Defense-Operations&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;investors.palantir.com&#x2F;news-details&#x2F;2024&#x2F;Anthropic-a...</a><p>[4]<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;4NGBE\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;4NGBE</a>",
+      "I feel like they are picking a lane. ChatGPT is great for chatbots and the like, but, as was discussed in a prior thread, chatbots aren&#x27;t the end-all-be-all of AI or LLMs. Claude Code is the workhorse for me and most folks I know for AI assisted development and business automation type tasks. Meanwhile, most folks I know who use ChatGPT are really replacing Google Search. This is where folks are trying to create llm.txt files to become more discoverable by ChatGPT specifically.<p>You can see the very different response by OpenAI: <a href=\"https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;our-approach-to-advertising-and-expanding-access&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;our-approach-to-advertising-and-exp...</a>. ChatGPT is saying they will mark ads as ads and keep answers &quot;independent,&quot; but that is not measurable. So we&#x27;ll see.<p>For Anthropic to be proactive in saying they will not pursue ad based revenue I think is not just &quot;one of the good guys&quot; but that they may be stabilizing on a business model of both seat and usage based subscriptions.<p>Either way, both companies are hemorrhaging money.",
+      "This is one of those “don’t be evil” like articles that companies remove when the going gets tough but I guess we should be thankful that things are looking rosy enough for Anthropic at the moment that they would release a blog like this.<p>The point about filtering signal vs. noise in search engines can’t really be stated enough. At this point using a search engine and the conventional internet in general is an exercise in frustration. It’s simply a user hostile place – infinite cookie banners for sites that shouldn’t collect data at all, auto play advertisements, engagement farming, sites generated by AI to shill and produce a word count. You could argue that AI exacerbates this situation but you also have to agree that it is much more pleasant to ask perplexity, ChatGPT or Claude a question than to put yourself through the torture of conventional search. Introducing ads into this would completely deprive the user of a way of navigating the web in a way that actually respects their dignity.<p>I also agree in the sense that the current crop of AIs do feel like a space to think as opposed to a place where I am being manipulated, controlled or treated like some sheep in flock to be sheared for cash.",
+      "The key hurdle for AI to leap is establishing trust with users. No one trusts the big players (for good reason) and it is causing serious anxiety among the investors. It seems Claude acknowledges this and is looking to make trust a critical part of their marketing messaging by saying no ads or product placement. The problem is that serving ads is only one facet of trust. There are trust issues around privacy, intellectual property, transparency, training data, security, accuracy, and simply &quot;being evil&quot; that Claude&#x27;s marketing doesn&#x27;t acknowledge or address. Trust, on the scale they need, is going to be very hard for any of them to establish, if not impossible.",
+      "I always found Anthropic to be trying hard to signal as one of the &quot;good guys&quot;.<p>I wonder how they can get away without showing Ads when ChatGPT has to be doing it. Will the enterprise business be that profitable that Ads are not required?<p>Maybe OpenAI is going for something different - democratising access to vast majority of the people. Remember that ChatGPT is what people know about and what people use the free version of. \nWho&#x27;s to say that making Ads by doing this but also prodiding more access is the wrong choice?<p>Also, Claude holds nothing against ChatGPT in search. From my previous experiences, ChatGPT is just way better at deep searches through the internet than Claude.",
+      "Besides the editorial control -which openai openly flagged to want to remain unbiased- there is a deeper issue with ads-based revenue models in AI: that of margins. If you want ads to cover compute &amp; make margins -looking at roughly $50 ARPU at mature FB&#x2F;GOOG level- you have two levers: sell more advertisement, or offer dumber models.<p>This is exactly what chatgpt 5 was about. By tweaking both the model selector (thinking&#x2F;non-thinking), and using a significantly sparser thinking model (capping max spend per conversation turn), they massively controlled costs, but did so at the expense of intelligence, responsiveness, curiosity, skills, and all the things I&#x27;ve valued in O3. This was the point I dumped openai, and went with claude.<p>This business model issue is a subtle one, but a key reason why advertisement revenue model is not compatible (or competitive!) with &quot;getting the best mental tools&quot; -margin-maximization selects against businesses optimizing for intelligence.",
+      "This will be an amusing post to revisit in the internet archives when or if they do introduce ads in the future but dressed up in a different presentation and naming. Ultimately the investors will come calling.",
+      "Absolutely! (:<p>Ads are coming to AI. But not to Claude.\nRecent advertising campaigns from Anthropic.<p>Violation\n<a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=kQRu7DdTTVA\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=kQRu7DdTTVA</a><p>Betrayal\n<a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=FBSam25u8O4\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=FBSam25u8O4</a><p>Deception\n<a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=De-_wQpKw0s\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=De-_wQpKw0s</a><p>Treachery\n<a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=3sVD3aG_azw\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=3sVD3aG_azw</a>",
+      "&gt; Anthropic is focused on businesses, developers, and helping our users flourish. Our business model is straightforward: we generate revenue through enterprise contracts and paid subscriptions, and we reinvest that revenue into improving Claude for our users. This is a choice with tradeoffs, and we respect that other AI companies might reasonably reach different conclusions.<p>Very diplomatic of them to say &quot;we respect that other AI companies might reasonably reach different conclusions&quot; while also taking a dig at OpenAI on their youtube channel<p><a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=kQRu7DdTTVA\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=kQRu7DdTTVA</a>",
+      "Seems short-sighted to commit to not running ads exactly like OpenAI plans to. You win in the court of public opinion for a few months, then look like a hypocrite when you&#x27;re inevitably forced to run ads because your investors demand it. Sort of like how safetyism was convenient marketing until it became clear that it was revenue repellant and they quietly walked it away."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Attention at Constant Cost per Token via Symmetry-Aware Taylor Approximation",
+    "url": "https://arxiv.org/abs/2602.00294",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "There&#x27;s a graveyard of 100s of papers with &quot;approximate near linear time attention.&quot;<p>They always hope the speed increase makes up for the lower quality, but it never does. The quadratic time seems inherent to the problem.<p>Indeed, there are lower bounds showing that sub n^2 algorithms can&#x27;t work: <a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2302.13214\" rel=\"nofollow\">https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2302.13214</a>",
+      "I skimmed the paper, and I think I completely lost the plot.<p>Sections 2.1 through 2.4 talk about the decomposing the per-token-pair attention (key vector from the ith token with query vector from the jth token, where, in inference, the jth token is the one being sampled) into an approximation that is only mildly outrageously exponential in size compared to the original exponential-of-a-dot product.  And they get something that&#x27;s a polynomial (in the mathematical sense -- you&#x27;re literally evaluating a polynomial) and has a size that&#x27;s manageable at 4th order.<p>Okay, great, they took something simple and made it bigger and nastier but less transcendental without losing too much precision.  (As far as I know, there is really nothing special about the exp in attention in the first place, so trying to approximate it well seems mostly useful insofar as it will keep existing models working.)<p>But the reason that attention is quadratic is that each <i>token</i> gets evaluated with respect to each other <i>token</i>.  They haven&#x27;t changed this at all.  Section 2.5 seems like it&#x27;s deferring this to an appendix.  Section 2.6 gives the hidden state size <i>per token</i>, which, on first read, is strictly larger than the hidden state in normal attention (in normal attention it&#x27;s d_v * d_k -- I&#x27;m not sure where their +1 comes from).<p>So what did the paper gain?  Is there some detail that I missed or that the paper completely glossed over that explains why there is any gain of efficiency at all?<p>For what it&#x27;s worth, the paper&#x27;s overall claim is, in some sense, impossible.  You can think of attention as being a sort of vector database, and this gets more accurate the sharper you make the exponential.  If you replace softmax with actual max, a query locates the key that is the closest match to the query and returns the associated value.  This operation is a plain linear search, it&#x27;s possible (in principle anyway) to do lots of queries and recover the entire contents of the database, and I think that any paper claiming to do it faster than linear time should explain how it&#x27;s compressing the data and where the loss is.<p>In language model terms, imagine an prompt like so:<p><pre><code>    1: [string 1]\n    2: [string 2]\n    3: [string 3]\n    ...\n    n: [string n]\n    \n    Tell me the string associated with the number k.\n</code></pre>\nAs long as there&#x27;s enough precision and enough query&#x2F;key space to fit some embedding of the number k that will match the right thing (and there is a <i>lot</i> of  room in high-dimensional spaces), one might expect a transformer to be able to answer this question.  But this obviously requires memory with size linear in the prompt length.  If you try to get rid of that, you necessarily lose something.  (This is not to say that nice attention scaling is impossible -- one could imagine schemes where it takes the model multiple tokens to answer the question, and the number of tokens needed could scale, say, logarithmically with prompt size.  But you still need that linear memory.)",
+      "Neat result. The symmetry exploitation here reminds me of recent work connecting neural network training dynamics to renormalization group theory.\nCharles Martin&#x27;s SETOL paper <a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2507.17912\" rel=\"nofollow\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2507.17912</a> shows that well-trained layers converge to something like an RG fixed point—the eigenvalue spectrum of the weight matrix develops power-law tails with exponent α ≈ 2, which is the signature of scale invariance. At this fixed point, the &quot;effective correlation space&quot; is low-dimensional: you can truncate the SVD aggressively and recover nearly identical test accuracy.<p>I wonder if there&#x27;s a connection to your Taylor truncation order. In RG terms, higher-order polynomial interactions are &quot;irrelevant operators&quot;—they get suppressed as you flow toward the fixed point. If trained attention heads are sitting near this fixed point, that might explain why modest truncation orders work: the network has already learned to concentrate its computation in the lower-order terms.\nA testable prediction: layers with α closer to 2 (measurable via weightwatcher <a href=\"https:&#x2F;&#x2F;github.com&#x2F;CalculatedContent&#x2F;WeightWatcher\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;CalculatedContent&#x2F;WeightWatcher</a>) might need fewer Taylor terms for accurate approximation than layers with α far from 2. If true, you could potentially use the spectral statistics to adaptively choose truncation order per-head.",
+      "I almost feel like this goes opposite to what attention is good at. This would be good at approximating all the places where attention is low &#x2F; not sharp. Where attention&#x2F;the exponential is key is when it selects out &#x2F; needle-in-haystack &#x2F; winner-takes-all focus (the word &quot;attention&quot; itself sorta implies this), and this is where the taylor expression would fail to represent the values well. This just... softens attentions ability to attend?<p>(I&#x27;m imagining that if in the context there&#x27;s ~4-8 &quot;similar&quot; attention-targets that should be sharp, and regular attention learns to select the correct one, this taylor approximation version would wash out any difference and they&#x27;d all loosly be attended to, and it&#x27;d fail to isolate the correct signal)<p>Really wish this had some downstream tests -- apply it to a pretrained model and see how performance degrades, train a fresh one, etc. The tests are worth doing, but I somehow don&#x27;t feel that hopeful this is the unlock required for sub-quadratic attention. It&#x27;s possible that a freshly trained model with this learns to attend without the sharp attention signals, but that seems a bit dubious to me.<p>But also, maybe this combined with some other selective (sparse attention) trick, means that the hybrid model gets the &quot;fuzzy long tail&quot; of attention well represented as well as the sharpness well represented, and all together it could actually be a part of the larger solution.",
+      "A paper on the same topic: On the Expressiveness of Softmax Attention: A Recurrent Neural Network Perspective, Gabriel Mongaras, Eric C. Larson, <a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2507.23632\" rel=\"nofollow\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2507.23632</a><p>Video presentation if someone prefers it: <a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=PN3nYBowSvM\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=PN3nYBowSvM</a><p>Linear attention is a first-degree approximation of Softmax attention, and model performance gets better as you increase the degree of the Taylor approximation.<p>I&#x27;m thinking about adapting an existing model to Taylor-approximated attention. I think it should be possible with some model surgery and rehabilitation training.",
+      "I haven&#x27;t tried to follow the math closely but should there not be some concern about the region of convergence? It looks like they don&#x27;t specifically discuss it. Or is there some reason this isn&#x27;t a problem in this context?",
+      "Github here: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;glassroom&#x2F;sata_attention\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;glassroom&#x2F;sata_attention</a>",
+      "The best and proven linear attention is the Gated DeltaNet or variations of it, used by Kimi and Qwen. Anyone who thinks linear attention can&#x27;t work is forgetting that models are a fixed size so attention should always be compressable to be linear. Another way to think of the feasibility of linear attention is that the standard attention mechanism can be made linear simply by removing the softmax so the kv cache stores the kv product as a constant size matrix instead. Softmax just normalizes attention, but it&#x27;s not theoretically required.",
+      "This uses the Taylor approximation to approximate softmax, but that IS only an approximation. I wonder exactly how much that trade-off costs in terms of accuracy vs performance? I note that they say it&#x27;s close to float16 with four Taylor terms.<p>My other concern would be that Taylor itself is fairly complex. I wonder how well GPU&#x27;s handle this in comparison to good old fashioned softmax?  The last time I used Taylor with a custom Triton kernel it was still very slow. That could just have been my own jank vibe-coded implementation though.",
+      "This could turbocharge ByT5 and other tokenless architectures, whose big downside was the increase in compute over longer sequences. It&#x27;s easy to imagine a bunch of strategies with variable levels of &quot;focus&quot; and so on with a fixed compute budget assigned on the fly with learned optimizers informing the distribution."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Tell HN: Another round of Zendesk email spam",
+    "url": "https://news.ycombinator.com/item?id=46890418",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "If your email service supports Sieve scripts (for example, Fastmail or Proton Mail), you can use this filter [1] that I made. It&#x27;s very aggressive and will block all emails that originate from Zendesk, so you&#x27;ll need to disable it whenever you&#x27;re actually expecting mail from Zendesk.<p>[1]: <a href=\"https:&#x2F;&#x2F;gist.github.com&#x2F;hampuskraft&#x2F;780c8fbcc4042689153533ef3adbc278\" rel=\"nofollow\">https:&#x2F;&#x2F;gist.github.com&#x2F;hampuskraft&#x2F;780c8fbcc4042689153533ef...</a>",
+      "Zendesk’s mailserver reputation has got to be extremely poor by now. I think they will have trouble with deliverability after this is over. Got about 50 of these today and nearly all of them were categorized as spam before they made it to the inbox despite being nominally “legit”",
+      "They&#x27;ve been getting hammered by bad actors. Work in the email industry and its been bad for them. Hopefully they figure it out. Yesterday I got two phishing scams that were from a BS gmail saying they were in hiring at Unilever and Nestle.",
+      "Glad I&#x27;m not the only one. It seems to use {popular website without tld}@example.com as a pattern, so I&#x27;m getting a lot via my catch all address even if I haven&#x27;t used the specific inbox yet.",
+      "i received _a lot_ of these as well (~200 now). i&#x27;m noticing while all are from the zendesk platform using it as a relay similar to the previous waves, many of them are specifically customers of synack, as the emails are coming &quot;via&quot; the responsibledisclosure.com platform. not sure if there&#x27;s any correlation there—i don&#x27;t think they&#x27;ve been compromised, but they may be being used as a trampoline.<p>similar to others i had it hitting emails that &quot;don&#x27;t exist&quot; (wildcard catchall), including the less tasteful ones mentioned here.",
+      "For a company utterly dependent on email, Zendesk came across to me as very naive about email sending.<p>I did a Zendesk integration shortly after working on a general overhaul of our email at a previous company. The overhaul involved separating out our different types (transactional, marketing, support, etc), and then implementing best practices on deliverability for each of them. Not your day-one email setup, but we were still a small company.<p>The comparison to Zendesk&#x27;s approach was astounding. Assuming you don&#x27;t want to use a Zendesk address (we didn&#x27;t, customers thought it was dodgy), the email setup they let you do was bad, and their support folks had no idea about any of the details. DKIM, SPF, etc, was all alien to them. Ironically they had pretty bad support in general.",
+      "I get similar ones from Zoom and other collaboration providers. Like folk make a meeting in Zoom and then can invite any email they know. Is that just me? Eventbrite, Meetup and Luma do similar.",
+      "I&#x27;ve got four emails, and I&#x27;ve no idea what’s going on. (I have a public email address on GitHub)",
+      "Zendesk has issued an official announcement about this.<p><a href=\"https:&#x2F;&#x2F;support.zendesk.com&#x2F;hc&#x2F;en-us&#x2F;articles&#x2F;8257723564186-Advisory-Increase-in-phishing-attempts-to-Zendesk-accounts\" rel=\"nofollow\">https:&#x2F;&#x2F;support.zendesk.com&#x2F;hc&#x2F;en-us&#x2F;articles&#x2F;8257723564186-...</a><p>I&#x27;m not satisfied with it, tbh.",
+      "Thank you for letting us know, got a bunch of those in the last two hours, like one each five minutes, but it seems they&#x27;ve stopped (at least for now)."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Mmdr – 1000x faster Mermaid rendering in pure Rust (no browser)",
+    "url": "https://github.com/1jehuang/mermaid-rs-renderer/blob/master/README.md",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Does it make sense to create a Wasm build of this for the browser? Or is the speedup mainly due to the browser spawning step rather than execution&#x2F;rendering itself?",
+      "Could this be used as a drop-in replacement for mermaid-cli or is the CLI different?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: An AI-Powered President Simulator",
+    "url": "https://presiduck.feedscription.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Coding Agent VMs on NixOS with Microvm.nix",
+    "url": "https://michael.stapelberg.ch/posts/2026-02-01-coding-agent-microvm-nix/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The sandbox-or-not debate is important but it&#x27;s only half the picture. Even a perfectly sandboxed agent can still generate code with vulnerabilities that get deployed to production - SQL injection, path traversal, hardcoded secrets, overly permissive package imports.<p>The execution sandbox stops the agent from breaking out during development, but the real risk is what gets shipped downstream. Seeing more tools now that scan the generated code itself, not just contain the execution environment.",
+      "That is quite an involved setup to get a costly autocomplete going.<p>Is that really where we are at? Just outsource convenience to a few big players that can afford the hardware? Just to save on typing and god forbid…thinking?<p>“Sorry boss, I can’t write code because cloudflare is down.”",
+      "I was looking for a way to isolate my agents in a more convenient way, and I really love your idea. I&#x27;m going to give this a try over the weekend and will report back.<p>But the one-time setup seems like a really fair investment for having a more secure development. Of course, what concerns the problem of getting malicious code to production, this will not help. But this will, with a little overhead, I think, really make development locally much more secure.<p>And you can automate it a lot. \nAnd it will be finally my chance to get more into NixOS :D",
+      "This brings me back to my college days. We had Windows, and Deep Freeze. Students could do anything on the computer, we restart it and its all wiped and new. How long before Deep Freeze realizes they could sell their tool to Vibe Coders, they have Deep Freeze for Mac but not for Linux, funnily enough.",
+      "A pair of containers felt a bit cheaper than a VM:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;5L-Labs&#x2F;amp_in_a_box\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;5L-Labs&#x2F;amp_in_a_box</a><p>I was going to add Gemini &#x2F; OpenCode Kilo next.<p>There is some upfront cost to define what endpoints to map inside, but it definitely adds a veneer of preventing the crazy…",
+      "I there a way to make this work with macOS hosts, preferably without having to install a Linux toolchain inside the VM for the language the agent will be writing code in?",
+      "I&#x27;m working on a shared remote box for AI assisted development, will definitely look at this for some inspiration.",
+      "I use shellbox.dev to create sandboxes through ssh, without ever leaving the terminal",
+      "Couldn&#x27;t you replicate all of your setup with qemu microvm?<p>Without nix I mean",
+      "we run ~10k agent pods on k3s and went with gvisor over microvms purely for density. the memory overhead of a dedicated kernel per tenant just doesn&#x27;t scale when you&#x27;re trying to pack thousands of instances onto a few nodes. strict network policies and pid limits cover most of the isolation gaps anyway."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "ClickHouse Agent Skills",
+    "url": "https://github.com/ClickHouse/agent-skills",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "All of these skills always having custom installers to place a few markdown files is such a mess."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Trillion-Dollar Tech Wipeout Ensnares All Stocks in AI's Path",
+    "url": "https://www.bloomberg.com/news/articles/2026-02-04/trillion-dollar-tech-wipeout-ensnares-all-stocks-in-ai-s-path",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Can someone post non-paywall link? Thanks."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Does AI have human-level intelligence? The evidence is clear",
+    "url": "https://www.nature.com/articles/d41586-026-00285-6",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Betteridge%27s_law_of_headlines\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Betteridge%27s_law_of_headline...</a><p>Does Betteridge&#x27;s Law of Headlines apply? Technically doesn&#x27;t end in a question mark<p>I thought Nature has higher standards, but maybe not. This is organically produced slop, most likely"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Protecting Our Right to Sue Federal Agents Who Violate the Constitution",
+    "url": "https://www.eff.org/deeplinks/2026/02/protecting-our-right-sue-federal-agents-who-violate-constitution",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Since blanket pardons are inevitable, I&#x27;m wondering if blanket pardons should eliminate the qualified immunity these people have at the state level, since a blanket pardon admits they performed crimes."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Open-source AI tool beats LLMs in literature reviews – and gets citations right",
+    "url": "https://www.nature.com/articles/d41586-026-00347-9",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Well, tool is also partly LLM, so the language is weird here."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Epstein Financed German AI Researcher Joscha Bach",
+    "url": "https://www.zdfheute.de/politik/ausland/epstein-deutscher-forscher-foerderung-100.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I wouldn&#x27;t consider him an AI-researcher.",
+      "Oh, that hot-air blower...<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=23533175\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=23533175</a> &lt;- my complaint, a few years ago. Regarding Lex Fridman episode, featuring him. Wondering what the people like about them both? The interviever doing not much at all, the intervie<i>whee</i> talking shit, most eloquently. Yawn.<p><a href=\"https:&#x2F;&#x2F;lexfridman.com&#x2F;joscha-bach-3-transcript&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;lexfridman.com&#x2F;joscha-bach-3-transcript&#x2F;</a>",
+      "See also <a href=\"https:&#x2F;&#x2F;joscha.substack.com&#x2F;p&#x2F;on-the-jeffrey-epstein-affair\" rel=\"nofollow\">https:&#x2F;&#x2F;joscha.substack.com&#x2F;p&#x2F;on-the-jeffrey-epstein-affair</a> and especially the comments there by Nafeez Ahmed."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Distance Marching for Generative Modeling",
+    "url": "https://arxiv.org/abs/2602.02928",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Ukraine starts blocking unregistered Starlink terminals",
+    "url": "https://militarnyi.com/en/news/ukraine-starts-blocking-starlink-terminals/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "How is this implemented? It must SpaceX&#x2F;starlink that does the actual access&#x2F;no access whitelist mechanism based on what they getting from the Ukrainian authorities?"
+    ],
+    "full_text": null
+  }
+]
