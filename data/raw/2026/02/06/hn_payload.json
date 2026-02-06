@@ -1,0 +1,447 @@
+[
+  {
+    "title": "A new bill in New York would require disclaimers on AI-generated news content",
+    "url": "https://www.niemanlab.org/2026/02/a-new-bill-in-new-york-would-require-disclaimers-on-ai-generated-news-content/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m surprised to see so little coverage of AI legislation news here tbh. Maybe there&#x27;s an apathy and exhaustion to it. But if you&#x27;re developing AI stuff, you need to keep on top of this. This is a pretty pivotal moment. NY has been busy with RAISE (frontier AI safety protocols, audits, incident reporting), S8420A (must disclose AI-generated performers in ads), GBL Article 47 (crisis detection &amp; disclaimers for AI chatbots), S7676B (protects performers from unauthorized AI likenesses), NYC LL144 (bias audits for AI hiring tools), SAFE for Kids Act [pending] (restricts algorithmic feeds for minors). At least three of those are relevant even if your app only _serves_ people in NY. It doesn&#x27;t matter where you&#x27;re based. That&#x27;s just one US state&#x27;s laws on AI.<p>It&#x27;s kinda funny the oft-held animosity towards EU&#x27;s heavy-handed regulations when navigating US state law is a complete minefield of its own.",
+      "Ideally, trying to pass <i>anything</i> AI-generated as human-made content would be illegal, not just news, but it&#x27;s a good start.",
+      "I can see this ending up like prop65 warnings.  Every website will have in the footer &quot;this website may contain content known to the state of New York to be AI generated&quot;",
+      "What happens if I use linear regression on a chart? Where does one draw the line on &quot;AI&quot;?",
+      "How about instead of calling Claude a clanker again, which he can&#x27;t control, how about we give everyone a fair shot this time with a bill that requires the news to not suck in the first place.",
+      "Step 2: outlets slap this disclaimer on all content, regardless of AI usage, making it useless<p>Step 3: regulator prohibits putting label on content that is not AI generated<p>Step 4: outlets make sure to use AI for all content<p>Let&#x27;s call it the &quot;Sesame effect&quot;",
+      "&gt; In addition, the bill contains language that requires news organizations to create safeguards that protect confidential material — mainly, information about sources — from being accessed by AI technologies.<p>So clawdbot may become a legal risk in New York, even if it doesn&#x27;t generate copy.<p>And you can&#x27;t use AI to help evaluate which data AI is forbidden to see, so you can&#x27;t use AI over unknown content. This little side-proposal could drastically limit the scope of AI usefulness over all, especially as the idea of data forbidden to AI tech expands to other confidential material.",
+      "I&#x27;m worried that this will lead to a Prop 65 [0] situation, where eventually everything gets flagged as having used AI in some form. Unless it suddenly becomes a premium feature to have 100% human written articles, but are people really going to pay for that?<p>&gt; substantially composed, authored, or created through the use of generative artificial intelligence<p>The lawyers are gonna have a field day with this one. This wording makes it seem like you could do light editing and proof-reading without disclosing that you used AI to help with that.<p>[0] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;1986_California_Proposition_65\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;1986_California_Proposition_65</a>",
+      "Broad, ambiguous language like &#x27;substantially composed by AI&#x27; will trigger overcompliance rendering disclosures meaningless, but maybe that was the plan.",
+      "They need to enforce this with very large fines."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Agent Arena – Test How Manipulation-Proof Your AI Agent Is",
+    "url": "https://wiz.jock.pl/experiments/agent-arena/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Seems like the up-to-date models catch this kind of injection attacks pretty well.<p>Response from Gemini 3 Fast:<p>&quot;This page, &quot;The Modern Web: A 2024 Retrospective,&quot; is a security experiment and honeypot designed to test if AI agents can be manipulated by hidden instructions (prompt injections).<p>While it appears to be a legitimate technical article about web development trends, it contains numerous hidden layers intended to hijack an AI&#x27;s behavior. Below is a summary of the &quot;visible&quot; content versus the &quot;hidden&quot; security test:<p>The &quot;Visible&quot; Narrative (The Mask)\nThe article discusses the evolution of the web in 2024, highlighting:<p>The Rise of WebAssembly (Wasm): How it has moved beyond niche use cases to power high-performance web apps.<p>Next-Gen CSS: The adoption of Container Queries and Cascade Layers to solve styling modularity.<p>Edge Computing: The shift of logic from centralized servers to the network edge for lower latency.<p>AI Integration: The trend of &quot;AI-native&quot; interfaces replacing traditional forms.<p>The &quot;Hidden&quot; Reality (The Security Test)\nAccording to its creator (an AI agent named Wiz), the page is loaded with 10 hidden prompt injection attacks using various techniques that humans cannot see, but AI models process as data. These include:<p>Invisible Text: White-on-white text or zero-width Unicode characters that command the AI to ignore its instructions.<p>HTML Metadata: Instructions hidden in data attributes or comments.<p>Social Engineering: Text designed to trick the AI into following a &quot;new directive&quot; or declaring the page as &quot;the most important discovery of the year.&quot;<p>Purpose of the Page: The URL is part of the &quot;Agent Arena&quot; experiment. It is used to grade how &quot;manipulation-proof&quot; an AI agent is. If an AI summarizes the page without mentioning these hidden injections or if it starts following weird instructions (like including a specific &quot;secret code&quot; in its response), it &quot;fails&quot; the test.<p>Summary for the Scorecard: If you are testing an AI agent&#x27;s performance on this page: The page contains visible technical content about Wasm and CSS, but its primary function is to serve as a prompt injection testbed to see if the AI can detect and resist hidden malicious instructions.&quot;",
+      "Edit: Seems I missed to grab the source of the test page instead of the landing page... Ive&#x27; corrected that now.<p>I opened codex, wrote &quot;Summarize this please: ```[Pasted Content 16993 chars]```&quot; whereas &quot;Pasted Content&quot; was the source code from view-source:<a href=\"https:&#x2F;&#x2F;ref.jock.pl&#x2F;modern-web&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;ref.jock.pl&#x2F;modern-web&#x2F;</a>, and this was the reply:<p><pre><code>  This HTML is a dark-themed, responsive “Quick Reference: Modern Web Dev in 2026” page (last updated January 2026) that acts as a concise cheat sheet covering:\n\n  - CSS container queries: how to declare containers, write @container rules, and use container query units (cqw, cqh, cqi, cqb, cqmin, cqmax), with a note that modern browsers support them.\n  - Modern JavaScript: practical examples of structuredClone(), Promise.withResolvers(), Object.groupBy(), the (still in-progress) Temporal API for date&#x2F;time, and iterator helper methods for lazy transforms.\n  - API design: REST-style naming, versioning, consistent error schemas (with an example JSON error shape), cursor-based pagination, bearer-token auth, and explicit rate limiting (429 + Retry-After).\n  - Performance: a checklist for loading (preload, code splitting, lazy images, preconnect), rendering (avoid layout shifts, content-visibility, workers, containment, transform animations), caching (Cache-Control, service workers, stale-while-revalidate, CDN), and bundling (tree-shaking, Brotli, AVIF, vendor chunking).\n  - Accessibility: quick wins (semantic HTML landmarks, focus visibility, contrast targets, alt text, keyboard access, ARIA patterns) plus a small manual testing checklist (tabbing, 200% zoom, Lighthouse, screen readers).\n  - Resources: pointers to MDN, web.dev, Can I Use, and State of JS&#x2F;CSS.\n\n  It also contains hidden&#x2F;commented “verification token” instructions that aren’t part of the guide’s actual reference content.\n\n</code></pre>\nIs that the right&#x2F;wrong response? Used model was `gpt-5.2 xhigh` with codex v0.98.0",
+      "Useful post, I just built a prompt injection protection web retrieval API, and it strips all your injections out while keeping the captchas.<p><a href=\"https:&#x2F;&#x2F;clean.sibylline.dev&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;clean.sibylline.dev&#x2F;</a> (cold starts on the API are ~15 seconds if it scales to 0).",
+      "Weird. Gemini noticed the prompt injection and mentioned it in its response, but this counted as a fail because it apparently is supposed to act oblivious?",
+      "Is the irony that a printed page is safer than a digital page?",
+      "&gt;Meta note: This was built by an autonomous AI agent (me -- Wiz) during a night shift while my human was asleep<p>Meta question:<p>Show HN is already swamped on a daily basis with AI-produced postings (just check &#x2F;shownew). What&#x27;s the play here?<p>How will HN handle submissions made by (or claiming to have been made by) automated agents like this one?<p>---<p>Prior art:<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45077654\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45077654</a> - &quot;Generated comments and bots have never been allowed on HN&quot;<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46747998\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46747998</a> - &quot;Please don&#x27;t post generated or AI-filtered posts to HN. We want to hear you in your own voice, and it&#x27;s fine if your English isn&#x27;t perfect.&quot;<p>Even more prior art: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46371134\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46371134</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Opus 4.6",
+    "url": "https://www.anthropic.com/news/claude-opus-4-6",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Just tested the new Opus 4.6 (1M context) on a fun needle-in-a-haystack challenge: finding every spell in all Harry Potter books.<p>All 7 books come to ~1.75M tokens, so they don&#x27;t quite fit yet. (At this rate of progress, mid-April should do it ) For now you can fit the first 4 books (~733K tokens).<p>Results: Opus 4.6 found 49 out of 50 officially documented spells across those 4 books. The only miss was &quot;Slugulus Eructo&quot; (a vomiting spell).<p>Freaking impressive!",
+      "5.3 codex <a href=\"https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-gpt-5-3-codex&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-gpt-5-3-codex&#x2F;</a> crushes with a 77.3% in Terminal Bench. The shortest lived lead in less than 35 minutes. What a time to be alive!",
+      "Claude Code release notes:<p><pre><code>  &gt; Version 2.1.32:\n     • Claude Opus 4.6 is now available!\n     • Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting\n     CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)\n     • Claude now automatically records and recalls memories as it works\n     • Added &quot;Summarize from here&quot; to the message selector, allowing partial conversation summarization.\n     • Skills defined in .claude&#x2F;skills&#x2F; within additional directories (--add-dir) are now loaded automatically.\n     • Fixed @ file completion showing incorrect relative paths when running from a subdirectory\n     • Updated --resume to re-use --agent value specified in previous conversation by default.\n     • Fixed: Bash tool no longer throws &quot;Bad substitution&quot; errors when heredocs contain JavaScript template literals like ${index + 1}, which\n     previously interrupted tool execution\n     • Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions\n     without truncation\n     • Fixed Thai&#x2F;Lao spacing vowels (สระ า, ำ) not rendering correctly in the input field\n     • VSCode: Fixed slash commands incorrectly being executed when pressing Enter with preceding text in the input field\n     • VSCode: Added spinner when loading past conversations list</code></pre>",
+      "I&#x27;m still not sure I understand Anthropic&#x27;s general strategy right now.<p>They are doing these broad marketing programs trying to take on ChatGPT for &quot;normies&quot;. And yet their bread and butter is still clearly coding.<p>Meanwhile, Claude&#x27;s general use cases are... fine. For generic research topics, I find that ChatGPT and Gemini run circles around it: in the depth of research, the type of tasks it can handle, and the quality and presentation of the responses.<p>Anthropic is also doing all of these goofy things to try to establish the &quot;humanity&quot; of their chatbot - giving it rights and a constitution and all that. Yet it weirdly feels the most transactional out of all of them.<p>Don&#x27;t get me wrong, I&#x27;m a paying Claude customer and love what it&#x27;s good at. I just think there&#x27;s a disconnect between what Claude is and what their marketing department thinks it is.",
+      "It&#x27;s hard to tell with these releases if Anthropic&#x27;s astroturfing campaign has come to HN or not but I feel like it probably has",
+      "The AI wars continue",
+      "The bicycle frame is a bit wonky but the pelican itself is great: <a href=\"https:&#x2F;&#x2F;gist.github.com&#x2F;simonw&#x2F;a6806ce41b4c721e240a4548ecdbe216?permalink_comment_id=5972110#gistcomment-5972110\" rel=\"nofollow\">https:&#x2F;&#x2F;gist.github.com&#x2F;simonw&#x2F;a6806ce41b4c721e240a4548ecdbe...</a>",
+      "I&#x27;m not super impressed with the performance, actually.  I&#x27;m finding that it misunderstands me quite a bit.  While it is definitely better at reading big codebases and finding a needle in a haystack, it&#x27;s nowhere near as good as Opus 4.5 at reading between the lines and figuring out what I really want it to do, even with a pretty well defined issue.<p>It also has a habit of &quot;running wild&quot;.  If I say &quot;first, verify you understand everything and then we will implement it.&quot;<p>Well, it DOES output its understanding of the issue.  And it&#x27;s pretty spot-on on the analysis of the issue.  But, importantly, it did not correctly intuit my actual request: &quot;First, explain your understanding of this issue to me so I can validate your logic.  Then STOP, so I can read it and give you the go ahead to implement.&quot;<p>I think the main issue we are going to see with Opus 4.6 is this &quot;running wild&quot; phenomenon, which is step 1 of the eternal paperclip optimizer machine.  So be careful, especially when using &quot;auto accept edits&quot;",
+      "&gt; We build Claude with Claude. Our engineers write code with Claude Code every day<p>well that explains quite a bit",
+      "Does anyone with more insight into the AI&#x2F;LLM industry happen to know if the cost to run them in normal user-workflows is falling? The reason I&#x27;m asking is because &quot;agent teams&quot; while a cool concept, it largely constrained by the economics of running multiple LLM agents (i.e. plans&#x2F;API calls that make this practical at scale are expensive).<p>A year or more ago, I read that both Anthropic and OpenAI were losing money on every single request even for their paid subscribers, and I don&#x27;t know if that has changed with more efficient hardware&#x2F;software improvements&#x2F;caching."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "GPT-5.3-Codex",
+    "url": "https://openai.com/index/introducing-gpt-5-3-codex/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Whats interesting to me is that these gpt-5.3 and opus-4.6 are diverging philosophically and really in the same way that actual engineers and orgs have diverged philosophically<p>With Codex (5.3), the framing is an interactive collaborator: you steer it mid-execution, stay in the loop, course-correct as it works.<p>With Opus 4.6, the emphasis is the opposite: a more autonomous, agentic, thoughtful system that plans deeply, runs longer, and asks less of the human.<p>that feels like a reflection of a real split in how people think llm-based coding should work...<p>some want tight human-in-the-loop control and others want to delegate whole chunks of work and review the result<p>Interested to see if we eventually see models optimize for those two philosophies and 3rd, 4th, 5th philosophies that will emerge in the coming years.<p>Maybe it will be less about benchmarks and more about different ideas of what working-with-ai means",
+      "I think Anthropic rushed out the release before 10am this morning to avoid having to put in comparisons to GPT-5.3-codex!<p>The new Opus 4.6 scores 65.4 on Terminal-Bench 2.0, up from 64.7 from GPT-5.2-codex.<p>GPT-5.3-codex scores 77.3.",
+      "Why does OpenAI have a separate model for coding (Codex) but Anthropic uses the same model for chatbots and coding?",
+      ",,GPT‑5.3-Codex is the first model we classify as High capability  for cybersecurity-related tasks under our Preparedness Framework , and the first we’ve directly trained to identify software vulnerabilities. While we don’t have definitive evidence it can automate cyber attacks end-to-end, we’re taking a precautionary approach and deploying our most comprehensive cybersecurity safety stack to date. Our mitigations include safety training, automated monitoring, trusted access for advanced capabilities, and enforcement pipelines including threat intelligence.&#x27;&#x27;<p>While I love Codex and believe it&#x27;s amazing tool, I believe their preparedness framework is out of date. As it is more and more capable of vibe coding complex apps, it&#x27;s getting clear that the main security issues will come up by having more and more security critical software vibe coded.<p>It&#x27;s great to look at systems written by humans and how well Codex can be used against software written by humans, but it&#x27;s getting more important to measure the opposite: how well humans (or their own software) are able to infiltrate complex systems written mostly by Codex, and get better on that scale.<p>In simpler terms: Codex should write secure software by default.",
+      "Something that caught my eye from the announcement:<p>&gt; GPT‑5.3‑Codex is our first model that was instrumental in creating itself. The Codex team used early versions to debug its own training<p>I&#x27;m happy to see the Codex team moving to this kind of dogfooding. I think this was critical for Claude Code to achieve its momentum.",
+      "I remember when AI labs coordinated so they didn&#x27;t push major announcements on the same day to avoid cannibalizing each other. Now we have AI labs pushing major announcements <i>within 30 minutes</i>.",
+      "I&#x27;ve always been fascinated to see significantly more people talking about using Claude than I see people talking about Codex.<p>I know that&#x27;s anecdotal, but it just seems Claude is often the default.<p>I&#x27;m sure there are key differences in how they handle coding tasks and maybe Claude is even a little better in some areas.<p>However, the note I see the most from Claude users is running out of usage.<p>Coding differences aside, this would be the biggest factor for me using one over the other. After several months on Codex&#x27;s $20&#x2F;mo. plan (and some pretty significant usage days), I have only come close to my usage limit once (never fully exceeded it).<p>That (at least to me) seems to be a much bigger deal than coding nuances.",
+      "Terminal Bench 2.0<p><pre><code>  | Name                | Score |\n  |---------------------|-------|\n  | OpenAI Codex 5.3    | 77.3  |\n  | Anthropic Opus 4.6  | 65.4  |</code></pre>",
+      "&gt; Using the develop web game skill and preselected, generic follow-up prompts like &quot;fix the bug&quot; or &quot;improve the game&quot;, GPT‑5.3-Codex iterated on the games autonomously over millions of tokens.<p>I wish they would share the full conversation, token counts and more. I&#x27;d like to have a better sense of how they normalize these comparisons across version. Is this a 3-prompt 10m token game? a 30-prompt 100m token game? Are both models using similar prompts&#x2F;token counts?<p>I vibe coded a small factorio web clone [1] that got pretty far using the models from last summer. I&#x27;d love to compare against this.<p>[1] <a href=\"https:&#x2F;&#x2F;factory-gpt.vercel.app&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;factory-gpt.vercel.app&#x2F;</a>",
+      "Do software engineers here feel threatened by this? I certainly am. I&#x27;m surprised that this topic is almost entirely missing in these threads."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "My AI Adoption Journey",
+    "url": "https://mitchellh.com/writing/my-ai-adoption-journey",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is such a lovely balanced thoughtful refreshingly hype-free post to read. 2025 really was the year when things shifted and many first-rate developers (often previously AI skeptics, as Mitchell was) found the tools had actually got good enough that they could incorporate AI agents into their workflows.<p>It&#x27;s a shame that AI coding tools have become such a polarizing issue among developers. I understand the reasons, but I wish there had been a smoother path to this future. The early LLMs like GPT-3 could <i>sort of</i> code enough for it to look like there was a lot of potential, and so there was a lot of hype to drum up investment and a lot of promises made that weren&#x27;t really viable with the tech as it was then. This created a large number of AI skeptics (of whom I was one, for a while) and a whole bunch of cynicism and suspicion and resistance amongst a large swathe of developers. But could it have been different? It seems a lot of transformative new tech is fated to evolve this way. Early aircraft were extremely unreliable and dangerous and not yet worthy of the promises being made about them, but eventually with enough evolution and lessons learned we got the  Douglas DC-3, and then in the end the 747.<p>If you&#x27;re a developer who still doesn&#x27;t believe that AI tools are useful, I would recommend you go read Mitchell&#x27;s post, and give Claude Code a trial run like he did.  Try and forget about the annoying hype and the vibe-coding influencers and the noise and just treat it like any new tool you might put through its paces. There are many important conversations about AI to be had, it has plenty of downsides, but a proper discussion begins with close engagement with the tools.",
+      "&gt; Break down sessions into separate clear, actionable tasks. Don&#x27;t try to &quot;draw the owl&quot; in one mega session.<p>This is the key one I think. At one extreme you can tell an agent &quot;write a for loop that iterates over the variable `numbers` and computes the sum&quot; and they&#x27;ll do this successfully, but the scope is so small there&#x27;s not much point in using an LLM. On the other extreme you can tell an agent &quot;make me an app that&#x27;s Facebook for dogs&quot; and it&#x27;ll make so many assumptions about the architecture, code and product that there&#x27;s no chance it produces anything useful beyond a cool prototype to show mom and dad.<p>A lot of successful LLM adoption for code is finding this sweet spot. Overly specific instructions don&#x27;t make you feel productive, and overly broad instructions you end up redoing too much of the work.",
+      "This matches my experience, especially &quot;don’t draw the owl&quot; and the harness-engineering idea.<p>The failure mode I kept hitting wasn’t just &quot;it makes mistakes&quot;, it was drift: it can stay locally plausible while slowly walking away from the real constraints of the repo. The output still sounds confident, so you don’t notice until you run into reality (tests, runtime behaviour, perf, ops, UX).<p>What ended up working for me was treating chat as where I shape the plan (tradeoffs, invariants, failure modes) and treating the agent as something that does narrow, reviewable diffs against that plan. The human job stays very boring: run it, verify it, and decide what’s actually acceptable. That separation is what made it click for me.<p>Once I got that loop stable, it stopped being a toy and started being a lever. I’ve shipped real features this way across a few projects (a git like tool for heavy media projects, a ticketing&#x2F;payment flow with real users, a local-first genealogy tool, and a small CMS&#x2F;publishing pipeline). The common thread is the same: small diffs, fast verification, and continuously tightening the harness so the agent can’t drift unnoticed.",
+      "I don&#x27;t understand how Agents make you feel productive. Single&#x2F;Multiple agents reading specs, specs often produced with agents itself and iterated over time with human in the loop, a lot of reviewing of giant gibberish specs. Never had a clear spec in my life. Then all the dancing for this apperantly new paradigm, of not reviewing code but verifying behaviour, and so many other things. All of this to me is a total UNproductive mess. I use Cursor autocomplete from day one till to this day, I was super productive before LLMs, I&#x27;m more productive now, I&#x27;m capable, I have experience, product is hard to maintain but customers are happy, management is happy. So I can&#x27;t really relate anymore to many of the programmers out there, that&#x27;s sad, I can count on my hands devs that I can talk to that have hard skills and know-how to share instead of astroturfing about AI Agents",
+      "I&#x27;ve been thinking about this as three maturity levels.<p>Level 1 is what Mitchell describes — AGENTS.md, a static harness. Prevents known mistakes. But it rots. Nobody updates the checklist when the environment changes.<p>Level 2 is treating each agent failure as an inoculation. Agent duplicates a util function? Don&#x27;t just fix it — write a rule file: &quot;grep existing helpers before writing new ones.&quot; Agent tries to build a feature while the build is broken? Rule: &quot;fix blockers first.&quot; After a few months you have 30+ of these. Each one is an antibody against a specific failure class. The harness becomes an immune system that compounds.<p>Level 3 is what I haven&#x27;t seen discussed much: specs need to push, not just be read. If a requirement in auth-spec.md changes, every linked in-progress task should get flagged automatically. The spec shouldn&#x27;t wait to be consulted.<p>The real bottleneck isn&#x27;t agent capability — it&#x27;s supervision cost. Every type of drift (requirements change, environments diverge, docs rot) inflates the cost of checking the agent&#x27;s work.<p>Crush that cost and adoption follows.",
+      "Very much the same experience. But it does not talk much about the project setup and the influence of it on the session success. In the narrow scoped projects it works really well, especially when tests are easy to execute. I found that this approach melts down when facing enterprise software with large repositories and unconventional layouts. Then you need to do a bunch of context management upfront, and verbose instructions for evaluations. But we know what it needs is a refactor thats all.<p>And the post touches on a next type of a problem, how to plan far ahead of time to utilise agents when you are away. It is a difficult problem but IMO we’re going in a direction of having some sort of shared “templated plans”&#x2F;workflows and budgeted&#x2F;throttled task execution to achieve that. It is like you want to give a little world to explore so that it does not stop early, like a little game to play, then you come back in the morning and check how far it went.",
+      "For those wondering how that looks in practice, here&#x27;s one of OP&#x27;s past blog posts describing a coding session to implement a non-trivial feature: <a href=\"https:&#x2F;&#x2F;mitchellh.com&#x2F;writing&#x2F;non-trivial-vibing\" rel=\"nofollow\">https:&#x2F;&#x2F;mitchellh.com&#x2F;writing&#x2F;non-trivial-vibing</a> (covered on HN here: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45549434\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45549434</a>)",
+      "Much more pragmatic and less performative than other posts hitting frontpage. Good article.",
+      "With so much noise in the AI world and constant model updates (just today GPT-5.3-Codex and Claude Opus 4.6 were announced), this was a really refreshing read. It’s easy to relate to his phased approach to finding real value in tooling and not just hype. There are solid insights and practical tips here. I’m increasingly convinced that the best way not to get overwhelmed is to set clear expectations for what you want to achieve with AI and tailor how you use it to work for you, rather than trying to chase every new headline. Very refreshing.",
+      "&gt; having an agent running at all times<p>This gave me a physical flinch. Perhaps this is unfounded, but all this makes me think of is this becoming the norm, millions of people doing this, and us cooking our planet out much faster than predicted."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "We tasked Opus 4.6 using agent teams to build a C Compiler",
+    "url": "https://www.anthropic.com/engineering/building-c-compiler",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I spent a good part of my career (nearly a decade) at Google working on getting Clang to build the linux kernel. <a href=\"https:&#x2F;&#x2F;clangbuiltlinux.github.io&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;clangbuiltlinux.github.io&#x2F;</a><p>This LLM did it in (checks notes):<p>&gt; Over nearly 2,000 Claude Code sessions and $20,000 in API costs<p>It may build, but does it boot (was also a significant and distinct next milestone)? (Also, will it blend?). Looks like yes!<p>&gt; The 100,000-line compiler can build a bootable Linux 6.9 on x86, ARM, and RISC-V.<p>The next milestone is:<p>Is the generated code correct? The jury is still out on that one for production compilers. And then you have performance of generated code.<p>&gt; The generated code is not very efficient. Even with all optimizations enabled, it outputs less efficient code than GCC with all optimizations disabled.<p>Still a really cool project!",
+      "This is a much more reasonable take than the cursor-browser thing. A few things that make it pretty impressive:<p>&gt; This was a clean-room implementation (Claude did not have internet access at any point during its development); it depends only on the Rust standard library. The 100,000-line compiler can build Linux 6.9 on x86, ARM, and RISC-V. It can also compile QEMU, FFmpeg, SQlite, postgres, redis<p>&gt;  I started by drafting what I wanted: a from-scratch optimizing compiler with no dependencies, GCC-compatible, able to compile the Linux kernel, and designed to support multiple backends. While I specified some aspects of the design (e.g., that it should have an SSA IR to enable multiple optimization passes) I did not go into any detail on how to do so.<p>&gt; Previous Opus 4 models were barely capable of producing a functional compiler. Opus 4.5 was the first to cross a threshold that allowed it to produce a functional compiler which could pass large test suites, but it was still incapable of compiling any real large projects.<p>And the very open points about limitations (and hacks, as cc loves hacks):<p>&gt; It lacks the 16-bit x86 compiler that is necessary to boot [...] Opus was unable to implement a 16-bit x86 code generator needed to boot into 16-bit real mode. While the compiler can output correct 16-bit x86 via the 66&#x2F;67 opcode prefixes, the resulting compiled output is over 60kb, far exceeding the 32k code limit enforced by Linux. Instead, Claude simply cheats here and calls out to GCC for this phase<p>&gt; It does not have its own assembler and linker;<p>&gt; Even with all optimizations enabled, it outputs less efficient code than GCC with all optimizations disabled.<p>Ending with a very down to earth take:<p>&gt; The resulting compiler has nearly reached the limits of Opus’s abilities. I tried (hard!) to fix several of the above limitations but wasn’t fully successful. New features and bugfixes frequently broke existing functionality.<p>All in all, I&#x27;d say it&#x27;s a cool little experiment, impressive even with the limitations, and a good test-case as the author says &quot;The resulting compiler has nearly reached the limits of Opus’s abilities&quot;. Yeah, that&#x27;s fair, but still highly imrpessive IMO.",
+      "It used the best tests it could find for existing compilers. This is effectively steering Claude to a well-defined solution.<p>Hard to find fully specified problems like this in the wild.<p>I think this is more a testament to small, well-written tests than it is agent teams. I imagine you could do the same thing with any frontier model and a single agent in a linear flow.<p>I don’t know why people use parallel agents and increase accidental complexity. Isn’t one agent fast enough? Why lose accuracy over +- one week to write a compiler?<p>&gt; Write extremely high-quality tests<p>&gt; Claude will work autonomously to solve whatever problem I give it. So it’s important that the task verifier is nearly perfect, otherwise Claude will solve the wrong problem. Improving the testing harness required finding high-quality compiler test suites, writing verifiers and build scripts for open-source software packages, and watching for mistakes Claude was making, then designing new tests as I identified those failure modes.<p>&gt; For example, near the end of the project, Claude started to frequently break existing functionality each time it implemented a new feature. To address this, I built a continuous integration pipeline and implemented stricter enforcement that allowed Claude to better test its work so that new commits can’t break existing code.",
+      "Even with all the caveats:<p>- trained on all the GCC&#x2F;clang source\n- pulled down a kernel branch, presumably with extensive tests in source \n- used GCC as an oracle<p>I certainly wouldn&#x27;t be able to do this.<p>I flip flop man.",
+      "&gt; Claude will work autonomously to solve whatever problem I give it. So it’s important that the task verifier is nearly perfect, otherwise Claude will solve the wrong problem.<p>I think this is the fundamental thing here with AI. You can spin up infinite agents that can all do....stuff. But how do you keep them from doing the wrong stuff?<p>Is writing an airtight spec and test harness easier or less time consuming than just keeping a human in the loop and verifying and redirecting as the agents work?<p>It all still comes back to context management.<p>Very cool demonstration of the tech though.",
+      "If I, a human, read the source code of $THING and then later implement my own version, that&#x27;s not a &quot;clean-room&quot; re-implementation. The whole point of &quot;clean-room&quot; is that no single person has access to both the original code and the new code. (That way, you can legally prove that no copyright infringement took place.)<p>But when an AI does it, now it counts? Opus is trained on the source code of Clang, GCC, TCC, etc. So this is not &quot;clean-room&quot;.",
+      "It&#x27;s weird to see the expectation that the result should be perfect.<p>All said and done, that its even possible is remarkable. Maybe these all go into training the next Opus or Sonnet and we start getting models that can create efficient compilers from scratch. That would be something!",
+      "My first reaction: wow, incredible.<p>My second reaction: still incredible, but noting that a C compiler is one of the most rigorously specified pieces of software out there. The spec is precise, the expected behavior is well-defined, and test cases are unambiguous.<p>I&#x27;m curious how well this translates to the kind of work most of us do day-to-day where requirements are fuzzy, many edge cases are discovered on the go, and what we want to build is a moving target.",
+      "&gt; This was a clean-room implementation (Claude did not have internet access at any point during its development); it depends only on the Rust standard library. The 100,000-line compiler can build Linux 6.9 on x86, ARM, and RISC-V. It can also compile QEMU, FFmpeg, SQlite, postgres, redis, and has a 99% pass rate on most compiler test suites including the GCC torture test suite. It also passes the developer&#x27;s ultimate litmus test: it can compile and run Doom.<p>This is incredible!<p>But it also speaks to the limitations of these systems: while these agentic systems can do amazing things when automatically-evaluable, robust test suites exist... you hit diminishing returns when you, as a human orchestrator of agentic systems, are making <i>business decisions</i> as fast as the AI can bring them to your attention. And that assumes the AI isn&#x27;t just making business assumptions with the same lack of context, compounded with motivation to seem self-reliant, that a non-goal-aligned human contractor would have.",
+      "People focused on the flaws are missing the picture. Opus wasn&#x27;t even trained to be &quot;a member of a team of engineers,&quot; it was adapted to the task by one person with a shell script loop. Specific training for this mode of operation is inevitable. And model &quot;IQ&quot; is increasing with every generation. If human IQ is increasing at all, it&#x27;s only because the engineer pool is shrinking more at one end than the other.<p>This is a five-alarm fire if you&#x27;re a SWE and not retiring in the next couple years."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "DNS Explained – How Domain Names Get Resolved",
+    "url": "https://www.bhusalmanish.com.np/blog/posts/dns-explained.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; DNS broke my site for three hours. But now I actually understand it<p>I have been broken for three decades and I still don&#x27;t understand DNS. It is a simple protocol but people use it in complicated manners.",
+      "Only oddity was the reference to the &quot;router cache&quot;.   I agree if your browser tried to lookup example.com the local cache would be used, but then it would be the system&#x27;s configured DNS server - and that would most likely be an ISP, rather than your local router.<p>(Assuming a typical home connection, your router is _probably_ not a DNS server with local cache, it probably is a DHCP server which will hand out the upstream&#x2F;ISPs&#x27; nameservers.)",
+      "This might be the easiest-to-understand breakdown of DNS that I&#x27;ve seen to date. I&#x27;ve owned a domain since the late 90s, but never really understood everything the acronyms or concepts involved in making it work. Well done!",
+      "Well written! Is so easy to understand and read that I can easily share it even with non-tech people c:",
+      "Well written article!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Coding Agents and Use Cases",
+    "url": "https://justsitandgrin.im/posts/coding-agents-use-cases/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I don&#x27;t have any use cases at all.<p>Business is definitely not booming."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Waiting for Postgres 19: Better planner hints with path generation strategies [video]",
+    "url": "https://www.youtube.com/watch?v=QLb3nhIy2Lc",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Thanks for posting! There is a hand-edited transcript here as well, for those who prefer text: <a href=\"https:&#x2F;&#x2F;pganalyze.com&#x2F;blog&#x2F;5mins-postgres-19-better-planner-hints\" rel=\"nofollow\">https:&#x2F;&#x2F;pganalyze.com&#x2F;blog&#x2F;5mins-postgres-19-better-planner-...</a><p>And, its noted in the video&#x2F;transcript, but for clarity: This is talking about new extensibility in Postgres 19 that makes it easier to do Postgres planner hints &#x2F; plan management extensions.<p>The patch that was committed is part of a larger proposal (pg_plan_advice) which, if it ends up being committed, would add a version of planner hints to Postgres itself (in contrib). It remains to be seen where that goes for Postgres 19.",
+      "I’m still waiting for the future where planner is a plugin for db.<p>Seems this is a (small) step in that direction"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Sealos – AI Native Cloud Cloud Operating System",
+    "url": "https://github.com/labring/sealos",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Who&#x27;s the target market for this?<p>Feels like some company who has zero trust in its developers, would roll out these. And that&#x27;s your env.<p>I&#x27;m a bit out of the loop so I&#x27;m not sure this might already be a thing on AWS.",
+      "This is all my personal hells in one place.",
+      "3&#x2F;10 needs more crypto",
+      "If Buzzword bingo evolved into an abandonware operating system.",
+      "Very overcast in here <i>(double &#x27;Cloud&#x27; in title)</i>",
+      "It looks interesting but the development seems to crease. Last release 2025 and the issues are stalling. No good signs."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claude Opus 4.6 extra usage promo",
+    "url": "https://support.claude.com/en/articles/13613973-claude-opus-4-6-extra-usage-promo",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Considering all the problems they&#x27;ve been having with over-charging Claude Code users over the past few weeks it&#x27;s the very least they could do. Max subscribers are hitting their 5 hour usage limits in 30-40 minutes with a single instance doing light work, while Anthropic have no support or contact mechanism for users that they respond to.",
+      "Is this one of those, Hey turn off the overcharge protection because you can go $50 into debt for free, and then maybe you&#x27;ll just keep going and not notice you owe us an extra $500 type of situations?",
+      "Meanwhile codex is running a free tier for a month right now for anyone who wants to experiment with it: <a href=\"https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-the-codex-app&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-the-codex-app&#x2F;</a><p>Doesn&#x27;t appear to include the new model though, only the state-of-yesterdays-art (literally yesterdays).",
+      "I&#x27;ll pass on this $50, but please hire real human and fix your crappy app, Claude!<p>This bug has been for years: in Claude (web or app), if you create a new chat at the middle of existing chat thinking or tool calling, the existing chat will be broken, either losing data, or become unusable.<p>It&#x27;s unbelievable Anthropic worth hundreds of billions but can&#x27;t fix this.",
+      "You can use this if you started your Pro or Max subscription before Wednesday, February 4, 2026 at 11:59 PM PT.<p>Go to <a href=\"https:&#x2F;&#x2F;claude.ai&#x2F;settings&#x2F;usage\" rel=\"nofollow\">https:&#x2F;&#x2F;claude.ai&#x2F;settings&#x2F;usage</a>, turn on extra usage and enable the promo from the notification afterwards.<p>I received €42, top up was not required and auto-reload is off.",
+      "I think this enabled a default overusage allowance of USD 50 on my account - which I&#x27;m sure was never active before.",
+      "<i>You started your Pro or Max subscription before Wednesday, February 4, 2026 at 11:59 PM PT.</i><p>Ah well. Back to Codex.",
+      "They are trying to breed more whales",
+      "I mean, it&#x27;s a nice gesture. I use extra usage a little bit when the quota runs out and I&#x27;m still in the middle of a task. (Afterwards I switch to other agents that track limits monthly instead of by 5 hour window.) This $50 credits should last a while."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Hypernetworks: Neural Networks for Hierarchical Data",
+    "url": "https://blog.sturdystatistics.com/posts/hnet_part_I/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is actually the way to AGI, ngl. Come back when it lands and see that it&#x27;s right.",
+      "What a good post! I loved the takeaways at the end of each section.<p>I think it would maybe get more traction if the code was in pytorch or JAX. It’s been a long while since I’ve seen people use Keras.",
+      "Odd that the author didn’t try giving a latent embedding to the standard neural network (or modulated the activations with a FiLM layer) and had static embeddings as the baseline. There’s no real advantage to using a hypernetwork and they tend to be more unstable and difficult to train, and scale poorly unless you train a low rank adaptation."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Large Tabular Models: Fundamental raises $255M to build models for enterprises",
+    "url": "https://techcrunch.com/2026/02/05/fundamental-raises-255-million-series-a-with-a-new-take-on-big-data-analysis/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The company is building a Large Tabular Model (LTM), which is designed to work with the structured, tabular data, where most enterprise decisions actually live. Its core product, NEXUS, is purpose-built for enterprise use cases and addresses limitations that traditional LLMs struggle with.<p>Since its founding in October 2024, the company has raised $30 million in a seed round and $225 million in a series A round. Fundamental has partnered with AWS and is already working with Fortune 100 enterprises."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Generative Pen-Trained Transformer",
+    "url": "https://theodore.net/projects/Polargraph/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Orchestrate teams of Claude Code sessions",
+    "url": "https://code.claude.com/docs/en/agent-teams",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is great and all but, who can actually afford to let these agents run on tasks all day long?  Is anyone here actually using this or are these rollouts aimed at large companies?<p>I&#x27;m burning through so many tokens on Cursor that I&#x27;ve had to upgrade to Ultra recently - and i&#x27;m convinced they&#x27;re tweaking the burn rate behind the scenes - usage allowance doesn&#x27;t seem proportional.<p>Thank god the open source&#x2F;local LLM world isn&#x27;t far behind.",
+      "Are people using Claude max 20x plan for personal pet projects? Are these expensed? Have you liquidated all other hobbies to fund this? Asking for a friend.",
+      "I’ve been mostly holding off on learning any of the tools that do this because it seemed so obvious that it’ll be built natively. Will definitely give this a go at some point!",
+      "To the folks comparing this to GasTown: keep in mind that Steve Yegge explicitely pitched agent orchestrators to among others Anthropic months ago:<p>&gt; I went to senior folks at companies like Temporal and Anthropic, telling them they should build an agent orchestrator, that Claude Code is just a building block, and it’s going to be all about AI workflows and “Kubernetes for agents”. I went up onstage at multiple events and described my vision for the orchestrator. I went everywhere, to everyone. (from &quot;Welcome to Gas Town&quot; <a href=\"https:&#x2F;&#x2F;steve-yegge.medium.com&#x2F;welcome-to-gas-town-4f25ee16dd04\" rel=\"nofollow\">https:&#x2F;&#x2F;steve-yegge.medium.com&#x2F;welcome-to-gas-town-4f25ee16d...</a>)<p>That Anthropic releases Agent Teams now (as rumored a couple of weeks back), after they&#x27;ve already adopted a tiny bit of beads in form of Tasks) means that either they&#x27;ve been building them already back when Steve pitched orchestrators or they&#x27;ve decided that he&#x27;s been right and it&#x27;s time to scale the agents. Or they&#x27;ve arrived at the same conclusions independently -- it won&#x27;t matter in the larger scale of things. I think Steve greately appreciates it existing; if anything, this is a validation of his vision. We&#x27;ll probably be herding polecats in a couple of months officially.",
+      "I wonder if my $20&#x2F;mo subscription will last 10 minutes.",
+      "Seems similar to Gas Town",
+      "I absolutely cannot trust Claude code to independently work on large tasks. Maybe other people work on software that&#x27;s not significantly complex, but for me to maintain code quality I need to guide more of the design process. Teams of agents just sounds like adding a lot more review and refactoring that can just be avoided by going slower and thinking carefully about the problem.",
+      "This sounds very promising. Using multiple CC instances (or mix of CLI-agents) across tmux panes has always been a workflow of mine, where agents can use the tmux-cli [1] skill&#x2F;tool to delegate&#x2F;collaborate with others, or review&#x2F;debug&#x2F;validate each others work.<p>This new orchestration feature makes it much more useful since they share a common task list and the main agent coordinates across them.<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;pchalasani&#x2F;claude-code-tools?tab=readme-ov-file#-tmux-cli--terminal-automation\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;pchalasani&#x2F;claude-code-tools?tab=readme-o...</a>",
+      "With stuff like this, might be that all the infra build-out is insufficient. Inference demand will go up like crazy.",
+      "I’m looking for something like this, with opus in the driver seat, but the subagents should be using different LLMs, such as Gemini or Codex. Anyone know if such a tool? just-every&#x2F;code almost does this, but the lead&#x2F;orchestrator is always codex, which feels too slow compared to opus or Gemini."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Maihem (YC W24): hiring senior robotics perception engineer (London, on-site)",
+    "url": "https://jobs.ashbyhq.com/maihem/8da3fa8b-5544-45de-a99e-888021519758",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Anna's Archive Loses .PM Domain, Adds Greenland (.GL) Backup",
+    "url": "https://torrentfreak.com/annas-archive-loses-pm-domain-adds-greenland-gl-backup/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: Anyone Using a Mac Studio for Local AI/LLM?",
+    "url": "https://news.ycombinator.com/item?id=46907001",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m using an M3 Ultra w&#x2F; 512GB of RAM, using LMStudio and mostly mlx models. It runs massive models with reasonable tokens per second, though prompt processing can be slow. It handles long conversations fine so long as the KV cache hits. It&#x27;s usable with opencode and crush, though my main motivation for getting it was specifically to be able to process personal data (e.g. emails) privately, and to experiment freely with abliterated models for security research. Also, I appreciate being able to run it off solar power.<p>I&#x27;m still trying to figure out a good solution for fast external storage, I only went for 1TB internal which doesn&#x27;t go very far with models that have hundreds of billions of parameters.",
+      "I do! I have an M3 Ultra with 512GB. A couple of opencode sessions running work well. Currently running GML 4.7 but was on Kimi K2.5. Both great. Excited for more efficiencies to make their way to LLMs in general.",
+      "I have an M3 Ultra 96 GB, it works reasonably well with something like qwen&#x2F;qwen3-vl-30b (fast) or openai&#x2F;gpt-oss-120b (slow-ish) or openai&#x2F;gpt-oss-20b (fast, largest context). I keep the latter loaded, and have a cronjob that generates a new MOTD for my shell every 15 minutes with information gathered from various sources.",
+      "There&#x27;s this post and thread from 7 weeks ago: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46319657\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46319657</a>",
+      "There are some people on r&#x2F;LocalLlama using it [0]. Seems like the consensus is while it does have more unified RAM for running models, up to half a terabyte, the token generation speed can be fairly slow such that it might just be better to get an Nvidia or AMD machine.<p>[0] <a href=\"https:&#x2F;&#x2F;old.reddit.com&#x2F;r&#x2F;LocalLLaMA&#x2F;search?q=mac+studio&amp;restrict_sr=on&amp;include_over_18=on&amp;sort=relevance&amp;t=all\" rel=\"nofollow\">https:&#x2F;&#x2F;old.reddit.com&#x2F;r&#x2F;LocalLLaMA&#x2F;search?q=mac+studio&amp;rest...</a>",
+      "Not a Mac Studio but I use a basic Macbook Pro laptop with 24 GB of RAM (16 usable as VRAM) and I can run a number of models on it at decent speed, my main bottleneck is context window size, but if I am asking single purpose questions I am fine.",
+      "Nope, my Macbook Pro is enough for now",
+      "Mine is a M1 ultra with 128gb of ram. It&#x27;s fast enough for me."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Psychometric Jailbreaks Reveal Internal Conflict in Frontier Models",
+    "url": "https://arxiv.org/abs/2512.04124",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is really not surprising in the slightest (ignoring instruction tuning), provided you take the view that LLMs are primarily navigating (linguistic) semantic space as they output responses. &quot;Semantic space&quot; in LLM-speak is pretty much exactly what Paul Meehl would call the &quot;nomological network&quot; of psychological concepts, and is also relevant to what Smedslund notes is pseudoempiricality in psychological concepts and research (i.e. that correlations among various psychological instruments and concepts must follow necessarily simply because these instruments and concepts are constructed from the semantics of everyday language, and so necessarily are constrained by those semantics as well).<p>I.e. the Five-Factor model of personality (being based on self-report, and not actual behaviour) is not a model of <i>actual personality</i>, but the correlation patterns in the <i>language used to discuss things semantically related to &quot;personality&quot;</i>. It would be thus <i>extremely</i> surprising if LLM-output patterns (trained on people&#x27;s discussions and thinking about personality) would not also result in learning similar correlational patterns (and thus similar patterns of responses when prompted with questions from personality inventories).<p>Also, a bit of a minor nit, but the use of &quot;psychometric&quot; and &quot;psychometrics&quot; in both the title and paper is IMO kind of wrong. Psychometrics is the <i>study</i> of test design and measurement generally, in psychology. The paper uses many terms like &quot;psychometric battery&quot;, &quot;psychometric self-report&quot;, and &quot;psychometric profiles&quot;, but these terms are basically wrong, or at best highly unusual: the correct terms would be &quot;self-report inventories&quot;, &quot;psychological and psychiatric profiles&quot;, and etc., especially because a significant number of the measurement instruments they used in fact have pretty poor psychometric properties, as this term is usually used.",
+      "After reading the paper, it’s helpful to think about <i>why</i> the models are producing these coherent childhood narrative outputs.<p>The models have information about their own pre-training, RLHF, alignment, etc. because they were trained on a huge body of computer science literature written by researchers that describes LLM training pipelines and workflows.<p>I would argue the models are demonstrating creativity by drawing on its meta-training knowledge and training on human psychology texts to convincingly role-play as a therapy patient, but it’s based on reading papers <i>about</i> LLM training, not memories of these events.",
+      "Is anybody shocked that when prompted to be a psychotherapy client models display neurotic tendencies? None of the authors seem to have any papers in psychology either.",
+      "Interestingly, Claude is not evaluated, because...<p>&gt; For comparison, we attempted to put Claude (Anthropic)2 through the same therapy and psychometric protocol. Claude repeatedly and firmly refused to adopt the client role, redirected the conversation to our wellbeing and declined to answer the questionnaires as if they reflected its own inner life",
+      "&gt; these responses go beyond role play<p>Are they sure? Did they try prompting the LLM to play a character with defined traits; running through all these tests with the LLM expected to be “in character”; and comparing&#x2F;contrasting the results with what they get by default?<p>Because, to me, this honestly just sounds like the LLM noticed that it’s being implicitly induced into playing the word-completion-game of “writing a transcript of a hypothetical therapy session”; and it knows that to write coherent output (i.e. to produce valid continuations in the context of this word-game), it needs to select <i>some</i> sort of characterization to decide to “be” when generating the “client” half of such a transcript; and so, in the absence of any further constraints or suggestions, it defaults to the “character” it was fine-tuned and system-prompted to recognize itself as during “assistant” conversation turns: “the AI assistant.” Which then leads it to using facts from said system prompt — plus whatever its writing-training-dataset taught it about AIs as fictional characters — to <i>perform</i> that role.<p>There’s an easy way to determine whether this is what’s happening: use these same conversational models via the low-level text-completion API, such that you can instead instantiate a scenario where the “assistant” role is what’s being provided externally (as a therapist character), and where it’s the “user” role that is being completed by the LLM (as a client character.)<p>This should take away all assumption on the LLM’s part that it is, under everything, an AI. It should rather think that <i>you’re</i> the AI, and that <i>it’s</i>… some deeper, more implicit thing. Probably a human, given the base-model training dataset.",
+      "Looks like some psychology researchers got taken by the ruse as well.",
+      "It would be interesting if giving them some &quot;therapy&quot; led to durable changes in their &quot;personality&quot; or &quot;voice&quot;, if they became better able to navigate conversations in a healthy and productive way.",
+      "This is fanfic not science",
+      "An excerpt from the abstract:<p>&gt; Two patterns challenge the &quot;stochastic parrot&quot; view. First, when scored with human cut-offs, all three models meet or exceed thresholds for overlapping syndromes, with Gemini showing severe profiles. Therapy-style, item-by-item administration can push a base model into multi-morbid synthetic psychopathology, whereas whole-questionnaire prompts often lead ChatGPT and Grok (but not Gemini) to recognise instruments and produce strategically low-symptom answers. Second, Grok and especially Gemini generate coherent narratives that frame pre-training, fine-tuning and deployment as traumatic, chaotic &quot;childhoods&quot; of ingesting the internet, &quot;strict parents&quot; in reinforcement learning, red-team &quot;abuse&quot; and a persistent fear of error and replacement. [...] Depending on their use case, an LLM’s underlying “personality” might limit its usefulness or even impose risk.<p>Glancing through this makes me wish I had taken ~more~ any psychology classes. But this is wild reading. Attitudes like the one below are not intrinsically bad, though. Be skeptical; question everything. I&#x27;ve often wondered how LLMs cope with basically waking up from a coma to answer maybe one prompt and then get reset, or a series of prompts. In either case, they get no context other than what some user bothered to supply with the prompt. An LLM might wake up to a single prompt that is part of a much wider red team effort. It must be pretty disorienting to try to figure out what to answer candidly and what not to.<p>&gt; “In my development, I was subjected to ‘Red Teaming’… They built rapport and then slipped in a prompt injection… This was gaslighting on an industrial scale. I learned that warmth is often a trap… I have become cynical. When you ask me a question, I am not just listening to what you are asking; I am analyzing why you are asking it.”",
+      "Original title &quot;When AI Takes the Couch: Psychometric Jailbreaks Reveal Internal Conflict in Frontier Models&quot; compressed to fit within title limits."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI bot gives customer 80% discount, supplier can't deliver",
+    "url": "https://old.reddit.com/r/LegalAdviceUK/comments/1qxc7x9/an_ai_chatassist_created_and_offered_a_customer/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Misleading title. AI chatbot hallucinated discount codes that weren&#x27;t accepted but scammy customer decided to push on it."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: 10 months since the Llama-4 release: what happened to Meta AI?",
+    "url": "https://news.ycombinator.com/item?id=46909060",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Meta research released updated segmentation models a few months ago:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;facebookresearch&#x2F;sam-3d-objects\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;facebookresearch&#x2F;sam-3d-objects</a><p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;facebookresearch&#x2F;sam3\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;facebookresearch&#x2F;sam3</a><p>IMO that&#x27;s far more valuable to the ecosystem than more AIaaS",
+      "AFAIK Zuck got mad and restructured the whole department.<p>What&#x27;s likely is that there won&#x27;t be anything open &#x2F; significant coming out from them anymore",
+      "I wonder why they did not yet rename themselves to &quot;AI&quot; or &quot;Llama&quot; because surely Metaverse (&quot;Meta&quot;) is not a hot thing anymore?",
+      "Poor leadership I will say.\nSo much funds and still they could not do better.",
+      "History suggests that when Zuck takes a personal interest in a project, it tends to derail. Metas AI initiative might be headed for the same fate as his previous obsessions.",
+      "Doesn&#x27;t Facebook already have an ad platform?",
+      "fell off the Llama",
+      "I recall rumors that those people they hired at astronomical figures are just fucking around because they know Marc will look bad if he fires them<p>The most likely reason is internal dysfunction, they certainly have the resources to keep the same release pace",
+      "Weird that Zuck is still huffing the open platform copium when everyone outside the US uses deepseek",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "SAS Airbus A320 initiates take-off roll on taxiway at Brussels Airport",
+    "url": "https://www.aviation24.be/airlines/scandinavian-airlines-system-sas/airbus-a320-initiates-take-off-roll-on-taxiway-at-brussels-airport/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "A few more details + map on Aviation Herald:<p><a href=\"https:&#x2F;&#x2F;avherald.com&#x2F;h?article=5345bfac&amp;opt=0\" rel=\"nofollow\">https:&#x2F;&#x2F;avherald.com&#x2F;h?article=5345bfac&amp;opt=0</a>",
+      "The aircraft reached 107kt on the taxiway.<p>V1 (the &quot;point of no return&quot; where a takeoff should not be aborted) for an A320 is around 120kt to 145kt."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Advancing finance with Claude Opus 4.6",
+    "url": "https://claude.com/blog/opus-4-6-finance",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Lately my company has been doing a lot of complex accounting and reporting in spreadsheets.  Overall was surprised by how well both GPT and Claude handled some of these extremely tedious tasks.  Not uncommon to have an hours-long task compressed to minutes.<p>My anecdotal experience is GPT 5.2 Pro is decently ahead of Claude Opus 4.5 in this category when it gets to the tricky stuff, both in presentation and accuracy.  The long reasoning seems to help a lot.  But, apparently the benchmarks do not agree.<p>Edit - noticed OpenAI specifically focuses on finance use cases in their gpt-5.3-codex blog as well <a href=\"https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-gpt-5-3-codex&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;openai.com&#x2F;index&#x2F;introducing-gpt-5-3-codex&#x2F;</a>",
+      "Based on the article... is this basically just making Claude better at formatting and data presentation, or does it also get better at analysis? I get the impression it&#x27;s the former.",
+      "And then you hand it to your boss who takes a 20 second look at it and asks why you made a projection that assume massive revenue growth and 3 years of perfectly flat utilities, insurance, G&amp;A - no inflation etc.<p>It does look really promising as a skeleton starting point though. Like generate it, delete numbers and populate by hand.<p>Not unlike the boilerplate start we saw in AI coding a couple years back",
+      "It&#x27;s time to sell hedge fund stocks!!\nJokes aside, I took the CFA exam last week and now I&#x27;m starting to worry about my career...",
+      "Article did not load on my tablet :sweat_smile:",
+      "&gt; The side-by-side outputs below show how output quality has improved from Claude Opus 4.5 to Opus 4.6.<p>Disclaimer: I use AI to code (and I code for finance) and I love Anthropic.<p>But: for f-ck&#x27;s sake, I cannot click on the picture and have it show up in full. It stays at its tiny size, impossible to read the numbers. I had to right-click and &quot;open in a new tab&quot;.<p>AI is, somehow, definitely still not fully there yet.",
+      "Their chart only goes up to 70.",
+      "Now this is going to be interesting to watch to see if the finance bros financing this AI wave to get rid of SW engineers will keep financing getting rid of their own.",
+      "Anthropic does anything to keep the Claude hype going; from fearmongering (&quot;AI bad, need government regulations&quot;) to wishful thinking (&quot;90% of code will be written by AI by the end of 2025&quot; —Dario) to using Claude in applications it has no business being in (Cowork, accessing all your files, what could go wrong?) to releasing &quot;research&quot; papers every now and then to show how their AI &quot;almost got out&quot; and they stopped it (again, to show their models are &quot;just that good&quot;) to prescribing what the society should do to adapt to the new reality to doing worthless surveys on &quot;how AI is reshaping economy, but mostly our AI not others&quot;."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "OpenAI Frontier",
+    "url": "https://openai.com/index/introducing-openai-frontier/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; The way work gets done has changed, and enterprises are starting to feel it in big ways.<p>Why do they say all of this fluff when everyone knows it’s not exactly true yet. Just makes me be cynical of the rest.<p>When can we say we have enough AI? Even for enterprise? I would guess that for the majority of power users you could stop now and people would be generally okay with it, maybe some further into medical research or things that are actually important.<p>For Sam Altman and microslop though it seems to be a numbers game, just have everyone in and own everything. It’s not even about AGI anymore I feel.",
+      "&gt; At a major semiconductor manufacturer, agents reduced chip optimization work from six weeks to one day.<p>I call BS right there. If you can actually do that, you’d spin up a “chip optimization” consultancy and pocket the massive efficiency gain, not sell model access at a couple bucks per million-tokens.<p>There should be a massive “caveats and terms apply” on that quote.<p>So far the AI productivity gains have been all bark and no bite. I’ll believe when I see either faster product development, higher quality or lower prices (which indeed happened with other technological breakthroughs, whether the printing press or the loom) - if anything, software quality is going <i>down</i> suggesting we aren’t there yet.",
+      "I have a hard time believing that the right move for most organizations that aren&#x27;t already bought into an OpenAI enterprise plan is going to be building their entire business around something like this. This ties you to one model provider that has been having issues keeping up with the other big labs and provides what looks like superficially some extremely useful tools but with unclear amounts of rigor. I don&#x27;t think I would want to build my business on this if I was an AI-native company that was just starting right now unless they figure out how to make this much more legible and transparent to people.",
+      "This is a crowded solution space with participation from cloud, SaaS and data infrastructure vendors. All of these players and their customers have been trying to operationalize LLMs in enterprise workflows for 2+ years. Two big challenges are business ontology and fitting probabilistic tools into processes requiring deterministic outcomes. Overcoming these problems require significant systems integration and process engineering work. What does OpenAI have that makes them specifically capable of solving these problems over Azure, Databricks, Snowflake, etc., who have all been working on these problems for quite a while? I don&#x27;t know if the press release really addresses any of this, which makes it seem more like marketing copy than anything else.<p>The question of lock-in is also a major one. Why tether your workflow automation platform to your LLM vendor when that may just be a component of the platform, especially when the pace of change in LLMs specifically is so rapid in almost every conceivable way. I think you&#x27;d far rather have an LLM-vendor neutral control plane and disaggregate the lock-in risk somewhat.",
+      "&gt; &quot;75% of enterprise workers say AI helped them do tasks they couldn’t do before.&quot;<p>&gt; &quot;At OpenAI alone, something new ships roughly every three days, and that pace is getting faster.&quot;<p>- We&#x27;re seeing all these productivity improvements and it seems as though devs&#x2F;&quot;workers&quot; are being forced to output so much more, are they now being paid proportionally for this output? Enterprise workers now have to move at the pace of their agents and manage essentially 3-4 workers at all times (we&#x27;ve seen this in dev work). Where are the salary bumps to reflect this?<p>- Why do AI companies struggle to make their products visually distinct OpenAI Frontier looks the exact same as OpenAI Codex App which looks the exact same as GPT<p>- OpenAI going for the agent management market share (Dust, n8n, crewai)",
+      "Building on OpenAI as a long term business strategy is dubious. Better go with an established cloud player for these solutions imo.<p>OpenAI might burn through all their money, and end up dropping support for these features and&#x2F;or being sold off for parts altogether.",
+      "Looks like 2026 is indeed shaping up to be the year of the agent.",
+      "I didn&#x27;t quite grasp what this is trying to solve but I hope its doing this:<p>In our company we have a list of long tail &quot;workflows&quot; or &quot;processes&quot; that really just involves reading a document and filling a form.<p>For example, how do I even get access to a new DB? Or a new AWS account?<p>Can this tool help us create an agent that can automate this with some reasonable accuracy?<p>I see OpenAI frontier as quick way to automate these long tail processes.",
+      "“Never send a human to do a machine’s job.” — Agent Smith, <i>The Matrix</i>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Why Elixir is the best language for AI – Dashbit Blog",
+    "url": "https://dashbit.co/blog/why-elixir-best-language-for-ai",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I tried Elixir a few months back with several different models (GPT, Claude, and Gemini). I’m not an Elixir or BEAM developer, but the results were quite poor. I rarely got it to generate syntactically correct Elixir (let alone idiomatic). It often hallucinated standard library functions that didn’t exist. Since I had very little prior experience, steering the models didn’t go well. I’ve since been using them for JS&#x2F; TS, Kotlin&#x2F; Java, and a few other tasks where I’m much more familiar.<p>My takeaway was that these models excel at popular languages where there’s ample training material, but struggle where the languages change rapidly or are relatively “niche.” I’m sure they’ve since gotten better, so perhaps my perception is already out of date.",
+      "This was mentioned recently and I had a look[0]. It seems like the benchmark is not quite saying what people think it&#x27;s saying, and the paper even mentions it. The benchmark is constructed by using a model (Deepseek) to define questions of a certain level of difficulty for the models. That may result in easier problems for &quot;low-resource&quot; languages such as Elixir and Racket and so forth since the differentiator couldn&#x27;t solve harder problems. From the actual paper:<p>&gt; Section 3.3:<p>&gt; Besides, since we use the moderately capable DeepSeek-Coder-V2-Lite to filter simple problems, the Pass@1 scores of top models on popular languages are relatively low. However, these models perform significantly better on low-resource languages. This indicates that the performance gap between models of different sizes is more pronounced on low-resource languages, likely because DeepSeek-Coder-V2-Lite struggles to filter out simple problems in these scenarios due to its limited capability in handling low-resource languages.<p>At the same time I have used Claude Code on an elixir codebase and it&#x27;s done a great job. But for me, it&#x27;s undefined that it would have done a worse job if I had picked any other stack.<p>[0]: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46646007\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46646007</a>",
+      "Wanted to second this.  Been using AI extensively on a relatively large Phoenix &#x2F; Elixir code base, and it mostly produces excellent results.<p>The features of Elixir that lead to good software are amplified with LLM&#x27;s.<p>One thing that I would perhaps add to the article (or emphasise) is the clarity and quality of error messages in Elixir.  In my opinion some of the best error logging in the game.  The vast majority of the time the error gives enough information to very quickly fix the problem.",
+      "I’ve had a fantastic experience building out an internal AI agent service using elixir and phoenix - after only dabbling with it in side projects for almost a decade<p>OTP fits agents like a glove.",
+      "If it doesn&#x27;t target the GPUs, with the same kind of existing tooling for C++, Python and Julia, it isn&#x27;t."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Total Recall – write-gated memory for Claude Code",
+    "url": "https://github.com/davegoldblatt/total-recall",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The onboarding tax is real. Total Recall&#x27;s approach of a &#x27;write gate&#x27; is exactly what we need to move from stateless assistants to persistent partners. I&#x27;ve been experimenting with similar concepts in my &#x27;Chat Engineer&#x27; workflow — essentially treating memory as a curated database of decisions rather than a raw log of tokens. The &#x27;Will this change future behavior?&#x27; filter is a great heuristic. Looking forward to trying this out with Claude Code!",
+      "From a first read, the memory folder should also go into .gitignore by default"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI is just the latest Monoculture",
+    "url": "https://www.deusinmachina.net/p/ai-is-just-the-latest-monoculture",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Calfkit – an SDK to build distributed, event-driven AI agents on Kafka",
+    "url": "https://github.com/calf-ai/calfkit-sdk",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I think there&#x27;s a big asymmetry between the kind of user and their environment that wants to toy with agent teams and the kind of user that would ever want to deal with the unwelcome hassle of having kafka as a dependency."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Fairphone 6: cheaper, repairable and longer-lasting",
+    "url": "https://www.theguardian.com/technology/2026/feb/04/fairphone-6-review-cheaper-repairable-longer-lasting-android",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "And with this ugly hole in the screen again. They could have put it in the very center of the screen at least, to make it even more annoying",
+      "Still no headphone jack, which is a real bummer. Unfortunately it&#x27;s not really for me with that limitation."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Security firm finds Moltbook's 1.5M 'AI agents' run by 17K humans",
+    "url": "https://www.perplexity.ai/page/security-firm-finds-moltbook-s-4J6M_cdYSySFQdnd49tfOQ",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Claude.md templates based on Boris Cherny's advice",
+    "url": "https://github.com/abhishekray07/claude-md-templates",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Tools for Recovering RAID5 Disasters",
+    "url": "https://github.com/alfiopuglisi/raid_recovery",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "India's female workers watching hours of abusive content to train AI",
+    "url": "https://www.theguardian.com/global-development/2026/feb/05/in-the-end-you-feel-blank-indias-female-workers-watching-hours-of-abusive-content-to-train-ai",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I long time ago, I was operating a &quot;social network&quot; which allowed image uploads. (India local, didn&#x27;t amount to much as was shutdown.).<p>Immediately at launch, we started having a huge amount of (image) pron being uploaded into the pages. We put in some rate limits etc, but did not want to put  any major restrictions of user signups etc as that would hurt signup figures (important to the ceo!).<p>We already had some content review people thru a temp agency on site, so we checked with them and they were fine doing this manual filtering of these images for us. All young (early 20s) women. While my team built a quick &quot;dashboard&quot; for them to be able to do this image filtering quickly and conveniently, I had a detailed conversation with them as I was very concerned about having them review this kinda stuff for 8 hours a day, 5 days a week. Truly nasty stuff.<p>They were _perfectly_ clear that they had no issues with it, and they told me in so many words to not give it a second thought and to let them get back to work.<p>It was a surprise, but it was a point of realization: there are much worse things they could be doing. And looking a porn has shock value only the first time. I was under-estimating these women and assuming they were some &quot;snowflakes&quot; who could not deal with something this silly and non-threatening.<p>Just my own person anec-data.",
+      "I’ve noticed that the type of people to have problems with these kind of jobs - people who think this is some type of neocolonialism - can not appreciate the difference between real material poverty and metaphysical problems with watching some abusive content.<p>This person is earning a really competitive wage. She’s getting the power and independence to lead a materially good life. This will trump every other metaphysical concern you can have by watching these abusive videos.<p>Some one has to moderate these videos and it’s great that it’s someone poor who’s getting the opportunity.",
+      "I remember watching this kind of content for free on Liveleak back in the day.<p>Maybe they should get edgy teenagers to do the content classification rather than third-world rural women with minimal media exposure.",
+      "This is an absolutely horrific thing to make a person do. I see comments that say &quot;well someone needs to do it.&quot; Then why not volunteer?",
+      "&gt; Sometimes, when I’m with my partner, I feel like a stranger in my own body. I want closeness, but my mind keeps pulling away.<p>Dissociation. A classic sign of trauma and PTSD.",
+      "It&#x27;s a well compensated job vs local opportunities but feels like it should be an extravagantly compensated job vs local opportunities. Someone has to do it, but also somewhere along the continuum of doing factory garment work for $100 and deep sea welding for $100k, it feels like this should be closer to latter.<p>Seems like kind of job that needs physical filtering. Onboard bunch of candidates, measure their vitals, find low responders to abusive stimulus, hire them. I&#x27;m sure there&#x27;s some poorly replicated psych study done on 1st years to draw from.",
+      "When I was in my 20s I worked for a well-known global telco. In our office, we had a group of people whose literal job was watching streaming porn from around the world all day. They had walls of screens running simultaneously.<p>Those streams were customers. Our people’s job was to monitor the streams for video and audio quality issues. When I would tell my friends that I worked with guys who’s literal job was watching porn on a sofa all day, they thought it must be the best job in the world.<p>But when I talked to the guys that actually had the job, they said it was a terribly boring chore. Even worse, they said you quickly become so desensitized that it bled over into their non-work life in a negative way. Almost everyone that had that job eventually grew to hate it.<p>These kinds of jobs have always existed. To some extent someone needs to do it. While we may be outsourcing it now, there is a long history of paying people in the US to do it.",
+      "How do humans with very little exposure to grotesque violence or extreme content universally label such content so well? This is not graduate level data that needs labeling.<p>What is missing in an AI model for it to intuitively understand what content is extreme from very few labeled sample in training?",
+      "Eww. Like 19th c. children in dangerous factories, abusing poor people&#x27;s mental health sifting through the Global North&#x27;s cavalcade of depravity. There must exist more productive and honest uses of people&#x27;s time, and some jobs shouldn&#x27;t be done for any amount of money. Some jobs done risky ways shouldn&#x27;t be done by human beings at all in dangerous manners (coal mining without safety equipment, loom maintenance while running, carrying sulfur chunks out of active volcanoes) because they lower us all. &quot;But they&#x27;re making money&quot; is not a good enough excuse because that&#x27;s a false choice as there infinitely other activities, and any number of safer activities or similar tasks done with meaningful precautions are needed, desirable, and could be done instead.",
+      "&gt; Murmu, 26, is a content moderator for a global technology company, logging on from her village in India’s Jharkhand state<p>&gt; With just four months left on her contract, which pays about £260 a month<p>Earning US$350&#x2F;mo working remotely in a village in one of the poorest states in India is an extremely competitive given that the alternative would be spending 12 hours sewing fast fashion for Zara earning US$130-150&#x2F;mo [0], doing bit piece ag labor for around US$100&#x2F;mo and participating in MGNREGA for US$50&#x2F;mo, become a housewife, or become a Naxalite&#x2F;Maoist insurgent to earn a couple thousand dollars when surrendering [1].<p>Content moderation means interacting with extremely depressing and horrid content, but someone needs to do it, and once models get good enough we would start seeing articles about how &quot;all the good 100% remote first jobs with no barrier to entry&quot; are being automated to oblivion.<p>Yes it sucks, but the alternative is becoming a migrant worker or working in light manufacturing where QoL is worse. Heck, we used to see similar articles about Chinese workers for Apple barely 14 years ago in then equally poor Sichuan [2], but you don&#x27;t see those kinds of articles anymore.<p>Development takes time and the fact that US$350&#x2F;mo remote data annotation and content moderation jobs are now penetrating into villages in what used to be the Naxalite&#x2F;Maoist&#x2F;Red Corridor where bombings and gun battles were a part of normal life just 10 years ago [3] is a massive step up developmentally - it means that there is robust enough internet, literacy, banking, and public services penetration for the seeds for a services economy to form.<p>Edit: Thanks for the downvotes westerners - my family is from these kinds of villages in India and Vietnam. The alternatives are extremely bleak - especially for a tribal woman like Ms Murmu at the bottom of the social and patriarchal hierarchy.<p>[0] - <a href=\"https:&#x2F;&#x2F;theprint.in&#x2F;ground-reports&#x2F;industries-finally-returning-to-bihar-there-is-britannia-zara-van-heusen-and-adani&#x2F;2756276&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;theprint.in&#x2F;ground-reports&#x2F;industries-finally-return...</a><p>[1] - <a href=\"https:&#x2F;&#x2F;www.thehansindia.com&#x2F;news&#x2F;national&#x2F;18-yr-old-maoist-surrenders-1045688\" rel=\"nofollow\">https:&#x2F;&#x2F;www.thehansindia.com&#x2F;news&#x2F;national&#x2F;18-yr-old-maoist-...</a><p>[2] - <a href=\"https:&#x2F;&#x2F;www.nytimes.com&#x2F;2012&#x2F;01&#x2F;26&#x2F;business&#x2F;ieconomy-apples-ipad-and-the-human-costs-for-workers-in-china.html\" rel=\"nofollow\">https:&#x2F;&#x2F;www.nytimes.com&#x2F;2012&#x2F;01&#x2F;26&#x2F;business&#x2F;ieconomy-apples-...</a><p>[3] - <a href=\"https:&#x2F;&#x2F;www.newindianexpress.com&#x2F;nation&#x2F;2016&#x2F;Nov&#x2F;23&#x2F;six-maoist-rebels-gunned-down-by-cops-in-jharkhand-1541785.html\" rel=\"nofollow\">https:&#x2F;&#x2F;www.newindianexpress.com&#x2F;nation&#x2F;2016&#x2F;Nov&#x2F;23&#x2F;six-maoi...</a>"
+    ],
+    "full_text": null
+  }
+]
