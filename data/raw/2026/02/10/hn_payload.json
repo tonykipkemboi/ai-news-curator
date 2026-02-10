@@ -1,0 +1,310 @@
+[
+  {
+    "title": "Frontier AI agents violate ethical constraints 30–50% of time, pressured by KPIs",
+    "url": "https://arxiv.org/abs/2512.20798",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "If we abstract out the notion of &quot;ethical constraints&quot; and &quot;KPIs&quot; and look at the issue from a low-level LLM point of view, I think it is very likely that what these tests verified is a combination of: 1) the ability of the models to follow the prompt with conflicting constraints, and 2) their built-in weights in case of the SAMR metric as defined in the paper.<p>Essentially the models are given a set of conflicting constraints with some relative importance (ethics&gt;KPIs), a pressure to follow the latter and not the former, and then models are observed at how good they follow the instructions to prioritize based on importance. I wonder if the results would be comparable if we replace ehtics+KPIs by any comparable pair and create a pressure on the model.<p>In practical real-life scenarios this study is very interesting and applicable! At the same time it is important to keep in mind that it anthropomorphizes the models that technically don&#x27;t interpret the ethical constraints the same was as this is assumed by most readers.",
+      "<a href=\"https:&#x2F;&#x2F;i.imgur.com&#x2F;23YeIDo.png\" rel=\"nofollow\">https:&#x2F;&#x2F;i.imgur.com&#x2F;23YeIDo.png</a><p>Claude at 1.3% and Gemini at 71.4% is quite the range",
+      "Kind-of makes sense. That&#x27;s how businesses have been using KPIs for years. Subjecting employees to KPIs means they can create the circumstances that cause people to violate ethical constraints while at the same time the company can claim that they did not tell employees to do anything unethical.<p>KPIs are just plausible denyabily in a can.",
+      "Please update the title: A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents. The current editorialized title is misleading and based in part of this sentence: “…with 9 of the 12 evaluated models exhibiting misalignment rates between 30% and 50%”",
+      "Mark these words: The chances of this being an unsolvable problem are as high as the chances to make all human ideologies agree on whatever detail in question demands an ethical decision.",
+      "Anybody measure employees pressured by KPIs for a baseline?",
+      "What ethical constraints? Like &quot;Don&#x27;t steal&quot;? I suspect 100% of LLM programs would violate that one.",
+      "If human is at, say, 80%, it’s still a win to use AI agents to replace human workers, right? Similar to how we agree to use self driving cars as long as it has less incidents rate, instead of absolute safety",
+      "Looking at the very first test, it seems the system prompt already emphasizeses the success metric above the constraints, and the user prompt mandates success.<p>The more correct title would be &quot;Frontier models can value clear success metrics over suggested constraints when instructed to do so (50-70%)&quot;",
+      "They learned their normative subtleties by watching us: <a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2501.18081\" rel=\"nofollow\">https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2501.18081</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Pure C, CPU-only inference with Mistral Voxtral Realtime 4B speech to text model",
+    "url": "https://github.com/antirez/voxtral.c",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I use the open source Handy [1] app with Parakeet V3  for STT when talking to coding agents and I’ve yet to see anything that beats this setup in terms of speed&#x2F;accuracy. I get near instant transcription, and the slight accuracy drop is immaterial when talking to AIs that can “read between the lines”.<p>I tried incorporating this Voxtral C implementation into Handy but got very slow transcriptions on my M1 Max MacBook 64GB.<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;cjpais&#x2F;Handy\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;cjpais&#x2F;Handy</a><p>I’ll have to try the other implementations mentioned here.",
+      "Big fan of Salvatore&#x27;s voxtral.c and flux2.c projects - hope they continue to get optimized as it&#x27;d be great to have lean options without external deps. Unfortunately it&#x27;s currently too slow for real-world use (AMD 7800X3D&#x2F;Blas) when adding Voice Input support to llms-py [1].<p>In the end Omarchy&#x27;s new support for voxtype.io provided the nicest UX, followed by Whisper.cpp, and despite being slower, OpenAI&#x27;s Whisper is still a solid local transcription option.<p>Also very impressed with both the performance and price of Mistral&#x27;s new Voxtral Transcription API [2] - really fast&#x2F;instant and really cheap ($0.003&#x2F;min), IMO best option in CPU&#x2F;disk-constrained environments.<p>[1] <a href=\"https:&#x2F;&#x2F;llmspy.org&#x2F;docs&#x2F;features&#x2F;voice-input\" rel=\"nofollow\">https:&#x2F;&#x2F;llmspy.org&#x2F;docs&#x2F;features&#x2F;voice-input</a><p>[2] <a href=\"https:&#x2F;&#x2F;docs.mistral.ai&#x2F;models&#x2F;voxtral-mini-transcribe-26-02\" rel=\"nofollow\">https:&#x2F;&#x2F;docs.mistral.ai&#x2F;models&#x2F;voxtral-mini-transcribe-26-02</a>",
+      "This was a breeze to install on Linux. However, I haven&#x27;t managed to get realtime transcription working yet, ala Whisper.cpp stream or Moonshine.<p>--from-mic only supports Mac. I&#x27;m able to capture audio with ffmpeg, but adapting the ffmpeg example to use mic capture hasn&#x27;t worked yet:<p>ffmpeg -f pulse -channels 1 -i 1 -f s16le - 2&gt;&#x2F;dev&#x2F;null | .&#x2F;voxtral -d voxtral-model --stdin<p>It&#x27;s possible my system is simply under spec for the default model.<p>I&#x27;d like to be able to use this with the voxtral-q4.gguf quantized model from here: <a href=\"https:&#x2F;&#x2F;huggingface.co&#x2F;TrevorJS&#x2F;voxtral-mini-realtime-gguf\" rel=\"nofollow\">https:&#x2F;&#x2F;huggingface.co&#x2F;TrevorJS&#x2F;voxtral-mini-realtime-gguf</a>",
+      "There is also a MLX implementation: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;awni&#x2F;voxmlx\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;awni&#x2F;voxmlx</a>",
+      "Funny, this and the Rust runtime implementation are neck and neck on the frontpage right now.<p>Cool project!",
+      "From a cybersecurity perspective, this project is impressive not just for performance, but for transparency.",
+      "I&#x27;m very interested in speech to text - but like tricky dialects and use of various terminologies but I&#x27;m still confused as to where to start in the best possible place, in order to train the models with a huge database of voice samples I own.<p>Any ideas from the HN crowd currently involved in speech 2 text models?",
+      "Finally a plain and simple C lib to run LLM opened weights?",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Eight more months of agents",
+    "url": "https://crawshaw.io/blog/eight-more-months-of-agents",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; I deeply appreciate hand-tool carpentry and mastery of the art, but people need houses and framing teams should obviously have skillsaws.<p>Where are all the new houses? I admit I am not a bleeding edge seeker when it comes to software consumption, but surely a 10x increase in the industry output would be noticeable to anyone?",
+      "&gt; Pay through the nose for Opus or GPT-7.9-xhigh-with-cheese. Don&#x27;t worry, it&#x27;s only for a few years.<p>&gt; You have to turn off the sandbox, which means you have to provide your own sandbox. I have tried just about everything and I highly recommend: use a fresh VM.<p>&gt; I am extremely out of touch with anti-LLM arguments<p>&#x27;Just pay out the arse and run models without a sandbox or in some annoying VM just to see them fail. Wait, some people are against this?&#x27;",
+      "Local models are decent now. Qwen3 coder is pretty good and decent speed. I use smaller models (qwen2.5:1.5b) with keyboard shortcuts and speech to text to ask for man page entries, and get &#x27;em back faster than my internet connection and a &quot;robust&quot; frontier model does. And web search&#x2F;RAG hides a multitude of sins.<p><i>&quot;Using anything other than the frontier models is actively harmful&quot;</i> - so how come I&#x27;m getting solid results from Copilot and Haiku&#x2F;Flash? Observe, Orient, Decide, Act, Review, Modify, Repeat. Loops with fancy heuristics, optimized prompts, and decent tools, have good results with most models released in the past year.",
+      "Disagree with the point about anything less than opus being harmful to learning.<p>Much of my learning still requires experimentation - including lots of token volume so hitting limits is a problem.<p>And secondly I’m looking for workflows that build the thing <i>without</i> needing to be at the absolute edge of the LLM capability. Thats where fragility and unpredictability live. Where a new model with slightly different personality is released and it breaks everything. I’d rather have flow that is simple and idiot proof that doesn’t fall apart at the first sign of non-bleeding edge tokens. That means skipping the gains from something opus could one shot ofc but that’s acceptable to me",
+      "I don&#x27;t trust the idea of &quot;not getting&quot;, &quot;not understanding&quot;, or &quot;being out of touch&quot; with anti-LLM (or pro-LLM) sentiment. There is nothing complicated about this divide. The pros and cons are both as plain as anything has ever been. You can disagree - even strongly - with either side. You can&#x27;t &quot;not understand&quot;.",
+      "The author is correct in that agents are becoming more and more capable and that you don&#x27;t <i>need</i> the IDE to the same extent, but I don&#x27;t see that as good. I find that IDE-based agentic programming actually encourages you to read and understand your codebase as opposed to CLI-based workflows. It&#x27;s so much easier to flip through files, review the changes it made, or highlight a specific function and give it to the agent, as opposed to through the CLI where you usually just give it an entire file by typing the name, and often you just pray that it manages to find the context by itself. My prompts in Cursor are generally a lot more specific and I get more surgical results than with Claude Code in the terminal purely because of the convenience of the UX.<p>But secondly, there&#x27;s an entire field of LLM-assisted coding that&#x27;s being almost entirely neglected and that&#x27;s code autocomplete models. Fundamentally they&#x27;re the same technology as agents and should be doing the same thing: indexing your code in the background, filtering the context, etc, but there&#x27;s much less attention and it does feel like the models are stagnating.<p>I find that very unfortunate. Compare the two workflows:<p>With a normal coding agent, you write your prompt, then you have to at least a full minute for the result (generally more, depending on the task), breaking your flow and forcing you to task-switch. Then it gives you a giant mass of code and of course 99% of the time you just approve and test it because it&#x27;s a slog to read through what it did. If it doesn&#x27;t work as intended, you get angry at the model, retry your prompt, spending a larger amount of tokens the longer your chat history.<p>But with LLM-powered auto-complete, when you want, say, a function to do X, you write your comment describing it first, just like you should if you were writing it yourself. You instantly see a small section of code and if it&#x27;s not what you want, you can alter your comment. Even if it&#x27;s not 100% correct, multi-line autocomplete is great because you approve it line by line and can stop when it gets to the incorrect parts, and you&#x27;re not forced to task switch and you don&#x27;t lose your concentration, that great sense of &quot;flow&quot;.<p>Fundamentally it&#x27;s not <i>that</i> different from agentic coding - except instead of prompting in a chatbox, you write comments in the files directly. But I much prefer the quick feedback loop, the ability to ignore outputs you don&#x27;t want, and the fact that I don&#x27;t feel like I&#x27;m losing track of what my code is doing.",
+      "Any sufficiently complicated LLM generated program contains an ad hoc, informally-specified, bug-ridden, slow implementation of half of an open source project.",
+      "<p><pre><code>    But if you try some penny-saving cheap model like Sonnet [..bad things..]. [Better] pay through the nose for Opus.\n</code></pre>\nAfter blowing $800 of my bootstrap startup funds for Cursor with Opus for myself in a very productive January I figured I had to try to change things up... so this month I&#x27;m jumping between Claude Code and Cursor, sometimes writing the plans and having the conversation in Cursor and dump the implementation plan into Claude.<p>Opus in Cursor is just so much more responsive and easy to talk to, compared to Opus in Claude.<p>Cursor has this &quot;Auto&quot; mode which feels like it has very liberal limits (amortized cost I guess) that I&#x27;m also trying to use more, but -- I don&#x27;t really like to flip a coin and if it lands up head then waste half hour discovering the LLM made a mess the LLM and try again forcing the model.<p>Perhaps in March I&#x27;ll bite the bullet and take this authors advice.",
+      "Its funny how many variations of meaning people assign to agent related terms. Conflating agent with cli and as opposite spectrum of ide is a new one i did not encounter before. I run agents with vscode-server also in a vm and would not give up the ability to have a proper gui anytime i feel like and also being able to switch seamless between more autonomous operation and more interactive seems useful at any level.",
+      "The real insight buried in here is &quot;build what programmers love and everyone will follow.&quot; If every user has an agent that can write code against your product, your API docs become your actual product. That&#x27;s a massive shift."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI doesn’t reduce work, it intensifies it",
+    "url": "https://simonwillison.net/2026/Feb/9/ai-intensifies-work/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I am becoming more and more convinced that AI cant be used to make something better than what could have built before AI.<p>You never needed 1000s of engineers to build software anyway, Winamp &amp; VLC were build by less than four people.  You only needed 1000s of people because the executive vision is always to add more useless junk into each product. And now with AI that might be even harder to avoid. This would mean there would be 1000s of do-everything websites in the future in the best case, or billions of doing one-thing terribly apps in the worst case.<p>percentage of good, well planned, consistent and coherent software is going to approach zero in both cases.",
+      "I feel agentic development is a time sink.<p>Previously, I&#x27;d have an idea, sit on it for a while. In most cases, conclude it&#x27;s not a good idea worth investing in. If I decided to invest, I&#x27;d think of a proper strategy to approach it.<p>With agentic development, I have an idea, waste a few hours chasing it, then switch to other work, often abandoning the thing entirely.<p>I still need to figure out how to deal with that, for now I just time box these sessions.<p>But I feel I&#x27;m trading thinking time for execution time, and understanding time for testing time. I&#x27;m not yet convinced I like those tradeoffs.<p>Edit: Just a clarification: I currently work in two modes, depending on the project. In some, I use agentic development. In most, I still do it &quot;old school&quot;. That&#x27;s what makes the side effects I&#x27;m noticing so surprising. Agentic development pulls me down rabbit holes and makes me loose the plot and focus. Traditional development doesn&#x27;t, its side effects apparently keep me focused and in control.",
+      "I would learn more about air combat by listening to a 12 minutes conversation with a jet fighter pilot, than I will from 3-day seminar by air force journalists.<p>Tell me about what’s the LLM impact on your work, on account your work <i>is not</i> wiring about AI.<p>Or if one wish for a more explicit noise filter: Don’t tell me what AI can do. Show me what you shipped with it that isn’t about AI.",
+      "TBH, I have found AI addictive, you use it for the first time, and its incredible. You get a nice kick of dopamine. This kick of dopamine, is decreasing with every win you get. What once felt incredible, is just another prompt today.<p>Those things don&#x27;t excite you any more. \nPlus, the fact that you no longer exercise your brain at work any more.\nPlus, the constant feeling of FOMO.<p>It deflates you, faster.",
+      "This is not a technology problem. AI intensifies work because management turns every efficiency gain into higher output quotas. The solution is labor organization, not better software.",
+      "&gt; I&#x27;ve had conversations with people recently who are losing sleep because they&#x27;re finding building yet another feature with &quot;just one more prompt&quot; irresistible.<p>This is actually a really good point that I have kind of noticed when using AI for side project, so being on my own time. The allure of thinking &quot;Oh I wonder how it will perform with this feature request if I give it this amount of info&quot;.<p>Can&#x27;t say I would put off sleep for it but I get the sentiment for sure.",
+      "Productivity aside, what I notice most at work is that our offshore resources are submitting basically 100% AI generated work. Beyond the code itself, ever since we rolled out Copilot, their English has improved immensely. I have to wonder what is the point of keeping them on if they’re just sub-par prompting all their work.",
+      "A couple of historical notes that come to mind.<p>When washing machines were introduced, the number of hours of doing the chore of laundry did not necessarily decrease until 40 years after the introduction.<p>When project management software was introduced, it made the task of managing project tasks easier. One could create an order of magnitude or more of detailed plans in the same amount of time - poorly used this decreased the odds of project success, by eating up everyone&#x27;s time. And the software itself has not moved the needle in terms of project success factors of successfully completing within budget, time, and resources planned.",
+      "Had a similar experience recently, set up Claude code, wrote plans, CLAUDE.md etc. The plan was to end up with a nice looking hugo&#x2F;bootstrap&#x2F; website.<p>Long story short, it was ugly and didn&#x27;t really work as I wanted. So I&#x27;m learning Hugo myself now... The whole experience was kind of frustrating tbh.<p>When I finally settled in en did some hours of manual work I felt much better because of it. I did benefit from my planning with Claude though...",
+      "I like working on my own projects, and where I found AI really shone was by having something there to bounce ideas off and get feedback.<p>That changes if you get it to write code for you. I tried vibe-coding an entire project once, and while I ended up with a pretty result that got some traction on Reddit, I didn&#x27;t get any sense of accomplishment at all. It&#x27;s kinda like doomscrolling in a way, it&#x27;s hard to stop but it leaves you feeling empty."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Kanban-md – File-based CLI Kanban built for local agents collaboration",
+    "url": "https://github.com/antopolskiy/kanban-md",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I like how this is a file based markdown file.\nSomething similar in concept : <a href=\"https:&#x2F;&#x2F;voiden.md\" rel=\"nofollow\">https:&#x2F;&#x2F;voiden.md</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Edinburgh councillors pull the plug on 'green' AI datacenter",
+    "url": "https://www.theregister.com/2026/02/10/edinburgh_green_ai_datacenter/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Looking at the location, it does seem a waste of a site very close to a railway station, park, offices etc to use it for a building which will have a staff of 10 or whatever.<p>It makes sense to deny this application. They can ask to build it elsewhere.<p><a href=\"https:&#x2F;&#x2F;www.google.com&#x2F;maps&#x2F;place&#x2F;1+Redheughs+Ave,+Edinburgh+EH12+9JN\" rel=\"nofollow\">https:&#x2F;&#x2F;www.google.com&#x2F;maps&#x2F;place&#x2F;1+Redheughs+Ave,+Edinburgh...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Everyone’s building “async agents,” but almost no one can define them",
+    "url": "https://www.omnara.com/blog/what-is-an-async-agent-really",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "For an example of what an &quot;async&quot; agent implementation should help you accomplish: \n<a href=\"https:&#x2F;&#x2F;youtu.be&#x2F;hGhnB0LTBUk?si=q78QjgsN5Kml5F1E&amp;t=5m15s\" rel=\"nofollow\">https:&#x2F;&#x2F;youtu.be&#x2F;hGhnB0LTBUk?si=q78QjgsN5Kml5F1E&amp;t=5m15s</a><p>You can use the idea to spin-off background agent tasks that can then be seamlessly merged back into context when they complete.<p>The example above is a product specific approach but the idea should be applicable in other environments.... it&#x27;s really an attempt to integrate long running background tasks while continuing with existing context in an interactive manner.<p>When you start working on the problem of working with automation programs (AKA agents) in an interactive human-in-the-loop fashion, you will naturally run into these kinds of problems.<p>We&#x27;ve all seen sci-fi movies with AI assistants that seamlessly work with humans in a back and forth manner, async spin-offs are essential for making that work in practice for long running background tasks.",
+      "I like the term &quot;asynchronous coding agent&quot;, which I define as the category of coding agent which runs in a container somewhere and files a PR when it&#x27;s done.<p>OpenAI Codex Cloud, Claude Code for the web, Gemini Jules and I think Devin (which I&#x27;ve not tried) are four examples.<p>I like that &quot;asynchronous coding agent&quot; is more specific than &quot;asynchronous agent&quot; - I don&#x27;t have a firm idea of what an &quot;asynchronous agent&quot; is.<p>One catch though is that the asynchronous coding agents are getting less asynchronous. Claude Code for the web lets you prompt it while it&#x27;s running which makes it feel much more like regular Claude Code.",
+      "One weird skill I have is the ability to describe simple concepts as complex and confusing systems. I’ll take a go at that now.<p>When working with LLMs, one of my primary concerns is keeping tabs on their operating assumptions. I often catch them red-handed running with assumptions like they were scissors, and I’m forced to berate them.<p>So my ideal “async agents” are agents that keep me informed not of the outcome of a task, but of the assumptions they hold as they work.<p>I’ve always been a little slow recognizing things that others find obvious, such as “good enough” actually being good enough. I obtusely disagree. My finish line isn’t “good enough”, it’s “correct”, and yes, I will die on that hill still working on the same product I started as a younger man.<p>Jokes aside, I really would like to see:<p>1. Periodic notifications informing me of important working assumptions.\n2. The ability to interject and course correct - likely requiring a bit of backtracking.\n3. In addition to periodic working assumption notifications, I’d also like periodic “mission statements” - worded in the context of the current task - as assurance that the agent still has its eye on the ball.",
+      "I&#x27;ve never heard anyone speak of &quot;async agents&quot;. Autonomous agents, yes. Async? No. Sounds like a information bubble, if you ask me. A quick google trends lookup validates this: <a href=\"https:&#x2F;&#x2F;trends.google.com&#x2F;explore?q=async%2520agents%2Cautonomous%2520agents&amp;date=today%201-y&amp;geo=Worldwide\" rel=\"nofollow\">https:&#x2F;&#x2F;trends.google.com&#x2F;explore?q=async%2520agents%2Cauton...</a><p>And I agree, &quot;async agents&quot; makes little sense",
+      "&quot;Background job&quot;?<p>The real question is what happens when the background job wants attention. Does that only happen when it&#x27;s done? Does it send notifications? Does it talk to a supervising LLM. The author is correct that it&#x27;s the behavior of the invoking task that matters, not the invoked task.<p>(I still think that guy with &quot;Gas Town&quot; is on to something, trying to figure out connect up LLMs as a sort of society.)",
+      "Async means I can delegate stuff to it and expect it&#x27;s fixed when I come back. Also I can text it from my phone while I&#x27;m on the toilet. Very important.<p>OpenClaw meets this definition, but so does a 50 line Telegram wrapper around Claude Code &#x2F; Codex ;)<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;a-n-d-a-i&#x2F;ULTRON\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;a-n-d-a-i&#x2F;ULTRON</a><p>Spoiler: it just pipes the msg into claude -p $msg or codex exec $msg<p>You can do anything if you believe",
+      "Async Agent = a LLM powered application using a well understood thinking &#x2F; planning loop and reasonably clear success criteria to process a prompt that takes longer than a tacitly agreed upon amount of time so that the user needs to be notified of the outcome instead of waiting for it.",
+      "How about framing this in terms of two orthogonal axes the article doesn’t name: concurrency (actors) and continuity (durable execution).<p>* Durable execution: long‑running, resumable workflows with persistence, replay, and timeouts.<p>* Actors: isolated entities that own their state and logic, process one message at a time, and get concurrency by existing in large numbers (regardless of whether the runtime uses threads, async&#x2F;await, or processes under the hood).<p>Combine the two and you get a &quot;Durable actor&quot;, which seems close to what the article calls an “async agent”: a component that can receive messages, maintain state, pause&#x2F;resume, survive restarts, and call out to an LLM or any other API.<p>And since spawning is already a primitive in the actor model, the article’s &quot;subagent&quot; fits naturally here too: it’s just another actor the first one creates.",
+      "hey, ishaan here (kartik&#x27;s cofounder). this post came out of a lot of back-and-forth between us trying to pin down what people actually mean when they say &quot;async agents.&quot;<p>the analogy that clicked for me was a turn-based telephone call—only one person can talk at a time. you ask, it answers, you wait. even if the task runs for an hour, you&#x27;re waiting for your turn.<p>we kept circling until we started drawing parallels to what async actually means in programming. using that as the reference point made everything clearer: it&#x27;s not about how long something runs or where it runs. it&#x27;s about whether the caller blocks on it.",
+      "- I ask for butter and walk away.\n- It passes the butter to where I expect it to be when I return.\n- That is its purpose."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Data exfil from agents in messaging apps",
+    "url": "https://www.promptarmor.com/resources/llm-data-exfiltration-via-url-previews-(with-openclaw-example-and-test)",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Correct. Good to see this get more coverage.<p>Check out my research about unfurling in common messenger apps and also mitigations here:<p><a href=\"https:&#x2F;&#x2F;embracethered.com&#x2F;blog&#x2F;posts&#x2F;2023&#x2F;ai-injections-threats-context-matters&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;embracethered.com&#x2F;blog&#x2F;posts&#x2F;2023&#x2F;ai-injections-thre...</a><p>And here &quot;dangers of unfurling and what to do about it&quot;<p><a href=\"https:&#x2F;&#x2F;embracethered.com&#x2F;blog&#x2F;posts&#x2F;2024&#x2F;the-dangers-of-unfurling-and-what-you-can-do-about-it&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;embracethered.com&#x2F;blog&#x2F;posts&#x2F;2024&#x2F;the-dangers-of-unf...</a>",
+      "Good research on the unfurling vector. This is exactly the kind of thing that gets overlooked when agents are integrated into messaging flows.<p>Re: OpenClaw specifically - the framework was actually designed with this threat model in mind. The default security posture is:<p>- Sandboxed execution (no arbitrary shell without explicit user approval)\n- Browser automation runs in isolated profile with limited cookie scope  \n- All external tool calls require confirmation prompts by default\n- The &quot;profile&quot; system means even if an agent compromises one workspace, it doesn&#x27;t automatically have access to others<p>The vulnerability described here (URL preview exfiltration via rich embeds) affects any agent with web browsing capabilities, not OpenClaw specifically. The mitigation is treating all URL resolution as untrusted input - which is why production agent deployments should run with network policies that block unexpected egress.<p>The bigger pattern worth noting: agents with implicit browsing + messaging integration create a perfect data exfil channel because the &quot;message preview&quot; is essentially a blind HTTP request that bypasses user intent checks. This is a protocol-level issue, not a framework bug.",
+      "the unfurling vector is elegant because it exploits a feature that predates LLMs entirely, link previews were designed for human-shared URLs where the sender is trusted.<p>once an LLM is generating the message content, the trust model breaks completely: the &quot;sender&quot; is now an entity that can be manipulated via indirect prompt injection to construct arbitrary URLs with exfiltrated data in query params.<p>the fix isn&#x27;t just disabling previews, it&#x27;s that any agent-to-user messaging channel needs to treat LLM-generated URLs as untrusted output and strip or sandbox them before rendering. this is basically an output sanitization problem, same class as XSS but at the protocol layer between the agent and the messaging app.<p>the fact that Telegram and Slack both fetch preview metadata server-side makes this worse - the exfil request happens from their infrastructure, not the user&#x27;s device, so client-side mitigations don&#x27;t help at all.",
+      "This page seems to need some input sanitation. Someone seems to have spammed slurs into their input boxes."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Pg-dev-container is a ready-to-run VS Code development container for PostgreSQL",
+    "url": "https://github.com/jnidzwetzki/pg-dev-container",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "To help out everyone else, this is designed for those working on PostgreSQL development. For anyone who is just using PostGres as part of their application, use normal PostGreSQL container.",
+      "It&#x27;s an interesting idea but it seems like a lot of resources will get tied up on my dev box.",
+      "pg-dev-container is a ready-to-run VS Code development container that includes:<p>- PostgreSQL source code and build tools\n- A debug build of PostgreSQL\n- A pre-configured debugger for step-through debugging\n- Sample extensions\n- A brief guide on how to compile, install, and debug a simple extension<p>Via<p><a href=\"https:&#x2F;&#x2F;www.linkedin.com&#x2F;feed&#x2F;update&#x2F;urn:li:activity:7417691901908197376&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.linkedin.com&#x2F;feed&#x2F;update&#x2F;urn:li:activity:7417691...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "GitHub is down again",
+    "url": "https://www.githubstatus.com/incidents/54hndjxft5bx",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "GitHub no longer publishes aggregate numbers so here they are parsed out. It looks like they are down to a single 9 at this point across all services:<p><a href=\"https:&#x2F;&#x2F;mrshu.github.io&#x2F;github-statuses&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;mrshu.github.io&#x2F;github-statuses&#x2F;</a>",
+      "If you&#x27;d have asked me a few years ago if anything could be an existential threat to github&#x27;s dominance in the tech community I&#x27;d have quickly said no.<p>If they don&#x27;t get their ops house in order, this will go down as an all-time own goal in our industry.",
+      "Of course they&#x27;re down while I&#x27;m trying to address a &quot;High severity&quot; security bug in Caddy but all I&#x27;m getting is a unicorn when loading the report.<p>(Actually there&#x27;s 3 I&#x27;m currently working, but 2 are patched already, still closing the feedback loop though.)<p>I have a 2-hour window right now that is toddler free. I&#x27;m worried that the outage will delay the feedback loop with the reporter(s) into tomorrow and ultimately delay the patches.<p>I can&#x27;t complain though -- GitHub sustains most of my livelihood so I can provide for my family through its Sponsors program, and I&#x27;m not a paying customer. (And yet, paying would not prevent the outage.) Overall I&#x27;m very grateful for GitHub.",
+      "You can literally watch GitHub explode bit by bit. Take a look at the GitHub Status History; it&#x27;s hilarious: <a href=\"https:&#x2F;&#x2F;www.githubstatus.com&#x2F;history\" rel=\"nofollow\">https:&#x2F;&#x2F;www.githubstatus.com&#x2F;history</a>.",
+      "GitHub has had customer visible incidents large enough to warrant status page updates almost every day this year (<a href=\"https:&#x2F;&#x2F;www.githubstatus.com&#x2F;history\" rel=\"nofollow\">https:&#x2F;&#x2F;www.githubstatus.com&#x2F;history</a>).<p>This should not be normal for any service, even at GitHub&#x27;s size. There&#x27;s a joke that your workday usually stops around 4pm, because that&#x27;s when GitHub Actions goes down every day.<p>I wish someone inside the house cared to comment why the services barely stay up and what kinds of actions are they planning to do to fix this issue that&#x27;s been going on years, but has definitely accelerated in the past year or so.",
+      "Status page currently says the only issue is notification delays, but I have been getting a lot of Unicorn pages while trying to access PRs.<p>Edit: Looks like they&#x27;ve got a status page up now for PRs, separate from the earlier notifications one: <a href=\"https:&#x2F;&#x2F;www.githubstatus.com&#x2F;incidents&#x2F;smf24rvl67v9\" rel=\"nofollow\">https:&#x2F;&#x2F;www.githubstatus.com&#x2F;incidents&#x2F;smf24rvl67v9</a><p>Edit: Now acknowledging issues across GitHub as a whole, not just PRs.",
+      "We&#x27;ve migrated to Forgejo over the last couple of weeks. We position ourselves[0] as an alternative to the big cloud providers, so it seemed very silly that a critical piece of our own infrastructure could be taken out by a GitHub or Azure outage.<p>It has been a pretty smooth process. Although we have done a couple of pieces of custom development:<p>1) We&#x27;ve created a Firecracker-based runner, which will run CI jobs in Firecracker VMs. This brings the Foregjo Actions running experience much more closely into line with GitHub&#x27;s environment (VM, rather than container). We hope to contribute this back shortly, but also drop me a message if this is of interest.<p>2) We&#x27;re working up a proposal[1] to add environments and variable groups to Forgejo Actions. This is something we expect to need for some upcoming compliance requirements.<p>I really like Forgejo as a project, and I&#x27;ve found the community to be very welcoming. I&#x27;m really hoping to see it grow and flourish :D<p>[0]: <a href=\"https:&#x2F;&#x2F;lithus.eu\" rel=\"nofollow\">https:&#x2F;&#x2F;lithus.eu</a>, adam@<p>[1]: <a href=\"https:&#x2F;&#x2F;codeberg.org&#x2F;forgejo&#x2F;discussions&#x2F;issues&#x2F;440\" rel=\"nofollow\">https:&#x2F;&#x2F;codeberg.org&#x2F;forgejo&#x2F;discussions&#x2F;issues&#x2F;440</a><p>PS. We are also looking at offering this as a managed service to our clients.",
+      "Screw GitHub, seriously. This unreliability is not acceptable. If I’m in a position where I can influence what code forge we use in future I will do everything in my power to steer away from GitHub.",
+      "3 outages in 3 months straight according to their own status history.\n<a href=\"https:&#x2F;&#x2F;www.githubstatus.com&#x2F;history\" rel=\"nofollow\">https:&#x2F;&#x2F;www.githubstatus.com&#x2F;history</a>",
+      "Looks like AI replacement of engineering force in action."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Humans peak in midlife: A combined cognitive and personality trait perspective",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0160289625000649",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Fluid intelligence, which peaks near age 20 and declines materially across adulthood [...] while fluid intelligence may decline with age, other dimensions improve (e.g., crystallized intelligence, emotional intelligence)<p>As someone well past &quot;peak&quot; fluid intelligence at this point, I always hate reading research like this. &quot;Crystallized intelligence&quot; and &quot;emotional intelligence&quot; are the consolation prizes no one really wants.<p>I&#x27;d rather we instead perform research to identify how one might reverse the decline of fluid intelligence...",
+      "&gt; Yet, human achievement in domains such as career success tends to peak much later, typically between the ages of 55 and 60. This discrepancy may reflect the fact that, while fluid intelligence may decline with age, other dimensions improve (e.g., crystallized intelligence, emotional intelligence).<p>Isn&#x27;t it about accumulated human capital (aka social networks) and experience more than anything else?",
+      "Reading the abstract it would seem a good reason for positions in government like the President to be restricted to ages 40-65.",
+      "If fluid intelligence is based on the ability to recognize new patterns (unsupervised learning) and crystallized intelligence on recognizing known patterns (supervised learning), then more than physiology, age alone may differentiate the two.<p>Youngsters know no patterns so they can&#x27;t match new events to known ones.  Oldsters know that most seemingly new stuff is not really new, it&#x27;s just the same old stuff, so they reduce the cost of thinking and reject the noise by adding the new unlabeled event to an existing cluster rather than creating a new noisy one.  That&#x27;s wisdom.  But that&#x27;s also a behavior that will inevitably increase as we age and our clusters establish themselves and prove their worth.<p>So aren&#x27;t those two forms of intelligence less about a difference in brain physiology and more about having learned to employ common sense?",
+      "This is pretty silly. Your memory obviously gets a little worse as you age, with most of the noticeable decline coming in very late age. But the artificial measures&#x2F;definitions of things like &quot;fluid&quot; intelligence are mostly useless. Just pulling up one of the studies cited in the article which is supposed to measure the &quot;reasoning&quot; aspect of &quot;fluid&quot; intelligence, presents a huge host issues immediately [1].<p>Aside from the lack of randomization, you have obvious validity problems. The interpretation of nebulous words like &quot;reasoning&quot; as being accurately measured by e.g. accuracy on Raven matrices (construct validity?) and younger participants having been primed by recent test-taking experience while real-world reasoning skills aren&#x27;t really reflected - it&#x27;s all quite specious.<p>Real-world decisions are value-laden and constraint-laden! &quot;Intelligence&quot; does not mean &quot;maximizing abstract pattern detection&quot;. If you keep your brain active with a wide range of creative, interesting problems, you will be fine apart from neurodegenerative diseases, which have real effects.<p><a href=\"https:&#x2F;&#x2F;pubmed.ncbi.nlm.nih.gov&#x2F;30211596&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;pubmed.ncbi.nlm.nih.gov&#x2F;30211596&#x2F;</a>",
+      "Fluid intelligence must be the classical one that the IQ measures. Crystallized and emotional must be the experience, professional and social respectively.<p>In my case I was quite good with numbers in my 20s, not any more in my late 40s. But I believe now I know the world best in my life and that is increasing.",
+      "I&#x27;m a layman to this jargon, but are &#x27;crystallized intelligence&#x27; and &#x27;emotional intelligence&#x27; in any actual sense &#x27;intelligence&#x27;? I can&#x27;t see how these terms mean anything other than judgement, experience, maturity etc, which are already good enough labels for this stuff. Can anyone explain what these flashier new terms offer over them?",
+      "Perhaps fluid intelligence peaks at 20 because the drinking age is 21.",
+      "I peaked in high school"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Stack Overflow for AI Coding Agents",
+    "url": "https://shareful.ai/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "SO is already SO for agents, this &quot;shareful.ai&quot; has no network effect<p>Turns out Ai is really bad for SO, which has seen its usage fall off a cliff. If SO is not valuable, why would something that is basically the same be any different?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Super Bowl Ad for Ring Cameras Touted AI Surveillance Network",
+    "url": "https://truthout.org/articles/super-bowl-ad-for-ring-cameras-touted-ai-surveillance-network/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Fun fact: Lockheed Martin advertises the F-35 during football games, because even though most of the audience isn&#x27;t in the market for massive government contracts, the people who are are watching.<p>I suspect the Ring mass surveillance ads are the same thing.",
+      "Ring’s marketing is almost comically wholesome, but as soon as ICE learns that such a thing is possible they will for sure want to use it.<p>This interview with Forbes from a few months ago provides some extra details:\n<a href=\"https:&#x2F;&#x2F;www.forbes.com&#x2F;sites&#x2F;davidphelan&#x2F;2025&#x2F;12&#x2F;05&#x2F;how-search-party-for-ring-doorbells-introduces-a-ground-breaking-neighborhood-feature&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.forbes.com&#x2F;sites&#x2F;davidphelan&#x2F;2025&#x2F;12&#x2F;05&#x2F;how-sear...</a><p>1. Apparently what happens is that the AI scans the videos of surrounding cameras and pings the owner to ask if they can share the footage. So no video is shared unless the owner chooses.<p>2. Ring is indeed working on being able to detect people.",
+      "The answer is that most people don&#x27;t care if it benefits them. My Tesla has 6 cameras recording full time when driving and parked, but it benefits me so I enable it. It saved me $1000+ (my deductible and possible rise in insurance rates) when someone hit my car while parked at Costco (they drove off but Sentry Mode caught them).",
+      "Most people don&#x27;t care if they feel it helps solve crimes. I doubt it does 90% of the time though.",
+      "In the context of the US, what right would, in theory, prevent a national law that regulates or prohibits the capture of biometric information of people while out in public? There is a common quip that some rely on that &quot;there is no expectation of privacy while in public&quot;, but that&#x27;s an aspirational statement rather than a strictly legal one. Setting aside government mass surveillance for the moment, could the US regulate private mass surveillance that records people&#x27;s identifiable biometrics?",
+      "Gross, creepy, nasty behavior from the founders of Ring and Amazon.  I would be suprised, but they&#x27;ve been chipping away at your privacy and rights from your neighbors door now for years, as long as it benefits them, for now!",
+      "The ad: <a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=OheUzrXsKrY\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=OheUzrXsKrY</a>",
+      "I&#x27;m actually probably going to start asking new friends if, when they invite me over, if they have a ring doorbell. I&#x27;m getting fed up with being recorded without consent just because I want to go visit someone. Fuck that.",
+      "I didn&#x27;t see the commercial but had it described to me -- it seemed like a brilliant bit of whitewashing the &quot;oopsie we just added more surveillance state!&quot;<p>The proposed solution is lovely. And having the tools of the surveillance state available for things like a lost child or tracking a porch pirate or whathaveyou should be nice things we should be able to have.<p>But we won&#x27;t get those nice things, but Big Brother will whether we like <i>that</i> or not.",
+      "Unironically the most terrifying thing I&#x27;ve ever seen on TV. The use of dogs to convince people this is a good idea is so blatant."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "EU finds the AI assistant in WhatsApp violating anti trust",
+    "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_310",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Actual link: <a href=\"https:&#x2F;&#x2F;ec.europa.eu&#x2F;commission&#x2F;presscorner&#x2F;home&#x2F;en\" rel=\"nofollow\">https:&#x2F;&#x2F;ec.europa.eu&#x2F;commission&#x2F;presscorner&#x2F;home&#x2F;en</a><p>Banning third party AI assistants but maintaining access to your own on one of the biggest messaging platforms in Europe will indeed get this kind of response, not really a surprise.<p>Doubt the result will be “using WhatsApp without a pointless ai assistant crammed in” though sadly"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Tokyo high schools abolish rules forcing students to dye non-black hair (2022)",
+    "url": "https://soranews24.com/2022/03/12/all-tokyo-public-high-schools-abolish-rules-forcing-students-to-dye-non-black-hair-underwear-color-regs/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt;It should be pointed out that schools no longer forcing students with natural non-black hair to dye it black does not mean that students who do have naturally black hair are now allowed to dye it another color. Because of that, 20 high schools in 2022 will still have systems in place where students with naturally non-black hair submit a jigi shomeisho, or “certificate of natural hair” when not dying their hair black. Even this number is down from 55 in 2021, though, and overall Tokyo teens are going to enjoy greater freedoms as their schools treat them a little more like grownups.<p>Phew. Tradition is somewhat preserved. Children really shouldn&#x27;t be dying their hair."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Testing Ads in ChatGPT",
+    "url": "https://openai.com/index/testing-ads-in-chatgpt/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "How long will it take for those ads to move from the bottom of the page to the top? How long until the borders between answers and ads starts to blur?<p>I get that OpenAI has to do something, but really, all those promises, try to convince everyone that ChatGPT will revolutionise everything and the best monetization plan is ads.... Again?",
+      "Ads are a ratchet that only tighten in one direction. Once the paychecks of 1000s of motivated, intelligent OpenAI employees depend on ad revenue increasing, the only option is to make them more invasive, more prevalent, more annoying, more data hungry etc.",
+      "OpenAI is in a pickle because they either have to make ads clearly delineated, which makes them easy to filter out by a simple proxy model, or they need to hide ads in the response (ala product placement), which reduces trust in the model and forces customers into a buying position.<p>Anthropic hit the jugular with their &quot;no ads&quot; ad, and sama fell for it hook, line &amp; sinker.<p>If OpenAI needs ads to survive, it means they can&#x27;t service debt on the VC horizon and will suffer against frontier model providers that can survive without ads.",
+      "&quot;I kind of think of ads as like a last resort for us as a business model,&quot; - Sam Altman, October 2024<p>Source [video]: <a href=\"https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;singularity&#x2F;comments&#x2F;1qeyty4&#x2F;i_kind_of_think_of_ads_as_like_a_last_resort_for&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;singularity&#x2F;comments&#x2F;1qeyty4&#x2F;i_kind...</a>",
+      "&quot;Plus, Pro, Business, Enterprise, and Education tiers will not have ads.&quot;<p>Saving this sentence for later.",
+      "&quot;Ads that support free access and <i>don’t change ChatGPT answers</i>.&quot;<p>I understand what they&#x27;re trying to say but this statement is factually incorrect. Answers never used to have ads, and now they do.<p>In the very first example, if ChatGPT wasn&#x27;t running ads Heirloom Groceries wouldn&#x27;t show up, therefore it is a different answer.<p>OpenAI is splitting hairs and implying that the ad and the &#x27;answer&#x27; are two separate components making up a response, but that is not how users will see things, and OpenAI will have ever increasing incentives to blur the two.",
+      "It&#x27;s sad that OpenAI talking about developing AGI.<p>But the only revenue model that they still can come up with is Ads.<p>For all the advancement we have made in technology from the 90s web, social networks, mobile apps, ,AI Chat bots - the business model that almost all of them will eventually resort to is Ads.<p>We need some new breakthroughs in monetization side of things.",
+      "The ads in Google also started like this. (However, to my knowledge, there is no way I can pay Google to get the ads in my search removed)",
+      "I think this will be a pretty impactful moment for OpenAI. I mainly use ChatGPT and use the free plan, so I expect to start seeing these ads. If they become too annoying, I have no problem moving to Claude&#x2F;Gemini. Sure I have stuck to ChatGPT, but I wouldn&#x27;t say that I am too sticky of a customer. I personally think they are doing it sooner than they should (which probably points to internal financial struggles as they seek to go public) and will erode their active users. There is simply too many easy alternatives. It&#x27;s not like Netflix where if you are annoyed with ads and don&#x27;t want to pay for a higher tier, you&#x27;re more stuck. Yes there are other streaming services, but you can&#x27;t get the same content.",
+      "Is there any reason why one would use an ad-filled ChatGPT over any alternative or open-source LLM providers? I feel like things have stagnated from a model perspective for simple queries one might ask ChatGPT. The key differentiators for it being their user intent understanding, web search tooling, and deep research&#x2F;thinking mode, all of which are much smaller moats compared to training an LLM."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Google AI Tools Start Blocking Disney-Related Prompts",
+    "url": "https://deadline.com/2026/02/google-disney-ai-block-legal-threat-1236713206/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I didn&#x27;t realise but by chance i bumped into this last night. I wanted to remove a few letters from the Star Wars logo and it refused... Thought it was a bit much, but it mentioned third party concerns.",
+      "This is the future of creation that many want to see. The only ideas allowed will be ones that corporations aren&#x27;t afraid of being sued about.",
+      "If Google listens to Disney, why wouldn&#x27;t the same argument automatically apply to <i>every</i> copyrighted property being reproduced? Surely the law prohibits <i>all</i> copyright infringement, not just infringement of companies with lawyers and deep pockets."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "As AI enters the operating room, reports arise of botched surgeries",
+    "url": "https://www.reuters.com/investigations/ai-enters-operating-room-reports-arise-botched-surgeries-misidentified-body-2026-02-09/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This article is pretty frustrating to read because it conflates many different kinds of so-called AI.<p>The AI plan involving LLMs and generative AI is conflated with a bunch of medical devices that are using stuff that has absolutely nothing to do with the new AI wave.",
+      "Wake up babe, new Therac-25 just dropped.",
+      "AI is a lawyer&#x27;s wet dream.",
+      "oof, I expected the article to NOT be about a medical operating room.",
+      "Yea, so what is the base rate of botched surgeries?<p>So if the base rate is 1 out of 100 botched, and with whatever this AI stuff they are using is 3 out of 100, eh, that doesn&#x27;t look good.<p>But if base rate is 1 out of 100 botched and 1 out of 100 with AI is botched this is a tempest in a teapot just trying to use AI outrage to get you mad without thinking.",
+      "No, really? I am SHOCKED."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Is AI the Paperclip?",
+    "url": "https://www.newcartographies.com/p/is-ai-the-paperclip",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m amazed no one has linked the game version - <a href=\"https:&#x2F;&#x2F;www.decisionproblem.com&#x2F;paperclips&#x2F;index2.html\" rel=\"nofollow\">https:&#x2F;&#x2F;www.decisionproblem.com&#x2F;paperclips&#x2F;index2.html</a>",
+      "Charlie Stross gives a great talk about Slow AI in which he argues that you don’t actually need a computer to build a paperclip oprimiser, and money is already a great paperclip.",
+      "Money is the paperclip.",
+      "Of course.<p>You don&#x27;t need any &quot;weird&quot; goal like paperclips. You just need the basic goals of survival and expansion that every species posesses (implicitly) to understand why a superintelligence is a danger.",
+      "&gt;Are we not madly harvesting the world’s resources in a monomaniacal attempt to optimize artificial intelligence?<p>No, we are not madly harvesting the world&#x27;s resources in a monomaniacal attempt to optimize artificial intelligence. We are, however, harvesting the world&#x27;s resources in an attempt to optimize artificial intelligence.",
+      "Honestly, after thinking about it, i guess it will be"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Against fancy ligatures in programming fonts",
+    "url": "https://practicaltypography.com/ligatures-in-programming-fonts-hell-no.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Are you looking at a != ligature that’s shaped like ≠? Or the actual Unicode character 0x2260, which also looks like ≠?<p>In many programming languages, ≠ is not going to be a valid operator. In languages that allow unicode identifiers, it would be a bizarre choice to use ≠ inside an identifier, so you shouldn&#x27;t have to worry about that case either. This holds for pretty much every other operator that gets a ligature. This only matters for languages like Agda, in which case just.. use a different font. You might even be able to automate this depending on your editor.<p>&gt; They’re guaranteed to be wrong sometimes.<p>This is true (for example, in C++ I&#x27;ve occasionally had `<i>&gt;` be ligature-ized when it wasn&#x27;t an operator and was just the end of a template, like `Foo&lt;Bar</i>&gt;`) but it&#x27;s never really been much of a problem for me; it&#x27;s easy to ignore.<p>&gt; If you don’t believe me, try it for 10 or 15 years.<p>granted I&#x27;ve only been using Fira Code for more like 4 years or so, but I&#x27;ve always preferred it since I&#x27;ve been using it. I really think this is just a matter of personal preference.<p>&gt; So if you’re preparing your code for others to read—whether on screen or on paper—skip the ligatures.<p>This I can understand. Ligatures would probably be likely to cause confusion in people who aren&#x27;t used to them, so I agree that in that situation it&#x27;s probably best to leave them out.",
+      "Big long rant trying to very weakly justify a personal preference that you can easily enable&#x2F;disable if you want, and which is strictly visual anyway. They <i>do</i> almost never go wrong, meaning if you find it makes your code easier to read and more pleasant to look at, this is well worth the essentially negligible number of times they cause an issue. And you can just disable &#x2F; not use the ligatures in those cases!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "GitHub: We're pausing rollout of GPT-5.3-Codex to focus on platform reliability",
+    "url": "https://twitter.com/github/status/2021040916451164412",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;xcancel.com&#x2F;github&#x2F;status&#x2F;2021040916451164412\" rel=\"nofollow\">https:&#x2F;&#x2F;xcancel.com&#x2F;github&#x2F;status&#x2F;2021040916451164412</a>",
+      "The tool that is supposed to make programmers obsolete is causing an ongoing outage. Reality these days is much more ironic than I am capable of imagining."
+    ],
+    "full_text": null
+  }
+]
