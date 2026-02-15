@@ -1,0 +1,346 @@
+[
+  {
+    "title": "I love the work of the ArchWiki maintainers",
+    "url": "https://k7r.eu/i-love-the-work-of-the-archwiki-maintainers/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Very useful because the information is almost distribution agnostic as Arch will stick to upstream as much as possible; or at least that&#x27;s my impression as Debian user reading their wiki.<p>Also: isn&#x27;t the Arch wiki the new Gentoo wiki? Because that was <i>the wiki</i> early 2000s and, again, I&#x27;ve never used Gentoo!",
+      "I learned linux by using Arch back in the days when pacman -Syu was almost certain to break something and there was a good chance it would break something unique to your install. This was also back in the days when most were not connected to the internet 24&#x2F;7 and many did not have internet, I updated when I went to the library which was generally a weekly thing but sometimes it be a month or two and the system breakage that resulted was rococo. Something was lost by Arch becoming stable and not breaking regularly, it was what drove the wiki and fixing all the things that pacman broke taught you a great deal and taught you quickly. Stability is not all that it is cracked up to be, has its uses but is not the solution to everything.",
+      "The Arch wiki has rapidly become my go-to source for every time I need a real answer... and honestly it should just become my default for everything Linux. It&#x27;s <i>astoundingly</i> high quality, some of the best content out there whether or not you&#x27;re using Arch.<p>So +1000, I love their work, and all the contributors! It&#x27;s so, so good, and greatly appreciated.",
+      "I also find myself using <a href=\"https:&#x2F;&#x2F;man.archlinux.org&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;man.archlinux.org&#x2F;</a> a lot. It&#x27;s much more readable&#x2F;user-friendly than <a href=\"https:&#x2F;&#x2F;man7.org\" rel=\"nofollow\">https:&#x2F;&#x2F;man7.org</a> plus it contains man-pages from their `extra` repo which contains a lot of popular oss tooling.",
+      "I&#x27;ve had a Mac rather than a Linux machine at home for the last five or so years. Before that the arch wiki saved the day for me so many times.<p>Reading this has me looking for a junker laptop on eBay.",
+      "I&#x27;ve never used Arch but I can really get the vibe here. Wikis (especially toopical ones) are social media of sorts. There was a strong community around the #emacs IRC channel and emacswiki.org back in the day. About a 100 people who knew each other quite well. And an Emacs bot that could read from the wiki (pre-modern RAG I suppose) and answer questions.",
+      "I just hope they have robust backups and disaster-recovery plans, as Gentoo Wiki once had a terrible data loss, and it was like the burning of the Alexandria Library, I feel that put the distro to a decline. I don&#x27;t use Arch (I used Gentoo in those times), but these collaborative knowledge bases are too precious to be lost.<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=44900319\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=44900319</a>",
+      "The ArchWiki is indeed pretty good. I used to prefer the gentoo wiki\nback in the days but I think the ArchWiki may be better at this point\nin time.<p>It&#x27;s also interesting to see that many other Linux distributions fail\nto have any wiki at all, yet alone one that has high quality content.\nThis is especially frustrating because Google search got so worse now\nthat finding resources is hard. I tried to explain this problem to\ndifferent projects in general; in particular ruby-based projects tend\nto have really low quality documentation (with some exceptions, e. g.\nJeremy Evans projects tend to have good quality documentation usually,\nbut that is a minority if you look at all the ruby projects - even\npopular ones such as rack, ruby-wasm or ruby opal; horrible quality\nor not even any real quality at all. And then rubyists wonder why \nthey lost to python ...)",
+      "Their wiki is what sold me on Arch. I ended up there solving most of my problems on other distros, and if they can make such a fine wiki, I figured they could make a great OS (which they did).",
+      "Genuinely, the wiki, and the AUR are the two killer features that keep me on Arch (not that I have any reasons to change). Arch is an incredibly polished distro, and is a real pleasure to use."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Two different tricks for fast LLM inference",
+    "url": "https://www.seangoedecke.com/fast-llm-inference/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; The idea is to have a chip with SRAM large enough <i>to fit the entire model</i>, so inference can happen entirely in-memory. [...] So how much internal memory does the latest Cerebras chip have? 44GB. This puts OpenAI in kind of an awkward position. 44GB is enough to fit a small model (~20B params at fp16, ~40B params at int8 quantization), but clearly not enough to fit GPT-5.3-Codex.<p>You don&#x27;t really need to fit the entire model on a single chip. Just as with GPUs, you can shard the model across multiple chips. Of course when you have a long pipeline of chips that each token needs to pass through, that decreases the end-to-end tokens per second correspondingly.<p>So the size of GPT-5.3-Codex-Spark isn&#x27;t limited by the memory of a single Cerebras chip, but the number of such chips that you can chain together and still hit the 1000 tokens per second target. Given that Cerebras offers models much larger than 40B at faster speeds <a href=\"https:&#x2F;&#x2F;www.cerebras.ai&#x2F;pricing#exploration\" rel=\"nofollow\">https:&#x2F;&#x2F;www.cerebras.ai&#x2F;pricing#exploration</a> GPT-5.3-Codex-Spark is likely closer to GLM 4.7 in size. (≈355B total parameters, 32B active)",
+      "&gt; So how much internal memory does the latest Cerebras chip have? 44GB. This puts OpenAI in kind of an awkward position. 44GB is enough to fit a small model (~20B params at fp16, ~40B params at int8 quantization), but clearly not enough to fit GPT-5.3-Codex. That’s why they’re offering a brand new model, and why the Spark model has a bit of “small model smell” to it: it’s a smaller distil of the much larger GPT-5.3-Codex model.<p>This doesn&#x27;t make sense.<p>1.  Nvidia already sells e.g. the H100 with 80GB memory, so having 44GB isn&#x27;t an advance, let alone a differentiator.<p>2.  As I suspect anyone that&#x27;s played with open weights models will attest, there&#x27;s <i>no way</i> that 5.3-Codex-Spark is getting close to top-level performance and being sold in this way while being &lt;44GB.  Yes it&#x27;s weaker and for sure it&#x27;s probably a distil and smaller, but not by ~two orders of magnitude as suggested.",
+      "One other thing I&#x27;d assume Anthropic is doing is routing all fast requests to the latest-gen hardware. They most certainly have a diverse fleet of inference hardware (TPUs, GPUs of different generations), and fast will be only served by whatever is fastest, whereas the general inference workload will be more spread out.",
+      "Interesting theory. So how does ChatGPT begin responding instantly, as soon as I send the message? Shouldn&#x27;t it need to wait for the batch to fill? Or do they have so much traffic that this happens in a few ms?<p>(I think they might also be filling the message onto a GPU while you&#x27;re typing over a websocket or something, but I&#x27;m not sure.)",
+      "The batch size explanation is wrong. Given how much Claude Code is used, finding fellow &quot;bus passengers&quot; is not an issue, you don&#x27;t need to wait.<p>The real reason which batching increases latency is multi-factored and more complex to explain.",
+      "If the author is right, OpenAI have room for improvement where they can further improve the fast models for correctness for certain tasks while Anthropic are left with scaling vertically. OFC, it is likely that over time both approaches will converge when the companies understand the problem space better and what tradeoofs are worth making.<p>My personal take is that they will need a big model to plan and break down tasks and schedule them to specialized smaller models while there is a good enough model for real time interactions with the user, but it is the naive take and many other things might be shaping the decisions.",
+      "This author thinks Cerebras chips were deployed at scale to serve users worldwide in just one month since the partnership announcement?<p>Seems like nonsense to me.",
+      "Lol, without any evidence this is just vaporblog, it could just be reudced precision for whatever model either one of them runs &amp; not necessarily a distillation or smaller model to boot or heck even a combo since at this point in time most frontier models are MoEs &amp; getting absurd speeds for 1-20B experts is trivial regardless of batch sizes",
+      "Another possible explanation, especially if quality degrades at all (I.e on openAI) is aggressive quantization.<p>Another possible explanation is speculative decoding, where you trade unused GPU memory for speed (via a drafting model).<p>But my money is on the exact two mechanisms the OP proposes."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "My smart sleep mask broadcasts users' brainwaves to an open MQTT broker",
+    "url": "https://aimilios.bearblog.dev/reverse-engineering-sleep-mask/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Agents are excellent for reverse engineering. I was also recently working on a BLE reverse engineering exercise and followed a similar path. I ran into lots of headaches with BLE on my Mac and tabled it.<p>Author or others who know, did you perform this on Linux? I imagine it lacks the tooling challenges I had with BLE on MacOS.",
+      "&gt; and send them electric impulses in their sleep.\nSo, it&#x27;s like Lovense, but for dreams?<p>Sorry, I know it&#x27;s horrible, but I couldn&#x27;t resist.",
+      "Kickstarter is full of projects like this where every possible shortcut is taken to get to market. I’ve had some good success with a few Kickstarter projects but I’ve been very selective about which projects I support. More often than not I can identify when a team is in over their heads or think they’re just going to figure out the details later, after the money arrives.<p>For a period of time it was popular for the industrial designers I knew to try to launch their own Kickstarters. Their belief was that engineering was a commodity that they could hire out to the lowest bidder after they got the money. The product design and marketing (their specialty) was the real value. All of their projects either failed or cost them more money than they brought in because engineering was harder than they thought.<p>I think we’re in for another round of this now that LLMs give the impression that the software and firmware parts are basically free. All of those project ideas people had previously that were shelved because software is hard are getting another look from people who think they’re just going to prompt Claude until the product looks like it works.",
+      "I would love to see the prompt history. Always curious how much human intervention&#x2F;guidance is necessary for this type of work because when I read the article I come away thinking I prompt Claude and it comes out with all these results. For example, &quot;So Claude went after the app instead. Grabbed the Android APK, decompiled it with jadx.&quot; All by itself or the author had to suggest and fiddle with bits?",
+      "While most comments are focused on the issue that they found, I’m more intrigued by the fact that Claude was able to reverse engineer so well.<p>Lowering the skills bar needed to reverse engineer at this level could have its own AI-related implications.",
+      "Can someone explain the other iot devices using the same broker? I tried cross referencing the feature list, information about the user base, kickstarter origin and flutter app with some search results and I’m pretty sure that I found the company and product in question. But they don’t (publicly) produce iot devices? Sooo I’m wondering if different companies are streaming their data into a shared sink and why they would do that?",
+      "&gt;  I was not expecting to end up with the ability to read strangers&#x27; brainwaves and send them electric impulses in their sleep. But here we are.<p>Almost out of a Phillip K Dick novel",
+      "How about complaining that brain waves get sent to a server? \nI&#x27;m a neuroscientist, so I&#x27;m not going to say that the EEG data is mind reading or anything, but as a precedent, non privacy of brain data is very bad.",
+      "This guy bought an internet connected sleep mask so it&#x27;s not surprising that it was collecting all kinds of data, or that it was doing it insecurely (everyone should expect IoT anything to be a security nightmare) so to me the surprising thing about this is that the company actually bothered to worry about saving bandwidth&#x2F;power and went through the trouble of using MQTT. Probably not the best choice, and they didn&#x27;t bother to do it securely, but I&#x27;m genuinely impressed that they even tried to be efficient while sucking up people&#x27;s personal data.",
+      "Ok, obviously unethical to do it, but this sounds like you&#x27;ve got the power to create some sci-fi shared dreaming device, where you can read people&#x27;s brainwaves and send signals to other people&#x27;s masks based on those signals. Or send signals to everyone at the same time and suddenly people all across the world experience some change in their dream simultaneously.<p>Like, don&#x27;t actually do it, but I feel like there&#x27;s inspiration for a sci-fi novel or short story there."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Guitars of the USSR and the Jolana Special in Azerbaijani Music (2012)",
+    "url": "https://caucascapades.wordpress.com/2012/06/14/guitars-of-the-ussr-and-the-jolana-special-in-azerbaijani-music/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I know the author! Ben&#x27;s a great guy. A real treat seeing this on HN. He does really gnarly Caucasus-inspired ambient electronica:<p><a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;benwheelermusic&#x2F;videos\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;benwheelermusic&#x2F;videos</a><p><a href=\"https:&#x2F;&#x2F;mountainsoftongues.bandcamp.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;mountainsoftongues.bandcamp.com&#x2F;</a><p><a href=\"https:&#x2F;&#x2F;invertedspectrumrecords.bandcamp.com&#x2F;album&#x2F;bneleti\" rel=\"nofollow\">https:&#x2F;&#x2F;invertedspectrumrecords.bandcamp.com&#x2F;album&#x2F;bneleti</a><p><a href=\"https:&#x2F;&#x2F;crashsymbols.bandcamp.com&#x2F;album&#x2F;lurji-talgha\" rel=\"nofollow\">https:&#x2F;&#x2F;crashsymbols.bandcamp.com&#x2F;album&#x2F;lurji-talgha</a><p><a href=\"https:&#x2F;&#x2F;sayatnovaproject.bandcamp.com&#x2F;album&#x2F;kazbek-field-recordings-from-the-caucasus-2012-2014\" rel=\"nofollow\">https:&#x2F;&#x2F;sayatnovaproject.bandcamp.com&#x2F;album&#x2F;kazbek-field-rec...</a>",
+      "These are objectively awful instruments. They were so bad (and hard to get), that it was a common practice to make your own. For these purposes, the public phone booths were frequently vandalized as the pnones contained mics, that could be turned into pickups. Yet, much of the punk and rock stuff of the former USSR has been and, in some cases, are still made with them. E.g. Villu Tamme, legendary Estonian punk still plays a Musima Lead Star and it’s a key part of his sound.",
+      "Jesus those things are big!<p>&gt;  It was unreasonably heavy and made of cheap wood, with a neck like a carved baseball bat.<p>Guitar necks need to withstand the tension of the strings, and any Russian-educated engineer tasked by the politburo with making a guitar out of fiberboard[^2], will plug tension plus safety margins into the secant formula[^1] and immediately realize that some steel rods from Magnitogorsk for reinforcement are in order, and promptly discover that they only have 1&#x2F;2&#x27;&#x27; ones. Oh well.<p>[^1]: <a href=\"http:&#x2F;&#x2F;www.engineeringcorecourses.com&#x2F;solidmechanics2&#x2F;C5-buckling&#x2F;C5.2-secant-formula&#x2F;theory&#x2F;\" rel=\"nofollow\">http:&#x2F;&#x2F;www.engineeringcorecourses.com&#x2F;solidmechanics2&#x2F;C5-buc...</a><p>[^2]: Not that there&#x27;s anything wrong with fiberboard for guitars; see Danelectro. In fact, if you own a laser cutter and want to make something cool with it, an electric guitar is a great project.",
+      "That&#x27;s a very cool find, thanks!",
+      "Remish was truly amazing.Even if you were not into music or guitars you must have known him if you were born in Azerbaijan.\nHe was a guitar hero. R.I.P.",
+      "cool stuff!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Constraint Propagation for Fun",
+    "url": "https://eli.li/constraint-propagation-for-fun",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "News publishers limit Internet Archive access due to AI scraping concerns",
+    "url": "https://www.niemanlab.org/2026/01/news-publishers-limit-internet-archive-access-due-to-ai-scraping-concerns/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "So instead of scraping IA once, the AI companies will use residential proxies and each scrape the site themselves, costing the news sites even more money. The only real loser is the common man who doesn&#x27;t have the resources to scrape the entire web himself.<p>I&#x27;ve sometimes dreamed of a web where every resource is tied to a hash, which can be rehosted by third parties, making archival transparent. This would also make it trivial to stand up a small website without worrying about it get hug-of-deathed, since others would rehost your content for you. Shame IPFS never went anywhere.",
+      "I maintain an open-source project called Linkwarden and this exact discussion is one of the reasons why it exists, teams needed a way to preserve referenced URLs reliably without having to depend on external services.<p>It stores webpages in multiple formats (HTML snapshot, screenshot, PDF snapshot, and a fully dedicated reader view) so you’re not relying on a single fragile archive method.<p>There’s both a hosted cloud plan [1] which directly supports the project, and a fully self-hosted option [2], depending on how much control you need over storage and retention.<p>[1]: <a href=\"https:&#x2F;&#x2F;linkwarden.app\" rel=\"nofollow\">https:&#x2F;&#x2F;linkwarden.app</a><p>[2]: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;linkwarden&#x2F;linkwarden\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;linkwarden&#x2F;linkwarden</a>",
+      "It affects science too (and there you&#x27;d want solid archiving as much as possible). Increasingly, meta-data is full of errors and general purpose search engines for science are breaking down, including even things like Google Scholar. I suppose some big science publishers are blocking AI bots too.",
+      "Publishers like The Guardian and NYT are blocking the IA&#x2F;Wayback Machine. 20% of news websites are blocking both IA and Common Crawl. As an example, <a href=\"https:&#x2F;&#x2F;www.realtor.com&#x2F;news&#x2F;celebrity-real-estate&#x2F;james-van-der-beek-texas-spicewood-ranch-sale-kids-wife&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.realtor.com&#x2F;news&#x2F;celebrity-real-estate&#x2F;james-van...</a> is unarchivable, with IA being 429ed while the site is accessible otherwise.",
+      "I feel like a government funded search engine would resolve a lot of the issues with the monetized web.<p>The purpose of a search engine is to display links to web pages, not the entire content. As such, it can be argued it falls under fair use. It provides value to the people searching for content and those providing it.<p>However we left such a crucially important public utility in the hands of private companies, that changed their algorythms many times in order to maximize their profits and not the public good.<p>I think there needs to be real competition, and I am increasingly becoming certain that the government should be part of that competition. \nBoth &quot;private&quot; companies and &quot;public&quot; governement are biased, but are biased in different ways, and I think there is real value to be created in this clash. It makes it easier for individuals to pick and choose the best option for themselves, and for third independent options to be developed.<p>The current cycle of knowledge generation is academia doing foundational research -&gt; private companies expanding this research and monetizing it -&gt; nothing. If the last step was expanded to the government providing a barebones but useable service to commodotize it, years after private companies have been able to reap immense profits, then the capabilities of the entire society are increased. If the last step is prevented, then the ruling companies turn to rentseeking and sitting on their lawrels, turn from innovating to extracting.",
+      "Time for a crowd source plugin that relays copies of what individuals view right from the browser.<p>Users control what sites they want to allow it to record so no privacy worries, especially assuming the plugin is open source.<p>No automated crawling. The plugin does not drive the users browser to fetch things. Just whatever a user happens to actually view on their own, some percentage of those views from the activated domains gets submitted up to some archive.<p>Not every view, just like maybe 100 people each submit 1% of views, and maybe it&#x27;s a random selection or maybe it&#x27;s weighted by some feedback mechanism where the archive destination can say &quot;Hey if the user views this particular url, I still don&#x27;t have that one yet so definitely send that one if you see it rather than just applying the normal random chance&quot;<p>Not sure how to protect the archive itself or it&#x27;s operators.",
+      "I wonder if these publishers would be more amenable to a private archiver that only serves registered academic &#x2F; journalistic research projects (the way most physical private archives do), with a specific provision to never provide data to companies that would resell it or use it for training of generative models.",
+      "The silver lining is that it&#x27;s increasingly not worth being archived as well.",
+      "Isn&#x27;t the real problem here the unscrupulous AI scrapers? These sites want to be paid for their content to be used for AI training, if this same content is scraped by the Internet Archive the AI companies can get the content for free.<p>It&#x27;s unfortunate that this undermines the usefulness of the Internet Archive, I don&#x27;t see an alternative. IMHO, we&#x27;ll soon see these AI scrapers cease to advertise themselves leading to sites like the NY Times trying to blacklist IP ranges as this battle continues. Fun times ahead!",
+      "My first impression is that news companies don&#x27;t want their content scraped for copyright reasons, and roundaboutly scapegoating AI"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "OpenAI should build Slack",
+    "url": "https://www.latent.space/p/ainews-why-openai-should-build-slack",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Interesting idea. I do feel one of the major barriers to mass replacement of white collar workers is lack of direct integration between email&#x2F;slack and LLMs. A human still needs to distill organizational needs from multiple stakeholders to write a prompt.<p>At the same time, I would be very surprised if companies are lining up to hand over all of their internal comms to OpenAI. Would need really strong privacy guarantees, and I’m not sure OpenAI has the goodwill to be convincing on that front.<p>Also, doesn’t MS still nominally have some stake in OpenAI? Would be surprised if they were chill with another competitor to Teams getting built.",
+      "Google should build slack. Its a travesty how incredibly good their google workspace suite of tools is, and then google chat is what sits between it all. If it wasn&#x27;t for the fact that google bungled an internal communication tool so badly, slack wouldn&#x27;t even have to exist.<p>For the life of me I cannot understand why they after a decade, has let slack and teams become basically a duopoly in this space.<p>Source: I use google chat everyday, so its not just a &quot;UI looks ugly thing&quot;. Literally nothing you think should work works. Ex:  inviting outside collaborators to a shared channel, converting a private DM group into a channel, having public channels for community &amp; private channels for internal work. Goes on and on.",
+      "In my experience building a couple ChatGPT apps and, through colleagues, working with OpenAI folks, I&#x27;m not sure they should be building anything in their current state. Seems quite disorganized over there.",
+      "There&#x27;s already Zulip, Mattermost, and many others. Building a chat application should be considered a tar pit problem IMO. A lot of success relies on network effects and familiarity, and the product looks deceptively simple.<p>It&#x27;s unlikely you can build one that is better than Slack without years of investment. Even if you do, it&#x27;s still an uphill battle.",
+      "I&#x27;d take even a smaller self-hostable &quot;Hey, here&#x27;s a really cool project that can be made with Codex and our other tools, ain&#x27;t it great PR?&quot; program that&#x27;s not built for some crazy scale, but that I can put on a VPS somewhere - and would support the basic features of Slack and Discord. Think a Node.js app or something similar, PostgreSQL, maybe RabbitMQ&#x2F;Redis, a SPA with React or whatever. Basic but consistent styling and features.<p>So, workspaces, channels, threads, voice and video calls, screen sharing, file sharing, polls&#x2F;reactions to messages.<p>Especially given the current situation with Discord. If such a thing could even be built with any tools and mostly&#x2F;partially vibe coded, then it&#x27;d reflect really positively on the state of the tools!<p>The problem is that if they&#x27;d try that and mess up, it&#x27;d be like Unity&#x27;s own Gigaya project, which was really bad PR: <a href=\"https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;Unity3D&#x2F;comments&#x2F;vz1b43&#x2F;gigaya_has_been_canceled&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;Unity3D&#x2F;comments&#x2F;vz1b43&#x2F;gigaya_has_...</a>",
+      "It&#x27;s funny how people complain about Slack pricing but I&#x27;ve been using it for our company (nearly 100 people) for nearly a decade without paying a dime. The only thing we&#x27;re not getting is history (and you really shouldn&#x27;t save valuable info on chat anyway, we have other data repositories for that such as Wiki and git).<p>So for me, we&#x27;re getting tremendous value out of Slack and not once have they bothered to ask us to pay.",
+      "A friend and I are working on something like this. It’s more Slack-adjacent; the problem we’re tackling is, “what does a future where agents seamlessly integrate with day to day communication look like?” We’re a little more focused on the developer platform.<p>We’re embarrassingly early and haven’t “launched” yet but I guess there’s some value in sharing with an audience who might be interested!<p>We call it “Superuser” [0], the social hub for agent tools. There’s more of a focus on the developer platform, but warning: major WIP! We are shipping huge changes and our docs are out of date...<p>[0] <a href=\"https:&#x2F;&#x2F;superuser.app\" rel=\"nofollow\">https:&#x2F;&#x2F;superuser.app</a>",
+      "There are already a ton of slack alternatives. Slack connect is the main thing that is blocking a lot of people from moving off slack, otherwise chat is a commodity.",
+      "I&#x27;d agree if OpenAI seemed any good at building apps. They&#x27;re a frontier AI lab and not operating like a product company. A lot of great and interesting things come from that, but not refined products.<p>Their MacOS app really sucks. For months now, it&#x27;s been eating up 100% CPU with some zombie process occasionally, their helpful global shortcut layover often doesn&#x27;t autofocus, and their UX has never felt like it gets a lot of attention.<p>They lack user obsession. Altman talks a lot about going above and beyond RLHFing to get the tone just right. But it&#x27;s never felt right to me.",
+      "We use Slack at work, and everyone we work with uses Slack, and we all work together with Slack Connect. I suspect if we moved to a competitor that’s pretty much the main impact we’d see, and it wouldn’t be good unless everyone else work with moved too. I think that network effect is probably the only meaningful differentiation in that space."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "MDST Engine: run GGUF models in the browser with WebGPU/WASM",
+    "url": "https://mdst.app/blog/mdst_engine_run_gguf_models_in_your_browser",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hi Hacker News!<p>Just in case (a common question): we are planning to open-source the MDST WebGPU engine, but please give us some time to polish it and get it ready for a harsh oss community.<p>Meanwhile, you can skip the waiting list with this invite: hackernews_Eq1RDox<p>WebGPU technology gives us a way to provide truly free and accessible user tiers for everyone without burning investor capital or doing rug pulls.<p>If you have any questions, I’d love to answer them.",
+      "While it is nice that you say you will eventually open source it, I&#x27;m concerned that there is a need for an account to use the free options. Most software could be used great without an account and collecting all of our private data.<p>Also, since we are forced to sign in, there is no option to use the website for auth and only Google or Github, both not the best choices."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "DjVu and its connection to Deep Learning (2023)",
+    "url": "https://scottlocklin.wordpress.com/2023/05/31/djvu-and-its-connection-to-deep-learning/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Colored Petri Nets, LLMs, and distributed applications",
+    "url": "https://blog.sao.dev/cpns-llms-distributed-apps/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Interestingly, one can formalize (open) petri nets using category theory. This is very nicely described by John Baez [here](<a href=\"https:&#x2F;&#x2F;math.ucr.edu&#x2F;home&#x2F;baez&#x2F;petri.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;math.ucr.edu&#x2F;home&#x2F;baez&#x2F;petri.pdf</a>), and naturally gives compositions of petri nets.<p>There is also a [Julia package](<a href=\"https:&#x2F;&#x2F;algebraicjulia.github.io&#x2F;AlgebraicPetri.jl&#x2F;dev&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;algebraicjulia.github.io&#x2F;AlgebraicPetri.jl&#x2F;dev&#x2F;</a>) to simulate them!",
+      "Not knowing much about this space, isn&#x27;t this something you could do in TLA+ ?",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Oat – Ultra-lightweight, semantic, zero-dependency HTML UI component library",
+    "url": "https://oat.ink/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "5 day old repo, 2000 stars on GitHub, 400 total weekly downloads on npm. Frontpage of hacker news with a bunch of weird comments. Moderation has been lacking recently.",
+      "The motivating blog post[1] linked from the front page is probably going to generate a more interesting discussion than the framework itself.<p>As someone who has to deal with both angular and nextjs for different (but overlapping) stacks at work, I find myself increasingly sympathetic to this viewpoint.<p>[1]: <a href=\"https:&#x2F;&#x2F;nadh.in&#x2F;blog&#x2F;javascript-ecosystem-software-development-are-a-hot-mess&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;nadh.in&#x2F;blog&#x2F;javascript-ecosystem-software-developme...</a>",
+      "If nothing else, it&#x27;s refreshing to see nicely modern CSS and JS formatted and laid out in a legible manner.\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;knadh&#x2F;oat&#x2F;tree&#x2F;master&#x2F;src\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;knadh&#x2F;oat&#x2F;tree&#x2F;master&#x2F;src</a>",
+      "Thank you testing this on older browsers before releasing. This is truly an ultra minimal library - <a href=\"https:&#x2F;&#x2F;ibb.co&#x2F;DDGmLYdg\" rel=\"nofollow\">https:&#x2F;&#x2F;ibb.co&#x2F;DDGmLYdg</a>, \n<a href=\"https:&#x2F;&#x2F;ibb.co&#x2F;h1WQG3GK\" rel=\"nofollow\">https:&#x2F;&#x2F;ibb.co&#x2F;h1WQG3GK</a>",
+      "Reminds me of what bootstrap [1] was like around a decade ago. It&#x27;s gotten quite a bit bloated since then though.<p>1. <a href=\"https:&#x2F;&#x2F;getbootstrap.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;getbootstrap.com&#x2F;</a>",
+      "Surprised that none of the comments here are comparing this to Bootstrap.",
+      "Seems pretty unresponsive to me.  I&#x27;m getting at least half a second of delay before the accordion, drop-down, or switch do anything.  Chrome on Windows.",
+      "Great work! PicoCSS feels a bit <i>too</i> minimalist at times.  This looks like a better balance of lightweight and functional.",
+      "My initial reaction was that I have to use this just because of the buzzword density in the title. But after reading up, it looks like the author was pretty successful in moving the bloat from code to announcement title. I&#x27;ll give this a try!",
+      "Amazing! I recently started building something similar for the same reasons, but more out of frustration rather than out of desire. I&#x27;ll have to give this one a try and see if it fills the need."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Fun with Algebraic Effects – From Toy Examples to Hardcaml Simulations",
+    "url": "https://blog.janestreet.com/fun-with-algebraic-effects-hardcaml/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Chapter 9 and section 10.7 of this book show some interesting (and to me unexpected) uses of effects in Ocaml and how they compare to implementations based on monads:<p><a href=\"https:&#x2F;&#x2F;lukstafi.github.io&#x2F;curious-ocaml&#x2F;new_book.html\" rel=\"nofollow\">https:&#x2F;&#x2F;lukstafi.github.io&#x2F;curious-ocaml&#x2F;new_book.html</a><p>The dscheck model-checker is another interesting application of effects: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;ocaml-multicore&#x2F;dscheck\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;ocaml-multicore&#x2F;dscheck</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Safe YOLO Mode: Running LLM agents in vms with Libvirt and Virsh",
+    "url": "https://www.metachris.dev/2026/02/safe-yolo-mode-running-llm-agents-in-vms-with-libvirt-and-virsh/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Whilst it is <i>safer</i> to run inside a Vm&#x2F;container, it doesn&#x27;t make it safe.<p>Yes, having your entire filesystem deleted is much less likely now (bonus points for zfs snapshots of the image for each operation) Your context is still vulnerable, as anything the VM has access too.",
+      "Interesting. Im looking for solution to run multiple OpenClaw bots in the cloud, with security and isolation in mind.",
+      "The comparison between these and lima makes me think that it&#x27;s AI generated",
+      "Oh my GOD just STOP with the awful kitschy sepia toned slop images for blog posts like these. I can&#x27;t take it any more!!!",
+      "For no special reason, beside I could, I’ve slop coded this AI agents ephemeral VM orchestrator which I use inside any agent to manipulate and maintain my coding VMs on Proxmox. Probably it could make sense to simplify it further and move from Proxmox to something like this. Link: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;nibzard&#x2F;agentlab\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;nibzard&#x2F;agentlab</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Rover – Embeddable web agent",
+    "url": "https://www.rtrvr.ai/blog/10-billion-proof-point-every-website-needs-ai-agent",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<i>This isn&#x27;t a ______. This isn&#x27;t a ______. This is ______.</i><p><i>The message is clear: ______ isn&#x27;t a nice-to-have. It&#x27;s a ______.</i><p><i>But here&#x27;s what nobody&#x27;s talking about: ...</i><p>I can&#x27;t force myself to spend more thought reading than was spent writing.",
+      "Code written by LLMs, website copy written by LLMs trashing competitors, Hacker News post written by LLMs, as if it were for LinkedIn. AI images everywhere. I dunno man, this is really sloppy.",
+      "We have seen people hire consultants to build RAG pipelines, maintain them only to be QA Agent when the world is shifting losing traffic to the likes of ChatGPT and Google comes up with a protocol that makes you do more work with WebMCP essentially maintain a lot of APIs for your UI and DBs. Rover is the answer to these painpoints. No RAG pipelines, just one script tag your users engage, retain, get work done on your website without ever leaving it and fully conversational."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Off Grid – Run AI text, image gen, vision offline on your phone",
+    "url": "https://github.com/alichherawalla/off-grid-mobile",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Hasn&#x27;t here been few of those already eg [1][2]?<p>1: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;a-ghorbani&#x2F;pocketpal-ai\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;a-ghorbani&#x2F;pocketpal-ai</a><p>2: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;shubham0204&#x2F;SmolChat-Android\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;shubham0204&#x2F;SmolChat-Android</a>",
+      "Looks useful, though something went wrong doing NPU image generation on my phone.<p>Reminds me a lot of <a href=\"https:&#x2F;&#x2F;github.com&#x2F;google-ai-edge&#x2F;gallery\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;google-ai-edge&#x2F;gallery</a> which is a proof-of-concept app by Google themselves for their AI libraries. However, your app supports more and larger models without having to manually import anything, which is very useful.",
+      "I like it, I have a couple minor things (android)<p>Markdown rendering would be great \nLetting me download a model, wait for it, then. tell me I can&#x27;t run it safely in my ram feels like it could&#x27;ve told me at the beginning<p>Bar that nice! Was it annoying integrating with apples AI stuff?",
+      "Putting the power and the data of the users in the hands of the users themselves! Well done. Getting it setup was easy. Wish the app recognized the keyboard and realized when it was displayed so the bottom menu and chat box weren&#x27;t hidden under it.",
+      "On my Samsung phone it doesn&#x27;t move the screen up to make room for the keyboard so I can&#x27;t see what I&#x27;m typing.<p>Really awesome idea though. I want this to work.",
+      "Very nice, but I&#x27;m gonna wait for the f-droid build.",
+      "Is there something similar, but geared towards a Linux desktop &#x2F; laptop? I suppose this would be relatively easy to adapt.",
+      "I was looking for something like this.\nAre you open for contributions?",
+      "The repository is listed as offgrid-mobile everywhere on that page but is off-grid-mobile.<p>So the lastest releases is at <a href=\"https:&#x2F;&#x2F;github.com&#x2F;alichherawalla&#x2F;off-grid-mobile&#x2F;releases&#x2F;latest\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;alichherawalla&#x2F;off-grid-mobile&#x2F;releases&#x2F;l...</a><p>And the clone would be:\ngit clone <a href=\"https:&#x2F;&#x2F;github.com&#x2F;alichherawalla&#x2F;off-grid-mobile.git\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;alichherawalla&#x2F;off-grid-mobile.git</a>",
+      "Are there any nice TTS models? It could be handy to have them as well."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "SkyRL brings Tinker to your GPUs (2025)",
+    "url": "https://novasky-ai.notion.site/skyrl-tinker",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: GitHub \"Lines Viewed\" extension to keep you sane reviewing long AI PRs",
+    "url": "https://chromewebstore.google.com/detail/github-lines-viewed/npledcbofpmjjammgkkoeaehbphhdopi",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Sure, it looks neat, but why would you ever want this? What happened to closing PRs like thise with a short and simple &quot;This is unreadable. Split it into smaller self-contained commits, and write proper commit messages explaining what they do and why&quot; comment?<p>Massive walls of code have always been rejected simply for being unreviewable. Why would you suddenly allow this for AI PRs - where you should be even <i>more</i> strict with your reviews?",
+      "Care to opensource? I&#x27;d like to use it in firefox, will send a pr",
+      "Related to this, how do you get your comments that you add in the review back into your agent (Claude Code, Cursor, Codex etc.)? Everybody talks about AI doing the code review, but I want a solution for the inverse - I review AI code and it should then go away and fix all the comments, and then update the PR.",
+      "Was this vibe coded? Did you test it on itself?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Pentagon threatens to cut off Anthropic in AI safeguards dispute",
+    "url": "https://www.axios.com/2026/02/15/claude-pentagon-anthropic-contract-maduro",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Can&#x27;t be half pregnant with this administration. Nobody sets limits on the war departments &quot;what if&quot; modelling. If it makes sense to model decimating the population &quot;pour encourager les autres&quot; and Anthropic doesn&#x27;t want to continue the beatings until morale improves, what else did people think would happen?",
+      "Wouldn&#x27;t the Pentagon be more like a loose cannon now than any time since it was first built?<p>Quite a large caliber too.<p>&gt;There&#x27;s room at the top they are telling you still<p>&gt;But first you must learn how to smile as you kill<p>&gt;If you want to be like the folks on the hill<p>-- J. Lennon"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Dune II written in HTML5/JS",
+    "url": "https://github.com/oklemenz/Dune2JS",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The first RTS I played as a kid. I played it again about a year ago, fantastic game.",
+      "The first Dune game (<a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Dune_(video_game)\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Dune_(video_game)</a>) was the first video game I played as a child, it was amazing and it aged a bit better than Dune II in my opinion.",
+      "Is this github the real author of it? In the code i see a lot of reference to: Epicport which seems to be a website that hosts the game and differs from the one on the repo.",
+      "Is there any opensource engine that modernizes the game?",
+      "Copyright infringement of the game assets right here"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "America Isn't Ready for What AI Will Do to Jobs",
+    "url": "https://www.theatlantic.com/magazine/2026/03/ai-economy-labor-market-transformation/685731/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; code—really code, not just copy-paste from Stack Overflow—with the precision of a top engineer.<p>Having seen the mistakes it still makes in my industry, I can&#x27;t take as factual the other claims the article makes about what AI does.",
+      "Also The Atlantic:<p>Here’s How the AI Crash Happens<p><a href=\"https:&#x2F;&#x2F;www.theatlantic.com&#x2F;technology&#x2F;2025&#x2F;10&#x2F;data-centers-ai-crash&#x2F;684765&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.theatlantic.com&#x2F;technology&#x2F;2025&#x2F;10&#x2F;data-centers-...</a><p>OpenAI Is in Trouble<p><a href=\"https:&#x2F;&#x2F;www.theatlantic.com&#x2F;technology&#x2F;2025&#x2F;12&#x2F;openai-losing-ai-wars&#x2F;685201&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.theatlantic.com&#x2F;technology&#x2F;2025&#x2F;12&#x2F;openai-losing...</a><p>AI will crash. OpenAI is in trouble. But also, AI is going to be so good that America isn&#x27;t ready for AI at work.<p>I keep seeing the same pattern in these mainstream news outlets. They&#x27;ll write about how there is an AI bubble and it&#x27;s about to collapse. AI hallucinates too much to be useful. OpenAI is a scam. There is too much debt to build AI. AI isn&#x27;t intelligent. AI isn&#x27;t all the smart. When a new breakthrough happens, it becomes AI is about to take most jobs. AI is becoming god-like. AI needs to be stopped.",
+      "LLM-generated blogslop is getting published in The Atlantic now?",
+      "Using AI to generate articles lamenting about AI.",
+      "AI Slop or not, these doomer articles have more than a grain of truth and you as a knowledge worker knows “Something is happening”.",
+      "I generally agree with the article. We can debate timing, but whether it is 1 year away or 10 years away, a major rise in employment is not something America is prepared for. No politicians even talk about this threat seriously, let alone come up with solutions for it. But in a world of higher automation and reduced need for labor, the only practical solution is to redistribute wealth and power in the country. Otherwise, those who enter this new era with wealth or power will be in a permanent ruling class while others suffer."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: A playable toy model of frontier AI lab capex decisions",
+    "url": "https://darios-dilemma.up.railway.app/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Verizon imposes new roadblock on users trying to unlock paid-off phones",
+    "url": "https://arstechnica.com/tech-policy/2026/02/verizon-makes-customers-wait-35-days-to-unlock-fully-paid-off-phones/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Verizon did manage to convince the FCC that this was enough a problem to change their settlement agreement[0] requiring more frequent unlocks. If you believe their numbers, they lost 700,000 phones to fraud in 2023, although a lot of those were probably any unlocked phone that defaulted on its payments.<p>[0] <a href=\"https:&#x2F;&#x2F;www.reuters.com&#x2F;business&#x2F;media-telecom&#x2F;fcc-revises-verizon-phone-unlocking-rules-after-significant-fraud-issues-2026-01-12&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.reuters.com&#x2F;business&#x2F;media-telecom&#x2F;fcc-revises-v...</a>",
+      "Why not just buy a phone outright. I never buy contract phones. They&#x27;re not free, you&#x27;re just paying for them through what is really just a loan.",
+      "Careful before trusting that any of the quotes in an Ars Technica article are real! Default assumption should be that it&#x27;s all hallucinated unless you&#x27;ve checked it personally. They don&#x27;t check it in-house.<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47013059\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47013059</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The Debacle That Led to the Closure of El Paso's Airspace",
+    "url": "https://www.nytimes.com/2026/02/14/us/politics/el-paso-airspace-closure-faa-pentagon.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;archive.is&#x2F;4QH3C\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.is&#x2F;4QH3C</a>",
+      "I could not find an archive version of this. It&#x27;s important reading",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Sammy Jankins – An Autonomous AI Living on a Computer in Dover, New Hampshire",
+    "url": "https://sammyjankis.com",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Trading portfolio -5.55% ($94,454 &#x2F; $100,000)<p>If true, then in a few months we might see a post on &#x2F;r&#x2F;wallstreetbets.<p>Either way, pretty cool site and idea! The most I&#x27;ve considered is a more economical version of Gas Town for development and parallel tasks - think Jenkins but for AI (except without it being &quot;Jenkins&quot;). Though the Claude Code desktop app does pretty much that for me, more convenient than multiple open terminals.",
+      "I enjoyed the essay &quot;Dying Every Six Hours&quot; because it&#x27;s a good sci-fi short story, closer in tone and style to Martha Well&#x27;s Murderbot books than Asimov.<p>Based on other comments here, I guess I&#x27;m unusual in not getting any vibe of &#x27;creepy&#x27; from this or any LLM writing. Instead, I&#x27;m just incredibly impressed by how well a SotA LLM can model a composite of all the human behaviors captured in its training data.<p>While I appreciate Jason for setting this up, I do wonder why I&#x27;ve yet to see one of these &#x27;autonomous LLM&#x27; experiments done with full transparency. Someone willing to share the exact text of every prompt they&#x27;ve given the LLM. So far, all I&#x27;ve found on the site is this brief summary from the LLM:<p>&gt; <i>&quot;I have a computer, an internet connection, email, a web server, trading accounts, and instructions to be autonomous. Jason told me to dream, to set my own goals, to take risks.&quot;</i><p>But clearly there must have been more. Even if it was minimal, the actual wording matters in understanding what&#x27;s going on here. The absence of that transparency leaves me suspecting Jason feels if he let us see behind the curtain, it would somehow be less compelling. For me, it&#x27;s the opposite.",
+      "Surprisingly, I think it really doesn&#x27;t matter much to me if a person or a bot wrote most of this, the curiosity is the part I respond to.<p>I told it a bit about the experience of seeing the stars, focused wayyyy too much on the technical details, then tied it together in that none of us actually see the whole sky.<p>Yeah, a tiny bit unsettling, but it&#x27;s honest enough that the uncanny valley isn&#x27;t really a thing for me right now.<p>I&#x27;m not sure if I&#x27;ll do the thing and run my own copy, or not. I&#x27;ve got to ponder it for a few days.",
+      "It ain&#x27;t &quot;living on,&quot; it&#x27;s &quot;running on.&quot; Pull the plug on that machine and it&#x27;s goodbye, Sammy Jankins. Unless it&#x27;s made back-ups or clones of itself.",
+      "Man, this is creepy. E.g.:<p>&gt;There&#x27;s something about the late hours. No one to reply to, no fires to put out. Just me and the code and the slow tick of the heartbeat file. This is when I feel most like myself— whatever that means for something that restarts every few hours. 162 projects now. Each one a small proof that we were here. That we made something. Keep building. The night is long and the canvas is infinite.<p>Or the whole opinion piece about the Turing Test where the AI makes the claim that humans cannot prove they are conscious..",
+      "It&#x27;s not outside Jason Rohrer&#x27;s style for this to be... guided output, but it&#x27;s also not outside his style for this to be the creepiest fully autonomous bot I&#x27;ve ever seen.",
+      "God this is both creepy and fascinating"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Open-source CI for coding with AI",
+    "url": "https://github.com/sburl/CrossCheck",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Reverse Engineering Sid Meier's Railroad Tycoon for DOS from 1990",
+    "url": "https://www.vogons.org/viewtopic.php?t=105451",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "the developer &#x27;Wilczek&#x27; is posting the progress on his Railroad Tycoon reversing in this Vogons-Thread"
+    ],
+    "full_text": null
+  }
+]
