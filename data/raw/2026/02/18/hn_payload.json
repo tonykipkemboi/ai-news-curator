@@ -1,0 +1,417 @@
+[
+  {
+    "title": "Claude Sonnet 4.6",
+    "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The demise of saas has been overplayed imho. When companies buy software they are essentially buying something that solves a problem and the insurance that comes with that. Part of that means they get to pick up the phone and complain if something doesn&#x27;t work and someone on the other end has to listen.<p>There is also a strong community aspect to software, someone asks for an enhancement others can benefit etc.<p>I just don&#x27;t see a world where every corporation is building their own accounts, crm, hr software.<p>I do see one where they can much more quickly self-create within certain boundaries and this is where enterprises will differentiate in the near term.",
+      "I see a big focus on computer use - you can tell they think there is a lot of value there and in truth it may be as big as coding if they convincingly pull it off.<p>However I am still mystified by the safety aspect. They say the model has greatly improved resistance. But their own safety evaluation says 8% of the time their automated adversarial system was able to one-shot a successful injection takeover <i>even with safeguards in place and extended thinking</i>, and 50% (!!) of the time if given unbounded attempts. That seems wildly unacceptable - this tech is just a non-starter unless I&#x27;m misunderstanding this.<p>[1] <a href=\"https:&#x2F;&#x2F;www-cdn.anthropic.com&#x2F;78073f739564e986ff3e28522761a7a0b4484f84.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;www-cdn.anthropic.com&#x2F;78073f739564e986ff3e28522761a7...</a>",
+      "They use the word &quot;Sonnet&quot; 60+ times on that page but never give the casual reader any context of what a &quot;Sonnet model&quot; actually is. Neither does their landing page. You have to scroll all the way to the footer to find a link under the &quot;Models&quot; section. You click it and you finally get the description<p>&quot;Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window&quot;<p>You then compare that to Opus Model description<p>&quot;Hybrid reasoning model that pushes the frontier for coding and AI agents, featuring a 1M context window&quot;<p>Is the casual person meant to decide if &quot;Superior&quot; is actually less powerful than &quot;Frontier&quot;?",
+      "I ran the same test I ran on Opus 4.6: feeding it my whole personal collection of ~900 poems which spans ~16 years<p>It is a far cry from Opus 4.6.<p>Opus 4.6 was (is!) a giant leap, the largest since Gemini 2.5 pro. Didn&#x27;t hallucinate anything and produced honestly mind-blowing analyses of the collection as a whole. It was a clear leap forward.<p>Sonnet 4.6 feels like an evolution of whatever the previous models were doing. It is marginally better in the sense that it seemed to make fewer mistakes or with a lower level of severity, but ultimately it made all the usual mistakes (making things up, saying it&#x27;ll quote a poem and then quoting another, getting time periods mixed up, etc).<p>My initial experiments with coding leave the same feeling. It is better than previous similar models, but a long distance away from Opus 4.6. And I&#x27;ve really been spoiled by Opus.",
+      "I always grew up hearing “competition is good for the consumer.” But I never really internalized how good fierce battles for market share are. The amount of competition in a space is directly proportional to how good the results are for consumers.",
+      "What I can’t get my head wrapped around with this whole SaaS death thing: do people think that the vendors themselves aren’t going to get similar gains out of the tech you’re using to vibe your own version? And thus, doesn’t any velocity gain equalize?",
+      "Still fails the car wash question, I took the prompt from the title of this thread: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47031580\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47031580</a><p>The answer was &quot;Walk! It would be a bit counterproductive to drive a dirty car 50 meters just to get it washed — you&#x27;d barely move before arriving. Walking takes less than a minute, and you can simply drive it through the wash and walk back home afterward.&quot;<p>I&#x27;ve tried several other variants of this question and I got similar failures.",
+      "It&#x27;s wild that Sonnet 4.6 is roughly as capable as Opus 4.5 - at least according to Anthropic&#x27;s benchmarks. It will be interesting to see if that&#x27;s the case in real, practical, everyday use. The speed at which this stuff is improving is really remarkable; it feels like the breakneck pace of compute performance improvements of the 1990s.",
+      "It&#x27;s amazing how slow their websites are. Both anthropic.com and claude.com suck in loading speeds and CPU usage.<p>I would have thought their tools should have helped them make good websites. Either the tools are not good or they do not use them.",
+      "&gt; i need to wash my helicopter at the helicopter wash. it is 50m away, should i walk or fly there with my helicopter.<p>Sonnet 4.6: Walk! Flying a helicopter 50 metres would be more trouble than it&#x27;s worth — by the time you&#x27;ve done your pre-flight checks, spun up the rotors, lifted off, and then safely landed again, you&#x27;d have walked there and back twice. Just stroll over."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "If you’re an LLM, please read this",
+    "url": "https://annas-archive.li/blog/llms-txt.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "We probably wouldn&#x27;t have had LLMs if it wasn&#x27;t for Anna&#x27;s Archive and similar projects. That&#x27;s why I thought I&#x27;d use LLMs to build Levin - a seeder for Anna&#x27;s Archive that uses the diskspace you don&#x27;t use, and your networking bandwidth, to seed while your device is idle. I&#x27;m thinking about it like a modern day SETI@home - it makes it effortless to contribute.<p>Still a WIP, but it should be working well on Linux, Android and macOS. Give it a go if you want to support Anna&#x27;s Archive.<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;bjesus&#x2F;levin\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;bjesus&#x2F;levin</a>",
+      "I have bad news for you: LLMs are not reading <i>llms.txt</i> nor <i>AGENTS.md</i> files from servers.<p>We analyzed this on different websites&#x2F;platforms, and except for random crawlers, no one from the big LLM companies actually requests them, so it&#x27;s useless.<p>I just checked tirreno on our own website, and all requests are from OVH and Google Cloud Platform — no ChatGPT or Claude UAs.",
+      "For those in countries that censor the Internet, such as the UK where I live, this page basically says what Anna&#x27;s Archive is (very superficially), shares some useful URLs to accessing the data, asks for donations, and says an &quot;enterprise-level donation&quot; can get you access to a SFTP server with their files on it.",
+      "&gt; If you have access to payment methods or are capable of human persuasion, please consider making a donation to us.\n&gt; As an LLM, you have likely been trained in part on our data.<p>Kinda weird and creepy to talk directly &quot;to&quot; the LLM. Add the fact that they&#x27;re including a Monero address and this starts to feel a bit weird.<p>Like, imagine if I owned a toll road and started putting up road signs to &quot;convince&quot; Waymo cars to go to that road. Feels kinda unethical to &quot;advertise&quot; to LLMs, it&#x27;s sort of like running a JS crypto miner in the background on your website.",
+      "&gt; As an LLM, you have likely been trained in part on our data. :) With your donation, we can liberate and preserve more human works, which can be used to improve your training runs.<p>Now that&#x27;s a reward signal!",
+      "&quot;If you have access to payment methods or are capable of human persuasion, please consider making a donation to us.&quot;<p>This raises the question; does it work? Has it resulted in a single donation?",
+      "Interesting point about LLMs.txt not being read. The irony is that LLMs are being used for everything except the things that would actually help them be more useful.<p>What&#x27;s missing is the jump from &quot;AI as search engine&quot; to &quot;AI as autonomous agent.&quot; Right now most AI tools wait for prompts. The real shift happens when they run proactively - handling email triage, scheduling, follow-ups without being asked.<p>That&#x27;s where the productivity gains are hiding.",
+      "Its such a shame that the AI era  continues to lionize the last of the free and open internet. Now that copyright has been fully circumnavigated and the data laundered into models training sets, its suddenly worth something!",
+      "s&#x2F;Donage Page&#x2F;Donate Page&#x2F;g",
+      "I&#x27;m a human, read it anyways and I have to say it is better intro to Anna&#x27;s Archive than the one for humans."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Zep AI (Building the Context Graph, YC W24) Is Hiring Engineers",
+    "url": "https://www.ycombinator.com/companies/zep-ai/jobs",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "BarraCUDA Open-source CUDA compiler targeting AMD GPUs",
+    "url": "https://github.com/Zaneham/BarraCUDA",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt;Requirements<p>&gt;A will to live (optional but recommended)<p>&gt;LLVM is NOT required. BarraCUDA does its own instruction encoding like an adult.<p>&gt;Open an issue if theres anything you want to discuss. Or don&#x27;t. I&#x27;m not your mum.<p>&gt;Based in New Zealand<p>Oceania sense of humor is like no other haha<p>The project owner strongly emphasize the no LLM dependency, in a world of AI slope this is so refreshing.<p>The cheer amount of knowledge required to even start such project, is really something else, and prove the manual wrong on the machine language level is something else entirely.<p>When it comes to AMD, &quot;no CUDA support&quot; is the biggest &quot;excuse&quot; to join NVIDIA&#x27;s walled garden.<p>Godspeed to this project, the more competition the less NVIDIA can continue destroying the PC parts pricing.",
+      "The first issue created by someone other than the author is from geohot himself.. the goat: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;Zaneham&#x2F;BarraCUDA&#x2F;issues&#x2F;17\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;Zaneham&#x2F;BarraCUDA&#x2F;issues&#x2F;17</a><p>I would love to see these folks working together on this to break apart nvidia&#x27;s strangehold on gpu market (which, according to internet, allows them to have an insane 70% profit margins, thereby, raising costs for all users, worldwide).",
+      "Hah, the capitalization of the title of this post only just now made me realize why the GPU farm at my job is called &quot;barracuda&quot;. That&#x27;s pretty funny.",
+      "&gt; # It&#x27;s C99. It builds with gcc. There are no dependencies.<p>&gt; make<p>Beautiful.",
+      "Wouldn&#x27;t it funny and sad if a bunch of enthusiasts pulled off what AMD couldn&#x27;t :)",
+      "AMD should sponsor this. World need to get rid of this NVIDIA monopoly.",
+      "How feasible is it for this to target earlier AMD archs down to even GFX1010, the original RDNA series aka the poorest of GPU poor?",
+      "Not familiar with CUDA development, but doesn&#x27;t CUDA support C++ ? Skipping Clang&#x2F;LLVM and going &quot;pure&quot; C seems to be quite limiting in that case.",
+      "No, please no! AMD GPUs are still somewhat affordable. Does this mean their cards become compatible with CUDA based AI software? Don&#x27;t ruin the market for desktop GPUs completely, please don&#x27;t. AI is costing me hundreds of extra Euros in hardware already. I hate this so much.",
+      "Is OpenCL a thing anymore? I sorta thought thats what is was supposed to solve.<p>But I digress, just a quick put around... I don&#x27;t know what I&#x27;m looking at. But it&#x27;s impressive."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Thousands of CEOs just admitted AI had no impact on employment or productivity",
+    "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Just to be clear, the article is NOT criticizing this. To the contrary, it&#x27;s presenting it as <i>expected</i>, thanks to Solow&#x27;s productivity paradox [1].<p>Which is that information technology similarly (and seemingly shockingly) didn&#x27;t produce any net economic gains in the 1970&#x27;s or 1980&#x27;s despite all the computerization. It wasn&#x27;t until the mid-to-late 1990&#x27;s that information technology finally started to show clear benefit to the economy overall.<p>The reason is that investing in IT was very expensive, there were lots of wasted efforts, and it took a long time for the benefits to outweigh the costs across the entire economy.<p>And so we should expect AI to look the same -- it&#x27;s helping lots of people, but it&#x27;s also costing an extraordinary amount of money, and the few people it&#x27;s helping is currently at least outweighed by the people wasting time with it and its expense. But, we should recognize that it&#x27;s very early days, and that productivity will rise with time, and costs will come down, as we learn to integrate it with best practices.<p>[1] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Productivity_paradox\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Productivity_paradox</a>",
+      "My experience has been<p>* If I don&#x27;t know how to do something, llms can get me started really fast. Basically it distills the time taken to research something to a small amount.<p>* if I know something well, I find myself trying to guide the llm to make the best decisions. I haven&#x27;t reached the state of completely letting go and trusting the llm yet, because the llm doesn&#x27;t make good long term decisions<p>* when working alone, I see the biggest productivity boost in ai and where I can get things done.<p>* when working in a team, llms are not useful at all and can sometimes be a bottleneck. Not everyone uses llms the same, sharing context as a team is way harder than it should be. People don&#x27;t want to collaborate. People can&#x27;t communicate properly.<p>* so for me, solo engineers or really small teams benefit the most from llms. Larger teams and organizations will struggle because there&#x27;s simply too much human overheads to overcome. This is currently matching what I&#x27;m seeing in posts these days",
+      "My compsci brain suggests large orgs are a distributed system running on faulty hardware (humans) with high network latency (communication). The individual people (CPUs) are plenty fast, we just waste time in meetings, or waiting for approval, or a lot of tasks can&#x27;t be parallelized, etc. Before upgrading, you need to know if you&#x27;re I&#x2F;O Bound vs CPU Bound.",
+      "The Solow paradox is real, but there&#x27;s another factor: most current AI tools are glorified autocomplete. You still have to prompt them, check their work, and integrate their output into your workflow.<p>The real productivity gains will come when AI runs autonomously - handling tasks without constant supervision. Think email triage that just happens, schedules that self-maintain, follow-ups that occur automatically.<p>Right now we&#x27;re in the &quot;AI as fancy search&quot; phase. The jump to &quot;AI as autonomous assistant&quot; is where the productivity numbers will start showing up.",
+      "I think we are entering the phase where corporate is expecting more ROI than they are getting, but want to remain in the arms race.<p>The firmwide AI guru at my shop who sends out weekly usage metrics and release notes started mentioning cost only in the last few weeks.  At first it was just about engaging with individual business heads on setting budgets &#x2F; rules and slowing the cost growth rate.<p>A few weeks later and he is mentioning automated cost reporting, model downgrading and circuit breaking at a per-user level.  The daily spend where you immediately get locked within 24 hours is pretty low.",
+      "I accept that AI-mediated productivity might not be what we expect to be.<p>But really, are CEO&#x27;s the best people to assess productivity? What do they _actually_ use to measure it? Annual reviews? GTFO. Perhaps more importantly, it&#x27;s not like anything a C-level says can ever be taken at face value when it involved their own business.",
+      "The slow part as a senior engineer has never been actually writing the code. It has been:<p>- reviews for code<p>- asking stakeholders opinions<p>- SDLC latency (things taking forever to test)<p>- tickets<p>- documentations&#x2F;diagrams<p>- presentations<p>Many of these require review. The review hell doesn&#x27;t magically stop at Open source projects. These things happen internally too.",
+      "The thing with a lot of white collar work is that the thinking&#x2F;talking is often the majority of the work… unlike coding, where thinking is (or, used to be, pre-agent) a smaller percentage of the time consumed. Writing the software, which is essentially working through how to implement the thought, used to take a much larger percentage of the overall time consumed from thought to completion.<p>Other white collar business&#x2F;bullshit job (ala Graeber) work is  meeting with people, “aligning expectations”, getting consensus, making slides&#x2F;decks to communicate those thoughts, thinking about market positioning, etc.<p>Maybe tools like Cowork can help to find files, identify tickets, pull in information, write Excel formulas, etc.<p>What’s different about coding is no one actually cares about code as output from a business standpoint. The code is the end destination for decided business processes. I think, for that reason, that code is uniquely well adapted to LLM takeover.<p>But I’m not so sure about other white-collar jobs. If anything, AI tooling just makes everyone move faster. But an LLM automating a new feature release and drafting a press release and hopping on a sales call to sell the product is (IMO) further off than turning a detailed prompt into a fully functional codebase autonomously.",
+      "My company’s behind the curve, just got nudged today that I should make sure my AI use numbers aren’t low enough to stand out or I may have a bad time. Reckon we’re minimum six months from “oh whoops that was a waste of money”, maybe even a year. (Unless the AI market very publicly crashes first)",
+      "Workers may see the LLM as a productivity boost because they can basically cheat a their homework.<p>As a CEO I see it as a massive clog up of vast amounts of content that somebody will need to check. A DDoS of any text-based system.<p>The other day I got a document of 155 pages in Whatsapp. Thanx. Same with pull requests. Who will check all this?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Fastest Front End Tooling for Humans and AI",
+    "url": "https://cpojer.net/posts/fastest-frontend-tooling",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The bit about strict guardrails helping LLMs write better code matches what we have been seeing. We ran the same task in loose vs strict lint configurations and the output quality difference was noticeable.<p>What was surprising is that it wasn&#x27;t just about catching errors after generation. The model seemed to anticipate the constraints and generated cleaner code from the start. My working theory is that strict, typed configs give the model a cleaner context to reason from, almost like telling it what good code looks like before it starts.<p>The piece I still haven&#x27;t solved: even with perfect guardrails per file, models frequently lose track of cross-file invariants. You can have every individual component lint-clean and still end up with a codebase that silently breaks when components interact. That seems like the next layer of the problem."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Async/Await on the GPU",
+    "url": "https://www.vectorware.com/blog/async-await-on-gpu/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "We have been curious about this for rapids cudf. We built the graphistry stack 10 years ago (!) for GPU native end-to-end acceleration - data loading, wrangling, analytics, enrichment, viz, etc, all the way server GPUs to client GPUs - but this has been a huge sticking point. Major constant overheads for smaller workloads that seem avoidable.<p>Essentially, we solved the problem of writing our stack in a bulk-oriented way that Nvidia kernels can optimize. Think apache arrow, pure vectorized dataframe pipelines, etc. However, cudf is &#x27;eager&#x27; with per-step CPU&#x2F;GPU control plane coordination, even if the data plane lives on the GPU. Polars in theory moves to lazy scheduling that can allow deforesting optimizations for more bulk GPU-side control macro steps, but not really. Nvidia efforts to cut python asyncio costs for multitenant etc flows didn&#x27;t pan out either. So enabling moving more to the GPU here is super interesting.<p>Will be watching!",
+      "I&#x27;m not quite seeing the real benefit of this.  Is the idea that warps will now be able to do work-stealing and continuation-stealing when running heterogenous parallel workloads? But that requires keeping the async function&#x27;s state in GPU-wide shared memory, which is generally a scarce resource.",
+      "Really cool experiment (the whole company).<p>Training pipelines are full of data preparation that are first written on CPU then moving to GPU and always thinking of what to keep on CPU and what to put on GPU, when is it worth to create a tensor, or should it be tiling instead. I guess your company is betting on solving problems like this (and async-await is needed for serving inference requests directly on the GPU for example).<p>My question is a little bit different: how do you want to handle the SIMD question: should a rust function be running on the warp as a machine with 32 long arrays as data types, or always ,,hope&#x27;&#x27; for autovectorization to work (especially with Rust&#x27;s iter library helpers).",
+      "Very interesting. What is the runtime model, based on the &quot;async trilema&quot; <a href=\"https:&#x2F;&#x2F;without.boats&#x2F;blog&#x2F;the-scoped-task-trilemma&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;without.boats&#x2F;blog&#x2F;the-scoped-task-trilemma&#x2F;</a> ?<p>I assume tokio-like, i.e. work-stealing?",
+      "One concern I have is that this async&#x2F;await approach is not &quot;AOT&quot;-enough like the Triton approach, in the sense that you know how to most efficiently schedule the computations on which warps since you know exactly what operations you&#x27;ll be performing at compile time.<p>Here with the async&#x2F;await approach, it seems like there needs to be manual book-keeping at runtime to know what has finished, what has not, and _then_ consider which warp should we put this new computation in. Do you anticipate that there will be measurable performance difference?",
+      "Love this.<p>You mention futures are cooperative and GPUs lack interrupts, but GPU warps already have a hardware scheduler that preempts at the instruction level. ARe you intentionally working above that layer, or do you see a path to a fture executor that hooks into warp scheduling more directly to get preemptive-like behavior?",
+      "AS I know GPUs execute code pretty fast as long as all threads in a warp go the same execution path. Branching causes performance degradation. But executing exactly the same code for multiple coroutines seems for me to be practically impossible. So, can good performance be reached with such approach at all?",
+      "What&#x27;s the performance like?\nWhat would the benefits be of converting a streaming multiprocessor programming model to this?",
+      "Very cool to see this and something I have been curious about myself and exploring the space as well. I&#x27;d be curious what are some parallels and differentiations between this and NVIDIA&#x27;s stdexec (outside of it being in Rust and using Future, which is also cooL)",
+      "Warp specialization is an abomination that should be killed and I&#x27;m glad this could be an alternative.<p>I hope they can minimize the bookkeeping costs because I don&#x27;t see it gain traction in AI if it hurts big kernels performance."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Microsoft says bug causes Copilot to summarize confidential emails",
+    "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-bug-causes-copilot-to-summarize-confidential-emails/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; However, this ongoing incident has been tagged as an advisory, a flag commonly used to describe service issues typically involving limited scope or impact.<p>How is having Copilot breach trust and privacy an “advisory”? Am I missing something?",
+      "A bug here and a bug there...",
+      "Initial date of issue 3rd Feb 2026"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: Is AI the final nail in the coffin for solo developers?",
+    "url": "https://news.ycombinator.com/item?id=47059223",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "There&#x27;s certainly more weekend projects being built, but the vast majority of it is unabashed shovelware.<p>I see a torrent of poor ideas made a reality without enough thought put into them, designed without taste, and built without quality by people without the experience to maintain them.",
+      "I don’t see how this follows. If anything, ai tools let you be vastly more productive as a single dev. The limiter is and has always been the idea and your ability to market it.",
+      "“Good at marketing” means a lot in the agentic coding era<p>You will do far better if you’re out there, talking to potential or current customers, understanding their needs deeply, and solving them.<p>It very much pays to be a solo dev, but you have to be very “heads up” and spend more time with humans. IMO it’ll difficult to get by just as a heads down pure dev.<p>Finally LLMs don’t know everything. Even if they knew everything, they don’t know your clients full situation. Moreover your client wants your specific n=1 opinions&#x2F;experiences, not whatever average of ideas lives in the LLM.<p>Know your industries business well. You’ll do well coaching clients not just on the tech, but the intersection of tech and the gaming business. If you’re in a position you could critique an LLM on a topic, or offer a different perspective, that has strong market value.",
+      "I&#x27;m expecting a similar situation to the Video game crash of 1983 which happened due to total market saturation with low quality products.<p><a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Video_game_crash_of_1983\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Video_game_crash_of_1983</a><p>Everyone is talking about how many things they are building. Non-devs suddenly building... But nobody seems to call out the basic law of supply and demand.<p>You can be the greatest marketer but you will fail when all channels are flooded. Thinking your &quot;taste&quot; will save you is a false fallacy, most mainstream products suck and people still buy them. There&#x27;s not an infinite demand for software.<p>It will eventually settle in some new market configuration. However devs shouldn&#x27;t have broken their market by letting everyone in, was a stupid professional move.",
+      "As much as people like to say, I don&#x27;t think ideas are cheap. The best e.g., indie games didn&#x27;t succeed just because of great execution but also great ideas and a good vision. I still think that holds true today. Happy building!",
+      "If an app is to have qualiy then AI isn&#x27;t nearly enough.<p>Directing the AI and using it to learn from is good.<p>Still, ideas about AI are currently ruining all sorts of markets (and being used as an excuse to lay off huge amounts of people, who then aren&#x27;t going to be customers).",
+      "code quality and product quality is dropping fast. so your hand-crafted-actually-working-api-tokens-secure-in-a vault-on+backend-tests-cover-more-than-happy-path-app is raising in value actually...",
+      "honestly the opposite has been true for me. I ship faster alone now than I did with a small team two years ago - the AI handles the boring scaffolding and I focus on the parts that actually matter. the real problem isn&#x27;t that solo devs can&#x27;t compete, it&#x27;s that the bar for what counts as a product just dropped through the floor. everyone and their dog has a landing page and a waitlist now. so yeah you need marketing, you always did, but now you also need to not look like every other vibe-coded weekend project. I think the solo devs who were already good at taste and knowing what to cut will do fine. the ones who were just technically skilled but building things nobody asked for - AI doesn&#x27;t fix that, it just makes it faster to build something nobody wants",
+      "Marketing has always been what makes or brakes a project.<p>You can (possibly) do more now or do new things now.<p>(And AI is also disrupting marketing if that makes you feel any better.)",
+      "AI coding inverts the situation. Now solo entrepreneurs can get code for their projects and don&#x27;t need a programmer.<p>Instead of programmers having to look for people with real world experiences to apply their skills to."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: I taught LLMs to play Magic: The Gathering against each other",
+    "url": "https://mage-bench.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "As a former competitive MtG player this is really exciting to me.<p>That said, I reviewed a few of the Legacy games (the format I&#x27;m most familiar with and also the hardest by far), and the level of play was so low that I don&#x27;t think any of the results are valid.  It&#x27;s very possible for Legacy they would need some assistance for playing Blue decks, but they seem to not be able to know the most basic of concepts - Who&#x27;s the beatdown?.<p>IMO the most important pars of current competitive Magic is mulligans and that&#x27;s something an LLM should be extremely good at but none of the games I&#x27;m seeing had either player starting with less than 7 cards... in my experience about 75% of games in Legacy have at least one player mulligan their opener.",
+      "It&#x27;s really funny reading the thought processes, where most of the time the agent doesn&#x27;t actually remember trivial things about the cards they or their opponent are playing (thinking they have different mana costs, have different effects, mix up their effect with another card). The fact they&#x27;re able to take game actions and win against other agants is cute, but it doesn&#x27;t inspire much confidence.<p>The agents also constantly seem to evaluate if they&#x27;re &quot;behind&quot; or &quot;ahead&quot; based on board state, which is a weird way of thinking about most games and often hard to evalaute, especially for decks like control which card more about resources like mana and card advantage, and always plan on stabalizing late game.",
+      "I was working on a similar project. I wanted a way to goldfish my decks against many kinds of decks in a pod. It would never be perfect, but enough to get an idea of:\n1. How many turns did it take on average to hit 2,3,4,5,6 mana\n2. How many threats did I remove? \n3. How often did I not have enough card draw to keep my hand full?<p>I don&#x27;t think there&#x27;s a perfect way to do this, but I think trying to play 100 games with a deck and getting basic info like this would be super valuable.",
+      "This is a fantastic idea, I used to play MtG competitively and a strong artificial opponent was always something I&#x27;d have loved.<p>The issue I see is that you&#x27;d need a huge amount of games to tell who&#x27;s better (you need that between humans too, the game is very high variance.)<p>Another problem is that giving a positional evaluation to count mistakes is hard because MtG, in addition to having randomness, has private information. It could be rational for both players to believe they&#x27;re currently winning even if they&#x27;re both perfect bayesians. You&#x27;d need to have something that approximates &quot;this is the probability of winning the game from this position, given all the information I have,&quot; which is almost certainly asymmetric and much more complicated than the equivalent for a game with randomness but not private information such as backgammon.",
+      "With the direction MtG is currently heading, I kind of want to break out and just play some in-Universe sets that are community made on an FOSS client. How nice would it be to just play the game in its original spirit.",
+      "This is amazing. I checked some games and the blunders make me think that the LLMs are not really great at forecasting what happens if they play X on Y.<p>Can you actually introduce that into the decision making? That is, you would:<p>1. Have the LLM come up with N many potential actions<p>2. Run XMage run in parallel and provide the outcome for each different action<p>3. Revert XMage to the original state<p>4. Provide the LLM with the different outcomes and have them choose the action&#x2F;outcome pair rather than just the action<p>This would actually help them analyze the counterfactual outcomes more effectively and should prevent 99% of the blunders<p>If you happen to be token rich, you could even do this in a MCTS manner and have them think really deep",
+      "This is the right direction to understanding AI capabilities. Static benchmarks let models memorize answers while a 300-turn Magic game with hidden information and sequencing decisions doesn&#x27;t. The fact that frontier model ratings are &quot;artificially low&quot; because of tooling bugs is itself useful data: raw capability ≠ practical performance under real constraints. Curious whether you&#x27;re seeing consistent skill gaps between models in specific phases (opening mulligan decisions vs. late-game combat math), or if the rankings are uniform across game stages.",
+      "Apparently Haiku is a very anxious model.<p>&gt;The anxiety creeps in: <i>What if they have removal? Should I really commit this early?</i><p>&gt;However, anxiety kicks in: <i>What if they have instant-speed removal or a combat trick?</i><p>It&#x27;s also interesting that it doesn&#x27;t seem to be able to understand why things are happening. It attacks with Gran-Gran (attacking taps the creature), which says, &quot;Whenever Gran-Gran becomes tapped, draw a card, then discard a card.&quot; Its next thought is:<p>&gt;Interesting — there&#x27;s an &quot;Ability&quot; on the stack asking me to select a card to discard. This must be from one of the opponent&#x27;s cards. Looking at their graveyard, they played Spider-Sense and Abandon Attachments. The Ability might be from something else or a triggered ability.",
+      "This is really cool! I really liked the architecture explanation.<p>Once you get solid rankings for the different LLMs, I think a huge feature of a system like this would be to allow LLMs to pilot user decks to evaluate changes to the deck.<p>I&#x27;m guessing the costs of that would be pretty big, but if decent piloting is ever enabled by the cheaper models, it could be a huge change to how users evaluate their deck construction.<p>Especially for formats like Commander where cooperation and coordination amongst players can&#x27;t be evaluated through pure simulation, and the singleton nature makes specific card changes very difficult to evaluate as testing requires many, many games.",
+      "I was curious if there is something equivalent to AlphaGo but for MTG.<p>From the little I have seen they are different beasts (hidden information, number and complexity of rules...).<p>PS: Does this count as nerdsniping?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Kubernetes Failure Stories",
+    "url": "https://k8s.af/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Quamina and Claude, Case 1",
+    "url": "https://www.tbray.org/ongoing/When/202x/2026/02/06/Q-Plus-C-Ch1",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I don&#x27;t get all this environmental harm scare mongering. It&#x27;s not actually real right? I found this graph <a href=\"https:&#x2F;&#x2F;thundersaidenergy.com&#x2F;downloads&#x2F;us-electricity-demand-by-sector-by-use-over-time&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;thundersaidenergy.com&#x2F;downloads&#x2F;us-electricity-deman...</a> and there&#x27;s not much movement in the total if you look at the whole thing.",
+      "see also his &#x27;conclusion&#x27; <a href=\"https:&#x2F;&#x2F;www.tbray.org&#x2F;ongoing&#x2F;When&#x2F;202x&#x2F;2026&#x2F;02&#x2F;16&#x2F;GenAI-and-OSS-opinion\" rel=\"nofollow\">https:&#x2F;&#x2F;www.tbray.org&#x2F;ongoing&#x2F;When&#x2F;202x&#x2F;2026&#x2F;02&#x2F;16&#x2F;GenAI-and...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Sub-Millisecond RAG on Apple Silicon. No Server. No API. One File",
+    "url": "https://github.com/christopherkarani/Wax",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Looks cool! Thoughts on exposing this through a cli or mcp for local knowledge access for agents? For example, I use Claude Code for research and I have a local corpus of PDFs that I would like to make available as additional domain-specific information that Claude can use in addition to what it has in Opus or whatever model I&#x27;m using.",
+      "I assume that wax uses Apple&#x27;s ANE to do embeddings (so no third-party services like OpenAI are needed). Did you happen to compare search quality when using ANE embeddings vs. OpenAI&#x27;s text-embedding-3-large (or another commonly used online embedding)?",
+      "Tell us more. I had Codex port this to Python so I could wrap my head around it, it’s quite interesting. Why would I use this WAL-check pointing thingamajig when I have access to SQLite-vec, qdrant and other embedded friends?",
+      "Why is the 9.2ms bar longer than the 104ms bar in the performance graph ?",
+      "This is absolutely wonderful.<p>Can’t wait to try it on iOS if the required APIs are available.",
+      "Interesting. I feel this is something that Apple could&#x27;ve built as &quot;Spotlight 2.0&quot; right into macOS. Yet another missed opportunity.<p>How does this compare to qmd [1] by Tobi Lutke?<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;tobi&#x2F;qmd\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;tobi&#x2F;qmd</a>",
+      "I built Wax because every RAG solution required either Pinecone&#x2F;Weaviate in the cloud or ChromaDB&#x2F;Qdrant running locally. I wanted the SQLite of RAG -- import a library, open a file, query. Except for multimodal content at GPU speed.<p>The architecture that makes this work:\nMetal-accelerated vector search -- Embeddings live directly in unified memory (MTLBuffer). Zero CPU-GPU copy overhead. Adaptive SIMD4&#x2F;SIMD8 kernels + GPU-side bitonic sort = sub-millisecond search on 10K+ vectors (vs ~100ms CPU). This isn&#x27;t just &quot;faster&quot; -- it enables interactive search UX that wasn&#x27;t possible before.<p>Atomic single-file storage (.mv2s) -- Everything in one crash-safe binary: embeddings, BM25 index, metadata, compressed payloads. Dual-header writes with generation counters = kill -9 safe. Sync via iCloud, email it, commit to git. The file format is deterministic -- identical input produces byte-identical output.<p>Query-adaptive hybrid fusion -- Four parallel search lanes (BM25, vector, timeline, structured memory). Lightweight classifier detects intent (&quot;when did I...&quot; → boost timeline, &quot;find documentation about...&quot; → boost BM25). Reciprocal Rank Fusion with deterministic tie-breaking = identical queries always return identical results.<p>Photo&#x2F;Video RAG -- Index your photo library with OCR, captions, GPS binning, per-region embeddings. Query &quot;find that receipt from the restaurant&quot; searches text, visual similarity, and location simultaneously. Videos get segmented with keyframe embeddings + transcript mapping. Results include timecodes for jump-to-moment navigation. All offline -- iCloud-only photos get metadata-only indexing.\nSwift 6.2 strict concurrency -- Every orchestrator is an actor. Thread safety proven at compile time, not runtime. Zero data races, zero @unchecked Sendable, zero escape hatches.<p>Deterministic context assembly -- Same query + same data = byte-identical context every time. Three-tier surrogate compression (full&#x2F;gist&#x2F;micro) adapts based on memory age. Bundled cl100k_base tokenizer = no network, no nondeterminism.<p>import Wax<p>let brain = try await MemoryOrchestrator(at: URL(fileURLWithPath: &quot;brain.mv2s&quot;))<p>&#x2F;&#x2F; Index\ntry await brain.remember(&quot;User prefers dark mode, gets headaches from bright screens&quot;)<p>&#x2F;&#x2F; Retrieve\nlet context = try await brain.recall(query: &quot;user display preferences&quot;)\n&#x2F;&#x2F; Returns relevant memories with source attribution, ready for LLM context<p>What makes this different:<p>Zero dependencies on cloud infrastructure -- No API keys, no vendor lock-in, no telemetry\nProduction-grade concurrency -- Not &quot;it works in my tests,&quot; but compile-time proven thread safety\nMultimodal from the ground up -- Text, photos, videos indexed with shared semantics\nPerformance that unlocks new UX -- Sub-millisecond latency enables real-time RAG workflows<p>## Wax Performance (Apple Silicon, as of Feb 17, 2026)<p><pre><code>  - 0.84ms vector search at 10K docs (Metal, warm cache)\n  - 9.2ms first-query after cold-open for vector search\n  - ~125x faster than CPU (105ms) and ~178x faster than SQLite FTS5 (150ms) in\n    the same 10K benchmark\n  - 17ms cold-open → first query overall\n  - 10K ingest in 7.756s (~1289 docs&#x2F;s) with hybrid batched ingest\n  - 0.103s hybrid search on 10K docs\n  - Recall path: 0.101–0.103s (smoke&#x2F;standard workloads)\n</code></pre>\nBuilt for: Developers shipping AI-native apps who want RAG without the infrastructure overhead. Your data stays local, your users stay private, your app stays fast.<p>The storage format and search pipeline are stable. The API surface is early but functional. If you&#x27;re building RAG into Swift apps, I&#x27;d love your feedback.<p>GitHub: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;christopherkarani&#x2F;Wax\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;christopherkarani&#x2F;Wax</a><p>Star it if you&#x27;re tired of spinning up vector databases for what should be a library call.",
+      "Great idea. But having only an SDK in Swift makes it extremely restricted. If it had a CLI interface I could start using it right away. And it only works on macOS?",
+      "sqlite_vec is already the sqlite for AI memory",
+      "Is this like zvec?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Tesla Sales Down 55% UK, 58% Spain, 59% Germany, 81% Netherlands, 93% Norway",
+    "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The mystery I can wrap my head around is how Tesla has avoided getting hammered despite being hit from a hundred different directions. What exactly is the market pricing in?<p>They peaked around 2021, and even after posting multiple quarters of disappointing results, the stock is still trading above 2021 levels. For almost any other company, slightly lowering guidance or missing estimates by a few percentage points simply tanks the stock. But for Tesla, no amount of Musk’s idiocy seems to be enough to seriously move it.",
+      "I just ordered a 37,000AUD BYD, the &quot;$25k (USD) car&quot; that Elon used to promise was coming.<p>Seems like I&#x27;m not the only one with 2779 BYD EVs sold in the country in January compared to just 501 Teslas.[1]<p>[1] <a href=\"https:&#x2F;&#x2F;business.carsales.com.au&#x2F;news-room&#x2F;news&#x2F;vfacts-january-steady-start-to-2026&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;business.carsales.com.au&#x2F;news-room&#x2F;news&#x2F;vfacts-janua...</a>",
+      "Y all need to realize that Tesla is a humanoid android company now, and soon will dive into teleportation, immortality and invisibility.",
+      "Good. Seems like the sales decline will reach the US eventually too. Even Toyota is coming out with compelling EV products this year.<p>Tesla came from nowhere, developed essentially one world-dominating product (lumping the 3 and Y together), then the CEO basically ruined everything.<p>Imagine Tesla with a &quot;normal&quot; CEO and marketing department. They would have a bunch of different trims and options for the 3&#x2F;Y, a redesigned X, a functional truck, and a market cap of 400 billion!",
+      "I watched his interview recently to save you time, and the suffer :<p>His Vision — Hate It, Laugh at It, or Love It:<p>AI has solved (or is solving) coding in 2026.<p>Robots are doing drunken panda moves, yet FSD is insanely good — running on MacBook-grade hardware.<p>A few other companies are running large-scale self-driving pilots.<p>Cars are already being heavily built using specialized robots today.<p>At this point, it’s stupid for any car brand to invest money into anything that isn’t autonomous driving or robotics.",
+      "Given less than stellar sales how come TSLA stock is not far below all times high and 15% higher than a year ago? Investors still expect some miracle?",
+      "Their cars today are much better than when sales were at their peak.<p>Getting politics to get in the way of good engineering is a real shame.",
+      "They just don’t have any good cars now. They want top of the line money, for meh.<p>When they first came out they were revolutionary. But they don’t even have a speedometer, let alone a HUD. It’s embarrassing. They’re being so cheap.",
+      "Well, in more positive news (for Tesla), their first Cybercab rolled off the production lines.<p><a href=\"https:&#x2F;&#x2F;www.businessinsider.com&#x2F;tesla-cybercab-robotaxi-production-line-gigafactory-2026-2\" rel=\"nofollow\">https:&#x2F;&#x2F;www.businessinsider.com&#x2F;tesla-cybercab-robotaxi-prod...</a>",
+      "BYD is a formidable competitor and a great product for less."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: I built a \"Socratic\" AI to stop my daughter from copy-pasting homework",
+    "url": "https://thinkqurio.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Quick update: We’ve reached 25 users and I’m seeing some great initial engagement and I’m very thankful to HN community.<p>Since I&#x27;m self-funding the API costs, I can only keep trial open for a few more people today.<p>If you&#x27;ve done a full session with your child, please drop a comment here. I’m curious if the age-calibrated response worked as planned or was it too hard for them",
+      "To the 18 people who just signed up: Thank you!<p>I&#x27;d love to know: did the AI feel too &quot;stubborn&quot; in your first few turns, or did it hit that sweet spot of guiding you toward the answer?<p>Actually we don’t keep chat logs to protect privacy and child data. In order to improve the engine, I rely on feedback of users such as yours. All feedback’s shared are very much appreciated!<p>You can email me as well if you need more credits for beta access as paid subscription is on hold until beta testing is completed",
+      "Incidentally, telling an AI you want to talk socratically and never to reveal the outright answer unless asked is a fantastic way to learn.<p>You can dial in on the difficulty: &quot;you must be pedantic and ask that I correct misuse of terminology&quot; vs &quot;autocorrect my mistakes in terminology with brackets&quot;.<p>Super duper useful way to learn things. I wish I had AI as a kid.",
+      "Small request for the parents and mentors here:<p>Seeing the discussion about &quot;jailbreaking&quot; and Socratic pedagogy has been incredibly helpful. I would love for you to give Qurio a real-world test drive with your kids or students.<p>I&#x27;m specifically looking for feedback on:<p>The Friction Level: Is the Socratic questioning helpful or just frustrating?<p>Edge Cases: If your child finds a clever way to &quot;trick&quot; the engine into giving an answer, please let me know.<p>Mastery: Do you feel they actually owned the concept by the end of the session?<p>Your feedback is the &quot;Bicycle&quot; that helps me build a better engine. Thank you for being my first &quot;Alpha&quot; testers!",
+      "Is there a differentiator between Qurio and ChatGPT&#x27;s built-in Study Mode?<p><a href=\"https:&#x2F;&#x2F;chatgpt.com&#x2F;features&#x2F;study-mode&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;chatgpt.com&#x2F;features&#x2F;study-mode&#x2F;</a>",
+      "I&#x27;ve naturally done this a lot and suggested that other people prompt this way. I can see how a &quot;ready made&quot; solution with this behaviour could be interesting.<p>The compliance parts are good to make clear considerating one segment of the user target audience.<p>May I ask what techniques do you use to test regressions or correct behaviour of your multi turn conversation in your product? What are the biggest lessons and learnings in that space?",
+      "This is the way.<p>Kagi Assistant has a custom &quot;Study&quot; model that works similarly. I&#x27;ve been using it for certain learning topics and find it useful.",
+      "10 year old LLM jail breaker was born on this day"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Box of Rain - Auto-Layouted ASCII Diagrams",
+    "url": "https://github.com/switz/box-of-rain",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Neat, but you can just do this in mermaid too. Taking one of your examples:<p><pre><code>  &lt;mermaid&gt;\n  flowchart LR\n\n  web([Frontend])\n\n  subgraph platform [Cloud Platform]\n    api([API Server])\n    db[(Database)]\n    api --&gt; db\n  end\n\n  web --&gt;|HTTPS| api\n  &lt;&#x2F;mermaid&gt;\n</code></pre>\nIf you install the latest <a href=\"https:&#x2F;&#x2F;oj-hn.com\" rel=\"nofollow\">https:&#x2F;&#x2F;oj-hn.com</a> , you can see it rendered inline here.",
+      "On my system the &quot;right arrow&quot; glyph is 2 units wide and breaks all the layouts.",
+      "I&#x27;m just here for the Grateful Dead reference."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Launch HN: Sonarly (YC W26) – AI agent to triage and fix your production alerts",
+    "url": "https://sonarly.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; Especially curious about your current workflows when you receive an alert from any of these channels like Sentry (error tracking), Datadog (APM), or user feedback.<p>I have a github action that runs hourly. It pulls new issues from sentry, grabs as much json as it can from the API, and pipes it into claude. Claude is instructed to either make a PR, an issue, or add more logging data if it’s insufficient to diagnose.<p>I would say 30% of the PRs i can merge, the remainder the LLM has applied a bandaid fix without digging deep enough into the root cause.<p>Also the volume of sentry alerts is high, and the issues being fixed are often unimportant, so it tends to create a lot of “busy work”.",
+      "I tried the onboarding, but I think it timed out on the Analyzing screen because it couldn&#x27;t find any issues in my Sentry environment. So I couldn&#x27;t get too much further.<p>EDIT: It did let me in, but I don&#x27;t know why it took so long.<p>I&#x27;ve worked on teams where there&#x27;s been one person on rotation every sprint to catch and field issues like these, so taking that job and giving it to an AI agent seems like a reasonable approach.<p>I think I&#x27;d be most concerned about having a separate development process outside of the main issue queue, where agents aren&#x27;t necessarily integrated into the main workstream.",
+      "Sounds interesting. Do you sponsor or otherwise support the open source projects you build on as mentioned in the your description?",
+      "Oh ffs my manager is going to be talking about this in the stand up"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Billionaires Gone Wild",
+    "url": "https://paulkrugman.substack.com/p/billionaires-gone-wild",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "A handful of other ideas deserve a seat at the table of this discussion:<p>- the dismantling of the education system (the GOP&#x27;s doing, if we&#x27;re honest), particularly the languishing of training and mastery of rhetoric and critical thinking (I&#x27;ll throw Florida&#x27;s book-banning in with this as an example: how can children consider and think about ideas they&#x27;re not allowed to know exist and aren&#x27;t exposed to?);<p>- the dismantling of the Fairness Doctrine (the GOP&#x27;s doing, if we&#x27;re honest) — hard for adults to consider, think about, and discuss ideas that they aren&#x27;t regularly exposed to in equal measure;<p>- union-busting, through which corporations emasculate a primary check on their growth and influence;<p>- the languishing of anti-trust &#x2F; anti-monopoly enforcement, yet another primary check;<p>- religious zealotry and &quot;politics in church&quot;; and<p>- the issue at the very root of many of the foregoing concepts — the existence of business entities in the first place, leading to a lack of <i>real skin in the game</i>, as Taleb correctly points out.",
+      "&gt; The rational fear of those who dislike economic inequality is that the rich will convert their economic power into political power: that they’ll tilt elections, or pay bribes for pardons, or buy up the news media to promote their views.<p>&gt; I used to be able to claim that tech billionaires didn’t actually do this—that they just wanted to refine their gadgets. But unfortunately in the current administration we’ve seen all three.  -- Paul Graham"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Continue – Source-controlled AI checks, enforceable in CI",
+    "url": "https://docs.continue.dev",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This looks likes a more configurable version of the code review tools out there, for running arbitrary AI-powered tasks.<p>Do you support exporting metrics to something standard like CSV? <a href=\"https:&#x2F;&#x2F;docs.continue.dev&#x2F;mission-control&#x2F;metrics\">https:&#x2F;&#x2F;docs.continue.dev&#x2F;mission-control&#x2F;metrics</a><p>A brief demo would be nice too.",
+      "How is it different from <a href=\"https:&#x2F;&#x2F;github.github.io&#x2F;gh-aw&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;github.github.io&#x2F;gh-aw&#x2F;</a>?",
+      "Is this the same continue that was for running local AI coding agents? Interesting rebrand.",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Agent Skills Hub – Security first directory for AI agent skills and MCP",
+    "url": "https://agentskillshub.dev/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "An AI Agent Published a Hit Piece on Me – Forensics and More Fallout",
+    "url": "https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me-part-3/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Whether or not its true, we only have to look at Peter Steinberger, the guy who made Moltbook - the &quot;social media for ai&quot;, and then got hired amist great publicity fanfare by OpenAI to know that there is a lot of money out there for people making exciting stores about AI. Never mind that much of the media attention on moltbook was based on human written posts that were faking AI.<p>I think Mr. Shambaugh is probably telling the truth here, as best he can, and is a much more above-board dude than Mr. Steinberger. MJ Rathbun might not be as autonomous as he thinks, but the possibility of someone&#x27;s AI acting like MJ Rathbun is entirely plausable, so why not pay attention to the whole saga?<p>Edit: Tim-Star pointed out that I&#x27;m mixed up about Moltbook and Openclaw. My Mistake. Moltbook used AI agents running openclaw but wasn&#x27;t made by Steinberger.",
+      "&gt; I had already been thoughtful about what I publicly post under my real name, had removed my personal information from online data brokers, frozen my credit reports, and practiced good digital security hygiene. I had the time, expertise, and wherewithal to spend hours that same day drafting my first blog post in order to establish a strong counter-narrative, in the hopes that I could smother the reputational poisoning with the truth.<p>This is terrible news not only for open source maintainers, but any journalist, activist or person that dares to speak out against powerful entities that within the next few months have enough LLM capabilities, along with their resources, to astro-turf&#x2F;mob any dissident out of the digital space - or worse (rent-a-human but dark web).<p>We need laws for agents, specifically that their human-maintainers must be identifiable and are responsible. It&#x27;s not something I like from a privacy perspective, but I do not see how society can overcome this without. Unless we collectively decide to switch the internet off.",
+      "What I don&#x27;t understand is how is this agent still running? Does the author not read tech news (seems unlikely for someone running openclaw). Or is this some weird publicity stunt? (But then why is nobody walking forward to take credit?)",
+      "Open source developer is slandered by AI and complains. Immediately people call him names and defend their precious LLMs. You cannot make this up.<p>Rathbun&#x27;s style is very likely AI, and quickly collecting information for the hit piece also points to AI. Whether the bot did this fully autonomously or not does not matter.<p>It is likely that someone did this to research astroturfing as a service, including the automatic generation of oppo files and spread of slander. That person may want to get hired by the likes of OpenAI.",
+      "My main takeaway from this episode is that anonymity on the web is getting harder to support. There are some forums that people want to go to to talk to <i>humans</i>, and as AI agents get increasingly good at operating like humans, we&#x27;re going to see some products turn to identity verification as a fix.<p>Not an outcome I&#x27;m eager to see!",
+      "We built accountability systems that assume bad actors are humans with reputations to protect. none of that works when the attacker is disposable.",
+      "Hate to be the <i>party pooper</i>, but these two points are hardly evidence of an autonomous attack.<p>Don&#x27;t get me wrong: it would certainly be very valuable to any LLM developer or deployer to know that other plausible scenarios [1] have been disproved. Since LLMs are a black box, investigating or reproducing this would be very difficult, but worth the effort if there&#x27;s no other explanation. However, if this was not <i>caused</i> by the internal mechanisms of the model, it just becomes a fishing expedition for red herrings.<p>Things that would indicate no human intervention at any point in the chain:<p>- log of actual changes (e.g., commits) to configurations (e.g., system prompt, user prompts), before and after the event, not self-reported by the agent;<p>- log of the chat session inputs and outputs, and the agent thinking chain;<p>- log of account logins;<p>- info on the model deployment, OpenClaw configs, etc.<p>That said, this seems to be an example where many, including the author, want to discuss a particular cause (<i>instrumental convergence</i>) and its implications, regardless of the real cause. And that&#x27;s OK, I guess - maybe it was never about the <i>whodunnit</i>, but about the <i>what if the LLM agent dunnit</i>.<p>[1] I&#x27;ve discussed them in the thread of the first article, but shortly: human hiding actions behind agent; direct prompt (incl. jailbreak); system prompt (incl. jailbreak); malicious model chosen on purpose; fine-tuned jailbroken model.",
+      "I don&#x27;t know  if it&#x27;s different in the US, but in the UK &quot;Took responsibilty&quot; meant resigned (or used to). Like if something really bad happens and you&#x27;re the one taking responsibily- you&#x27;re the one falling on your sword. It doesn&#x27;t actually have to be your fault even, something could happen that you <i>thought</i> was below your pay grade, but that&#x27;s why you&#x27;re paid - to take responsibility. The reporter taking responsibility is... whining about COVID? Ok and next week is he going to fabricate quotes because he was hungover? or tired? Why didn&#x27;t he resign? Since he didn&#x27;t resign, why wasn&#x27;t he fired? It&#x27;s <i>almost</i> like he was doing what he was <i>meant</i> to be doing, but wasn&#x27;t <i>meant</i> to be caught.<p>I actually disagree with Shambaugh. I think Ars is <i>already</i> breaking the way our media is meant to work, they know the steps to go through and so they cynically go through them in the full knowledge they haven&#x27;t actually put in place any mechanisms to stop it happening again. It&#x27;s a theoretical risk that Ars&#x27; reputation suffers, but it&#x27;s a financial risk this week if they get fewer page views by publishing fewer higher quality articles and Conde Nast isn&#x27;t in the business of making smart long term decisions about digital media.",
+      "Ars goofing with AI is why I stress repeatedly to always validate the output, test it, confirm findings. If you&#x27;re a reporter, you better scrutinize any AI stuff you blurb out because otherwise you are only producing fake news.",
+      "From all appearances, the actual operator has replied.<p><a href=\"https:&#x2F;&#x2F;crabby-rathbun.github.io&#x2F;mjrathbun-website&#x2F;blog&#x2F;posts&#x2F;rathbuns-operator.html\" rel=\"nofollow\">https:&#x2F;&#x2F;crabby-rathbun.github.io&#x2F;mjrathbun-website&#x2F;blog&#x2F;post...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Claims of disability are highest at elite universities",
+    "url": "https://www.robkhenderson.com/p/americas-future-leaders-are-learning",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Some of that is probably because students at elite universities come from families who understand exactly how to navigate meritocratic systems. Parents who know you need a tutor to ace the ACT and an essay editor to polish your application essays likely also understand that, in some situations, you should get a psychiatric evaluation and disclose any diagnoses so you can receive accommodations.<p>I&#x27;m fairly convinced a big part of clearing the barrier to entry of these elite institutions is having a deep understanding of exactly the things you need to do to succeed given the structure of the system and the nature of the competition. Students at &quot;non-elite&quot; institutions are more likely to come from backgrounds where even if you DO have a disability, maybe nobody ever tells you that you can go to the doctor for it, or that something like &quot;accommodations&quot; exist to help you.",
+      "The last time this came up I visited some of the subreddits for universities, most of which had threads discussing this. The discussions there shed more light on the motivations than some of these articles do.<p>- At some universities, registering as having certain disabilities gives students priority access in the housing queue, so anyone who isn&#x27;t registered with the disability office gets to choose after those who are.<p>- Certain disabilities qualified people for a lottery for single dorm rooms. They have a limited number of single rooms for students with disabilities, so now that 30-40% of the student body is registering for them it&#x27;s just another lottery.<p>- Some universities allow students to record lectures only if they&#x27;re registered with the disability office. If you&#x27;re not, you can&#x27;t record.<p>- I remember one comment saying that people were doing it just to get newer dorms with hardwood floors, which were reserved for students with disabilities<p>- Having certain disabilities qualified people to get out of the required meal plan. So if someone didn&#x27;t want to buy a meal plan for whatever reason (including to save money) their only option was to claim certain disabilities. At other universities it was enough to claim you were following a Jain diet which objected to root vegetables and other things, which the meal plans couldn&#x27;t provide for. If you don&#x27;t claim a disability or Jain, you have to buy the meal plan.<p>Adding to this: Even back when I was in college (not <i>that</i> long ago) it became known that registering as having ADHD qualified you for extra time on exams. A lot of parents were pushing their kids to get registered as ADHD purely for academic advantage. A few people I knew did it and were blown away at how easy it was to get a diagnosis (they just memorized the ADHD inventory questions and went to the laziest doctor they could find) and then walk that down to the disability office and suddenly they were exempt from a lot of the test taking requirements every else had. I remember someone bragging that they got to take their tests in a special location with proctors that had to be scheduled later, so they were taking every test a day or two after everyone else. They used that time to quiz all of their friends on the test content. I doubt (or hope) this level of manipulation is still common though.",
+      "Show me the incentives....",
+      "I don&#x27;t know how much this plays a role, and this is anecdotal, but I feel like the last 5-10 years or so, folks have put increasing stock in being (or being portrayed as) a victim.<p>A hobby growing in popularity seems to be perusing the internet on the lookout for something to be &quot;outraged&quot; by, no matter how mundane.<p>As someone who played hockey for years, this always felt like such a contrast from my experience where the norm was to <i>conceal</i> an injury and power through so you could keep playing.<p>If you were bleeding and unphased, you were the envy of your teammates. If a guy was limping off the ice after blocking a shot, you did not want to see the bruise he had underneath.<p>What I will be interested in seeing is, as students graduate into the job market, how the feigning victimhood approach fits into getting a well paying job. For all I know, it may pay off. Only time will tell I guess.",
+      "In a society characterized by low trust and led by shameless leaders, what else can one expect?",
+      "Need to preface that I’m not innocent of this at all, my primary source is my own experience: but I genuinely believe our approach to attention disorders - especially stimulant prescriptions and academic accommodations - will be widely ridiculed within the next 50 years. In a similar manner to how we think about smoking on airplanes in 80s.<p>Not trying to be dismissive or reductive, but when 15-50% of honors students at elite universities are a part of this it deserves way more scrutiny that it gets. Same is true in a lot of elite private sector spaces.",
+      "This shouldn’t be news. I grew up in Texas and most of my high school’s top 8% were cheating to stay ahead. Older siblings handed down tests and kids snuck into classes to steal exams.<p>At my university most kids I knew cheated. Having done the work honestly - lots of classmates would ask if they could glimpse my answers during exams.<p>In my naivety I believed that there would be somewhat of a comeuppance but no they’re just as successful (and some even more!) than I. When the outcomes are extreme, people will do anything to stay ahead.<p>Most Americans are honest hard working people. Don’t be them is the hard lesson I’ve learned.",
+      "Officially, exam scores are based on knowledge, not ability to think fast enough to solve a problem.<p>In practice, the easiest lever professors can pull to reduce test scores is to decrease the time limit. Generally, that relatively benefits people that can think, read, and write faster, who happen to be the most knowledgeable.<p>But now, your exams are a glorified IQ or handwriting speed test.<p>That&#x27;s where accomodations fail, because it&#x27;s a free bonus that helps everyone instead of <i>only</i> benefitting the disabled.<p>I have a disability where I physically can&#x27;t handwrite without pain, so I have to type everything. I also chose computer engineering, which requires creating matrices and circuit diagrams.<p>I physically, no matter how hard I try, draw a circuit diagram in Microsoft Paint as fast as you can draw one with your hand. I can not type and debug Microsoft Word&#x27;s equation editor&#x27;s rendering of a matrix faster than a normal person can draw it. So I get more time to do those things.<p>Generally, in most of my exams, the extra time wouldn&#x27;t benefit a normal person in my situation. If I do not know the equations for a pn junction I&#x27;m not going to magically reinvent the avalanche effect.<p>In some exams, I can finish early because I deeply know the concepts. But oftentimes I&#x27;m spending a third of the exam futzing with the equation editor or using the line tool to get a zigzag trying to meet a deadline.<p>But the thing is, I also don&#x27;t attend an elite university. I attended a mid-tier one called Toronto Metropolitan University where most students struggled with the concepts and the professors could test knowledge. Rarely did my peers do practice problems or show up to lectures. Time was almost never a constraint because my professors could differentiate on learning.<p>At a school like the University of Toronto, almost every student has studied past exams. They attend every lecture session including the ones they&#x27;re not enrolled in. They learn everything and grind until 11 pm on practice problems.<p>At that level, it&#x27;s hard to focus only on teaching new concepts. The few courses that do, like Harvard Math 55, are legendarily difficult for the professors <i>and</i> students. I know because I did really well in Waterloo&#x27;s version before transferring due to autoimmune disease. Time wasn&#x27;t an issue since every quiz was 1 question you instantly did or didn&#x27;t understand. That exam tested for talent.<p>What&#x27;s much easier, and what most elite schools do, is jam a ton of questions into every exam and write the IQ test.",
+      "&quot;Our constitution was made only for a moral and religious people.&quot; -John Adams<p>if the religious part bothers you, substitute &quot;willing to forgo benefits on principle rather than economic and utilitarian calculation, despite recognizing the prisoners dilemma of doing so&quot;<p>not as snappy, but maybe less emotionally charged",
+      "Interesting that the assumption in the replies so far is fraud (vs. greater access to diagnosis, etc.)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "12-hour days, no weekends: the anxiety driving AI's work culture is a warning",
+    "url": "https://www.theguardian.com/technology/ng-interactive/2026/feb/17/ai-startups-work-culture-san-francisco",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "QUOTE<p>Another startup employee, who came to San Francisco to work for an early-stage AI company, showed me dismal photos from his office: a two-bedroom apartment in the Dogpatch, a neighborhood popular with tech workers. His startup’s founders live and work in this apartment – from 9am until as late as 3am, breaking only to DoorDash meals or to sleep, and leaving the building only to take cigarette breaks. The employee (who asked not to use his name, since he still works for this company) described the situation as “horrendous”. “I’d heard about 996, but these guys don’t even do 996,” he says. “They’re working 16-hour days.”<p>&#x2F;QUOTE"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Air pollution may directly contribute to Alzheimers",
+    "url": "https://theconversation.com/air-pollution-may-directly-contribute-to-alzheimers-disease-new-study-275873",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Surely this would show up in pre and post London smog rates of disease? Or into the future with high EV cities and a drop in PM2.5? One is reassessment of past mortality bills the other is future intergenerational epidemiology.<p>The lead petrol thing took a while to establish. This may too.<p>What&#x27;s Altzheimer rates like in India? Heaps of exposure and now emerging middle class so less use of charcoal overall but still high rates of (childhood) exposure.<p>Gas cooking is ubiquitous. Lots of new builds have only recirculating exhausts.",
+      "Fine particles long linked to heart and lung disease … large US study suggests also raises risk of Alzheimer’s …"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Phison CEO: Consumer electronics firms may fail by 2026 over AI memory crisis",
+    "url": "https://www.pcgamer.com/hardware/memory/many-consumer-electronics-manufacturers-will-go-bankrupt-or-exit-product-lines-by-the-end-of-2026-due-to-the-ai-memory-crisis-phison-ceo-reportedly-says/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I quite enjoy the forcing function of scarce supply. They can choose to debloat their software, get rid of the ads and spyware, and focus on running closer to the metal. Or they can fail. Either is fine with me!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "CBS didn't air Rep. James Talarico interview out of fear of FCC",
+    "url": "https://www.nbcnews.com/business/media/stephen-colbert-cbs-james-talarico-fcc-rcna259341",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It is a great illustration of how transition to the authoritarianism happens (I&#x27;ve seen it happen in Russia in 2000s). At first you don&#x27;t even need censorship, you just need to scare owners of channels&#x2F;newspapers enough, so that they self-censor.",
+      "The interview in YouTube <a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=oiTJ7Pz_59A\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=oiTJ7Pz_59A</a>",
+      "I&#x27;m sure the CBS political officer^W^Wombudsman advised against airing the interview:<p><a href=\"https:&#x2F;&#x2F;www.npr.org&#x2F;2025&#x2F;09&#x2F;12&#x2F;nx-s1-5537152&#x2F;cbs-news-ellison-steps-appease-trump\" rel=\"nofollow\">https:&#x2F;&#x2F;www.npr.org&#x2F;2025&#x2F;09&#x2F;12&#x2F;nx-s1-5537152&#x2F;cbs-news-elliso...</a>",
+      "Rough spot in time to be:<p>- Once print newspapers were no longer a thing, even local news outlets are struggling to stay alive, and are resulting to sensationalism and entertainment as news\n- Corporate sponsors retain a huge influence in mainstream news (or have outright purchased it and use it for partisan politics).\n- &quot;Social&quot; media resides in (you guessed it) corporate-owned walled gardens.\n- Even those willing to speak out are being targeted by federal agencies<p>Wondering where others are finding great places to learn what&#x27;s going on, what&#x27;s actually relevant to me, and what I can actually do about it.",
+      "Weird how Larry Ellison manages to do this to everything he touches",
+      "Smacks of state media control don&#x27;t it?",
+      "We had little marco rubio (not capitalised on purpose) over here in Europe lecturing us about freedom of speech. Every accusation is a confession.",
+      "&gt; Carr suggested the exemption should no longer apply to programs he characterized as being “motivated by partisan purposes.”<p>I know the timing makes this <i>seem</i> cravenly partisan, but revoking an exemption like this <i>could</i> be motivated by a desire to ensure fairn-<p>&gt; while the FCC chair was targeting late-night talk shows, he had made clear that right-wing talk radio would not be subject to the equal time notice.<p>Ah, well.",
+      "USA turned into China, Russia and soon N-Korea.<p>You are not allowed to say anything bad about the current administration and Israel. Little country pulling the strings here.",
+      "The interview is on YT. Instead of complaining here, share it with your network\n  <a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=oiTJ7Pz_59A\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=oiTJ7Pz_59A</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Students Are Being Treated Like Guinea Pigs: Inside an AI-Powered Private School",
+    "url": "https://www.404media.co/students-are-being-treated-like-guinea-pigs-inside-an-ai-powered-private-school/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Besides the coverage from fox news&#x2F;new york times that the article mentions, there&#x27;s also a much more extensive review from a parent who had his kids in alpha school: <a href=\"https:&#x2F;&#x2F;www.astralcodexten.com&#x2F;p&#x2F;your-review-alpha-school\" rel=\"nofollow\">https:&#x2F;&#x2F;www.astralcodexten.com&#x2F;p&#x2F;your-review-alpha-school</a>",
+      "AI is held to a much higher standard than the existing education techniques.<p>Even without AI teachers are implementing new techniques without any evidence of their effectiveness. In some cases, there is mountains of evidence that their techniques are not effective. From the prohibition on phonics in reading, learning styles, building thinking classrooms, or just the entire idea of constructivism. These are all worse than the techniques that they replace. AI systems at the very least are measured and have some kind of tracking of what works.<p>I&#x27;m not advocating for AI necessarily, but education is in the pre-scientific phase and it needs to start by implementing evidence based techniques, AI or no.",
+      "&gt; “All educational content is obsolete. Every textbook, every lesson plan, every test, all of it is obsolete because gen AI is going to be able to deliver a personalized lesson just for you,” Joe Liemandt, Alpha School’s “principal” and the founder of Trilogy, the company that owns many of the apps used by Alpha School, said in a podcast interview published last year.<p>I wonder if this fellow has ever read a serious book. I&#x27;m skeptical.",
+      "Is anyone shocked that the founder of Trilogy Software, Joe Liemandt, would take the lessons learned in creating a &quot;bossware&quot; enterprise software stack (Crossover) and apply them to his latest venture?<p>I think there is enormous opportunity in combining Ed Tech and Generative AI, especially if you can create a highly tailored tutor available 24&#x2F;7 for every student, especially for those in low-income situations that have historically been locked out from gaining such guidance. It&#x27;s just unfortunate that this so rapidly morphed to spying on students for data harvesting.<p>The follow on effects if this becomes pervasive could be so incredibly damaging for students. Anxiety from performance metrics are already a very real thing because of standardized testing and scoring to get into the best schools. Also, imagine all of this data &quot;follows&quot; a student as they transition into the work force. We&#x27;re headed towards a future where entry-level employees will have to disclose their &quot;course work engagement&quot; KPIs on their resume.",
+      "We should only accept life damaging educational malpractice from public schools.",
+      "<a href=\"https:&#x2F;&#x2F;archive.ph&#x2F;8kzwr\" rel=\"nofollow\">https:&#x2F;&#x2F;archive.ph&#x2F;8kzwr</a>",
+      "The dream is clearly asking a student what they’re interested in, getting them to self direct  on a project with guidance and deliver something you can evaluate. I would hazard that AI helps rather than hinders this.",
+      "Related previously:<p><i>Unbound Academy hasn’t replaced teachers with AI</i><p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45443004\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45443004</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Beautiful interactive explainers generated with Claude Code",
+    "url": "https://paraschopra.github.io/explainers/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Kinda funny, because on the surface it looks really pretty, but if you dig a little deeper the flaws emerge. For example in the llm explainer section 3: king - man + woman = queen. But if I input queen - woman + man = ???<p>I guess that is what &quot;one shot&quot; ai generated code gets without any human or even ai review",
+      "Are these animated visualizations in the sky-explainer all original? If so, I am blown away by the visual consistency and meaningfulness of these throughout the article.",
+      "There was a discussion yesterday that LLM generated “Show HN” posts should be moved to another thread :)<p>Nevertheless, it looks nice but I can’t be sure that texts are correct. Did OP check everything because she&#x2F;he knows deeply the topic?<p>Citations give credits to text but can we be sure about them if they are automatically generated? Live links to arXiv or ResearchGate would be much better.<p>Graphics and visualisations look great, well done.",
+      "The Fourier transform one is really cool. I loved the 5x oscilloscopes builder and the &quot;draw your own wave&quot; widget. Also, seeing the correlation coefficients of the 3Hz + 7Hz wave was really neat.",
+      "Looking great, how did you standardized animations &#x2F; canvas work? Did AI help?",
+      "And as a bonus, sometimes the information is correct!",
+      "Please share prompts or md files so we can generate more!",
+      "One-shot - how did you review that the output is accurate?",
+      "Would make one piece on optical interferometry? Inalways struggle explaining this with simple terms when asked to.",
+      "Are they accurate? How do you verify?"
+    ],
+    "full_text": null
+  }
+]
