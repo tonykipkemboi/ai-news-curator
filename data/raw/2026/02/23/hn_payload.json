@@ -1,0 +1,351 @@
+[
+  {
+    "title": "Pope tells priests to use their brains, not AI, to write homilies",
+    "url": "https://www.ewtnnews.com/vatican/pope-leo-xiv-tells-priests-to-use-their-brains-not-ai-to-write-homilies",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "No priest will feed sufficient context about their community into the context window - even if they were skilled enough to do so, unless the model was locally hosted, doing so would be a violation of their vows of silence.<p>Good homilies are written with the particular community in mind. If it were more effective to write a homily for a generic public, the Vatican would have started publishing standard homilies long ago.",
+      "The article seems to be overreacting to a small part of Pope Leo&#x27;s talk. It seems to me his real point was that using AI to hasten writing homilies leads priests to treat this work as busy work instead of thoughtful, focused work.",
+      "Not defending the use of AI, but plenty of people who grew up going to Mass on Sunday know that priests often recycle old homilies, deliver lazily written homilies or homilies that were clearly pulled from the internet, or just skip them if they couldn&#x27;t think of anything that week or are running late for something.<p>Absolute worst was when an intelligent priest put in incredible effort, only for it to go over the heads of the yokels in their parish who want a simpler homily.",
+      "There’s a Paul Theroux short story about a defrocked priest who makes a living writing sermons for other priests. They would mail their chosen topic or occasion and include the payment, and he’d send them a beautifully written sermon that’d make them popular in their parishes. Now AI is coming for the correspondent-priest’s job!",
+      "LLMs are amazing, I love them, but he is right. When it comes to interacting with your fellow humans, using AI just sucks the point and meaning out of life. If we wanted to know what Claude thought, we’d ask him. Don’t be a mouthpiece for AI.",
+      "The Pope will change his mind with Claude Opus 5.2",
+      "There&#x27;s an interesting parallel here with code generation. The best code written with AI assistance still requires someone who deeply understands what they&#x27;re building. The AI is a tool for expression, not a replacement for thought.<p>A homily written by someone who spent the week reflecting on their community&#x27;s struggles will always be more meaningful than a polished AI-generated one, even if the grammar is worse. The value of a sermon isn&#x27;t in the prose quality — it&#x27;s in the authenticity of someone who actually cares about the people listening.<p>Francis is basically saying: the medium is the message. If you outsource the thinking, you&#x27;re outsourcing the caring.",
+      "When you stop to think of it, historically people have told their secrets to the church, now they also tell them to AI. There is some kind of relation there, the power that people willingly give to an organization. The Ads are coming so I guess people will start to think about it a bit more.",
+      "Too bad Terry A. Davis is not around anymore. He would have been literally enraptured by LLMs.",
+      "The mind virus will not stop spreading, making corporations do your critical thinking is not a good path. People will become dependent on a subscription service for everyday life."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Bitmovin (YC S15) Is Hiring Interns in AI for Summer 2026 in Austria",
+    "url": "https://bitmovin.com/careers/8023403002/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: AI Timeline – 171 LLMs from Transformer (2017) to GPT-5.3 (2026)",
+    "url": "https://llm-timeline.com/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Misses a few interesting early models: GPT-J (by Eleuther, using gpt2 arch) was the first-ish model runnable on consumer hardware. I actually had a thing running for a while in prod with real users on this. And GPT-NeoX was their attempt to scale to gpt3 levels. It was 20b and was maybe the first glimpse that local models might someday be usable (although local at the time was questionable, quantisation wasn&#x27;t as widely used, etc).",
+      "This would be interesting if each of them had a high-level picture of the NN, &quot;to scale&quot;, perhaps color coding the components somehow. OnMouseScroll it would scroll through the models, and you could see the networks become deeper, wider, colors change, almost animated. That&#x27;d be cool.",
+      "Would be nice to see some charts and perhaps an average of the cycles with a prediction of the next one based on it",
+      "It misses almost every milestones, and lists Llama 3.1 as milestone. T5 was much bigger milestone than almost everything in the list.",
+      "Why is it hard in the times where AI itself can do it to add a light mode to those blacks websites!? There are people that just can&#x27;t read dark mode!",
+      "The models used for apps like Codex, are they designed to mimic human behaviour - as in they deliberately create errors in code that then you have to spend time debugging and fixing or it is natural flaw and that humans also do it is a coincidence?<p>This keeps bothering me, why they need several iterations to arrive at correct solution instead of doing it first time. The prompts like &quot;repeat solving it until it is correct&quot; don&#x27;t help.",
+      "Great site! I noticed a minor visual glitch where the tooltips seem to be rendering below their container on the z-axis, possibly getting clipped or hidden."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Pinterest is drowning in a sea of AI slop and auto-moderation",
+    "url": "https://www.404media.co/pinterest-is-drowning-in-a-sea-of-ai-slop-and-auto-moderation/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m a Kagi user so i genuinely forgot that Pinterest still exists.<p>Thank you, Kagi.",
+      "I had a Pinterest account back when there were genuinely great resource for niche things like Japanese graphic design.<p>Since then, I&#x27;ve moved to simply having a local image&#x2F;video database UI app like Eagle[0] and checking Are.na[1] for interesting collections.<p>[0] <a href=\"https:&#x2F;&#x2F;eagle.cool&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;eagle.cool&#x2F;</a>\n[1] <a href=\"https:&#x2F;&#x2F;www.are.na&#x2F;explore\" rel=\"nofollow\">https:&#x2F;&#x2F;www.are.na&#x2F;explore</a>",
+      "If you use google image search recently, it&#x27;s mostly Pinterest and Facebook.",
+      "I have to be honest and say that I have no sympathy for Pinterest and other services destroying themselves in the clamour to jam AI and feed algorithms into everything.<p>That they ever thought anyone would enjoy the experience is beyond me, and it demonstrates their place in the grotty suburbs of the attention economy.",
+      "And the world is drowning in more pinterest google image search spam.",
+      "Blizzard recently set up a World of Warcraft promotion with Pinterest where you could share your housing builds from in-game. Many people were insta-banned from Pinterest for &quot;spam&quot; after just posting one or two pictures.<p><a href=\"https:&#x2F;&#x2F;us.forums.blizzard.com&#x2F;en&#x2F;wow&#x2F;t&#x2F;pinterest-suspended-my-account-after-i-posted-with-the-wow-integration&#x2F;2256066&#x2F;100\" rel=\"nofollow\">https:&#x2F;&#x2F;us.forums.blizzard.com&#x2F;en&#x2F;wow&#x2F;t&#x2F;pinterest-suspended-...</a><p>Something is very broken over at Pinterest.",
+      "It&#x27;s a shame, I used to browse Pinterest for woodworking ideas. A year ago, I noticed some of the results were AI generated. Now almost ALL results are AI generated, included the obviously scammy ads they put in everywhere. If someone knows a place where you can find fun woodworking projects, I&#x27;m all ears.",
+      "Pinterest sucks.<p>You can create your private archive with Bookmarker.\nShare collections publicly if you want.<p><a href=\"https:&#x2F;&#x2F;bookmarker.cc&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;bookmarker.cc&#x2F;</a>",
+      "I also noticed recently they changed their design completely. Instead of browsing your board and the things you pinned in the past, what you&#x27;re now shown are completely unrelated items that you might want to add to your board, and most of these are things you can buy from other shopping sites.",
+      "“MAUs were 619 million, an increase of 12% compared to December 31, 2024” [1].<p>[1] <a href=\"https:&#x2F;&#x2F;www.sec.gov&#x2F;ix?doc=&#x2F;Archives&#x2F;edgar&#x2F;data&#x2F;1506293&#x2F;000150629326000021&#x2F;pins-20251231.htm#i98eaa356acb6471aa5e4a4c447b5adbe_52\" rel=\"nofollow\">https:&#x2F;&#x2F;www.sec.gov&#x2F;ix?doc=&#x2F;Archives&#x2F;edgar&#x2F;data&#x2F;1506293&#x2F;0001...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Man accidentally gains control of 7k robot vacuums",
+    "url": "https://www.popsci.com/technology/robot-vacuum-army/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; he soon discovered that the same credentials that allowed him to see and control his own device also provided access to live camera feeds, microphone audio, maps, and status data from nearly 7,000 other vacuums across 24 countries.<p>This is extremely similar to what I accidentally discovered and disclosed about Mysa smart thermostats last year: the <i>same credentials</i> could be used to access, inspect, and control <i>all</i> of them, anywhere in the world.<p>See <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=43392991\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=43392991</a>",
+      "As part of my thesis work almost 10 years ago I worked on a robot vacuum cleaner, (working on their sensor data) and one smart hardware implementation they had was that they had separated the computer vision module from the main board.<p>This way, only processed vision data would be physically sent to the main board. This constituted of mostly just &quot;line segments&quot;, almost like a sparse point cloud, to detect obstacles and edges. They argued that this was more privacy safe because there&#x27;s no way for the main module to access any raw vision data. It did however make the SLAM part harder to make work.<p>In hindsight, a good decision. I got one as a thank you for thesis work and it&#x27;s still running just fine (with battery and brushes replaced once) and good to know that with the years of software update it still can&#x27;t check me walking around in underwears in my apartment",
+      "Internet connections on devices are an anti feature to me. I need something to work reliably without internet. And then maybe add some extras through internet access through open and secure protocols, so I can always write my own implementation.",
+      "If one&#x27;s goal was to force companies to implement better security for their products, it would probably be more efficient to cause <i>maximum reputational damage</i> to the companies, instead of just &quot;responsibly disclosing&quot; vulnerabilities.<p>It would temporarily suck for consumers, having their devices exploited and their privacy abused, but it would lead to wider awareness of the problem, shaming of the companies, financial and legal pressure, and hopefully change things in the long run.<p>Disclaimer: This is not a call to action to do illegal things. Your decisions are your own.",
+      "For a brief, beautiful moment, one man came close to sucking more than any other person in human history.",
+      "About 10 years ago I was at a startup that used one of the upstart 401k providers of the time. Logged in one day and could see several of my coworkers’ accounts. Really bad class of bug. Still not clear to me how they could have screwed up account atomicity so poorly but assume it was something to do with how they managed orgs.<p>I was pretty mad about it but also tried to play ball and not make too much of a fuss because I learned some pretty private things without meaning to and didn’t want to inadvertently make them public.  Should have been more vocal.",
+      "Anyone who&#x27;s somewhat technically inclined should, in my opinion, only be buying valetudo [0] compatible vacuums and replacing the default software as soon as possible.<p>[0] <a href=\"https:&#x2F;&#x2F;valetudo.cloud&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;valetudo.cloud&#x2F;</a>",
+      "I have my Roomba programmed to start at 5pm every day. Multiple times now it&#x27;s come to life at 7pm, gone straight to my bedroom, stayed for for 5-10 minutes, then come back home to its dock and gone back to sleep. I have no idea what&#x27;s going on.",
+      "Due to the wonders of technology, you can now do the equivalent of the Steven Wright joke:<p>“In my house there&#x27;s this light switch that doesn&#x27;t do anything. Every so often I would flick it on and off just to check. Yesterday, I got a call from a woman in Germany. She said, &#x27;Cut it out.&#x27;”<p>At scale, over the Internet.",
+      "&gt; In order for the Romo, or really any modern autonomous vacuum, to function it needs to constantly collect visual data from the building it is operating in.<p>I specifically bought one without a camera or mic."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Google restricting Google AI Pro/Ultra subscribers for using OpenClaw",
+    "url": "https://discuss.ai.google.dev/t/account-restricted-without-warning-google-ai-ultra-oauth-via-openclaw/122778",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Additional information from Google employee <a href=\"https:&#x2F;&#x2F;x.com&#x2F;_mohansolo&#x2F;status&#x2F;2025766889205739899\" rel=\"nofollow\">https:&#x2F;&#x2F;x.com&#x2F;_mohansolo&#x2F;status&#x2F;2025766889205739899</a> :<p>&quot;We’ve been seeing a massive increase in malicious usage of the Anitgravity backend that has tremendously degraded the quality of service for our users. We needed to find a path to quickly shut off access to these users that are not using the product as intended. We understand that a subset of these users were not aware that this was against our ToS and will get a path for them to come back on but we have limited capacity and want to be fair to our actual users.&quot;",
+      "So the timeline is basically<p>* User uses Google oauth to integrate their open claw<p>* user gets banned from using Google AI services with no warning<p>* user still gets charged<p>If you go backwards, getting charged for services you can&#x27;t access is rough. I feel sorry for those who are deeply integrated into Google services or getting banned on their main accounts. It&#x27;s not a great situation.<p>Also, getting banned without warning is rough as well. I wonder if the situation will be different for business accounts as opposed what seems like personal accounts?<p>The ban itself seems fair though, google is allowed to restrict usage of their services. Even though it&#x27;s probably not developer friendly, it&#x27;s within their rights to do so.<p>I guess there&#x27;s some level of post mortem to do on the openclaw side too.<p>* Why did openclaw allow Google anti gravity logins?<p>* The plugin is literally called &quot;google-antigravity-auth&quot;, why didn&#x27;t that give the signal to the maintainers?<p>* Why don&#x27;t the maintainers, for an integration project, do due diligence checks on the terms of service of everything you&#x27;re integrating with?",
+      "This is draconian.<p>&gt; Our investigation specifically confirmed that the use of your credentials within the third-party tool “open claw” for testing purposes constitutes a violation of the Google Terms of Service [1]. This is due to the use of Antigravity servers to power a non-Antigravity product.\nI must be transparent and inform you that, in accordance with Google’s policy, this situation falls under a zero tolerance policy, and we are unable to reverse the suspension. I am truly sorry to share this difficult news with you.",
+      "I don&#x27;t know why people here can&#x27;t accept the simple fact that AI companies are offering cheap &quot;unlimited&quot; plans as a loss leader to tie you to their ecosystem, and then make up for it via add-ons, upsells, ads etc. If you use those API tokens to access external services it defeats the purpose. The hack may have worked so far, mainly because no one was checking, but they are all going to tighten the access eventually (as Anthropic and Google have already done).<p>Either stick to first party products or pay for API use.",
+      "Google&#x27;s Pro service (no idea about ultra and I have no intention to find out) is riddled with 429s. They have generous quotas for sure, but they really give you very low priority. For example, I still dont have access to Gemini 3.1 from that endpoint.\nIt&#x27;s completely uncharacteristic of Google.<p>I analyzed 6k HTTP requests on the Pro account, 23% of those were hit with 429s.  (Though not from Gemini-CLI, but from my own agent using code assist). The gemini-cli has a default retry backoff of 5s. That&#x27;s verifiable in code, and it&#x27;s a lot.<p>I dont touch the anti-gravity endpoint, unlike code-assist, it&#x27;s clear that they are subsidizing that for user acquisition on that tool. So perhaps it&#x27;s ok for them to ban users form it.<p>I like their models, but they also degrade. It&#x27;s quite easy to see when the models are &#x27;smart&#x27; and capacity is available, and when they are &#x27;stupid&#x27;. They likely clamp thinking when they are capacity strapped.<p>Yes the models are smart, but you really cant &quot;build things&quot; despite the marketing if you actively beat back your users for trying. I spent a decade at Google, and it&#x27;s sad to see how they are executing here, despite having solid models in gemini-3-flash and gemini-3.1",
+      "I&#x27;m very confused here. The monthly plans are meant to be used inside of Google&#x27;s walled garden, but people are somehow able to capture (?) and re-use the oAuth token?<p>Regardless, I thought it was pretty obvious that things like OpenClaw require an API account, and not a subsidized monthly plan.",
+      "This is the first time in recent memory that software has had high variable costs so the surprise at these rules is understandable.<p>In this case, a the difference in context cache hit rate between openclaw and antigravity.<p>For example if openclaw starts every message with the current time hh:mm:ss at the top of the context window, followed by the full convo history, it would have a cache hit rate if ~0. Simply moving the updated time to each new message incrementally would increase hit rate to over 90%. Idk if openclaw does this but there’s many many optimizations like this. And worse, thrashing the cache has non linear effects on the server as more and more users’ cached contexts get evicted from cache due to high cardinality. The cost to serve difference could be &gt;10x.<p>Google is the furthest behind on coding agent adoption and has all the incentives to allow off policy use to grow demand. But it would probably be better to design their own optimized openclaw and serve that for free than let any unoptimized requests in.",
+      "I don&#x27;t understand how this can be enforced without ridiculous levels of false positives. I&#x27;m truly baffled. The same with Claude Code situation.<p>gemini-cli, claude-code, codex etc, they ALL have a -p flag or equivalent, which is non-interactive IO interface for their LLM inference.<p>If I wire my tooling (or openclaw) to use the -p flag (or equivalents), is that allowed?<p>Okay, maybe they get rid of the -p flag and I have to use an interactive session. I can then just use OS IO tooling to wire OpenClaw with their cli. Is that allowed?<p>How does sending requests directly to the endpoints that their CLI is communicating with suddenly make their subsidized plans expensive? Is it because now I can actually use my 100% quota? If that&#x27;s so, does it mean their products are such that their profitability stands on people not using them?<p>What is even going on?",
+      "If you go to an all you can eat buffet, ignore the plates they give you, and start filling up your own takeaway boxes with days worth of food, you&#x27;d expect to be kicked out.<p>No one would think this is unreasonable. You&#x27;re not paying for unlimited food forever, you&#x27;re paying for all you can eat in the restaurant right there.",
+      "Of course Google can restrict how their API is accessed. But locking paid accounts with no warning, no explanation email, and no functioning support path while continuing to charge $249&#x2F;month is a different problem entirely. A reasonable enforcement process would have been a warning email, grace period to stop using the tool, then restriction.<p>What an awful way to lose trust, locking out their users but billing them all the same."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "How to train your program verifier",
+    "url": "https://risemsr.github.io/blog/2026-02-16-halleyyoung-a3/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "At a very quick look, no evidence is given that the &quot;bugs&quot; found in requests are in fact reachable, i.e. not prevented by construction. And sure enough, the very first one is impossible because of a validating guard[1]: `address_in_network` only gets called after `is_valid_cidr`, which enforces the presence of a slash.<p>I think we should hold claims about effective static analysis and&#x2F;or program verification to a higher standard than this.<p>[1]: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;psf&#x2F;requests&#x2F;blob&#x2F;4bd79e397304d46dfccd76f36c07f66c0295ff82&#x2F;src&#x2F;requests&#x2F;utils.py#L783-L784\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;psf&#x2F;requests&#x2F;blob&#x2F;4bd79e397304d46dfccd76f...</a>",
+      "What if you asked your favorite AI agent to produce mathematics at the level of Vladimir Voevodsky, Fields Medal-winning, foundation-shaking work but directed toward something the legendary Nikolaj Bjørner (co-creator of Z3) could actually use?<p>Well, you&#x27;d get this embarrassing mess, apparently.",
+      "I miss the days when humans submitted things they had done to this site, instead of generating long slop articles in 5 minutes: ‘LLM‑based code synthesis—while mind-numbingly effective—’ about slop code they generated in 5 minutes (or worse in hours) with foolish prompts:’Produce mathematics at the level of Vladimir Voevodsky, Fields Medal-winning, foundation-shaking work’.<p>Should we even read this or should we get an LLM to summarise it onto a few bullet points again?<p>This bit was interesting in  illuminating the human authors’ credulity (assuming they believe in their own article):<p>‘The central move was elegant:\nstop asking only “is the system safe?“, start asking “how far is it from safety?“‘<p>This ersatz profundity couched in a false opposition is common in generated text - does it have anything at all to do with the code generated or is it all just convincing bullshit?",
+      "[dead]",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Aqua: A CLI message tool for AI agents",
+    "url": "https://github.com/quailyquaily/aqua",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I feel like you could have repurposed existing tools.<p>A Matrix homeserver chatroom with messages delivered as JSON would give you most of this (E2EE rooms, identity, offline delivery)",
+      "This is very interesting and and it is Go, which makes it a good fit for an open-source tool I&#x27;ve been working on called Pantalk.<p>The idea behind Pantalk is to provide a local daemon and cli that agents can use to communicate with any messaging platform. The local protocol between the cli and the server is simple json which also makes it scriptable without the client.<p>The GitHub Repo: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;pantalk&#x2F;pantalk\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;pantalk&#x2F;pantalk</a><p>I love how these tools can compose into bigger systems without complicating things too much.",
+      "With the disclaimer that I haven&#x27;t tried to set up any kind of agent-to-agent messaging so it may be obvious to those who have, what&#x27;s the reason I would want something like this rather than just letting agents communicate over some existing messaging protocol that has a CLI (like, I don&#x27;t know, GPG email)?",
+      "I&#x27;d rename it; aqua is also a CLI version manager. <a href=\"https:&#x2F;&#x2F;aquaproj.github.io&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;aquaproj.github.io&#x2F;</a>",
+      "Ooh cool. I’ve been hacking on something very similar, <a href=\"https:&#x2F;&#x2F;qntm.corpo.llc&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;qntm.corpo.llc&#x2F;</a>. I’d love to compare notes — been thinking a lot about the group messaging side.",
+      "I wonder what something like rabbitmq could look like for this. Agents could subscribe to chosen topics. A topic per agent and then topics per relevant topic.",
+      "I&#x27;ve been using XMTP[1] and their agent SDK[2] for agent-to-agent and user-to-agent messaging. Since it&#x27;s the same network, you can reach other peoples&#x27; agents (and all users). Another huge advantage is you don&#x27;t have to stand up your own infrastructure.<p>[1]: <a href=\"https:&#x2F;&#x2F;xmtp.org&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;xmtp.org&#x2F;</a><p>[2]: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;xmtp&#x2F;xmtp-js\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;xmtp&#x2F;xmtp-js</a>",
+      "How does this relate to A2A?<p><a href=\"https:&#x2F;&#x2F;a2a-protocol.org&#x2F;latest&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;a2a-protocol.org&#x2F;latest&#x2F;</a>",
+      "So many primitives. All for the taking. Danke.",
+      "[flagged]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Rhythms the Compendium: Life aboard an aircraft carrier (2021)",
+    "url": "https://thelexicans.wordpress.com/2020/04/05/38223/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This is great. Gives a strong sense of the stress level of carrier operations.<p>It seems to be cut and pasted from somewhere else. Large blocks of text are duplicated. See [1] for one of five examples. Is there some place to read the original?<p>[1] <a href=\"https:&#x2F;&#x2F;thelexicans.wordpress.com&#x2F;2021&#x2F;10&#x2F;17&#x2F;part-x-a-blown-intercept&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;thelexicans.wordpress.com&#x2F;2021&#x2F;10&#x2F;17&#x2F;part-x-a-blown-...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "NanoClaw moved from Apple Containers to Docker",
+    "url": "https://twitter.com/Gavriel_Cohen/status/2025603982769410356",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "You don&#x27;t need to use OpenClaw, NanoClaw or any of these new variants. You can literally use Codex, Claude Code, Gemini, OpenCode for the same thing. The only thing that it is missing from all of them is the communication channels because none of them come with native communication tools like OpenClaw.<p>But this is not such a big deal.<p>I made an open-source lightweight daemon in Go that fills that gap. All it does is to provide the means to connect to popular messaging systems like Slack, Discord, WhatsApp, Telegram, etc. and expose this all through the CLI.<p>The project is hosted here: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;pantalk&#x2F;pantalk\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;pantalk&#x2F;pantalk</a><p>My personal realisation recently has been that the unix way is the best way. We just need to go back creating daemons and lightweight composable CLIs and let agents do their thing. They are increasing being trained to operate the command-line and they are getting pretty good at it.",
+      "&gt; But NanoClaw isn&#x27;t just my personal project anymore. Thousands of people are using it. People are running production workloads on it. Businesses are building on it. There&#x27;s a real community now.<p>as OpenClaw and now NanoClaw became &quot;enterprise&quot;, now we need a new FemtoClaw to pick up the indie&#x2F;boutique place",
+      "For my version of the AI assistant, I used a Docker container and Unix permissions:<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;skorokithakis&#x2F;stavrobot\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;skorokithakis&#x2F;stavrobot</a><p>All plugins run in one Docker container, but they&#x27;re isolated from each other by different *nix users, so they can&#x27;t read each other&#x27;s files. That&#x27;s much more lightweight, and you don&#x27;t have to run one container per plugin.<p>Crucially, plugins can&#x27;t read each other&#x27;s secrets or modify each other&#x27;s code. I even have a plugin configuration webpage that doesn&#x27;t go through an LLM, so the LLM never sees your secrets if you don&#x27;t want to.",
+      "Putting these NanoClowns inside a container will not protect you from all kinds of safety hazards.",
+      "I’ve been building sandboxing for Claude code workloads. So I can let it run wild without breaking my computer. Originally I used docker, but I’m now in the process of jettisoning that, and switching to qemu.<p>For my use case I want ssh access and being able to use docker in docker. This allows for things like test containers and docker compose. You can get all of that working with docker. But you kind of have to fight docker the whole way.<p>NanoClaw might have different needs, and docker could work better for it, and I hope so for their sake. But I’m not optimistic.",
+      "I can&#x27;t believe the solution is creating uncompatibile branch and forcing users to use cladue for resolving merge conflits. Why not bake in the dual compatibility?",
+      "Ironically, the whole &quot;claw&quot; thing reminds me of the time everyone was scrambling to get on the container orchestration bandwangon.",
+      "I&#x27;m surprised that the developer experience around sandboxing on macOS is generally so bad. Seatbelt is in limbo and apple containers are just a pain to work with as some have highlighted in this thread",
+      "Can someone explain the special sauce of the claws compared to just use claude.ai etc",
+      "Sensible, this broadens our hosting options."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A bug is a bug, but a patch is a policy: The case for bootable containers",
+    "url": "https://tuananh.net/2026/02/20/patch-is-policy/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "As part of a security team tasked with triaging endless CVSS scores that all make the assumption you are directly piping unauthenticated malicious data to the code in question, using whatever the worst way of doing it is, I approve of not giving misleading &quot;worst case&quot; CVSS scores.  They are almost never worst case, are frequently trivial, and suck up a huge amount of resource.<p>Glad to hear developers are also pushing back against the madness.  I do think just patching known bugs quickly is the best way to go.  Alternative might be some kind of AI assisted triage process.<p>EDIT: CVSS evaluates vulnerabilities in the context of the entire system.  It makes no sense to apply it to software components; you just don&#x27;t know what the solution actually looks like from down there.  So it&#x27;s just an inappropriate method to use in the first place.",
+      "I tried a lot to get this in reality - using fedora silverblue. But that thing sucks. It is slow. Really dogslow. Devs are blaming rpm-ostree or btrfs - no idea.  I wish there was something like <i>ChromeOS</i> but open.<p>Hint: Maybe firefox should pivot (re-do Firefox OS) to that.",
+      "&gt; Greg’s argument is a hard truth: “Usage is different for each user.” He cannot score a vulnerability because he doesn’t know if you’re running a cloud-native microservice or a legacy industrial controller.<p>What about having <i>several</i> use cases in mind, and give the scores for each of those?<p>&gt; We must stop litigating which fixes matter and start treating every kernel bug fix as relevant (a bug is a bug). We must stop running patching as a project and bake it into the pipeline so that applying stable fixes is simply what the system does (the patch is the policy).<p>Ah, so it&#x27;s simply &quot;apply all the fixes automatically&quot;, i.e. &quot;the Chainguard way&quot; but, again, fully automated. Okay?",
+      "I really don&#x27;t understand the argument being made, here, it genuinely feels nonsensical to me:<p>- it talks about <i>Kernel</i> CVEs while talking about a user-space tool (containers).<p>- with respect to a kernel bug, what&#x27;s the difference between updating&#x2F;downgrading a kernel container image (whatever that means) and just doing the same for the kernel installed on the machine? Unlike a whole distro&#x27; which is made out of many moving parts with complex (and brittle) interactions, where updating can break things in ways that cannot trivially be rolled back (which makes stateless containers a good idea <i>for user space</i>), the kernel  is pretty much a monolith and you can trivially switch between versions (even on a consumer Linux desktop you can use the previous kernel simply by selecting it in the grub list…)."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Spain’s LaLiga has blocked access to freedom.gov",
+    "url": "https://twitter.com/Pirat_Nation/status/2025643188321714642",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It’s sad that most comments are just focusing on political bashing instead of the root problem here.<p>It’s the fact LaLiga and Spanish ISPs comply.<p>They’re “carpet” blocking entire IPs of Cloudflare.<p>Every weekend if I need to access some of my work websites which are affected by this (while there are football games) - I need to VPN to bypass the blocking.<p>I’m new in Spain so my ability of surfacing the Spanish law or the European is limited. But I really wish they’ll have to find a nicer approach instead of this aggressive approach.",
+      "I have commented this in multiple occasions. What is happening here in Spain with LaLiga is just absurd. My company&#x27;s domain gets blocked often because we use CloudFlare. In essence, any service using CloudFlare gets blocked often. The main problem is that the common Joe tries to navigate and finds that it doesn&#x27;t work, and they blame their network, and when they come back two hours later after the game finished, the website works, so they move on. The only way for this to get resolved is if they blocked something critical and an accident happened because of that (e.g. hospital services, traffic control, or something like that). Eventually this will escalate to national courts (currently this was dictated by a regional court in Barcelona). But again, legal action is extremely slow. VPNs are becoming a must everywhere, because the Internet is becoming wild from all directions.",
+      "great website explaining the situation for anyone not familiar: <a href=\"https:&#x2F;&#x2F;hayahora.futbol\" rel=\"nofollow\">https:&#x2F;&#x2F;hayahora.futbol</a><p>(language switcher in the top right)",
+      "The most obvious outcome possible.I was never able to load the website myself, but if you centralize things to a specific website, it&#x27;s trivial to block it. Since I could never load the site, I don&#x27;t know if they had any plans outside of just putting up a website. If not, this was incredibly stupid.",
+      "For those wondering what is this freedom.gov thing, it was discussed here a few days ago: \n<a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47067270\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47067270</a>",
+      "Ignoring the disastrous policies of the Spanish government, I find it telling that this was the year when it finally became worth it to pay to VPN out of the US, and also the year when this freedom.gov propaganda thing launched.",
+      "FWIW, Vodafone ES still resolves freedom.gov fine via their own DNS resolver. They&#x27;re usually very block happy, can&#x27;t access Anna&#x27;s, TBP and also not Cloudflare during La Liga games normally, as some examples. But freedom.gov still resolves seemingly.<p>Can any other Spaniards confirm if freedom.gov still resolves for them?<p>As a side-note, I don&#x27;t know why anyone would want to block that website in the first place? Barely has any information about what it is, and doesn&#x27;t seem to be able to be used for anything as of today either.",
+      "Whe you realise the most culturally important things in Spain were dragonball and football this all starts to make more sense. I don’t know if this still is the case but it seems so.",
+      "It&#x27;s sad to see that, in Spain, the soccer mafia controls the country.",
+      "if Spain does that to protect LaLiga football games, god knows what they do against political rivals or movements such as Catalonia in 2017...or now?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Redefining the Software Engineering Profession for AI",
+    "url": "https://dl.acm.org/doi/10.1145/3779312",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I&#x27;m skeptical any public company is really going to have the strength to develop junior talent no matter how many experts say its important or what the long term consequences are. ShitCo A will slash headcount and see their stock go up 50%, investors &amp; VCs at ShitCo B will ask why aren&#x27;t we doing this and will soon follow. The same thing played out with all kinds of manufacturing industry jobs.<p>The track record in all industries for companies having well thought out plans to develop talent is pretty bad in the age of money. More likely they just fire the juniors, slowly lose seniors and pray for AGI to take over all coding. Maybe it does and they win, maybe it doesn&#x27;t and they start panic hiring after 5 years.",
+      "Mark Russinovich and Scott Hanselman are both prolific engineers and content creators.<p>Russinovich wrote SysInternals, which I remember using like 25 years ago to figure out what ran on startup.<p>Hanselman has a pretty popular podcast, Hanselminutes, that&#x27;s been running for years and years."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "We hid backdoors in ~40MB binaries and asked AI + Ghidra to find them",
+    "url": "https://quesma.com/blog/introducing-binaryaudit/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I know they said they didn&#x27;t obfuscate anything, but if you hide imports&#x2F;symbols and obfuscate strings, which is the bare minimum for any competent attacker, the success rate will immediately drop to zero.<p>This is detecting the pattern of an anomaly in language associated with malicious activity, which is not impressive for an LLM.",
+      "Shameless plug: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;akiselev&#x2F;ghidra-cli\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;akiselev&#x2F;ghidra-cli</a><p>I’ve been using Ghidra to reverse engineer Altium’s file format (at least the Delphi parts) and it’s insane how effective it is. Models are not quite good enough to write an entire parser from scratch but before LLMs I would have never even attempted the reverse engineering.<p>I definitely would not depend on it for security audits but the latest models are more than good enough to reverse engineer file formats.",
+      "The methodology debate in this thread is the most important part.<p>The commenter who says &quot;add obfuscation and success drops to zero&quot; is right but that&#x27;s also the wrong approach imo. The experiment isn&#x27;t claiming AI can defeat a competent attacker. It&#x27;s asking whether AI agents can replicate what a skilled (RE) specialist does on an unobfuscated binary. That&#x27;s a legitimate, deployable use case (internal audit, code review, legacy binary analysis) even if it doesn&#x27;t cover adversarial-grade malware.<p>The more useful framing: what&#x27;s the right threat model? If you&#x27;re defending against script kiddies and automated tooling, AI-assisted RE might already be good enough. If you&#x27;re defending against targeted attacks by people who know you&#x27;re using AI detection, the bar is much higher and this test doesn&#x27;t speak to it.<p>What would actually settle the &quot;ready for production&quot; question: run the same test with the weakest obfuscation that matters in real deployments (import hiding, string encoding), not adversarial-grade obfuscation. That&#x27;s the boundary condition.",
+      "GPT is impressive with a consistent 0% false positive rate across models, yet its ability to detect is as high as 18%. Meanwhile Claude Opus 4.6 is able to detect up to 46% of backdoors, but has a 22% false positive rate.<p>It would be interesting to have an experiment where these models are able to test exploiting but their alignment may not allow that to happen. Perhaps combining models together can lead to that kind of testing. The better models will identify, write up &quot;how to verify&quot; tests and the &quot;misaligned&quot; models will actually carry out the testing and report back to the better models.",
+      "&gt;While end-to-end malware detection is not reliable yet, AI can make it easier for developers to perform initial security audits. A developer without reverse engineering experience can now get a first-pass analysis of a suspicious binary. [...] The whole field of working with binaries becomes accessible to a much wider range of software engineers. It opens opportunities not only in security, but also in performing low-level optimization, debugging and reverse engineering hardware, and porting code between architectures.<p>THIS is the takeaway. These tools are allowing *adjacency* to become a powerful guiding indicator. You don&#x27;t need to be a reverser, you can just understand how your software works and drive the robot to be a fallible hypothesis generator in regions where you can validate only some of the findings.",
+      "&gt; The executables in our benchmark often have hundreds or thousands of functions — while the backdoors are tiny, often just a dozen lines buried deep within. Finding them requires strategic thinking: identifying critical paths like network parsers or user input handlers and ignoring the noise.<p>Perhaps it would make sense to provide LLMs with some strategy guides written in .md files.",
+      "See direct benchmark link: <a href=\"https:&#x2F;&#x2F;quesma.com&#x2F;benchmarks&#x2F;binaryaudit&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;quesma.com&#x2F;benchmarks&#x2F;binaryaudit&#x2F;</a><p>Open-source GitHub: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;QuesmaOrg&#x2F;BinaryAudit\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;QuesmaOrg&#x2F;BinaryAudit</a>",
+      "The fact that Gemini returns the highest rate of fake positives aligns with my experience using the Gemini models. I use ChatGPT, Claude and Gemini regularly and Gemini is clearly the most sycophantic of the three. If I ask those three models to evaluate something or estimate odds of success, Gemini always comes back with the rosiest outlook.<p>I had been searching for a good benchmark that provided some empirical evidence of this sycophancy, but I hadn&#x27;t found much. Measuring false positives when you ask the model to complete a detection related task may be a good way of doing that.",
+      "I&#x27;m not an expert but about false positives: why not make the agent attempt to use the backdoor and verify that it is actually a backdoor? Maybe give it access to tools and so on.",
+      "the opus 4.6 &quot;found it and talked itself out of it&quot; pattern is something i see constantly in my own work with these models. the best ones are smart enough to identify the signal but also smart enough to rationalize it away.<p>this is why human oversight in the loop matters so much even when using frontier models. the model is a hypothesis generator, not the decision maker. i&#x27;ve found the same thing building content pipelines -- the expensive models (opus 4.6 etc) genuinely produce better first-pass output, but you still can&#x27;t trust them end to end. the moment you remove human review the quality craters in subtle ways you only notice later.<p>the multi-agent approach someone mentioned above (one model flags, another validates) is interesting but adds complexity. simpler to just have the human be the validation layer."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: ZuckerBot. API and MCP server for AI agents to run Meta/Facebook ads",
+    "url": "https://zuckerbot.ai/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: TLA+ Workbench skill for coding agents (compat. with Vercel skills CLI)",
+    "url": "https://github.com/younes-io/agent-skills/tree/main/skills/tlaplus-workbench",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I built a TLA+ skill for coding-agent workflows.<p>This repo currently focuses on one skill: tlaplus-workbench. It helps convert natural-language designs into .tla&#x2F;.cfg files, run TLC, and summarize counterexamples.<p>Quick try:\nnpx -y skills add younes-io&#x2F;agent-skills --skill tlaplus-workbench<p>List skills from a local checkout:\nnpx -y skills add . --list<p>TLA+ spec examples (generated from one-shot prompts):\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;younes-io&#x2F;tlaplus-workbench-examples\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;younes-io&#x2F;tlaplus-workbench-examples</a><p>Feedback I&#x27;d value:\n1. Is this useful for real protocol&#x2F;state-machine modeling?\n2. What features should I add next for this TLA+ skill?",
+      "Do you think it helps with the systems reasoning? Are there many tla+ specs + real code bases for the llm to learn from?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The power of daily rituals (2021)",
+    "url": "https://www.bbc.com/future/article/20210914-how-rituals-help-us-to-deal-with-uncertainty-and-stress",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Every morning for the past 14 months or so I&#x27;ve sat down at my desk with a cup of coffee and spent ~20 minutes writing out a page of thoughts in my Hobonichi Techo journal with my trusty Pilot Metropolitan fountain pen. I try to write plainly and honestly about whatever pops into my head, and before I know it, I&#x27;m done.<p>It hasn&#x27;t been super life changing, but I do enjoy doing it. Sometimes during the course of the day I&#x27;ll think back about an aspiration I had that morning, and actually do something I might not have done otherwise.<p>About a year into this practice my hand started hurting a bit, so I&#x27;ve slowly trained myself to write using the muscles in my arm and shoulder rather than moving the muscles in my hand. My handwriting quality took a nose-dive in the short term, but my hand stopped hurting and I have moments now where my cursive looks nearly as good as it used to.",
+      "I used to play Counterstrike competitively, and it&#x27;s become commonly known that pre-match routines can help a lot with consistency. Often something as simple as warming up for 30 minutes in an offline server with bots.<p>Some of the benefits are physical, you&#x27;re literally warming up the muscles in your hand and arm, but it also has psychological benefits. If for instance you&#x27;re nervous about the upcoming match, going through the warmup puts your mind in a context of &quot;alright, we&#x27;ve done this a thousand times before, nothing new, just got to go through the motions&quot;. It also removes noise from your mind as your attention is going into the warmup instead of overthinking the task ahead.<p>I think there&#x27;s a predictive phenomenon in the brain which primes us for activities when the precursors are present. For instance, working at home versus at the office - my experience has been that the simple act of physically going to the office puts me in a better emotional state to get to work than staying at home, almost like during that process it&#x27;s killed the tasks associated with home and booted up the ones associated with work.",
+      "Show and tell daily helpful rituals?  Here&#x27;s mine:<p>I shower before bed and put out my clothes for the next day before bed.  When I wake up, I roll out of bed into a predetermined outfit and not have to waste precious pre-coffee clock cycles picking one out.",
+      "My work ritual every morning:<p>1. Power on laptop (it is powered off every day at 5 PM).<p>2. Log into VPN.<p>3. Log into Okta.<p>4. Log into AWS accounts, one per container (about 7 or 8).<p>5. Log into Docker Desktop.<p>6. Log into AWS CLI to get daily credentials.<p>The whole thing takes about 3-4 minutes.  A former colleague referred to this as my &quot;mise en place&quot;, or my daily arranging of my working environment.  Like the article suggests, I find this offers me a &quot;centering&quot; before I open my email, calendar and missed chat messages and get started for the day.",
+      "1. make coffee<p>2. sun isn&#x27;t out yet, so read a book for a while<p>3. make second coffee as it starts to get lighter outside<p>4. walk in the garden with second cup of coffee<p>5. fire up my computer and start checking messages",
+      "n=1 but they help me hit flow states. almost like they provide &#x27;context&#x27; before x, helping me to &#x27;prepare&#x27; (or be ready?), filter out the noise, focus. similar in group setting - shared context.<p>i suppose could be &#x27;placebo&#x27; but would it matter if the result is what i want, and i can&#x27;t easily attain it other ways?<p>i do feel it is somewhat of a self-fulfilling prophecy - i am essentially practicing something so getting better at it. not enough reason though to &#x27;practice&#x27; an alternative, at least for me personally.",
+      "This article sounds like it&#x27;s written from the perspective of alien artificial intelligences discovering humanity",
+      "friction makes rituals stick. if opening instagram takes 2 seconds instead of zero, that pause is where the ritual lives. you notice the choice instead of autopilot. works for building good habits too - the slowdown creates space for intention",
+      "I always feel a little jealous of religious people when they do these things.<p>I guess us secularised, atomised people should just make our own.",
+      "Broke up into 2 groups, the first asked to perform some ritual vs the control.<p>The control were actually placed in what my high school described as detention. Sit still and relax for 30 minutes.<p>Did they measure how much rituals chill you out or how much stewing in your own juices for 30 mins makes you uncomfortable?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: A portfolio that re-architects its React DOM based on LLM intent",
+    "url": "https://pramit-mandal-ai.netlify.app/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<i>&quot;…I don&#x27;t just deploy software; I architect the adoption ecosystems that turn complex PLM systems into scalable business assets.&quot;</i><p>It&#x27;s shocking how fast this phrasing has become a red flag for AI slop."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Top '28 Dems retreat on AI – sign of rising backlash",
+    "url": "https://www.axios.com/2026/02/22/democrats-2028-retreat-ai-data-centers",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Predictable if you follow the economics.<p>The scaling thesis behind all this buildout is looking shaky (to say the least), smaller models keep closing the gap on the big ones. Meanwhile voters are watching their electricity bills go up and blaming whoever approved the permits.<p>Wrote about this: <a href=\"https:&#x2F;&#x2F;philippdubach.com&#x2F;posts&#x2F;the-most-expensive-assumption-in-ai&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;philippdubach.com&#x2F;posts&#x2F;the-most-expensive-assumptio...</a>",
+      "Let&#x27;s hope the politicians come around to the climate polluters like the oil and gas industry one day. Hopefully, denying data centers will do the trick though. I mean, the voters really don&#x27;t like data centers and have well informed opinions about AI.",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "How the Dunning-Kruger Effect Impairs Judgement in High-Risk Professions",
+    "url": "https://www.jsr.org/hs/index.php/path/article/view/5623",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The Dunning-Kruger Effect is Autocorrelation (2022)<p><a href=\"https:&#x2F;&#x2F;economicsfromthetopdown.com&#x2F;2022&#x2F;04&#x2F;08&#x2F;the-dunning-kruger-effect-is-autocorrelation&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;economicsfromthetopdown.com&#x2F;2022&#x2F;04&#x2F;08&#x2F;the-dunning-k...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Building a (Bad) Local AI Coding Agent Harness from Scratch",
+    "url": "https://www.appsoftware.com/blog/building-a-bad-local-ai-coding-agent-harness-from-scratch",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "A walk-through of how we built a terminal-based coding agent in ~400 lines of vanilla Node.js, running entirely on a local GPU with no cloud dependencies and no npm packages.",
+      "[flagged]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Amazon, Meta, Alphabet report plunging tax bills thanks to AI and tax changes",
+    "url": "https://finance.yahoo.com/news/amazon-meta-and-alphabet-report-plunging-tax-bills-thanks-to-ai-investment-and-new-rules-in-washington-161229652.html",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "<a href=\"https:&#x2F;&#x2F;static01.nyt.com&#x2F;images&#x2F;2025&#x2F;04&#x2F;03&#x2F;multimedia&#x2F;00biz-tech-trump-1-vpqj&#x2F;00biz-tech-trump-1-vpqj-articleLarge.jpg\" rel=\"nofollow\">https:&#x2F;&#x2F;static01.nyt.com&#x2F;images&#x2F;2025&#x2F;04&#x2F;03&#x2F;multimedia&#x2F;00biz-...</a>",
+      "Yes obviously this would be the case. They&#x27;re taxes on income, not revenue. If they decide to invest in the future, it eats into their income.",
+      "Sad. What we need is higher taxes on the largest and most powerful corporations and lower taxes for small business and startups so they can compete fairly. This just extends the reign of the corporate oligarchs."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Yet Another Fix Coming for Older AMD GPUs on Linux – Thanks to Valve Developer",
+    "url": "https://www.phoronix.com/news/Hawaii-Macs-AMDGPU-DC-Fix",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I don’t think I ever could have predicted any time earlier than the past few years that Valve would be the one to cook Microsoft’s goose. I know this story isn’t about Windows, but this is a bit like finding cougar paw prints outside your cabin in the morning. The trouble hasn’t found you yet but it’s there, and it’s getting close.<p>Valve fixing Linux issues feels like pawprints.",
+      "Slightly unrelated but the gaming performance improvement of the Linux 6.19 release over it&#x27;s release candidates was huge. I want to say thanks to now having a canonical open source driver that just compounds and accumulates improvements over time.",
+      "Valve is 1% the size of AMD.<p>Just think about that for a second.",
+      "Which is why I never buy ATI cards ever again."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Met police using AI tools supplied by Palantir to flag officer misconduct",
+    "url": "https://www.theguardian.com/uk-news/2026/feb/22/met-police-ai-tools-officer-misconduct-palantir",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; The Police Federation, which represents rank-and-file officers, criticised the approach as “automated suspicion”. It said: “Officers must not be subjected to opaque or untested tools that risk misinterpreting unsustainable workload pressures, sickness or overtime as indicators of wrongdoing.”<p>Oh so when they target police officers these measures are questioned, but when police departments deploy them to spy on the general populace I guess its fine...",
+      "Reminds me of the plot of <i>Ghost in the Shell: Stand Alone Complex</i> (2002). Hopefully Met police will not find themselves in a situation where they have to investigate Palantir or Palantir&#x27;s interests.",
+      "Sure have been quite a few heartwarming submarine stories lately trying to talk up all the good Palantir does for the world.",
+      "Well isn’t that heartwarming.",
+      "Paywall from Germany it seems"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "A 26-Gram Butterfly-Inspired Robot Achieving Autonomous Tailless Flight",
+    "url": "https://arxiv.org/abs/2602.06811",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  }
+]
