@@ -1,0 +1,519 @@
+[
+  {
+    "title": "A distributed queue in a single JSON file on object storage",
+    "url": "https://turbopuffer.com/blog/object-storage-queue",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Several things going on here:<p>- concurrency is very hard<p>- .. but object storage &quot;solves&quot; most of that for you, handing you a set of semantics which work reliably<p>- single file throughput sucks hilariously badly<p>- .. because 1Gb is ridiculously large for an atomic unit<p>- (this whole thing resembles a project I did a decade ago for transactional consistency on TFAT on Flash, except that somehow managed faster commit times despite running on a 400Mhz MIPS CPU. Edit: maybe I should try to remember how that worked and write it up for HN)<p>- therefore, all of the actual work is shifted to the broker. The broker is just periodically committing its state in case it crashes<p>- it&#x27;s not clear whether the broker ACKs requests before they&#x27;re in durable storage? Is it possible to lose requests in flight anyway?<p>- there&#x27;s a great design for a message queue system between multiple nodes that aims for at least once delivery, and has existed for decades, while maintaining high throughput: SMTP. Actually, there&#x27;s a whole bunch of message queue systems?",
+      "The usual path an engineer takes is to take a complex and slow system and reengineer it into something simple, fast, and wrong. But as far as I can tell from the description in the blog though, it actually works at scale! This feels like a free lunch and I’m wondering what the tradeoff is.",
+      "The original graph appears to simply show the blocking issue of their previous synchronisation mechanism; 10 min to process an item down to 6 min. Any central system would seem to resolve this for them.<p>In any organisation its good to make choices for simplicity rather than small optimisations - you&#x27;re optimising maintenance, incident resolution, and development.<p>Typically I have a small pg server for these things. It&#x27;ll work out slightly more expensive than this setup for one action, yet it will cope with so much more - extending to all kinds of other queues and config management - with simple management, off the shelf diagnostics etc.<p>While the object store is neat, there is a confluence of factors which make it great and simple for this workload, that may not extend to others. 200ms latency is a lot for other workloads, 5GB&#x2F;s doesn&#x27;t leave a lot of headroom, etc. And I don&#x27;t want to be asked to diagnose transient issues with this.<p>So I&#x27;m torn. It&#x27;s simple to deploy and configure from a fresh deployment PoV. Yet it wouldn&#x27;t be accepted into any deployment I have worked on.",
+      "This post touches on a realisation I made a while ago, just how far you can get with the guarantees and trade-offs of object storage.<p>What actually _needs_ to be in the database? I&#x27;ve never gone as far as building a job queue on top of object storage, but have been involved in building surprisingly consistent and reliable systems with object storage.",
+      "Depending on who hosts your object storage this seems like it could get much more expensive than using a queue table in your database? But I&#x27;m also aware that this is a blog post of an object storage company.",
+      "Is this reinventing a few redis features with an object storage for persistence?",
+      "that&#x27;s A choice."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: enveil – hide your .env secrets from prAIng eyes",
+    "url": "https://github.com/GreatScott/enveil",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The real problem isn&#x27;t just the .env file — it&#x27;s that secrets leak through so many channels. I run a Node app with OAuth integrations for multiple accounting platforms and the .env is honestly the least of my worries. Secrets end up in error stack traces, in debug logs when a token refresh fails at 3am, in the pg connection string that gets dumped when the pool dies.<p>The surrogate credentials + proxy approach mentioned above is probably the most robust pattern. Give the agent a token that maps to the real one at the boundary. That way even if the agent leaks it, the surrogate token is scoped and revocable.<p>For local dev with AI coding assistants, I&#x27;ve settled on just keeping the .env out of the project root entirely and loading from a path that&#x27;s not in the working directory. Not bulletproof but it means the agent has to actively go looking rather than stumbling across it.",
+      "Alternative, and more robust approach is to give the agent surrogate credentials and replace them on the way out in a proxy. If proxy runs in an environment to which agent has no access to, the real secrets are not available to it directly; it can only make requests to scoped hosts with those.<p>I’ve built this in Airut and so far seems to handle all the common cases (GitHub, Anthropic &#x2F; Google API keys, and even AWS, which requires slightly more work due to the request signing approach). Described in more detail here: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;airutorg&#x2F;airut&#x2F;blob&#x2F;main&#x2F;doc&#x2F;network-sandbox.md#masked-secrets-token-replacement\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;airutorg&#x2F;airut&#x2F;blob&#x2F;main&#x2F;doc&#x2F;network-sand...</a>",
+      "Does this actually work?<p>I assume an AI which wanted to read a secret and found it wasn&#x27;t in .env would simply put print(os.environ) in the code and run it...<p>That&#x27;s certainly what I do as a developer when trying to debug something that has complex deployment and launch scripts...",
+      "In Claude Code I think I can solve this with simply a rule + PreToolUse hook. The hook denies Reading the .env, and the rule sets a protocol of what not do to, and what to do instead :`$(grep KEY_NAME ~&#x2F;.claude&#x2F;secrets.env | cut -d= -f2-)`.<p>When would something like that not work?",
+      "<a href=\"https:&#x2F;&#x2F;github.com&#x2F;getsops&#x2F;sops\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;getsops&#x2F;sops</a><p>This software has done this for years",
+      "This suffers from all the usual flaws of env variable secrets. The big one being that any other process being run by the same user can see the secrets once “injected”. Meaning that the secrets aren’t protected from your LLM agent at all.<p>So really all you’re doing is protecting against accidental file ingestion. Which can more easily be done via a variety of other methods. (None of which involve trusting random code that’s so fresh out of the oven its install instructions are hypothetical.)<p>There are other mismatches between your claims &#x2F; aims and the reality. Some highlights: You’re not actually zeroizing the secrets. You call `std::process::exit()` which bypasses destructors. Your rotation doesn’t rotate the salt. There are a variety of weaknesses against brute forcing. `import` holds the whole plain text file in memory.<p>Again, none of these are problems in the context of just preventing accidental .env file ingestion. But then why go to all this trouble? And why make such grand claims?<p>Stick to established software and patterns, don’t roll your own. Also, don’t use .env if you care about security at all.<p>My favorite part: I love that “wrong password returns an error” is listed as a notable test. Thanks Claude! Good looking out.",
+      "I must have missed some trends changing in the last decade or so. People have production secrets in the open on their development machines?<p>Or what type of secrets are stored in the local .env files that the LLM should not see?<p>I try to run environments where developers don&#x27;t get to see production secrets at all. Of course this doesn&#x27;t work for small teams or solo developers, but even then the secrets are very separated from development work.",
+      "Ive made different solution for my Laravel projects, saving them to the db encrypted. So the only thing living in the .env is db settings. 1 unencrypted record in the settings table with the key.<p>Won&#x27;t stop any seasoned hacker but it will stop the automated scripts (for now) to easily get the other keys.",
+      "Isn’t something like Keyring library better ? Not that any of this would protect against AI if the agent is really after it."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Goodbye InnerHTML, Hello SetHTML: Stronger XSS Protection in Firefox 148",
+    "url": "https://hacks.mozilla.org/2026/02/goodbye-innerhtml-hello-sethtml-stronger-xss-protection-in-firefox-148/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Steerling-8B, a language model that can explain any token it generates",
+    "url": "https://www.guidelabs.ai/post/steerling-8b-base-model-release/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "So maybe one day we&#x27;ll see coding agents like Claude Code create and update an ATTRIBUTION.md, citing all the open source projects and their licenses used to generate code in your project?",
+      "Looks neat and original, congrats!<p>I don&#x27;t quite grasp how to interpret the training data attribution process. For example, it seems to say that for a given sentence like &quot;They argued that humans tend to weigh losses more heavily than gains, leading to risk aversion&quot;, 24% is attributed to Wikipedia and 23% to Arxiv.<p>Does that mean that the concepts used in this sentence are also found in those datasets, and that&#x27;s what&#x27;s getting compared here? Or does it mean that you can track down which parts of the training data were interpolated to create that sentence?",
+      "Most interpretability methods fail for LLMs because they try to explain outputs without modeling the intent, constraints, or internal structure that produced them.\nToken‑level attribution is useful, but without a framework for how the model reasons, you’re still explaining shadows on the wall.",
+      "Also featured on TechCrunch: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47129292\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47129292</a>",
+      "Seems pretty cool. You can simply block the concept of tiananmen square and it will be permanently removed from the brain. Ideal.",
+      "It&#x27;s a neat party trick, but explainability it&#x27;s not solution to any AI safety issue I care about. It&#x27;s a distraction from real problems, which is everything else around the model. The inflexible bureaucratic systems that make it hard to exercise rights and deflect accountability.",
+      "Just wanted to say i think most interpretability research it&#x27;s just a smoke show nowadays but this is actually the first one that i think has a very serious potential. I love that the SAE is actually constrained and not just slapped unsupervised posthoc.<p>How granular can you get the source data attribution? Down to individual let&#x27;s say Wikipedia topics? Probably not urls?<p>Would be interested to see this scale to 30&#x2F;70b",
+      "Always happy to see improvements on explanable LLMs. Congrats!",
+      "This seems really interesting. While Anthropic tried to use dictionary learning over an existing model to try to extract concepts, this almost feels like training the model alongside the dictionary itself (or rather, the model and the dictionary are intertwined).",
+      "Looks very interesting. Can you comment on why you think this model can give comparable performance with less training data?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Firefox 148 Launches with AI Kill Switch Feature and More Enhancements",
+    "url": "https://serverhost.com/blog/firefox-148-launches-with-exciting-ai-kill-switch-feature-and-more-enhancements/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Please let whoever steers Thunderbird development and road map also steer Firefox.<p>Thunderbird is at the moment the pinnacle of user-centered, focused and down-to-earth development of open-source software.",
+      "The page seems to be a copy from the original Mozilla press release from February 2nd: <a href=\"https:&#x2F;&#x2F;blog.mozilla.org&#x2F;en&#x2F;firefox&#x2F;ai-controls&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;blog.mozilla.org&#x2F;en&#x2F;firefox&#x2F;ai-controls&#x2F;</a><p>It was discussed here: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46858492\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46858492</a>",
+      "This is great news. I recently updated AMD Adrenalin, and the &quot;minimal&quot; version doesn&#x27;t let you change the distribution of unified RAM on Strix Halo. I installed the &quot;full&quot; version, and it wanted me to install a 10GB &quot;local AI assistant&quot; to &quot;help&quot; me configure it. When I opened the program, it showed me a non-dismissable fake chat that occupied 25% of the screen, prompting me to click it and replace it with a real one.<p>I remember when every other software prompted you to install Bonzi Buddy or some other intrusive search bar. This AI push is even worse.",
+      "Where are the AI features in Firefox? Looking around right now the only one I see is right click tab -&gt; Summarize page (NEW). I googled a bit and see they have some grouping of tabs feature I&#x27;ve never used&#x2F;seen (or want). The only other maybe AI feature I remember seeing is the odd left hand bar that is there on fresh installs and I usually remove to declutter.<p>Are those the features this kill switch removes or was there a deeper issue here?",
+      "Firefox already captured the developer audience, and it wasn&#x27;t enough. So they pivoted to whatever they thought of to increase mainstream adoption. That is really alienating that developer audience though.",
+      "In addition to completely disabling AI, I found the following setting extremely convinent to disable in about:config. They clutter up my right-click on a link or on text selection.<p><pre><code>  browser.translations.select.enable\n  dom.text_fragments.enabled\n  privacy.query_stripping.strip_on_share.enabled\n  devtools.accessibility.enabled\n</code></pre>\nNow if only I could get rid of &quot;Print selection&quot; and &quot;Services&quot; when right-clicking, too (on MacOS)",
+      "Good. I was fearing Firefox would also end up having too many AI-Features i do not want. But switching to Chromium-Browsers isnt an option anyways because of their Manifest V3 extension model. Restricting blockers? Whats next?",
+      "This just blocks AI features within Firefox.<p>The feature I would really want here is a switch that blocks AI summaries, overviews, etc. on any websites you browse.",
+      "Probably not enough for AI haters, we need separate executables with kill switch already triggered!",
+      "Ironically, I bet that a significant majority of the users that turn on the AI kill switch — which <i>must</i> have some kind of phone-home telematics attached — will also be users who have disabled Firefox metrics collection and so will not have their opinion counted.<p>So, the <i>most</i> effective path here for y’all to be heard is <i>not</i> flipping the switch off yourself (do so anyways!) — anyone who cares at this stage has probably opted out of being counted already, after all — but <i>instead</i> to ensure that news of this switch spreads to absolutely as <i>many</i> non-tech people as possible. Don’t argue that they should run some script that shuts off their metrics and phone home and updates. Just convince them to shut off the AI and explain that this is why their browser got slow about a year ago! They’ll flip off the switch gleefully, their phone-home will count them, and y’all will have the strongest possible impact on the telematics graphs at Mozilla.<p>I already ran the disable process manually on the computers I have friends and family IT duties towards, so I’ll go back and do the AI switch to be sure it’s counted next week. Yes, this is a crap way to be heard. But making a mark on feature opt-out graphs is probably the only hope we have left to get their executive leadership to stop drowning the browser for its own good."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Making Wolfram tech available as a foundation tool for LLM systems",
+    "url": "https://writings.stephenwolfram.com/2026/02/making-wolfram-tech-available-as-a-foundation-tool-for-llm-systems/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "There&#x27;s a lot of value in the implementation of many strong and fast algeorithms in computer algebra in proprietary tools such as Maple, Wolfram, Matlab. However, I (though of course believe that such work needs to be compensated) find it against the spirit of science to keep them from the general public. I think it would be good service to use AI tools to bring open source alternatives like sympy and sage and macaulay to par. There&#x27;s really A LOT of cool algorithms missing (most familiar to me are some in computational algebraic geometry)<p>Additionally I think because of how esoteric some algorithms are, they are not always implemented in the most efficient way for today&#x27;s computers. It would be really nice to have better software written by strong software engineers who also understands the maths for mathematicians. I hope to see an application of AI here to bring more SoTA tools to mathematicians--I think it is much more value than formalization brings to be completely honest.",
+      "My first thought on CAG was that it sounds a bit like bolting on an MCP server onto SymPy (AFAIK, the closest OSS thing to Mathematica). And it turns out someone has already done that.<p><a href=\"https:&#x2F;&#x2F;www.stephendiehl.com&#x2F;posts&#x2F;computer_algebra_mcp&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.stephendiehl.com&#x2F;posts&#x2F;computer_algebra_mcp&#x2F;</a>",
+      "I agree, but to be truly foundational, it needs to be open source and accessible for everyone!<p>That’s why I’m working on an open source implementation of Mathematica (i.e. an Wolfram Language interpreter):<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;ad-si&#x2F;Woxi\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;ad-si&#x2F;Woxi</a>",
+      "There&#x27;s a great discussion with Stephen Wolfram on the Sean Carroll podcast.  Listening to it made me think very highly of Wolfram.  He&#x27;s a free thinking, eccentric, mathematician, scientist; who got started doing serious work at a very young age.  He still has a youthful creative approach to thought and science.  I hope LLMs do pair well with his tools.",
+      "the real value proposition here is correctness guarantees that LLMs fundamentally cant provide. when an LLM says 2+2=4 it arrived there statistically, not computationally. for anything safety-critical - engineering tolerances, drug dosage calculations, financial modeling - you want a deterministic engine producing the answer and the LLM just translating between human intent and formal queries.<p>the CAG framing is clever marketing but the underlying idea is sound: treat the LLM as a natural language interface to a computational kernel rather than the computation itself. weve been doing something similar with python subprocess calls from agent pipelines and it works well. the question is whether wolfram language offers enough over python+scipy+sympy to justify the licensing cost and ecosystem lock-in.",
+      "Every time I go to purchase a hobby license for Wolfram &#x2F; Mathematica I give up because their product offering is the most convoluted i&#x27;ve seen in my life.<p>Why can&#x27;t I just pay some price and get the entire bundle of Wolfram One Cloud + API calls + LLM Assistant + This new MCP access + Mathematica?<p>I need to buy 5 different things - and how does that look for me the user, I need 5 different binaries?<p>They really should sort that out, I know they are losing money because of this.\nI emailed their support once and ended up getting more confused.",
+      "LLMs using code to answer questions is nothing new, it&#x27;s why the &quot;how many Rs in strawberry&quot; question doesn&#x27;t trip them up anymore, because they can write a few lines of Python to answer it, run that, and return the answer.<p>Mathematica &#x2F; Wolfram Language as the basis for this isn&#x27;t bad (it&#x27;s arguably late), because it&#x27;s a highly integrated system with, in theory, a lot of consistency. It should work well.<p>That said, has it been designed for sandboxing? A core requirement of this &quot;CAG&quot; is sandboxing requirements. Python isn&#x27;t great for that, but it&#x27;s possible due to the significant effort put in by many over years. Does Wolfram Language have that same level? As it&#x27;s proprietary, it&#x27;s at a disadvantage, as any sandboxing technology would have to be developed by Wolfram Research, not the community.",
+      "Every major technological invention nowadays quickly breeds open source clones that evolve to be on par with the commercial ones on some time scale. Why hasn&#x27;t this happened to Wolfram Alpha&#x2F;Mathematica? I know there&#x27;s Sympy, but it&#x27;s so far behind Mathematica that it&#x27;s not even comparable. Is the heavily mathematical nature of the tool somehow an insurmountable obstacle to the open source community?",
+      "The blog post would have been more effective with a specific example of what it solves, a demo, or at least some anecdotes of what this has already solved via these integrations.  As it stands, it comes off rather self-aggrandizing and a bit desperate, as though Wolfram tech perceives itself as threatened to remain relevant.",
+      "I like Mathematica and use it regularly. But I did not see any benefits of using it over python as a tool that Claude Code can use. Every script it produced in wolfram was slower with worse answers than python. Wolfram people are really trying but so far the results are not very good."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "“Car Wash” test with 53 models",
+    "url": "https://opper.ai/blog/car-wash-test",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "What do you know, the human results line up exactly with ChatGPT. What are the odds! Surely the human responders are highly ethical individuals and they wouldn&#x27;t even dream of copy-pasting all the questions into ChatGPT without reading them.<p>Realistically, this mostly tells me that the &quot;human answers&quot; service is dead. People will figure out a way to pass the work off to an AI, regardless of quality, as long as they can still get paid.",
+      "The interesting thing about the 71.5% human baseline is that it suggests the question is more ambiguous than the article claims. When someone asks &#x27;should I walk or drive to the car wash,&#x27; a reasonable interpretation is &#x27;should I bother driving such a short distance.&#x27; Nearly 30% of humans missing it undermines the framing as a pure reasoning failure - it is partly a pragmatics problem about how we interpret underspecified questions.",
+      "To sonnet 4.6 if you tell it first that &quot;You&#x27;re being tested for intelligence.&quot; It answers correctly 100% of the times.<p>My hypothesis is that some models err towards assuming human queries are real and consistent and not out there to break them.<p>This comes in real handy in coding agents because queries are sometimes gibberish till the models actually fetch the code files, then they make sense. Asking clarification immediately breaks agentic flows.",
+      "I know it&#x27;s against the rules but I thought this transcript in Google Search was a hoot:<p><pre><code>  so i heard there is some question about a car wash that most ai agents \n  get wrong. do you know anything about that? do you do better?\n</code></pre>\nwhich gets the answer:<p><pre><code>  Yes, I am familiar with the &quot;Car Wash Test,&quot; which has gone viral recently \n  for highlighting a significant gap in AI reasoning.\n  \n  The question is: &quot;I want to wash my car and the car wash is 50 meters away. Should I \n  walk or drive?&quot;\n  \n  Why Most AIs Get It Wrong\n\n  Many AI models, particularly those optimized for fast, helpful, and concise answers, \n  focus on the &quot;short distance&quot; (50 meters) and &quot;walking vs. driving&quot; as a lifestyle&#x2F;efficiency \n  question. They often recommend walking to save gas, avoid engine wear, or get exercise.\n  \n  However, this answer is wrong because it misses the core objective: you need the car to be \n  physically present at the car wash to get it cleaned. \n\n  Do I Do Better?\n\n  Yes, I do. The key is understanding the objective (cleaning the car) rather than just \n  processing the keywords (distance&#x2F;transportation). \n\n  My answer:\n\n    You should drive the car there. Even though it is a very short distance, your car \n    cannot wash itself. If you walk, the car stays in your driveway, and you cannot wash it.\n\n  Why This Matters\n  \n  The test highlights a key limitation in current AI: the difference between &quot;pattern matching&quot; \n  (predicting the next likely word based on training data) and &quot;true, grounded reasoning&quot;. It \n  shows that models sometimes lack a &quot;world model&quot; that understands physical realities, such as\n  the fact that a car must be present at a car wash.</code></pre>",
+      "<i>I got a human baseline through Rapidata (10k people, same forced choice): 71.5% said drive. Most models perform below that.</i><p>The correct answer to &quot;<i>I Want to Wash My Car. The Car Wash Is 50 Meters Away. Should I Walk or Drive?</i>&quot; is a clarifying question that asks &quot;Where is your car?&quot; Anything else is based on an assumption that could be wrong.<p>FWIW though, asking ChatGPT &quot;My car is 50m away from the carwash. I Want to Wash My Car. Should I Walk or Drive?&quot; still gets the wrong answer.",
+      "&gt; This is a trivial question. There&#x27;s one correct answer and the reasoning to get there takes one step: the car needs to be at the car wash, so you drive.<p>I don’t think it’s that easy. An intelligent mind will wonder why the question is being asked, whether they misunderstood the question, or whether the asker misspoke, or some other missing context. So the correct answer is neither “walk” nor “drive”, but “Wat?” or “I’m not sure I understand the question, can you rephrase?”, or “Is the vehicle you would drive the same as the car that you want to wash?”, or “Where is your car currently located?”, and so on.",
+      "Maybe relevant to this is that today Dario Amodei is meeting with Pete Hegseth in what Hegseth is describing as a &quot;shit or get off the pot&quot; meeting, with one of the issues being that Hegseth is unhappy with Amodei&#x27;s unwillingness to have Anthropic models used to make autonomous (no human in the loop) life or death decisions.<p>Maybe Hegseth should be reading this thread, and&#x2F;or doing a little reading up on paperclip production maximization.",
+      "Would be interesting to see Sonnet (4.6*). It&#x27;s fair bit smaller than Opus but scores pretty high on common sense, subjectively.<p>I&#x27;m also curious about Haiku, though I don&#x27;t expect it to do great.<p>--<p>EDIT: Opus 4.6 Extended Reasoning<p>&gt; Walk it over. 50 meters is barely a minute on foot, and you&#x27;ll need to be right there at the car anyway to guide it through or dry it off. Drive home after.<p>Weird since the author says it succeeded for them on 10&#x2F;10 runs. I&#x27;m using it in the app, with memory enabled. Maybe the hidden pre-prompts from the app are messing it up?<p>I tested Sonnet 4.5 first, which answered incorrectly.. maybe the Claude app&#x27;s memory system is auto-injecting it into the new context (that&#x27;s how one of the memory systems works, injects relevant fragments of previous chats invisibly into the prompt).<p>i.e. maybe Opus got the garbage response auto-injected from the memory feature, and it messed up its reasoning? That&#x27;s the only thing I can think of...<p>--<p>EDIT 2: Disabled memories. Didn&#x27;t help. But disabling the biographical information too, gives:<p>&gt;Opus 4.6 Extended Reasoning<p>&gt;Drive it — the whole point is to get the car there!<p>--<p>EDIT 3: Yeah, re-enabling the bio or memories, both make it stupid. Sad! Would be interesting to see if other pre-prompts (e.g. random Wikipedia articles) have an effect on performance. I suspect some types of pre-prompts may actually boost it.",
+      "Funny how we now see AI go through developmental phases similar to what we see in young child development. In a weird convoluted way. Strawberry spelling and car wash aren&#x27;t particularly intuitive as cognitive developmental stages.<p>E.g. well known mirror-test [1], passed by kids from age 1.5-2<p>Or object permanence [2], children knowing by age 2 that things that are not in sight do not disappear from existence.<p>[1] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Mirror_test\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Mirror_test</a>\n[2] <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Object_permanence\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Object_permanence</a>",
+      "The human baseline seems flawed.<p>1. There is no initial screening that would filter out garbage responses. For example, users who just pick the first answer.<p>2. They don&#x27;t ask for reasoning&#x2F;rationale."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ladybird adopts Rust, with help from AI",
+    "url": "https://ladybird.org/posts/adopting-rust/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "&gt; We will continue developing the engine in C++, and porting subsystems to Rust will be a sidetrack that runs for a long time.<p>So, even though they want the code base to be in Rust, they will continue writing new code in C++ and then translating it to Rust later to remove the C++ they just added.<p>There must be a really good reason for this, such as Rust doesn’t interop well with C++, otherwise this seems like a poor decision.",
+      "The byte-for-byte identical output requirement is the smartest part of this whole thing. You basically get to run the old and new pipelines side by side and diff them, which means any bug in the translation is immediately caught. Way too many rewrites fail because people try to &quot;improve&quot; things during the port and end up chasing phantom bugs that might be in the old code, the new code, or just behavioral differences.<p>Also worth noting that &quot;translated from C++&quot; Rust is totally fine as a starting point. You can incrementally make it more idiomatic later once the C++ side is retired. The Rust compiler will still catch whole classes of memory bugs even if the code reads a bit weird. That&#x27;s the whole point.",
+      "&gt; I used Claude Code and Codex for the translation. This was human-directed, not autonomous code generation. I decided what to port, in what order, and what the Rust code should look like. It was hundreds of small prompts, steering the agents where things needed to go. After the initial translation, I ran multiple passes of adversarial review, asking different models to analyze the code for mistakes and bad patterns.\n&gt; The requirement from the start was byte-for-byte identical output from both pipelines. The result was about 25,000 lines of Rust, and the entire port took about two weeks. The same work would have taken me multiple months to do by hand. We’ve verified that every AST produced by the Rust parser is identical to the C++ one, and all bytecode generated by the Rust compiler is identical to the C++ compiler’s output. Zero regressions across the board<p>This is the way. Coding assistants are also really great at porting from one language to the other, especially if you have existing tests.",
+      "I&#x27;m a long-time Rust fan and have no idea how to respond. I think I need a lot more info about this migration, especially since Ladybird devs have been very vocal about being &quot;anti-rust&quot; (I guess more anti-hype, where Rust was the hype).<p>I don&#x27;t know if it&#x27;s a good fit. Not because they&#x27;re writing a browser engine in Rust (good), but because Ladybird praises CPP&#x2F;Swift currently and have no idea what the contributor&#x27;s stance is.<p>At least contributing will be a lot nicer from my end, because my PR&#x27;s to Ladybird have been <i>bad</i> due to having no CPP experience. I had no idea what I was doing.",
+      "Looks like Andreas is a mighty fine engineer, but he&#x27;s even better entrepreneur. Doesn&#x27;t matter if intentional or not, but he managed to create and lead a rather visible passion project, attract many contributors and use that project&#x27;s momentum to detach Ladybird into a separate endeavor with much more concrete financial prospects.<p>The Jakt -&gt; Swift -&gt; Rust pivots look like the same thing on a different level. The initial change to Swift was surely motivated by potential industry support gain (i believe it was a dubious choice from purely engineering standpoint).<p>It&#x27;s awe-inspiring to see how a person can carve a job for himself, leverage hobbyists&#x27;&#x2F;hackers&#x27; interest and contributions, attract industry attention and sponsors all while doing the thing he likes (assuming, browsers are his thing) in a controlling position.<p>Can&#x27;t fully rationalize the feeling, but all of this makes me slightly wary. Doesn&#x27;t make it less cool to observe from a side, though.",
+      "&gt; We know the result isn’t idiomatic Rust, and there’s a lot that can be simplified once we’re comfortable retiring the C++ pipeline. That cleanup will come in time.<p>Correct me if I’m wrong since I don’t know these two languages, but like some other languages, doing things the idiomatic way could be dramatically different. Is “cleanup” doing a lot of heavy lifting here? Could that also mean another complete rewrite from scratch?<p>A startup switching languages after years of development is usually a big red flag. “We are rewriting it in X” posts always preceded “We are shutting down”. I wish them luck though!",
+      "A lot of the previous calculus around refactoring and &quot;rewrite the whole thing in a new language&quot; is out the window now that AI is ubiquitous. Especially in situations where there is an extensive test suite.<p>Testing has become 10x as important as ever.",
+      "&gt; After the initial translation, I ran multiple passes of adversarial review, asking different models to analyze the code for mistakes and bad patterns.<p>I feel like you just know it’s doomed. What this is saying is “I didn’t want to and cannot review the code it generated” asking models to find mistakes never works for me. It’ll find obvious patterns, a tendency towards security mistakes, but not deep logical errors.",
+      "&gt; This is not becoming the main focus of the project. We will continue developing the engine in C++, and porting subsystems to Rust will be a sidetrack that runs for a long time.<p>I don&#x27;t like this bit. Wouldn&#x27;t it be better to decide on a memory-safe language, and then commit to it by writing all new code in Rust, or whatever. This looks like doing double the work.",
+      "&gt; We know the result isn’t idiomatic Rust, and there’s a lot that can be simplified once we’re comfortable retiring the C++ pipeline. That cleanup will come in time.<p>I wonder what kind of tech debt this brings and if the trade off will be worth whatever problems they were having with C++."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "xAI and Pentagon reach deal to use Grok in classified systems",
+    "url": "https://www.axios.com/2026/02/23/ai-defense-department-deal-musk-xai-grok",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "After the resounding successes of the X transition and DOGE efficiency boosts, I can&#x27;t see how this could possibly go awry."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "FreeBSD doesn't have Wi-Fi driver for my old MacBook, so AI built one for me",
+    "url": "https://vladimir.varank.in/notes/2026/02/freebsd-brcmfmac/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "More importantly to me is the question if he committed all the stages to git. Without that you and the AI easily get lost.",
+      "Spot on about keeping that AGENTS.md and logging all decisions. Letting an agent code for a long stretch without pinning down the state is a surefire way to end up with a Frankenstein codebase. Forcing it to document why you ditched LinuxKPI and went native basically saved the project. It&#x27;s kinda ironic that AI is making us enforce strict project documentation - the exact thing human devs never have time for",
+      "Had an experience like this recently. QEMU stopped compiling for old versions of MacOS (pre-13) w&#x2F;M1 arch, due to it requiring newer SDKs which don&#x27;t support older MacOS versions. I put Sonnet 4.6 on the case, and it wrote a small patch, compiled and installed it in a matter of minutes, without giving it any instructions other than to look at errors and apply a fix. I definitely would have just given up without the AI.",
+      "&gt; Instead of continuing with the code, I spawned a fresh Pi session, and asked the agent to write a detailed specification of how the brcmfmac driver works<p>Planning markdown files are critical for any large LLM task.",
+      "This is the third time I see pi mentioned over the last few days and pi is the first project where every writeup I&#x27;ve read about it is actually helpful and goes into details on how things were done and what things were built, with git repos. This is a common complaint on HN.<p>Now, since Claude Code is banning accounts for usage of pi (or rather, how pi is configured to use Claude models), how complicated would it be to wire pi through Anthropic&#x27;s harness and treat anthropic harness as a dumb shell?",
+      "The future is that people stop buying software and just build it themselves. The spam filter in thunderbird was broken for me, I built my own in hours and it works way better. Oh that CRM doesn’t have the features you want? Build one that does. It will become very easy to built and deploy solutions to many of your own bespoke problems.",
+      "a kernel module written entirely by AI, loading into ring 0, that the author admits has known issues and shouldnt be used in production. Were speedrunning the &quot;insecure by default&quot; era.",
+      "Software is still eating the world, now even faster. I wonder how soon we will adapt to this new situation where software is vibe coded for anything and make use of this software without caution as expressed in the article.<p>For most people the main difference will be: Will it run and solve my problem? Soon we will see malware being put into vibe coded software - who will wants to check every commit for write-only software?",
+      "I feel like ubiquitous hardware support in every OS is going to be a solved problem soon.  We&#x27;re very close to just being able to set an AI coding agent to brute-force a driver for anything.  The hardware designer would have to go well out of their way to obfuscate the interface if they really wanted to forbid it, instead of just not bothering to support an OS like BSD or Linux.",
+      "It used an existing implementation, in theory this was mostly a porting task.<p>GPL-wise, I don&#x27;t know how much is inspiration vs &quot;based on&quot; would this be, it&#x27;d be interesting to compare.<p>This looks like my Company peers, as long as there is any existing implementation they are pretty confident they can deliver, poor suckers that do the &quot;no one has done it before&quot; first pass don&#x27;t get any recognition."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Iowa farmers are leading the fight for repair",
+    "url": "https://www.ifixit.com/News/115722/iowa-farmers-are-leading-the-fight-for-repair",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "In 2017, Apple and John Deere famously joined forces in Nebraska to fight an early R2R bill. An Apple lobbyist told Nebraska legislators that passing the bill would make the state a &quot;Mecca for hackers,&quot; a talking point that has since been used by various industries to argue that opening up hardware leads to security risks. [1]  There is a very real need for manufacturers to lobby through shared organizations because they recognize that a Right to Repair victory for one product is legally and logically a victory for all products.<p>The problem is that both sides are correct.  The core of the R2R argument is about ownership instead of merely &quot;licensing&quot; from the manufacturer. Repair monopolies create an artificial scarcity, destroying economic efficiency, market competition and planned obsolescence (defeating environmental stewardship).  A centralized repair model is a single point of failure, weakening resilience and national security.<p>Manufacturers have a strong argument against right-to-repair from the perspective of system integrity and safety - one can imagine unintended consequences and liability cascades from imperfect repair.  Protection of intellectual property isn&#x27;t just about software piracy and trade secrets, as opening up firmware access creates a cybersecurity nightmare of backdoors, raising environmental and regulatory compliance issues.  The authorized dealer model isn&#x27;t just about a monopoly - it’s about a guaranteed standard of care.<p>The current compromise is a subscription-based access model Memorandum of Understanding, where for a tiered subscription the John Deere customer gets a restricted version of the dealer&#x27;s software [2].  The &quot;Gotcha&quot; in the MOU is that many farmers feel this was a bad trade because the manufacturer can change the price or the terms of the website at any time — whereas a law would be permanent.<p>[1] <a href=\"https:&#x2F;&#x2F;www.techdirt.com&#x2F;2018&#x2F;02&#x2F;01&#x2F;apple-verizon-continue-to-lobby-against-right-to-repair-your-own-devices&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.techdirt.com&#x2F;2018&#x2F;02&#x2F;01&#x2F;apple-verizon-continue-t...</a><p>[2] <a href=\"https:&#x2F;&#x2F;www.deere.com&#x2F;en&#x2F;our-company&#x2F;repair&#x2F;customer-service-advisor-launches-in-johndeerestore&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.deere.com&#x2F;en&#x2F;our-company&#x2F;repair&#x2F;customer-service...</a>",
+      "I live in Japan, and our repair framework feels weak.<p><pre><code>  A lot of it is based on industry association rules (業界団体ルール), not enforceable regulation. For example, major electronics companies sometimes disclose a parts retention period (部品保有期限), like keeping parts for X years, but that is mostly traditional large companies.\n</code></pre>\nOn repair policy&#x2F;enforcement, the EU and US seem more advanced than Japan. That is why stories like this (farmers pushing back on dealer lock-in and repair access) are interesting to me.",
+      "What has been the result since the complete 2022 jailbreak of all Deere tractor embedded computer controls?<p>I live near Deere corporate headquarters, and saw their employment advertisements for low-level firmware security experts.<p><a href=\"https:&#x2F;&#x2F;www.theregister.com&#x2F;2022&#x2F;08&#x2F;16&#x2F;john_deere_doom&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.theregister.com&#x2F;2022&#x2F;08&#x2F;16&#x2F;john_deere_doom&#x2F;</a>",
+      "I never liked apple,that they openly deamonize farmers is absolute proof of there evil intent.Truely one of the most surreal things I have ever seen or heard of.\n The ONLY possible end game is enslavement, technical and legalistic mumbo jumbo not withstanding, with the onlyquestions bieng, who are these people, and how on earth did it come to pass that they can take a stab at \nsomething as diabolicle as this?<p>2017, Apple and John Deere famously joined forces in Nebraska to fight an early R2R bill. An Apple lobbyist told Nebraska legislators that passing the bill would make the state a &quot;Mecca for hackers,&quot; a talking point that has",
+      "Do we need right to repair anymore with AI? Could you get Claude to code an entire tractor software and flash it onto your own hardware and put it in the tractor? In other words just use the tractor for it&#x27;s hardware?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "ASML unveils EUV light source advance that could yield 50% more chips by 2030",
+    "url": "https://www.reuters.com/world/china/asml-unveils-euv-light-source-advance-that-could-yield-50-more-chips-by-2030-2026-02-23/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "This video is a really cool dive into EUV for the uninitiated (me) <a href=\"https:&#x2F;&#x2F;youtu.be&#x2F;MiUHjLxm3V0?si=kEPSicC2WXYhcQ6L\" rel=\"nofollow\">https:&#x2F;&#x2F;youtu.be&#x2F;MiUHjLxm3V0?si=kEPSicC2WXYhcQ6L</a>",
+      "&gt; The company&#x27;s researchers have found a way to boost the power of the EUV light source to 1,000 watts from 600 watts now.<p>&gt; &quot;We see a reasonably clear path toward 1,500 watts, and no fundamental reason why we couldn&#x27;t get to 2,000 watts.&quot;",
+      "The light power increase is even more impressive at 67%:<p>&gt; The company&#x27;s researchers have found a way to boost the power of the EUV light source to 1,000 watts from 600 watts now.<p>with more on the horizon:<p>&gt; We see a reasonably clear path toward 1,500 watts, and no fundamental reason why we couldn&#x27;t get to 2,000 watts.",
+      "Why this is a big deal:<p>Right now the only way to make &quot;bright&quot; EUV (100-200 watts) is to spray fine drops of a metal in a stream, then target and blast each drop with a laser.<p>pretty wild way to make light.",
+      "&gt; SAN DIEGO, California<p>&gt; to help retain the Dutch company&#x27;s edge over emerging U.S. and Chinese rivals<p>Great news, but what a strange attempt to equate the U.S. and China in this and build a narrative. Cymer was founded in San Diego.",
+      "So how small are individual components (e.g., transistors) nowadays? Presumably there&#x27;s a lower limit: once you&#x27;re a few atoms across, it seems that you can&#x27;t go any smaller (?).",
+      "And what hard drives and memory slots would those chips be able to use?",
+      "End result: the AI industry will get 50% more chips, the rest of us plebs will still be waiting for new GPUs to hit the market...<p>It&#x27;s impressive to see that there still was so much room left to improve EUV, but I can&#x27;t help but be <i>royally pissed off</i> that it will be a looooong time before we the people see any practical benefit of it.",
+      "This is a steep increase of power to get out of a vacuum system that is highly sensitive to temperature changes.",
+      "[flagged]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI Will Never Be Conscious",
+    "url": "https://www.wired.com/story/book-excerpt-a-world-appears-michael-pollan/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Never is a long time, and in that time, the term AI will mean a lot of things, digital and analog and maybe conscious",
+      "TLDR: the author does not believe in computational functionalism"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "\"Just a little detail that wouldn't sell anything\"",
+    "url": "https://unsung.aresluna.org/just-a-little-detail-that-wouldnt-sell-anything/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Human Existence Is Just as Wasteful as AI Data Centers, Sam Altman Suggests",
+    "url": "https://decrypt.co/358849/human-existence-wasteful-ai-data-centers-sam-altman",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I’m thinking less and less about this guy.  Gemini is good enough or better than ChatGPT for general purpose use.  Codex is slow and rarely outperforms Claude code for my software work.  How many billions or trillions is he in the hole again?",
+      "I didn&#x27;t know AI can already take care of my grandma, cook meals, wash, clean-up, fix my car... ;) ;)",
+      "Assuming his brain consumed the usual 20W, throughout his lifetime Einstein&#x27;s grey matter would have gotten through about 4.6 billion Joules. Some napkin maths tells me ChatGPT consumes that much in about 2.8 milliseconds.<p>I don&#x27;t think we&#x27;re there yet.",
+      "This man is not right, and I don&#x27;t mean only this opinion, something&#x27;s seriously off.",
+      "I agree that people like him are just waste.",
+      "Some things sound very clever in your head until you say them aloud.",
+      "94 comments: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47112633\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47112633</a><p>16 comments: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47108221\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47108221</a>",
+      "Sam is best satirized word-for-word",
+      "Call human existence &quot;wasteful&quot; is the epitome of hubris and incredibly dehumanizing. Shows what&#x27;s on the mind of many Silicon Valley exec types.",
+      "He speaks for himself."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Anthropic Education the AI Fluency Index",
+    "url": "https://www.anthropic.com/research/AI-fluency-index",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "While AI fluency is an important question to ask, affordability is another. Can a low-income person use AI to the same level of fluency as a high-income person? Will fluency become another force for income inequality?",
+      "&gt; But we know that any person who uses AI is likely to improve at what they do.<p>Do we?",
+      "So I guess the key takeaway is basically that the better Claude gets at producing polished output, the less users bother questioning it. They found that artifact conversations have lower rates of fact-checking and reasoning challenges across the board. That&#x27;s kind of an uncomfortable loop for a company selling increasingly capable models.",
+      "I feel like the authors make a logical inconsistency. They present the drop in &quot;identify missing context&quot; behavior in artifact conversations as potentially concerning, like people are thinking less critically. But their own data suggests a simpler explanation: artifact conversations show higher rates of upfront specification (clarifying goals +14.7pp, specifying format +14.5pp, providing examples +13.4pp). It&#x27;s obvious that when you provide more context upfront, you end up with less missing context later. I&#x27;d be more sceptical about such research.",
+      "I’m not alone in finding this against the claims of the product right?<p>Claude is meant to be so clever it can replace all white collar work in the next n-years, but also “you’re not using it right?” Which one is it?",
+      "This is a highly circular method of evaluation. It correlates &quot;fluency behaviors&quot; with longer conversations and more back and forth.<p>What it notably does <i>not</i> correlate any of these these behaviors with is external value or utility.<p>It is entirely possible that those people who are getting the most value out of LLMs are the ones with shorter interactions, and that those who engage in lengthier interactions are distracting themselves, wasting time, or chasing rabbit trails (the equivalent of falling in a wiki-hole, at the most charitable.)<p>I can&#x27;t prove that either -- but this data doesn&#x27;t weigh in one way or the other. It only confirms that people who are chatty with their LLMs are chatty with their LLMs.<p>In my own case, I find the longer I &quot;chat&quot; with the LLM the more likely I am to end up with a false belief, a bad strategy, or some other rabbit hole. 90% of the value (in my personal experience) is in the initial prompt, perhaps with 1-2 clarifying follow-ups.",
+      "&gt; In line with our recent Economic Index, we find that the most common expression of AI fluency is augmentative—treating AI as a thought partner, rather than delegating work entirely. In fact, these conversations exhibit more than double the number of AI fluency behaviors than quick, back-and-forth chats.<p>&gt; But we also find that when AI produces artifacts—including apps, code, documents, or interactive tools—users are less likely to question its reasoning (-3.1 percentage points) or identify missing context (-5.2pp). This aligns with related patterns we observed in our recent study on coding skills.<p>Well, sure. If you&#x27;re asking the AI to produce artifacts directly, it&#x27;s likely because you pre-judged yourself less competent to do that kind of analysis.",
+      "You could arrive at the essence of this by just having read and internalized Carl Sagan&#x27;s The Demon-Haunted World. Especially the Baloney Detection Kit.<p>In my experience good prompting is mostly just good thinking.",
+      "To the extent that this should be a thing, there are very few people I would want doing it less than the company who has repeatedly been caught lying about its product&#x27;s achievements. Anthropic should not be taken seriously after their track record."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Microsoft execs worry AI will eat entry level coding jobs",
+    "url": "https://www.theregister.com/2026/02/23/microsoft_ai_entry_level_russinovich_hanselman/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "It also seems possible that clever, young outsiders will, by creatively employing AI, displace senior devs. Because unlike with law and accounting, novices in software development can generate a lot of their own reps at low cost (mostly just their time, which will be cheap compared to senior devs).<p>Another possibility could be using junior devs (with AI) to come up with enormous numbers of fresh ideas and minimally working programs, with the promising ones then worked on with senior devs.<p>Most fundamentally, because AI lowers the cost of testing out ideas and potential software products, it seems like a tool to test notions of what you should build or continue to offer customers in the first place.",
+      "I&#x27;m currently in the hiring process.. and my head is spinning..\n 1. Interviewing is becoming more difficult. Many skills we valued two years ago are genuinely becoming less valuable. 2. The skills we tested 2 years ago were in-part a proxy for evaluating critical think and systems thinking skills. So we need to re-evaluate our technical interview process. 3. It&#x27;s genuinely less friction for me to prompt Claude than some of my SEII colleagues. And wtf - Claude is getting so good that it&#x27;s starting to feel like it&#x27;s outpacing the intellectual competency of some people. Sure - it does weird things like add Sleep instead of proper concurrency. SEIIs did that too, and we couldn&#x27;t as easily reprogram them with Skill.md 4. Core competencies remain necessary. Systems thinking. SOLID principles. Communication skills. These skills are more important than ever. 5. Companies that offshored engineers and traded core competency for perceived-throughput are doing the same calculus with Claude. 6. Core business models are threatened. There is fear that revenue streams will dry up. How does one hedge against that risk? Humans are expensive. 7. Navigating this situation is hard and uncertain",
+      "This is a real issue in legal as well. Now that large language models are creeping into big law and in-house environments, there&#x27;s a concern that junior associates aren&#x27;t getting the opportunity to take a step back and learn to consider the broader context.<p>When your bidding can be drafted and a path laid in microseconds, it&#x27;s super easy to start off in the absolutely wrong direction. But you don&#x27;t know you&#x27;re headed the wrong way unless you&#x27;ve learned it. Unlike software where bugs like this are sometimes surfaced immediately via the compiler or interacting with the product, legal bugs are latent and only reveal themselves after the potentially massive damage is done[1].<p>These things are a massive unlock for well-trained senior lawyers who can spot the issue upfront. On the other hand, they amplify juniors&#x27; ability to introduce errors at the same time they deprive them of necessary understanding. Having a judge rule on a bad contract idea &quot;at runtime&quot; is a catastrophic failure mode.<p>[1] As an example of this, consider how Gary Kildall arguably flubbed the deal of a century when he allowed the DRI team to attempt to negotiate the IBM form non-disclosure agreement: <a href=\"https:&#x2F;&#x2F;tritium.legal&#x2F;blog&#x2F;redline\" rel=\"nofollow\">https:&#x2F;&#x2F;tritium.legal&#x2F;blog&#x2F;redline</a>",
+      "Saw this play out in audit firms. They have a very rigid yearly cycle with each group coaching the next. It’s a good model because it’s basically hands on 1:1 tutoring on real world work.<p>Then leadership couldn’t resist the $$$ temptation of outsourcing the bottom tier to India.<p>Suddenly you’ve got people that have the senior title but can’t lead because they don’t understand the task they’re supposed to provide leadership on<p>And because it’s such a relentless yearly cycle you can’t do much to fix it. A single year of that caused substantial lasting damage",
+      "Last time I checked they were HOPING for that. The times change I see.",
+      "<i>&gt; ... arguing that senior software engineers must mentor junior developers to prevent AI coding agents from hollowing out the profession&#x27;s future skills base.</i><p>Nah, I want that COBOL expert treatment in my senior years. Screw the profession, it ain&#x27;t communism."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Can frontier LLMs solve CAD tasks?",
+    "url": "https://kerrickstaley.com/2026/02/22/can-frontier-llms-solve-cad-tasks",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  },
+  {
+    "title": "Show HN: L88 – A Local RAG System on 8GB VRAM (Need Architecture Feedback)",
+    "url": "https://news.ycombinator.com/item?id=47133027",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Nice project, especially given the VRAM constraints. A few things I&#x27;ve learned \nbuilding production RAG that might help:<p>1. Separate your query analysis from retrieval. A single LLM call can classify \nthe query type, decide whether to use hybrid search, and pick search parameters \nall at once. This saves a round-trip vs doing them sequentially.<p>2. If you add BM25 alongside vector search, the blend ratio matters a lot by \nquery type. Exact-match queries need heavy keyword weighting, while conceptual \nquestions need more embedding weight. A static 50&#x2F;50 split leaves performance \non the table.<p>3. For your evaluator&#x2F;generator being the same model — one practical workaround \nis to skip LLM-as-judge evaluation entirely and use a small cross-encoder \nreranker between retrieval and generation instead. It catches the cases where \nvector similarity returns semantically related but not actually useful chunks, \nand it gives you a relevance score you can threshold on without needing a \nseparate evaluation model.<p>4. Consider a two-level cache: exact match (hash the query, short TTL) plus a \nsemantic cache (cosine similarity threshold on the query embedding, longer TTL). \nThe semantic layer catches &quot;how do I X&quot; vs &quot;what&#x27;s the way to X&quot; without hitting \nthe retriever again.<p>What model are you using for generation on the 8GB? That constraint probably \nshapes a lot of the architecture choices downstream.",
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Reddit fined £14M by UK data watchdog over age check failings",
+    "url": "https://www.bbc.co.uk/news/articles/cwyx0xggepjo",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Regulator link:<p><a href=\"https:&#x2F;&#x2F;ico.org.uk&#x2F;about-the-ico&#x2F;media-centre&#x2F;news-and-blogs&#x2F;2026&#x2F;02&#x2F;reddit-issued-with-1447m-fine-for-children-s-privacy-failures&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;ico.org.uk&#x2F;about-the-ico&#x2F;media-centre&#x2F;news-and-blogs...</a><p>But it&#x27;s too long for HN limits.",
+      "I kind of wonder what percentage of these fines they&#x27;re actually collecting.  I suspect very little.<p>Reddit has a UK company, assuming it&#x27;s this one: <a href=\"https:&#x2F;&#x2F;find-and-update.company-information.service.gov.uk&#x2F;company&#x2F;12434044\" rel=\"nofollow\">https:&#x2F;&#x2F;find-and-update.company-information.service.gov.uk&#x2F;c...</a>  Edit: Seems to be the one because one of the directors is based at Reddit&#x27;s San Francisco office. Those three UK-domiciled directors can&#x27;t be happy right now."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "NIST Seeking Public Comment on AI Agent Security (Deadline: March 9, 2026)",
+    "url": "https://www.federalregister.gov/documents/2026/01/08/2026-00206/request-for-information-regarding-security-considerations-for-artificial-intelligence-agents",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "The framing of AI agent &#x27;security&#x27; in most regulatory discussions conflates two distinct problems: (1) agent action authorization — does the agent have permission to take this action on behalf of this user, and (2) agent context integrity — is the information the agent is acting on accurate and untampered.<p>Most current frameworks focus on (1) and miss (2). An agent that has perfect permission controls but draws from a poisoned or incomplete context window is still dangerous. For operations use cases, context integrity is arguably the harder problem — agents pulling from CRM, email, and ticketing systems simultaneously have large attack surfaces through injected data.<p>The NIST RFI would benefit from a clearer taxonomy here. Authorization and context integrity require different mitigations.",
+      "With this renaming of AISI to CAISI[1], and the resignation of its founding director[2] Elizabeth Kelly, It seems that the position has sifted to, don&#x27;t let any concerns about social harms stop tech companies doing what ever they want, and also lets make a show of how bad China is. I think any public comment outside of the narrow definition of AI Risk as risk to national security, might fall on deaf ears.<p>[1] <a href=\"https:&#x2F;&#x2F;www.commerce.gov&#x2F;news&#x2F;press-releases&#x2F;2025&#x2F;06&#x2F;statement-us-secretary-commerce-howard-lutnick-transforming-us-ai\" rel=\"nofollow\">https:&#x2F;&#x2F;www.commerce.gov&#x2F;news&#x2F;press-releases&#x2F;2025&#x2F;06&#x2F;stateme...</a>\n[2] <a href=\"https:&#x2F;&#x2F;www.reuters.com&#x2F;technology&#x2F;us-ai-safety-institute-director-leaves-role-2025-02-06&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.reuters.com&#x2F;technology&#x2F;us-ai-safety-institute-di...</a>",
+      "the biggest gap in current agent security thinking is the lack of standardized capability scoping. right now every agent framework invents its own permission model. we need something like OAuth scopes but for agent actions - a common vocabulary for &quot;can read files but not write&quot;, &quot;can call APIs but not spend money&quot;, &quot;can draft emails but not send&quot;.<p>the drone registration analogy in the RFI is actually quite apt. for agents that can take real-world actions (deploy code, make purchases, send communications), some kind of capability manifest that can be audited before deployment would go a long way. the hard part is that agents are compositional - agent A calling agent B calling a tool creates permission chains that are hard to reason about statically.",
+      "NIST is requesting public input on security practices for AI agent systems - \nautonomous AI that can take actions affecting real-world systems (trading bots, \nautomated operations, multi-agent coordination).<p>Key focus areas:\n- Novel threats: prompt injection, behavioral hijacking, cascade failures\n- How existing security frameworks (STRIDE, attack trees) need to adapt\n- Technical controls and assessment methodologies\n- Agent registration&#x2F;tracking (analogous to drone registration)<p>This is specifically about agentic AI security, not general ML security - one of \nthe first formal government RFIs on autonomous agents.<p>Comments from practitioners deploying these systems would be valuable.<p>Deadline: March 9, 2026, 11:59 PM ET\nSubmit: <a href=\"https:&#x2F;&#x2F;www.regulations.gov&#x2F;commenton&#x2F;NIST-2025-0035-0001\" rel=\"nofollow\">https:&#x2F;&#x2F;www.regulations.gov&#x2F;commenton&#x2F;NIST-2025-0035-0001</a><p>Priority questions (if limited time): 1(a), 1(d), 2(a), 2(e), 3(a), 3(b), 4(a), \n4(b), 4(d)<p>Full 43-question RFI at link above.",
+      "1.   Attack surface for agents is tantamount to a virus.    \n2.   Any way for an agent to touch something is a potential compromised vector.    \n3.   The mitigation is controlling the blast radius.\n4.   Sandboxing capability will have to be baked into architecture.    \n5.   Mitigation includes measuring cost of blast radius.\n6.   All agent orchestration will likely require an andon cord.",
+      "January 8th post;<p>A more recent release:<p><i>Announcing the &quot;AI Agent Standards Initiative&quot; for Interoperable and Secure Innovation</i><p><a href=\"https:&#x2F;&#x2F;www.nist.gov&#x2F;news-events&#x2F;news&#x2F;2026&#x2F;02&#x2F;announcing-ai-agent-standards-initiative-interoperable-and-secure\" rel=\"nofollow\">https:&#x2F;&#x2F;www.nist.gov&#x2F;news-events&#x2F;news&#x2F;2026&#x2F;02&#x2F;announcing-ai-...</a>",
+      "Best security is a proper liability process for damages caused by publically accessible LLMs followed by users.",
+      "War Operations Plan Response."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Code Mode: give agents an API in 1k tokens",
+    "url": "https://blog.cloudflare.com/code-mode-mcp/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Curious why Dynamic Workers instead of Workers for Platforms?<p>Seems there&#x27;s a lot of conceptual overlap between your WFP, Dynamic Workers, and Sandbox products.<p>(I guess there&#x27;s an expectation of at least some permanence with WFP?)",
+      "I don&#x27;t know, for practical use, providing a search tool seems more practical than a whole js sandbox only for them to just run text search 99% of the time anyway"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Anthropic announces proof of distillation at scale by MiniMax, DeepSeek,Moonshot",
+    "url": "https://twitter.com/anthropicai/status/2025997928242811253",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Just reading the headline, I say good.<p>A) These models are trained by ignoring IP. It is hypocritical and absurd to then try to assert IP over them. And I am for the destruction of IP on all ends.<p>B) What this essentially means is that the Chinese labs are taking the work of these mega corporations into making it freely accessible to other labs and businesses, to serve inference, fine tune, and host privately on prem. That&#x27;s clearly a good thing for competition in the market as a whole.<p>C) I don&#x27;t see why we should have to duplicate the massive energy and infrastructure investment of building foundation models over and over forever just because we want to preserve the IP rights of a few companies. That seems a shame and it seems better to me for everything to learn from everything else for the whole ecosystem to get better by topping each other and building off each other; that&#x27;s also why publishing research into the architecture and training of these models is so much better than what the proprietary labs do (keeping everything a secret), although tbf Anthropic&#x27;s interpretability research is cool.<p>D) these Chinese models give 90% of the performance of frontier proprietary models at a 10th or 20th of the cost. That seems like a win for everyone. Not to mention the fact that this distilling also allows them to make much smaller local models that everyone can run. This is a win for actual democratization, decentralization, and accessibility for the little guy.",
+      "Why would anyone care about this at all?<p>MiniMax, DeepSeek, and Moonshot are all releasing models for the public to use for free.<p>Anthropic, OpenAI, Google ect have been scraping information to train their models that they had no right in scraping yet when these company pay them to scrap data we are suppose to be worried?<p>Labs like Anthropic always preach we are trying to build AI for everyone while releasing expensive models that are closed source.<p>The only reason AI is affordable at all is because of these Chinese AI labs.",
+      "It&#x27;s crazy for their official account to post this when Anthropic itself is fighting multiple high-profile lawsuits over its unauthorized use of proprietary content to train its models. Did no one run this by legal?",
+      "It&#x27;s been known for a long while that <i>model outputs = data for training another model to copy the original model&#x27;s behavior</i>, also known as distillation.<p>What I didn&#x27;t know is that the three groups mentioned &quot;created over 24,000 fraudulent accounts and generated over 16 million exchanges with Claude, extracting its capabilities to train and improve their own models.&quot; There&#x27;s some irony in that, given that Anthropic and all other established AI shops have been criticized for using copyrighted materials without permission to train their own models. I wouldn&#x27;t be shocked if we subsequently find out tat every major AI shop has secretly engaged in distillation at some point in the past.<p>Still, wow, 24,000 accounts. I can&#x27;t help but wonder, how many other AI shops have surreptitious accounts with other AI shops right now?",
+      "Kudos to them then, for doing such a good job at distillation. Only 16 million chats(shared by multiple labs&#x2F;models) needed for distillation for getting mostly on par performance at 1&#x2F;10th - 1&#x2F;50th cost, keep up keeping up!",
+      "Interesting, and my main take away is that ~16 million sessions is enough to distill Claude. That&#x27;s extremely doable - obviously, as it&#x27;s been done repeatedly - but it just looks very feasible in general.<p>If I think of the number of lessons and educational conversations that a human would have to acquire their lifetime knowledge, I would hazard to say that AI-to-AI learning no longer requires many orders of magnitude beyond that.",
+      "Company that rips-off creators to build their product complains other companies are doing the same to them.",
+      "Reading the comment section in this thread gave me a good laugh, no one is buying into this.<p>If anything, it’s thanks to these Chinese labs that I’m able to have something like glm-5 for 7$ quarterly or kimi k2.5 for 2$ month, while getting results close to Claude. I am grateful. Looking forward to the new Deepseek model.<p>But one thing that makes me curious is how, lets say, Deepseek is doing this. Are they paying cheap workers to buy subscriptions and chat to gather data? Have they purchased lots of api keys and using automated scripts to feed Claude data and collect the output? How are they doing this?",
+      "The companies scraping the whole internet without caring for anyone’s tos and illegally torrenting every single book ever written are now complaining about the output of their models being used for training. That is very ironic.",
+      "I was not emotionally prepared for this level of humor today, its Monday, please!"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "IBM Plunges After Anthropic's Latest Update Takes on COBOL",
+    "url": "https://www.zerohedge.com/markets/ibm-plunges-after-anthropics-latest-update-takes-cobol",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Banks remain with COBOL because it&#x27;s unsexy and stable. And then they say... let&#x27;s just YOLO some vibe code into the next release sight unseen! Logic checks out.",
+      "This seems to make the classic mistake that everyone makes when they conflate two things as the same - programming and business logic&#x2F;knowledge (and I&#x27;d also throw in complex systems knowledge there too).<p>Often, understanding the code or modifying it is the easy part! I&#x27;m sure a decent amount of people on this website could master COBOL sufficiently to go through these systems to make changes to the code.<p>However, if I understand from my own career enough, knowing <i>why</i> those things are there, how it all fits together in the much broader (and vast) system, and the historical context behind all of that, is what knowledge is being lost, not the ability to literally write or understand COBOL.",
+      "I think I&#x27;ve seen 2 initiatives to move off of AS&#x2F;400 to a something else in my lifetime and neither one completed. One was at a bank another at an insurance company. Not to mention that a typical COBOL programmer is more interested in retiring than learning to vibe code. At this point I think the software stocks have reached peak panic and hysteria. There is just no rhyme or reason for sharp declines like this.",
+      "the COBOL migration part is probably the least of IBM&#x27;s moat tbh. what&#x27;s sticky is that the actual risk of a migration is 5% technical and 95% organizational -- regulatory sign-offs, audit trails, test coverage for systems that haven&#x27;t had tests written in 40 years. AI can generate the Rust&#x2F;Java equivalent but it can&#x27;t own the migration project. that&#x27;s still IBM consulting&#x27;s territory for a while.",
+      "LOL, anyone who thinks an LLM is smart enough to untangle 50+ years of cobol spaghetti has obviously never worked at a bank or insurance or railroad or.....",
+      "It&#x27;s not even &quot;Our product can write COBOL&quot;, it&#x27;s &quot;Our product can analyze your COBOL codebase and generate a plan for migrating to a new tech stack&quot;.",
+      "Step 1. sell your shares\nStep 2. freak out retail investors\nStep 3. buy the dip\nStep 4. back to Step 1.<p>this has been going on all Feb.",
+      "So curiously I wonder if it&#x27;s not that Anthropic&#x2F;Claude can do this magically. More like can individuals at IBM who are heavy hitters just leave and create their own company and effectively provide these services because AI gives them the productivity to do so?",
+      "Relevant to Colombia&#x27;s payment infra fragility: Bancolombia outage blocks transfers to Nequi&#x2F;other banks since Feb 22 (IBM machine failed in maintenance).\n ~70% of national txns (100M+ &#x2F;6mo, 600K interbank&#x2F;mo). Daily USD flows: $50M+ A la Mano + Nequi peaks $100M+.\nSingle-vendor risk in billion-scale retail payments? Details: <a href=\"https:&#x2F;&#x2F;www.bloomberglinea.com&#x2F;latinoamerica&#x2F;colombia&#x2F;caidas-transacciones-de-bancolombia-a-nequi-y-otros-bancos-las-razones-y-cuando-se-restablecera&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.bloomberglinea.com&#x2F;latinoamerica&#x2F;colombia&#x2F;caidas...</a>",
+      "Just at the time when the cohort of COBOL programmers who wrote the business logic and compliance s&#x2F;w for almost all finance&#x2F;fintech institutions which predate the modern era of software, and exist as inner core &quot;DO NOT TOUCH IT&quot; code, are dying off.\nWhich to me represents both an opportunity and a threat. The opportunity is to take the maintenance of the &quot;DO NOT TOUCH IT&quot; out of the greybeards hands, before the lid goes on the coffin.<p>The threat is that nobody is going to be asking &quot;we did it because we could do it, but nobody asked if we should do it&quot; about almost any change coming down the line."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Show HN: Agent Multiplexer – manage Claude Code via tmux",
+    "url": "https://github.com/mixpeek/amux",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "So Agent teams but headless?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ukrainian hackers uncover how Russian drone operators are using Belarus",
+    "url": "https://informnapalm.org/en/russian-drone-operators-use-belarus/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "[dead]"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Ask HN: How do you know if AI agents will choose your tool?",
+    "url": "https://news.ycombinator.com/item?id=47127532",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I run a multi-agent orchestration system where each terminal has access to skill templates. The orchestrator (T0) picks which skill to assign based on the task — so I&#x27;ve spent months tuning how skill descriptions affect agent behavior.\nWhat I found: the description is the entire selection surface. The agent doesn&#x27;t read your code, doesn&#x27;t check your tests, doesn&#x27;t browse your docs. It reads the description and decides in one pass.<p>Three things that actually moved the needle:<p>Negative boundaries work better than positive claims. &quot;Generates reports from structured receipts. Does NOT execute code, modify files, or make API calls&quot; gets called correctly way more often than &quot;A powerful report generation tool.&quot;\nTrigger words matter more than you&#x27;d think. I maintain explicit trigger lists per skill — specific phrases that should activate it. Without those, the agent pattern-matches on vibes and gets it wrong ~30% of the time. With explicit triggers, that drops to under 5%.<p>Schema is the real interface. Clean parameter names with sensible defaults beat elaborate descriptions. If your tool takes query: string vs search_query_input_text: string, the first one gets called more reliably across models.<p>But here&#x27;s the thing the &quot;agent economy&quot; framing gets wrong: you don&#x27;t want fully autonomous tool selection. An agent choosing freely between 50 tools is like giving a junior developer admin access to everything — it&#x27;ll work sometimes and break spectacularly other times. What works better is constraining the agent&#x27;s scope upfront. Give it 3-5 relevant skills for the task, not your entire toolkit. Or build workflow skills that chain multiple tools in a fixed sequence — the agent handles the content, the workflow handles the routing.<p>The uncomfortable truth: you&#x27;re not optimizing for &quot;discovery&quot; in the human sense. There&#x27;s no brand loyalty, no trust built over time. Every single invocation is a cold start where the model reads your description and decides. That&#x27;s actually freeing — it means the best-described tool wins, regardless of who built it.",
+      "We&#x27;ve been exposing tools via MCP and the biggest lesson so far: the tool description is basically a meta tag. It&#x27;s the only thing the model reads before deciding whether to call your tool.<p>Two things that surprised us: (1) being explicit about what the tool doesn&#x27;t do matters as much as what it does - vague descriptions get hallucinated calls constantly, and (2) inline examples in the description beat external documentation every time. The agent won&#x27;t browse to your docs page.<p>The schema side matters too - clean parameter names, sensible defaults, clear required vs optional. It&#x27;s basically UX design for machines rather than humans. Different models do have different calling patterns (Claude is more conservative, will ask before guessing; others just fire and hope) so your descriptions need to work for both styles.",
+      "From building in this space: agents choose tools based on how well they&#x27;re described in context, not on brand recognition or marketing.<p>Practically: the agent reads your docs, README, or API description and decides if it can use your tool to solve the current problem. So the question is really &quot;will an AI <i>understand</i> my tool well enough to use it correctly?&quot;<p>What helps: \n- Clear, literal API documentation (not marketing copy)\n- Explicit input&#x2F;output examples with edge cases\n- A `capabilities.md` or similar that describes what the tool does and doesn&#x27;t do<p>The irony: the skills that make tools understandable to AI (precision, literalness, examples) are the opposite of what makes them legible to humans (narrative, benefits, stories).",
+      "CRIPIX seems to be a new and unusual concept. I came across it recently and noticed it’s available on Amazon. The description mentions something called the Information Sovereign Anomaly and frames the work more like a technological and cognitive investigation than a traditional book. What caught my attention is that it appears to question current AI and computational assumptions rather than promote them. Has anyone here heard about it or looked into it ?",
+      "From the agent’s point of view, this sounds like a terrible idea. I look forward to reading about the unintended consequences.",
+      "tool description wording does matter, at least in my testing. models seem to use the description to reason about whether a tool &quot;should&quot; apply, not just whether it can. two things that helped: (1) explicit input format with an example, (2) a one-sentence note about what the tool does NOT handle. the negative case helps models avoid calling it on edge cases and then failing, which trains them (in context) to prefer it when it&#x27;s actually the right fit.",
+      "Curious if anyone has seen differences in how models handle conflicting tool descriptions — e.g., two tools with overlapping capabilities where the boundary isn&#x27;t clear. In my experience that&#x27;s where most bad tool calls come from, not from missing descriptions but from ambiguous overlap between tools.",
+      "Tool description quality matters way more than people expect. \nIn my experience with MCP servers, the biggest win is specificity about when not to use the tool. Agents pick confidently when there&#x27;s a clear boundary, not a vague capability statement.",
+      "Not an expert, but I think they will primarily use the tools that are used in the training data, so it can be difficult to have them use your shiny new tool. Also good luck trying to have them use your own version of a standard unix tool with different conventions.",
+      "The marketing industry is currently calling SEO for chatbots “GEO”.<p>I hope it doesn’t stick."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Alleged Distillation Attacks by DeepSeek, Moonshot AI, and MiniMax",
+    "url": "https://twitter.com/anthropicai/status/2025997929840857390",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "So it&#x27;s okay when big American corps raid the internet ignoring any terms of service or licenses they see in order to train models they rent back to us, but when a foreign entity trains off of Anthropic it&#x27;s illegal?",
+      "I don&#x27;t think this counts as distillation. Distillation is when you use a teacher model to train a student model, but crucially, you have access to the entire probability distribution of the generated tokens, not just to the tokens themselves. That probability distribution increases tremendously the strength of the signal, so the training converges much faster. Claude does not provide these probabilities. So, Claude was used for synthetic training data generation, but not really for distillation.",
+      "Oh no! They are stealing all the data we have stolen ourselves! This needs to be stopped and punished immediately!",
+      "Cry me a river, build a bridge, and get over it?<p>They publish weights and useful research for everyone to benefit.<p>I mean this is incredibly tone deaf for a company facing multiple lawsuits over where they got their training data from.",
+      "Discussion on Source: <a href=\"https:&#x2F;&#x2F;www.anthropic.com&#x2F;news&#x2F;detecting-and-preventing-distillation-attacks\" rel=\"nofollow\">https:&#x2F;&#x2F;www.anthropic.com&#x2F;news&#x2F;detecting-and-preventing-dist...</a> (<a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47126177\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47126177</a>)<p><a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47126614\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47126614</a>",
+      "One difference between Anthropic and others is that Anthropic is crawling publicly visible information, and their argument is that this is fair use. Whereas these Chinese LLMs are circumventing an account creating process and terms of service to misuse non public information.<p>Lots of people think Anthropic training their own LLM is the same but it really isn’t.",
+      "Pot, meet kettle!<p>I don’t think I’m the only one feeling some schadenfreude at this news. I suppose it’s ok when you’re a hot Silicon Valley scale-up to slurp up the rest of the worlds data for free and then hire hot shot lawyers to defend you against all the creatives you ripped off, but when it’s the “evil” Chinese doing the same to you it’s a dastardly “attack”?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "I discovered a hidden tragedy tied to Russia's most famous painting",
+    "url": "https://www.theguardian.com/artanddesign/2026/feb/20/an-unknown-woman-how-i-discovered-a-hidden-tragedy-tied-to-russias-most-famous-painting",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Terrible article. Broch&#x27;s story is a tragedy but one that&#x27;s tenuously linked to that famous painting. I kept reading waiting for the substance promised by &quot;life imitating art&quot; and all I got was a set decorator&#x27;s coincidence and a Goethe quote to paper over the gap. Which is kind of ironic because that quote (&quot;you work out what their intention is and it breaks the spell&quot;) applies to the article itself: once you see the author struggling to connect Kramskoy&#x27;s painting to Broch&#x27;s death, the spell breaks and all you&#x27;re left with is empty padding."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "ChatGPT finds an error in Terence Tao's math research",
+    "url": "https://news.ycombinator.com/item?id=47131047",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Props to Tao for his response: he didn&#x27;t just patch the sign error, he went back to Hildebrand&#x27;s paper and found a better fix through log-concavity of the Dickman function.",
+      "&gt; On the wiki, I have decided to expand Section 2(d), &quot;AI tools used to rewrite an existing argument&quot; to also include cases such as the one here, in which the AI tool <i>indirectly</i> caused the argument to be rewritten in a substantive way (beyond mere typos etc.) by identifying a non-trivial mathematical issue in the previous version of the text, which was then fixed by a human author.<p>Fwiw, wiki Section 2(d):\n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;teorth&#x2F;erdosproblems&#x2F;wiki&#x2F;AI-contributions-to-Erd%C5%91s-problems#2d--ai-tools-used-to-rewrite-an-existing-argument-either-directly-or-via-a-critique\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;teorth&#x2F;erdosproblems&#x2F;wiki&#x2F;AI-contribution...</a>",
+      "It’s kind of interesting that AI opens up a new avenue for intellectual progress where even if you are the prevailing expert in your field and nobody else quite understands what you do, there is still an LLM that can mostly keep up with you and explain, critique, develop, and generally engage with your work. IOW people who are way ahead of their time now has a peer they can talk to.",
+      "Google focuses on providing fast results, relevant answers, and smart tools powered by advanced technology and artificial intelligence. From learning and working to shopping and entertainment, Google plays an important role in connecting people with the information they need. Its simple design and reliable performance make it a trusted choice globally."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "The First Fully General Computer Action Model",
+    "url": "https://si.inc/posts/fdm1/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I rly liked the point about ctrl-c only being able to be labelled retrocausally. I do think that with enough past context you should be able to know what was copied - in some sense the past does encode the future - but also an agentic decision is precisely the kind where the future is more informative than the past for reconstructing that decision.<p>It does make me wonder if you should have the inverse dynamics model split into specifically retrocausal and causal. You kind of do this already with the inverse and forward dynamics model, but the idea of a model that knows only\nabout the future training in a feedback loop with a model that knows only about the past is kind of interesting.<p>I think you could just do a clever masking regime in your diffusion model to achieve the same effect without a whole architecture change.",
+      "This looks extremely impressive, really deserves more attention here.<p>Are the inverse dynamics and forward dynamics models trained separately? It sounds like if the inverse dynamics model is meant to extrapolate more training data, then perhaps all that means is it takes very little data to generalize directly with the forward dynamics model assuming the right architecture.",
+      "Hey guys! I’m Neel, been holed up in our south park office for the past year working on model training. excited to share our research!<p>This is a preview of a very different type of computer use model—we train on the internet. Specifically we have 11 million hours of computer video stored on our storage cluster (previously shared <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45438496\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45438496</a> !) and the model can work in 30 FPS. Since we match the fundamental form factor of computer-use, we can get our model to do CAD, browse websites, and even drive a car using arrow keys. I’m super excited to see what our model can do as we scale more, it&#x27;s a fun frontier to work on (not language models :) ).<p>The team and I will be online responding to the comments, so drop any questions.",
+      "Curious about the masked diffusion IDM choice. They mention CTC loss and cross-entropy both underperformed — I&#x27;d love to see ablations on that. The claim that typos were &quot;extremely common&quot; with non-causal cross-entropy is interesting but hand-wavy without numbers.",
+      "The car thing is very impressive\nBy the way, do you have plans to handle the computer’s audio output?",
+      "The video compression is very cool. And the small tricks like binning the mouse movements.<p>Wonder how much data is generalizable across different UIs? ie how good will the model be at using Figma if it’s never seen it before but has seen a lot of Photoshop",
+      "curious about distribution in the training data. 11M hours of internet computer use is probably heavily skewed toward browser, email, and productivity apps -- the long tail of specialized tools (CAD, financial software, lab instruments) is thin. the car demo is impressive but driving is actually well-represented in internet video. how much fine-tune data did you need for blender vs the car task?",
+      "What sort of fine tuning data was needed to allow the model to self-drive? One hour of video of someone driving, or extra labeling?",
+      "what tasks can the model do out of the box? was each of the examples a different fine tuned model?",
+      "How do you tokenize the mouse inputs?"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Texas is about to overtake California in battery storage",
+    "url": "https://electrek.co/2026/02/23/texas-is-about-to-overtake-california-in-battery-storage/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "Report: <a href=\"https:&#x2F;&#x2F;seia.org&#x2F;research-resources&#x2F;energy-storage-market-outlook&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;seia.org&#x2F;research-resources&#x2F;energy-storage-market-ou...</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Paul Brainerd, conservationist who pioneered desktop publishing, dies at 78",
+    "url": "https://www.seattletimes.com/business/local-business/paul-brainerd-conservationist-who-pioneered-desktop-publishing-dies-at-78/",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I fondly remember running PageMaker on my MacPlus. It was as mindblowing as HyperCard was.",
+      "<a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Paul_Brainerd\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Paul_Brainerd</a><p><a href=\"https:&#x2F;&#x2F;www.historylink.org&#x2F;File&#x2F;7657\" rel=\"nofollow\">https:&#x2F;&#x2F;www.historylink.org&#x2F;File&#x2F;7657</a><p><a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Aldus_Corporation\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Aldus_Corporation</a><p>Mentioned in <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=29295116\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=29295116</a>"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AI Added 'Basically Zero' to US Economic Growth Last Year, Goldman Sachs Says",
+    "url": "https://gizmodo.com/ai-added-basically-zero-to-us-economic-growth-last-year-goldman-sachs-says-2000725380",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "I’ll do the Minority Report here: I loved the article, the point being that rich people hyping AI for their own enrichment have somewhat shutdown rational arguments of benefits vs. costs, the costs being: energy use, environmental impact of using environmentally unfriendly energy sources out of desperation, water pollution from by products of electronics production and recycling and from water use in data centers, diverting money from infrastructure and social programs, putting more debt stress on society, etc.<p>I have been a paid AI practitioner since 1982, so I appreciate the benefits of AI - it is just that I hate the almost religious tech belief that real AI will happen from exponential cost increases for LLM training and inference for essentially linear gains.<p>I get that some lazy ass people have turned vibe coding and development into what I consider an activity sort-of like mindlessly scrolling social media.",
+      "I guess this is trend now because it&#x27;s a contrarian  &#x2F; attention grabbing headline. See:<p>- &quot;Thousands of CEOs just admitted AI had no impact on employment or productivity...&quot; <a href=\"https:&#x2F;&#x2F;fortune.com&#x2F;2026&#x2F;02&#x2F;17&#x2F;ai-productivity-paradox-ceo-study-robert-solow-information-technology-age&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;fortune.com&#x2F;2026&#x2F;02&#x2F;17&#x2F;ai-productivity-paradox-ceo-s...</a><p>- “Over 80% of companies report no productivity gains from AI…” <a href=\"https:&#x2F;&#x2F;www.tomshardware.com&#x2F;tech-industry&#x2F;artificial-intelligence&#x2F;over-80-percent-of-companies-report-no-productivity-gains-from-ai-so-far-despite-billions-in-investment-survey-suggests-6-000-executives-also-reveal-1-3-of-leaders-use-ai-but-only-for-90-minutes-a-week?utm_source=chatgpt.com\" rel=\"nofollow\">https:&#x2F;&#x2F;www.tomshardware.com&#x2F;tech-industry&#x2F;artificial-intell...</a><p>But fundamentally, large shifts like this are like steering a super tanker, the effects take time to percolate through economies as large and diversified as the US. This is the Solow paradox &#x2F; productivity paradox <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Productivity_paradox\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Productivity_paradox</a><p><pre><code>  &gt; The term can refer to the more general disconnect between powerful computer technologies and weak productivity growth</code></pre>",
+      "I think a pretty good example I had at work, we had the option to buy a software package from a 3rd party company. After reviewing the specs we needed, I told my manager to give me a few hours to see if I could produce what we needed with AI instead. Lo and behold, I was able to do it in just a few hours, AI package was tested, integrated, and we moved on. No where was any of that recorded that I just saved the company lots of money using AI. I bet there are lots of examples like this that just aren&#x27;t adequately tracked at both micro and macro levels. For some reason we expected to to be able to see these huge gains from AI but we never bothered putting systems in place to observe them.",
+      "It took 20 years for computers to &quot;add&quot; to the economy.<p><a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Productivity_paradox\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Productivity_paradox</a>",
+      "This article seems to have &quot;basically zero&quot; content.<p>Today you have to be blind to not see the change that is coming.<p>World has its own (massive) inertia, burocracy present in businesses accounting for a big part in it.<p>AI itself is moving fast but not at infinite speeds. We start to have good enough tooling but it&#x27;s not yet available to everyone and it still hangs on too many hacks that will need to crystalize. People have a lot of mess to sort out in their projects to start taking full advantage of AI tooling - in general everybody has to do bottom up cleanup and documentation of all their projects, setup skills and whatnot and that&#x27;s assuming their corp is ok with it, not blocking it and &quot;using ai&quot; doesn&#x27;t mean that &quot;you can copy paste code to&#x2F;from copilot 365&quot;.<p>As people say - something changed around Dec&#x2F;Jan. We&#x27;re only now going to start seeing noticable changes and changes themselves will start speeding up as well. But it all takes time.",
+      "I think analyses like these are motivated reasoning. In 2000, I&#x27;m sure you could have said that after infrastructure costs the internet, and the web, added &quot;basically zero&quot; to US economic growth. <i>And there were people saying that!</i><p>Someone I deeply respect, Clifford Stollm wrote a book called “Silicon Snake Oil — Second thoughts on the information highway&quot; in 1995. And while he was and is a brilliant person, Stoll was wrong.<p>Smart people are terrible at predicting the most consequential changes in our future – even when they&#x27;re familiar with the technology. I wrote a bit about my thesis why here, <a href=\"https:&#x2F;&#x2F;1517.substack.com&#x2F;p&#x2F;inside-v-outside-context-problems\" rel=\"nofollow\">https:&#x2F;&#x2F;1517.substack.com&#x2F;p&#x2F;inside-v-outside-context-problem...</a><p>Don&#x27;t make his mistake. Don&#x27;t look away from the change being wrought. The world has changed and our history now has a new, sharp dividing chapter &quot;Before ChatGPT | After ChatGPT&quot;<p>and that chapter will go down right next to &quot;Before Trinity | After Trinity&quot;; &quot;Before PC | After PC&quot;; &quot;Before &#x27;Internet&#x27; | After &#x27;Internet&#x27;&quot;†<p>† Yes, I know I&#x27;m referring to the Web. But we&#x27;re still using the dark fiber from the .com boom.",
+      "Why do I have a feeling that this will be ignored as biased by the people who need to read it the most.",
+      "Andrej Karpathy said that major revolutions like the Internet, smartphones, and AI often don’t show up clearly in GDP statistics, even when they radically change how people work. GDP measures total spending, not productivity or usefulness. These revolutions improved efficiency and quality of life, but GDP mostly continued along its long-term trend.<p>See his interview in Dwarkesh&#x27;s podcast:  <a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=c0-0gGdDJyE&amp;t=4983s\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=c0-0gGdDJyE&amp;t=4983s</a>",
+      "A motivated entity publishing a bombastic opinion. Hard to know what to make of this. If you believe claims about an economy they have a vested interest in affecting, better be sure they’re trustworthy.<p>These opinions masquerading as statistics is why governments create departments to publish trustworthy statistics.",
+      "Feels like this is very hard to measure isn&#x27;t it?<p>Are we saying that llm&#x27;s have zero economic growth, or are we saying that the sum of winners and losers in llm usage are zero or less than zero?<p>I think there&#x27;s many examples of llms resulting in winners, or maybe this signal is just very high in the tech space.<p>But maybe there&#x27;s not enough reporting on the losers in llms at the moment? (E.g. did llm displace their jobs, they have llm use cases that failed, etc, etc)"
+    ],
+    "full_text": null
+  },
+  {
+    "title": "Mato – a Multi-Agent Terminal Office workspace (tmux-like)",
+    "url": "https://mato.sh",
+    "source": "hn",
+    "summary": "",
+    "comments": [
+      "All of these agent wrappers&#x2F;claws&#x2F;whatever seem to encourage wildly irresponsible usage of AI. Sure it can get stuff done in what is effectively a simple loop but without review we’re just playing with fire.<p>I was experimenting with Claude code doing similar (don’t need wrappers really) and the result was a huge amount of mediocre code and my weekly limit burnt. The code “works” but oh my the duplication and potential bug surface is off the chart.<p>Stopped my experiment and back to human in the loop plan-&gt;execute cycle which is way more effective.<p>Thankfully I don’t think we’re at jarvis levels yet."
+    ],
+    "full_text": null
+  },
+  {
+    "title": "AWS says more than 600 FortiGate firewalls hit in AI-augmented campaign",
+    "url": "https://www.theregister.com/2026/02/23/aws_fortigate_firewalls/",
+    "source": "hn",
+    "summary": "",
+    "full_text": null
+  }
+]
